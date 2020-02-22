@@ -104,7 +104,7 @@
         type="text/ejs"
         class="vis-tpl"
         data-vis-prev='<img src="widgets/inventwo/img/0_Button.png"></img>'
-        data-vis-attrs="oid;text_false;text_true"
+        data-vis-attrs="oid;text_false;text_true;oid/ButtonColor"
         data-vis-set="inventwo"
         data-vis-type="ctrl"
         data-vis-name="Switch2">
@@ -115,7 +115,8 @@
             <div style="padding: 5px;">
                 <% if (vis.states.attr(this.data.oid + '.val')) { %>
                     <%= this.data.attr('text_true') %><br>
-                    <%= vis.states.attr('0_userdata.0.vis-inventwo.background-color.val') %>
+                    <%= vis.states.attr('0_userdata.0.vis-inventwo.background-color.val') %><br>
+                    <% vis.states.attr(this.data.oid + '.val') %>
                 <% } else { %>
                     <%= this.data.attr('text_false') %><br>
                     <%= vis.states.attr('0_userdata.0.vis-inventwo.background-color.val') %>
