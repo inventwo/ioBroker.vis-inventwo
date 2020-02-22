@@ -61,7 +61,7 @@ vis.binds.inventwo = {
                     vis.setValue(oid,valTrue);
                 }
 
-                $(el).children().html("vars:<br>" + vis.states[oid + '.val'] + "<br>" + vis.states['0_userdata.0.vis-inventwo.background-color.val']);
+                $(el).children().html("vars:<br>" + vis.states[oid + '.val'] + "<br>" + vis.states['0_userdata.0.vis-inventwo.background-color.val'] + "<br>" + oid);
 
                 
             }).on('touchmove', function () {
