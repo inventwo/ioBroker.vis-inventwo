@@ -70,7 +70,7 @@ class VisInventwo extends utils.Adapter {
 
 		// same thing, but the value is flagged "ack"
 		// ack should be always set to true if the value is received from or acknowledged from the target system
-		await this.setStateAsync("CSS.Button", { val: "#ffff00", ack: true });
+		await this.setStateAsync("CSS.Button", { val: "#ff0000", ack: true });
 
 		// same thing, but the state is deleted after 30s (getState will return null afterwards)
 		//await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
