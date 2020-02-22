@@ -114,17 +114,12 @@
 
 	<%= (el) -> vis.binds.inventwo.toggle(el) %> >
 
-        <div class="vis-widget-body <%== this.data.attr('class') %>" style="{0_userdata.0.vis-inventwo.background-color}">
+        <div class="vis-widget-body <%== this.data.attr('class') %>">
             <div style="padding: 5px;">
                 <% if (vis.states.attr(this.data.oid + '.val')) { %>
                     <%= this.data.attr('text_true') %><br>
-                    <%== vis.states.attr('0_userdata.0.vis-inventwo.test2.val') %><br>
-                    <%== vis.states.attr('0_userdata.0.vis-inventwo.Test.val') %><br>
-                    <%== vis.states.attr('0_userdata.0.vis-inventwo.test3.val') %><br>
-                    <%= vis.states.attr(this.data.oid + '.val') %>
                 <% } else { %>
                     <%= this.data.attr('text_false') %><br>
-                    <%= vis.states.attr('0_userdata.0.vis-inventwo.background-color.val') %>
                 <% } %>
             </div>
         </div>
