@@ -61,7 +61,7 @@ vis.binds.inventwo = {
                     vis.setValue(oid,{val: valTrue, ack: true});
                 }
 
-                $(el).children().html("vars:<br>" + vis.states[oid + '.val'] + "<br>" + vis.states['0_userdata.0.vis-inventwo.test2.val'] + "<br>" + vis.states['vis-inventwo.0.CSS.Button.val'] + "<br>" + instance);
+                $(el).children().html("vars:<br>" + vis.states[oid + '.val'] + "<br>" + vis.states['0_userdata.0.vis-inventwo.test2.val'] + "<br>" + vis.states['vis-inventwo.0.CSS.Button.val'] + "<br>" );
 
                 
             }).on('touchmove', function () {
