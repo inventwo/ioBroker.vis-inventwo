@@ -5,6 +5,7 @@
 
 	Copyright 2020 jkvarel jkvarel@inventwo.com
 */
+
 "use strict";
 
 // add translations for edit mode
@@ -27,8 +28,6 @@ vis.binds.inventwo = {
 
         var val = vis.states[oid + '.val'];
 
-        $(el).children().css('background-color',vis.states.attr('vis-inventwo.0.CSS.Button.val'));
-
         if(val){
             var shadow = $(el).children().css('box-shadow');
             $(el).children().css('box-shadow',shadow + ', inset 0 0 0 1px green');
@@ -48,7 +47,7 @@ vis.binds.inventwo = {
                 if(val == valFalse){
                     var shadow = $(el).children().css('box-shadow');
                     $(el).children().css('box-shadow',shadow + ', inset 0 0 0 1px green');
-                    $(el).children().css('background-color',vis.states.attr('vis-inventwo.0.CSS.Button.val'));
+                    $(el).css('background-color',vis.states.attr('vis-inventwo.0.CSS.Button.val'));
                     vis.setValue(oid,valTrue);
                 }
                 else if(val == valTrue){
@@ -72,7 +71,5 @@ vis.binds.inventwo = {
             });
         }
     }
-
-
-
+    
 };
