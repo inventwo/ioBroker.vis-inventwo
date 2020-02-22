@@ -57,11 +57,11 @@ vis.binds.inventwo = {
                 }
                 else{
                     $(el).children().css('box-shadow','2px 2px 2px 1px #111111, inset 0 0 0 1px green');
-                    $(el).css('background-color',colFalse);
+                    $(el).children().css('background-color',test);
                     vis.setValue(oid,valTrue);
                 }
 
-                $(el).html("vars:<br>" + vis.states[oid + '.val'] + "<br>" + vis.states['0_userdata.0.vis-inventwo.background-color.val']);
+                $(el).children().html("vars:<br>" + vis.states[oid + '.val'] + "<br>" + vis.states['0_userdata.0.vis-inventwo.background-color.val']);
 
                 
             }).on('touchmove', function () {
