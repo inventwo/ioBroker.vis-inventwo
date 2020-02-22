@@ -29,7 +29,7 @@ vis.binds.inventwo = {
         var val = vis.states[oid + '.val'];
 
         var colFalse = "";//data.attr('col_false');
-        var test = vis.states.attr('0_userdata.0.vis-inventwo.background-color.val');
+        var test = vis.states.attr('vis-inventwo.0.CSS.Button.val');
 
         if(val = valTrue){
             var shadow = $(el).children().css('box-shadow');
@@ -51,14 +51,14 @@ vis.binds.inventwo = {
                 var val = vis.states[oid + '.val'];
                 if(val == valTrue){
 
-                    vis.setValue(oid,valFalse);
+                    vis.setValue(oid,{val: valFalse, ack: true});
                     $(el).children().css('box-shadow','2px 2px 2px 1px #111111');
                     $(el).children().css('background-color',test);
                 }
                 else{
                     $(el).children().css('box-shadow','2px 2px 2px 1px #111111, inset 0 0 0 1px green');
                     $(el).children().css('background-color',test);
-                    vis.setValue(oid,valTrue);
+                    vis.setValue(oid,{val: valTrue, ack: true});
                 }
 
                 $(el).children().html("vars:<br>" + vis.states[oid + '.val'] + "<br>" + vis.states['0_userdata.0.vis-inventwo.test2.val'] + "<br>" + vis.states['vis-inventwo.0.CSS.Button.val']);
