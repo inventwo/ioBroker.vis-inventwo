@@ -29,8 +29,11 @@ vis.binds.inventwo = {
         var val = vis.states[oid + '.val'];
 
         var colFalse = vis.states['vis-inventwo.0.CSS.Button.val'];
+        var test = vis.states.attr('0_userdata.0.vis-inventwo.background-color.val');
 
-        if(val){
+        $(el).children().css('background-color',test);
+
+        if(val == valTrue){
             var shadow = $(el).children().css('box-shadow');
             $(el).children().css('box-shadow',shadow + ', inset 0 0 0 1px green');
         }
@@ -46,23 +49,19 @@ vis.binds.inventwo = {
                 if (moved) return;
 
                 var val = vis.states[oid + '.val'];
-                if(val == valFalse){
+                if(val == valTrue){
+
+                    vis.setValue(oid,valFalse);
+                    $(el).children().css('box-shadow','2px 2px 2px 1px #111111');
+                    $(el).children().css('background-color',test);
+                }
+                else{
                     var shadow = $(el).children().css('box-shadow');
                     $(el).children().css('box-shadow',shadow + ', inset 0 0 0 1px green');
                     $(el).css('background-color',colFalse);
                     vis.setValue(oid,valTrue);
                 }
-                else if(val == valTrue){
-                    vis.setValue(oid,valFalse);
-                    $(el).children().css('box-shadow','2px 2px 2px 1px #111111');
-                     $(el).css('background-color','#ff0000');
 
-                }
-                else{
-                    $(el).children().css('box-shadow','2px 2px 2px 1px #111111');
-                     $(el).css('background-color','#ff0000');
-                    vis.setValue(oid,valFalse);
-                }
                 
             }).on('touchmove', function () {
                 moved = true;
