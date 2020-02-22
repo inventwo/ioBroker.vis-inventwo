@@ -110,9 +110,10 @@
         data-vis-name="Switch2">
     <div class="vis-widget <%== this.data.attr('class') %>" style="width:110px; height:110px;overflow:visible" id="<%= this.data.attr('wid') %>" data-oid="<%= this.data.attr('oid') %>"
 	data-val="<%= this.data.attr('value') %>"
+    data-col_false="<%= vis.states.attr('0_userdata.0.vis-inventwo.background-color.val') %>"
 	<%= (el) -> vis.binds.inventwo.toggle(el) %> >
         <div class="vis-widget-body <%== this.data.attr('class') %>">
-            <div style="padding: 5px; background-color: <%= vis.states.attr('0_userdata.0.vis-inventwo.background-color.val') %>">
+            <div style="padding: 5px; background-color: <%= this.data.col_false %>">
                 <% if (vis.states.attr(this.data.oid + '.val')) { %>
                     <%= this.data.attr('text_true') %>
                 <% } else { %>
