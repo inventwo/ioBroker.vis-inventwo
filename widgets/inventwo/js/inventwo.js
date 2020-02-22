@@ -31,7 +31,7 @@ vis.binds.inventwo = {
         var colFalse = vis.states['vis-inventwo.0.CSS.Button.val'];
         var test = vis.states.attr('0_userdata.0.vis-inventwo.background-color.val');
 
-        $(el).children().css('background-color',test);
+        $(el).children().css('background-color',vis.states.attr('0_userdata.0.vis-inventwo.background-color.val'));
 
         if(val == valTrue){
             var shadow = $(el).children().css('box-shadow');
