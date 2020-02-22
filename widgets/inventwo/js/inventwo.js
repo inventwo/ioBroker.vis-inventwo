@@ -33,7 +33,7 @@ vis.binds.inventwo = {
 
         $(el).children().css('background-color',vis.states.attr('0_userdata.0.vis-inventwo.background-color.val'));
 
-        if(val == valTrue){
+        if(val == 1){
             var shadow = $(el).children().css('box-shadow');
             $(el).children().css('box-shadow',shadow + ', inset 0 0 0 1px green');
         }
