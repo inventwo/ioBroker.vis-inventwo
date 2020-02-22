@@ -8,47 +8,71 @@
 "use strict";
 
 // add translations for edit mode
+/*
 $.get( "adapter/vis-inventwo/words.js", function(script) {
 	let translation = script.substring(script.indexOf("{"), script.length);
 	translation = translation.substring(0, translation.lastIndexOf(";"));
 	$.extend(systemDictionary, JSON.parse(translation));
 });
+*/
 
 // this code can be placed directly in vis-inventwo.html
 vis.binds["vis-inventwo"] = {
-	version: "0.0.1",
-	showVersion: function () {
-		if (vis.binds["vis-inventwo"].version) {
-			console.log("Version vis-inventwo: " + vis.binds["vis-inventwo"].version);
-			vis.binds["vis-inventwo"].version = null;
-		}
-	},
-	createWidget: function (widgetID, view, data, style) {
-		var $div = $("#" + widgetID);
-		// if nothing found => wait
-		if (!$div.length) {
-			return setTimeout(function () {
-				vis.binds["vis-inventwo"].createWidget(widgetID, view, data, style);
-			}, 100);
-		}
+    
+    toggle: function (el, oid) {
+        var $this = $(el);
+        oid = $this.data('oid');
+        var valFalse = false;
+        var valTrue = true;
 
-		var text = "";
-		text += "OID: " + data.oid + "</div><br>";
-		text += 'OID value: <span class="myset-value">' + vis.states[data.oid + ".val"] + "</span><br>";
-		text += 'Color: <span style="color: ' + data.myColor + '">' + data.myColor + "</span><br>";
-		text += "extraAttr: " + data.extraAttr + "<br>";
-		text += "Browser instance: " + vis.instance + "<br>";
-		text += 'htmlText: <textarea readonly style="width:100%">' + (data.htmlText || "") + "</textarea><br>";
+        var val = vis.states[oid + '.val'];
 
-		$("#" + widgetID).html(text);
+        $(el).children().css('background-color',vis.states.attr('vis-inventwo.0.CSS.Button.val'));
 
-		// subscribe on updates of value
-		if (data.oid) {
-			vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
-				$div.find(".vis-inventwo-value").html(newVal);
-			});
-		}
-	}
+        if(val){
+            var shadow = $(el).children().css('box-shadow');
+            $(el).children().css('box-shadow',shadow + ', inset 0 0 0 1px green');
+        }
+        else{
+            $(el).children().css('box-shadow','2px 2px 2px 1px #111111');
+        }
+            
+        if (oid && !vis.editMode) {
+            var moved = false;
+            $this.on('click touchend', function () {
+                // Protect against two events
+                if (vis.detectBounce(this)) return;
+                if (moved) return;
+
+                var val = vis.states[oid + '.val'];
+                if(val == valFalse){
+                    var shadow = $(el).children().css('box-shadow');
+                    $(el).children().css('box-shadow',shadow + ', inset 0 0 0 1px green');
+                    $(el).css('background-color','#00ff00');
+                    vis.setValue(oid,valTrue);
+                }
+                else if(val == valTrue){
+                    vis.setValue(oid,valFalse);
+                    $(el).children().css('box-shadow','2px 2px 2px 1px #111111');
+                     $(el).css('background-color','#ff0000');
+
+                }
+                else{
+                    $(el).children().css('box-shadow','2px 2px 2px 1px #111111');
+                     $(el).css('background-color','#ff0000');
+                    vis.setValue(oid,valFalse);
+                }
+                
+            }).on('touchmove', function () {
+                moved = true;
+            }).on('touchstart', function () {
+                moved = false;
+            }).data('destroy', function (id, $widget) {
+                $widget.off('click touchend').off('touchmove').off('touchstart');
+            });
+        }
+    }
+
+
+
 };
-
-vis.binds["vis-inventwo"].showVersion();
