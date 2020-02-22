@@ -112,7 +112,7 @@
 	data-val="<%= this.data.attr('value') %>"
 	<%= (el) -> vis.binds.inventwo.toggle(el) %> >
         <div class="vis-widget-body <%== this.data.attr('class') %>">
-            <div style="padding: 5px; background-color: #ffffff">
+            <div style="padding: 5px; background-color: <%= vis.states.attr('0_userdata.0.vis-inventwo.background-color.val') %>">
                 <% if (vis.states.attr(this.data.oid + '.val')) { %>
                     <%= this.data.attr('text_true') %>
                 <% } else { %>
