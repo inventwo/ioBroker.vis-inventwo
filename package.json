@@ -1,0 +1,65 @@
+{
+  "name": "iobroker.vis-inventwo",
+  "version": "0.0.1",
+  "description": "vis-inventwo",
+  "author": {
+    "name": "jkvarel",
+    "email": "jkvarel@inventwo.com"
+  },
+  "contributors": [
+    {
+      "name": "jkvarel"
+    },
+    {
+      "name": "skvarel"
+    }
+  ],
+  "homepage": "https://github.com/jkvarel/ioBroker.vis-inventwo",
+  "license": "MIT",
+  "keywords": [
+    "ioBroker",
+    "template",
+    "Smart Home",
+    "home automation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jkvarel/ioBroker.vis-inventwo"
+  },
+  "dependencies": {
+    "@iobroker/adapter-core": "^2.2.1"
+  },
+  "devDependencies": {
+    "@iobroker/testing": "^2.0.2",
+    "@types/chai": "^4.2.9",
+    "@types/chai-as-promised": "^7.1.2",
+    "@types/gulp": "^4.0.6",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^10.17.16",
+    "@types/proxyquire": "^1.3.28",
+    "@types/sinon": "^7.5.1",
+    "@types/sinon-chai": "^3.2.3",
+    "axios": "^0.19.2",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^6.8.0",
+    "gulp": "^4.0.2",
+    "mocha": "^7.0.1",
+    "proxyquire": "^2.1.3",
+    "sinon": "^9.0.0",
+    "sinon-chai": "^3.5.0"
+  },
+  "main": "main.js",
+  "scripts": {
+    "test:js": "mocha --opts test/mocha.custom.opts",
+    "test:package": "mocha test/package --exit",
+    "test:unit": "mocha test/unit --exit",
+    "test:integration": "mocha test/integration --exit",
+    "test": "npm run test:js && npm run test:package",
+    "lint": "eslint"
+  },
+  "bugs": {
+    "url": "https://github.com/jkvarel/ioBroker.vis-inventwo/issues"
+  },
+  "readmeFilename": "README.md"
+}
