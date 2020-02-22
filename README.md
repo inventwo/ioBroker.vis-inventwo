@@ -18,7 +18,7 @@ Describe your project here
 This section is intended for the developer. It can be deleted later
 
 ### Getting started
-sfsfffd
+
 You are almost done, only a few steps left:
 1. Create a new repository on GitHub with the name `ioBroker.vis-inventwo`
 1. Initialize the current folder as a new git repository:  
