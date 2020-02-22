@@ -17,7 +17,7 @@ $.get( "adapter/vis-inventwo/words.js", function(script) {
 */
 
 // this code can be placed directly in vis-inventwo.html
-vis.binds["vis-inventwo"] = {
+vis.binds.inventwo = {
     
     toggle: function (el, oid) {
         var $this = $(el);
