@@ -38,7 +38,7 @@ vis.binds.inventwo = {
         }
         else{
             $(el).children().css('box-shadow','2px 2px 2px 1px #111111');
-            $(el).children().css('background-color','#ff00ff');
+            $(el).children().css('background-color','#ff0000');
         }
             
         if (oid && !vis.editMode) {
