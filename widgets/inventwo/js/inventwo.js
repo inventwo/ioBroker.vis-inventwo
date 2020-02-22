@@ -28,7 +28,7 @@ vis.binds.inventwo = {
 
         var val = vis.states[oid + '.val'];
 
-        var colFalse = data.attr('col_false');
+        var colFalse = "";//data.attr('col_false');
         var test = vis.states.attr('0_userdata.0.vis-inventwo.background-color.val');
 
         if(val = valTrue){
