@@ -24,7 +24,12 @@
 			if (!settings) return;
 			$('.value').each(function () {
 				var $key = $(this);
-				var id = $key.attr('id');
+                var id = $key.attr('id');
+                
+                if(id == "optione2"){
+                    $key.val("test")
+                }
+
 				if ($key.attr('type') === 'checkbox') {
 					// do not call onChange direct, because onChange could expect some arguments
 					$key.prop('checked', settings[id])
