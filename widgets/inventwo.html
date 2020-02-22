@@ -115,9 +115,10 @@
 	data-text_false="<%= this.data.attr('text_false') %>"
 	data-text_true="<%= this.data.attr('text_true') %>" 
 	<%= (el) -> vis.binds.inventwo.toggle(el) %> >
+
         <div class="vis-widget-body <%== this.data.attr('class') %> btn">
             <div style="padding: 5px;">
-  <%=vis.states.attr(this.data.oid + '.val') %>
+                <%=vis.states.attr(this.data.oid + '.val') %>
             </div>
         </div>
     </div>

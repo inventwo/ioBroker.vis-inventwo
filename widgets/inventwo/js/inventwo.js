@@ -48,7 +48,7 @@ vis.binds.inventwo = {
                 if(val == valFalse){
                     var shadow = $(el).children().css('box-shadow');
                     $(el).children().css('box-shadow',shadow + ', inset 0 0 0 1px green');
-                    $(el).css('background-color','#00ff00');
+                    $(el).children().css('background-color',vis.states.attr('vis-inventwo.0.CSS.Button.val'));
                     vis.setValue(oid,valTrue);
                 }
                 else if(val == valTrue){
