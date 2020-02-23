@@ -37,6 +37,9 @@ vis.binds["vis-inventwo"] = {
         text += '<div class="vis-inventwo-class vis-widget-body ' + data.attr('class') + ' style="padding:2px">'
         text += '<div style="background-color: {' + data.buttonCol + '}">'
         text += vis.states[data.buttonCol + '.val'];
+        text += '<br>';
+        text += vis.states[data.oid + '.val'];
+        text += '<br>';
         if(vis.states[data.oid + '.val']){
             text += data.text_true;
         }
