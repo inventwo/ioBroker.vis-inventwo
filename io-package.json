@@ -1,65 +1,85 @@
 {
-    "common": {
-        "name": "vis-inventwo",
-        "version": "0.0.1",
-        "title": "inventwo Design Widgets",
-            "news": {
-            "0.0.1": {
-                "en": "The idea is born",
-                "de": "Die Idee ist geboren"
-            }
-            
-        },
-        "desc": {
-            "en": "Design widgets for ioBroker.vis",
-            "de": "Design Widgets für ioBroker.vis"
-            
-        },
-        "main": "main.js",
-        "platform": "Javascript/Node.js",
-        "loglevel": "info",
-        "icon": "i_150.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/jkvarel1701/ioBroker.vis-inventwo/master/img/i_150.png",
-        "keywords": [
-            "inventwo",
-            "vis",
-            "GUI",
-            "graphical",
-            "skvarel",
-            "jkvarel"
-        ],
-
- 
-
-        "readme": "https://github.com/jkvarel1701/ioBroker.vis-inventwo/blob/master/README.md",
-        "authors": [
-            "jkvarel1701 <jkvarel@inventwo.com>"
-        ],
-        "localLink": "/adapter/vis-inventwo/tab.html",
-        "license": "MIT",
-        "dependencies": [
-            "vis"
-        ],
-
-        "type": "visualization-widgets",
-        "restartAdapters": [
-            "vis",
-            "web"
-        ],
-        "noConfig": false,
-        "mode": "daemon",
-        "materialize": true,
-        "compact": true
-        
-       
-    },
-    "native": {
-        "dependencies": [
-            "basic"
-        ]
-    },
-    "objects": []
-  	
-
+	"common": {
+		"name": "vis-inventwo",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "initial release",
+				"de": "Erstveröffentlichung",
+				"ru": "Начальная версия",
+				"pt": "lançamento inicial",
+				"nl": "Eerste uitgave",
+				"fr": "Première version",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Pierwsze wydanie",
+				"zh-cn": "首次出版"
+			}
+		},
+		"title": "inventwo VIS",
+		"titleLang": {
+			"en": "inventwo VIS",
+			"de": "inventwo VIS",
+			"ru": "Изобретатель ВИС",
+			"pt": "inventwo VIS",
+			"nl": "inventwo VIS",
+			"fr": "inventwo VIS",
+			"it": "inventwo VIS",
+			"es": "inventwo VIS",
+			"pl": "wynalazki VIS",
+			"zh-cn": "英维思"
+		},
+		"desc": {
+			"en": "vis-inventwo",
+			"de": "vis-inventwo",
+			"ru": "vis-inventwo",
+			"pt": "vis-inventwo",
+			"nl": "vis-inventwo",
+			"fr": "vis-inventwo",
+			"it": "vis-inventwo",
+			"es": "vis-inventwo",
+			"pl": "vis-Inventwo",
+			"zh-cn": "vis-inventwo"
+		},
+		"authors": [
+			"jkvarel <jkvarel@inventwo.com>"
+		],
+		"keywords": [
+			"ioBroker",
+			"template",
+			"Smart Home",
+			"home automation"
+		],
+		"license": "MIT",
+		"platform": "Javascript/Node.js",
+		"main": "main.js",
+		"icon": "vis-inventwo.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/jkvarel/ioBroker.vis-inventwo/master/admin/vis-inventwo.png",
+		"readme": "https://github.com/jkvarel/ioBroker.vis-inventwo/blob/master/README.md",
+		"loglevel": "info",
+		"restartAdapters": [
+			"vis"
+		],
+		"localLink": "%web_protocol%://%ip%:%web_port%/vis/edit.html",
+		"mode": "daemon",
+		"type": "visualization",
+		"compact": true,
+		"connectionType": "local",
+		"dataSource": "poll",
+		"materialize": true,
+		"supportCustoms": true,
+		"dependencies": [
+			{
+				"js-controller": ">=1.4.2"
+			},
+			"vis"
+		]
+	},
+	"native": {
+		"option1": true,
+		"option2": "42"
+	},
+	"objects": [],
+	"instanceObjects": []
 }
