@@ -49,9 +49,6 @@ vis.binds.inventwo = {
 
         var val = vis.states[oid + '.val'];
 
-        console.log('Color: ' + vis.states.attr(adapter.config.Button));
-        $(el).children().css('background-color',adapter.config.Button);
-
         if(val){
             var shadow = $(el).children().css('box-shadow');
             $(el).children().css('box-shadow',shadow + ', inset 0 0 0 1px green');
@@ -71,18 +68,15 @@ vis.binds.inventwo = {
                 if(val == valFalse){
                     var shadow = $(el).children().css('box-shadow');
                     $(el).children().css('box-shadow',shadow + ', inset 0 0 0 1px green');
-                    $(el).css('background-color', adapter.config.Button);
                     vis.setValue(oid,valTrue);
                 }
                 else if(val == valTrue){
                     vis.setValue(oid,valFalse);
                     $(el).children().css('box-shadow','2px 2px 2px 1px #111111');
-                     $(el).css('background-color', adapter.config.Active);
 
                 }
                 else{
                     $(el).children().css('box-shadow','2px 2px 2px 1px #111111');
-                     $(el).css('background-color', adapter.config.Butto);
                     vis.setValue(oid,valFalse);
                 }
                 
