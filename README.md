@@ -1,93 +1,37 @@
-![Logo](admin/vis-inventwo.png)
+![Logo](img/i_150.png)
+
 # ioBroker.vis-inventwo
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
-![Number of Installations (latest)](http://iobroker.live/badges/vis-inventwo-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/vis-inventwo-stable.svg)
-[![Dependency Status](https://img.shields.io/david/jkvarel/iobroker.vis-inventwo.svg)](https://david-dm.org/jkvarel/iobroker.vis-inventwo)
-[![Known Vulnerabilities](https://snyk.io/test/github/jkvarel/ioBroker.vis-inventwo/badge.svg)](https://snyk.io/test/github/jkvarel/ioBroker.vis-inventwo)
+### Schalter Widgets für den ioBroker.vis Adapter
 
-[![NPM](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)](https://nodei.co/npm/iobroker.vis-inventwo/)
 
-## vis-inventwo adapter for ioBroker
+![Beispiel](img/set.png)
 
-Describe your project here
+---
 
-## Developer manual
-This section is intended for the developer. It can be deleted later
+## Unterstützung
 
-### Getting started
+Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen uns über jede Spende.
 
-You are almost done, only a few steps left:
-1. Create a new repository on GitHub with the name `ioBroker.vis-inventwo`
-1. Initialize the current folder as a new git repository:  
-	```bash
-	git init
-	git add .
-	git commit -m "Initial commit"
-	```
-1. Link your local repository with the one on GitHub:  
-	```bash
-	git remote add origin https://github.com/jkvarel/ioBroker.vis-inventwo
-	```
+(Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
 
-1. Push all files to the GitHub repo:  
-	```bash
-	git push origin master
-	```
-1. Head over to [main.js](main.js) and start programming!
+[![Spende](img/spende.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GQPD3G25CKTEJ&source=url)
 
-### Scripts in `package.json`
-Several npm scripts are predefined for your convenience. You can run them using `npm run <scriptname>`
-| Script name | Description                                              |
-|-------------|----------------------------------------------------------|
-| `test:js`   | Executes the tests you defined in `*.test.js` files.     |
-| `test:package`    | Ensures your `package.json` and `io-package.json` are valid. |
-| `test` | Performs a minimal test run on package files and your tests. |
-| `lint` | Runs `ESLint` to check your code for formatting errors and potential bugs. |
+---
 
-### Writing tests
-When done right, testing code is invaluable, because it gives you the 
-confidence to change your code while knowing exactly if and when 
-something breaks. A good read on the topic of test-driven development 
-is https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92. 
-Although writing tests before the code might seem strange at first, but it has very 
-clear upsides.
+## Changelog / Änderungsprotokoll
 
-The template provides you with basic tests for the adapter startup and package files.
-It is recommended that you add your own tests into the mix.
+### 0.0.1 (Erstveröffentlichung)
+- Die Idee ist geboren
 
-### Publishing the adapter
-To get your adapter released in ioBroker, please refer to the documentation 
-of [ioBroker.repositories](https://github.com/ioBroker/ioBroker.repositories#requirements-for-adapter-to-get-added-to-the-latest-repository).
+---
 
-### Test the adapter manually on a local ioBroker installation
-In order to install the adapter locally without publishing, the following steps are recommended:
-1. Create a tarball from your dev directory:  
-	```bash
-	npm pack
-	```
-1. Upload the resulting file to your ioBroker host
-1. Install it locally (The paths are different on Windows):
-	```bash
-	cd /opt/iobroker
-	npm i /path/to/tarball.tgz
-	```
+## Lizens
 
-For later updates, the above procedure is not necessary. Just do the following:
-1. Overwrite the changed files in the adapter directory (`/opt/iobroker/node_modules/iobroker.vis-inventwo`)
-1. Execute `iobroker upload vis-inventwo` on the ioBroker host
+Urheberrechte (c) 2020 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
-## Changelog
 
-### 0.0.1
-* (jkvarel) initial release
-
-## License
-MIT License
-
-Copyright (c) 2020 jkvarel <jkvarel@inventwo.com>
+MIT License (nur in englisch / englisch only)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -106,3 +50,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---

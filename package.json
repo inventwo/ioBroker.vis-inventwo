@@ -1,41 +1,41 @@
 {
   "name": "iobroker.vis-inventwo",
+  "description": "Switch widgets for ioBroker.vis",
   "version": "0.0.1",
-  "description": "vis-inventwo",
   "author": {
     "name": "jkvarel",
     "email": "jkvarel@inventwo.com"
   },
   "contributors": [
-    {
-      "name": "jkvarel"
-    },
-    {
-      "name": "skvarel"
-    }
+    "jkvarel <jkvarel@inventwo.com>",
+    "skvarel <skvarel@inventwo.com>"
   ],
-  "homepage": "https://github.com/jkvarel/ioBroker.vis-inventwo",
-  "license": "MIT",
-  "keywords": [
-    "ioBroker",
-    "template",
-    "Smart Home",
-    "home automation"
-  ],
+  "homepage": "https://github.com/jkvarel1701/ioBroker.vis-inventwo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jkvarel/ioBroker.vis-inventwo"
+    "url": "https://github.com/jkvarel1701/ioBroker.vis-inventwo"
   },
-  "dependencies": {
-    "@iobroker/adapter-core": "^2.2.1"
-  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jkvarel1701/ioBroker.vis-inventwo/blob/master/LICENSE"
+    }
+  ],
+  "keywords": [
+    "ioBroker",
+    "GUI",
+    "DashUI",
+    "web interface",
+    "home automation",
+    "inventwo"
+  ],
   "devDependencies": {
-    "@iobroker/testing": "^2.0.2",
-    "@types/chai": "^4.2.9",
+    "@iobroker/testing": "^2.0.1",
+    "@types/chai": "^4.2.8",
     "@types/chai-as-promised": "^7.1.2",
     "@types/gulp": "^4.0.6",
     "@types/mocha": "^7.0.1",
-    "@types/node": "^10.17.16",
+    "@types/node": "^10.17.14",
     "@types/proxyquire": "^1.3.28",
     "@types/sinon": "^7.5.1",
     "@types/sinon-chai": "^3.2.3",
@@ -46,20 +46,18 @@
     "gulp": "^4.0.2",
     "mocha": "^7.0.1",
     "proxyquire": "^2.1.3",
-    "sinon": "^9.0.0",
-    "sinon-chai": "^3.5.0"
+    "sinon": "^8.1.1",
+    "sinon-chai": "^3.4.0"
+  },
+  "bugs": {
+    "url": "https://github.com/jkvarel1701/ioBroker.vis-inventwo/issues"
   },
   "main": "main.js",
   "scripts": {
-    "test:js": "mocha --opts test/mocha.custom.opts",
-    "test:package": "mocha test/package --exit",
-    "test:unit": "mocha test/unit --exit",
-    "test:integration": "mocha test/integration --exit",
-    "test": "npm run test:js && npm run test:package",
-    "lint": "eslint"
+    "test": "node node_modules/mocha/bin/mocha --exit"
   },
-  "bugs": {
-    "url": "https://github.com/jkvarel/ioBroker.vis-inventwo/issues"
-  },
-  "readmeFilename": "README.md"
+  "license": "MIT",
+  "dependencies": {
+    "@iobroker/adapter-core": "^1.0.3"
+  }
 }
