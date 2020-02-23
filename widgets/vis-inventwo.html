@@ -103,7 +103,7 @@
 		type="text/ejs"
 		class="vis-tpl"
 		data-vis-prev='<div>test</div>'
-		data-vis-attrs="oid/id;text_false/text;text_true/text;buttonCol/id;"
+		data-vis-attrs="oid/id;text_false/text;text_true/text;buttonCol/id;activeCol/id;"
 		data-vis-attrs0="group.extravis-inventwo;extraAttr"
 		data-vis-set="vis-inventwo"
 		data-vis-type="helper"
@@ -114,8 +114,10 @@
         
 			<% if (vis.states.attr(this.data.oid + '.val')) { %>
                     <%= this.data.attr('text_true') %>
+                    <% $('#'+this.data.attr('wid')).css('background-color',vis.states[this.data.attr('activeCol') + '.val']) %>
                 <% } else { %>
                     <%= this.data.attr('text_false') %>
+                    <% $('#'+this.data.attr('wid')).css('background-color',vis.states[this.data.attr('buttonCol') + '.val']) %>
                 <% } %>
 		</div>
 		</div>
