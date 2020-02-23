@@ -103,7 +103,8 @@
 		type="text/ejs"
 		class="vis-tpl"
 		data-vis-prev='<div>test</div>'
-		data-vis-attrs="oid/id;text_false/text;text_true/text;buttonCol/id;"
+		data-vis-attrs="oid/id;text_false/text;text_true/text;"
+		data-vis-attrs0="buttonCol/id;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="helper"
 		data-vis-name="Show instance">
@@ -113,19 +114,27 @@
 
     <% if(vis.editMode){ %>
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>" >
-        <div style="width: 100%; height: 100%; background-color: <%= vis.states[this.data.buttonCol + '.val'] %>">
-            <%= vis.states[this.data.buttonCol + '.val'] %>
-			<% if (vis.states.attr(this.data.oid + '.val')) { %>
-                    <%= this.data.text_true %>
-                <% } else { %>
-                    <%= this.data.text_false %>
-                <% } %>
-		</div>
+            <div style="width: 100%; height: 100%; background-color: <%= vis.states[this.data.buttonCol + '.val'] %>">
+                <%= vis.states[this.data.buttonCol + '.val'] %>
+		    	<% if (vis.states.attr(this.data.oid + '.val')) { %>
+                        <%= this.data.text_true %>
+                    <% } else { %>
+                        <%= this.data.text_false %>
+                    <% } %>
+		    </div>
 		</div>
     <% } else { %>
 
-		<% vis.binds["vis-inventwo"].createWidget(this.data.wid, this.view, this.data, this.style); %>
-
+		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>" >
+            <div style="width: 100%; height: 100%; background-color: #0000ff">
+                <%= vis.states[this.data.buttonCol + '.val'] %>
+		    	<% if (vis.states.attr(this.data.oid + '.val')) { %>
+                        <%= this.data.text_true %>
+                    <% } else { %>
+                        <%= this.data.text_false %>
+                    <% } %>
+		    </div>
+		</div>
     <% } %> 
 
 	</div>
