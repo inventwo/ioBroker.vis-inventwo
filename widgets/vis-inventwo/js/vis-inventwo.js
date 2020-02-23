@@ -34,6 +34,9 @@ vis.binds["vis-inventwo"] = {
 
 		var text = "";
 
+        text += this.instance;
+        text += this.config.option1;
+
 		$("#" + widgetID).html(text);
 
 		// subscribe on updates of value
