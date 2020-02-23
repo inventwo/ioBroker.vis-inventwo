@@ -113,8 +113,8 @@
 	<div class="vis-widget <%== this.data.attr('class') %>" style="width:110px; height:110px;" id="<%= this.data.attr('wid') %>" >
 
     <% if(vis.editMode){ %>
-		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>" style="padding:2px background-color: <%= vis.states[this.data.attr('buttonCol') + '.val'] %>" >
-        <div>
+		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>" >
+        <div style="width: 100%; height: 100%; background-color: <%= vis.states[this.data.buttonCol + '.val'] %>">
             <%= vis.states[this.data.buttonCol + '.val'] %>
 			<% if (vis.states.attr(this.data.oid + '.val')) { %>
                     <%= this.data.text_true %>
