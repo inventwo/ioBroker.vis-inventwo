@@ -103,39 +103,26 @@
 		type="text/ejs"
 		class="vis-tpl"
 		data-vis-prev='<div>test</div>'
-		data-vis-attrs="oid/id;text_false/text;text_true/text;buttonCol_id/id;buttonCol_col/color;"
+		data-vis-attrs="oid/id;text_false/text;text_true/text;buttonCol/color;"
+		data-vis-attrs0="group.extravis-inventwo;extraAttr"
 		data-vis-set="vis-inventwo"
 		data-vis-type="helper"
 		data-vis-name="Show instance">
-    
-
 	<div class="vis-widget <%== this.data.attr('class') %>" style="width:110px; height:110px;" id="<%= this.data.attr('wid') %>" >
-
-    <% if(vis.editMode){ %>
-		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>" >
-            <div style="width: 100%; height: 100%; background-color: #0000ff">
-                <%= vis.states.attr(this.data.buttonCol + '.val') %>
-		    	<% if (vis.states.attr(this.data.oid + '.val')) { %>
-                        <%= this.data.text_true %>
-                    <% } else { %>
-                        <%= this.data.text_false %>
-                    <% } %>
-		    </div>
+		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>" style="padding:2px" >
+        <div style="background-color: <%= this.data.buttonCol %>">
+        
+           
+            <%= vis.states[this.data.buttonCol + '.val'] %>
+            <%== vis.states.attr(this.data.oid + '.val') %>
+            <%= vis.states.attr(this.data.oid + '.val') %>
+			<% if (vis.states.attr(this.data.oid + '.val')) { %>
+                    <%= this.data.text_true %>
+                <% } else { %>
+                    <%= this.data.text_false %>
+                <% } %>
 		</div>
-    <% } else { %>
-
-		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>" >
-            <div style="width: 100%; height: 100%; background-color: <% this.data.attr('buttonCol_col') %>">
-                <%= vis.states[this.data.buttonCol + '.val'] %>
-		    	<% if (vis.states.attr(this.data.oid + '.val')) { %>
-                        <%= this.data.text_true %>
-                    <% } else { %>
-                        <%= this.data.text_false %>
-                    <% } %>
-		    </div>
 		</div>
-    <% } %> 
 
 	</div>
-
 </script>
