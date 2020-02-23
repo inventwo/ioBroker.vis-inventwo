@@ -49,7 +49,42 @@ vis.binds["vis-inventwo"] = {
 				$div.find(".vis-inventwo-value").html(newVal);
 			});
 		}
-	}
+    },
+    
+    toggle: function (el, oid) {
+        var $this = $(el);
+        oid = $this.data('oid');
+        var valFalse = false;
+        var valTrue = true;
+
+        if (oid && !vis.editMode) {
+            var moved = false;
+            $this.on('click touchend', function () {
+                // Protect against two events
+                if (vis.detectBounce(this)) return;
+                if (moved) return;
+
+                var val = vis.states[oid + '.val'];
+                if(val == valFalse){
+                    vis.setValue(oid,valTrue);
+                }
+                else if(val == valTrue){
+                    vis.setValue(oid,valFalse);
+
+                }
+                else{
+                    vis.setValue(oid,valFalse);
+                }
+                
+            }).on('touchmove', function () {
+                moved = true;
+            }).on('touchstart', function () {
+                moved = false;
+            }).data('destroy', function (id, $widget) {
+                $widget.off('click touchend').off('touchmove').off('touchstart');
+            });
+        }
+    }
 };
 
 vis.binds["vis-inventwo"].showVersion();
