@@ -109,15 +109,21 @@
 		data-vis-type="helper"
 		data-vis-name="Show instance">
 	<div class="vis-widget <%== this.data.attr('class') %>" style="width:110px; height:110px;" id="<%= this.data.attr('wid') %>" >
-		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>" style="padding:2px; background-color: {vis-inventwo.0.testVariable}" >
+		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>" style="padding:2px" >
         <div>
-
+        
 			OID: <%= this.data.attr('oid') %><br>
 
 			OID1 value: <%== vis.states[this.data.attr('oid') + '.val'] %><br>
             OID2 value: <%== vis.states['vis-inventwo.0.testVariable.val'] %><br>
 
+			Color: <span style="color: <%= this.data.attr('myColor') %>"><%= this.data.attr('myColor') %></span><br>
+			extraAttr: <%== this.data.attr('extraAttr') %><br>
+			Browser instance: <%= vis.instance %><br>
+			htmlText: <textarea readonly style="width: calc(100% - 10px)"><%== this.data.attr('htmlText') %></textarea><br>
             </div>
+              <div style="padding:2px; background-color: {vis-inventwo.0.testVariable}" >
+            OID2 value: <%== vis.states['vis-inventwo.0.testVariable.val'] %><br>
 		
 		</div>
 		</div>
