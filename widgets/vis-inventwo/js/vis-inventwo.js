@@ -19,6 +19,8 @@ $.get( "adapter/vis-inventwo/words.js", function(script) {
 
 // this code can be placed directly in vis-inventwo.html
 vis.binds.inventwo = {
+
+    vars: [],
     
     toggle: function (el, oid) {
         var $this = $(el);
@@ -35,6 +37,7 @@ vis.binds.inventwo = {
             var shadow = $(el).children().css('box-shadow');
             $(el).children().css('box-shadow','2px 2px 2px 1px #111111, inset 0 0 0 1px green');
             $(el).children().css('background-color',test);
+            $(el).children().css('color',vis.binds.inventwo.vars['test']);
         }
         else{
             $(el).children().css('box-shadow','2px 2px 2px 1px #111111');
