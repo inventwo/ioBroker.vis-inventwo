@@ -32,7 +32,19 @@ vis.binds.inventwo = {
             var moved = false;
             $this.on('click touchend', function () {
                 // Protect against two events
-                
+                if (vis.detectBounce(this)) return;
+                if (moved) return;
+
+                var val = vis.states[oid + '.val'];
+                var test = vis.states['vis-inventwo.0.CSS.Button.val'];
+                if(val == valTrue){
+                    vis.setValue(oid,{val: valFalse, ack: true});
+                    $(el).children().css('background-color','#ff0000');
+                }
+                else{
+                    vis.setValue(oid,{val: valTrue, ack: true});
+                    $(el).children().css('background-color',test);
+                }
                 
             }).on('touchmove', function () {
                 moved = true;
