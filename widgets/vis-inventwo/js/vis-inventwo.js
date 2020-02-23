@@ -33,13 +33,19 @@ vis.binds["vis-inventwo"] = {
 		}
 
 		var text = "";
-		text += "OID: " + data.oid + "</div><br>";
-        text += 'OID value: <span class="myset-value">' + vis.states[data.oid + ".val"] + "</span><br>";
-        text += 'OID2 value: <span class="myset-value">' + vis.states["vis-inventwo.0.testVariable.val"] + "</span><br>";
-		text += 'Color: <span style="color: ' + data.myColor + '">' + data.myColor + "</span><br>";
-		text += "extraAttr: " + data.extraAttr + "<br>";
-		text += "Browser instance: " + vis.instance + "<br>";
-		text += 'htmlText: <textarea readonly style="width:100%">' + (data.htmlText || "") + "</textarea><br>";
+
+        text += '<div class="vis-inventwo-class vis-widget-body ' + data.attr('class') + ' style="padding:2px">'
+        text += '<div style="background-color: ' + data.buttonCol + '">'
+        text += vis.states[data.buttonCol + '.val'];
+        if(vis.states[data.oid + '.val']){
+            text += data.text_true;
+        }
+        else{
+            text += data.text_false;
+        }
+		text += '</div>';
+		text += '</div>';
+
 
 		$("#" + widgetID).html(text);
 
