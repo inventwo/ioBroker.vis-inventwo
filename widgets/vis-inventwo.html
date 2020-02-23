@@ -104,7 +104,7 @@
 		class="vis-tpl"
 		data-vis-prev='<div>test</div>'
 		data-vis-attrs="oid/id;text_false/text;text_true/text;"
-		data-vis-attrs0="group.extravis-inventwo;buttonCol/id;"
+		data-vis-attrs0="group.css-inventwo;buttonCol_id/id;buttonCol_col/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="helper"
 		data-vis-name="Show instance">
@@ -126,7 +126,7 @@
     <% } else { %>
 
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>" >
-            <div style="width: 100%; height: 100%; background-color: #0000ff">
+            <div style="width: 100%; height: 100%; background-color: <% this.data.buttonCol_col %>">
                 <%= vis.states[this.data.buttonCol + '.val'] %>
 		    	<% if (vis.states.attr(this.data.oid + '.val')) { %>
                         <%= this.data.text_true %>
