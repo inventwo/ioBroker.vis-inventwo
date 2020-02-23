@@ -34,7 +34,8 @@ vis.binds["vis-inventwo"] = {
 
 		var text = "";
 		text += "OID: " + data.oid + "</div><br>";
-		text += 'OID value: <span class="myset-value">' + vis.states[data.oid + ".val"] + "</span><br>";
+        text += 'OID value: <span class="myset-value">' + vis.states[data.oid + ".val"] + "</span><br>";
+        text += 'OID2 value: <span class="myset-value">' + vis.states["vis-inventwo.0.testVariable.val"] + "</span><br>";
 		text += 'Color: <span style="color: ' + data.myColor + '">' + data.myColor + "</span><br>";
 		text += "extraAttr: " + data.extraAttr + "<br>";
 		text += "Browser instance: " + vis.instance + "<br>";
