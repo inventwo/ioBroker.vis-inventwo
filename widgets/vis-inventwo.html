@@ -126,7 +126,7 @@
     <% } else { %>
 
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>" style="padding:2px" >
-        <div style="background-color: {<% this.data.buttonCol %>}">
+        <div style="background-color: {<%= this.data.buttonCol %>}">
             <%= vis.states[this.data.buttonCol + '.val'] %>
 			<% if (vis.states.attr(this.data.oid + '.val')) { %>
                     <%= this.data.text_true %>
