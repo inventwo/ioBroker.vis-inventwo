@@ -122,7 +122,7 @@
 			Browser instance: <%= vis.instance %><br>
 			htmlText: <textarea readonly style="width: calc(100% - 10px)"><%== this.data.attr('htmlText') %></textarea><br>
             </div>
-              <div style="padding:2px; background-color: {vis-inventwo.0.testVariable}" >
+              <div style="padding:2px; background-color: <%== vis.states['vis-inventwo.0.testVariable.val'] %><" >
             OID2 value: <%== vis.states['vis-inventwo.0.testVariable.val'] %><br>
 		
 		</div>
