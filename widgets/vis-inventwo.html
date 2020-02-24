@@ -24,7 +24,7 @@
 
 	<div class="vis-widget <%== this.data.attr('class') %>" style="width:110px; height:110px; overflow:visible" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> vis-inventwo-button"
-            <% if(vis.states[this.data.attr('oid') + '.val']) { %> style="background-color: <%= this.data.attr('buttonCol') %> "
+            <% if( vis.states.attr(this.data.oid + '.val') ) { %> style="background-color: <%= this.data.attr('buttonCol') %> "
             <% } else { %> style="background-color: #455618" <% } %>
             >
             <div style="padding: 5px">
