@@ -61,6 +61,7 @@ vis.binds["vis-inventwo"] = {
                     $this.parent().click(function () {
                         
                         var val = vis.states[oid + '.val'];
+                        $(el).html('test: ' + val);
                             if(val == valFalse){
                                 vis.setValue(oid, valTrue);
                             }
