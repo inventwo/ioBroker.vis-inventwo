@@ -54,9 +54,8 @@ vis.binds["vis-inventwo"] = {
             if (!vis.editMode) {
                
                     $this.parent().click(function () {
-                        if (data.toggleType === 'boolean') {
+                        
                             vis.setValue(data.oid, !vis.states.attr(data.oid + '.val'));
-                        }
                     });
                 
             }
