@@ -49,12 +49,14 @@ vis.binds["vis-inventwo"] = {
     },
 
     handleToggle: function (el, data) {
-        try {
+
             var $this = $(el);
             
             var oid = data.oid;
             var valFalse = false;
             var valTrue = true;
+
+            $(el).html(valFalse);
 
             if (!vis.editMode) {
                
@@ -71,11 +73,6 @@ vis.binds["vis-inventwo"] = {
                     });
                 
             }
-
-
-        } catch (ex) {
-            console.error(`[Button] handleToggle: error:: ${ex.message}, stack: ${ex.stack}`);
-        }
     }
 };
 
