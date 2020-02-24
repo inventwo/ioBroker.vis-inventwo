@@ -29,6 +29,10 @@ systemDictionary = {
     "buttonCol": {
 		"en": "Button color",
 		"de": "Button Farbe"
+    },
+    "textSize": {
+		"en": "Label size",
+		"de": "Beschriftungsgröße"
     }
     
 };
