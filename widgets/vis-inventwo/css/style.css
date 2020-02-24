@@ -6,6 +6,10 @@
     box-shadow: 2px 2px 2px 1px #111111;
 }
 
+.vis-inventwo-button-active {
+	background-color: #455618;
+}
+
 .vis-inventwo-button-imageContainer {
 	text-align: center;
 }
