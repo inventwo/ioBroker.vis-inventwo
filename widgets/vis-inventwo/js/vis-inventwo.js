@@ -55,7 +55,12 @@ vis.binds["vis-inventwo"] = {
                
                     $this.parent().click(function () {
                         
-                            vis.setValue(data.oid, !vis.states.attr(data.oid + '.val'));
+                            if(vis.states.attr(data.oid + '.val') == false){
+                                vis.setValue(data.oid, true);
+                            }
+                            else{
+                                vis.setValue(data.oid, false);
+                            }
                     });
                 
             }
