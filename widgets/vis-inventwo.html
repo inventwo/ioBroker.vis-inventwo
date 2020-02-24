@@ -25,15 +25,15 @@
 	<div class="vis-widget <%== this.data.attr('class') %>" style="width:110px; height:110px; overflow:visible" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> vis-inventwo-button"
             <% if( vis.states.attr(this.data.oid + '.val') ) { %> style="background-color: #455618 "
-            <% } else { %> style="background-color: <%= this.data.attr('buttonCol') %>" <% } %>
+            <% } else { %> style="background-color: <%= this.data.attr('i-buttonCol') %>" <% } %>
             >
             <div style="padding: 5px">
                 <div class="vis-inventwo-button-imageContainer">
-                   <img src='<%= this.data.image %>' width="<%= this.data.iconSize %>">
+                   <img src='<%= this.data.i-image %>' width="<%= this.data.i-iconSize %>">
                 </div>
             
-                <div class="vis-inventwo-button-text" style="font-size: <%= this.data.textSize %>px">
-                    <%= this.data.text_display %>
+                <div class="vis-inventwo-button-text" style="font-size: <%= this.data.i-textSize %>px">
+                    <%= this.data.i-text_display %>
 		        </div>
             </div>
             <%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
