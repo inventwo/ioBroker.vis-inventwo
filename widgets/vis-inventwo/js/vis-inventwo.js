@@ -39,12 +39,13 @@ vis.binds["vis-inventwo"] = {
 
 		$("#" + widgetID).html(text);
 
-		// subscribe on updates of value
+        // subscribe on updates of value
+        /*
 		if (data.oid) {
 			vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
 				$div.find(".vis-inventwo-value").html(newVal);
 			});
-		}
+		}*/
     },
 
     handleToggle: function (el, data) {
