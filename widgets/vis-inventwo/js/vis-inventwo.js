@@ -8,11 +8,17 @@
 "use strict";
 
 // add translations for edit mode
-$.get( "adapter/vis-inventwo/words.js", function(script) {
-	let translation = script.substring(script.indexOf("{"), script.length);
-	translation = translation.substring(0, translation.lastIndexOf(";"));
-	$.extend(systemDictionary, JSON.parse(translation));
-});
+if (vis.editMode) {
+        // Add words for basic widgets
+        $.extend(true, systemDictionary, {
+            "iText_display":        {"en": "Label",             "de": "Beschriftung"},
+            "iTextSize":        {"en": "LAbel size",             "de": "Beschriftungsgröße"},
+            "iImage":        {"en": "Icon",             "de": "Bild"},
+            "iIconSize":        {"en": "Icon size",             "de": "Bildgröße"},
+            "iButtonCol":        {"en": "Button color",             "de": "Buttonfarbe"},
+            "group_i-css":        {"en": "CSS",             "de": "CSS"},
+        });
+    }
 
 // this code can be placed directly in vis-inventwo.html
 vis.binds["vis-inventwo"] = {
