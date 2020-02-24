@@ -23,8 +23,14 @@
 		data-vis-name="Switch">
 
 	<div class="vis-widget <%== this.data.attr('class') %>" style="width:110px; height:110px; overflow:visible" id="<%= this.data.attr('wid') %>" >
-		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> vis-inventwo-button <% if(vis.states[this.data.attr('oid')]) { %> vis-inventwo-button-active <% } %>" 
-            style="background-color:<%= this.data.buttonCol %>">
+		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> vis-inventwo-button">
+            style="background-color: 
+                <% if(vis.states[this.data.attr('oid') + .'val']) { %>
+                    <%= this.data.buttonCol %>
+                <% } else { %>
+                    #455618
+                <% } %> 
+        ">
             <div style="padding: 5px">
                 <div class="vis-inventwo-button-imageContainer">
                    <img src='<%= this.data.image %>' width="<%= this.data.iconSize %>">
