@@ -29,10 +29,10 @@
                 <img src='<%= this.data.image %>' width="<%= this.data.iconSize %>">
             </div>
             
-            <div>
+            <div class="vis-inventwo-button-text">
                 <%= this.data.text_display %>
 		    </div>
-            </div class="vis-inventwo-button-text">
+            </div>
             <%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
 		</div>
 
