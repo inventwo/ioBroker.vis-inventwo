@@ -45,6 +45,26 @@ vis.binds["vis-inventwo"] = {
 				$div.find(".vis-inventwo-value").html(newVal);
 			});
 		}
+    },
+
+    handleToggle: function (el, data) {
+        try {
+            var $this = $(el);
+
+            if (!vis.editMode) {
+               
+                    $this.parent().click(function () {
+                        if (data.toggleType === 'boolean') {
+                            vis.setValue(data.oid, !vis.states.attr(data.oid + '.val'));
+                        }
+                    });
+                
+            }
+
+
+        } catch (ex) {
+            console.error(`[Button] handleToggle: error:: ${ex.message}, stack: ${ex.stack}`);
+        }
     }
 };
 
