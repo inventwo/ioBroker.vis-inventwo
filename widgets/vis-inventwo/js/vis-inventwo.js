@@ -50,16 +50,21 @@ vis.binds["vis-inventwo"] = {
     handleToggle: function (el, data) {
         try {
             var $this = $(el);
+            
+            var oid = data.oid;
+            var valFalse = false;
+            var valTrue = true;
 
             if (!vis.editMode) {
                
                     $this.parent().click(function () {
                         
-                            if(vis.states.attr(data.oid + '.val') == false){
-                                vis.setValue(data.oid, true);
+                        var val = vis.states[oid + '.val'];
+                            if(val == valFalse){
+                                vis.setValue(oid, valTrue);
                             }
                             else{
-                                vis.setValue(data.oid, false);
+                                vis.setValue(oid, valFalse);
                             }
                     });
                 
