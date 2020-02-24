@@ -1,4 +1,7 @@
 /* Style your widget here */
-.vis-inventwo-class {
-	font-style: italic;
+.vis-inventwo-button {
+	background-color: #333333;
+    color: #c7c7c7;
+    border-radius: 10px 0;
+    box-shadow: 2px 2px 2px 1px #111111;
 }

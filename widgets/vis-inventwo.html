@@ -99,19 +99,19 @@
 	You can do "if" conditions and "for" cycles.
 
 -->
-<script id="tplvis-inventwoShowInstance"
+<script id="i-vis-switch"
 		type="text/ejs"
 		class="vis-tpl"
-		data-vis-prev='<div>test</div>'
+		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Switch.png">'
 		data-vis-attrs="oid/id;text_false/text;text_true/text;buttonCol/color;"
 		data-vis-attrs0="group.extravis-inventwo;extraAttr"
 		data-vis-set="vis-inventwo"
-		data-vis-type="helper"
-		data-vis-name="Show instance">
+		data-vis-type="button"
+		data-vis-name="Switch">
 
-	<div class="vis-widget <%== this.data.attr('class') %>" style="width:110px; height:110px;" id="<%= this.data.attr('wid') %>" >
-		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>" style="padding:2px" >
-        <div style="background-color: <%= this.data.buttonCol %>">
+	<div class="vis-widget <%== this.data.attr('class') %>" style="width:110px; height:110px; overflow:visible" id="<%= this.data.attr('wid') %>" >
+		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> vis-inventwo-button" >
+            <div>
 
 			<% if (vis.states.attr(this.data.oid + '.val')) { %>
                     <%= this.data.text_true %>
@@ -120,7 +120,7 @@
                 <% } %>
 
                 <% vis.binds['vis-inventwo'].createWidget(this.data.wid, this.view, this.data, this.style); %>
-		</div>
+		    </div>
 		</div>
 
 	</div>
