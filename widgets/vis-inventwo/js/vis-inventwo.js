@@ -56,12 +56,14 @@ vis.binds["vis-inventwo"] = {
             var valFalse = false;
             var valTrue = true;
 
-            $(el).html(valFalse);
+            //$(el).html(valFalse);
 
             if (!vis.editMode) {
                
                     $this.parent().click(function () {
-                        
+                        var val = vis.states[oid + '.val'];
+                        vis.setValue(oid, !val);
+                        /*
                         var val = vis.states[oid + '.val'];
                         $(el).html('test: ' + val);
                             if(val == valFalse){
@@ -69,7 +71,7 @@ vis.binds["vis-inventwo"] = {
                             }
                             else{
                                 vis.setValue(oid, valFalse);
-                            }
+                            }*/
                     });
                 
             }
