@@ -5,3 +5,12 @@
     border-radius: 10px 0;
     box-shadow: 2px 2px 2px 1px #111111;
 }
+
+.vis-inventwo-button-imageContainer {
+	text-align: center;
+}
+
+.vis-inventwo-button-text {
+	position: absolute;
+    bottom: 0px;
+}

@@ -25,12 +25,14 @@
 	<div class="vis-widget <%== this.data.attr('class') %>" style="width:110px; height:110px; overflow:visible" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> vis-inventwo-button" >
             <div>
+            <div>
                 <img src='<%= this.data.image %>' width="<%= this.data.iconSize %>">
             </div>
             
             <div>
                 <%= this.data.text_display %>
 		    </div>
+            </div>
             <%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
 		</div>
 
