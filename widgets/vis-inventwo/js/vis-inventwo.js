@@ -53,7 +53,7 @@ vis.binds["vis-inventwo"] = {
 
             if (!vis.editMode) {
                
-                    $this.parent().click(function () {
+                    $this.click(function () {
                         
                             if(vis.states.attr(data.oid + '.val') == false){
                                 vis.setValue(data.oid, true);
