@@ -10,15 +10,15 @@ systemDictionary = {
 		"en": "Instance",
 		"de": "Instanz"
     },
-    "text_display": {
+    "i-text_display": {
 		"en": "Label",
 		"de": "Beschriftung"
     },
-    "iconSize": {
+    "i-iconSize": {
 		"en": "Icon size",
 		"de": "Bild Größe"
     },
-    "image": {
+    "i-image": {
 		"en": "Icon",
 		"de": "Bild"
     },
@@ -26,11 +26,11 @@ systemDictionary = {
 		"en": "CSS",
 		"de": "CSS"
     },
-    "buttonCol": {
+    "i-buttonCol": {
 		"en": "Button color",
 		"de": "Button Farbe"
     },
-    "textSize": {
+    "i-textSize": {
 		"en": "Label size",
 		"de": "Beschriftungsgröße"
     }
