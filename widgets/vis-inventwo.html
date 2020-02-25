@@ -53,8 +53,16 @@
 
 	<div class="vis-widget <%== this.data.attr('class') %>" style="width:110px; height:110px; overflow:visible" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> vis-inventwo-button"
-            style="background-color: <% if( vis.states.attr(this.data.oid + '.val') ) { %> #455618 <% } else { %> <%= this.data.attr('iButtonCol') %> <% } %>; border-radius: <%= this.data.attr('iCornerRadius') %>px 0; opacity: <%= this.data.attr('iOpacity') %>"
+            style="border-radius: <%= this.data.attr('iCornerRadius') %>px 0; opacity: <%= this.data.attr('iOpacity') %>"
             >
+            <%
+                if(vis.states.attr(this.data.oid + '.val')){
+                    $(this.data.attr('wid')).children().css('background-color','#455618');
+                }
+                else{
+                    $(this.data.attr('wid')).children().css('background-color',this.data.attr('iButtonCol'));
+                }
+            %>
             <div style="padding: 10px">
                 <div class="vis-inventwo-button-imageContainer">
                    <img src='<%= this.data.iImage %>' width="<%= this.data.iIconSize %>">
