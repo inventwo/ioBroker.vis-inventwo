@@ -57,10 +57,10 @@
             >
             <%
                 if(vis.states.attr(this.data.oid + '.val')){
-                    $(this.data.attr('wid')).children().css('background-color','#455618');
+                    $('#' + this.data.attr('wid')).children().css('background-color','#455618');
                 }
                 else{
-                    $(this.data.attr('wid')).children().css('background-color',this.data.attr('iButtonCol'));
+                    $('#' + this.data.attr('wid')).children().css('background-color',this.data.attr('iButtonCol'));
                 }
             %>
             <div style="padding: 10px">
