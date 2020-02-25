@@ -60,40 +60,27 @@
 		data-vis-name="Background">
 
 	<div class="vis-widget <%== this.data.attr('class') %>" style="width:110px; height:110px; overflow:visible" id="<%= this.data.attr('wid') %>" >
-		
+		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> vis-inventwo-button"
         <% if(vis.states.attr(this.data.oid + '.val')) { %>
-
-            <div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> vis-inventwo-button"
-                style="background-color: #455618; border-radius: <%= this.data.attr('iCornerRadius') %>px 0; opacity: <%= this.data.attr('iOpacity') %>">
-
-                <div style="padding: 10px">
-                    <div class="vis-inventwo-button-imageContainer">
-                       <img src='<%= this.data.iImage %>' width="<%= this.data.iIconSize %>">
-                    </div>
-
-                    <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px">
-                        <%= this.data.iText_display %>
-		            </div>
-                </div>
-		    </div>
-
+            style="background-color: <%= this.data.attr('iButtonCol') %>; border-radius: <%= this.data.attr('iCornerRadius') %>px 0; opacity: <%= this.data.attr('iOpacity') %>"
         <% } else { %>
-
-            <div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> vis-inventwo-button"
-                style="background-color: <% this.data.attr('iButtonCol') %>; border-radius: <%= this.data.attr('iCornerRadius') %>px 0; opacity: <%= this.data.attr('iOpacity') %>">
-
-                <div style="padding: 10px">
-                    <div class="vis-inventwo-button-imageContainer">
-                       <img src='<%= this.data.iImage %>' width="<%= this.data.iIconSize %>">
-                    </div>
-
-                    <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px">
-                        <%= this.data.iText_display %>
-		            </div>
-                </div>
-		    </div>
-
+            style="background-color: #455618; border-radius: <%= this.data.attr('iCornerRadius') %>px 0; opacity: <%= this.data.attr('iOpacity') %>"
         <% } %>
+            >
+
+            <div style="padding: 10px">
+                <div class="vis-inventwo-button-imageContainer">
+                    <% if(vis.states.attr(this.data.oid + '.val')) { %>
+                        <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>">
+                    <% } else { %>
+                        <img src='<%= this.data.iImageFalse %>' width="<%= this.data.iIconSize %>">
+                    <% } %>
+                </div>        
+                <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px">
+                    <%= this.data.iText_display %>
+		        </div>
+            </div>
+		</div>
 
 	</div>
 </script>
