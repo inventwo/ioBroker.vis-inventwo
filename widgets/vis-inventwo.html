@@ -124,7 +124,7 @@
 		data-vis-type="button"
 		data-vis-name="Button">
 
-	<div class="vis-widget <%== this.data.attr('class') %>" style="width:110px; height:110px; overflow:visible" id="<%= this.data.attr('wid') %>" <%= (el) -> vis.binds.basic.state(el) %>>
+	<div class="vis-widget <%== this.data.attr('class') %>" style="width:110px; height:110px; overflow:visible" id="<%= this.data.attr('wid') %>" <%= (el) -> vis.binds.['vis-inventwo'].state(el, data) %>>
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> vis-inventwo-button"
         <% if(vis.states.attr(this.data.oid + '.val')) { %>
             style="background-color: <%= this.data.attr('iButtonCol') %>; border-radius: <%= this.data.attr('iCornerRadius') %>px 0; opacity: <%= this.data.attr('iOpacity') %>"

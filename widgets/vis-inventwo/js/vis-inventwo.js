@@ -134,6 +134,32 @@ vis.binds["vis-inventwo"] = {
             });
         }
     },
+    state: function (el, data) {
+
+            var $this = $(el);
+            
+            var oid = data.oid;
+
+            //$(el).html(valFalse);
+
+            if (!vis.editMode) {
+               
+                    $this.parent().click(function () {
+                        
+                        vis.setValue(oid, data.value);
+                        /*
+                        var val = vis.states[oid + '.val'];
+                        $(el).html('test: ' + val);
+                            if(val == valFalse){
+                                vis.setValue(oid, valTrue);
+                            }
+                            else{
+                                vis.setValue(oid, valFalse);
+                            }*/
+                    });
+                
+            }
+    }
 };
 
 vis.binds["vis-inventwo"].showVersion();
