@@ -11,12 +11,46 @@
 if (vis.editMode) {
         // Add words for basic widgets
         $.extend(true, systemDictionary, {
-            "iText_display":        {"en": "Label",             "de": "Beschriftung"},
-            "iTextSize":        {"en": "LAbel size",             "de": "Beschriftungsgröße"},
-            "iImage":        {"en": "Icon",             "de": "Bild"},
-            "iIconSize":        {"en": "Icon size",             "de": "Bildgröße"},
-            "iButtonCol":        {"en": "Button color",             "de": "Buttonfarbe"},
-            "group_i-css":        {"en": "CSS",             "de": "CSS"},
+            "Instance": {
+		        "en": "Instance",
+		        "de": "Instanz"
+            },
+            "iText_display": {
+	        	"en": "Label",
+	        	"de": "Beschriftung"
+            },
+            "iIconSize": {
+	        	"en": "Icon size",
+	        	"de": "Bild Größe"
+            },
+            "group_i-css": {
+	        	"en": "CSS",
+	        	"de": "CSS"
+            },
+            "iButtonCol": {
+	        	"en": "Button color",
+	        	"de": "Button Farbe"
+            },
+            "iTextSize": {
+	        	"en": "Label size",
+	        	"de": "Beschriftungsgröße"
+            },
+            "iImageFalse": {
+	        	"en": "Icon false",
+	        	"de": "Bild falsch"
+            },
+            "iImageTrue": {
+	        	"en": "Icon true",
+	        	"de": "Bild wahr"
+            },
+            "iCornerRadius": {
+	        	"en": "Border radius",
+	        	"de": "Abrundung"
+            },
+            "iOpacity": {
+	        	"en": "Opacity",
+	        	"de": "Transparenz"
+            }
         });
     }
 
