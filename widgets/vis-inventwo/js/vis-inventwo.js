@@ -84,7 +84,7 @@ vis.binds["vis-inventwo"] = {
     },
     handleNavigation: function (el, data) {
         if (!vis.editMode && data.nav_view) {
-            var $this = $(el);
+            var $this = $(el).parent();
             var moved = false;
             $this.on('click touchend', function (e) {
                 // Protect against two events
