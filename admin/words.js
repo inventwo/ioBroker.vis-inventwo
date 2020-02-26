@@ -40,7 +40,7 @@ systemDictionary = {
     },
     "iCornerRadius": {
 		"en": "Border radius",
-		"de": "Rundung"
+		"de": "Abrundung"
     },
     "iOpacity": {
 		"en": "Opacity",
