@@ -8,7 +8,7 @@
 // you need to create an adapter
 const utils = require("@iobroker/adapter-core");
 
-// Load your modules here, e.g.:
+// Load  your  modules here, e.g.:
 // const fs = require("fs");
 
 class visInventwo extends utils.Adapter {
@@ -34,30 +34,131 @@ class visInventwo extends utils.Adapter {
 	async onReady() {
 		// Initialize your adapter here
 
+         if(this.config.Button == "" || !this.config.Button){
+        this.config.Button="#333333";
+        }
+        if(this.config.Active == "" || !this.config.Active){
+        this.config.Active="#455618";
+        }
+        if(this.config.Text == "" || !this.config.Text){
+        this.config.Text="#C7C7C7";
+        }
+        /*
+        if(this.config.Radius == "" || !this.config.Radius){
+        this.config.Radius=10;
+        }
+        if(this.config.Stripes == "" || !this.config.Stripes){
+        this.config.Stripes="#393939";
+        }
+        if(this.config.Background == "" || !this.config.Background){
+        this.config.Background='#989898';
+        }*/
+
 		// The adapters config (in the instance object everything under the attribute "native") is accessible via
 		// this.config:
-		this.log.info("config option1: " + this.config.option1);
-		this.log.info("config option2: " + this.config.option2);
+		this.log.info("config Button: " + this.config.Button);
+        this.log.info("config Active: " + this.config.Active);
+        this.log.info("config Text: " + this.config.Text);
+//      this.log.info("config Stripes: " + this.config.Stripes);
+//      this.log.info("config Background: " + this.config.Background);
+//      this.log.info("config Radius: " + this.config.Radius);
+        this.log.info("config Info: " + this.config.Info);
 
 		/*
 		For every state in the system there has to be also an object of type state
 		Here a simple template for a boolean variable named "testVariable"
 		Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
 		*/
-		await this.setObjectAsync("testVariable", {
+		
+        await this.setObjectAsync("CSS.Button", {
 			type: "state",
 			common: {
-				name: "testVariable",
+				name: "Button-Color",
 				type: "string",
-				role: "indicator",
+				role: "inventwo.color",
 				read: true,
 				write: true,
 			},
 			native: {},
-		});
+        });
+        await this.setObjectAsync("CSS.Active", {
+			type: "state",
+			common: {
+				name: "Button-Active-Color",
+				type: "string",
+				role: "inventwo.color",
+				read: true,
+				write: true,
+			},
+            native: {},
+        });
+        await this.setObjectAsync("CSS.Text", {
+			type: "state",
+			common: {
+				name: "Text-Color",
+				type: "string",
+				role: "inventwo.color",
+				read: true,
+				write: true,
+			},
+			native: {},
+       });
+  /*
+        await this.setObjectAsync("CSS.Stripes", {
+			type: "state",
+			common: {
+				name: "Tripes-Color",
+				type: "string",
+				role: "inventwo.color",
+				read: true,
+				write: true,
+			},
+			native: {},
+        });
+        await this.setObjectAsync("CSS.Background", {
+			type: "state",
+			common: {
+				name: "Background-Color",
+				type: "string",
+				role: "inventwo.color",
+				read: true,
+				write: true,
+			},
+			native: {},
+        });
+        await this.setObjectAsync("CSS.Radius", {
+			type: "state",
+			common: {
+				name: "Button-Radius",
+				type: "string",
+				role: "inventwo.design",
+				read: true,
+				write: true,
+			},
+			native: {},
+        });
+*/        
+        await this.setObjectAsync("Info", {
+			type: "state",
+			common: {
+				name: "Adapter-Version",
+				type: "string",
+				role: "inventwo.info",
+				read: true,
+				write: false,
+			},
+			native: {},
+        });
 
+        
 		// in this template all states changes inside the adapters namespace are subscribed
-		this.subscribeStates("*");
+        this.subscribeStates("CSS.Button");
+        this.subscribeStates("CSS.Active");
+        this.subscribeStates("CSS.Text");
+//      this.subscribeStates("CSS.Stripes");
+//      this.subscribeStates("CSS.Background");
+//      this.subscribeStates("CSS.Radius");
+        this.subscribeStates("CSS.Info");
 
 		/*
 		setState examples
@@ -68,7 +169,14 @@ class visInventwo extends utils.Adapter {
 
 		// same thing, but the value is flagged "ack"
 		// ack should be always set to true if the value is received from or acknowledged from the target system
-		await this.setStateAsync("testVariable", { val: "#ff0000", ack: true });
+        await this.setStateAsync("CSS.Button", { val: this.config.Button, ack: true });
+        await this.setStateAsync("CSS.Active", { val: this.config.Active, ack: true });
+        await this.setStateAsync("CSS.Text", { val: this.config.Text, ack: true });
+//      await this.setStateAsync("CSS.Stripes", { val: this.config.Stripes, ack: true });
+//      await this.setStateAsync("CSS.Background", { val: this.config.Background, ack: true });
+//      await this.setStateAsync("CSS.Radius", { val: this.config.Radius, ack: true });
+        await this.setStateAsync("Info", { val: this.config.Version, ack: true });
+       
 
 		// same thing, but the state is deleted after 30s (getState will return null afterwards)
 		//await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
