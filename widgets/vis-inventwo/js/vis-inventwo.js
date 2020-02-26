@@ -118,19 +118,11 @@ vis.binds["vis-inventwo"] = {
     },
     handleNavigation: function (el, data) {
         if (!vis.editMode && data.nav_view) {
-            var $this = $(el).parent();
-            var moved = false;
-            $this.on('click touchend', function (e) {
+            $this.parent().click(function () {
                 // Protect against two events
-                if (vis.detectBounce(this)) return;
-                if (moved) return;
                 vis.changeView(data.nav_view, data.nav_view);
                 //e.preventDefault();
                 //return false;
-            }).on('touchmove', function () {
-                moved = true;
-            }).on('touchstart', function () {
-                moved = false;
             });
         }
     },
