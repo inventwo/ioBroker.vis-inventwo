@@ -18,10 +18,6 @@ systemDictionary = {
 		"en": "Icon size",
 		"de": "Bild Größe"
     },
-    "iImage": {
-		"en": "Icon",
-		"de": "Bild"
-    },
     "group_i-css": {
 		"en": "CSS",
 		"de": "CSS"
@@ -33,6 +29,22 @@ systemDictionary = {
     "iTextSize": {
 		"en": "Label size",
 		"de": "Beschriftungsgröße"
+    },
+    "iImageFalse": {
+		"en": "Icon false",
+		"de": "Bild falsch"
+    },
+    "iImageTrue": {
+		"en": "Icon true",
+		"de": "Bild wahr"
+    },
+    "iCornerRadius": {
+		"en": "Border radius",
+		"de": "Rundung"
+    },
+    "iOpacity": {
+		"en": "Opacity",
+		"de": "Transparenz"
     }
     
 };

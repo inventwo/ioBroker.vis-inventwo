@@ -4,58 +4,36 @@
 		"version": "0.0.1",
 		"news": {
 			"0.0.1": {
-				"en": "initial release",
-				"de": "Erstveröffentlichung",
-				"ru": "Начальная версия",
-				"pt": "lançamento inicial",
-				"nl": "Eerste uitgave",
-				"fr": "Première version",
-				"it": "Versione iniziale",
-				"es": "Versión inicial",
-				"pl": "Pierwsze wydanie",
-				"zh-cn": "首次出版"
+				"en": "The idea is born",
+                "de": "Die Idee ist geboren"
 			}
 		},
-		"title": "inventwo VIS",
+		"title": "inventwo Design Widgets",
 		"titleLang": {
-			"en": "inventwo VIS",
-			"de": "inventwo VIS",
-			"ru": "Изобретатель ВИС",
-			"pt": "inventwo VIS",
-			"nl": "inventwo VIS",
-			"fr": "inventwo VIS",
-			"it": "inventwo VIS",
-			"es": "inventwo VIS",
-			"pl": "wynalazki VIS",
-			"zh-cn": "英维思"
+			"en": "inventwo Design Widgets",
+			"de": "inventwo Design Widgets"
 		},
 		"desc": {
-			"en": "vis-inventwo",
-			"de": "vis-inventwo",
-			"ru": "vis-inventwo",
-			"pt": "vis-inventwo",
-			"nl": "vis-inventwo",
-			"fr": "vis-inventwo",
-			"it": "vis-inventwo",
-			"es": "vis-inventwo",
-			"pl": "vis-Inventwo",
-			"zh-cn": "vis-inventwo"
+			"en": "Design widgets for ioBroker.vis",
+            "de": "Design Widgets für ioBroker.vis"
 		},
 		"authors": [
 			"jkvarel <jkvarel@inventwo.com>"
 		],
 		"keywords": [
-			"ioBroker",
-			"template",
-			"Smart Home",
-			"home automation"
-		],
+            "ioBroker",
+            "template",
+            "Smart Home",
+            "home automation",
+            "inventwo",
+            "vis"
+        ],
 		"license": "MIT",
 		"platform": "Javascript/Node.js",
 		"main": "main.js",
-		"icon": "vis-inventwo.png",
+		"icon": "i_150.png",
 		"enabled": true,
-		"extIcon": "https://raw.githubusercontent.com/jkvarel/ioBroker.vis-inventwo/master/admin/vis-inventwo.png",
+		"extIcon": "https://raw.githubusercontent.com/jkvarel/ioBroker.vis-inventwo/master/admin/i_150.png",
 		"readme": "https://github.com/jkvarel/ioBroker.vis-inventwo/blob/master/README.md",
 		"loglevel": "info",
 		"restartAdapters": [
@@ -77,8 +55,13 @@
 		]
 	},
 	"native": {
-		"option1": true,
-		"option2": "42"
+	        "Button": "#333333",
+		    "Active": "#455618",
+            "Text": "#C7C7C7",
+            "Stripes": "#393939",
+            "Background": "#9B9B9B",
+            "Radius": "10",
+            "Version": "0.0.1"
 	},
 	"objects": [],
 	"instanceObjects": []

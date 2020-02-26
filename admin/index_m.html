@@ -17,6 +17,19 @@
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<script type="text/javascript" src="words.js"></script>
 
+    <style>
+        .m .col .select-wrapper+label {
+            top: -26px;
+        }
+        .m span{
+            font-size: 0.9em;
+        }
+        #Werte label{
+            color: #000;
+        }
+        
+    </style>
+
 	<script type="text/javascript">
 		// This will be called by the admin adapter when the settings page loads
 		function load(settings, onChange) {
@@ -63,31 +76,73 @@
 
 <body>
 
-	<div class="m adapter-container">
+    <div class="m adapter-container">
 
-		<div class="row">
-			<div class="col s12 m4 l2">
-				<img src="vis-inventwo.png" class="logo">
-			</div>
-		</div>
-
-		<!-- Put your content here -->
-
-		<!-- For example columns with settings: -->
-		<div class="row">
-			<div class="col s6 input-field">
-				<input type="checkbox" class="value" id="option1" />
-				<label for="option1" class="translate">option1</label>
-			</div>
-
-			<div class="col s6 input-field">
-				<input type="text" class="value" id="option2" />
-				<label for="option2" class="translate">option2</label>
-			</div>
-		</div>
-
-	</div>
-
+        <img class="materialboxed" width="100" src="i_150.png">
+      
+        <!-- Put your content here -->
+        
+        <div class="row">
+            <div class="col s12">
+                <br>
+                <p style="font-size:24px; color:#555"> CSS-Einstellungen für die Visualisierung mit dem inventwo Adapter</p>
+                <hr style="background: #2196f3; border: none; color: #2196f3; height: 2px; width: 100%;"></hr>
+            </div>
+        </div>
+        
+        <!-- For example columns with settings: -->
+         
+        <div class="row" id="Werte">
+            
+            <div class="col s12 m4 input-field">
+                <input placeholder="#333333" type="text" class="value" id="Button" />
+                <label for="Button" class="translate">Schaltflächenfarbe</label>
+                <span class="helper-text" data-error="wrong" data-success="right">inventwo Design: #333333</span>
+            </div>
+            <div class="col s12 m4 input-field">
+                <input placeholder="#455618" type="text" class="value" id="Active" />
+                <label for="Active" class="translate">Aktive Schaltflächen</label>
+                <span class="helper-text" data-error="wrong" data-success="right">inventwo Design: #455618</span>
+            </div>
+           <div class="col s12 m4 input-field">
+                <input placeholder="#C7C7C7" type="text" class="value" id="Text" />
+                <label for="Text" class="translate">Textfarbe</label>
+                <span class="helper-text" data-error="wrong" data-success="right">inventwo Design: #C7C7C7</span>
+            </div>
+  <!--           <div class="col s12"><br><br></div>
+            <div class="col s12 m4 input-field">
+                <input placeholder="10" type="text" class="value" id="Radius"/>
+                <label for="Radius" class="translate">Radien der Schaltflächen</label>
+                <span class="helper-text" data-error="wrong" data-success="right">inventwo Design: 10</span>
+            </div>
+            <div class="col s12 m4 input-field">
+                <input placeholder="#393939" type="text" class="value" id="Stripes" />
+                <label for="Stripes" class="translate">Streifenfarbe</label>
+                <span class="helper-text" data-error="wrong" data-success="right">inventwo Design: #393939</span>
+            </div>
+            <div class="col s12 m4 input-field">
+                <input placeholder="#9B9B9B" type="text" class="value" id="Background" />
+                <label for="Background" class="translate">Seitenhintergrund</label>
+                <span class="helper-text" data-error="wrong" data-success="right">inventwo Design: #9B9B9B</span>
+            </div>      -->
+        
+        </div>
+        
+        <div class="row">
+            <div class="col s12">
+                <hr style="background: #2196f3; border: none; color: #2196f3; height: 2px; width: 100%;"></hr>
+                <p style="font-size:16px; color:#555">
+                <br>Alle Einstellungen können auch später über die Datenpunkte in den Objekten unter 'vis-inventwo/CSS' vorgenommen werden.
+                <br>
+                <br>Bei leeren Feldern werden automatisch unsere Standardwerte eingefügt. Es muss also nicht zwingend ein Wert angegeben werden!
+                <br>
+                <br>Die Datenpunkte lassen sich dadurch auch via Blockly/JavaScript weiterverarbeiten, um z.B. Schalterfarben nach Uhrzeiten zu steuern.</p>
+                <p style="font-size:14px; color:#666">Viel Spaß mit unserem Adapter ....
+                <br>MfG, <a href="https://github.com/jkvarel" target="_blank">jkvarel</a> & <a href="https://github.com/skvarel" target="_blank">skvarel</a> von <a href="https://github.com/inventwo" target="_blank">inventwo</a></p>
+            </div>
+        </div>
+                         
+    </div>
 </body>
 
 </html>
