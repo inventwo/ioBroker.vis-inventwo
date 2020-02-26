@@ -117,6 +117,9 @@ vis.binds["vis-inventwo"] = {
             }
     },
     handleNavigation: function (el, data) {
+
+        var $this = $(el);
+
         if (!vis.editMode && data.nav_view) {
             $this.parent().click(function () {
                 // Protect against two events
