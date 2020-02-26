@@ -11,12 +11,46 @@
 if (vis.editMode) {
         // Add words for basic widgets
         $.extend(true, systemDictionary, {
-            "iText_display":        {"en": "Label",             "de": "Beschriftung"},
-            "iTextSize":        {"en": "LAbel size",             "de": "Beschriftungsgröße"},
-            "iImage":        {"en": "Icon",             "de": "Bild"},
-            "iIconSize":        {"en": "Icon size",             "de": "Bildgröße"},
-            "iButtonCol":        {"en": "Button color",             "de": "Buttonfarbe"},
-            "group_i-css":        {"en": "CSS",             "de": "CSS"},
+            "Instance": {
+		        "en": "Instance",
+		        "de": "Instanz"
+            },
+            "iText_display": {
+	        	"en": "Label",
+	        	"de": "Beschriftung"
+            },
+            "iIconSize": {
+	        	"en": "Icon size",
+	        	"de": "Bild Größe"
+            },
+            "group_i-css": {
+	        	"en": "CSS",
+	        	"de": "CSS"
+            },
+            "iButtonCol": {
+	        	"en": "Button color",
+	        	"de": "Button Farbe"
+            },
+            "iTextSize": {
+	        	"en": "Label size",
+	        	"de": "Beschriftungsgröße"
+            },
+            "iImageFalse": {
+	        	"en": "Icon false",
+	        	"de": "Bild falsch"
+            },
+            "iImageTrue": {
+	        	"en": "Icon true",
+	        	"de": "Bild wahr"
+            },
+            "iCornerRadius": {
+	        	"en": "Border radius",
+	        	"de": "Abrundung"
+            },
+            "iOpacity": {
+	        	"en": "Opacity",
+	        	"de": "Transparenz"
+            }
         });
     }
 
@@ -69,6 +103,50 @@ vis.binds["vis-inventwo"] = {
                     $this.parent().click(function () {
                         var val = vis.states[oid + '.val'];
                         vis.setValue(oid, !val);
+                        /*
+                        var val = vis.states[oid + '.val'];
+                        $(el).html('test: ' + val);
+                            if(val == valFalse){
+                                vis.setValue(oid, valTrue);
+                            }
+                            else{
+                                vis.setValue(oid, valFalse);
+                            }*/
+                    });
+                
+            }
+    },
+    handleNavigation: function (el, data) {
+        if (!vis.editMode && data.nav_view) {
+            var $this = $(el);
+            var moved = false;
+            $this.on('click touchend', function (e) {
+                // Protect against two events
+                if (vis.detectBounce(this)) return;
+                if (moved) return;
+                vis.changeView(data.nav_view, data.nav_view);
+                //e.preventDefault();
+                //return false;
+            }).on('touchmove', function () {
+                moved = true;
+            }).on('touchstart', function () {
+                moved = false;
+            });
+        }
+    },
+    state: function (el, data) {
+
+            var $this = $(el);
+            
+            var oid = data.oid;
+
+            //$(el).html(valFalse);
+
+            if (!vis.editMode) {
+               
+                    $this.parent().click(function () {
+                        
+                        vis.setValue(oid, data.value);
                         /*
                         var val = vis.states[oid + '.val'];
                         $(el).html('test: ' + val);

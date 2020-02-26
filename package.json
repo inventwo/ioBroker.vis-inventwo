@@ -1,18 +1,14 @@
 {
   "name": "iobroker.vis-inventwo",
   "version": "0.0.1",
-  "description": "vis-inventwo",
+  "description": "Switch widgets for ioBroker.vis",
   "author": {
     "name": "jkvarel",
     "email": "jkvarel@inventwo.com"
   },
   "contributors": [
-    {
-      "name": "jkvarel"
-    },
-    {
-      "name": "skvarel"
-    }
+    "jkvarel <jkvarel@inventwo.com>",
+    "skvarel <skvarel@inventwo.com>"
   ],
   "homepage": "https://github.com/jkvarel/ioBroker.vis-inventwo",
   "license": "MIT",
@@ -20,7 +16,9 @@
     "ioBroker",
     "template",
     "Smart Home",
-    "home automation"
+    "home automation",
+    "inventwo",
+    "vis"
   ],
   "repository": {
     "type": "git",
