@@ -14,11 +14,11 @@
 ## Schalter Widgets für den ioBroker.vis Adapter
 
 
-![Beispiel](img/Set.png)
+![Beispiel](admin/Set.png)
 
-![Beispiel](img/Preview.png)
+![Beispiel](admin/Preview.png)
 
-![Beispiel](img/Preview2.png)
+![Beispiel](admin/Preview2.png)
 ---
 
 ## Unterstützung
@@ -27,7 +27,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 (Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
 
-[![Spende](img/spende.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GQPD3G25CKTEJ&source=url)
+[![Spende](admin/spende.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GQPD3G25CKTEJ&source=url)
 
 ---
 
