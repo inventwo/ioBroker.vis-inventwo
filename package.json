@@ -58,8 +58,7 @@
     "url": "https://github.com/jkvarel/ioBroker.vis-inventwo/issues"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/",
-    "access": "public"
+    "registry": "https://registry.npmjs.org"
   },
   "directories": {
     "lib": "lib",
