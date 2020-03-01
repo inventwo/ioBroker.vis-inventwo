@@ -59,6 +59,5 @@
   "bugs": {
     "url": "https://github.com/jkvarel/ioBroker.vis-inventwo/issues"
   },
-  "readmeFilename": "README.md",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "readmeFilename": "README.md"
 }
