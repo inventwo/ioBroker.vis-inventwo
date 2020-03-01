@@ -5,8 +5,8 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
 ![Number of Installations (latest)](http://iobroker.live/badges/vis-inventwo-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/vis-inventwo-stable.svg)
-[![Dependency Status](https://img.shields.io/david/inventwo/iobroker.vis-inventwo.svg)](https://david-dm.org/inventwo/ioBroker.vis-inventwo)
-[![Known Vulnerabilities](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)](https://snyk.io/test/github/inventwo/ioBroker.vis-inventwo)
+[![Dependency Status](https://img.shields.io/david/inventwo/iobroker.vis-inventwo.svg)](https://david-dm.org/inventwo/iobroker.vis-inventwo)
+[![Known Vulnerabilities](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo)
 
 [![NPM](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)](https://nodei.co/npm/iobroker.vis-inventwo/)
 
