@@ -62,7 +62,7 @@ class visInventwo extends utils.Adapter {
 //      this.log.info("config Stripes: " + this.config.Stripes);
 //      this.log.info("config Background: " + this.config.Background);
 //      this.log.info("config Radius: " + this.config.Radius);
-        this.log.info("config Info: " + this.config.Info);
+//      this.log.info("config Info: " + this.config.Info);
 
 		/*
 		For every state in the system there has to be also an object of type state
@@ -137,7 +137,7 @@ class visInventwo extends utils.Adapter {
 			},
 			native: {},
         });
-*/        
+       
         await this.setObjectAsync("Info", {
 			type: "state",
 			common: {
@@ -149,7 +149,7 @@ class visInventwo extends utils.Adapter {
 			},
 			native: {},
         });
-
+*/
         
 		// in this template all states changes inside the adapters namespace are subscribed
         this.subscribeStates("CSS.Button");
@@ -158,7 +158,7 @@ class visInventwo extends utils.Adapter {
 //      this.subscribeStates("CSS.Stripes");
 //      this.subscribeStates("CSS.Background");
 //      this.subscribeStates("CSS.Radius");
-        this.subscribeStates("CSS.Info");
+//      this.subscribeStates("CSS.Info");
 
 		/*
 		setState examples
@@ -175,7 +175,7 @@ class visInventwo extends utils.Adapter {
 //      await this.setStateAsync("CSS.Stripes", { val: this.config.Stripes, ack: true });
 //      await this.setStateAsync("CSS.Background", { val: this.config.Background, ack: true });
 //      await this.setStateAsync("CSS.Radius", { val: this.config.Radius, ack: true });
-        await this.setStateAsync("Info", { val: this.config.Version, ack: true });
+//      await this.setStateAsync("Info", { val: this.config.Version, ack: true });
        
 
 		// same thing, but the state is deleted after 30s (getState will return null afterwards)
