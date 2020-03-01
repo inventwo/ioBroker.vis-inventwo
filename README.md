@@ -1,8 +1,8 @@
 ![Logo](admin/i_150.png)
 # ioBroker.vis-inventwo
 
-[![NPM version](http://img.shields.io/npm/v/ioBroker.vis-inventwo.svg)](https://www.npmjs.com/package/ioBroker.vis-inventwo)
-[![Downloads](https://img.shields.io/npm/dm/ioBroker.vis-inventwo.svg)](https://www.npmjs.com/package/ioBroker.vis-inventwo)
+[![NPM version](http://img.shields.io/npm/v/ioBroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
+[![Downloads](https://img.shields.io/npm/dm/ioBroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
 ![Number of Installations (latest)](http://ioBroker.live/badges/vis-inventwo-installed.svg)
 ![Number of Installations (stable)](http://ioBroker.live/badges/vis-inventwo-stable.svg)
 [![Dependency Status](https://img.shields.io/david/inventwo/ioBroker.vis-inventwo.svg)](https://david-dm.org/inventwo/ioBroker.vis-inventwo)
