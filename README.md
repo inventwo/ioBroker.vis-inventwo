@@ -8,7 +8,7 @@
 [![Dependency Status](https://img.shields.io/david/inventwo/ioBroker.vis-inventwo.svg)](https://david-dm.org/inventwo/ioBroker.vis-inventwo)
 [![Known Vulnerabilities](https://snyk.io/test/github/inventwo/ioBroker.vis-inventwo/badge.svg)](https://snyk.io/test/github/inventwo/ioBroker.vis-inventwo)
 
-[![NPM](https://nodei.co/npm/ioBroker.vis-inventwo.png?downloads=true)](https://nodei.co/npm/ioBroker.vis-inventwo/)
+[![NPM](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)](https://nodei.co/npm/iobroker.vis-inventwo/)
 
 
 ## Schalter Widgets für den ioBroker.vis Adapter
