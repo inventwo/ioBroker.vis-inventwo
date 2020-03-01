@@ -16,6 +16,9 @@
 
 ![Beispiel](img/Set.png)
 
+![Beispiel](img/Preview.png)
+
+![Beispiel](img/Preview2.png)
 ---
 
 ## Unterstützung
@@ -30,7 +33,11 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
-### 0.0.1 (Erstveröffentlichung)
+### 0.1.0 (Erstveröffentlichung)
+- inventwo Design Widgets
+...
+
+### 0.0.1
 - Die Idee ist geboren
 
 ---
