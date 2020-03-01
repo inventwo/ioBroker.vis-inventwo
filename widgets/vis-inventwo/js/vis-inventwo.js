@@ -63,21 +63,49 @@ vis.binds["vis-inventwo"] = {
 			vis.binds["vis-inventwo"].version = null;
 		}
 	},
-	createWidget: function (widgetID, view, data, style) {
+	createWidget: function (widgetID, data) {
 		var $div = $("#" + widgetID);
 		// if nothing found => wait
 		if (!$div.length) {
 			return setTimeout(function () {
-				vis.binds["vis-inventwo"].createWidget(widgetID, view, data, style);
+				vis.binds["vis-inventwo"].createWidget(widgetID, data);
 			}, 100);
 		}
 
-		var text = "";
+        var htmlText = "<div class='vis-inventwo-class vis-widget-body" + data.class;
+        // Widget body css
+        var css = "style='background: ";
+        if(vis.states.attr(data.oid + '.val')){
+            css += data.iButtonActive;
+        }
+        else{
+            css += data.iButtonCol;
+        }
+        css += ";border-radius" + data.iCornerRadius + "px;";
 
-        text += this.instance;
-        text += this.config.option1;
+        htmlText += css + "'>";
+        
+        htmlText += "<div style='padding: 7px'>";
+        htmlText += "<div class='vis-inventwo-button-imageContainer'>"
+        htmlText += "<img src='";
+        if(vis.states.attr(data.oid + '.val')){
+            htmlText += data.iImageTrue;
+        }
+        else{
+            htmlText += data.iImageFalse;
+        }
+        htmlText += "' width='" + data.iIconSize + "'>";
 
-		$("#" + widgetID).html(text);
+        htmlText += "</div><div class='vis-inventwo-button-text' style='font-size:" + data.iTextSize + "px'>"
+        if(vis.states.attr(data.oid + '.val')){
+            htmlText += data.iTextTrue;
+        }
+        else{
+            htmlText += data.iTextFalse;
+        }
+        htmlText += "</div></div>"
+
+		$("#" + widgetID).html(htmlText);
 
         // subscribe on updates of value
         /*
@@ -100,7 +128,7 @@ vis.binds["vis-inventwo"] = {
 
             if (!vis.editMode) {
                
-                    $this.parent().click(function () {
+                    $this.click(function () {
                         var val = vis.states[oid + '.val'];
                         vis.setValue(oid, !val);
                         /*
