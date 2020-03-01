@@ -7,7 +7,7 @@
     "jkvarel <jkvarel@inventwo.com>",
     "skvarel <skvarel@inventwo.com>"
   ],
-  "homepage": "https://github.com/jkvarel/ioBroker.vis-inventwo",
+  "homepage": "https://github.com/inventwo/ioBroker.vis-inventwo",
   "license": "MIT",
   "keywords": [
     "ioBroker",
@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jkvarel/ioBroker.vis-inventwo.git"
+    "url": "git+https://github.com/inventwo/ioBroker.vis-inventwo.git"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^2.2.1",
@@ -55,7 +55,7 @@
     "lint": "eslint"
   },
   "bugs": {
-    "url": "https://github.com/jkvarel/ioBroker.vis-inventwo/issues"
+    "url": "https://github.com/inventwo/ioBroker.vis-inventwo/issues"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
