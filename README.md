@@ -14,8 +14,13 @@
 ## Schalter Widgets für den ioBroker.vis Adapter
 
 
-![Beispiel](img/Set.png)
+![Beispiel](admin/Set.png)
 
+Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben) und die Icons. Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werdem.
+
+![Beispiel](admin/Preview.png)
+
+![Beispiel](admin/Preview2.png)
 ---
 
 ## Unterstützung
@@ -24,13 +29,17 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 (Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
 
-[![Spende](img/spende.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GQPD3G25CKTEJ&source=url)
+[![Spende](admin/spende.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GQPD3G25CKTEJ&source=url)
 
 ---
 
 ## Changelog / Änderungsprotokoll
 
-### 0.0.1 (Erstveröffentlichung)
+### 0.1.0 (Erstveröffentlichung)
+- inventwo Design Widgets
+...
+
+### 0.0.1
 - Die Idee ist geboren
 
 ---
