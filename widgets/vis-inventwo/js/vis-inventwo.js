@@ -128,7 +128,7 @@ vis.binds["vis-inventwo"] = {
 
             if (!vis.editMode) {
                
-                    $this.click(function () {
+                    $this.parent().click(function () {
                         var val = vis.states[oid + '.val'];
                         vis.setValue(oid, !val);
                         /*
