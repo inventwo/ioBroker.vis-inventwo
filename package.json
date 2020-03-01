@@ -25,10 +25,10 @@
     "url": "https://github.com/jkvarel/ioBroker.vis-inventwo"
   },
   "dependencies": {
-    "@ioBroker/adapter-core": "^2.2.1"
+    "@iobroker/adapter-core": "^2.2.1"
   },
   "devDependencies": {
-    "@ioBroker/testing": "^2.0.2",
+    "@iobroker/testing": "^2.0.2",
     "@types/chai": "^4.2.9",
     "@types/chai-as-promised": "^7.1.2",
     "@types/gulp": "^4.0.6",
