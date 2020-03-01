@@ -37,8 +37,8 @@
 		"main": "main.js",
 		"icon": "i_150.png",
 		"enabled": true,
-		"extIcon": "https://raw.githubusercontent.com/jkvarel/ioBroker.vis-inventwo/master/admin/i_150.png",
-		"readme": "https://github.com/jkvarel/ioBroker.vis-inventwo/blob/master/README.md",
+		"extIcon": "https://raw.githubusercontent.com/inventwo/ioBroker.vis-inventwo/master/admin/i_150.png",
+		"readme": "https://github.com/inventwo/ioBroker.vis-inventwo/blob/master/README.md",
 		"loglevel": "info",
 		"restartAdapters": [
 			"vis"
