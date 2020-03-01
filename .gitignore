@@ -5,7 +5,7 @@ node_modules
 nbproject
 
 # npm package files
-ioBroker.*.tgz
+iobroker.*.tgz
 
 Thumbs.db
 

@@ -24,7 +24,7 @@ tsconfig.*.json
 .eslintrc.js
 
 # npm package files
-ioBroker.*.tgz
+iobroker.*.tgz
 package-lock.json
 
 # i18n intermediate files
