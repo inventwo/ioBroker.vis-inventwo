@@ -22,7 +22,8 @@
             "de": "Design Widgets für ioBroker.vis"
 		},
 		"authors": [
-			"jkvarel <jkvarel@inventwo.com>"
+			"jkvarel <jkvarel@inventwo.com>",
+            "skvarel <skvarel@inventwo.com>"
 		],
 		"keywords": [
             "ioBroker",
