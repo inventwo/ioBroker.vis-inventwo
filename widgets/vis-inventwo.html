@@ -66,8 +66,12 @@
 		data-vis-type="button"
 		data-vis-name="Switch2">
 
+        <%
+            var init = vis.binds['vis-inventwo'].createWidget(this.data.attr('wid'), this.data);
+        %>
+
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" <%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>>
-		<%= vis.binds['vis-inventwo'].createWidget(this.data.attr('wid'), this.data) %>
+		<%= init %>
 
 	</div>
 </script>
