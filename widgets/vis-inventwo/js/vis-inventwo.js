@@ -15,7 +15,7 @@ if (vis.editMode) {
 		        "en": "Instance",
 		        "de": "Instanz"
             },
-            "iText_display": {
+            "iText": {
 	        	"en": "Label",
 	        	"de": "Beschriftung"
             },
@@ -42,6 +42,10 @@ if (vis.editMode) {
             "iImageTrue": {
 	        	"en": "Icon true",
 	        	"de": "Bild wahr"
+            },
+            "iImage": {
+	        	"en": "Icon",
+	        	"de": "Bild"
             },
             "iCornerRadius": {
 	        	"en": "Border radius",
