@@ -1,14 +1,14 @@
 ![Logo](admin/i_150.png)
 # ioBroker.vis-inventwo
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
-![Number of Installations (latest)](http://iobroker.live/badges/vis-inventwo-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/vis-inventwo-stable.svg)
-[![Dependency Status](https://img.shields.io/david/jkvarel/iobroker.vis-inventwo.svg)](https://david-dm.org/jkvarel/iobroker.vis-inventwo)
+[![NPM version](http://img.shields.io/npm/v/ioBroker.vis-inventwo.svg)](https://www.npmjs.com/package/ioBroker.vis-inventwo)
+[![Downloads](https://img.shields.io/npm/dm/ioBroker.vis-inventwo.svg)](https://www.npmjs.com/package/ioBroker.vis-inventwo)
+![Number of Installations (latest)](http://ioBroker.live/badges/vis-inventwo-installed.svg)
+![Number of Installations (stable)](http://ioBroker.live/badges/vis-inventwo-stable.svg)
+[![Dependency Status](https://img.shields.io/david/jkvarel/ioBroker.vis-inventwo.svg)](https://david-dm.org/jkvarel/ioBroker.vis-inventwo)
 [![Known Vulnerabilities](https://snyk.io/test/github/jkvarel/ioBroker.vis-inventwo/badge.svg)](https://snyk.io/test/github/jkvarel/ioBroker.vis-inventwo)
 
-[![NPM](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)](https://nodei.co/npm/iobroker.vis-inventwo/)
+[![NPM](https://nodei.co/npm/ioBroker.vis-inventwo.png?downloads=true)](https://nodei.co/npm/ioBroker.vis-inventwo/)
 
 
 ## Schalter Widgets für den ioBroker.vis Adapter

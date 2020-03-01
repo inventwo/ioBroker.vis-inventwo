@@ -1,5 +1,5 @@
 const path = require("path");
-const { tests } = require("@iobroker/testing");
+const { tests } = require("@ioBroker/testing");
 
 // Validate the package files
 tests.packageFiles(path.join(__dirname, ".."));

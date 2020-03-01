@@ -1,12 +1,12 @@
 "use strict";
 
 /*
- * Created with @iobroker/create-adapter v1.21.1
+ * Created with @ioBroker/create-adapter v1.21.1
  */
 
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
-const utils = require("@iobroker/adapter-core");
+const utils = require("@ioBroker/adapter-core");
 
 // Load  your  modules here, e.g.:
 // const fs = require("fs");
@@ -182,8 +182,8 @@ class visInventwo extends utils.Adapter {
 		//await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
 
 		// examples for the checkPassword/checkGroup functions
-		let result = await this.checkPasswordAsync("admin", "iobroker");
-		this.log.info("check user admin pw iobroker: " + result);
+		let result = await this.checkPasswordAsync("admin", "ioBroker");
+		this.log.info("check user admin pw ioBroker: " + result);
 
 		result = await this.checkGroupAsync("admin", "admin");
 		this.log.info("check group user admin group admin: " + result);
