@@ -1,9 +1,13 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "0.0.1",
+		"version": "0.1.0",
 		"news": {
-			"0.0.1": {
+			"0.1.0": {
+				"en": "The idea is born",
+                "de": "Die Idee ist geboren"
+			},
+            "0.0.1": {
 				"en": "The idea is born",
                 "de": "Die Idee ist geboren"
 			}
