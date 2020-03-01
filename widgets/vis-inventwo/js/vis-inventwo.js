@@ -24,12 +24,12 @@ if (vis.editMode) {
 	        	"de": "Bild Größe"
             },
             "group_i-css": {
-	        	"en": "CSS",
-	        	"de": "CSS"
+	        	"en": "CSS inventwo Button",
+	        	"de": "CSS inventwo Button"
             },
             "iButtonCol": {
-	        	"en": "Button color",
-	        	"de": "Button Farbe"
+	        	"en": "color",
+	        	"de": "Farbe"
             },
             "iTextSize": {
 	        	"en": "Label size",
@@ -50,6 +50,22 @@ if (vis.editMode) {
             "iOpacity": {
 	        	"en": "Opacity",
 	        	"de": "Transparenz"
+            },
+            "iTextFalse": {
+	        	"en": "Label  false",
+	        	"de": "Beschriftung falsch"
+            },
+            "iTextTrue": {
+	        	"en": "Label true",
+	        	"de": "Beschriftung wahr"
+            },
+            "iButtonActive": {
+	        	"en": "Active color",
+	        	"de": "Aktiv Farbe "
+            },
+            "iTextColor": {
+	        	"en": "Text color",
+	        	"de": "Textfarbe "
             }
         });
     }
