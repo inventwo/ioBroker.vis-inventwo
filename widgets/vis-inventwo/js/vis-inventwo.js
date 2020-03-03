@@ -67,6 +67,10 @@ if (vis.editMode) {
             "iTextColor": {
 	        	"en": "Text color",
 	        	"de": "Textfarbe "
+            },
+            "iInvertImageCol": {
+	        	"en": "Invert icon color",
+	        	"de": "Bildfarbe invertieren"
             }
         });
     }
