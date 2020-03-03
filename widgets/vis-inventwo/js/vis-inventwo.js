@@ -82,7 +82,8 @@ vis.binds["vis-inventwo"] = {
 			console.log("Version vis-inventwo: " + vis.binds["vis-inventwo"].version);
 			vis.binds["vis-inventwo"].version = null;
 		}
-	},
+    },
+    /*
 	createWidget: function (widgetID, data) {
 		var $div = $("#" + widgetID);
 		// if nothing found => wait
@@ -94,7 +95,7 @@ vis.binds["vis-inventwo"] = {
 
         var htmlText = "<div class='vis-inventwo-class vis-widget-body" + data.class;
         // Widget body css
-        
+
         var css = "style='background: ";
         if(vis.states.attr(data.oid + '.val')){
             css += data.attr('iButtonActive');
@@ -125,18 +126,21 @@ vis.binds["vis-inventwo"] = {
             htmlText += data.iTextFalse;
         }
         */
+       /*
         htmlText += "</div></div>"
 
 		$("#" + widgetID).html(htmlText);
-
+*/
         // subscribe on updates of value
         /*
 		if (data.oid) {
 			vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
 				$div.find(".vis-inventwo-value").html(newVal);
 			});
-		}*/
+        }*/
+        /*
     },
+    */
 
     handleToggle: function (el, data) {
 
