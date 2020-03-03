@@ -1,15 +1,12 @@
 /*
 	ioBroker.vis vis-inventwo Widget-Set
-
-	version: "0.0.1"
-
+	version: "0.1.2"
 	Copyright 2020 jkvarel jkvarel@inventwo.com
 */
 "use strict";
 
-// add translations for edit mode
+
 if (vis.editMode) {
-        // Add words for basic widgets
         $.extend(true, systemDictionary, {
             "Instance": {
 		        "en": "Instance",
@@ -76,13 +73,6 @@ if (vis.editMode) {
 
 // this code can be placed directly in vis-inventwo.html
 vis.binds["vis-inventwo"] = {
-	version: "0.0.1",
-	showVersion: function () {
-		if (vis.binds["vis-inventwo"].version) {
-			console.log("Version vis-inventwo: " + vis.binds["vis-inventwo"].version);
-			vis.binds["vis-inventwo"].version = null;
-		}
-    },
     /*
 	createWidget: function (widgetID, data) {
 		var $div = $("#" + widgetID);
@@ -95,20 +85,19 @@ vis.binds["vis-inventwo"] = {
 
         var htmlText = "<div class='vis-inventwo-class vis-widget-body" + data.class;
         // Widget body css
-
         var css = "style='background: ";
         if(vis.states.attr(data.oid + '.val')){
-            css += data.attr('iButtonActive');
+            css += data.iButtonActive;
         }
         else{
-            css += data.attr('iButtonCol');
+            css += data.iButtonCol;
         }
         css += ";border-radius" + data.iCornerRadius + "px;";
 
         htmlText += css + "'>";
         
         htmlText += "<div style='padding: 7px'>";
-        /*htmlText += "<div class='vis-inventwo-button-imageContainer'>"
+        htmlText += "<div class='vis-inventwo-button-imageContainer'>"
         htmlText += "<img src='";
         if(vis.states.attr(data.oid + '.val')){
             htmlText += data.iImageTrue;
@@ -125,12 +114,10 @@ vis.binds["vis-inventwo"] = {
         else{
             htmlText += data.iTextFalse;
         }
-        */
-       /*
         htmlText += "</div></div>"
 
 		$("#" + widgetID).html(htmlText);
-*/
+
         // subscribe on updates of value
         /*
 		if (data.oid) {
@@ -140,16 +127,7 @@ vis.binds["vis-inventwo"] = {
         }*/
         /*
     },
-    */
-
-    hexToRgbWithOpacity: function(hex,opacity){
-
-        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-
-        var rgba = result ? ("rgba(" + parseInt(result[1], 16) + "," + parseInt(result[2], 16) + "," + parseInt(result[3], 16) + "," + opacity + ")") : null;
-        return rgba;
-    },
-
+*/
     handleToggle: function (el, data) {
 
             var $this = $(el);
