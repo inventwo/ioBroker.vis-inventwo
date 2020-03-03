@@ -96,17 +96,17 @@ vis.binds["vis-inventwo"] = {
         // Widget body css
         var css = "style='background: ";
         if(vis.states.attr(data.oid + '.val')){
-            css += data.iButtonActive;
+            css += data.attr('iButtonActive');
         }
         else{
-            css += data.iButtonCol;
+            css += data.attr('iButtonCol');
         }
         css += ";border-radius" + data.iCornerRadius + "px;";
 
         htmlText += css + "'>";
         
         htmlText += "<div style='padding: 7px'>";
-        htmlText += "<div class='vis-inventwo-button-imageContainer'>"
+        /*htmlText += "<div class='vis-inventwo-button-imageContainer'>"
         htmlText += "<img src='";
         if(vis.states.attr(data.oid + '.val')){
             htmlText += data.iImageTrue;
@@ -123,6 +123,7 @@ vis.binds["vis-inventwo"] = {
         else{
             htmlText += data.iTextFalse;
         }
+        */
         htmlText += "</div></div>"
 
 		$("#" + widgetID).html(htmlText);
