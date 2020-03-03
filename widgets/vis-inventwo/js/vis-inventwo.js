@@ -94,6 +94,7 @@ vis.binds["vis-inventwo"] = {
 
         var htmlText = "<div class='vis-inventwo-class vis-widget-body" + data.class;
         // Widget body css
+        
         var css = "style='background: ";
         if(vis.states.attr(data.oid + '.val')){
             css += data.attr('iButtonActive');
