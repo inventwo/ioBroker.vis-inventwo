@@ -33,17 +33,9 @@
 
             <div style="padding: 7px">
 
-            <%
-                let invertIcon;
-                if(this.data.attr('iInvertImageCol'))
-                    invertIcon = 1;
-                else
-                    invertIcon = 0;
-            %>
-
             <% if(vis.states.attr(this.data.oid + '.val')) { %>
                 <div class="vis-inventwo-button-imageContainer">
-                    <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= invertIcon %>)" >
+                    <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>">
                 </div>        
                 <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>">
                     <%= this.data.iTextTrue %>
