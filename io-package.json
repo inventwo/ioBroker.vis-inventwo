@@ -54,7 +54,7 @@
 		],
 		"localLink": "%web_protocol%://%ip%:%web_port%/vis/edit.html",
 		"mode": "daemon",
-		"type": "visualization",
+		"type": "visualization-widgets",
 		"compact": true,
 		"connectionType": "local",
 		"dataSource": "poll",
