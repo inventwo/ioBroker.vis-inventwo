@@ -48,7 +48,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ...
 
 ### 0.0.1
-- Die Idee ist geboren
+- Die Idee ist geboren!
 
 ---
 
