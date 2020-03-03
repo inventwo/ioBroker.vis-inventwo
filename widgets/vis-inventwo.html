@@ -68,6 +68,7 @@
                 </div>        
                 <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>">
                     <%= this.data.iTextFalse %>
+                    <%= vis.binds['vis-inventwo'].hexToRgbWithOpacity(this.data.attr('iButtonCol'),this.data.attr('iOpacity')) %>
 		        </div>
             <% } %>
 
