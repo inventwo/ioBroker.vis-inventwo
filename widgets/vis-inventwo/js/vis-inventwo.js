@@ -49,8 +49,12 @@ if (vis.editMode) {
 	        	"de": "Abrundung"
             },
             "iOpacityBtn": {
-	        	"en": "Opacity",
-	        	"de": "Transparenz"
+	        	"en": "Button opacity",
+	        	"de": "Button Transparenz"
+            },
+            "iOpacityCtn": {
+	        	"en": "Content opacity",
+	        	"de": "Inhalt Transparenz"
             },
             "iTextFalse": {
 	        	"en": "Label  false",
