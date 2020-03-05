@@ -48,7 +48,7 @@ if (vis.editMode) {
 	        	"en": "Border radius",
 	        	"de": "Abrundung"
             },
-            "iOpacity": {
+            "iOpacityBtn": {
 	        	"en": "Opacity",
 	        	"de": "Transparenz"
             },
