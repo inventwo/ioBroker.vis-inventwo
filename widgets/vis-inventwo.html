@@ -77,7 +77,7 @@
         <% } %>
             >
 
-            <div style="padding: 7px; display: table">
+            <div style="padding: 7px; display: table; opacity: <%= this.data.attr('iOpacityCtn') %>">
 
             <% if(vis.states.attr(this.data.oid + '.val')) { %>
                 <div style="display:table-cell;right: 7px; position:absolute;">
@@ -135,7 +135,7 @@
             border-radius: <%= this.data.attr('iCornerRadius') %>px 0;"
             >
 
-            <div style="padding: 7px">
+            <div style="padding: 7px; opacity: <%= this.data.attr('iOpacityCtn') %>">
                 <div class="vis-inventwo-button-imageContainer">
                     <img src='<%= this.data.iImage %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>)">
                 </div>        
@@ -164,7 +164,7 @@
             border-radius: <%= this.data.attr('iCornerRadius') %>px 0;"
             >
 
-            <div style="padding: 7px; display: table">
+            <div style="padding: 7px; display: table; opacity: <%= this.data.attr('iOpacityCtn') %>">
 
                 <div style="display:table-cell;right: 7px; position:absolute;">
                     <img src='<%= this.data.iImage %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>)">
@@ -195,7 +195,7 @@
             style="background: <%= vis.binds['vis-inventwo'].hexToRgbWithOpacity(this.data.attr('iButtonCol'),this.data.attr('iOpacityBtn')) %>;
             border-radius: <%= this.data.attr('iCornerRadius') %>px 0;">
 
-            <div style="padding: 7px">
+            <div style="padding: 7px; opacity: <%= this.data.attr('iOpacityCtn') %>">
                 <div class="vis-inventwo-button-imageContainer">
                 
                         <img src='<%= this.data.iImage %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>)">
@@ -231,7 +231,7 @@
         <% } %>
             >
 
-            <div style="padding: 7px">
+            <div style="padding: 7px; opacity: <%= this.data.attr('iOpacityCtn') %>">
             
             <% if(vis.states.attr(this.data.oid + '.val')) { %>
                 <div class="vis-inventwo-button-imageContainer">
@@ -277,7 +277,7 @@
         <% } %>
             >
 
-            <div style="padding: 7px; display: table">
+            <div style="padding: 7px; display: table; opacity: <%= this.data.attr('iOpacityCtn') %>">
 
             <% if(vis.states.attr(this.data.oid + '.val')) { %>
                 <div style="display:table-cell;right: 7px; position:absolute;">
