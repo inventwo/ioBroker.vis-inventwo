@@ -42,7 +42,7 @@ systemDictionary = {
 		"en": "Border radius",
 		"de": "Abrundung"
     },
-    "iOpacityBtn": {
+    "iOpacity": {
 		"en": "Opacity",
 		"de": "Transparenz"
     }
