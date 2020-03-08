@@ -1,8 +1,20 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "0.1.2",
+		"version": "1.0.0",
 		"news": {
+            "1.0.0": {
+                "en": "Widget background and content opacity, Switch can be changed from boolean to value",
+                "de": "Widget-Hintergrund und Inhaltsopazität, Switch kann von boolean auf Wert geändert werden",
+                "ru": "Фон виджета и непрозрачность содержимого, Переключатель может быть изменен с логического значения на значение",
+                "pt": "Segundo plano do widget e opacidade do conteúdo, o switch pode ser alterado de booleano para valor",
+                "nl": "Widgetachtergrond en inhouddekking, Switch kan worden gewijzigd van Boolean naar waarde",
+                "fr": "Arrière-plan du widget et opacité du contenu, le commutateur peut être changé de booléen en valeur",
+                "it": "Widget di sfondo e opacità del contenuto, Switch può essere modificato da booleano a valore",
+                "es": "Fondo de widget y opacidad de contenido, el interruptor se puede cambiar de booleano a valor",
+                "pl": "Widget tła i nieprzezroczystość treści, Przełącz można zmienić z wartości logicznej na wartość",
+                "zh-cn": "窗口小部件背景和内容不透明，可将开关从布尔值更改为值"
+            },
             "0.1.2": {
                 "en": "Bug fixes",
                 "de": "Fehlerbehebung",
