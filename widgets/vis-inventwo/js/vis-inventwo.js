@@ -165,7 +165,7 @@ vis.binds["vis-inventwo"] = {
             url = 'https://github.com/inventwo/ioBroker.vis-inventwo/wiki'
         }
         return { input: `<a target="_blank" href="${url}">${_('wiki')}</a>` }
-    },
+    }
 };
 
 vis.binds["vis-inventwo"].showVersion();
