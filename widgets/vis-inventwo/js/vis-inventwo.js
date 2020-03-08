@@ -5,6 +5,14 @@
 */
 "use strict";
 
+let iobSystemDic = systemDictionary;
+$.get("../vis-materialdesign.admin/words.js", function (script) {
+    let translation = script.substring(script.indexOf('{'), script.length);
+    translation = translation.substring(0, translation.lastIndexOf(';'));
+    $.extend(systemDictionary, JSON.parse(translation));
+    $.extend(systemDictionary, iobSystemDic);
+});
+
 /*
 if (vis.editMode) {
         $.extend(true, systemDictionary, {
@@ -82,46 +90,6 @@ if (vis.editMode) {
 // this code can be placed directly in vis-inventwo.html
 vis.binds["vis-inventwo"] = {
     
-	createWidget: function (widgetID, data) {
-		var $div = $("#" + widgetID);
-		// if nothing found => wait
-		if (!$div.length) {
-			return setTimeout(function () {
-				vis.binds["vis-inventwo"].createWidget(widgetID, data);
-			}, 100);
-		}
-
-        var htmlText = "<div class='vis-inventwo-class vis-widget-body" + data.class + ">";
-        // Widget body css
-
-        if((vis.states.attr(data.oid + '.val') && data.iValueType == 'boolean') || (vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value')){
-            htmlText += "true";
-        }
-        else{
-            htmlText += "false";
-        }
-
-        htmlText += "</div>";
-
-		return htmlText;
-
-        // subscribe on updates of value
-        /*
-		if (data.oid) {
-			vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
-				$div.find(".vis-inventwo-value").html(newVal);
-			});
-        }*/
-        
-    },
-
-    hexToRgbWithOpacity: function(hex,opacity){
-
-        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-
-        var rgba = result ? ("rgba(" + parseInt(result[1], 16) + "," + parseInt(result[2], 16) + "," + parseInt(result[3], 16) + "," + opacity + ")") : null;
-        return rgba;
-    },
     handleToggle: function (el, data) {
 
             var $this = $(el);
@@ -198,7 +166,14 @@ vis.binds["vis-inventwo"] = {
                     });
                 
             }
-    }
+    },
+    externalLinks: function (widAttr, data) {
+        let url = '';
+        if (data[1] === 'wiki') {
+            url = 'https://github.com/inventwo/ioBroker.vis-inventwo/wiki'
+        }
+            return { input: `<a target="_blank" href="${url}">${_('wiki')}</a>` }
+    },
 };
 
 vis.binds["vis-inventwo"].showVersion();
