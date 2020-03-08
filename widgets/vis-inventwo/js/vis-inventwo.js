@@ -6,7 +6,7 @@
 "use strict";
 
 let iobSystemDic = systemDictionary;
-$.get("../vis-materialdesign.admin/words.js", function (script) {
+$.get("../vis-inventwo.admin/words.js", function (script) {
     let translation = script.substring(script.indexOf('{'), script.length);
     translation = translation.substring(0, translation.lastIndexOf(';'));
     $.extend(systemDictionary, JSON.parse(translation));
