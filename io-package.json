@@ -4,38 +4,85 @@
 		"version": "0.1.2",
 		"news": {
             "0.1.2": {
-				"en": "Bug fixes",
-                "de": "Bug fixes"
-			},
+                "en": "Bug fixes",
+                "de": "Fehlerbehebung",
+                "ru": "Исправление ошибок",
+                "pt": "Correções de bugs",
+                "nl": "Bugfixes",
+                "fr": "Corrections de bugs",
+                "it": "Correzioni di bug",
+                "es": "Corrección de errores",
+                "pl": "Poprawki błędów",
+                "zh-cn": "Bug修复"
+            },
             "0.1.1": {
-				"en": "Bug fixes",
-                "de": "Bug fixes"
-			},
+                "en": "Bug fixes",
+                "de": "Fehlerbehebung",
+                "ru": "Исправление ошибок",
+                "pt": "Correções de bugs",
+                "nl": "Bugfixes",
+                "fr": "Corrections de bugs",
+                "it": "Correzioni di bug",
+                "es": "Corrección de errores",
+                "pl": "Poprawki błędów",
+                "zh-cn": "Bug修复"
+            },
 			"0.1.0": {
-				"en": "The idea is born",
-                "de": "Die Idee ist geboren"
-			},
+                "en": "First widgets",
+                "de": "Erste Widgets",
+                "ru": "Первые виджеты",
+                "pt": "Primeiros widgets",
+                "nl": "Eerste widgets",
+                "fr": "Premiers widgets",
+                "it": "Primi widget",
+                "es": "Primeros widgets",
+                "pl": "Pierwsze widżety",
+                "zh-cn": "第一个小部件"
+            },
             "0.0.1": {
-				"en": "The idea is born",
-                "de": "Die Idee ist geboren"
-			}
+                "en": "The idea is born",
+                "de": "Die Idee ist geboren",
+                "ru": "Идея рождается",
+                "pt": "A ideia nasce",
+                "nl": "Het idee is geboren",
+                "fr": "L'idée est née",
+                "it": "L'idea è nata",
+                "es": "La idea nace",
+                "pl": "Pomysł się rodzi",
+                "zh-cn": "这个想法诞生了"
+            }
 		},
 		"title": "inventwo Design Widgets",
 		"titleLang": {
-			"en": "inventwo Design Widgets",
-			"de": "inventwo Design Widgets"
-		},
+            "en": "inventwo Design Widgets",
+            "de": "inventwo Design Widgets",
+            "ru": "Изобретательские Виджеты Дизайна",
+            "pt": "inventwo Design Widgets",
+            "nl": "inventwo Design Widgets",
+            "fr": "inventwo Design Widgets",
+            "it": "inventwo Design Widgets",
+            "es": "inventwo Widgets de diseño",
+            "pl": "wynalazki dwóch widżetów projektowych",
+            "zh-cn": "inventwo设计小部件"
+        },
 		"desc": {
-			"en": "Design widgets for ioBroker.vis",
-            "de": "Design Widgets für ioBroker.vis"
-		},
+            "en": "inventwo Design widgets for ioBroker.vis",
+            "de": "inventwo Design Widgets für ioBroker.vis",
+            "ru": "Изобретены виджеты дизайна для ioBroker.vis",
+            "pt": "widgets de Design do inventwo para ioBroker.vis",
+            "nl": "inventwo Ontwerpwidgets voor ioBroker.vis",
+            "fr": "widgets Inventwo Design pour ioBroker.vis",
+            "it": "inventwo Widget di design per ioBroker.vis",
+            "es": "inventwo Widgets de diseño para ioBroker.vis",
+            "pl": "wynalazki Widżety projektowe dla ioBroker.vis",
+            "zh-cn": "ioBroker.vis的inventwo设计小部件"
+        },
 		"authors": [
 			"jkvarel <jkvarel@inventwo.com>",
             "skvarel <skvarel@inventwo.com>"
 		],
 		"keywords": [
             "ioBroker",
-            "template",
             "Smart Home",
             "home automation",
             "inventwo",
