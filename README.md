@@ -36,8 +36,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ## Changelog / Änderungsprotokoll
 
 ### 1.0.0
-- Widget background and content opacity, Switch can be changed from boolean to value
-...
+- Widget background and content opacity, Switch can be changed from boolean to value, changed icons from white to black, added seamless backgrounds
 
 ### 0.1.2
 - Bug fixes
