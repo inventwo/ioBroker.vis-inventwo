@@ -5,7 +5,7 @@
 */
 "use strict";
 
-
+/*
 if (vis.editMode) {
         $.extend(true, systemDictionary, {
             "Instance": {
@@ -78,7 +78,7 @@ if (vis.editMode) {
             }
         });
     }
-
+*/
 // this code can be placed directly in vis-inventwo.html
 vis.binds["vis-inventwo"] = {
     /*
