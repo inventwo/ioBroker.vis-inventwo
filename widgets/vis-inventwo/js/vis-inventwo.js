@@ -96,6 +96,14 @@ if (vis.editMode) {
             "iValueTypeText":{
                 "en": "If type is 'boolean', value fields can be empty",
                 "de": "Wenn Typ ist 'boolean', können Wert Felder leer bleiben"
+            },
+            "iWiki":{
+                "en": "Manual",
+                "de": "Anleitung"
+            },
+            "iWikiText":{
+                "en": "To the wiki",
+                "de": "Zum Wiki"
             }
         });
     }
@@ -185,7 +193,7 @@ vis.binds["vis-inventwo"] = {
         if (data[1] === 'wiki') {
             url = 'https://github.com/inventwo/ioBroker.vis-inventwo/wiki'
         }
-        return { input: `<a target="_blank" href="${url}">${_('wiki')}</a>` }
+        return { input: `<a target="_blank" href="${url}">${_('wikiText')}</a>` }
     },
     infoText: function (widAttr, data) {
         let text = '';
