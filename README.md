@@ -4,7 +4,7 @@
 # DIES IST EINE ENTWICKLER VERSION! BITTE NUR DEN MASTER BRANCH BENUTZEN!
 # THIS IS A DEVELOPER VERSION! PLEASE ONLY USE THE MASTER BRANCH!
 
-## Lizens
+## License
 
 Urheberrechte (c) 2020 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
