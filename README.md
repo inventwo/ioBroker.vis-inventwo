@@ -1,8 +1,60 @@
 ![Logo](admin/i_150.png)
 # ioBroker.vis-inventwo
 
-# DIES IST EINE ENTWICKLER VERSION! BITTE NUR DEN MASTER BRANCH BENUTZEN!
-# THIS IS A DEVELOPER VERSION! PLEASE ONLY USE THE MASTER BRANCH!
+[![NPM version](http://img.shields.io/npm/v/iobroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
+![Number of Installations (latest)](http://iobroker.live/badges/vis-inventwo-installed.svg)
+![Number of Installations (stable)](http://iobroker.live/badges/vis-inventwo-stable.svg)
+[![Dependency Status](https://img.shields.io/david/inventwo/iobroker.vis-inventwo.svg)](https://david-dm.org/inventwo/iobroker.vis-inventwo)
+[![Known Vulnerabilities](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo)
+
+[![NPM](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)](https://nodei.co/npm/iobroker.vis-inventwo/)
+
+
+## Schalter Widgets für den ioBroker.vis Adapter
+
+
+![Beispiel](admin/Set.png)
+
+Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben) und die Icons. Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
+
+![Beispiel](admin/Preview.png)
+
+![Beispiel](admin/Preview2.png)
+---
+
+## Unterstützung
+
+Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen uns über jede Spende.
+
+(Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
+
+[![Spende](admin/spende.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GQPD3G25CKTEJ&source=url)
+
+---
+
+## Changelog / Änderungsprotokoll
+
+### 1.0.0
+- Widget background and content opacity, Switch can be changed from boolean to value
+...
+
+### 0.1.2
+- Bug fixes
+...
+
+### 0.1.1
+- Bug fixes
+...
+
+### 0.1.0 (Erstveröffentlichung)
+- inventwo Design Widgets
+...
+
+### 0.0.1
+- Die Idee ist geboren
+
+---
 
 ## License
 
