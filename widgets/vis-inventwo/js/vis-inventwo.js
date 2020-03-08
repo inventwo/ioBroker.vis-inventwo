@@ -192,7 +192,7 @@ vis.binds["vis-inventwo"] = {
         if (data[1] === 'valueType') {
             text = 'iValueTypeText'
         }
-        return { input: `<span>${text}</span>` }
+        return { input: `<span>${_(text)}</span>` }
     }
 };
 
