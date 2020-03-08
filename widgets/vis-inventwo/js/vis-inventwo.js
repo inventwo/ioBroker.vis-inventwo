@@ -81,7 +81,7 @@ if (vis.editMode) {
 */
 // this code can be placed directly in vis-inventwo.html
 vis.binds["vis-inventwo"] = {
-    /*
+    
 	createWidget: function (widgetID, data) {
 		var $div = $("#" + widgetID);
 		// if nothing found => wait
@@ -93,38 +93,17 @@ vis.binds["vis-inventwo"] = {
 
         var htmlText = "<div class='vis-inventwo-class vis-widget-body" + data.class;
         // Widget body css
-        var css = "style='background: ";
-        if(vis.states.attr(data.oid + '.val')){
-            css += data.iButtonActive;
+
+        if((vis.states.attr(data.oid + '.val') && data.iValueType == 'boolean') || (vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value')){
+            htmlText += "true";
         }
         else{
-            css += data.iButtonCol;
+            htmlText += "false";
         }
-        css += ";border-radius" + data.iCornerRadius + "px;";
 
-        htmlText += css + "'>";
-        
-        htmlText += "<div style='padding: 7px'>";
-        htmlText += "<div class='vis-inventwo-button-imageContainer'>"
-        htmlText += "<img src='";
-        if(vis.states.attr(data.oid + '.val')){
-            htmlText += data.iImageTrue;
-        }
-        else{
-            htmlText += data.iImageFalse;
-        }
-        htmlText += "' width='" + data.iIconSize + "'>";
+        htmlText += "</div>";
 
-        htmlText += "</div><div class='vis-inventwo-button-text' style='font-size:" + data.iTextSize + "px'>"
-        if(vis.states.attr(data.oid + '.val')){
-            htmlText += data.iTextTrue;
-        }
-        else{
-            htmlText += data.iTextFalse;
-        }
-        htmlText += "</div></div>"
-
-		$("#" + widgetID).html(htmlText);
+		return htmlText;
 
         // subscribe on updates of value
         /*
@@ -133,9 +112,9 @@ vis.binds["vis-inventwo"] = {
 				$div.find(".vis-inventwo-value").html(newVal);
 			});
         }*/
-        /*
+        
     },
-*/
+
     hexToRgbWithOpacity: function(hex,opacity){
 
         var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
