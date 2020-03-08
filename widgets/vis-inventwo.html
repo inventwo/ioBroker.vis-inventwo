@@ -36,7 +36,7 @@
 
             <div style="padding: 7px; opacity: <%= this.data.attr('iOpacityCtn') %>">
 
-                <% if(vis.states.attr(this.data.oid + '.val')) { %>
+                <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
                     <div class="vis-inventwo-button-imageContainer">
                         <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>)" >
                     </div>        
