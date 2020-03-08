@@ -5,13 +5,7 @@
 */
 "use strict";
 // add translations for edit mode
-$.get( 'adapter/vis-inventwo/admin/words.js', function(script) {
-    let translation = script.substring(script.indexOf('{'), script.length);
-    translation = translation.substring(0, translation.lastIndexOf(';'));
-    $.extend(systemDictionary, JSON.parse(translation));
-});
 
-/*
 if (vis.editMode) {
         $.extend(true, systemDictionary, {
             "Instance": {
@@ -81,10 +75,31 @@ if (vis.editMode) {
             "iInvertImageCol": {
 	        	"en": "Invert icon color",
 	        	"de": "Bildfarbe invertieren"
+            },
+            "iValueType":{
+                "en": "Type",
+                "de": "Typ"
+
+            },
+            "iValueFalse":{
+                "en": "Value false",
+                "de": "Wert falsch"
+            },
+            "iValueTrue":{
+                "en": "Value true",
+                "de": "Wert wahr"
+            },
+            "iValueTypeInfo":{
+                "en": "Type Info",
+                "de": "Typ Info"
+            },
+            "iValueTypeText":{
+                "en": "If type is 'boolean', value fields can be empty",
+                "de": "Wenn Typ ist 'boolean', können Wert Felder leer bleiben"
             }
         });
     }
-*/
+
 // this code can be placed directly in vis-inventwo.html
 vis.binds["vis-inventwo"] = {
     
@@ -171,6 +186,13 @@ vis.binds["vis-inventwo"] = {
             url = 'https://github.com/inventwo/ioBroker.vis-inventwo/wiki'
         }
         return { input: `<a target="_blank" href="${url}">${_('wiki')}</a>` }
+    },
+    infoText: function (widAttr, data) {
+        let text = '';
+        if (data[1] === 'valueType') {
+            text = 'iValueTypeText'
+        }
+        return { input: `<span>${text}</span>` }
     }
 };
 
