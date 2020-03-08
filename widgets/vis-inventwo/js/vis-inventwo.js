@@ -91,7 +91,7 @@ vis.binds["vis-inventwo"] = {
 			}, 100);
 		}
 
-        var htmlText = "<div class='vis-inventwo-class vis-widget-body" + data.class;
+        var htmlText = "<div class='vis-inventwo-class vis-widget-body" + data.class + ">";
         // Widget body css
 
         if((vis.states.attr(data.oid + '.val') && data.iValueType == 'boolean') || (vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value')){
