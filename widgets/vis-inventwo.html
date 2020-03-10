@@ -40,14 +40,18 @@
                         <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>)" >
                     </div>        
                     <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>">
+                    	<div>
                         <%= this.data.iTextTrue %>
+                        <div>
 		            </div>
                 <% } else { %>
                     <div class="vis-inventwo-button-imageContainer">
                         <img src='<%= this.data.iImageFalse %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>)" >
                     </div>        
                     <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>">
+                    	<div>
                         <%= this.data.iTextFalse %>
+                        </div>
 		            </div>
                 <% } %>
 
