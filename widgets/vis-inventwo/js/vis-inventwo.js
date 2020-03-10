@@ -206,15 +206,11 @@ vis.binds["vis-inventwo"] = {
 			}, 100);
 		}
 
-		var text = '';
-		text += 'OID: ' + data.oid + '</div><br>';
-		text += 'OID value: <span class="myset-value">' + vis.states[data.oid + '.val'] + '</span><br>';
-		text += 'Color: <span style="color: ' + data.myColor + '">' + data.myColor + '</span><br>';
-		text += 'extraAttr: ' + data.extraAttr + '<br>';
-		text += 'Browser instance: ' + vis.instance + '<br>';
-		text += 'htmlText: <textarea readonly style="width:100%">' + (data.htmlText || '') + '</textarea><br>';
+		var text = "";
+		text += "OID: " + data.oid + "</div><br>";
+		text += "OID value: <span class='myset-value'>" + vis.states[data.oid + ".val"] + "</span><br>";
 
-		$('#' + widgetID).html(text);
+		$("#" + widgetID).html(text);
 
 		// subscribe on updates of value
 		if (data.oid) {
