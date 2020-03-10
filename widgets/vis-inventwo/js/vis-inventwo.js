@@ -196,18 +196,7 @@ vis.binds["vis-inventwo"] = {
             text = 'iValueTypeText'
         }
         return { input: `<span>${_(text)}</span>` }
-    },
-	createWidget: function (widgetID, view, data, style) {
-
-		var text = "";
-		text += "OID: " + data.oid + "</div><br>";
-		text += "OID value: <span class='myset-value'>" + vis.states[data.oid + ".val"] + "</span><br>";
-
-		return text;
-
-		// subscribe on updates of value
-
-	}
+    }
 };
 
 vis.binds["vis-inventwo"].showVersion();
