@@ -85,14 +85,14 @@
             <div style="padding: 7px; display: table; opacity: <%= this.data.attr('iOpacityCtn') %>">
 
             <% if(vis.states.attr(this.data.oid + '.val')) { %>
-                <div style="order:2; position:relative;">
+                <div style="display:table-cell;right: 7px; position:absolute;">
                     <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>)">
                 </div>        
                 <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
                     <%= this.data.iTextTrue %>
 		        </div>
             <% } else { %>
-                <div style="order:2; position:relative;">
+                <div style="display:table-cell;right: 7px; position:absolute;">
                     <img src='<%= this.data.iImageFalse %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>)">
                 </div>        
                 <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
