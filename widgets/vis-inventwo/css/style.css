@@ -17,11 +17,20 @@
 }
 
 .vis-inventwo-button-text {
-    bottom: 7px;
+    position: relative;
     align-self: flex-start;
     width: -moz-available;
     width: -webkit-fill-available;
     width: fill-available;
     margin-top: auto;
     z-index: 1;
+}
+
+.vis-inventwo-button-content{
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    height:moz-available;
+    height: -webkit-fill-available;
+    height: fill-available;
 }
