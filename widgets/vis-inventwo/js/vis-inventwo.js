@@ -202,7 +202,7 @@ vis.binds["vis-inventwo"] = {
 		// if nothing found => wait
 		if (!$div.length) {
 			return setTimeout(function () {
-				vis.binds['template'].createWidget(widgetID, view, data, style);
+				vis.binds['vis-inventwo'].createWidget(widgetID, view, data, style);
 			}, 100);
 		}
 
