@@ -19,7 +19,7 @@
 		data-vis-type="helper"
 		data-vis-name="Helper">
     <div class="vis-widget <%== this.data.attr('class') %>" style="overflow:visible; width: 230px; height: 210px" id="<%= this.data.attr('wid') %>"><%
-        vis.binds.vis-inventwo.createWidget(this.data.wid, this.view, this.data, this.style);
+        vis.binds['vis-inventwo'].createWidget(this.data.wid, this.view, this.data, this.style);
     %></div>
 </script>
 
