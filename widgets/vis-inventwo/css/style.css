@@ -34,3 +34,12 @@
     height: -webkit-fill-available;
     height: fill-available;
 }
+
+.vis-inventwo-button-content-small{
+    padding: 7px;
+    display: flex;
+    flex-direction: row;
+    width:moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+}
