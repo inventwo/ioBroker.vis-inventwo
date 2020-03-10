@@ -42,4 +42,7 @@
     width:moz-available;
     width: -webkit-fill-available;
     width: fill-available;
+    height:moz-available;
+    height: -webkit-fill-available;
+    height: fill-available;
 }
