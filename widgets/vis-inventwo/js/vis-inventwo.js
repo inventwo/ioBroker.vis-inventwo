@@ -198,26 +198,15 @@ vis.binds["vis-inventwo"] = {
         return { input: `<span>${_(text)}</span>` }
     },
 	createWidget: function (widgetID, view, data, style) {
-		var $div = $('#' + widgetID);
-		// if nothing found => wait
-		if (!$div.length) {
-			return setTimeout(function () {
-				vis.binds['vis-inventwo'].createWidget(widgetID, view, data, style);
-			}, 100);
-		}
 
 		var text = "";
 		text += "OID: " + data.oid + "</div><br>";
 		text += "OID value: <span class='myset-value'>" + vis.states[data.oid + ".val"] + "</span><br>";
 
-		$("#" + widgetID).html(text);
+		return text;
 
 		// subscribe on updates of value
-		if (data.oid) {
-			vis.states.bind(data.oid + '.val', function (e, newVal, oldVal) {
-				$div.find('.template-value').html(newVal);
-			});
-		}
+
 	}
 };
 
