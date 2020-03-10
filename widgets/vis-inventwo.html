@@ -33,25 +33,21 @@
             >
 		    </div>
 
-            <div style="padding: 7px; opacity: <%= this.data.attr('iOpacityCtn') %>">
+            <div style="padding: 7px; opacity: <%= this.data.attr('iOpacityCtn') %>;display: flex;flex-direction: column;height:moz-available;height: -webkit-fill-available;height: fill-available;">
 
                 <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
                     <div class="vis-inventwo-button-imageContainer">
                         <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>)" >
                     </div>        
-                    <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>">
-                    	<div>
+                    <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>;align-self: flex-start;width: -moz-available;width: -webkit-fill-available;width: fill-available;">
                         <%= this.data.iTextTrue %>
-                        <div>
 		            </div>
                 <% } else { %>
                     <div class="vis-inventwo-button-imageContainer">
                         <img src='<%= this.data.iImageFalse %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>)" >
                     </div>        
-                    <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>">
-                    	<div>
+                    <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>;align-self: flex-start;width: -moz-available;width: -webkit-fill-available;width: fill-available;">
                         <%= this.data.iTextFalse %>
-                        </div>
 		            </div>
                 <% } %>
 
