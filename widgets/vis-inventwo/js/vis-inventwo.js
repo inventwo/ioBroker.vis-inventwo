@@ -227,9 +227,11 @@ vis.binds["vis-inventwo"] = {
 
 		var $this = $(el);
 		var oid = data.oid;
+		var val = vis.states.attr(oid + ".val");
 
 		$this.slider(
 			{
+				value: val,
 				min: data.iMinValue,
 				max: data.iMaxValue,
 				step: data.iStepVal,
