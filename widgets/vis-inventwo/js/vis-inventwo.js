@@ -203,8 +203,8 @@ vis.binds["vis-inventwo"] = {
 
 		var oid = data.oid;
 
-		var minVal = data.iMinVal || 10;
-		var maxVal = data.iMaxVal || 220;
+		var minVal = 10;
+		var maxVal = 220;
 
 		//var val = vis.states[oid + '.val'];
 		//$this.val(val);
