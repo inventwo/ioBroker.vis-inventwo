@@ -197,7 +197,7 @@ vis.binds["vis-inventwo"] = {
         }
         return { input: `<span>${_(text)}</span>` }
     },
-	slider: function (el, data) {
+	sliderHandle: function (el, data) {
 
 		var $this = $(el);
 
@@ -241,6 +241,29 @@ vis.binds["vis-inventwo"] = {
 		$this.slider("option","min",minVal);
 		$this.slider("option","max",maxVal);
 
+		vis.states.bind(oid + ".val",function () {
+			$this.slider('value',vis.states.attr(oid + ".val"));
+		});
+
+	},
+	sliderHandle2: function (el, data) {
+
+		var $this = $(el);
+
+		var oid = data.oid;
+
+
+		$this.slider(
+			{
+				value:100,
+				min: 0,
+				max: 500,
+				step: 50,
+				slide: function( event, ui ) {
+					vis.setValue(oid, ui.value);
+				}
+			}
+		);
 		vis.states.bind(oid + ".val",function () {
 			$this.slider('value',vis.states.attr(oid + ".val"));
 		});
