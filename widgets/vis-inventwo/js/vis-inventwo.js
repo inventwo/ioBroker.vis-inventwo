@@ -203,7 +203,7 @@ vis.binds["vis-inventwo"] = {
 
 		var oid = data.oid;
 
-		var val = vis.states[oid + '.val'];
+		//var val = vis.states[oid + '.val'];
 		//$this.val(val);
 
 		/*
@@ -228,16 +228,18 @@ vis.binds["vis-inventwo"] = {
 		*/
 
 		$this.slider({
-			min: data.iMinVal,
-			max: data.iMaxVal,
-			value: 20,
-			change: function (e, ui) {
-				vis.setValue(oid, ui.value);
-			},
+
 			slide: function (e, ui) {
 				vis.setValue(oid, ui.value);
 			}
 
+		});
+
+		$this.slider("option","min",data.iMinVal);
+		$this.slider("option","max",data.iMaxVal);
+
+		vis.states.bind(oid + ".val",function () {
+			$this.slider('value',vis.states.attr(oid + ".val"));
 		});
 
 	}
