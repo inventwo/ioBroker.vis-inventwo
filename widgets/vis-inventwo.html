@@ -332,23 +332,3 @@
 
 	</div>
 </script>
-
-<script id="i-vis-slider-simple"
-		type="text/ejs"
-		class="vis-tpl"
-		data-vis-prev='<img src="">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iMinVal/number;iMaxVal/number;iStepVal/number;"
-		data-vis-attrs0="group.i-css;iSliderHeight[10]/slider,1,200,1;iSliderKnobHeight[20]/slider,1,200,1;iSliderColor[#ffffff]/color;iSliderKnobColor[#00ff00]/color"
-		data-vis-set="vis-inventwo"
-		data-vis-type="slider"
-		data-vis-name="Simple Slider">
-
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:200px; height:50px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
-		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
-
-			<div <%= (el) -> vis.binds['vis-inventwo'].slider2(el, this.data) %> > </div>
-
-		</div>
-
-	</div>
-</script>

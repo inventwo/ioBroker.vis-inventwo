@@ -206,7 +206,8 @@ vis.binds["vis-inventwo"] = {
 		var val = vis.states[oid + '.val'];
 		$this.val(val);
 
-		$this.css('')
+		$this.find(".i-slider::-webkit-slider-thumb").css("background",data.iSliderKnobColor);
+		$this.css("background",data.iSLiderColor);
 
 		if (!vis.editMode) {
 
@@ -222,29 +223,5 @@ vis.binds["vis-inventwo"] = {
 			$this.val(vis.states.attr(oid + ".val"));
 		});
 
-	},
-	slider2: function (el, data) {
-
-		var $this = $(el);
-		var oid = data.oid;
-		var val = vis.states.attr(oid + ".val");
-
-		$this.slider(
-			{
-				value: 5,
-				min: 0,
-				max: 20,
-				step: 1,
-				change: function(event,ui){
-					vis.setValue(oid, ui.value);
-				}
-			});
-
-
-
-		vis.states.bind(oid + ".val",function () {
-			$this.slider('value',vis.states.attr(oid + ".val"));
-		});
-
-	},
+	}
 };
