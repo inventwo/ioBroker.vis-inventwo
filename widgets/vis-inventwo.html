@@ -314,7 +314,7 @@
 		type="text/ejs"
 		class="vis-tpl"
 		data-vis-prev='<img src="">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;"
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iMinVal/number;iMaxVal/number;"
 		data-vis-attrs0="group.i-css;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="slider"
@@ -323,7 +323,7 @@
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:200px; height:50px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
 
-			<input type="range" min="1" max="100" value="50" class="i-slider" <%= (el) -> vis.binds['vis-inventwo'].slider(el, this.data) %> >
+			<input type="range" min="<%= this.data.iMinVal %>" max="<%= this.data.iMaxVal %>" value="<%= vis.states.attr(this.data.oid + '.val') %>" class="i-slider" <%= (el) -> vis.binds['vis-inventwo'].slider(el, this.data) %> >
 
 
 
