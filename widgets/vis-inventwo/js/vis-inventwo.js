@@ -228,16 +228,15 @@ vis.binds["vis-inventwo"] = {
 		var $this = $(el);
 		var oid = data.oid;
 
-			$this.slider(
-				{
-					min: data.iMinValue,
-					max: data.iMaxValue,
-					step: data.iStepVal,
-					change: function(event,ui){
-						vis.setValue(oid, ui.value);
-					}
+		$this.slider(
+			{
+				min: data.iMinValue,
+				max: data.iMaxValue,
+				step: data.iStepVal,
+				change: function(event,ui){
+					vis.setValue(oid, ui.value);
 				}
-			);
+			});
 
 
 
