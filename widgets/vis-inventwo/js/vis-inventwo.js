@@ -232,7 +232,7 @@ vis.binds["vis-inventwo"] = {
 				{
 					min: data.iMinValue,
 					max: data.iMaxValue,
-					step: 1,
+					step: data.iStepVal,
 					change: function(event,ui){
 						vis.setValue(oid, ui.value);
 					}
