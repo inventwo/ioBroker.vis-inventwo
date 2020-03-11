@@ -209,7 +209,7 @@ vis.binds["vis-inventwo"] = {
 
 			$this.click(function () {
 
-				vis.setValue(oid, data.value);
+				vis.setValue(oid, $this.val());
 				/*
 				var val = vis.states[oid + '.val'];
 				$(el).html('test: ' + val);
