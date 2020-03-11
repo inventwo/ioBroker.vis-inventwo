@@ -228,8 +228,6 @@ vis.binds["vis-inventwo"] = {
 		var $this = $(el);
 		var oid = data.oid;
 
-		if (!vis.editMode) {
-
 			$this.slider(
 				{
 					min: data.iMinValue,
@@ -241,7 +239,6 @@ vis.binds["vis-inventwo"] = {
 				}
 			);
 
-		}
 
 
 		vis.states.bind(oid + ".val",function () {
