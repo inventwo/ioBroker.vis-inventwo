@@ -272,7 +272,6 @@ vis.binds["vis-inventwo"] = {
 		$this.children().css("height",data.iSliderKnobHeight + "px");
 		$this.children().css("width",data.iSliderKnobHeight + "px");
 		$this.children().css("border","0px");
-		$this.children().css("border-radius",data.iSliderKnobBorderRadius);
 		$this.children().css("background",data.iSliderKnobColor);
 		let topPos = ((data.iSliderKnobHeight - data.iSliderHeight) / 2) * (-1);
 		$this.children().css("top",topPos + "px");
