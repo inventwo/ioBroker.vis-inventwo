@@ -206,9 +206,10 @@ vis.binds["vis-inventwo"] = {
 		var val = vis.states[oid + '.val'];
 		$this.val(val);
 
+		/*
 		$this.find(".i-slider::-webkit-slider-thumb").css("background",data.iSliderKnobColor);
 		$this.css("background",data.iSLiderColor);
-
+*/
 		if (!vis.editMode) {
 
 			$this.click(function () {
