@@ -27,24 +27,25 @@
 }
 
 .vis-inventwo-button-content{
-    padding: 7px;
+    /*padding: 7px;*/
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    right: 7px;
+    bottom: 7px;
     display: flex;
     flex-direction: column;
-    height:moz-available;
-    height: -webkit-fill-available;
-    height: fill-available;
 }
 
 .vis-inventwo-button-content-small{
-    padding: 7px;
+    /*padding: 7px;*/
     display: flex;
     flex-direction: row;
-    width:moz-available;
-    width: -webkit-fill-available;
-    width: fill-available;
-    height:moz-available;
-    height: -webkit-fill-available;
-    height: fill-available;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    right: 7px;
+    bottom: 7px;
 }
 
 .i-slider {
