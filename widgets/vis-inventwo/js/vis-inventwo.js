@@ -204,12 +204,12 @@ vis.binds["vis-inventwo"] = {
 		var oid = data.oid;
 
 		var val = vis.states[oid + '.val'];
-		$this.val(val);
+		//$this.val(val);
 
 		/*
 		$this.find(".i-slider::-webkit-slider-thumb").css("background",data.iSliderKnobColor);
 		*/
-		 */
+		/*
 		$this.css("background",data.iSliderColor);
 
 		if (!vis.editMode) {
@@ -224,6 +224,17 @@ vis.binds["vis-inventwo"] = {
 
 		vis.states.bind(oid + ".val",function () {
 			$this.val(vis.states.attr(oid + ".val"));
+		});
+		*/
+
+		$this.slider({
+			min: 0,
+			max: 50,
+			values: 20,
+			change: function (e, ui) {
+				vis.setValue(oid, ui.value);
+			}
+
 		});
 
 	}
