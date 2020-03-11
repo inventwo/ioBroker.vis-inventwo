@@ -223,6 +223,12 @@ vis.binds["vis-inventwo"] = {
 			});
 
 		}
+
+		if(oid){
+			vis.states.bind(oid + ".val",function () {
+				$this.val(vis.states[oid + ".val"]);
+			});
+		}
 	},
 };
 
