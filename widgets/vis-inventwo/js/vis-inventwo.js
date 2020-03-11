@@ -197,12 +197,59 @@ vis.binds["vis-inventwo"] = {
         }
         return { input: `<span>${_(text)}</span>` }
     },
-	slider: function (el, data) {
+	slider: function (el, options) {
 
 		var $this = $(el);
 
-		var oid = data.oid;
+		var oid = options.oid;
 
+		$this.iSlider({
+			min:           options.iMinVal,
+			max:           options.iMaxVal,
+			accuracy:      0,
+			color:         undefined,
+			completeColor: undefined,
+			markerColor:   undefined,
+			position:      val,
+			animate:       true,
+			change:        function (val) {
+				val = (parseFloat(val) / options.factor) + options.min;
+				if (options.step) {
+					val = Math.round(val / options.step) * options.step;
+				}
+				if (options.digits !== undefined && options.digits !== null && options.digits !== '') {
+					vis.setValue(oid, val.toFixed(options.digits));
+					//vis.setValue(oid, parseFloat(val).toFixed(options.digits));
+				} else {
+					vis.setValue(oid, val);
+					//vis.setValue(oid, parseFloat(val));
+				}
+			},
+			changed:       function (val) {
+
+			}
+		});
+
+		vis.states.bind(oid + '.val', function (e, newVal, oldVal) {
+			var val = vis.states.attr(oid + '.val');
+
+			if (val === true  || val === 'true')  val = options.max;
+			if (val === false || val === 'false') val = options.min;
+
+			val = parseFloat(val);
+			if (isNaN(val)) val = options.min;
+			if (val < options.min) val = options.min;
+			if (val > options.max) val = options.max;
+			val = Math.floor((val - options.min) * options.factor);
+
+			try {
+				$this.iSlider('value', val);
+			} catch (e) {
+				console.error(e);
+			}
+		});
+
+		/*
 		var val = vis.states[oid + '.val'];
 		$this.val(val);
 
@@ -211,15 +258,7 @@ vis.binds["vis-inventwo"] = {
 			$this.click(function () {
 
 				vis.setValue(oid, $this.val());
-				/*
-				var val = vis.states[oid + '.val'];
-				$(el).html('test: ' + val);
-					if(val == valFalse){
-						vis.setValue(oid, valTrue);
-					}
-					else{
-						vis.setValue(oid, valFalse);
-					}*/
+
 			});
 
 		}
@@ -228,7 +267,7 @@ vis.binds["vis-inventwo"] = {
 		vis.states.bind(oid + ".val",function () {
 			$this.val(vis.states.attr(oid + ".val"));
 		});
-
+*/
 	},
 };
 

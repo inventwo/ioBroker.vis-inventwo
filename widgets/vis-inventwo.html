@@ -324,6 +324,7 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
 
 			<input type="range" min="<%= this.data.iMinVal %>" max="<%= this.data.iMaxVal %>" value="" class="i-slider" <%= (el) -> vis.binds['vis-inventwo'].slider(el, this.data) %> >
+			<div <%= (el) -> vis.binds['vis-inventwo'].slider(el, this.data) %>></div>
 
 
 
