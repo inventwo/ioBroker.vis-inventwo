@@ -248,5 +248,3 @@ vis.binds["vis-inventwo"] = {
 
 	},
 };
-
-vis.binds["vis-inventwo"].showVersion();
