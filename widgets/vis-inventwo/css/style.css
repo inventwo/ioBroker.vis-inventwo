@@ -1,4 +1,7 @@
 /* Style your widget here */
+
+/* BUTTONS ANFANG */
+
 .vis-inventwo-button {
     box-shadow: 2px 2px 2px 1px #111111;
     position: absolute;
@@ -48,6 +51,10 @@
     bottom: 7px;
 }
 
+/* BUTTONS ENDE */
+
+/* SLIDER ANFANG */
+
 .i-slider {
     -webkit-appearance: none;
     width: 100%;
@@ -76,3 +83,5 @@
     background: #4CAF50;
     cursor: pointer;
 }
+
+/* SLIDER ENDE */
