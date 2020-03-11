@@ -265,6 +265,12 @@ vis.binds["vis-inventwo"] = {
 		);
 
 		$this.css("background",data.iSliderColor);
+		$this.css("border-radius",data.iSliderBorderRadius);
+		$this.css("height",data.iSliderHeight + "px");
+
+		$this.children().css("height",data.iSliderKnobHeight + "px");
+		let topPos = ((data.iSliderKnobHeight - data.iSliderHeight) / 2) * (-1);
+		$this.children().css("top",topPos + "px");
 
 		vis.states.bind(oid + ".val",function () {
 			$this.slider('value',vis.states.attr(oid + ".val"));
