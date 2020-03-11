@@ -264,7 +264,7 @@ vis.binds["vis-inventwo"] = {
 			}
 		);
 
-		$this.css("background",this.iSliderColor);
+		$this.css("background",data.iSliderColor);
 
 		vis.states.bind(oid + ".val",function () {
 			$this.slider('value',vis.states.attr(oid + ".val"));
