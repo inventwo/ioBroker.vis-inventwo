@@ -203,6 +203,9 @@ vis.binds["vis-inventwo"] = {
 
 		var oid = data.oid;
 
+		var minVal = data.iMinVal || 10;
+		var maxVal = data.iMaxVal || 220;
+
 		//var val = vis.states[oid + '.val'];
 		//$this.val(val);
 
@@ -235,8 +238,8 @@ vis.binds["vis-inventwo"] = {
 
 		});
 
-		$this.slider("option","min",data.iMinVal);
-		$this.slider("option","max",data.iMaxVal);
+		$this.slider("option","min",minVal);
+		$this.slider("option","max",maxVal);
 
 		vis.states.bind(oid + ".val",function () {
 			$this.slider('value',vis.states.attr(oid + ".val"));
