@@ -203,7 +203,8 @@ vis.binds["vis-inventwo"] = {
 
 		var oid = data.oid;
 
-		//$(el).html(valFalse);
+		var val = vis.states[oid + '.val'];
+		$this.val(val);
 
 		if (!vis.editMode) {
 
