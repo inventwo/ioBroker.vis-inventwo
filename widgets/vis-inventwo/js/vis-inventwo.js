@@ -257,7 +257,7 @@ vis.binds["vis-inventwo"] = {
 			{
 				value:100,
 				min: 0,
-				max: 500,
+				max: data.iMaxVal,
 				step: 50,
 				slide: function( event, ui ) {
 					vis.setValue(oid, ui.value);
