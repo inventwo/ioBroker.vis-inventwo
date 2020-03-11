@@ -208,8 +208,10 @@ vis.binds["vis-inventwo"] = {
 
 		/*
 		$this.find(".i-slider::-webkit-slider-thumb").css("background",data.iSliderKnobColor);
-		$this.css("background",data.iSLiderColor);
-*/
+		*/
+		 */
+		$this.css("background",data.iSliderColor);
+
 		if (!vis.editMode) {
 
 			$this.click(function () {
