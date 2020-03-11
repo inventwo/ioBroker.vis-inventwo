@@ -231,10 +231,10 @@ vis.binds["vis-inventwo"] = {
 
 		$this.slider(
 			{
-				value: val,
-				min: data.iMinValue,
-				max: data.iMaxValue,
-				step: data.iStepVal,
+				value: 5,
+				min: 0,
+				max: 20,
+				step: 1,
 				change: function(event,ui){
 					vis.setValue(oid, ui.value);
 				}
