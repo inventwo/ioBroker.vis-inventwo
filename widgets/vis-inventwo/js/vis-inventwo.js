@@ -222,11 +222,11 @@ vis.binds["vis-inventwo"] = {
 		);
 
 		$this.slider("option","value",vis.states.attr(oid + ".val"));
-
 		$this.css("background",data.iSliderColor);
 		$this.css("border","0px");
+		$this.css("border-radius",data.iSliderCorners);
 
-		let topPos = ((data.iSliderKnobSize - $("#" + data.wid).height()) / 2) * (-1);
+		let topPos = $("#" + data.wid).height();//((data.iSliderKnobSize - $("#" + data.wid).height()) / 2) * (-1);
 		$this.children().css("top",topPos + "px");
 		$this.children().css("width",data.iSliderKnobSize + "px");
 		$this.children().css("height",data.iSliderKnobSize + "px");
