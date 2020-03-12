@@ -265,8 +265,6 @@ vis.binds["vis-inventwo"] = {
 		);
 
 		$this.css("background",data.iSliderColor);
-		$this.css("border","0px");
-		$this.css("border-radius",data.iSliderBorderRadius);
 		$this.css("height",data.iSliderHeight + "px");
 /*
 		$this.children().css("height",data.iSliderKnobHeight + "px");
