@@ -230,7 +230,7 @@ vis.binds["vis-inventwo"] = {
 		});
 
 	},
-	sliderHandle: function (el, data) {
+	sliderHandle2: function (el, data) {
 
 		var $this = $(el);
 
