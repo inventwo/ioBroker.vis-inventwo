@@ -203,55 +203,6 @@ vis.binds["vis-inventwo"] = {
 
 		var oid = data.oid;
 
-		var minVal = 10;
-		var maxVal = 220;
-
-		//var val = vis.states[oid + '.val'];
-		//$this.val(val);
-
-		/*
-		$this.find(".i-slider::-webkit-slider-thumb").css("background",data.iSliderKnobColor);
-		*/
-		/*
-		$this.css("background",data.iSliderColor);
-
-		if (!vis.editMode) {
-
-			$this.click(function () {
-
-				vis.setValue(oid, $this.val());
-			});
-
-		}
-
-
-		vis.states.bind(oid + ".val",function () {
-			$this.val(vis.states.attr(oid + ".val"));
-		});
-		*/
-
-		$this.slider({
-
-			slide: function (e, ui) {
-				vis.setValue(oid, ui.value);
-			}
-
-		});
-
-		$this.slider("option","min",minVal);
-		$this.slider("option","max",maxVal);
-
-		vis.states.bind(oid + ".val",function () {
-			$this.slider('value',vis.states.attr(oid + ".val"));
-		});
-
-	},
-	sliderHandle: function (el, data) {
-
-		var $this = $(el);
-
-		var oid = data.oid;
-
 
 		$this.slider(
 			{
