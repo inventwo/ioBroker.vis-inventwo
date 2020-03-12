@@ -280,5 +280,27 @@ vis.binds["vis-inventwo"] = {
 			$this.slider('value',vis.states.attr(oid + ".val"));
 		});
 
+	},
+	sliderHandle2: function (el, data) {
+
+		var $this = $(el);
+
+		var oid = data.oid;
+
+
+		$this.slider(
+			{
+				min: 5,
+				max: 120,
+				step: 1,
+				slide: function( event, ui ) {
+					vis.setValue(oid, ui.value);
+				}
+			}
+		);
+		vis.states.bind(oid + ".val",function () {
+			$this.slider('value',vis.states.attr(oid + ".val"));
+		});
+
 	}
 };
