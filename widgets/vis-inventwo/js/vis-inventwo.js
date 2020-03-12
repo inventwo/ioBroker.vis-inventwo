@@ -214,7 +214,7 @@ vis.binds["vis-inventwo"] = {
 				}
 			}
 		);
-
+/*
 		$this.css("background",data.iSliderColor);
 		$this.css("height",data.iSliderHeight + "px");
 /*
