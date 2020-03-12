@@ -104,7 +104,19 @@ if (vis.editMode) {
             "iWikiText":{
                 "en": "To the wiki",
                 "de": "Zum Wiki"
-            }
+            },
+			"iMinVal":{
+				"en": "Min. value",
+				"de": "Min. Wert"
+			},
+			"iMaxVal":{
+				"en": "Max. value",
+				"de": "Max. Wert"
+			},
+			"iStepVal":{
+				"en": "Step",
+				"de": "Schritt"
+			}
         });
     }
 
