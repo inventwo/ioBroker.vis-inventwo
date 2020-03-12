@@ -306,7 +306,7 @@
 	</div>
 </script>
 
-<script id="i-vis-slider4353"
+<script id="i-vis-slider-simple"
 				 type="text/ejs"
 				 class="vis-tpl"
 				 data-vis-prev='<img src="">'
@@ -314,33 +314,14 @@
 				data-vis-attrs0="group.i-css;iSliderHeight[10]/slider,1,200,1;iSliderKnobHeight[20]/slider,1,200,1;iSliderColor[#ffffff]/color;"
 				 data-vis-set="vis-inventwo"
 				 data-vis-type="slider"
-				 data-vis-name="Simple Sliderdffdgfjj">
+				 data-vis-name="Simple Slider">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:200px; height:fit-content; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
-			<div <%= (el) -> vis.binds['vis-inventwo'].sliderHandle(el, this.data) %> ></div>
+			<div <%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data) %> ></div>
 		</div>
 
 	</div>
 </script>
-
-<script id="i-vis-slider433353"
-		type="text/ejs"
-		class="vis-tpl"
-		data-vis-prev='<img src="">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iMinVal[1]/number;iMaxVal[100]/number;iStepVal[1]/number;"
-		data-vis-attrs0="group.i-css;iSliderHeight[10]/slider,1,200,1;iSliderKnobHeight[20]/slider,1,200,1;iSliderColor[#ffffff]/color;"
-		data-vis-set="vis-inventwo"
-		data-vis-type="slider"
-		data-vis-name="Simple Sliderdffdg33fjj">
-
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:200px; height:fit-content; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
-		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
-			<div <%= (el) -> vis.binds['vis-inventwo'].sliderHandle234(el, this.data) %> ></div>
-		</div>
-
-	</div>
-</script>
-
 
 

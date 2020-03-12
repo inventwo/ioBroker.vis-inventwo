@@ -200,77 +200,26 @@ vis.binds["vis-inventwo"] = {
         }
         return { input: `<span>${_(text)}</span>` }
     },
-	sliderHandle: function (el, data) {
+
+	handleSlider: function (el,data) {
 
 		var $this = $(el);
-
 		var oid = data.oid;
 
 		$this.slider(
 			{
-				min: data.iMinVal,
-				max: data.iMaxVal,
-				step: data.iStepVal,
+				value:100,
+				min: 0,
+				max: 500,
+				step: 50,
 				slide: function( event, ui ) {
 					vis.setValue(oid, ui.value);
 				}
 			}
 		);
 
-
-		$this.slider('option','value',vis.states.attr(oid + ".val"));
-/*
-		$this.css("background",data.iSliderColor);
-		$this.css("height",data.iSliderHeight + "px");
-		$this.css("border","0px");
-
-		$this.children().css("height",data.iSliderKnobHeight + "px");
-		$this.children().css("width",data.iSliderKnobHeight + "px");
-		$this.children().css("border","0px");
-
-		$this.children().css("background",data.iSliderKnobColor);
-		let topPos = ((data.iSliderKnobHeight - data.iSliderHeight) / 2) * (-1);
-		$this.children().css("top",topPos + "px");
-*/
 		vis.states.bind(oid + ".val",function () {
-			$this.slider('option','value',vis.states.attr(oid + ".val"));
-		});
-
-	},
-	sliderHandle234: function (el, data) {
-
-		var $this = $(el);
-
-		var oid = data.oid;
-
-		$this.slider(
-			{
-				min: data.iMinVal,
-				max: data.iMaxVal,
-				step: data.iStepVal,
-				slide: function( event, ui ) {
-					vis.setValue(oid, ui.value);
-				}
-			}
-		);
-
-
-		$this.slider('option','value',vis.states.attr(oid + ".val"));
-		/*
-				$this.css("background",data.iSliderColor);
-				$this.css("height",data.iSliderHeight + "px");
-				$this.css("border","0px");
-
-				$this.children().css("height",data.iSliderKnobHeight + "px");
-				$this.children().css("width",data.iSliderKnobHeight + "px");
-				$this.children().css("border","0px");
-
-				$this.children().css("background",data.iSliderKnobColor);
-				let topPos = ((data.iSliderKnobHeight - data.iSliderHeight) / 2) * (-1);
-				$this.children().css("top",topPos + "px");
-		*/
-		vis.states.bind(oid + ".val",function () {
-			$this.slider('option','value',vis.states.attr(oid + ".val"));
+			$this.slider("option","value",vis.states.attr(oid + ".val"));
 		});
 
 	}
