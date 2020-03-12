@@ -120,6 +120,10 @@ if (vis.editMode) {
 			"iSliderColor":{
 				"en": "Slider Color",
 				"de": "Slider Farbe"
+			},
+			"iSliderCorners":{
+				"en": "Border radius",
+				"de": "Rundung"
 			}
         });
     }
@@ -226,12 +230,12 @@ vis.binds["vis-inventwo"] = {
 		$this.css("border","0px");
 		$this.css("border-radius",data.iSliderCorners);
 
-		let topPos = $("#" + data.wid).height();//((data.iSliderKnobSize - $("#" + data.wid).height()) / 2) * (-1);
+		let topPos = $("#" + data.wid).height() + "px";//((data.iSliderKnobSize - $("#" + data.wid).height()) / 2) * (-1);
 		$this.children().css("top",topPos + "px");
 		$this.children().css("width",data.iSliderKnobSize + "px");
 		$this.children().css("height",data.iSliderKnobSize + "px");
 		$this.children().css("border","0px");
-		$this.children().css("background",data.iSliderKnobColor);
+		//$this.children().css("background",data.iSliderKnobColor);
 
 		vis.states.bind(oid + ".val",function () {
 			$this.slider("option","value",vis.states.attr(oid + ".val"));
