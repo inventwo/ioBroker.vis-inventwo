@@ -247,9 +247,6 @@ vis.binds["vis-inventwo"] = {
 			}
 		);
 
-		vis.states.bind(oid + ".val",function () {
-			$this.slider('value',vis.states.attr(oid + ".val"));
-		});
 
 	}
 };
