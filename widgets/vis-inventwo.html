@@ -4,9 +4,9 @@
 	Copyright 2020 jkvarel jkvarel@inventwo.com
 -->
 
-<!-- here you can include so many css as you want -->
+
 <link rel="stylesheet" href="widgets/vis-inventwo/css/style.css" />
-<!-- here you can include so many js-files as you want -->
+
 <script type="text/javascript" src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
 
 <script id="i-vis-switch"
@@ -57,7 +57,6 @@
 
 	</div>
 </script>
-
 <script id="i-vis-switch-small"
 		type="text/ejs"
 		class="vis-tpl"
@@ -138,7 +137,6 @@
         <%= (el) -> vis.binds['vis-inventwo'].state(el, this.data) %>
 	</div>
 </script>
-
 <script id="i-vis-button-small"
 		type="text/ejs"
 		class="vis-tpl"
@@ -172,7 +170,7 @@
 		</div>
 
 	</div>
-</script>  
+</script>
 
 <script id="i-vis-navigation"
 		type="text/ejs"
@@ -260,8 +258,6 @@
 
 	</div>
 </script>
-
-
 <script id="i-vis-background-small"
 		type="text/ejs"
 		class="vis-tpl"
@@ -330,22 +326,3 @@
 	</div>
 </script>
 
-<script id="i-vis-slider3"
-		type="text/ejs"
-		class="vis-tpl"
-		data-vis-prev='<img src="">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;"
-		data-vis-attrs0="group.i-css;"
-		data-vis-set="vis-inventwo"
-		data-vis-type="slider"
-		data-vis-name="Slider3">
-
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:200px; height:fit-content; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
-		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
-
-			<div <%= (el) -> vis.binds['vis-inventwo'].sliderHandle3(el, this.data) %> ></div>
-
-		</div>
-
-	</div>
-</script>
