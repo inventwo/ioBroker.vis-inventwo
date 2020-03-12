@@ -116,6 +116,10 @@ if (vis.editMode) {
 			"iStepVal":{
 				"en": "Step",
 				"de": "Schritt"
+			},
+			"iSliderColor":{
+				"en": "Slider Color",
+				"de": "Slider Farbe"
 			}
         });
     }
@@ -218,6 +222,8 @@ vis.binds["vis-inventwo"] = {
 		);
 
 		$this.slider("option","value",vis.states.attr(oid + ".val"));
+
+		$this.css("background",data.iSliderColor);
 
 		vis.states.bind(oid + ".val",function () {
 			$this.slider("option","value",vis.states.attr(oid + ".val"));
