@@ -121,6 +121,10 @@ if (vis.editMode) {
 				"en": "Slider Color",
 				"de": "Slider Farbe"
 			},
+			"iSliderKnobColor":{
+				"en": "Handle Color",
+				"de": "Regler Farbe"
+			},
 			"iSliderCorners":{
 				"en": "Border radius",
 				"de": "Rundung"
