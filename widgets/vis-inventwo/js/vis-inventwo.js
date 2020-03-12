@@ -242,6 +242,7 @@ vis.binds["vis-inventwo"] = {
 		$this.children().css("border-radius",data.iSliderKnobCorners);
 		$this.children().css("background",data.iSliderKnobColor);
 		$this.children().css("box-shadow","box-shadow: 0 0 5px 1px black");
+		$this.children().css("margin-left",(data.iSliderKnobSize / 2));
 
 		vis.states.bind(oid + ".val",function () {
 			$this.slider("option","value",vis.states.attr(oid + ".val"));
