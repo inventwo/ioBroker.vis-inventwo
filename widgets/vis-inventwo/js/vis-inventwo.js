@@ -226,6 +226,8 @@ vis.binds["vis-inventwo"] = {
 		$this.css("background",data.iSliderColor);
 		$this.css("border","0px");
 
+		let topPos = (iSliderKnobSize - $this.height()) / 2 * (-1);
+		$this.children().css("top",topPos);
 		$this.children().css("border","0px");
 
 		vis.states.bind(oid + ".val",function () {
