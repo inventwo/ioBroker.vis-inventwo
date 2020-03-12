@@ -224,6 +224,9 @@ vis.binds["vis-inventwo"] = {
 		$this.slider("option","value",vis.states.attr(oid + ".val"));
 
 		$this.css("background",data.iSliderColor);
+		$this.css("border","0px");
+
+		$this.children().css("border","0px");
 
 		vis.states.bind(oid + ".val",function () {
 			$this.slider("option","value",vis.states.attr(oid + ".val"));
