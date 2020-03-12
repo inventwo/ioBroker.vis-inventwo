@@ -140,6 +140,10 @@ if (vis.editMode) {
 			"iSliderKnobSize":{
 				"en": "Handle size",
 				"de": "Regler Größe"
+			},
+			"iSliderRotation":{
+				"en": "Rotation",
+				"de": "Ausrichtung"
 			}
         });
     }
