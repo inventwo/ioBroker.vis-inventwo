@@ -249,7 +249,7 @@ vis.binds["vis-inventwo"] = {
 
 		$this.css("background",data.iSliderColor);
 		$this.css("border","0px");
-		$this.css("border-radius",data.iSliderCorners + "%");
+		$this.css("border-radius",data.iSliderCorners + "px");
 		$this.css("height",data.iSliderHeight + "px");
 
 		let topPos = ((data.iSliderKnobSize - data.iSliderHeight) / 2) * (-1);
@@ -259,7 +259,7 @@ vis.binds["vis-inventwo"] = {
 		$this.children().css("border","0px");
 		$this.children().css("border-radius",data.iSliderKnobCorners + "%");
 		$this.children().css("background",data.iSliderKnobColor);
-		$this.children().css("box-shadow","box-shadow: 0 0 5px 1px black");
+		$this.children().css("box-shadow","0 0 5px 1px black");
 		$this.children().css("margin-left", "-" + (data.iSliderKnobSize / 2) + "px");
 
 		vis.states.bind(oid + ".val",function () {
