@@ -118,8 +118,8 @@ if (vis.editMode) {
 				"de": "Schritt"
 			},
 			"iSliderColor":{
-				"en": "Slider Color",
-				"de": "Slider Farbe"
+				"en": "Color",
+				"de": "Farbe"
 			},
 			"iSliderKnobColor":{
 				"en": "Handle Color",
@@ -128,6 +128,18 @@ if (vis.editMode) {
 			"iSliderCorners":{
 				"en": "Border radius",
 				"de": "Rundung"
+			},
+			"iSliderKnobCorners":{
+				"en": "Handle border radius",
+				"de": "Regler Rundung"
+			},
+			"iSliderHeight":{
+				"en": "Height",
+				"de": "Höhe"
+			},
+			"iSliderKnobSize":{
+				"en": "Handle size",
+				"de": "Regler Größe"
 			}
         });
     }
@@ -237,7 +249,7 @@ vis.binds["vis-inventwo"] = {
 
 		$this.css("background",data.iSliderColor);
 		$this.css("border","0px");
-		$this.css("border-radius",data.iSliderCorners);
+		$this.css("border-radius",data.iSliderCorners + "%");
 		$this.css("height",data.iSliderHeight + "px");
 
 		let topPos = ((data.iSliderKnobSize - data.iSliderHeight) / 2) * (-1);
@@ -245,10 +257,10 @@ vis.binds["vis-inventwo"] = {
 		$this.children().css("width",data.iSliderKnobSize + "px");
 		$this.children().css("height",data.iSliderKnobSize + "px");
 		$this.children().css("border","0px");
-		$this.children().css("border-radius",data.iSliderKnobCorners);
+		$this.children().css("border-radius",data.iSliderKnobCorners + "%");
 		$this.children().css("background",data.iSliderKnobColor);
 		$this.children().css("box-shadow","box-shadow: 0 0 5px 1px black");
-		$this.children().css("margin-left",(data.iSliderKnobSize / 2));
+		$this.children().css("margin-left", "-" + (data.iSliderKnobSize / 2) + "px");
 
 		vis.states.bind(oid + ".val",function () {
 			$this.slider("option","value",vis.states.attr(oid + ".val"));
