@@ -229,6 +229,12 @@ vis.binds["vis-inventwo"] = {
 			}
 		);
 
+		var firstInit = true;
+		if(firstInit){
+			$this.slider("option","value",vis.states.attr(oid + ".val"));
+			firstInit = false;
+		}
+
 		$this.css("background",data.iSliderColor);
 		$this.css("border","0px");
 		$this.css("border-radius",data.iSliderCorners);
