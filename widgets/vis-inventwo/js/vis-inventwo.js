@@ -182,15 +182,6 @@ vis.binds["vis-inventwo"] = {
                     $this.parent().click(function () {
                         
                         vis.setValue(oid, data.value);
-                        /*
-                        var val = vis.states[oid + '.val'];
-                        $(el).html('test: ' + val);
-                            if(val == valFalse){
-                                vis.setValue(oid, valTrue);
-                            }
-                            else{
-                                vis.setValue(oid, valFalse);
-                            }*/
                     });
                 
             }
