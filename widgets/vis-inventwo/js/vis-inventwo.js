@@ -260,6 +260,8 @@ vis.binds["vis-inventwo"] = {
 		$this.css("border-radius",data.iSliderCorners + "px");
 		$this.css("height",data.iSliderHeight + "px");
 
+		$this.css("transform","translateY(-50%) rotateZ("+data.iSliderRotation+"deg)");
+
 		let topPos = ((data.iSliderKnobSize - data.iSliderHeight) / 2) * (-1);
 		$this.children().css("top",topPos + "px");
 		$this.children().css("width",data.iSliderKnobSize + "px");
