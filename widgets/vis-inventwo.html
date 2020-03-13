@@ -25,6 +25,11 @@
 			<%
 				let bgActive = this.data.attr('iButtonActive');
 				let bg = this.data.attr('iButtonCol');
+
+
+				if((bg.toString()).charAt(0) == "{"){
+					bg = vis.states.attr(bg.toString() + ".val");
+				}
 			%>
 
             <div class="vis-inventwo-button"
