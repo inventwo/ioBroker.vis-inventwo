@@ -159,11 +159,7 @@ vis.binds["vis-inventwo"] = {
 
             var $this = $(el);
             var oid = data.oid;
-/*
-            if(data.iButtonCol.charAt(0) === "{"){
-				$this.find(".vis-inventwo-button").css("background","#ff0000");
-			}
-*/
+
             if (!vis.editMode) {
                
                     $this.parent().click(function () {
