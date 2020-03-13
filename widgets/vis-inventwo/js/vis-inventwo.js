@@ -144,6 +144,10 @@ if (vis.editMode) {
 			"iSliderRotation":{
 				"en": "Rotation",
 				"de": "Ausrichtung"
+			},
+			"iFlipImage":{
+				"en": "Flip icon",
+				"de": "Bild spiegeln"
 			}
         });
     }
