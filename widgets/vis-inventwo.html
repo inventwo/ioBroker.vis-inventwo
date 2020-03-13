@@ -22,12 +22,26 @@
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
+			<%
+				let bgActive = this.data.attr('iButtonActive');
+
+				if(this.data.attr('iButtonActive').charAt(0) == "{"){
+					bgActive = vis.states.attr(this.data.attr('iButtonActive') + '.val');
+				}
+
+				let bg = this.data.attr('iButtonCol');
+
+				if(this.data.attr('iButtonCol').charAt(0) == "{"){
+					bg = vis.states.attr(this.data.attr('iButtonCol') + '.val');
+				}
+			%>
+
             <div class="vis-inventwo-button"
                 <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
-                    style="background: <%= this.data.attr('iButtonActive') %>;
+                    style="background: <%= bgActive %>;
                     border-radius: <%= this.data.attr('iCornerRadius') %>px 0;opacity:<%= this.data.attr('iOpacity')%>;"
                 <% } else { %>
-                    style="background: <%= this.data.attr('iButtonCol') %>;
+                    style="background: <%= bg %>;
                     border-radius: <%= this.data.attr('iCornerRadius') %>px 0;position: absolute;width: 100%;height: 100%;opacity:<%= this.data.attr('iOpacity') %>;"
                 <% } %>
             >
