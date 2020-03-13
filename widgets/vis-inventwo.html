@@ -374,31 +374,12 @@
 <script id="i-vis-slider-simple"
 		type="text/ejs"
 		class="vis-tpl"
-		data-vis-prev='<img src="">'
+		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Slider.png">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iMinVal[1]/number;iMaxVal[100]/number;iStepVal[1]/number;iSliderRotation[0]/slider,-180,180,1;"
 		data-vis-attrs0="group.i-css;iSliderHeight[10]/slider,1,200,1;iSliderKnobSize[20]/slider,1,200,1;iSliderColor[#ffffff]/color;iSliderKnobColor[#455618]/color;iSliderCorners[100]/slider,0,100,1;iSliderKnobCorners[100]/slider,0,100,1;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="slider"
 		data-vis-name="Simple Slider">
-
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" data-vis-resizable='{"minWidth":10, "maxWidth":2000}' id="<%= this.data.attr('wid') %>"
-		style="width:200px; height:fit-content;height:-moz-fit-content; overflow:visible; cursor:pointer;" >
-		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative;">
-			<div style="width:100%; top:50%;" <%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data) %> ></div>
-		</div>
-
-	</div>
-</script>
-
-<script id="i-vis-slider-simple22"
-		type="text/ejs"
-		class="vis-tpl"
-		data-vis-prev='<img src="">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iMinVal[1]/number;iMaxVal[100]/number;iStepVal[1]/number;iSliderRotation[0]/slider,-180,180,1;"
-		data-vis-attrs0="group.i-css;iSliderHeight[10]/slider,1,200,1;iSliderKnobSize[20]/slider,1,200,1;iSliderColor[#ffffff]/color;iSliderKnobColor[#455618]/color;iSliderCorners[100]/slider,0,100,1;iSliderKnobCorners[100]/slider,0,100,1;"
-		data-vis-set="vis-inventwo"
-		data-vis-type="slider"
-		data-vis-name="Simple Slider22">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" data-vis-resizable='{"minWidth":10, "maxWidth":2000}' id="<%= this.data.attr('wid') %>"
 		style="width:200px; height:fit-content;height:-moz-fit-content; overflow:visible; cursor:pointer;" >
