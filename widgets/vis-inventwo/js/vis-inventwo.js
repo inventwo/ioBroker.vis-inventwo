@@ -163,6 +163,9 @@ vis.binds["vis-inventwo"] = {
             if(data.iButtonCol.charAt(0) === "{"){
 				$this.find(".vis-inventwo-button").css("background",vis.states.attr(data.iButtonCol.substring(1, data.iButtonCol.length - 1) + ".val"));
 			}
+            else{
+				$this.find(".vis-inventwo-button").css("background",data.iButtonCol);
+			}
 
             if (!vis.editMode) {
                
