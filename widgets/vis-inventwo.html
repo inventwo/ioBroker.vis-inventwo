@@ -24,15 +24,15 @@
 
             <div class="vis-inventwo-button"
                 <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
-                    style="background: <%= bgActive %>;
+                    style="background: this.data.attr('iButtonActive');
                     border-radius: <%= this.data.attr('iCornerRadius') %>px 0;opacity:<%= this.data.attr('iOpacity')%>;"
                 <% } else { %>
-                    style="background: <%= bg %>;
+                    style="background: this.data.attr('iButtonCol');
                     border-radius: <%= this.data.attr('iCornerRadius') %>px 0;position: absolute;width: 100%;height: 100%;opacity:<%= this.data.attr('iOpacity') %>;"
                 <% } %>
             >
-            testets
- 		    </div>
+
+		    </div>
 
             <div class="vis-inventwo-button-content" style="opacity: <%= this.data.attr('iOpacityCtn') %>;">
 
