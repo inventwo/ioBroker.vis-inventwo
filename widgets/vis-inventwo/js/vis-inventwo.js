@@ -251,7 +251,7 @@ vis.binds["vis-inventwo"] = {
 			firstInit = false;
 		}
 
-		$this.parent().parent().css("transform","rotateZ(" + data.iSliderRotation + "deg)");
+		$this.parent().css("transform","rotateZ(" + data.iSliderRotation + "deg)");
 
 		$this.css("background",data.iSliderColor);
 		$this.css("border","0px");
