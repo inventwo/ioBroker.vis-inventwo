@@ -316,7 +316,7 @@
 				 data-vis-type="slider"
 				 data-vis-name="Simple Slider">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" data-vis-resizable='{"minWidth":10, "maxWidth":2000}' style="width:200px; height:fit-content;height:-moz-fit-content; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" data-vis-resizable='{"minWidth":10, "maxWidth":2000,"max-height":fit-content,"min-height":fit-content}' style="width:200px; height:fit-content;height:-moz-fit-content; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
 			<div style="height:inherit" <%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data) %> ></div>
 		</div>
