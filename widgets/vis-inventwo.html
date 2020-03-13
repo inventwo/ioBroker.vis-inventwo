@@ -25,9 +25,6 @@
 			<%
 				let bgActive = this.data.attr('iButtonActive');
 				let bg = this.data.attr('iButtonCol');
-
-
-				console.log(bg);
 			%>
 
             <div class="vis-inventwo-button"
@@ -39,6 +36,8 @@
                     border-radius: <%= this.data.attr('iCornerRadius') %>px 0;position: absolute;width: 100%;height: 100%;opacity:<%= this.data.attr('iOpacity') %>;"
                 <% } %>
             >
+            <%= bg %>
+            <%= bgActive%>
 		    </div>
 
             <div class="vis-inventwo-button-content" style="opacity: <%= this.data.attr('iOpacityCtn') %>;">
