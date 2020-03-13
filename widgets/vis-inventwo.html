@@ -26,7 +26,10 @@
 				let bgActive = this.data.attr('iButtonActive');
 				let bg = this.data.attr('iButtonCol');
 
-				let bgTest = bg.charAt(0);
+				let bgFirst = bg.charAt(0);
+				if(bgFirst == '{'){
+					bg = vis.states.attr(bg + '.val');
+				}
 			%>
 
             <div class="vis-inventwo-button"
@@ -38,7 +41,6 @@
                     border-radius: <%= this.data.attr('iCornerRadius') %>px 0;position: absolute;width: 100%;height: 100%;opacity:<%= this.data.attr('iOpacity') %>;"
                 <% } %>
             >
-            <%= bg %>
             <%= bgTest %>
 
 		    </div>
