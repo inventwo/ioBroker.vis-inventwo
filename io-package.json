@@ -1,8 +1,20 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "1.1.0",
+		"version": "1.1.1",
 		"news": {
+            "1.1.1": {
+              "en": "fixed wrong type",
+              "de": "falscher Typ behoben",
+              "ru": "исправлен неправильный тип",
+              "pt": "tipo errado fixo",
+              "nl": "verkeerd type opgelost",
+              "fr": "correction du mauvais type",
+              "it": "corretto tipo sbagliato",
+              "es": "tipo incorrecto arreglado",
+              "pl": "naprawiono zły typ",
+              "zh-cn": "修正错误类型"
+            },
             "1.1.0": {
               "en": "Added slider widget, Changed button widgets to use default font and text options,  Added option to mirror image, Added new icons",
               "de": "Slider-Widget hinzugefügt, Schaltflächen-Widgets geändert, um Standard-Schrift- und Textoptionen zu verwenden, Option zum Spiegeln von Bildern hinzugefügt, Neue Symbole hinzugefügt",
