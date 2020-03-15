@@ -1,8 +1,20 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "1.0.0",
+		"version": "1.1.0",
 		"news": {
+            "1.1.0": {
+              "en": "Added slider widget, Changed button widgets to use default font and text options,  Added option to mirror image, Added new icons",
+              "de": "Slider-Widget hinzugefügt, Schaltflächen-Widgets geändert, um Standard-Schrift- und Textoptionen zu verwenden, Option zum Spiegeln von Bildern hinzugefügt, Neue Symbole hinzugefügt",
+              "ru": "Добавлен виджет слайдера, Изменены виджеты кнопок для использования шрифта и текста по умолчанию, Добавлена опция для зеркального отображения, Добавлены новые значки",
+              "pt": "Adicionado widget de controle deslizante, Widgets de botão alterados para usar as opções de fonte e texto padrão, Opção adicionada para espelhar imagem, Novos ícones adicionados",
+              "nl": "Schuifwidget toegevoegd, knopwidgets gewijzigd om standaardlettertype- en tekstopties te gebruiken, optie toegevoegd om afbeelding te spiegelen, nieuwe pictogrammen toegevoegd",
+              "fr": "Ajout d'un widget de curseur, Changement des widgets de boutons pour utiliser les options de police et de texte par défaut, Ajout d'une option pour refléter l'image, Ajout de nouvelles icônes",
+              "it": "Widget di scorrimento aggiunto, widget di pulsanti modificati per utilizzare le opzioni di carattere e testo predefinite, opzione aggiunta per l'immagine speculare, nuove icone aggiunte",
+              "es": "Se agregó un widget de control deslizante, se cambiaron los widgets de botón para usar las opciones de fuente y texto predeterminadas, se agregó la opción para reflejar la imagen, se agregaron nuevos iconos",
+              "pl": "Dodano widżet suwaka, Zmieniono widżety przycisków, aby używać domyślnych opcji czcionek i tekstu, Dodano opcję odbicia lustrzanego, Dodano nowe ikony",
+              "zh-cn": "添加了滑块小部件，更改了按钮小部件以使用默认字体和文本选项，添加了用于镜像图像的选项，添加了新图标"
+            },
             "1.0.0": {
                 "en": "Widget background and content opacity, Switch can be changed from boolean to value",
                 "de": "Widget-Hintergrund und Inhaltsopazität, Switch kann von boolean auf Wert geändert werden",
