@@ -244,7 +244,8 @@ vis.binds["vis-inventwo"] = {
 				max: parseInt(data.iMaxVal),
 				step: parseInt(data.iStepVal),
 				slide: function( event, ui ) {
-					vis.setValue(oid, ui.value);
+					if(!vis.editMode)
+						vis.setValue(oid, ui.value);
 				}
 			}
 		);
