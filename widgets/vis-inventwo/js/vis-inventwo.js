@@ -104,7 +104,51 @@ if (vis.editMode) {
             "iWikiText":{
                 "en": "To the wiki",
                 "de": "Zum Wiki"
-            }
+            },
+			"iMinVal":{
+				"en": "Min. value",
+				"de": "Min. Wert"
+			},
+			"iMaxVal":{
+				"en": "Max. value",
+				"de": "Max. Wert"
+			},
+			"iStepVal":{
+				"en": "Step",
+				"de": "Schritt"
+			},
+			"iSliderColor":{
+				"en": "Color",
+				"de": "Farbe"
+			},
+			"iSliderKnobColor":{
+				"en": "Handle Color",
+				"de": "Regler Farbe"
+			},
+			"iSliderCorners":{
+				"en": "Border radius",
+				"de": "Rundung"
+			},
+			"iSliderKnobCorners":{
+				"en": "Handle border radius",
+				"de": "Regler Rundung"
+			},
+			"iSliderHeight":{
+				"en": "Height",
+				"de": "Höhe"
+			},
+			"iSliderKnobSize":{
+				"en": "Handle size",
+				"de": "Regler Größe"
+			},
+			"iSliderRotation":{
+				"en": "Rotation",
+				"de": "Ausrichtung"
+			},
+			"iFlipImage":{
+				"en": "Flip icon",
+				"de": "Bild spiegeln"
+			}
         });
     }
 
@@ -114,12 +158,7 @@ vis.binds["vis-inventwo"] = {
     handleToggle: function (el, data) {
 
             var $this = $(el);
-            
             var oid = data.oid;
-            var valFalse = false;
-            var valTrue = true;
-
-            //$(el).html(valFalse);
 
             if (!vis.editMode) {
                
@@ -175,15 +214,6 @@ vis.binds["vis-inventwo"] = {
                     $this.parent().click(function () {
                         
                         vis.setValue(oid, data.value);
-                        /*
-                        var val = vis.states[oid + '.val'];
-                        $(el).html('test: ' + val);
-                            if(val == valFalse){
-                                vis.setValue(oid, valTrue);
-                            }
-                            else{
-                                vis.setValue(oid, valFalse);
-                            }*/
                     });
                 
             }
@@ -201,7 +231,51 @@ vis.binds["vis-inventwo"] = {
             text = 'iValueTypeText'
         }
         return { input: `<span>${_(text)}</span>` }
-    }
-};
+    },
 
-vis.binds["vis-inventwo"].showVersion();
+	handleSlider: function (el,data) {
+
+		var $this = $(el);
+		var oid = data.oid;
+
+		$this.slider(
+			{
+				min: parseInt(data.iMinVal),
+				max: parseInt(data.iMaxVal),
+				step: parseInt(data.iStepVal),
+				slide: function( event, ui ) {
+					if(!vis.editMode)
+						vis.setValue(oid, ui.value);
+				}
+			}
+		);
+
+		var firstInit = true;
+		if(firstInit){
+			$this.slider("option","value",vis.states.attr(oid + ".val"));
+			firstInit = false;
+		}
+
+		$this.css("background",data.iSliderColor);
+		$this.css("border","0px");
+		$this.css("border-radius",data.iSliderCorners + "px");
+		$this.css("height",data.iSliderHeight + "px");
+
+		$this.css("transform","translateY(-50%) rotateZ("+data.iSliderRotation+"deg)");
+
+		let topPos = ((data.iSliderKnobSize - data.iSliderHeight) / 2) * (-1);
+		$this.children().css("top",topPos + "px");
+		$this.children().css("width",data.iSliderKnobSize + "px");
+		$this.children().css("height",data.iSliderKnobSize + "px");
+		$this.children().css("border","0px");
+		$this.children().css("border-radius",data.iSliderKnobCorners + "%");
+		$this.children().css("background",data.iSliderKnobColor);
+		$this.children().css("box-shadow","0 0 5px 1px black");
+		$this.children().css("margin-left", "-" + (data.iSliderKnobSize / 2) + "px");
+
+		vis.states.bind(oid + ".val",function () {
+			$this.slider("option","value",vis.states.attr(oid + ".val"));
+		});
+
+	}
+};
