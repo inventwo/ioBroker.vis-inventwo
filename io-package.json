@@ -125,7 +125,7 @@
 		],
 		"localLink": "%web_protocol%://%ip%:%web_port%/vis/edit.html",
 		"mode": "once",
-		"type": "visualization-widgets",
+		"type": "visualisation-widgets",
 		"compact": true,
 		"connectionType": "local",
 		"dataSource": "poll",
