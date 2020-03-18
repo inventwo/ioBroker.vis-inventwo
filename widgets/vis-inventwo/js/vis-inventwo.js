@@ -68,6 +68,10 @@ if (vis.editMode) {
 	        	"en": "Content opacity",
 	        	"de": "Inhalt Transparenz"
             },
+			"iOpacityImg": {
+				"en": "Image opacity",
+				"de": "Bild Transparenz"
+			},
             "iTextFalse": {
 	        	"en": "Label  false",
 	        	"de": "Beschriftung falsch"
