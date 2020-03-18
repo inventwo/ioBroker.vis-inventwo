@@ -44,10 +44,22 @@ if (vis.editMode) {
 	        	"en": "Icon",
 	        	"de": "Bild"
             },
-            "iCornerRadius": {
-	        	"en": "Border radius",
-	        	"de": "Abrundung"
+            "iCornerRadiusUL": {
+	        	"en": "Border radius upper left",
+	        	"de": "Abrundung oben links"
             },
+			"iCornerRadiusUR": {
+				"en": "Border radius upper right",
+				"de": "Abrundung oben rechts"
+			},
+			"iCornerRadiusLR": {
+				"en": "Border radius lower right",
+				"de": "Abrundung unten right"
+			},
+			"iCornerRadiusLL": {
+				"en": "Border radius lower left",
+				"de": "Abrundung unten links"
+			},
             "iOpacity": {
 	        	"en": "Button opacity",
 	        	"de": "Button Transparenz"
