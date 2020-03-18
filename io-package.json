@@ -1,7 +1,7 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "1.1.0",
+		"version": "1.2.0",
 		"news": {
             "1.1.0": {
               "en": "Added slider widget, Changed button widgets to use default font and text options,  Added option to mirror image, Added new icons",
