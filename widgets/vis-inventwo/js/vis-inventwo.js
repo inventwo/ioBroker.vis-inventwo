@@ -269,12 +269,12 @@ vis.binds["vis-inventwo"] = {
 					if(data.iSliderRotation > -45 && data.iSliderRotation < 45){
 						$this.css("width","100%");
 						$this.css("height",data.iSliderHeight);
-						$( ".selector" ).slider( "option", "orientation", "horizontal" );
+						$this.slider( "option", "orientation", "horizontal" );
 					}
 					else{
 						$this.css("width",data.iSliderHeight);
 						$this.css("height","100%");
-						$( ".selector" ).slider( "option", "orientation", "vertical" );
+						$this.slider( "option", "orientation", "vertical" );
 					}
 				}
 			}
