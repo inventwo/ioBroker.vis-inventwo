@@ -439,16 +439,16 @@
 		data-vis-type="slider"
 		data-vis-name="Simple Slider">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>" height="500px"
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
 		style="width:200px; height:<%= this.data.iSliderKnobSize %>px; overflow:visible; cursor:pointer;" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: auto; display:flex;align-items:center;flex-wrap:wrap">
 
-			<div style="margin-right: <%= this.data.iSliderKnobSize / 2 %>px"><%= this.data.iMinVal %></div>
+			<div style="margin-right: <%= (this.data.iSliderKnobSize / 2) + 5 %>px"><%= this.data.iMinVal %></div>
 
 			<div style="top:50%;flex-grow:1; border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; height: <%= this.data.iSliderHeight %>px;"
 				<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data) %> ></div>
 
-			<div style="margin-left: <%= this.data.iSliderKnobSize / 2 %>px"><%= this.data.iMaxVal %></div>
+			<div style="margin-left: <%= (this.data.iSliderKnobSize / 2) + 5 %>px"><%= this.data.iMaxVal %></div>
 
 		</div>
 
