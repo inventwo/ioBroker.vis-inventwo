@@ -259,23 +259,13 @@ vis.binds["vis-inventwo"] = {
 				min: parseInt(data.iMinVal),
 				max: parseInt(data.iMaxVal),
 				step: parseInt(data.iStepVal),
+				orientation: "horizontal",
 				slide: function( event, ui ) {
 					if(!vis.editMode)
 						vis.setValue(oid, ui.value);
 				},
 				create: function( event, ui ) {
 					$this.css('transform','rotate('+data.iSliderRotation+'deg)');
-
-					if(data.iSliderRotation > -45 && data.iSliderRotation < 45){
-						//$this.css("width","100%");
-						//$this.css("height",data.iSliderHeight);
-						$this.slider( "option", "orientation", "horizontal" );
-					}
-					else{
-						//$this.css("width",data.iSliderHeight);
-						//$this.css("height","100%");
-						$this.slider( "option", "orientation", "vertical" );
-					}
 				}
 			}
 		);
