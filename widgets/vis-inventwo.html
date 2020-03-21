@@ -449,9 +449,10 @@
 				<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data) %> ></div>
 
 			<div style="margin-left: <%= this.data.iSliderKnobSize / 2 %>px"><%= this.data.iMaxVal %></div>
-			<div style="flex-basis:100%"><%= this.data.iSliderLabel %></div>
 
 		</div>
+
+		<div style="position:absolute; left:0px; bottom:0px;"><%= this.data.iSliderLabel %></div>
 
 	</div>
 </script>
