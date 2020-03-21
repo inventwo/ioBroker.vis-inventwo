@@ -440,38 +440,10 @@
 		data-vis-type="slider"
 		data-vis-name="Simple Slider">
 
-	<%
-		let elHeight = 0;
-		let topSpace = 0;
-		if((parseInt(this.data.iSliderKnobSize) < (parseInt(this.data.iTextSize)) && this.data.iShowMinMax){
-
-			elHeight = parseInt(this.data.iTextSize) * 2 + 15;
-			topSpace = parseInt(this.data.iTextSize) / 2;
-		}
-		else{
-			elHeight = parseInt(this.data.iSliderKnobSize) + parseInt(this.data.iTextSize) + 15;
-			topSpace = parseInt(this.data.iSliderKnobSize) / 2;
-		}
-	%>
-
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
 		style="width:200px; height:200px; overflow:visible; cursor:pointer;font-size: <%= this.data.iTextSize %>px;color: <%= this.data.iSliderTextColor %>;" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: auto; display:flex;align-items:center;flex-wrap:wrap; top: 0px;">
-
-			<% if(this.data.iShowMinMax){ %>
-			<div style="margin-right: <%= (this.data.iSliderKnobSize / 2) + 5 %>px"><%= this.data.iMinVal %></div>
-
-			<div style="top:50%;flex-grow:1; border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; height: <%= this.data.iSliderHeight %>px;"
-				<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data) %> ></div>
-
-			<div style="margin-left: <%= (this.data.iSliderKnobSize / 2) + 5 %>px"><%= this.data.iMaxVal %></div>
-
-			<% } else { %>
-				<div style="top:50%;flex-grow:1; border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; height: <%= this.data.iSliderHeight %>px; margin: 0 <%= this.data.iShowMinMax %>px;"
-					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data) %> ></div>
-
-			<% } %>
 
 		</div>
 
