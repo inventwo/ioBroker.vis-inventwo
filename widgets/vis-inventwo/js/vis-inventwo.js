@@ -181,6 +181,10 @@ if (vis.editMode) {
 			"en": "Value color",
 			"de": "Wert Farbe"
 		},
+		"iValuePreText":{
+			"en": "Pre text",
+			"de": "Text voranstellen"
+		},
 		"iFlipImage":{
 			"en": "Flip icon",
 			"de": "Bild spiegeln"
