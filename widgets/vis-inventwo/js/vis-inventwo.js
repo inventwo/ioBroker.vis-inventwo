@@ -161,6 +161,10 @@ if (vis.editMode) {
 			"en": "Rotation",
 			"de": "Ausrichtung"
 		},
+		"iSliderLabel":{
+			"en": "Label",
+			"de": "Beschriftung"
+		},
 		"iFlipImage":{
 			"en": "Flip icon",
 			"de": "Bild spiegeln"
