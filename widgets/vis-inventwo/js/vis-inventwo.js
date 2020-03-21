@@ -276,6 +276,7 @@ vis.binds["vis-inventwo"] = {
 			firstInit = false;
 		}
 
+        $this.css("transform","translateY(-50%) rotateZ("+data.iSliderRotation+"deg)");
 
 		let topPos = ((data.iSliderKnobSize - data.iSliderHeight) / 2) * (-1);
 		$this.children().css("top",topPos + "px");
