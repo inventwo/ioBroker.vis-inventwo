@@ -259,7 +259,7 @@ vis.binds["vis-inventwo"] = {
 				min: parseInt(data.iMinVal),
 				max: parseInt(data.iMaxVal),
 				step: parseInt(data.iStepVal),
-				orientation: data.iSliderOrientation,
+				orientation: "horizontal",
 				slide: function( event, ui ) {
 					if(!vis.editMode)
 						vis.setValue(oid, ui.value);
@@ -276,7 +276,7 @@ vis.binds["vis-inventwo"] = {
 			firstInit = false;
 		}
 
-        $this.css("transform","translateY(-50%) rotateZ("+data.iSliderRotation+"deg)");
+        //$this.css("transform","translateY(-50%) rotateZ("+data.iSliderRotation+"deg)");
 
 		let topPos = ((data.iSliderKnobSize - data.iSliderHeight) / 2) * (-1);
 		$this.children().css("top",topPos + "px");
