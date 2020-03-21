@@ -280,7 +280,7 @@ vis.binds["vis-inventwo"] = {
 		$this.css("border","0px");
 		$this.css("border-radius",data.iSliderCorners + "px");
 		$this.css("height",data.iSliderHeight + "px");
-/*
+
 		$this.children().eq(2).css("margin-right", (data.iSliderKnobSize / 2) + "px");
 		$this.children().eq(2).css("margin-left", (data.iSliderKnobSize / 2) + "px");
 
@@ -293,7 +293,7 @@ vis.binds["vis-inventwo"] = {
 		$this.children().eq(1).css("background",data.iSliderKnobColor);
 		$this.children().eq(1).css("box-shadow","0 0 5px 1px black");
 		$this.children().eq(1).css("margin-left", "-" + (data.iSliderKnobSize / 2) + "px");
-*/
+
 		vis.states.bind(oid + ".val",function () {
 			$this.slider("option","value",vis.states.attr(oid + ".val"));
 		});
