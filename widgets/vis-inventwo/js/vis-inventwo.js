@@ -277,7 +277,7 @@ vis.binds["vis-inventwo"] = {
 		}
 
         //$this.css("transform","translateY(-50%) rotateZ("+data.iSliderRotation+"deg)");
-
+/*
 		let topPos = ((data.iSliderKnobSize - data.iSliderHeight) / 2) * (-1);
 		$this.children().css("top",topPos + "px");
 		$this.children().css("width",data.iSliderKnobSize + "px");
@@ -287,7 +287,7 @@ vis.binds["vis-inventwo"] = {
 		$this.children().css("background",data.iSliderKnobColor);
 		$this.children().css("box-shadow","0 0 5px 1px black");
 		$this.children().css("margin-left", "-" + (data.iSliderKnobSize / 2) + "px");
-
+*/
 
 		vis.states.bind(oid + ".val",function () {
 			$this.slider("option","value",vis.states.attr(oid + ".val"));
