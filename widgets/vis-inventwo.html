@@ -443,19 +443,21 @@
 	<%
 
 		let elHeight;
-
+		let topSpace = 0;
 		if((this.data.iSliderKnobSize < this.data.iTextSize) && this.data.iShowMinMax){
-			elHeight = elHeight = parseInt(this.data.iTextSize) * 2;
+			elHeight = elHeight = parseInt(this.data.iTextSize) * 2 + 15;
+			topSpace = parseInt(this.data.iTextSize) / 2;
 		}
 		else{
-			elHeight = parseInt(this.data.iSliderKnobSize) + parseInt(this.data.iTextSize);
+			elHeight = parseInt(this.data.iSliderKnobSize) + parseInt(this.data.iTextSize) + 15;
+			topSpace = parseInt(this.data.iSliderKnobSize) / 2;
 		}
 
 	%>
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
 		style="width:200px; height:<%= elHeight%>px; overflow:visible; cursor:pointer;font-size:<%= this.data.iTextSize %>px;color:<%= this.data.iSliderTextColor %>;" >
-		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: auto; display:flex;align-items:center;flex-wrap:wrap; top:0px;">
+		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: auto; display:flex;align-items:center;flex-wrap:wrap; top:<%= topSpace%>px;">
 
 			<% if(this.data.iShowMinMax){ %>
 				<div style="margin-right: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iMinVal %></div>
