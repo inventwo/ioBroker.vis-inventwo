@@ -134,8 +134,8 @@ if (vis.editMode) {
 			"de": "Schritt"
 		},
 		"iSliderColor":{
-			"en": "Color",
-			"de": "Farbe"
+			"en": "Bar Color",
+			"de": "Balken Farbe"
 		},
 		"iSliderKnobColor":{
 			"en": "Handle Color",
@@ -164,6 +164,22 @@ if (vis.editMode) {
 		"iSliderLabel":{
 			"en": "Label",
 			"de": "Beschriftung"
+		},
+		"iShowMinMax":{
+			"en": "Show Min/Max Value",
+			"de": "Zeige Min/Max Wert"
+		},
+		"iSliderTextColor":{
+			"en": "Text color",
+			"de": "Textfarbe"
+		},
+		"iShowValue":{
+			"en": "Show value",
+			"de": "Zeige Wert"
+		},
+		"iValueTextColor":{
+			"en": "Value color",
+			"de": "Wert Farbe"
 		},
 		"iFlipImage":{
 			"en": "Flip icon",
