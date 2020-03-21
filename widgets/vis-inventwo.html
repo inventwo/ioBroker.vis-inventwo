@@ -440,12 +440,8 @@
 		data-vis-type="slider"
 		data-vis-name="Simple Slider">
 
-	<%
-		let elHeight = parseInt(this.data.iTextSize) * 2;
-	%>
-
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
-		style="width:200px; height:<%= elHeight %>px; overflow:visible; cursor:pointer;font-size:<%= this.data.iTextSize %>px;color:<%= this.data.iSliderTextColor %>;" >
+		style="width:200px; height:100px; overflow:visible; cursor:pointer;font-size:<%= this.data.iTextSize %>px;color:<%= this.data.iSliderTextColor %>;" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: auto; display:flex;align-items:center;flex-wrap:wrap; top:0px;">
 
 			<% if(this.data.iShowMinMax){ %>
