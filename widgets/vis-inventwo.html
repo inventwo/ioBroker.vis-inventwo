@@ -445,10 +445,10 @@
 		let elHeight;
 
 		if((this.data.iSliderKnobSize < this.data.iTextSize) && this.data.iShowMinMax){
-			elHeight = this.data.iTextSize * 2;
+			elHeight = elHeight = parseInt(this.data.iTextSize) * 2;
 		}
 		else{
-			elHeight = this.data.iTextSize + this.data.iSliderKnobSize;
+			elHeight = parseInt(this.data.iSliderKnobSize) + parseInt(this.data.iTextSize);
 		}
 
 	%>
