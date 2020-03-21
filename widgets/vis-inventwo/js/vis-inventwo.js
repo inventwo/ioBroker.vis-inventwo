@@ -276,24 +276,15 @@ vis.binds["vis-inventwo"] = {
 			firstInit = false;
 		}
 
-		$this.css("background",data.iSliderColor);
-		$this.css("border","0px");
-		$this.css("border-radius",data.iSliderCorners + "px");
-		$this.css("height",data.iSliderHeight + "px");
 
-		$this.children().eq(2).css("margin-right", (data.iSliderKnobSize / 2) + "px");
-		$this.children().eq(2).css("margin-left", (data.iSliderKnobSize / 2) + "px");
-
+		/*
 		let topPos = ((data.iSliderKnobSize - data.iSliderHeight) / 2) * (-1);
 		$this.children().eq(1).css("top",topPos + "px");
-		$this.children().eq(1).css("width",data.iSliderKnobSize + "px");
-		$this.children().eq(1).css("height",data.iSliderKnobSize + "px");
-		$this.children().eq(1).css("border","0px");
 		$this.children().eq(1).css("border-radius",data.iSliderKnobCorners + "%");
 		$this.children().eq(1).css("background",data.iSliderKnobColor);
 		$this.children().eq(1).css("box-shadow","0 0 5px 1px black");
 		$this.children().eq(1).css("margin-left", "-" + (data.iSliderKnobSize / 2) + "px");
-
+*/
 		vis.states.bind(oid + ".val",function () {
 			$this.slider("option","value",vis.states.attr(oid + ".val"));
 		});
