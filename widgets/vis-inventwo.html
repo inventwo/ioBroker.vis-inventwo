@@ -441,11 +441,12 @@
 
 	<%
 		let elHeight;
-		if(this.data.iSliderKnobSize > this.data.iTextSize){
-			elHeight = (parseInt(this.data.iSliderKnobSize) + parseInt(this.data.iTextSize) + 5);
+		if(this.data.iSliderKnobSize < this.data.iTextSize && this.data.iShowMinMax){
+
+			elHeight = (parseInt(this.data.iTextSize) * 2 + 5);
 		}
 		else{
-			elHeight = (parseInt(this.data.iTextSize) * 2 + 5)
+			elHeight = (parseInt(this.data.iSliderKnobSize) + parseInt(this.data.iTextSize) + 5);
 		}
 	%>
 
