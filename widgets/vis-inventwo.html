@@ -441,17 +441,7 @@
 		data-vis-name="Simple Slider">
 
 	<%
-		let elHeight = 0;
-		let topSpace = 0;
-		if((parseInt(this.data.iSliderKnobSize) < (parseInt(this.data.iTextSize)) && this.data.iShowMinMax){
-
-			elHeight = parseInt(this.data.iTextSize) * 2;
-			topSpace = parseInt(this.data.iTextSize) / 2;
-		}
-		else{
-			elHeight = parseInt(this.data.iSliderKnobSize) + parseInt(this.data.iTextSize);
-			topSpace = parseInt(this.data.iSliderKnobSize) / 2;
-		}
+		let elHeight = parseInt(this.data.iTextSize) * 2;
 	%>
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
