@@ -513,14 +513,17 @@
 					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data,{orientation:"vertical"}) %> ></div>
 
 				<div style="margin-top: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iMinVal %></div>
+				<div><%= this.data.iSliderLabel %></div>
 
 			<% } else { %>
 				<div style="border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; width: <%= this.data.iSliderHeight %>px;"
 					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data,{orientation:"vertical"}) %> ></div>
 
+				<div style="margin-top: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iSliderLabel %></div>
+
 			<% } %>
 
-			<div><%= this.data.iSliderLabel %></div>
+
 
 		</div>
 
