@@ -273,7 +273,7 @@ vis.binds["vis-inventwo"] = {
 		return { input: `<span>${_(text)}</span>` }
 	},
 
-	handleSlider: function (el,data) {
+	handleSlider: function (el,data,sOrientation) {
 
 		var $this = $(el);
 		var oid = data.oid;
@@ -283,7 +283,7 @@ vis.binds["vis-inventwo"] = {
 				min: parseInt(data.iMinVal),
 				max: parseInt(data.iMaxVal),
 				step: parseInt(data.iStepVal),
-				orientation: "horizontal",
+				orientation: sOrientation,
 				slide: function( event, ui ) {
 					if(!vis.editMode)
 						vis.setValue(oid, ui.value);
