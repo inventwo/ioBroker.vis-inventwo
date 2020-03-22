@@ -285,14 +285,12 @@ vis.binds["vis-inventwo"] = {
 				slide: function( event, ui ) {
 					if(!vis.editMode)
 						vis.setValue(oid, ui.value);
-				},
-				create: function( event, ui ) {
-					$this.css('transform','rotate('+data.iSliderRotation+'deg)');
 				}
 			},options);
 
 		$this.slider(settings);
 
+		$this.css('transform','rotate('+data.iSliderRotation+'deg)');
 		$this.children().css("width",data.iSliderKnobSize + "px");
 		$this.children().css("height",data.iSliderKnobSize + "px");
 		$this.children().css("border","0px");
