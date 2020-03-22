@@ -501,7 +501,7 @@
 
 			<% if(this.data.iShowMinMax){ %>
 				<% if(this.data.iShowValue){ %>
-					<div><span style="color:<%= this.data.iValueTextColor%>"><%= this.data.iValuePreText%></span>/div>
+					<div><span style="color:<%= this.data.iValueTextColor%>"><%= this.data.iValuePreText%></span></div>
 					<div style="margin-bottom: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px">
 						<span style="color:<%= this.data.iValueTextColor%>"><%= vis.states.attr(this.data.oid + '.val') %></span> / <%= this.data.iMinVal %>
 					</div>
