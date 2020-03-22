@@ -463,13 +463,13 @@
 				<div style="margin-right: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iMinVal %></div>
 
 				<div style="top:50%;flex-grow:1; border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; height: <%= this.data.iSliderHeight %>px;"
-					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data) %> ></div>
+					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data,{orientation:"horizontal"}) %> ></div>
 
 				<div style="margin-left: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iMaxVal %></div>
 
 			<% } else { %>
 				<div style="top:50%;flex-grow:1; border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; height: <%= this.data.iSliderHeight %>px; margin: 0 <%= this.data.iShowMinMax %>px;"
-					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data) %> ></div>
+					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data,{orientation:"horizontal"}) %> ></div>
 
 			<% } %>
 
@@ -509,14 +509,14 @@
 					<div style="margin-bottom: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iMaxVal %></div>
 				<% } %>
 
-				<div style="border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; width: <%= this.data.iSliderHeight %>px;"
+				<div style="border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; width: <%= this.data.iSliderHeight %>px;flex-grow:1"
 					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data,{orientation:"vertical"}) %> ></div>
 
 				<div style="margin-top: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iMinVal %></div>
 				<div><%= this.data.iSliderLabel %></div>
 
 			<% } else { %>
-				<div style="border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; width: <%= this.data.iSliderHeight %>px;"
+				<div style="border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; width: <%= this.data.iSliderHeight %>px;flex-grow:1"
 					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data,{orientation:"vertical"}) %> ></div>
 
 				<div style="margin-top: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iSliderLabel %></div>

@@ -299,7 +299,7 @@ vis.binds["vis-inventwo"] = {
 		$this.children().css("border-radius",data.iSliderKnobCorners + "%");
 		$this.children().css("background",data.iSliderKnobColor);
 		$this.children().css("box-shadow","0 0 5px 1px black");
-		if(options.orientation != "vertical") {
+		if(options.orientation === "horizontal") {
 			$this.children().css("margin-left", "-" + (data.iSliderKnobSize / 2) + "px");
 			let topPos = ((data.iSliderKnobSize - data.iSliderHeight) / 2) * (-1);
 			$this.children().css("top",topPos + "px");
