@@ -511,7 +511,7 @@
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
 		style="width:<%= elHeight%>px; height:200px; overflow:visible; cursor:pointer;font-size:<%= this.data.iTextSize %>px;color:<%= this.data.iSliderTextColor %>;" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: auto; display:flex;align-items:center;flex-wrap:wrap; top:<%= topSpace%>px;">
-			<div style="top:50%; border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; width: <%= this.data.iSliderHeight %>px;"
+			<div style="top:50%;height:200px; border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; width: <%= this.data.iSliderHeight %>px;"
 					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data,{orientation:"vertical"}) %> ></div>
 		</div>
 
