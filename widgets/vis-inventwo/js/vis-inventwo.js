@@ -287,7 +287,7 @@ vis.binds["vis-inventwo"] = {
 						vis.setValue(oid, ui.value);
 				},
 				create: function( event, ui ) {
-					//$this.css('transform','rotate('+data.iSliderRotation+'deg)');
+					$this.css('transform','rotate('+data.iSliderRotation+'deg)');
 				}
 			},options);
 
