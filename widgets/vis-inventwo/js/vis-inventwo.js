@@ -304,7 +304,7 @@ vis.binds["vis-inventwo"] = {
 		if(options.orientation != "vertical")
 			$this.children().css("margin-left", "-" + (data.iSliderKnobSize / 2) + "px");
 		else{
-			$this.children().css("margin-left", "-" + (data.iSliderKnobSize / 2 - data.iSliderHeight/2) + "px");
+			$this.children().css("left", "-" + (data.iSliderKnobSize / 2 - data.iSliderHeight/2) + "px");
 		}
 
 
