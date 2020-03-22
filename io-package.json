@@ -1,8 +1,44 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "1.2.0",
+		"version": "1.2.1",
 		"news": {
+            "1.2.1": {
+              "en": "Fixed Slider Widget: seperatet into two widgets (horizontal and vertical)",
+              "de": "Fixed Slider Widget: Separatet in zwei Widgets (horizontal und vertikal)",
+              "ru": "Исправлен виджет слайдера: разделены на два виджета (горизонтальный и вертикальный)",
+              "pt": "Widget Slider fixo: seperatet em dois widgets (horizontal e vertical)",
+              "nl": "Fixed Slider Widget: seperatet in twee widgets (horizontaal en verticaal)",
+              "fr": "Widget à curseur fixe: séparé en deux widgets (horizontal et vertical)",
+              "it": "Widget Slider fisso: separa in due widget (orizzontale e verticale)",
+              "es": "Control deslizante fijo: separado en dos widgets (horizontal y vertical)",
+              "pl": "Naprawiono widżet suwaka: oddzielny w dwa widżety (poziomy i pionowy)",
+              "zh-cn": "固定的滑块小部件：分为两个小部件（水平和垂直）"
+            },
+            "1.2.0": {
+              "en": "Added image widget, Added Slider to change border radius for all 4 corners (If this version is an update for you, you need to click on each button in the vis-editor to get back the default corners), Added new icons",
+              "de": "Bild-Widget hinzugefügt, Schieberegler hinzugefügt, um den Rahmenradius für alle 4 Ecken zu ändern (Wenn diese Version ein Update für Sie ist, müssen Sie auf jede Schaltfläche im Vis-Editor klicken, um die Standardecken wiederherzustellen), Neue Symbole hinzugefügt",
+              "ru": "Добавлен виджет изображения, Добавлен ползунок для изменения радиуса границы для всех 4 углов (если эта версия является обновлением для вас, вам нужно нажать на каждую кнопку в vis-редакторе, чтобы вернуть углы по умолчанию), Добавлены новые значки",
+              "pt": "Adicionado widget de imagem, Slider adicionado para alterar o raio da borda dos quatro cantos (se esta versão é uma atualização para você, você precisa clicar em cada botão no vis-editor para recuperar os cantos padrão), Adicionado novos ícones",
+              "nl": "Afbeeldingswidget toegevoegd, schuifregelaar toegevoegd om de randradius voor alle 4 de hoeken te wijzigen (als deze versie een update voor u is, moet u op elke knop in de vis-editor klikken om de standaardhoeken terug te krijgen), nieuwe pictogrammen toegevoegd",
+              "fr": "Ajout d'un widget d'image, Ajout d'un curseur pour changer le rayon de la bordure pour les 4 coins (si cette version est une mise à jour pour vous, vous devez cliquer sur chaque bouton dans l'éditeur de vis pour récupérer les coins par défaut), Ajout de nouvelles icônes",
+              "it": "Aggiunto widget immagine, aggiunto cursore per cambiare il raggio del bordo per tutti e 4 gli angoli (se questa versione è un aggiornamento per te, devi fare clic su ciascun pulsante nell'editor vis per ripristinare gli angoli predefiniti), aggiunte nuove icone",
+              "es": "Se agregó un widget de imagen, un control deslizante agregado para cambiar el radio del borde para las 4 esquinas (si esta versión es una actualización para usted, debe hacer clic en cada botón en el editor visual para recuperar las esquinas predeterminadas), nuevos iconos agregados",
+              "pl": "Dodano widżet obrazu, Dodano suwak, aby zmienić promień obramowania dla wszystkich 4 narożników (Jeśli ta wersja jest dla Ciebie aktualizacją, musisz kliknąć każdy przycisk w edytorze Vis, aby przywrócić domyślne narożniki), Dodano nowe ikony",
+              "zh-cn": "添加了图像小部件，添加了Slider以更改所有4个角的边界半径（如果此版本是您的更新，则需要单击vis-editor中的每个按钮以恢复默认角），添加了新图标"
+            },
+            "1.1.1": {
+              "en": "Bug Fix",
+              "de": "Bug-Fix",
+              "ru": "Исправлена ошибка",
+              "pt": "Bug Fix",
+              "nl": "Bugfix",
+              "fr": "Correction d'un bug",
+              "it": "Risoluzione del problema",
+              "es": "Arreglo del fallo",
+              "pl": "Naprawa błędów",
+              "zh-cn": "错误修复"
+            },
             "1.1.0": {
               "en": "Added slider widget, Changed button widgets to use default font and text options,  Added option to mirror image, Added new icons",
               "de": "Slider-Widget hinzugefügt, Schaltflächen-Widgets geändert, um Standard-Schrift- und Textoptionen zu verwenden, Option zum Spiegeln von Bildern hinzugefügt, Neue Symbole hinzugefügt",
