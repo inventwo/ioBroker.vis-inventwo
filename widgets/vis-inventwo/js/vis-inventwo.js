@@ -270,7 +270,7 @@ vis.binds["vis-inventwo"] = {
 		if (data[1] === 'valueType') {
 			text = 'iValueTypeText'
 		}
-		return { input: `<span>${_(text)}</span>` }
+		return { input: `<span>${_(text)}</span>` };
 	},
 
 	handleSlider: function (el,data,sOrientation) {
@@ -283,7 +283,7 @@ vis.binds["vis-inventwo"] = {
 				min: parseInt(data.iMinVal),
 				max: parseInt(data.iMaxVal),
 				step: parseInt(data.iStepVal),
-				orientation: "vertical",
+				orientation: sOrientation,
 				slide: function( event, ui ) {
 					if(!vis.editMode)
 						vis.setValue(oid, ui.value);
@@ -296,7 +296,7 @@ vis.binds["vis-inventwo"] = {
 
 		var firstInit = true;
 		if(firstInit){
-			$this.slider("option","value",vis.states.attr(oid + ".val"));
+			//$this.slider("option","value",vis.states.attr(oid + ".val"));
 			firstInit = false;
 		}
 

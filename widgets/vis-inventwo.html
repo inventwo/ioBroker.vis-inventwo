@@ -463,13 +463,13 @@
 				<div style="margin-right: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iMinVal %></div>
 
 				<div style="top:50%;flex-grow:1; border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; height: <%= this.data.iSliderHeight %>px;"
-					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data) %> ></div>
+					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data,"horizontal") %> ></div>
 
 				<div style="margin-left: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iMaxVal %></div>
 
 			<% } else { %>
 				<div style="top:50%;flex-grow:1; border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; height: <%= this.data.iSliderHeight %>px; margin: 0 <%= this.data.iShowMinMax %>px;"
-					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data,"horizontal) %> ></div>
+					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data,"horizontal") %> ></div>
 
 			<% } %>
 
@@ -512,7 +512,7 @@
 		style="width:<%= elHeight%>px; height:200px; overflow:visible; cursor:pointer;font-size:<%= this.data.iTextSize %>px;color:<%= this.data.iSliderTextColor %>;" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: auto; display:flex;align-items:center;flex-wrap:wrap; top:<%= topSpace%>px;">
 			<div style="top:50%; border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; width: <%= this.data.iSliderHeight %>px;"
-					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data) %> ></div>
+					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data,"vertical") %> ></div>
 		</div>
 
 
