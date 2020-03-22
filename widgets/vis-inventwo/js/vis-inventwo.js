@@ -273,34 +273,25 @@ vis.binds["vis-inventwo"] = {
 		return { input: `<span>${_(text)}</span>` };
 	},
 
-	handleSlider: function (el,data,sOrientation) {
+	handleSlider: function (el,data,options) {
 
 		var $this = $(el);
 		var oid = data.oid;
 
-		$this.slider(
-			{
+		var settings = $.extend({
 				min: parseInt(data.iMinVal),
 				max: parseInt(data.iMaxVal),
 				step: parseInt(data.iStepVal),
-				orientation: sOrientation,
 				slide: function( event, ui ) {
 					if(!vis.editMode)
 						vis.setValue(oid, ui.value);
 				},
 				create: function( event, ui ) {
-					$this.css('transform','rotate('+data.iSliderRotation+'deg)');
+					//$this.css('transform','rotate('+data.iSliderRotation+'deg)');
 				}
-			}
-		);
+			},options);
 
-		var firstInit = true;
-		if(firstInit){
-			//$this.slider("option","value",vis.states.attr(oid + ".val"));
-			firstInit = false;
-		}
-
-        //$this.css("transform","translateY(-50%) rotateZ("+data.iSliderRotation+"deg)");
+		$this.slider(settings);
 
 		let topPos = ((data.iSliderKnobSize - data.iSliderHeight) / 2) * (-1);
 		$this.children().css("top",topPos + "px");
