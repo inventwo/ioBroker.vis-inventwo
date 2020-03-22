@@ -303,6 +303,9 @@ vis.binds["vis-inventwo"] = {
 		$this.children().css("box-shadow","0 0 5px 1px black");
 		if(options.orientation != "vertical")
 			$this.children().css("margin-left", "-" + (data.iSliderKnobSize / 2) + "px");
+		else{
+			$this.children().css("margin-left", "-" + (data.iSliderKnobSize / 2 - data.iSliderHeight/2) + "px");
+		}
 
 
 		vis.states.bind(oid + ".val",function () {
