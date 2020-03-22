@@ -150,8 +150,8 @@ if (vis.editMode) {
 			"de": "Regler Rundung"
 		},
 		"iSliderHeight":{
-			"en": "Height",
-			"de": "Höhe"
+			"en": "Bar size",
+			"de": "Balken dicke"
 		},
 		"iSliderKnobSize":{
 			"en": "Handle size",
