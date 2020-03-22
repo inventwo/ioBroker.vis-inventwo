@@ -283,7 +283,7 @@ vis.binds["vis-inventwo"] = {
 				min: parseInt(data.iMinVal),
 				max: parseInt(data.iMaxVal),
 				step: parseInt(data.iStepVal),
-				orientation: sOrientation,
+				orientation: "vertical",
 				slide: function( event, ui ) {
 					if(!vis.editMode)
 						vis.setValue(oid, ui.value);
