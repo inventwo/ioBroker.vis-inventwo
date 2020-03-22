@@ -306,7 +306,7 @@ vis.binds["vis-inventwo"] = {
 		}
 		else{
 			$this.children().css("left", "-" + (data.iSliderKnobSize / 2 - data.iSliderHeight/2) + "px");
-			$this.children().css("margin-top", "-" + (data.iSliderKnobSize / 2) + "px");
+			$this.children().css("margin-bottom", "-" + (data.iSliderKnobSize / 2) + "px");
 		}
 
 
