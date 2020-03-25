@@ -160,7 +160,7 @@
 			"vis"
 		],
 		"localLink": "%web_protocol%://%ip%:%web_port%/vis/edit.html",
-		"mode": "once",
+		"mode": "daemon",
 		"type": "visualization-widgets",
 		"compact": true,
 		"connectionType": "local",
