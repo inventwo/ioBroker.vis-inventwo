@@ -1,6 +1,12 @@
 /* Style your widget here */
+
+/* BUTTONS ANFANG */
+
 .vis-inventwo-button {
     box-shadow: 2px 2px 2px 1px #111111;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 .vis-inventwo-button-active {
@@ -9,9 +15,40 @@
 
 .vis-inventwo-button-imageContainer {
 	text-align: center;
+    position:relative;
+    z-index: 1;
 }
 
 .vis-inventwo-button-text {
-	position: absolute;
+    position: relative;
+    align-self: flex-start;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+    margin-top: auto;
+    z-index: 1;
+}
+
+.vis-inventwo-button-content{
+    /*padding: 7px;*/
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    right: 7px;
+    bottom: 7px;
+    display: flex;
+    flex-direction: column;
+}
+
+.vis-inventwo-button-content-small{
+    /*padding: 7px;*/
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    right: 7px;
     bottom: 7px;
 }
+
+/* BUTTONS ENDE */
