@@ -307,6 +307,11 @@ vis.binds["vis-inventwo"] = {
 			$this.children().css("margin-bottom", "-" + (data.iSliderKnobSize / 2) + "px");
 		}
 
+		var firstInit = true;
+		if(firstInit){
+			$this.slider("option","value",vis.states.attr(oid + ".val"));
+			firstInit = false;
+		}
 
 		vis.states.bind(oid + ".val",function () {
 			$this.slider("option","value",vis.states.attr(oid + ".val"));
