@@ -160,7 +160,7 @@
 			"vis"
 		],
 		"localLink": "%web_protocol%://%ip%:%web_port%/vis/edit.html",
-		"mode": "once",
+		"mode": "daemon",
 		"type": "visualization-widgets",
 		"compact": true,
 		"connectionType": "local",
@@ -174,7 +174,15 @@
 			"vis"
 		]
 	},
-	"native": {},
+	"native": {
+	        "Button": "#333333",
+		    "Active": "#455618",
+            "Text": "#C7C7C7",
+            "Stripes": "#393939",
+            "Background": "#9B9B9B",
+            "Radius": "10",
+            "Version": "0.0.1"
+	},
 	"objects": [],
 	"instanceObjects": []
 }
