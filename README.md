@@ -35,6 +35,9 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 1.2.2
+- Bug Fix: slider value, config
+
 ## 1.2.1
 - Fixed Slider Widget: seperatet into two widgets (horizontal and vertical)
 
