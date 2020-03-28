@@ -255,12 +255,6 @@ vis.binds["vis-inventwo"] = {
 				moved = false;
 			});
 
-			if($(this).attr('data-inventwo-nav') === vis.activeView){
-				$(this).css('background-color',data.iButtonActive);
-			}
-			else{
-				$(this).css('background-color',data.iButtonCol);
-			}
 		}
 	},
 	state: function (el, data) {
