@@ -1,7 +1,7 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "1.2.2",
+		"version": "1.2.3",
 		"news": {
             "1.2.2": {
               "en": "Bug Fix: slider value, config",

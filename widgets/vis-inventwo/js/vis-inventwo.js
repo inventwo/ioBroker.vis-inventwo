@@ -234,6 +234,11 @@ vis.binds["vis-inventwo"] = {
 				vis.changeView(data.nav_view, data.nav_view);
 				//e.preventDefault();
 				//return false;
+
+				setTimeout(function () {
+					console.log(vis.activeView);
+				},100);
+
 			}).on('touchmove', function () {
 				moved = true;
 			}).on('touchstart', function () {
