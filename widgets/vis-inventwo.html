@@ -291,8 +291,21 @@
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" <%= (el) -> vis.binds['vis-inventwo'].handleNavigation(el, data) %>>
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
 
+			<%
+
+			let backgroundcol = "";
+
+			if(this.data.nav_view === vis.activeView){
+				backgroundcol = this.data.iButtonActive;
+			}
+			else{
+				backgroundcol = this.data.iButtonCol;
+			}
+
+			%>
+
             <div class="vis-inventwo-button vis-inventwo-nav" data-inventwo-nav="<%= this.data.nav_view%>"
-                    style="background: <%= this.data.attr('iButtonCol') %>;
+                    style="background:  <%= backgroundcol %>;
                     border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
                     opacity:<%= this.data.attr('iOpacity')%>;"
             >
