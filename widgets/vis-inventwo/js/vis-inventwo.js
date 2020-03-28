@@ -237,6 +237,16 @@ vis.binds["vis-inventwo"] = {
 
 				setTimeout(function () {
 					console.log(vis.activeView);
+
+					$('.vis-inventwo-nav').each(function () {
+						if($(this).attr('data-inventwo-nav') === vis.activeView){
+							$(this).css('background-color',data.iButtonActive);
+						}
+						else{
+							$(this).css('background-color',data.iButtonCol);
+						}
+					});
+
 				},100);
 
 			}).on('touchmove', function () {
