@@ -25,7 +25,7 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
             <div class="vis-inventwo-button"
-                <% if(vis.states.attr(this.data.oid + '.val')) { %>
+                <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
                     style="background: <%= this.data.attr('iButtonActive') %>;
                     border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
                     opacity:<%= this.data.attr('iOpacity')%>;"
@@ -87,7 +87,7 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
             <div class="vis-inventwo-button"
-                <% if(vis.states.attr(this.data.oid + '.val')) { %>
+                <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
                     style="background: <%= this.data.attr('iButtonActive') %>;
                     border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
                     opacity:<%= this.data.attr('iOpacity')%>;"
