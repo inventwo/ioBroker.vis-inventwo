@@ -1,21 +1,7 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-<<<<<<< HEAD
-		"version": "1.2.1",
-		"news": {
-            "1.2.1": {
-              "en": "Fixed Slider Widget: seperatet into two widgets (horizontal and vertical)",
-              "de": "Fixed Slider Widget: Separatet in zwei Widgets (horizontal und vertikal)",
-              "ru": "Исправлен виджет слайдера: разделены на два виджета (горизонтальный и вертикальный)",
-              "pt": "Widget Slider fixo: seperatet em dois widgets (horizontal e vertical)",
-              "nl": "Fixed Slider Widget: seperatet in twee widgets (horizontaal en verticaal)",
-              "fr": "Widget à curseur fixe: séparé en deux widgets (horizontal et vertical)",
-              "it": "Widget Slider fisso: separa in due widget (orizzontale e verticale)",
-              "es": "Control deslizante fijo: separado en dos widgets (horizontal y vertical)",
-              "pl": "Naprawiono widżet suwaka: oddzielny w dwa widżety (poziomy i pionowy)",
-=======
-		"version": "1.2.3",
+		"version": "1.2.3.1",
 		"news": {
             "1.2.3": {
               "en": "Added Navigation active color, repaired state color for value switch",
@@ -51,7 +37,6 @@
               "it": "Widget Slider fisso: separato in due widget (orizzontale e verticale)",
               "es": "Control deslizante fijo: separado en dos widgets (horizontal y vertical)",
               "pl": "Naprawiono widżet suwaka: podzielony na dwa widżety (poziomy i pionowy)",
->>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
               "zh-cn": "固定的滑块小部件：分为两个小部件（水平和垂直）"
             },
             "1.2.0": {
@@ -220,7 +205,7 @@
             "Stripes": "#393939",
             "Background": "#9B9B9B",
             "Radius": "10",
-            "Version": "0.0.1"
+            "ImgName": "100",
 	},
 	"objects": [],
 	"instanceObjects": []

@@ -35,8 +35,6 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
-<<<<<<< HEAD
-=======
 # 1.2.3
 - Added Navigation active color
 - Fixed state color for value switch
@@ -44,7 +42,6 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ## 1.2.2
 - Bug Fix: slider value, config
 
->>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
 ## 1.2.1
 - Fixed Slider Widget: seperatet into two widgets (horizontal and vertical)
 

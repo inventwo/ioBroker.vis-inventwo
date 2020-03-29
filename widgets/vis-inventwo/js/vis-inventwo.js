@@ -234,8 +234,6 @@ vis.binds["vis-inventwo"] = {
 				vis.changeView(data.nav_view, data.nav_view);
 				//e.preventDefault();
 				//return false;
-<<<<<<< HEAD
-=======
 
 				setTimeout(function () {
 					console.log(vis.activeView);
@@ -251,34 +249,21 @@ vis.binds["vis-inventwo"] = {
 
 				},100);
 
->>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
 			}).on('touchmove', function () {
 				moved = true;
 			}).on('touchstart', function () {
 				moved = false;
 			});
-<<<<<<< HEAD
-=======
-
->>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
 		}
 	},
 	state: function (el, data) {
 
 		var $this = $(el);
-<<<<<<< HEAD
 
 		var oid = data.oid;
 
 		//$(el).html(valFalse);
 
-=======
-
-		var oid = data.oid;
-
-		//$(el).html(valFalse);
-
->>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
 		if (!vis.editMode) {
 
 			$this.parent().click(function () {
@@ -337,11 +322,8 @@ vis.binds["vis-inventwo"] = {
 			$this.children().css("margin-bottom", "-" + (data.iSliderKnobSize / 2) + "px");
 		}
 
-<<<<<<< HEAD
-=======
 			$this.slider("option","value",vis.states.attr(oid + ".val"));
 
->>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
 
 		vis.states.bind(oid + ".val",function () {
 			$this.slider("option","value",vis.states.attr(oid + ".val"));
