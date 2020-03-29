@@ -339,11 +339,7 @@ vis.binds["vis-inventwo"] = {
 		jsonData = JSON.parse(jsonData);
 		console.log(jsonData);
 
-		let html = "";
-
-		for(let i = 0; i < jsonData.length; i++){
-			html += "test";
-		}
+		let html = "ewrw";
 
 		$(el).html(html);
 
