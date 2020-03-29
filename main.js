@@ -228,7 +228,7 @@ class visInventwo extends utils.Adapter {
             this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
             
             if(state === "CSS.ImgName"){
-
+                this.setStateAsync("CSS.Wallpaper", { val: "url('/vis/widgets/vis-inventwo/set/backgrounds/"  + id + "')", ack: true });
             }
 		} else {
 			// The state was deleted
