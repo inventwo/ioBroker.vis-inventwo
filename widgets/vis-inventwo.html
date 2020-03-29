@@ -110,7 +110,7 @@
 
             	%>
 
-            <% if(vis.states.attr(this.data.oid + '.val')) { %>
+            <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
                 <div style="order:2; position:relative;">
                     <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
                 </div>        
