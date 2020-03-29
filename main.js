@@ -110,7 +110,7 @@ class visInventwo extends utils.Adapter {
 				type: "string",
 				role: "inventwo.wallpaper",
 				read: true,
-				write: true,
+				write: false,
 			},
 			native: {},
         });
@@ -172,7 +172,7 @@ class visInventwo extends utils.Adapter {
         await this.setStateAsync("CSS.Button", { val: this.config.Button, ack: true });
         await this.setStateAsync("CSS.Active", { val: this.config.Active, ack: true });
         await this.setStateAsync("CSS.Text", { val: this.config.Text, ack: true });
-        await this.setStateAsync("CSS.Wallpaper", { val: this.config.Wallpaper + this.config.ImgName, ack: true });
+        await this.setStateAsync("CSS.Wallpaper", { val:"url('/vis.0/main/HG/"  + this.config.ImgName + ".jpg')", ack: true });
         await this.setStateAsync("CSS.ImgName", { val: this.config.ImgName, ack: true });
 //      await this.setStateAsync("CSS.Radius", { val: this.config.Radius, ack: true });
 //      await this.setStateAsync("Info", { val: this.config.Version, ack: true });
