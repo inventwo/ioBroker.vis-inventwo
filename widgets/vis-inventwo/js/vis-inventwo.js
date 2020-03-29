@@ -335,13 +335,24 @@ vis.binds["vis-inventwo"] = {
 	jsontable: function (el,data) {
 		console.log(data);
 
-		let jsonData = vis.states[data.oid + ".val"];
-		jsonData = JSON.parse(jsonData);
-		console.log(jsonData);
+		if(data.oid !== "") {
+			let jsonData = vis.states[data.oid + ".val"];
+			jsonData = JSON.parse(jsonData);
+			console.log(jsonData);
 
-		let html = "ewrw";
+			let html = "<table>";
 
-		$(el).html(html);
+			for(let i = 0; i < jsonData.length; i++){
+				html += "<tr>";
+				html += "<td>" + jsonData[i].caller + "</td>";
+				html += "</tr>";
+			}
+
+			html += "</table>";
+
+
+			$(el).html(html);
+		}
 
 
 	}
