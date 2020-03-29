@@ -339,6 +339,7 @@ vis.binds["vis-inventwo"] = {
 
 		console.log(JSON.parse(jsonData));
 		console.log(jsonData);
+		console.log(data.iColName1);
 		console.log(data.iColName2);
 	}
 };
