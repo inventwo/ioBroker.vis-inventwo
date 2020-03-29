@@ -334,6 +334,11 @@ vis.binds["vis-inventwo"] = {
 
 	jsontable: function (el,data) {
 		console.log(data);
+
+		let jsonData = vis.states.attr(data.oid + ".val");
+
+		console.log(JSON.parse(jsonData));
+
 		console.log(data.iColName2);
 	}
 };
