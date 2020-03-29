@@ -59,8 +59,8 @@ class visInventwo extends utils.Adapter {
 		this.log.info("config Button: " + this.config.Button);
         this.log.info("config Active: " + this.config.Active);
         this.log.info("config Text: " + this.config.Text);
-//      this.log.info("config Stripes: " + this.config.Stripes);
-//      this.log.info("config Background: " + this.config.Background);
+        this.log.info("config Wallpaper: " + this.config.Wallpaper);
+        this.log.info("config ImgName: " + this.config.ImgName);
 //      this.log.info("config Radius: " + this.config.Radius);
 //      this.log.info("config Info: " + this.config.Info);
 
@@ -103,29 +103,29 @@ class visInventwo extends utils.Adapter {
 			},
 			native: {},
        });
-  /*
-        await this.setObjectAsync("CSS.Stripes", {
+        await this.setObjectAsync("CSS.Wallpaper", {
 			type: "state",
 			common: {
-				name: "Tripes-Color",
+				name: "WallpaperUrl",
 				type: "string",
-				role: "inventwo.color",
+				role: "inventwo.wallpaper",
 				read: true,
 				write: true,
 			},
 			native: {},
         });
-        await this.setObjectAsync("CSS.Background", {
+        await this.setObjectAsync("CSS.ImgName", {
 			type: "state",
 			common: {
-				name: "Background-Color",
+				name: "Wallpaper-Name",
 				type: "string",
-				role: "inventwo.color",
+				role: "inventwo.wallpaper",
 				read: true,
 				write: true,
 			},
 			native: {},
         });
+ /*
         await this.setObjectAsync("CSS.Radius", {
 			type: "state",
 			common: {
@@ -155,8 +155,8 @@ class visInventwo extends utils.Adapter {
         this.subscribeStates("CSS.Button");
         this.subscribeStates("CSS.Active");
         this.subscribeStates("CSS.Text");
-//      this.subscribeStates("CSS.Stripes");
-//      this.subscribeStates("CSS.Background");
+        this.subscribeStates("CSS.Wallpaper");
+        this.subscribeStates("CSS.ImgName");
 //      this.subscribeStates("CSS.Radius");
 //      this.subscribeStates("CSS.Info");
 
@@ -172,8 +172,8 @@ class visInventwo extends utils.Adapter {
         await this.setStateAsync("CSS.Button", { val: this.config.Button, ack: true });
         await this.setStateAsync("CSS.Active", { val: this.config.Active, ack: true });
         await this.setStateAsync("CSS.Text", { val: this.config.Text, ack: true });
-//      await this.setStateAsync("CSS.Stripes", { val: this.config.Stripes, ack: true });
-//      await this.setStateAsync("CSS.Background", { val: this.config.Background, ack: true });
+        await this.setStateAsync("CSS.Stripes", { val: this.config.Wallpaper, ack: true });
+        await this.setStateAsync("CSS.Background", { val: this.config.ImgName, ack: true });
 //      await this.setStateAsync("CSS.Radius", { val: this.config.Radius, ack: true });
 //      await this.setStateAsync("Info", { val: this.config.Version, ack: true });
        
