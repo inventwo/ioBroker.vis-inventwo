@@ -336,7 +336,7 @@ vis.binds["vis-inventwo"] = {
 		console.log(data);
 
 		let jsonData = vis.states[data.oid + ".val"];
-		jsonData = JSON.parse(data);
+		jsonData = JSON.parse(jsonData);
 		console.log(jsonData);
 		$(el).html(jsonData[0].id);
 
