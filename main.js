@@ -172,7 +172,7 @@ class visInventwo extends utils.Adapter {
         await this.setStateAsync("CSS.Button", { val: this.config.Button, ack: true });
         await this.setStateAsync("CSS.Active", { val: this.config.Active, ack: true });
         await this.setStateAsync("CSS.Text", { val: this.config.Text, ack: true });
-        await this.setStateAsync("CSS.Wallpaper", { val:"url('/vis/widgets/vis-inventwo/set/backgrounds/"  + this.config.ImgName + "')", ack: true });
+        await this.setStateAsync("CSS.Wallpaper", { val: "url('/vis/widgets/vis-inventwo/set/backgrounds/"  + this.config.ImgName + "')", ack: true });
         await this.setStateAsync("CSS.ImgName", { val: this.config.ImgName, ack: true });
 //      await this.setStateAsync("CSS.Radius", { val: this.config.Radius, ack: true });
 //      await this.setStateAsync("Info", { val: this.config.Version, ack: true });
@@ -225,7 +225,11 @@ class visInventwo extends utils.Adapter {
 	onStateChange(id, state) {
 		if (state) {
 			// The state was changed
-			this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+            this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+            
+            if(state === "CSS.ImgName"){
+
+            }
 		} else {
 			// The state was deleted
 			this.log.info(`state ${id} deleted`);
