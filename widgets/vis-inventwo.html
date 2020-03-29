@@ -25,7 +25,11 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
             <div class="vis-inventwo-button"
+<<<<<<< HEAD
                 <% if(vis.states.attr(this.data.oid + '.val')) { %>
+=======
+                <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+>>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
                     style="background: <%= this.data.attr('iButtonActive') %>;
                     border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
                     opacity:<%= this.data.attr('iOpacity')%>;"
@@ -87,7 +91,11 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
             <div class="vis-inventwo-button"
+<<<<<<< HEAD
                 <% if(vis.states.attr(this.data.oid + '.val')) { %>
+=======
+                <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+>>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
                     style="background: <%= this.data.attr('iButtonActive') %>;
                     border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
                     opacity:<%= this.data.attr('iOpacity')%>;"
@@ -98,6 +106,7 @@
                 <% } %>
             >
 		    </div>
+<<<<<<< HEAD
 
             <div class="vis-inventwo-button-content-small" style="opacity: <%= this.data.attr('iOpacityCtn') %>">
 
@@ -111,6 +120,21 @@
             	%>
 
             <% if(vis.states.attr(this.data.oid + '.val')) { %>
+=======
+
+            <div class="vis-inventwo-button-content-small" style="opacity: <%= this.data.attr('iOpacityCtn') %>">
+
+			<%
+
+            		let flip = 1;
+            		if(this.data.attr('iFlipImage')){
+            			flip = -1;
+            		}
+
+            	%>
+
+            <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+>>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
                 <div style="order:2; position:relative;">
                     <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
                 </div>        
@@ -155,12 +179,21 @@
             >
 		    </div>
 			<%
+<<<<<<< HEAD
 
             		let flip = 1;
             		if(this.data.attr('iFlipImage')){
             			flip = -1;
             		}
 
+=======
+
+            		let flip = 1;
+            		if(this.data.attr('iFlipImage')){
+            			flip = -1;
+            		}
+
+>>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
             	%>
             <div class="vis-inventwo-button-content" style="opacity: <%= this.data.attr('iOpacityCtn') %>;">
                 <div class="vis-inventwo-button-imageContainer">
@@ -224,7 +257,11 @@
 		class="vis-tpl"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Nav.png">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;nav_view;iText/text;iTextSize[12]/slider,0,50,1;iImage/image;iIconSize[60]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;"
+<<<<<<< HEAD
 		data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;
+=======
+		data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;iButtonActive[#455618]/color;
+>>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
@@ -234,8 +271,26 @@
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" <%= (el) -> vis.binds['vis-inventwo'].handleNavigation(el, data) %>>
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
 
+<<<<<<< HEAD
             <div class="vis-inventwo-button"
                     style="background: <%= this.data.attr('iButtonCol') %>;
+=======
+			<%
+
+			let backgroundcol = "";
+
+			if(this.data.nav_view === vis.activeView){
+				backgroundcol = this.data.iButtonActive;
+			}
+			else{
+				backgroundcol = this.data.iButtonCol;
+			}
+
+			%>
+
+            <div class="vis-inventwo-button vis-inventwo-nav" data-inventwo-nav="<%= this.data.nav_view%>"
+                    style="background: <%= backgroundcol %>;
+>>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
                     border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
                     opacity:<%= this.data.attr('iOpacity')%>;"
             >
@@ -268,7 +323,11 @@
 		class="vis-tpl"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Nav1.png">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;nav_view;iText/text;iTextSize[12]/slider,0,50,1;iImage/image;iIconSize[35]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;"
+<<<<<<< HEAD
 		data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;
+=======
+		data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;iButtonActive[#455618]/color;
+>>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
@@ -278,8 +337,26 @@
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" <%= (el) -> vis.binds['vis-inventwo'].handleNavigation(el, data) %>>
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
 
+<<<<<<< HEAD
             <div class="vis-inventwo-button"
                     style="background: <%= this.data.attr('iButtonCol') %>;
+=======
+			<%
+
+			let backgroundcol = "";
+
+			if(this.data.nav_view === vis.activeView){
+				backgroundcol = this.data.iButtonActive;
+			}
+			else{
+				backgroundcol = this.data.iButtonCol;
+			}
+
+			%>
+
+            <div class="vis-inventwo-button vis-inventwo-nav" data-inventwo-nav="<%= this.data.nav_view%>"
+                    style="background:  <%= backgroundcol %>;
+>>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
                     border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
                     opacity:<%= this.data.attr('iOpacity')%>;"
             >
@@ -395,11 +472,19 @@
                 <% } %>
             >
 		    </div>
+<<<<<<< HEAD
 
             <div class="vis-inventwo-button-content-small" style="opacity: <%= this.data.attr('iOpacityCtn') %>">
 
 			<%
 
+=======
+
+            <div class="vis-inventwo-button-content-small" style="opacity: <%= this.data.attr('iOpacityCtn') %>">
+
+			<%
+
+>>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
             		let flip = 1;
             		if(this.data.attr('iFlipImage')){
             			flip = -1;

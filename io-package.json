@@ -1,6 +1,7 @@
 {
 	"common": {
 		"name": "vis-inventwo",
+<<<<<<< HEAD
 		"version": "1.2.1",
 		"news": {
             "1.2.1": {
@@ -13,6 +14,44 @@
               "it": "Widget Slider fisso: separa in due widget (orizzontale e verticale)",
               "es": "Control deslizante fijo: separado en dos widgets (horizontal y vertical)",
               "pl": "Naprawiono widżet suwaka: oddzielny w dwa widżety (poziomy i pionowy)",
+=======
+		"version": "1.2.3",
+		"news": {
+            "1.2.3": {
+              "en": "Added Navigation active color, repaired state color for value switch",
+              "de": "Aktive Navigationsfarbe hinzugefügt, Statusfarbe für Wertschalter repariert",
+              "ru": "Добавлен активный цвет навигации, исправлен цвет состояния для переключения значений",
+              "pt": "Adicionado cor ativa de navegação, cor de estado reparada para troca de valor",
+              "nl": "Navigatie actieve kleur toegevoegd, gerepareerde statuskleur voor waardeswitch",
+              "fr": "Couleur active de navigation ajoutée, couleur d'état réparée pour le commutateur de valeur",
+              "it": "Aggiunto colore di navigazione attivo, colore di stato riparato per cambio valore",
+              "es": "Color activo de navegación agregado, color de estado reparado para cambio de valor",
+              "pl": "Dodano aktywny kolor nawigacji, naprawiony kolor stanu dla zmiany wartości",
+              "zh-cn": "添加了导航活动颜色，修复了状态开关的状态颜色"
+            },
+            "1.2.2": {
+              "en": "Bug Fix: slider value, config",
+              "de": "Fehlerbehebung: Schiebereglerwert, Konfiguration",
+              "ru": "Исправление ошибки: значение слайдера, конфиг",
+              "pt": "Correção de bug: valor do slider, config",
+              "nl": "Bugfix: schuifwaarde, configuratie",
+              "fr": "Correction de bug: valeur du curseur, config",
+              "it": "Bug Fix: valore del dispositivo di scorrimento, config",
+              "es": "Corrección de errores: valor del control deslizante, configuración",
+              "pl": "Poprawka błędu: wartość suwaka, config",
+              "zh-cn": "错误修复：滑块值，配置"
+            },
+            "1.2.1": {
+              "en": "Fixed Slider Widget: seperated into two widgets (horizontal and vertical)",
+              "de": "Fixed Slider Widget: getrennt in zwei Widgets (horizontal und vertikal)",
+              "ru": "Исправлен виджет слайдера: разделен на два виджета (горизонтальный и вертикальный)",
+              "pt": "Widget Slider fixo: separado em dois widgets (horizontal e vertical)",
+              "nl": "Fixed Slider Widget: gescheiden in twee widgets (horizontaal en verticaal)",
+              "fr": "Widget à curseur fixe: séparé en deux widgets (horizontal et vertical)",
+              "it": "Widget Slider fisso: separato in due widget (orizzontale e verticale)",
+              "es": "Control deslizante fijo: separado en dos widgets (horizontal y vertical)",
+              "pl": "Naprawiono widżet suwaka: podzielony na dwa widżety (poziomy i pionowy)",
+>>>>>>> e3d558c9a06829c111cbc8d1ab8ba77eac5502a0
               "zh-cn": "固定的滑块小部件：分为两个小部件（水平和垂直）"
             },
             "1.2.0": {
