@@ -330,5 +330,11 @@ vis.binds["vis-inventwo"] = {
 			$this.slider("option","value",vis.states.attr(oid + ".val"));
 		});
 
+	},
+
+	jsontable: function (el,data) {
+
+		console.log(data);
+
 	}
 };
