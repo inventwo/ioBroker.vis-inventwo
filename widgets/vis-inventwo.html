@@ -589,20 +589,3 @@
 	</div>
 </script>
 
-<script id="i-vis-json-table"
-		type="text/ejs"
-		class="vis-tpl"
-		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Image.png">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid;"
-		data-vis-attrs0="iColCount/number;group.i-tableCols/byindex;iColName(colCount - 1);iColAttr(colCount - 1)"
-		data-vis-set="vis-inventwo"
-		data-vis-type="table"
-		data-vis-name="JSON Table">
-
-		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:210px; height:110px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
-		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
-
-		</div>
-        <%= (el) -> vis.binds['vis-inventwo'].jsontable(el, this.data) %>
-	</div>
-</script>
