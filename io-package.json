@@ -3,6 +3,18 @@
 		"name": "vis-inventwo",
 		"version": "1.2.3",
 		"news": {
+            "1.2.3": {
+              "en": "Added Navigation active color, repaired state color for value switch",
+              "de": "Aktive Navigationsfarbe hinzugefügt, Statusfarbe für Wertschalter repariert",
+              "ru": "Добавлен активный цвет навигации, исправлен цвет состояния для переключения значений",
+              "pt": "Adicionado cor ativa de navegação, cor de estado reparada para troca de valor",
+              "nl": "Navigatie actieve kleur toegevoegd, gerepareerde statuskleur voor waardeswitch",
+              "fr": "Couleur active de navigation ajoutée, couleur d'état réparée pour le commutateur de valeur",
+              "it": "Aggiunto colore di navigazione attivo, colore di stato riparato per cambio valore",
+              "es": "Color activo de navegación agregado, color de estado reparado para cambio de valor",
+              "pl": "Dodano aktywny kolor nawigacji, naprawiony kolor stanu dla zmiany wartości",
+              "zh-cn": "添加了导航活动颜色，修复了状态开关的状态颜色"
+            },
             "1.2.2": {
               "en": "Bug Fix: slider value, config",
               "de": "Fehlerbehebung: Schiebereglerwert, Konfiguration",

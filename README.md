@@ -35,6 +35,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+# 1.2.3
+- Added Navigation active color
+- Fixed state color for value switch
+
 ## 1.2.2
 - Bug Fix: slider value, config
 
