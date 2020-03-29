@@ -336,22 +336,33 @@ vis.binds["vis-inventwo"] = {
 		console.log(data);
 
 		if(data.oid !== "") {
-			let jsonData = vis.states[data.oid + ".val"];
-			jsonData = JSON.parse(jsonData);
-			console.log(jsonData);
+			if(vis.states[data.oid + ".val"] !== "") {
+				let jsonData = vis.states[data.oid + ".val"];
+				jsonData = JSON.parse(jsonData);
+				console.log(jsonData);
 
-			let html = "<table>";
+				let html = "<table>";
 
-			for(let i = 0; i < jsonData.length; i++){
-				html += "<tr>";
-				html += "<td>" + jsonData[i].caller + "</td>";
-				html += "</tr>";
+				for (let i = 0; i < jsonData.length; i++) {
+					html += "<tr>";
+					for(let e = 1; e <= data.iColCount; e++){
+
+						html += "<td>" + jsonData[i][data.iColAttr + e] + "</td>";
+					}
+					html += "</tr>";
+				}
+
+				html += "</table>";
+
+
+				$(el).parent().html(html);
 			}
-
-			html += "</table>";
-
-
-			$(el).html(html);
+			else{
+				$(el).parent().html("Datenpunkt nicht befüllt");
+			}
+		}
+		else{
+			$(el).parent().html("Datenpunkt nicht befüllt");
 		}
 
 
