@@ -340,6 +340,8 @@ vis.binds["vis-inventwo"] = {
 				let jsonData = vis.states[data.oid + ".val"];
 				jsonData = JSON.parse(jsonData);
 				console.log(jsonData);
+				console.log(data);
+				console.log(jsonData[0]["caller"]);
 
 				let html = "<table>";
 
