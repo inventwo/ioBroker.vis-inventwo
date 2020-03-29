@@ -349,7 +349,7 @@ vis.binds["vis-inventwo"] = {
 					html += "<tr>";
 					for(let e = 1; e <= data.iColCount; e++){
 
-						html += "<td>" + jsonData[i]["caller"] + "</td>";
+						html += "<td>" + jsonData[i][data.iColAttr + e] + "</td>";
 					}
 					html += "</tr>";
 				}
