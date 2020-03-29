@@ -334,6 +334,6 @@ vis.binds["vis-inventwo"] = {
 
 	jsontable: function (el,data) {
 		console.log(data);
-		console.log(data.iColName[2]);
+		console.log(data.iColName2);
 	}
 };
