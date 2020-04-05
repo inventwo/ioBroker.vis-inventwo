@@ -200,11 +200,26 @@ if (vis.editMode) {
 		"iColCount":{
 			"en": "Columncount",
 			"de": "Spaltenanzahl"
+		},
+		"group_iTableCol":{
+			"en": "Table Column",
+			"de": "Tabellenspalten"
+		},
+		"iColName":{
+			"en": "Header",
+			"de": "Spaltenüberschrift"
+		},
+		"iColAttr":{
+			"en": "Attribut",
+			"de": "Attribut"
+		},
+		"iColWidth":{
+			"en": "Columnwidth",
+			"de": "Spaltenbreite"
 		}
 	});
 }
 
-// this code can be placed directly in vis-inventwo.html
 vis.binds["vis-inventwo"] = {
 
 	handleToggle: function (el, data) {
@@ -368,7 +383,7 @@ vis.binds["vis-inventwo"] = {
 
 					output += "<tr>";
 					for(let i = 1; i <= data.iColCount; i++){
-						if(data["iColName" + i] !== undefined){
+						if(data["iColName" + i] !== undefined && data["iColName" + i] !== ""){
 							output += "<th>" + data["iColName" + i] + "</th>";
 						}
 						else{
@@ -382,7 +397,7 @@ vis.binds["vis-inventwo"] = {
 				for(let e = 0; e < rowLimit; e++){
 					output += "<tr>";
 					for(let i = 1; i <= data.iColCount; i++){
-						if(data["iColAttr" + i] !== undefined){
+						if(data["iColAttr" + i] !== undefined && data["iColAttr" + i] !== ""){
 							output += "<td>" + jsondata[e][data["iColAttr" + i]] + "</td>";
 						}
 						else{
