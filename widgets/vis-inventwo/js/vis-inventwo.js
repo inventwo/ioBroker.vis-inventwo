@@ -189,17 +189,13 @@ if (vis.editMode) {
 			"en": "Flip icon",
 			"de": "Bild spiegeln"
 		},
-		"iTblShowHead":{
-			"en": "Table Head",
-			"de": "Tabellenkopf"
+		"iTblNoOid":{
+			"en": "Empty datafield",
+			"de": "Datenpunkt leer"
 		},
-		"iColCount":{
-			"en": "Columncount",
-			"de": "Spaltenanzahl"
-		},
-		"iTblRowLimit":{
-			"en": "Row Limit",
-			"de": "Zeilenlimit"
+		"iTblColumnSize":{
+			"en": "Columncount must be higher than 0",
+			"de": "Spaltenanzahl muss größer als 0 sein"
 		}
 	});
 }
@@ -345,60 +341,43 @@ vis.binds["vis-inventwo"] = {
 	},
 
 	jsontable: function (el,data) {
-
-		let output = "";
+		console.log($(el));
+		let output = "test";
 		if(data.oid === "" || data.oid === "nothing_selected") {
-			output = "No data";
+			output = "iTblNoOid";
 		}
+
 		else{
-
 			if(data.iColCount  !== "" && data.iColCount > 0){
-
 				let jsondata = vis.states.attr(data.oid + ".val");
 				jsondata = JSON.parse(jsondata);
-
-				console.log(jsondata);
-				console.log(data);
-
-				/*
-				let rowLimit = jsondata.length;
-				if(data.iTblRowLimit < rowLimit){
-					rowLimit = data.iTblRowLimit;
-				}
-				*/
-				/*
-				let colLimit = jsondata[0].length;
-				if(data.iColCount < colLimit){
-					colLimit = data.iColCount;
-				}*/
-
 				output = "<table>";
 
 				if(data.iTblShowHead){
 
 					output += "<tr>";
 					for(let i = 1; i <= data.iColCount; i++){
-						output += "<th>" + data["iColName" + i] + "</th>";
+						if(data["iColAttr" + i] !== ""){
+							output += "<th>" + data["iColName" + i] + "</th>";
+						}
 					}
 					output += "</tr>";
 
 				}
-				/*
-				for(let e = 0; e < rowLimit; e++){
+
+				for(let e = 0; e < jsondata.length; e++){
 					output += "<tr>";
-					for(let i = 1; i <= data.iColCount; i++) {
-
-						output += "<td>1" + jsondata[e][data["iColAttr" + i]] + "</td>";
-
+					for(let i = 1; i <= data.iColCount; i++){
+						if(data["iColAttr" + i] !== ""){
+							output += "<td>" + jsondata[e][data["iColAttr" + i]] + "</td>";
+						}
 					}
 					output += "</tr>";
 				}
-				*/
 				output += "</table>";
-
 			}
 			else{
-				output = "Columncount can't be zero";
+				output = "iTblColumnSize";
 			}
 		}
 		$(el).html(output);
