@@ -16,6 +16,10 @@ if (vis.editMode) {
 			"en": "Object ID",
 			"de": "Objekt ID"
 		},
+		"iOid":{
+			"en": "Object ID",
+			"de": "Objekt ID"
+		},
 		"iText": {
 			"en": "Label",
 			"de": "Beschriftung"
@@ -412,13 +416,13 @@ vis.binds["vis-inventwo"] = {
 	jsontable: function (el,data) {
 
 		let output = "";
-		if(data.oid === "" || data.oid === "nothing_selected") {
+		if(data.iOid === "" || data.iOid === "nothing_selected") {
 			output = "No data";
 		}
 
 		else{
 			if(data.iColCount  !== "" && data.iColCount > 0){
-				let jd = vis.states.attr(data.oid + ".val");
+				let jd = vis.states.attr(data.iOid + ".val");
 				let jsondata;
 
 				if(typeof jd === "string")
