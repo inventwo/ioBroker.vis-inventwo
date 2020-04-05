@@ -335,7 +335,7 @@ vis.binds["vis-inventwo"] = {
 	jsontable: function (el,data) {
 		console.log(data);
 
-		if(data.oid !== "") {
+		if(data.oid !== "" || data.oid === "nothing_selected") {
 			if(vis.states[data.oid + ".val"] !== "") {
 				let jsonData = vis.states[data.oid + ".val"];
 				jsonData = JSON.parse(jsonData);
