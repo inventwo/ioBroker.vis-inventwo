@@ -248,6 +248,10 @@ if (vis.editMode) {
 		"iTblHeaderTextColor":{
 			"en": "Font color (header)",
 			"de": "Textfarbe (Überschrift)"
+		},
+		"iRowSpacing":{
+			"en": "Row spacing",
+			"de": "Zeilenabstand"
 		}
 	});
 }
@@ -437,11 +441,11 @@ vis.binds["vis-inventwo"] = {
 						}
 
 						if(data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== ""){
-							output += "<th style='width: " + colWidth + ";'>" + data["iColName" + (i + 1)] + "</th>";
+							output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + data["iColName" + (i + 1)] + "</th>";
 						}
 						else{
 							//if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
-							output += "<th style='width: " + colWidth + ";'>" + Object.keys(jsondata[0])[i] + "</th>";
+							output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + Object.keys(jsondata[0])[i] + "</th>";
 						}
 					}
 					output += "</thead>";
@@ -472,11 +476,11 @@ vis.binds["vis-inventwo"] = {
 						}
 
 						if(data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== ""){
-							output += "<td style='width: " + colWidth + ";'>" + jsondata[e][data["iColAttr" + (i + 1)]] + "</td>";
+							output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][data["iColAttr" + (i + 1)]] + "</td>";
 						}
 						else{
 							//if(Object.keys(jsondata[e])[i].charAt(0) !== "_")
-							output += "<td style='width: " + colWidth + ";'>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
+							output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
 						}
 
 						console.log(data["iColAttr" + (i + 1)]);
