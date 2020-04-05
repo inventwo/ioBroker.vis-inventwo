@@ -121,6 +121,10 @@ if (vis.editMode) {
 			"en": "To the wiki",
 			"de": "Zum Wiki"
 		},
+		"iNavWait":{
+			"en": "Wait x milliseconds to check for active",
+			"de": "Warte x Millisekunden bis Prüfung auf aktiv"
+		},
 		"iMinVal":{
 			"en": "Min. value",
 			"de": "Min. Wert"
