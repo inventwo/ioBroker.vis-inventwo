@@ -378,7 +378,7 @@ vis.binds["vis-inventwo"] = {
 					jsondata = JSON.parse(jsondata);
 				}
 				catch (e) {
-					console.log("error try json parse");
+					console.log("error try js on parse");
 				}
 
 				console.log(jsondata);
