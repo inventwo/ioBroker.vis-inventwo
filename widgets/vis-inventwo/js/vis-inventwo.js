@@ -360,12 +360,12 @@ vis.binds["vis-inventwo"] = {
 				console.log(jsondata);
 				console.log(data);
 
-
+				/*
 				let rowLimit = jsondata.length;
 				if(data.iTblRowLimit < rowLimit){
 					rowLimit = data.iTblRowLimit;
 				}
-
+				*/
 				/*
 				let colLimit = jsondata[0].length;
 				if(data.iColCount < colLimit){
@@ -378,16 +378,12 @@ vis.binds["vis-inventwo"] = {
 
 					output += "<tr>";
 					for(let i = 1; i <= data.iColCount; i++){
-						if(data["iColName" + i] !== undefined)
-							output += "<th>" + data["iColName" + i] + "</th>";
-						else
-							output += "<th>" + Object.keys(jsondata[0])[i] + "</th>";
-
+						output += "<th>" + data["iColName" + i] + "</th>";
 					}
 					output += "</tr>";
 
 				}
-
+				/*
 				for(let e = 0; e < rowLimit; e++){
 					output += "<tr>";
 					for(let i = 1; i <= data.iColCount; i++) {
@@ -397,7 +393,7 @@ vis.binds["vis-inventwo"] = {
 					}
 					output += "</tr>";
 				}
-
+				*/
 				output += "</table>";
 
 			}
