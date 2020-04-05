@@ -24,18 +24,7 @@
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
-			<%
-				let colActive = this.data.iButtonActive;
-				let colNormal = this.data.iButtonCol;
-				if(vis.editMode){
-					if(this.data.iButtonActive.substring(0,1) === "{"){
-						let str = this.data.iButtonActive.substring(1,this.data.iButtonActive.length - 1);
-						colActive = vis.states.attr(str + ".val");
-						console.log(colActive);
-					}
-				}
 
-			%>
 
             <div class="vis-inventwo-button"
                 <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
