@@ -432,12 +432,12 @@ vis.binds["vis-inventwo"] = {
 					for(let i = 0; i < colLimit; i++){
 
 						let colWidth = "";
-						if(data["iColWidth" + i + 1] !== undefined && data["iColWidth" + i + 1] !== ""){
-							colWidth = data["iColWidth" + i + 1];
+						if(data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== ""){
+							colWidth = data["iColWidth" + (i + 1)];
 						}
 
-						if(data["iColName" + i + 1] !== undefined && data["iColName" + i + 1] !== ""){
-							output += "<th style='width: " + colWidth + ";'>" + data["iColName" + i + 1] + "</th>";
+						if(data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== ""){
+							output += "<th style='width: " + colWidth + ";'>" + data["iColName" + (i + 1)] + "</th>";
 						}
 						else{
 							//if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
@@ -466,14 +466,17 @@ vis.binds["vis-inventwo"] = {
 					output += "<tr style='background: " + tdColor + "; color: " + tdTextColor + "'>";
 					for(let i = 0; i < colLimit; i++){
 
+						let colWidth = "";
+						if(data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== ""){
+							colWidth = data["iColWidth" + (i + 1)];
+						}
 
-
-						if(data["iColAttr" + i + 1] !== undefined && data["iColAttr" + i + 1] !== ""){
-							output += "<td>" + jsondata[e][data["iColAttr" + i + 1]] + "</td>";
+						if(data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== ""){
+							output += "<td style='width: " + colWidth + ";'>" + jsondata[e][data["iColAttr" + (i + 1)]] + "</td>";
 						}
 						else{
 							//if(Object.keys(jsondata[e])[i].charAt(0) !== "_")
-							output += "<td>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
+							output += "<td style='width: " + colWidth + ";'>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
 						}
 					}
 					output += "</tr>";
