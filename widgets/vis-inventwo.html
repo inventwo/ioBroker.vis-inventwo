@@ -608,12 +608,8 @@
 				}
 				else{
 					if(this.data.iColCount  != "" && this.data.iColCount > 0){
-						console.log(this.data);
 						jsondata = vis.states.attr(this.data.oid + ".val");
 						jsondata = JSON.parse(jsondata);
-						console.log(jsondata);
-						console.log(jsondata[0].id);
-						console.log(jsondata[1][this.data["iColAttr" + 1]]);
 
 						output = "<table>";
 
