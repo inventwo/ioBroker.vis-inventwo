@@ -585,7 +585,6 @@
                 </div>
             </div>
 		</div>
-        <%= (el) -> vis.binds['vis-inventwo'].state(el, this.data) %>
 	</div>
 </script>
 
@@ -601,49 +600,7 @@
 
 
 		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible;" id="<%= this.data.attr('wid') %>" >
-
+        	<%= (el) -> vis.binds['vis-inventwo'].jsontable(el, this.data) %>
 		</div>
 
-		<%
-			console.log($("#" + this.data.wid));
-			let jsondata;
-			let output = "test";
-			if(data.oid === "" || data.oid === "nothing_selected") {
-				output = "Datenpunkt nicht befüllt!";
-			}
-			else{
-				if(this.data.iColCount  != "" && this.data.iColCount > 0){
-					jsondata = vis.states.attr(this.data.oid + ".val");
-					jsondata = JSON.parse(jsondata);
-					output = "<table>";
-
-					if(this.data.iTblShowHead){
-
-						output += "<tr>";
-						for(let i = 1; i <= this.data.iColCount; i++){
-							if(this.data["iColAttr" + i] != ""){
-								output += "<th>" + jsondata[e][this.data["iColName" + i]] + "</th>";
-							}
-						}
-						output += "</tr>";
-
-					}
-
-					for(let e = 0; e < jsondata.length; e++){
-						output += "<tr>";
-						for(let i = 1; i <= this.data.iColCount; i++){
-							if(this.data["iColAttr" + i] != ""){
-								output += "<td>" + jsondata[e][this.data["iColAttr" + i]] + "</td>";
-							}
-						}
-						output += "</tr>";
-					}
-					output += "</table>";
-				}
-				else{
-					output = "Spaltenzahl kann nicht kleiner 0 sein!";
-				}
-			}
-			$("#" + this.data.wid).html(output);
-		%>
 </script>

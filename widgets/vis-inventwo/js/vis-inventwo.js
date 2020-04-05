@@ -330,5 +330,47 @@ vis.binds["vis-inventwo"] = {
 			$this.slider("option","value",vis.states.attr(oid + ".val"));
 		});
 
+	},
+
+	jsontable: function (el,data) {
+		console.log($(el));
+		let output = "test";
+		if(data.oid === "" || data.oid === "nothing_selected") {
+			output = "Datenpunkt nicht befüllt!";
+		}
+		else{
+			if(data.iColCount  !== "" && data.iColCount > 0){
+				let jsondata = vis.states.attr(data.oid + ".val");
+				jsondata = JSON.parse(jsondata);
+				output = "<table>";
+
+				if(data.iTblShowHead){
+
+					output += "<tr>";
+					for(let i = 1; i <= data.iColCount; i++){
+						if(data["iColAttr" + i] !== ""){
+							output += "<th>" + data["iColName" + i] + "</th>";
+						}
+					}
+					output += "</tr>";
+
+				}
+
+				for(let e = 0; e < jsondata.length; e++){
+					output += "<tr>";
+					for(let i = 1; i <= data.iColCount; i++){
+						if(data["iColAttr" + i] !== ""){
+							output += "<td>" + jsondata[e][data["iColAttr" + i]] + "</td>";
+						}
+					}
+					output += "</tr>";
+				}
+				output += "</table>";
+			}
+			else{
+				output = "Spaltenzahl kann nicht kleiner 0 sein!";
+			}
+		}
+		$(el).html(output);
 	}
 };
