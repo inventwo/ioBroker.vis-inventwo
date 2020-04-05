@@ -338,6 +338,7 @@ vis.binds["vis-inventwo"] = {
 		if(data.oid === "" || data.oid === "nothing_selected") {
 			output = "Datenpunkt nicht befüllt!";
 		}
+		/*
 		else{
 			if(data.iColCount  !== "" && data.iColCount > 0){
 				let jsondata = vis.states.attr(data.oid + ".val");
@@ -370,7 +371,7 @@ vis.binds["vis-inventwo"] = {
 			else{
 				output = "Spaltenzahl kann nicht kleiner 0 sein!";
 			}
-		}
+		}*/
 		$(el).html(output);
 	}
 };
