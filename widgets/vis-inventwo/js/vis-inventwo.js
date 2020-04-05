@@ -360,14 +360,17 @@ vis.binds["vis-inventwo"] = {
 
 					output += "<tr>";
 					for(let i = 1; i <= data.iColCount; i++){
-						if(data["iColAttr" + i] !== ""){
+						if(data["iColAttr" + i] !== undefined){
 							output += "<th>" + data["iColName" + i] + "</th>";
+						}
+						else{
+							output += "<th>" + Object.keys(jsondata[0])[i] + "</th>";
 						}
 					}
 					output += "</tr>";
 
 				}
-				/*
+
 				for(let e = 0; e < jsondata.length; e++){
 					output += "<tr>";
 					for(let i = 1; i <= data.iColCount; i++){
@@ -377,7 +380,7 @@ vis.binds["vis-inventwo"] = {
 					}
 					output += "</tr>";
 				}
-				*/
+
 
 				output += "</table>";
 			}
