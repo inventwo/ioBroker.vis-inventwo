@@ -634,9 +634,9 @@
 				let colActive = this.data.iButtonActive;
 				let colNormal = this.data.iButtonCol;
 				if(vis.editMode){
-
-					console.log(colActive);
-
+					if((this.data.iButtonActive).charAt(0) === "{"){
+						console.log(colActive + "test");
+					}
 				}
 
 			%>
