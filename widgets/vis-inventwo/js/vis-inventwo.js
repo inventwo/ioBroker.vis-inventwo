@@ -376,14 +376,14 @@ vis.binds["vis-inventwo"] = {
 		var oid = data.oid;
 
 		var settings = $.extend({
-				min: parseInt(data.iMinVal),
-				max: parseInt(data.iMaxVal),
-				step: parseInt(data.iStepVal),
-				slide: function( event, ui ) {
-					if(!vis.editMode)
-						vis.setValue(oid, ui.value);
-				}
-			},options);
+			min: parseInt(data.iMinVal),
+			max: parseInt(data.iMaxVal),
+			step: parseInt(data.iStepVal),
+			slide: function( event, ui ) {
+				if(!vis.editMode)
+					vis.setValue(oid, ui.value);
+			}
+		},options);
 
 		$this.slider(settings);
 
@@ -404,8 +404,7 @@ vis.binds["vis-inventwo"] = {
 			$this.children().css("margin-bottom", "-" + (data.iSliderKnobSize / 2) + "px");
 		}
 
-			$this.slider("option","value",vis.states.attr(oid + ".val"));
-
+		$this.slider("option","value",vis.states.attr(oid + ".val"));
 
 		vis.states.bind(oid + ".val",function () {
 			$this.slider("option","value",vis.states.attr(oid + ".val"));
