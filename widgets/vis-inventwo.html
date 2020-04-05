@@ -599,44 +599,35 @@
 		data-vis-type="table"
 		data-vis-name="JSON Table">
 
-		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible;" id="<%= this.data.attr('wid') %>" >
-			<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
-			<%
-				let output = "test";
-				if(data.oid === "" || data.oid === "nothing_selected") {
-					output = "Datenpunkt nicht befüllt!";
+		<%
+			let output = "test";
+			if(data.oid === "" || data.oid === "nothing_selected") {
+				output = "Datenpunkt nicht befüllt!";
+			}
+			else{
+				if(this.data.iColCount  != "" && this.data.iColCount > 0){
+					jsondata = vis.states.attr(this.data.oid + ".val");
+					jsondata = JSON.parse(jsondata);
+					output = "<table>";
+					for(let e = 0; e < jsondata.length; e++){
+						output += "<tr>";
+						for(let i = 1; i <= this.data.iColCount; i++){
+							if(this.data["iColAttr" + i] != ""){
+								output += "<td>" + jsondata[e][this.data["iColAttr" + i]] + "</td>";
+							}
+						}
+						output += "</tr>";
+					}
+					output += "</table>";
 				}
 				else{
-					if(this.data.iColCount  != "" && this.data.iColCount > 0){
-						jsondata = vis.states.attr(this.data.oid + ".val");
-						jsondata = JSON.parse(jsondata);
-
-						output = "<table>";
-
-						for(let e = 0; e < jsondata.length; e++){
-							output += "<tr>";
-							for(let i = 1; i <= this.data.iColCount; i++){
-
-								if(this.data["iColAttr" + i] != ""){
-									output += "<td>" + jsondata[e][this.data["iColAttr" + i]] + "</td>";
-								}
-
-							}
-							output += "</tr>";
-						}
-
-						output += "</table>";
-
-					}
-					else{
-						output = "Spaltenzahl kann nicht kleiner 0 sein!";
-					}
-
+					output = "Spaltenzahl kann nicht kleiner 0 sein!";
 				}
+			}
+			$("#" + this.data.wid).html(output);
+		%>
 
-				$("#" + this.data.wid).children().html(output);
-			%>
+		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible;" id="<%= this.data.attr('wid') %>" >
 
-			</div>
 		</div>
 </script>
