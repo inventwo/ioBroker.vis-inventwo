@@ -599,6 +599,11 @@
 		data-vis-type="table"
 		data-vis-name="JSON Table">
 
+
+		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible;" id="<%= this.data.attr('wid') %>" >
+
+		</div>
+
 		<%
 			console.log($("#" + this.data.wid));
 			let output = "test";
@@ -627,8 +632,4 @@
 			}
 			$("#" + this.data.wid).html(output);
 		%>
-
-		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible;" id="<%= this.data.attr('wid') %>" >
-
-		</div>
 </script>
