@@ -255,7 +255,12 @@ vis.binds["vis-inventwo"] = {
 
 		}
 		else{
-			console.log("test");
+			if(data.iButtonCol.charAt(0) === "{"){
+				console.log("has {");
+			}
+			else{
+				console.log("not has {");
+			}
 		}
 	},
 	handleNavigation: function (el, data) {
@@ -390,19 +395,23 @@ vis.binds["vis-inventwo"] = {
 				if(data.iTblRowLimit < rowLimit)
 					rowLimit = data.iTblRowLimit;
 
+				let colLimit = Object.keys(jsondata[0]).length;
+				if(data.iColCount < colLimit)
+					colLimit = data.iColCount;
+
 				output = "<table>";
 
 				if(data.iTblShowHead){
 
 					output += "<tr>";
-					for(let i = 1; i <= data.iColCount; i++){
+					for(let i = 0; i < colLimit; i++){
 
-						if(data["iColName" + i] !== undefined && data["iColName" + i] !== ""){
-							output += "<th>" + data["iColName" + i] + "</th>";
+						if(data["iColName" + i + 1] !== undefined && data["iColName" + i + 1] !== ""){
+							output += "<th>" + data["iColName" + i + 1] + "</th>";
 						}
 						else{
-							if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
-								output += "<th>" + Object.keys(jsondata[0])[i] + "</th>";
+							if(Object.keys(jsondata[0])[i + 1].charAt(0) !== "_")
+								output += "<th>" + Object.keys(jsondata[0])[i + 1] + "</th>";
 						}
 					}
 					output += "</tr>";
@@ -411,14 +420,14 @@ vis.binds["vis-inventwo"] = {
 
 				for(let e = 0; e < rowLimit; e++){
 					output += "<tr>";
-					for(let i = 1; i <= data.iColCount; i++){
+					for(let i = 0; i < colLimit; i++){
 
-						if(data["iColAttr" + i] !== undefined && data["iColAttr" + i] !== ""){
-							output += "<td>" + jsondata[e][data["iColAttr" + i]] + "</td>";
+						if(data["iColAttr" + i + 1] !== undefined && data["iColAttr" + i + 1] !== ""){
+							output += "<td>" + jsondata[e][data["iColAttr" + i + 1]] + "</td>";
 						}
 						else{
-							if(Object.keys(jsondata[e])[i].charAt(0) !== "_")
-								output += "<td>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
+							if(Object.keys(jsondata[e])[i + 1].charAt(0) !== "_")
+								output += "<td>" + jsondata[e][Object.keys(jsondata[e])[i + 1]] + "</td>";
 						}
 					}
 					output += "</tr>";
