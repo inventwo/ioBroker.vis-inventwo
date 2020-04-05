@@ -330,43 +330,5 @@ vis.binds["vis-inventwo"] = {
 			$this.slider("option","value",vis.states.attr(oid + ".val"));
 		});
 
-	},
-
-	jsontable: function (el,data) {
-
-		if(data.oid !== "" || data.oid === "nothing_selected") {
-			if(vis.states[data.oid + ".val"] !== "") {
-				let jsonData = vis.states[data.oid + ".val"];
-				jsonData = JSON.parse(jsonData);
-				console.log(jsonData);
-				console.log(data);
-				console.log(jsonData[0]["caller"]);
-				console.log(jsonData[1][data["iColAttr" + 1]]);
-
-				let html = "<table>";
-
-				for (let i = 0; i < jsonData.length; i++) {
-					html += "<tr>";
-					for(let e = 1; e <= data.iColCount; e++){
-
-						html += "<td>" + jsonData[i][data["iColAttr" + e]] + "</td>";
-					}
-					html += "</tr>";
-				}
-											
-				html += "</table>";
-
-
-				$(el).parent().html(html);
-			}
-			else{
-				$(el).parent().html("Datenpunkt nicht befüllt");
-			}
-		}
-		else{
-			$(el).parent().html("Datenpunkt nicht befüllt");
-		}
-
-
 	}
 };
