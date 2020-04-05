@@ -52,3 +52,11 @@
 }
 
 /* BUTTONS ENDE */
+
+.vis-inventwo-json-table{
+    border-spacing: 0px
+}
+
+.vis-inventwo-json-table th, .vis-inventwo-json-table td{
+    padding: 2px;
+}

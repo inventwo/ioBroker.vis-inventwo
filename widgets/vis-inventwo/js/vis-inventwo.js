@@ -405,7 +405,7 @@ vis.binds["vis-inventwo"] = {
 				if(data.iColCount < colLimit)
 					colLimit = data.iColCount;
 
-				output = "<table>";
+				output = "<table class='vis-inventwo-json-table'>";
 
 				if(data.iTblShowHead){
 
@@ -426,24 +426,27 @@ vis.binds["vis-inventwo"] = {
 
 				output += "<tbody>";
 				for(let e = 0; e < rowLimit; e++){
-					output += "<tr>";
+
+					let tdColor = "";
+
+					if(e % 2 === 0){
+						tdColor = data.iTblRowEvenColor;
+					}
+					else{
+						tdColor = data.iTblRowUnevenColor;
+					}
+
+					output += "<tr style='background: " + tdColor + "'>";
 					for(let i = 0; i < colLimit; i++){
 
-						let tdColor = "";
 
-						if(i % 2 === 0){
-							tdColor = data.iTblRowEvenColor;
-						}
-						else{
-							tdColor = data.iTblRowUnevenColor;
-						}
 
 						if(data["iColAttr" + i + 1] !== undefined && data["iColAttr" + i + 1] !== ""){
-							output += "<td style='background: " + tdColor + "'>" + jsondata[e][data["iColAttr" + i + 1]] + "</td>";
+							output += "<td>" + jsondata[e][data["iColAttr" + i + 1]] + "</td>";
 						}
 						else{
 							//if(Object.keys(jsondata[e])[i].charAt(0) !== "_")
-							output += "<td style='background: " + tdColor + "'>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
+							output += "<td>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
 						}
 					}
 					output += "</tr>";
