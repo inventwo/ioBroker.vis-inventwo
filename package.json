@@ -1,6 +1,6 @@
 {
   "name": "iobroker.vis-inventwo",
-  "version": "1.2.134",
+  "version": "1.2.135",
   "description": "Switch widgets for ioBroker.vis",
   "author": "jkvarel <jkvarel@inventwo.com>",
   "contributors": [
