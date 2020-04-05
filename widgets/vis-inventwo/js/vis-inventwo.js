@@ -343,7 +343,7 @@ vis.binds["vis-inventwo"] = {
 
 		let output = "";
 		if(data.oid === "" || data.oid === "nothing_selected") {
-			output = "iTblNoOid";
+			output = "No data";
 		}
 
 		else{
@@ -392,7 +392,7 @@ vis.binds["vis-inventwo"] = {
 				output += "</table>";
 			}
 			else{
-				output = "iTblColumnSize";
+				output = "Columncount can't be zero/empty";
 			}
 		}
 		$(el).html(output);
