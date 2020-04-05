@@ -354,6 +354,10 @@ vis.binds["vis-inventwo"] = {
 				console.log(jsondata);
 				console.log(data);
 
+				let rowLimit = jsondata.length;
+				if(data.iTblRowLimit < rowLimit)
+					rowLimit = data.iTblRowLimit;
+
 				output = "<table>";
 
 				if(data.iTblShowHead){
@@ -371,7 +375,7 @@ vis.binds["vis-inventwo"] = {
 
 				}
 
-				for(let e = 0; e < jsondata.length; e++){
+				for(let e = 0; e < rowLimit; e++){
 					output += "<tr>";
 					for(let i = 1; i <= data.iColCount; i++){
 						if(data["iColAttr" + i] !== ""){
