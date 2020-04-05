@@ -378,7 +378,7 @@ vis.binds["vis-inventwo"] = {
 				for(let e = 0; e < rowLimit; e++){
 					output += "<tr>";
 					for(let i = 1; i <= data.iColCount; i++){
-						if(data["iColAttr" + i] !== ""){
+						if(data["iColAttr" + i] !== undefined){
 							output += "<td>" + jsondata[e][data["iColAttr" + i]] + "</td>";
 						}
 					}
