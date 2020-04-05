@@ -189,14 +189,6 @@ if (vis.editMode) {
 			"en": "Flip icon",
 			"de": "Bild spiegeln"
 		},
-		"iTblNoOid":{
-			"en": "Empty datafield",
-			"de": "Datenpunkt leer"
-		},
-		"iTblColumnSize":{
-			"en": "Columncount must be higher than 0",
-			"de": "Spaltenanzahl muss größer als 0 sein"
-		},
 		"iTblShowHead":{
 			"en": "Table Head",
 			"de": "Tabellenkopf"
@@ -356,7 +348,7 @@ vis.binds["vis-inventwo"] = {
 
 		let output = "";
 		if(data.oid === "" || data.oid === "nothing_selected") {
-			output = "iTblNoOid";
+			output = "No data";
 		}
 		else{
 			if(data.iColCount  !== "" && data.iColCount > 0){
@@ -364,8 +356,13 @@ vis.binds["vis-inventwo"] = {
 				jsondata = JSON.parse(jsondata);
 
 				let rowLimit = jsondata.length;
-				if(data.iTblRowLimit < jsondata.length){
+				if(data.iTblRowLimit < rowLimit){
 					rowLimit = data.iTblRowLimit;
+				}
+
+				let colLimit = jsondata[0].length;
+				if(data.iColCount < colLimit){
+					colLimit = data.iColCount;
 				}
 
 				output = "<table>";
@@ -373,7 +370,7 @@ vis.binds["vis-inventwo"] = {
 				if(data.iTblShowHead){
 
 					output += "<tr>";
-					for(let i = 1; i <= data.iColCount; i++){
+					for(let i = 1; i <= colLimit; i++){
 						if(data["iColName" + i] !== undefined)
 							output += "<th>" + data["iColName" + i] + "</th>";
 						else
@@ -386,17 +383,19 @@ vis.binds["vis-inventwo"] = {
 
 				for(let e = 0; e < rowLimit; e++){
 					output += "<tr>";
-					for(let i = 1; i <= data.iColCount; i++){
-						if(data["iColAttr" + i] !== ""){
+					for(let i = 1; i <= colLimit; i++) {
+						if (data["iColAttr" + i] !== undefined)
 							output += "<td>" + jsondata[e][data["iColAttr" + i]] + "</td>";
-						}
+						else
+							output += "<td>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
+
 					}
 					output += "</tr>";
 				}
 				output += "</table>";
 			}
 			else{
-				output = "iTblColumnSize";
+				output = "Columncount can't be zero";
 			}
 		}
 		$(el).html(output);
