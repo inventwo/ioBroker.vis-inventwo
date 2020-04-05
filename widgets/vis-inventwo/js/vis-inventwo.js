@@ -351,7 +351,9 @@ vis.binds["vis-inventwo"] = {
 			output = "No data";
 		}
 		else{
+
 			if(data.iColCount  !== "" && data.iColCount > 0){
+				/*
 				let jsondata = vis.states.attr(data.oid + ".val");
 				jsondata = JSON.parse(jsondata);
 
@@ -395,6 +397,9 @@ vis.binds["vis-inventwo"] = {
 				}
 
 				output += "</table>";
+								*/
+				output = "test";
+
 			}
 			else{
 				output = "Columncount can't be zero";
