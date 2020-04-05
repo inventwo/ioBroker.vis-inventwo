@@ -601,8 +601,21 @@
 
 		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible;" id="<%= this.data.attr('wid') %>" >
 			<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
-				Datenpunkt nicht befüllt!
-				<%= (el) -> vis.binds['vis-inventwo'].jsontable(el, this.data) %>
+			<%
+				let output = "";
+				if(data.oid === "" || data.oid === "nothing_selected") {
+					output = "Datenpunkt nicht befüllt!"
+				}
+				else{
+
+					console.log(jsonData);
+					console.log(data);
+					console.log(jsonData[0]["caller"]);
+					console.log(jsonData[1][data["iColAttr" + 1]]);
+				}
+			%>
+
+			<%= output %>
 			</div>
 		</div>
 </script>
