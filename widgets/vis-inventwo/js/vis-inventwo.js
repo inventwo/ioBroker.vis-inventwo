@@ -278,7 +278,7 @@ vis.binds["vis-inventwo"] = {
 						}
 					});
 
-				},100);
+				},data.iNavWait);
 
 			}).on('touchmove', function () {
 				moved = true;
