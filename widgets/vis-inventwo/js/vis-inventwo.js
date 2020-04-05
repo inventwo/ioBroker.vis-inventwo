@@ -410,7 +410,7 @@ vis.binds["vis-inventwo"] = {
 							output += "<th>" + data["iColName" + i + 1] + "</th>";
 						}
 						else{
-							if(Object.keys(jsondata[0])[i + 1].charAt(0) !== "_")
+							if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
 								output += "<th>" + Object.keys(jsondata[0])[i] + "</th>";
 						}
 					}
@@ -426,7 +426,7 @@ vis.binds["vis-inventwo"] = {
 							output += "<td>" + jsondata[e][data["iColAttr" + i + 1]] + "</td>";
 						}
 						else{
-							if(Object.keys(jsondata[e])[i + 1].charAt(0) !== "_")
+							if(Object.keys(jsondata[e])[i].charAt(0) !== "_")
 								output += "<td>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
 						}
 					}
