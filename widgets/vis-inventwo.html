@@ -13,7 +13,7 @@
 		type="text/ejs"
 		class="vis-inventwo"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Switch.png">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iTextFalse/html;iTextTrue/html;iTextSize[12]/slider,0,50,1;iImageFalse/image;iImageTrue/image;iIconSize[60]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;iValueType[boolean]/select,boolean,value;iValueTypeInfo/custom,vis-inventwo.infoText,valueType;iValueFalse/text;iValueTrue/text;"
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;iOid/id;iTextFalse/html;iTextTrue/html;iTextSize[12]/slider,0,50,1;iImageFalse/image;iImageTrue/image;iIconSize[60]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;iValueType[boolean]/select,boolean,value;iValueTypeInfo/custom,vis-inventwo.infoText,valueType;iValueFalse/text;iValueTrue/text;"
 		data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;iButtonActive[#455618]/color;
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
@@ -25,7 +25,7 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
             <div class="vis-inventwo-button"
-                <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+                <% if((vis.states.attr(this.data.iOid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.iOid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
                     style="background: <%= this.data.attr('iButtonActive') %>;
                     border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
                     opacity:<%= this.data.attr('iOpacity')%>;"
@@ -49,7 +49,7 @@
             	%>
 
 
-                <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+                <% if((vis.states.attr(this.data.iOid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.iOid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
                     <div class="vis-inventwo-button-imageContainer">
                         <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);" >
                     </div>        
@@ -75,7 +75,7 @@
 		type="text/ejs"
 		class="vis-inventwo"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Switch1.png">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iTextFalse/text;iTextTrue/text;iTextSize[12]/slider,0,50,1;iImageFalse/image;iImageTrue/image;iIconSize[35]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;iValueType[boolean]/select,boolean,value;iValueTypeInfo/custom,vis-inventwo.infoText,valueType;iValueFalse/text;iValueTrue/text;"
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;iOid/id;iTextFalse/text;iTextTrue/text;iTextSize[12]/slider,0,50,1;iImageFalse/image;iImageTrue/image;iIconSize[35]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;iValueType[boolean]/select,boolean,value;iValueTypeInfo/custom,vis-inventwo.infoText,valueType;iValueFalse/text;iValueTrue/text;"
 		data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;iButtonActive[#455618]/color;
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
@@ -87,7 +87,7 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
             <div class="vis-inventwo-button"
-                <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+                <% if((vis.states.attr(this.data.iOid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.iOid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
                     style="background: <%= this.data.attr('iButtonActive') %>;
                     border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
                     opacity:<%= this.data.attr('iOpacity')%>;"
@@ -110,7 +110,7 @@
 
             	%>
 
-            <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+            <% if((vis.states.attr(this.data.iOid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.iOid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
                 <div style="order:2; position:relative;">
                     <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
                 </div>        
@@ -137,7 +137,7 @@
 		type="text/ejs"
 		class="vis-inventwo"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Button.png">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;value;iText/text;iTextSize[12]/slider,0,50,1;iImage/image;iIconSize[60]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;"
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;iOid/id;value;iText/text;iTextSize[12]/slider,0,50,1;iImage/image;iIconSize[60]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;"
 		data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
@@ -178,7 +178,7 @@
 		type="text/ejs"
 		class="vis-inventwo"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Button1.png">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;value;iText/text;iTextSize[12]/slider,0,50,1;iImage/image;iIconSize[35]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;"
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;iOid/id;value;iText/text;iTextSize[12]/slider,0,50,1;iImage/image;iIconSize[35]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;"
 		data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
@@ -325,7 +325,7 @@
 		type="text/ejs"
 		class="vis-inventwo"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Background.png">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iTextFalse/text;iTextTrue/text;iTextSize[12]/slider,0,50,1;iImageFalse/image;iImageTrue/image;iIconSize[60]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;iValueType[boolean]/select,boolean,value;iValueTypeInfo/custom,vis-inventwo.infoText,valueType;iValueFalse/text;iValueTrue/text;"
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;iOid/id;iTextFalse/text;iTextTrue/text;iTextSize[12]/slider,0,50,1;iImageFalse/image;iImageTrue/image;iIconSize[60]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;iValueType[boolean]/select,boolean,value;iValueTypeInfo/custom,vis-inventwo.infoText,valueType;iValueFalse/text;iValueTrue/text;"
 		data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;iButtonActive[#455618]/color;
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
@@ -337,7 +337,7 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
             <div class="vis-inventwo-button"
-                <% if(vis.states.attr(this.data.oid + '.val')) { %>
+                <% if(vis.states.attr(this.data.iOid + '.val')) { %>
                     style="background: <%= this.data.attr('iButtonActive') %>;
                     border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
                     opacity:<%= this.data.attr('iOpacity')%>;"
@@ -361,7 +361,7 @@
             	%>
 
 
-                <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+                <% if((vis.states.attr(this.data.iOid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.iOid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
                     <div class="vis-inventwo-button-imageContainer">
                         <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);" >
                     </div>
@@ -386,7 +386,7 @@
 		type="text/ejs"
 		class="vis-inventwo"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Background1.png">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iTextFalse/text;iTextTrue/text;iTextSize[12]/slider,0,50,1;iImageFalse/image;iImageTrue/image;iIconSize[35]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;iValueType[boolean]/select,boolean,value;iValueTypeInfo/custom,vis-inventwo.infoText,valueType;iValueFalse/text;iValueTrue/text;"
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;iOid/id;iTextFalse/text;iTextTrue/text;iTextSize[12]/slider,0,50,1;iImageFalse/image;iImageTrue/image;iIconSize[35]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;iValueType[boolean]/select,boolean,value;iValueTypeInfo/custom,vis-inventwo.infoText,valueType;iValueFalse/text;iValueTrue/text;"
 		data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;iButtonActive[#455618]/color;
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
@@ -398,7 +398,7 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
             <div class="vis-inventwo-button"
-                <% if(vis.states.attr(this.data.oid + '.val')) { %>
+                <% if(vis.states.attr(this.data.iOid + '.val')) { %>
                     style="background: <%= this.data.attr('iButtonActive') %>;
                     border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
                     opacity:<%= this.data.attr('iOpacity')%>;"
@@ -421,7 +421,7 @@
 
             	%>
 
-            <% if(vis.states.attr(this.data.oid + '.val')) { %>
+            <% if(vis.states.attr(this.data.iOid + '.val')) { %>
                 <div style="order:2; position:relative;">
                     <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
                 </div>
@@ -448,7 +448,7 @@
 		type="text/ejs"
 		class="vis-inventwo"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Slider1b.png">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iMinVal[1]/number;iMaxVal[100]/number;iStepVal[1]/number;iSliderRotation[0]/slider,-45,45,1;iSliderLabel/text;iShowMinMax/checkbox;iShowValue/checkbox;iValuePreText/text;"
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;iOid/id;iMinVal[1]/number;iMaxVal[100]/number;iStepVal[1]/number;iSliderRotation[0]/slider,-45,45,1;iSliderLabel/text;iShowMinMax/checkbox;iShowValue/checkbox;iValuePreText/text;"
 		data-vis-attrs0="group.i-css;iSliderHeight[10]/slider,1,200,1;iSliderKnobSize[20]/slider,1,200,1;iSliderColor[#ffffff]/color;iSliderKnobColor[#455618]/color;iSliderTextColor[#ffffff]/color;iValueTextColor[#455618]/color;iTextSize[12]/slider,0,50,1;iSliderCorners[100]/slider,0,100,1;iSliderKnobCorners[100]/slider,0,100,1;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
@@ -491,7 +491,7 @@
 
 		<div style="position:absolute; left:0px; bottom:0px;"><%= this.data.iSliderLabel %></div>
 		<% if(this.data.iShowValue){ %>
-			<div style="position:absolute; right:0px; bottom:0px;color:<%= this.data.iValueTextColor%>"><%== this.data.iValuePreText%><%= vis.states.attr(this.data.oid + '.val') %></div>
+			<div style="position:absolute; right:0px; bottom:0px;color:<%= this.data.iValueTextColor%>"><%== this.data.iValuePreText%><%= vis.states.attr(this.data.iOid + '.val') %></div>
 		<% } %>
 
 	</div>
@@ -501,7 +501,7 @@
 		type="text/ejs"
 		class="vis-inventwo"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Slider2b.png">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iMinVal[1]/number;iMaxVal[100]/number;iStepVal[1]/number;iSliderRotation[0]/slider,-45,45,1;iSliderLabel/text;iShowMinMax/checkbox;iShowValue/checkbox;iValuePreText/text;"
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;iOid/id;iMinVal[1]/number;iMaxVal[100]/number;iStepVal[1]/number;iSliderRotation[0]/slider,-45,45,1;iSliderLabel/text;iShowMinMax/checkbox;iShowValue/checkbox;iValuePreText/text;"
 		data-vis-attrs0="group.i-css;iSliderHeight[10]/slider,1,200,1;iSliderKnobSize[20]/slider,1,200,1;iSliderColor[#ffffff]/color;iSliderKnobColor[#455618]/color;iSliderTextColor[#ffffff]/color;iValueTextColor[#455618]/color;iTextSize[12]/slider,0,50,1;iSliderCorners[100]/slider,0,100,1;iSliderKnobCorners[100]/slider,0,100,1;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
@@ -517,7 +517,7 @@
 				<% if(this.data.iShowValue){ %>
 					<div><span style="color:<%= this.data.iValueTextColor%>"><%== this.data.iValuePreText%></span></div>
 					<div style="margin-bottom: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px">
-						<span style="color:<%= this.data.iValueTextColor%>"><%= vis.states.attr(this.data.oid + '.val') %> / </span><%= this.data.iMaxVal %>
+						<span style="color:<%= this.data.iValueTextColor%>"><%= vis.states.attr(this.data.iOid + '.val') %> / </span><%= this.data.iMaxVal %>
 					</div>
 				<% } else { %>
 					<div style="margin-bottom: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iMaxVal %></div>
@@ -580,7 +580,7 @@
 		type="text/ejs"
 		class="vis-inventwo"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Table.png">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid;iTblShowHead/checkbox;iTblRowLimit/number;"
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;iOid;iTblShowHead/checkbox;iTblRowLimit/number;"
 		data-vis-attrs0="iColCount/number,0,100,1;group.iTableCol/byindex;iColName(1-iColCount)/text;iColAttr(1-iColCount)/text;iColWidth(1-iColCount)/text;"
 		data-vis-attrs1="group.i-css;iOpacityAll[1]/slider,0,1,0.1;iTblRowEvenColor[#333333]/color;iTblRowUnevenColor[#455618]/color;iTblHeaderColor[#333333]/color;
 		iTblRowEvenTextColor[#ffffff]/color;iTblRowUnevenTextColor[#ffffff]/color;iTblHeaderTextColor[#ffffff]/color;iRowSpacing[10]/slider,0,50,0.1;"
