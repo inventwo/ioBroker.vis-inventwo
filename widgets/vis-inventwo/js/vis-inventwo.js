@@ -374,12 +374,8 @@ vis.binds["vis-inventwo"] = {
 				let jsondata = vis.states.attr(data.oid + ".val");
 
 
-				try{
-					jsondata = JSON.parse(jsondata);
-				}
-				catch (e) {
-					console.log("error try js on parse");
-				}
+				jsondata = JSON.parse(jsondata);
+
 
 				console.log(jsondata);
 				console.log(data);
