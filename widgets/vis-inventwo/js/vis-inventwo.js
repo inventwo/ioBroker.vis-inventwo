@@ -372,11 +372,11 @@ vis.binds["vis-inventwo"] = {
 
 		else{
 			if(data.iColCount  !== "" && data.iColCount > 0){
-				let jsondata = vis.states.attr(data.oid + ".val");
+				let jd = vis.states.attr(data.oid + ".val");
 
-				let jsondataObj = JSON.parse(jsondata);
+				let jsondata = JSON.parse(jd);
 
-				console.log(jsondataObj);
+				console.log(jsondata);
 				console.log(data);
 
 				let rowLimit = jsondata.length;
