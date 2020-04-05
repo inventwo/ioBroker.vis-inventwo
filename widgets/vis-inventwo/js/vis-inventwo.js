@@ -478,6 +478,8 @@ vis.binds["vis-inventwo"] = {
 							//if(Object.keys(jsondata[e])[i].charAt(0) !== "_")
 							output += "<td style='width: " + colWidth + ";'>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
 						}
+
+						console.log(data["iColAttr" + (i + 1)]);
 					}
 					output += "</tr>";
 				}
