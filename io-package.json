@@ -1,7 +1,7 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "1.2.183",
+		"version": "1.2.184",
 		"news": {
             "1.2.3": {
               "en": "Added Navigation active color, repaired state color for value switch",
