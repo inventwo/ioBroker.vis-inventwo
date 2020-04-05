@@ -196,6 +196,14 @@ if (vis.editMode) {
 		"iTblColumnSize":{
 			"en": "Columncount must be higher than 0",
 			"de": "Spaltenanzahl muss größer als 0 sein"
+		},
+		"iTblShowHead":{
+			"en": "Table Head",
+			"de": "Tabellenkopf"
+		},
+		"iColCount":{
+			"en": "Columncount",
+			"de": "Spaltenanzahl"
 		}
 	});
 }
