@@ -254,6 +254,9 @@ vis.binds["vis-inventwo"] = {
 			});
 
 		}
+		else{
+			console.log("test");
+		}
 	},
 	handleNavigation: function (el, data) {
 		if (!vis.editMode && data.nav_view) {
