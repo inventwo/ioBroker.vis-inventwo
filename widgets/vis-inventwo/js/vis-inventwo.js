@@ -204,6 +204,10 @@ if (vis.editMode) {
 		"iColCount":{
 			"en": "Columncount",
 			"de": "Spaltenanzahl"
+		},
+		"iTblRowLimit":{
+			"en": "Row Limit",
+			"de": "Zeilenlimit"
 		}
 	});
 }
