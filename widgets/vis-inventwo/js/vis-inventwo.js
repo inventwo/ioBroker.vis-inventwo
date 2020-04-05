@@ -296,7 +296,6 @@ vis.binds["vis-inventwo"] = {
 		}
 		return { input: `<span>${_(text)}</span>` };
 	},
-
 	handleSlider: function (el,data,options) {
 
 		var $this = $(el);
