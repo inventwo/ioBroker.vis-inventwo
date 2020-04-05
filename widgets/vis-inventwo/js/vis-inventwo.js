@@ -372,12 +372,12 @@ vis.binds["vis-inventwo"] = {
 		else{
 			if(data.iColCount  !== "" && data.iColCount > 0){
 				let jsondata = vis.states.attr(data.oid + ".val");
-				if(jsondata && typeof jsondata === "string")
-					jsondata = JSON.parse(jsondata);
+				//if(jsondata && typeof jsondata === "string")
+				//	jsondata = JSON.parse(jsondata);
 
 				console.log(jsondata);
 				console.log(data);
-
+				/*
 				let rowLimit = jsondata.length;
 				if(data.iTblRowLimit < rowLimit)
 					rowLimit = data.iTblRowLimit;
@@ -426,6 +426,7 @@ vis.binds["vis-inventwo"] = {
 
 
 				output += "</table>";
+				*/
 			}
 			else{
 				output = "Columncount can't be zero/empty";
