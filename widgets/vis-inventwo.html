@@ -610,7 +610,10 @@
 					output = "Datenpunkt befüllt!";
 					console.log(this.data);
 					jsondata = vis.states.attr(this.data.oid + ".val");
+					jsondata = JSON.parse(jsondata);
 					console.log(jsondata);
+					console.log(jsondata[0].id);
+
 				}
 			%>
 
