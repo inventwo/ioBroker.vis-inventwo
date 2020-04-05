@@ -342,6 +342,7 @@ vis.binds["vis-inventwo"] = {
 				console.log(jsonData);
 				console.log(data);
 				console.log(jsonData[0]["caller"]);
+				console.log(jsonData[1][data["iColAttr" + 1]]);
 
 				let html = "<table>";
 
