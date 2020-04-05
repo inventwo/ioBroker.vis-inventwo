@@ -389,11 +389,7 @@ vis.binds["vis-inventwo"] = {
 
 					output += "<tr>";
 					for(let i = 1; i <= data.iColCount; i++){
-						if (!jsondata[0].hasOwnProperty(jsondata[0][Object.keys(jsondata[0])[i]]) ||
-							Object.keys(jsondata[0])[i].match(/^jQuery/) ||
-							typeof jsondata[0].hasOwnProperty(jsondata[0][Object.keys(jsondata[0])[i]] === 'function') {
-							continue;
-						}
+
 						if(data["iColName" + i] !== undefined && data["iColName" + i] !== ""){
 							output += "<th>" + data["iColName" + i] + "</th>";
 						}
@@ -408,12 +404,6 @@ vis.binds["vis-inventwo"] = {
 				for(let e = 0; e < rowLimit; e++){
 					output += "<tr>";
 					for(let i = 1; i <= data.iColCount; i++){
-
-						if (!jsondata[e].hasOwnProperty(jsondata[e][Object.keys(jsondata[e])[i]]) ||
-							Object.keys(jsondata[e])[i].match(/^jQuery/) ||
-							typeof jsondata[e].hasOwnProperty(jsondata[e][Object.keys(jsondata[e])[i]] === 'function') {
-							continue;
-						}
 
 						if(data["iColAttr" + i] !== undefined && data["iColAttr" + i] !== ""){
 							output += "<td>" + jsondata[e][data["iColAttr" + i]] + "</td>";
