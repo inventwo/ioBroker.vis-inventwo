@@ -617,11 +617,13 @@
 
 						output = "<table>";
 
-						for(let e = 0; e <= jsondata.length; e++){
+						for(let e = 0; e < jsondata.length; e++){
 							output += "<tr>";
 							for(let i = 1; i <= this.data.iColCount; i++){
 
-								output += "<td>" + jsondata[e][this.data["iColAttr" + i]] + "</td>";
+								if(this.data["iColAttr" + i] != ""){
+									output += "<td>" + jsondata[e][this.data["iColAttr" + i]] + "</td>";
+								}
 
 							}
 							output += "</tr>";
