@@ -235,9 +235,10 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
 
 			<%
-
 				let backgroundcol = this.data.iButtonCol;
-
+				if(this.data.nav_view === vis.activeView){
+					backgroundcol = this.data.iButtonActive;
+				}
 			%>
 
             <div class="vis-inventwo-button vis-inventwo-nav" data-inventwo-nav="<%= this.data.nav_view%>"
@@ -285,15 +286,10 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
 
 			<%
-
-			let backgroundcol = this.data.iButtonCol;
-
-			setTimeout(function(){
+				let backgroundcol = this.data.iButtonCol;
 				if(this.data.nav_view === vis.activeView){
 					backgroundcol = this.data.iButtonActive;
 				}
-			},this.data.iNavWait);
-
 			%>
 
             <div class="vis-inventwo-button vis-inventwo-nav" data-inventwo-nav="<%= this.data.nav_view%>"
