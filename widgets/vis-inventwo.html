@@ -602,18 +602,17 @@
 		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible;" id="<%= this.data.attr('wid') %>" >
 			<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
 			<%
-				let output = "";
+				let output = "test";
 				if(data.oid === "" || data.oid === "nothing_selected") {
 					output = "Datenpunkt nicht befüllt!";
 				}
 				else{
-
 					output = "Datenpunkt befüllt!";
-					console.log(this.data);
 				}
 			%>
 
 			<%= output %>
+
 			</div>
 		</div>
 </script>
