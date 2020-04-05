@@ -224,6 +224,30 @@ if (vis.editMode) {
 		"iColWidth":{
 			"en": "Columnwidth",
 			"de": "Spaltenbreite"
+		},
+		"iTblRowEvenColor":{
+			"en": "Background (row even)",
+			"de": "Hintergrund (gerade Zeile)"
+		},
+		"iTblRowUnevenColor":{
+			"en": "Background (row uneven)",
+			"de": "Hintergrund (ungerade Zeile)"
+		},
+		"iTblHeaderColor":{
+			"en": "Background (header)",
+			"de": "Hintergrund (Überschrift)"
+		},
+		"iTblRowEvenTextColor":{
+			"en": "Font Color (row even)",
+			"de": "Textfarbe (gerade Zeile)"
+		},
+		"iTblRowUnevenTextColor":{
+			"en": "Font color (row uneven)",
+			"de": "Textfarbe (ungerade Zeile)"
+		},
+		"iTblHeaderTextColor":{
+			"en": "Font color (header)",
+			"de": "Textfarbe (Überschrift)"
 		}
 	});
 }
@@ -409,7 +433,7 @@ vis.binds["vis-inventwo"] = {
 
 				if(data.iTblShowHead){
 
-					output += "<thead style='background:" + data.iTblHeaderColor + "'>";
+					output += "<thead style='background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor + "'>";
 					for(let i = 0; i < colLimit; i++){
 
 						if(data["iColName" + i + 1] !== undefined && data["iColName" + i + 1] !== ""){
@@ -428,15 +452,18 @@ vis.binds["vis-inventwo"] = {
 				for(let e = 0; e < rowLimit; e++){
 
 					let tdColor = "";
+					let tdTextColor = "";
 
 					if(e % 2 === 0){
-						tdColor = data.iTblRowEvenColor;
+						tdColor = data.iTblRowUnevenColor;
+						tdTextColor = data.iTblRowUnevenTextColor;
 					}
 					else{
-						tdColor = data.iTblRowUnevenColor;
+						tdColor = data.iTblRowEvenColor;
+						tdTextColor = data.iTblRowEvenTextColor;
 					}
 
-					output += "<tr style='background: " + tdColor + "'>";
+					output += "<tr style='background: " + tdColor + "; color: " + tdTextColor + "'>";
 					for(let i = 0; i < colLimit; i++){
 
 
