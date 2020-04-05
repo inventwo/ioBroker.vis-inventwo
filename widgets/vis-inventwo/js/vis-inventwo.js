@@ -72,6 +72,10 @@ if (vis.editMode) {
 			"en": "Image opacity",
 			"de": "Bild Transparenz"
 		},
+		"iOpacityAll": {
+			"en": "Opacity",
+			"de": "Transparenz"
+		},
 		"iTextFalse": {
 			"en": "Label  false",
 			"de": "Beschriftung falsch"
@@ -405,7 +409,7 @@ vis.binds["vis-inventwo"] = {
 
 				if(data.iTblShowHead){
 
-					output += "<tr>";
+					output += "<thead style='background:" + data.iTblHeaderColor + "'>";
 					for(let i = 0; i < colLimit; i++){
 
 						if(data["iColName" + i + 1] !== undefined && data["iColName" + i + 1] !== ""){
@@ -416,26 +420,36 @@ vis.binds["vis-inventwo"] = {
 							output += "<th>" + Object.keys(jsondata[0])[i] + "</th>";
 						}
 					}
-					output += "</tr>";
+					output += "</thead>";
 
 				}
 
+				output += "<tbody>";
 				for(let e = 0; e < rowLimit; e++){
 					output += "<tr>";
 					for(let i = 0; i < colLimit; i++){
 
+						let tdColor = "";
+
+						if(i % 2 === 0){
+							tdColor = data.iTblRowEvenColor;
+						}
+						else{
+							tdColor = data.iTblRowUnevenColor;
+						}
+
 						if(data["iColAttr" + i + 1] !== undefined && data["iColAttr" + i + 1] !== ""){
-							output += "<td>" + jsondata[e][data["iColAttr" + i + 1]] + "</td>";
+							output += "<td style='background: " + tdColor + "'>" + jsondata[e][data["iColAttr" + i + 1]] + "</td>";
 						}
 						else{
 							//if(Object.keys(jsondata[e])[i].charAt(0) !== "_")
-							output += "<td>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
+							output += "<td style='background: " + tdColor + "'>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
 						}
 					}
 					output += "</tr>";
 				}
 
-
+				output += "</tbody>";
 				output += "</table>";
 			}
 			else{
