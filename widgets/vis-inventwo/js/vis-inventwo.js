@@ -289,6 +289,8 @@ vis.binds["vis-inventwo"] = {
 		else{
 			if(data.iButtonCol.charAt(0) === "{"){
 				console.log("has {");
+				let str = (data.iButtonCol).substring(1,data.iButtonCol.length - 1);
+				console.log(str);
 			}
 			else{
 				console.log("not has {");
