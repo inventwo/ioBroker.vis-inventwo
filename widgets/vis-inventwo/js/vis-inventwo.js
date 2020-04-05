@@ -12,7 +12,7 @@ if (vis.editMode) {
 			"en": "Instance",
 			"de": "Instanz"
 		},
-		"iOid":{
+		"oid":{
 			"en": "Object ID",
 			"de": "Objekt ID"
 		},
@@ -265,25 +265,25 @@ vis.binds["vis-inventwo"] = {
 	handleToggle: function (el, data) {
 
 		var $this = $(el);
-		var iOid = data.iOid;
+		var oid = data.oid;
 
 
 		if (!vis.editMode) {
 
 			$this.parent().click(function () {
-				var val = vis.states[iOid + '.val'];
+				var val = vis.states[oid + '.val'];
 				var type = data.iValueType;
 				var valFalse = data.iValueFalse;
 				var valTrue = data.iValueTrue;
 
 				if(type == "boolean")
-					vis.setValue(iOid, !val);
+					vis.setValue(oid, !val);
 				else{
 					if(val == valFalse){
-						vis.setValue(iOid, valTrue);
+						vis.setValue(oid, valTrue);
 					}
 					else{
-						vis.setValue(iOid, valFalse);
+						vis.setValue(oid, valFalse);
 					}
 				}
 
@@ -339,7 +339,7 @@ vis.binds["vis-inventwo"] = {
 
 		var $this = $(el);
 
-		var iOid = data.iOid;
+		var oid = data.oid;
 
 		//$(el).html(valFalse);
 
@@ -347,7 +347,7 @@ vis.binds["vis-inventwo"] = {
 
 			$this.parent().click(function () {
 
-				vis.setValue(iOid, data.value);
+				vis.setValue(oid, data.value);
 			});
 
 		}
@@ -369,7 +369,7 @@ vis.binds["vis-inventwo"] = {
 	handleSlider: function (el,data,options) {
 
 		var $this = $(el);
-		var iOid = data.iOid;
+		var oid = data.oid;
 
 		var settings = $.extend({
 				min: parseInt(data.iMinVal),
@@ -377,7 +377,7 @@ vis.binds["vis-inventwo"] = {
 				step: parseInt(data.iStepVal),
 				slide: function( event, ui ) {
 					if(!vis.editMode)
-						vis.setValue(iOid, ui.value);
+						vis.setValue(oid, ui.value);
 				}
 			},options);
 
@@ -400,11 +400,11 @@ vis.binds["vis-inventwo"] = {
 			$this.children().css("margin-bottom", "-" + (data.iSliderKnobSize / 2) + "px");
 		}
 
-			$this.slider("option","value",vis.states.attr(iOid + ".val"));
+			$this.slider("option","value",vis.states.attr(oid + ".val"));
 
 
-		vis.states.bind(iOid + ".val",function () {
-			$this.slider("option","value",vis.states.attr(iOid + ".val"));
+		vis.states.bind(oid + ".val",function () {
+			$this.slider("option","value",vis.states.attr(oid + ".val"));
 		});
 
 	},
@@ -412,13 +412,13 @@ vis.binds["vis-inventwo"] = {
 	jsontable: function (el,data) {
 
 		let output = "";
-		if(data.iOid === "" || data.iOid === "nothing_selected") {
+		if(data.oid === "" || data.oid === "nothing_selected") {
 			output = "No data";
 		}
 
 		else{
 			if(data.iColCount  !== "" && data.iColCount > 0){
-				let jd = vis.states.attr(data.iOid + ".val");
+				let jd = vis.states.attr(data.oid + ".val");
 				let jsondata;
 
 				if(typeof jd === "string")
