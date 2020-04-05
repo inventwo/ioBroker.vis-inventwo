@@ -21,7 +21,7 @@
 		data-vis-type="ctrl"
 		data-vis-name="Switch">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
             <div class="vis-inventwo-button"
@@ -80,10 +80,10 @@
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
-		data-vis-type="button"
+		data-vis-type="ctrl"
 		data-vis-name="Switch Small">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
             <div class="vis-inventwo-button"
@@ -115,14 +115,14 @@
                     <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
                 </div>        
                 <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
-                    <%= this.data.iTextTrue %>
+                    <%== this.data.iTextTrue %>
 		        </div>
             <% } else { %>
                 <div style="order:2; position:relative;">
                     <img src='<%= this.data.iImageFalse %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
                 </div>        
                 <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
-                    <%= this.data.iTextFalse %>
+                    <%== this.data.iTextFalse %>
 		        </div>
             <% } %>
 
@@ -142,10 +142,10 @@
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
-		data-vis-type="button"
+		data-vis-type="ctrl"
 		data-vis-name="Button">
  
-		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
+		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
 
             <div class="vis-inventwo-button"
@@ -167,7 +167,7 @@
                     <img src='<%= this.data.iImage %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
                 </div>        
                 <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>">
-                    <%= this.data.iText %>
+                    <%== this.data.iText %>
 		        </div>
             </div>
 		</div>
@@ -183,10 +183,10 @@
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
-		data-vis-type="button"
+		data-vis-type="ctrl"
 		data-vis-name="Button Small">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
 
             <div class="vis-inventwo-button"
@@ -209,7 +209,7 @@
                     <img src='<%= this.data.iImage %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
                 </div>        
                 <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
-                    <%= this.data.iText %>
+                    <%== this.data.iText %>
 		        </div>
 
             </div>
@@ -228,10 +228,10 @@
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
-		data-vis-type="button"
+		data-vis-type="ctrl"
 		data-vis-name="Navigation">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" <%= (el) -> vis.binds['vis-inventwo'].handleNavigation(el, data) %>>
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" <%= (el) -> vis.binds['vis-inventwo'].handleNavigation(el, data) %>>
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
 
 			<%
@@ -262,7 +262,7 @@
                
                 </div>        
                 <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>">
-                    <%= this.data.iText %>
+                    <%== this.data.iText %>
 		        </div>
             </div>
 		</div>
@@ -279,10 +279,10 @@
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
-		data-vis-type="button"
+		data-vis-type="ctrl"
 		data-vis-name="Navigation Small">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" <%= (el) -> vis.binds['vis-inventwo'].handleNavigation(el, data) %>>
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" <%= (el) -> vis.binds['vis-inventwo'].handleNavigation(el, data) %>>
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
 
 			<%
@@ -312,7 +312,7 @@
                     <img src='<%= this.data.iImage %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
                 </div>
                 <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
-                    <%= this.data.iText %>
+                    <%== this.data.iText %>
 		        </div>
 
             </div>
@@ -330,10 +330,10 @@
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
-		data-vis-type="background"
+		data-vis-type="val"
 		data-vis-name="Button Background">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
             <div class="vis-inventwo-button"
@@ -366,14 +366,14 @@
                         <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);" >
                     </div>
                     <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>;">
-                        <%= this.data.iTextTrue %>
+                        <%== this.data.iTextTrue %>
 		            </div>
                 <% } else { %>
                     <div class="vis-inventwo-button-imageContainer">
                         <img src='<%= this.data.iImageFalse %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);" >
                     </div>
                     <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>;">
-                        <%= this.data.iTextFalse %>
+                        <%== this.data.iTextFalse %>
 		            </div>
                 <% } %>
 
@@ -391,10 +391,10 @@
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
-		data-vis-type="background"
+		data-vis-type="val"
 		data-vis-name="Background Small">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
             <div class="vis-inventwo-button"
@@ -426,14 +426,14 @@
                     <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
                 </div>
                 <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
-                    <%= this.data.iTextTrue %>
+                    <%== this.data.iTextTrue %>
 		        </div>
             <% } else { %>
                 <div style="order:2; position:relative;">
                     <img src='<%= this.data.iImageFalse %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
                 </div>
                 <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
-                    <%= this.data.iTextFalse %>
+                    <%== this.data.iTextFalse %>
 		        </div>
             <% } %>
 
@@ -451,7 +451,7 @@
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iMinVal[1]/number;iMaxVal[100]/number;iStepVal[1]/number;iSliderRotation[0]/slider,-45,45,1;iSliderLabel/text;iShowMinMax/checkbox;iShowValue/checkbox;iValuePreText/text;"
 		data-vis-attrs0="group.i-css;iSliderHeight[10]/slider,1,200,1;iSliderKnobSize[20]/slider,1,200,1;iSliderColor[#ffffff]/color;iSliderKnobColor[#455618]/color;iSliderTextColor[#ffffff]/color;iValueTextColor[#455618]/color;iTextSize[12]/slider,0,50,1;iSliderCorners[100]/slider,0,100,1;iSliderKnobCorners[100]/slider,0,100,1;"
 		data-vis-set="vis-inventwo"
-		data-vis-type="slider"
+		data-vis-type="ctrl"
 		data-vis-name="Simple Slider horizontal">
 
 	<%
@@ -470,7 +470,7 @@
 	%>
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
-		style="width:200px; height:<%= elHeight%>px; overflow:visible; cursor:pointer;font-size:<%= this.data.iTextSize %>px;color:<%= this.data.iSliderTextColor %>;" >
+		style="width:200px; height:<%= elHeight%>px; overflow:visible; cursor:pointer;font-size:<%= this.data.iTextSize %>px;color:<%= this.data.iSliderTextColor %>;z-index:1" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: auto; display:flex;align-items:center;flex-wrap:wrap; top:<%= topSpace%>px;">
 
 			<% if(this.data.iShowMinMax){ %>
@@ -491,7 +491,7 @@
 
 		<div style="position:absolute; left:0px; bottom:0px;"><%= this.data.iSliderLabel %></div>
 		<% if(this.data.iShowValue){ %>
-			<div style="position:absolute; right:0px; bottom:0px;color:<%= this.data.iValueTextColor%>"><%= this.data.iValuePreText%><%= vis.states.attr(this.data.oid + '.val') %></div>
+			<div style="position:absolute; right:0px; bottom:0px;color:<%= this.data.iValueTextColor%>"><%== this.data.iValuePreText%><%= vis.states.attr(this.data.oid + '.val') %></div>
 		<% } %>
 
 	</div>
@@ -504,18 +504,18 @@
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iMinVal[1]/number;iMaxVal[100]/number;iStepVal[1]/number;iSliderRotation[0]/slider,-45,45,1;iSliderLabel/text;iShowMinMax/checkbox;iShowValue/checkbox;iValuePreText/text;"
 		data-vis-attrs0="group.i-css;iSliderHeight[10]/slider,1,200,1;iSliderKnobSize[20]/slider,1,200,1;iSliderColor[#ffffff]/color;iSliderKnobColor[#455618]/color;iSliderTextColor[#ffffff]/color;iValueTextColor[#455618]/color;iTextSize[12]/slider,0,50,1;iSliderCorners[100]/slider,0,100,1;iSliderKnobCorners[100]/slider,0,100,1;"
 		data-vis-set="vis-inventwo"
-		data-vis-type="slider"
+		data-vis-type="ctrl"
 		data-vis-name="Simple Slider vertical">
 
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
-		style="height:200px; width:<%= this.data.iSliderHeight%>px; overflow:visible; cursor:pointer;font-size:<%= this.data.iTextSize %>px;color:<%= this.data.iSliderTextColor %>;" >
+		style="height:200px; width:<%= this.data.iSliderHeight%>px; overflow:visible; cursor:pointer;font-size:<%= this.data.iTextSize %>px;color:<%= this.data.iSliderTextColor %>;z-index:1" >
 
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: 100%;display: flex;flex-direction: column;align-items: center;">
 
 			<% if(this.data.iShowMinMax){ %>
 				<% if(this.data.iShowValue){ %>
-					<div><span style="color:<%= this.data.iValueTextColor%>"><%= this.data.iValuePreText%></span></div>
+					<div><span style="color:<%= this.data.iValueTextColor%>"><%== this.data.iValuePreText%></span></div>
 					<div style="margin-bottom: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px">
 						<span style="color:<%= this.data.iValueTextColor%>"><%= vis.states.attr(this.data.oid + '.val') %> / </span><%= this.data.iMaxVal %>
 					</div>
@@ -553,10 +553,10 @@
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;iImage/image;iInvertImageCol/checkbox;iFlipImage/checkbox;"
 		data-vis-attrs0="group.i-css;iOpacityImg[1]/slider,0,1,0.1;"
 		data-vis-set="vis-inventwo"
-		data-vis-type="image"
+		data-vis-type="static"
 		data-vis-name="Image">
 
-		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer" id="<%= this.data.attr('wid') %>" >
+		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
 
 			<%
@@ -579,7 +579,7 @@
 <script id="i-vis-jsontable"
 		type="text/ejs"
 		class="vis-tpl"
-		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Image.png">'
+		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Table.png">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid;iTblShowHead/checkbox;iTblRowLimit/number;"
 		data-vis-attrs0="iColCount/number,0,100,1;group.iTableCol/byindex;iColName(1-iColCount)/text;iColAttr(1-iColCount)/text;iColWidth(1-iColCount)/text;"
 		data-vis-attrs1="group.i-css;iOpacityAll[1]/slider,0,1,0.1;iTblRowEvenColor[#333333]/color;iTblRowUnevenColor[#455618]/color;iTblHeaderColor[#333333]/color;
@@ -588,7 +588,7 @@
 		data-vis-type="table"
 		data-vis-name="JSON Table">
 
-		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:auto; height:auto; overflow:hidden;" id="<%= this.data.attr('wid') %>" >
+		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:auto; height:auto; overflow:hidden;z-index:1" id="<%= this.data.attr('wid') %>" >
         	<%= (el) -> vis.binds['vis-inventwo'].jsontable(el, this.data) %>
 		</div>
 
