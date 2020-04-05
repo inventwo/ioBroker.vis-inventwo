@@ -188,6 +188,14 @@ if (vis.editMode) {
 		"iFlipImage":{
 			"en": "Flip icon",
 			"de": "Bild spiegeln"
+		},
+		"iTblNoOid":{
+			"en": "Empty datafield",
+			"de": "Datenpunkt leer"
+		},
+		"iTblColumnSize":{
+			"en": "Columncount must be higher than 0",
+			"de": "Spaltenanzahl muss größer als 0 sein"
 		}
 	});
 }
@@ -336,9 +344,9 @@ vis.binds["vis-inventwo"] = {
 		console.log($(el));
 		let output = "test";
 		if(data.oid === "" || data.oid === "nothing_selected") {
-			output = "Datenpunkt nicht befüllt!";
+			output = "iTblNoOid";
 		}
-		/*
+
 		else{
 			if(data.iColCount  !== "" && data.iColCount > 0){
 				let jsondata = vis.states.attr(data.oid + ".val");
@@ -349,9 +357,11 @@ vis.binds["vis-inventwo"] = {
 
 					output += "<tr>";
 					for(let i = 1; i <= data.iColCount; i++){
-						if(data["iColAttr" + i] !== ""){
+						if(data["iColName" + i] !== undefined)
 							output += "<th>" + data["iColName" + i] + "</th>";
-						}
+						else
+							output += "<th>" + Object.keys(jsondata[0])[i] + "</th>";
+
 					}
 					output += "</tr>";
 
@@ -369,9 +379,9 @@ vis.binds["vis-inventwo"] = {
 				output += "</table>";
 			}
 			else{
-				output = "Spaltenzahl kann nicht kleiner 0 sein!";
+				output = "iTblColumnSize";
 			}
-		}*/
+		}
 		$(el).html(output);
 	}
 };
