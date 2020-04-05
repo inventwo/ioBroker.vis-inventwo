@@ -340,8 +340,8 @@ vis.binds["vis-inventwo"] = {
 	},
 
 	jsontable: function (el,data) {
-		console.log($(el));
-		let output = "test";
+
+		let output = "";
 		if(data.oid === "" || data.oid === "nothing_selected") {
 			output = "iTblNoOid";
 		}
@@ -350,6 +350,10 @@ vis.binds["vis-inventwo"] = {
 			if(data.iColCount  !== "" && data.iColCount > 0){
 				let jsondata = vis.states.attr(data.oid + ".val");
 				jsondata = JSON.parse(jsondata);
+
+				console.log(jsondata);
+				console.log(data);
+
 				output = "<table>";
 
 				if(data.iTblShowHead){
@@ -363,7 +367,7 @@ vis.binds["vis-inventwo"] = {
 					output += "</tr>";
 
 				}
-
+				/*
 				for(let e = 0; e < jsondata.length; e++){
 					output += "<tr>";
 					for(let i = 1; i <= data.iColCount; i++){
@@ -373,6 +377,8 @@ vis.binds["vis-inventwo"] = {
 					}
 					output += "</tr>";
 				}
+				*/
+
 				output += "</table>";
 			}
 			else{
