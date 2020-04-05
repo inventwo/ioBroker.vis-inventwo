@@ -349,16 +349,21 @@ vis.binds["vis-inventwo"] = {
 	},
 
 	jsontable: function (el,data) {
-		console.log($(el));
-		let output = "test";
+
+		let output = "";
 		if(data.oid === "" || data.oid === "nothing_selected") {
 			output = "iTblNoOid";
 		}
-
 		else{
 			if(data.iColCount  !== "" && data.iColCount > 0){
 				let jsondata = vis.states.attr(data.oid + ".val");
 				jsondata = JSON.parse(jsondata);
+
+				let rowLimit = jsondata.length;
+				if(data.iTblRowLimit < jsondata.length){
+					rowLimit = data.iTblRowLimit;
+				}
+
 				output = "<table>";
 
 				if(data.iTblShowHead){
@@ -375,7 +380,7 @@ vis.binds["vis-inventwo"] = {
 
 				}
 
-				for(let e = 0; e < jsondata.length; e++){
+				for(let e = 0; e < rowLimit; e++){
 					output += "<tr>";
 					for(let i = 1; i <= data.iColCount; i++){
 						if(data["iColAttr" + i] !== ""){
