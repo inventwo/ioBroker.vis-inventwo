@@ -424,7 +424,7 @@ vis.binds["vis-inventwo"] = {
 				if(data.iColCount < colLimit)
 					colLimit = data.iColCount;
 
-				output = "<table class='vis-inventwo-json-table'>";
+				output = "<table class='vis-inventwo-json-table' style='opacity: " + data.iOpacityAll + "'>";
 
 				if(data.iTblShowHead){
 
