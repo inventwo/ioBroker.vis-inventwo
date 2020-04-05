@@ -427,6 +427,8 @@ vis.binds["vis-inventwo"] = {
 
 				output += "</table>";
 				*/
+
+				output = "test";
 			}
 			else{
 				output = "Columncount can't be zero/empty";
