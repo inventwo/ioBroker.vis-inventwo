@@ -207,15 +207,15 @@ if (vis.editMode) {
 		},
 		"group_iTableCol":{
 			"en": "Table Column",
-			"de": "Tabellenspalten"
+			"de": "Tabellenspalte"
 		},
 		"iColName":{
 			"en": "Header",
 			"de": "Spaltenüberschrift"
 		},
 		"iColAttr":{
-			"en": "Attribut",
-			"de": "Attribut"
+			"en": "Attribute in JSON",
+			"de": "Attribut in JSON"
 		},
 		"iColWidth":{
 			"en": "Columnwidth",
