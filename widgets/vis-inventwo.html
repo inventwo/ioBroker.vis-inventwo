@@ -608,6 +608,9 @@
 				}
 				else{
 					output = "Datenpunkt befüllt!";
+					console.log(this.data);
+					jsondata = vis.states.attr(this.data.oid + ".val");
+					console.log(jsondata);
 				}
 			%>
 
