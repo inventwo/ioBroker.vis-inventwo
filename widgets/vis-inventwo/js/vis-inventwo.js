@@ -189,13 +189,13 @@ if (vis.editMode) {
 			"en": "Flip icon",
 			"de": "Bild spiegeln"
 		},
-		"iTblNoOid":{
-			"en": "Empty datafield",
-			"de": "Datenpunkt leer"
+		"iTblShowHead":{
+			"en": "Table Head",
+			"de": "Tabellenkopf"
 		},
-		"iTblColumnSize":{
-			"en": "Columncount must be higher than 0",
-			"de": "Spaltenanzahl muss größer als 0 sein"
+		"iTblRowLimit":{
+			"en": "Rowlimit",
+			"de": "Zeilenlimit"
 		}
 	});
 }
