@@ -380,7 +380,7 @@ vis.binds["vis-inventwo"] = {
 					output += "</tr>";
 
 				}
-
+				/*
 				for(let e = 0; e < rowLimit; e++){
 					output += "<tr>";
 					for(let i = 1; i <= colLimit; i++) {
@@ -390,6 +390,8 @@ vis.binds["vis-inventwo"] = {
 					}
 					output += "</tr>";
 				}
+
+ 				*/
 				output += "</table>";
 			}
 			else{
