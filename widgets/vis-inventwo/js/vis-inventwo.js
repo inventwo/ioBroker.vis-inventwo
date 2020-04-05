@@ -360,6 +360,8 @@ vis.binds["vis-inventwo"] = {
 					rowLimit = data.iTblRowLimit;
 				}
 
+				console.log(jsondata);
+				console.log(data);
 				let colLimit = jsondata[0].length;
 				if(data.iColCount < colLimit){
 					colLimit = data.iColCount;
