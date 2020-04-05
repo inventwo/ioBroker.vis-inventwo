@@ -362,6 +362,7 @@ vis.binds["vis-inventwo"] = {
 
 				console.log(jsondata);
 				console.log(data);
+
 				let colLimit = jsondata[0].length;
 				if(data.iColCount < colLimit){
 					colLimit = data.iColCount;
