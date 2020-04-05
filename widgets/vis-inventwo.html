@@ -634,11 +634,9 @@
 				let colActive = this.data.iButtonActive;
 				let colNormal = this.data.iButtonCol;
 				if(vis.editMode){
-					if(this.data.iButtonActive.charAt(0) === "{"){
-						let str = this.data.iButtonActive.substring(1,this.data.iButtonActive.length - 1);
-						colActive = vis.states.attr(str + ".val");
-						console.log(colActive);
-					}
+
+					console.log(colActive);
+
 				}
 
 			%>
