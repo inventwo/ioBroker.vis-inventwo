@@ -436,12 +436,17 @@ vis.binds["vis-inventwo"] = {
 					output += "<thead style='background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor + "'>";
 					for(let i = 0; i < colLimit; i++){
 
+						let colWidth = "";
+						if(data["iColWidth" + i + 1] !== undefined && data["iColWidth" + i + 1] !== ""){
+							colWidth = data["iColWidth" + i + 1];
+						}
+
 						if(data["iColName" + i + 1] !== undefined && data["iColName" + i + 1] !== ""){
-							output += "<th>" + data["iColName" + i + 1] + "</th>";
+							output += "<th style='width: " + colWidth + ";'>" + data["iColName" + i + 1] + "</th>";
 						}
 						else{
 							//if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
-							output += "<th>" + Object.keys(jsondata[0])[i] + "</th>";
+							output += "<th style='width: " + colWidth + ";'>" + Object.keys(jsondata[0])[i] + "</th>";
 						}
 					}
 					output += "</thead>";
