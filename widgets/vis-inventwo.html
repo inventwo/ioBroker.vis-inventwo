@@ -593,7 +593,7 @@
 		type="text/ejs"
 		class="vis-tpl"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Image.png">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid;"
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid;iTblShowHead/checkbox;"
 		data-vis-attrs0="iColCount/number;group.iTableCol/byindex;iColName(1-iColCount)/text;iColAttr(1-iColCount)/text;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="table"
@@ -615,6 +615,19 @@
 					jsondata = vis.states.attr(this.data.oid + ".val");
 					jsondata = JSON.parse(jsondata);
 					output = "<table>";
+
+					if(this.data.iTblShowHead){
+
+						output += "<tr>";
+						for(let i = 1; i <= this.data.iColCount; i++){
+							if(this.data["iColAttr" + i] != ""){
+								output += "<th>" + jsondata[e][this.data["iColName" + i]] + "</th>";
+							}
+						}
+						output += "</tr>";
+
+					}
+
 					for(let e = 0; e < jsondata.length; e++){
 						output += "<tr>";
 						for(let i = 1; i <= this.data.iColCount; i++){
