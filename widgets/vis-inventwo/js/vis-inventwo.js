@@ -231,6 +231,7 @@ vis.binds["vis-inventwo"] = {
 		var $this = $(el);
 		var oid = data.oid;
 
+
 		if (!vis.editMode) {
 
 			$this.parent().click(function () {
