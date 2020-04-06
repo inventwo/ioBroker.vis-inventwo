@@ -426,7 +426,6 @@ vis.binds["vis-inventwo"] = {
 					jsondata = jd;
 
 				console.log(jsondata);
-
 				console.log(data);
 
 				if(jsondata) {
