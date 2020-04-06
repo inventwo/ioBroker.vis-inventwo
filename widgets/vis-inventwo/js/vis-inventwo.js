@@ -430,72 +430,57 @@ vis.binds["vis-inventwo"] = {
 				console.log(data);
 
 
-					let rowLimit = jsondata.length;
-					if (data.iTblRowLimit < rowLimit)
-						rowLimit = data.iTblRowLimit;
-
-					let colLimit = Object.keys(jsondata[0]).length;
-					if (data.iColCount < colLimit)
-						colLimit = data.iColCount;
-
-					output = "<table class='vis-inventwo-json-table' style='opacity: " + data.iOpacityAll + "'>";
-
-					if (data.iTblShowHead) {
-
-						output += "<thead style='background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor + "'>";
-						for (let i = 0; i < colLimit; i++) {
-
-							let colWidth = "";
-							if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
-								colWidth = data["iColWidth" + (i + 1)];
-							}
-
-							if (data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== "") {
-								output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + data["iColName" + (i + 1)] + "</th>";
-							} else {
-								//if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
-								output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + Object.keys(jsondata[0])[i] + "</th>";
-							}
+				let rowLimit = jsondata.length;
+				if (data.iTblRowLimit < rowLimit)
+					rowLimit = data.iTblRowLimit;
+				let colLimit = Object.keys(jsondata[0]).length;
+				if (data.iColCount < colLimit)
+					colLimit = data.iColCount;
+				output = "<table class='vis-inventwo-json-table' style='opacity: " + data.iOpacityAll + "'>";
+				if (data.iTblShowHead) {
+					output += "<thead style='background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor + "'>";
+					for (let i = 0; i < colLimit; i++) {
+						let colWidth = "";
+						if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
+							colWidth = data["iColWidth" + (i + 1)];
 						}
-						output += "</thead>";
-
-					}
-
-					output += "<tbody>";
-					for (let e = 0; e < rowLimit; e++) {
-
-						let tdColor = "";
-						let tdTextColor = "";
-
-						if (e % 2 === 0) {
-							tdColor = data.iTblRowUnevenColor;
-							tdTextColor = data.iTblRowUnevenTextColor;
+						if (data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== "") {
+							output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + data["iColName" + (i + 1)] + "</th>";
 						} else {
-							tdColor = data.iTblRowEvenColor;
-							tdTextColor = data.iTblRowEvenTextColor;
+							//if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
+							output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + Object.keys(jsondata[0])[i] + "</th>";
 						}
-
-						output += "<tr style='background: " + tdColor + "; color: " + tdTextColor + "'>";
-						for (let i = 0; i < colLimit; i++) {
-
-							let colWidth = "";
-							if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
-								colWidth = data["iColWidth" + (i + 1)];
-							}
-
-							if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
-								output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][data["iColAttr" + (i + 1)]] + "</td>";
-							} else {
-								//if(Object.keys(jsondata[e])[i].charAt(0) !== "_")
-								output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
-							}
-
-						}
-						output += "</tr>";
 					}
-
-					output += "</tbody>";
-					output += "</table>";
+					output += "</thead>";
+				}
+				output += "<tbody>";
+				for (let e = 0; e < rowLimit; e++) {
+					let tdColor = "";
+					let tdTextColor = "";
+					if (e % 2 === 0) {
+						tdColor = data.iTblRowUnevenColor;
+						tdTextColor = data.iTblRowUnevenTextColor;
+					} else {
+						tdColor = data.iTblRowEvenColor;
+						tdTextColor = data.iTblRowEvenTextColor;
+					}
+					output += "<tr style='background: " + tdColor + "; color: " + tdTextColor + "'>";
+					for (let i = 0; i < colLimit; i++) {
+						let colWidth = "";
+						if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
+							colWidth = data["iColWidth" + (i + 1)];
+						}
+						if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
+							output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][data["iColAttr" + (i + 1)]] + "</td>";
+						} else {
+							//if(Object.keys(jsondata[e])[i].charAt(0) !== "_")
+							output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
+						}
+					}
+					output += "</tr>";
+				}
+				output += "</tbody>";
+				output += "</table>";
 
 			}
 			else{
