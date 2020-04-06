@@ -413,9 +413,7 @@ vis.binds["vis-inventwo"] = {
 
 		let output = "";
 
-		console.log(data.oid);
-
-		if(data.oid === "" || data.oid === "nothing_selected" || data.oid === undefined) {
+		if(data.iOid === "" || data.iOid === "nothing_selected" || data.iOid === undefined) {
 			output = "No data";
 		}
 
@@ -492,7 +490,6 @@ vis.binds["vis-inventwo"] = {
 							output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
 						}
 
-						console.log(data["iColAttr" + (i + 1)]);
 					}
 					output += "</tr>";
 				}
