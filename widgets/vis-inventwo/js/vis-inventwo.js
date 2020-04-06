@@ -412,7 +412,9 @@ vis.binds["vis-inventwo"] = {
 	jsontable: function (el,data) {
 
 		let output = "";
+
 		console.log(data.oid);
+
 		if(data.oid === "" || data.oid === "nothing_selected" || data.oid === undefined) {
 			output = "No data";
 		}
