@@ -15,11 +15,7 @@ if (vis.editMode) {
 		"oid":{
 			"en": "Object ID",
 			"de": "Objekt ID"
-		},
-		"iOid":{
-			"en": "Object ID",
-			"de": "Objekt ID"
-		},
+		}
 		"iText": {
 			"en": "Label",
 			"de": "Beschriftung"
@@ -413,13 +409,13 @@ vis.binds["vis-inventwo"] = {
 
 		let output = "";
 
-		if(data.iOid === "" || data.iOid === "nothing_selected" || data.iOid === undefined) {
+		if(data.oid === "" || data.oid === "nothing_selected" || data.oid === undefined) {
 			output = "No data";
 		}
 
 		else{
 			if(data.iColCount  !== "" && data.iColCount > 0){
-				let jd = vis.states.attr(data.iOid + ".val");
+				let jd = vis.states.attr(data.oid + ".val");
 				let jsondata;
 
 				if(typeof jd === "string")
