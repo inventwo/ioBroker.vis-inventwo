@@ -418,6 +418,8 @@ vis.binds["vis-inventwo"] = {
 				let jd = vis.states.attr(data.oid + ".val");
 				let jsondata;
 
+				console.log(jd);
+
 				if(typeof jd === "string")
 					jsondata = JSON.parse(jd);
 				else
