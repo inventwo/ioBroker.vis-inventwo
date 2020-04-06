@@ -428,7 +428,6 @@ vis.binds["vis-inventwo"] = {
 				console.log(jsondata);
 				console.log(data);
 
-
 				if(jsondata) {
 
 					let rowLimit = jsondata.length;
