@@ -428,7 +428,6 @@ vis.binds["vis-inventwo"] = {
 				console.log(jsondata);
 				console.log(data);
 
-				if(jsondata !== undefined) {
 
 					let rowLimit = jsondata.length;
 					if (data.iTblRowLimit < rowLimit)
@@ -496,8 +495,7 @@ vis.binds["vis-inventwo"] = {
 
 					output += "</tbody>";
 					output += "</table>";
-				}
-				output = "No data in JSON found!";
+
 			}
 			else{
 				output = "Columncount can't be zero/empty";
