@@ -15,7 +15,7 @@ if (vis.editMode) {
 		"oid":{
 			"en": "Object ID",
 			"de": "Objekt ID"
-		}
+		},
 		"iText": {
 			"en": "Label",
 			"de": "Beschriftung"
