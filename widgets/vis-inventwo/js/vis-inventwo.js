@@ -256,6 +256,18 @@ if (vis.editMode) {
 		"iRowSpacing":{
 			"en": "Row spacing",
 			"de": "Zeilenabstand"
+		},
+		"iColShow":{
+			"en": "Show column",
+			"de": "Zeige Spalte"
+		},
+		"iVertScroll":{
+			"en": "Vertical scroll",
+			"de": "Scrollen vertikal"
+		},
+		"iHorScroll":{
+			"en": "Horinzontal scroll",
+			"de": "Scrollen horizontal"
 		}
 	});
 }
@@ -450,7 +462,7 @@ vis.binds["vis-inventwo"] = {
 				if (data.iTblShowHead) {
 					output += "<thead style='background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor + "'>";
 					for (let i = 0; i < colLimit; i++) {
-						if(data["iColWidth" + (i + 1)]) {
+						if(data["iColShow" + (i + 1)]) {
 							let colWidth = "";
 							if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
 								colWidth = data["iColWidth" + (i + 1)];
@@ -478,7 +490,7 @@ vis.binds["vis-inventwo"] = {
 					}
 					output += "<tr style='background: " + tdColor + "; color: " + tdTextColor + "'>";
 					for (let i = 0; i < colLimit; i++) {
-						if(data["iColWidth" + (i + 1)]) {
+						if(data["iColShow" + (i + 1)]) {
 							let colWidth = "";
 							if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
 								colWidth = data["iColWidth" + (i + 1)];
