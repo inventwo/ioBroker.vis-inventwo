@@ -436,19 +436,38 @@ vis.binds["vis-inventwo"] = {
 				let colLimit = Object.keys(jsondata[0]).length;
 				if (data.iColCount < colLimit)
 					colLimit = data.iColCount;
-				output = "<table class='vis-inventwo-json-table' style='opacity: " + data.iOpacityAll + "'>";
+
+				let tblOverflow = "";
+
+				if(data.iVertScroll){
+					tblOverflow += "overflow-y:scroll";
+				}
+				else{
+					tblOverflow += "overflow-y:hidden";
+				}
+
+				if(data.iHorScroll){
+					tblOverflow += "overflow-x:scroll";
+				}
+				else{
+					tblOverflow += "overflow-x:hidden";
+				}
+
+				output = "<table class='vis-inventwo-json-table' style='opacity: " + data.iOpacityAll + ";" + tblOverflow + "'>";
 				if (data.iTblShowHead) {
 					output += "<thead style='background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor + "'>";
 					for (let i = 0; i < colLimit; i++) {
-						let colWidth = "";
-						if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
-							colWidth = data["iColWidth" + (i + 1)];
-						}
-						if (data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== "") {
-							output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + data["iColName" + (i + 1)] + "</th>";
-						} else {
-							//if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
-							output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + Object.keys(jsondata[0])[i] + "</th>";
+						if(data["iColWidth" + (i + 1)]) {
+							let colWidth = "";
+							if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
+								colWidth = data["iColWidth" + (i + 1)];
+							}
+							if (data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== "") {
+								output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + data["iColName" + (i + 1)] + "</th>";
+							} else {
+								//if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
+								output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + Object.keys(jsondata[0])[i] + "</th>";
+							}
 						}
 					}
 					output += "</thead>";
@@ -466,15 +485,17 @@ vis.binds["vis-inventwo"] = {
 					}
 					output += "<tr style='background: " + tdColor + "; color: " + tdTextColor + "'>";
 					for (let i = 0; i < colLimit; i++) {
-						let colWidth = "";
-						if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
-							colWidth = data["iColWidth" + (i + 1)];
-						}
-						if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
-							output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][data["iColAttr" + (i + 1)]] + "</td>";
-						} else {
-							//if(Object.keys(jsondata[e])[i].charAt(0) !== "_")
-							output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
+						if(data["iColWidth" + (i + 1)]) {
+							let colWidth = "";
+							if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
+								colWidth = data["iColWidth" + (i + 1)];
+							}
+							if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
+								output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][data["iColAttr" + (i + 1)]] + "</td>";
+							} else {
+								//if(Object.keys(jsondata[e])[i].charAt(0) !== "_")
+								output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
+							}
 						}
 					}
 					output += "</tr>";
