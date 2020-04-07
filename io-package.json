@@ -1,8 +1,20 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "1.2.3",
+		"version": "1.3.0",
 		"news": {
+            "1.3.0": {
+              "en": "Added JSON table, Text in buttons can now be HTML, Added delay for navigations",
+              "de": "JSON-Tabelle hinzugefügt, Text in Schaltflächen kann jetzt HTML sein. Verzögerung für die Navigation hinzugefügt",
+              "ru": "Добавлена таблица JSON, текст в кнопках теперь может быть HTML, добавлена задержка для навигации",
+              "pt": "Tabela JSON adicionada, botões Texto em agora podem ser HTML, Atraso adicionado para navegação",
+              "nl": "JSON-tabel toegevoegd, tekst in knoppen kan nu HTML zijn, toegevoegde vertraging voor navigatie",
+              "fr": "Table JSON ajoutée, le texte dans les boutons peut maintenant être HTML, délai supplémentaire pour les navigations",
+              "it": "Aggiunta tabella JSON, I pulsanti di testo possono ora essere HTML, Aggiunto ritardo per le navigazioni",
+              "es": "Tabla JSON agregada, el texto en los botones ahora puede ser HTML, Retraso agregado para las navegaciones",
+              "pl": "Dodano tabelę JSON, przyciski Tekst w przyciskach mogą być teraz HTML, dodano opóźnienie nawigacji",
+              "zh-cn": "添加了JSON表，按钮中的文本现在可以是HTML，添加了导航延迟"
+            },
             "1.2.3": {
               "en": "Added Navigation active color, repaired state color for value switch",
               "de": "Aktive Navigationsfarbe hinzugefügt, Statusfarbe für Wertschalter repariert",
