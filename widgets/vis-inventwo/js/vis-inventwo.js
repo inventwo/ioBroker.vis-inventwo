@@ -433,17 +433,17 @@ vis.binds["vis-inventwo"] = {
 				let tblOverflow = "";
 
 				if(data.iVertScroll){
-					tblOverflow += "overflow-y:scroll;";
+					tblOverflow += "overflow-y: scroll;";
 				}
 				else{
-					tblOverflow += "overflow-y:hidden;";
+					tblOverflow += "overflow-y: hidden;";
 				}
 
 				if(data.iHorScroll){
-					tblOverflow += "overflow-x:scroll;";
+					tblOverflow += "overflow-x: scroll;";
 				}
 				else{
-					tblOverflow += "overflow-x:hidden;";
+					tblOverflow += "overflow-x: hidden;";
 				}
 
 				output = "<table class='vis-inventwo-json-table' style='opacity: " + data.iOpacityAll + ";" + tblOverflow + "'>";
