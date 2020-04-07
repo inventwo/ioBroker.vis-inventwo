@@ -441,23 +441,21 @@ vis.binds["vis-inventwo"] = {
 				if (data.iColCount < colLimit)
 					colLimit = data.iColCount;
 
-				let tblOverflow = "";
-
 				if(data.iVertScroll){
-					tblOverflow += "overflow-y: scroll;";
+					$(el).parent().css("overflow-y","scroll");
 				}
 				else{
-					tblOverflow += "overflow-y: hidden;";
+					$(el).parent().css("overflow-y","hidden");
 				}
 
 				if(data.iHorScroll){
-					tblOverflow += "overflow-x: scroll;";
+					$(el).parent().css("overflow-x","scroll");
 				}
 				else{
-					tblOverflow += "overflow-x: hidden;";
+					$(el).parent().css("overflow-x","hidden");
 				}
 
-				output = "<table class='vis-inventwo-json-table' style='opacity: " + data.iOpacityAll + ";" + tblOverflow + "'>";
+				output = "<table class='vis-inventwo-json-table' style='opacity: " + data.iOpacityAll + ";'>";
 				if (data.iTblShowHead) {
 					output += "<thead style='background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor + "'>";
 					for (let i = 0; i < colLimit; i++) {
