@@ -304,7 +304,6 @@ vis.binds["vis-inventwo"] = {
 		else{
 			if(data.iButtonCol.charAt(0) === "{"){
 				let str = (data.iButtonCol).substring(1,data.iButtonCol.length - 1);
-				console.log(str);
 
 			}
 		}
@@ -322,7 +321,6 @@ vis.binds["vis-inventwo"] = {
 				//return false;
 
 				setTimeout(function () {
-					console.log(vis.activeView);
 
 					$('.vis-inventwo-nav').each(function () {
 						if($(this).attr('data-inventwo-nav') === vis.activeView){
