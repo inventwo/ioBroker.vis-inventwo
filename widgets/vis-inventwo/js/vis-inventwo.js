@@ -418,17 +418,10 @@ vis.binds["vis-inventwo"] = {
 				let jd = vis.states.attr(data.oid + ".val");
 				let jsondata;
 
-				console.log(jd);
-
 				if(typeof jd === "string")
 					jsondata = JSON.parse(jd);
 				else
 					jsondata = jd;
-
-				console.log(jsondata);
-
-				console.log(data);
-
 
 				let rowLimit = jsondata.length;
 				if (data.iTblRowLimit < rowLimit)
