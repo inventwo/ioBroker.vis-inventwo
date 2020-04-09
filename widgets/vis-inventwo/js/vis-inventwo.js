@@ -321,14 +321,14 @@ vis.binds["vis-inventwo"] = {
 				//return false;
 
 				setTimeout(function () {
-
+					console.log("test");
 					$('.vis-inventwo-nav').each(function () {
 						if($(this).attr('data-inventwo-nav') === vis.activeView){
-							$(this).css('background-color',$(this).data("iButtonActive"));
+							$(this).css('background-color',$(this).attr("data-iButtonActive"));
 						}
 						else{
-							console.log($(this).data("iButtonCol") + "test");
-							$(this).css('background-color',$(this).data("iButtonCol"));
+							console.log($(this).attr("data-iButtonCol") + "test");
+							$(this).css('background-color',$(this).attr("data-iButtonCol"));
 						}
 					});
 
