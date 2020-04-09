@@ -327,6 +327,7 @@ vis.binds["vis-inventwo"] = {
 							$(this).css('background-color',$(this).data("iButtonActive"));
 						}
 						else{
+							console.log($(this).data("iButtonCol"));
 							$(this).css('background-color',$(this).data("iButtonCol"));
 						}
 					});
