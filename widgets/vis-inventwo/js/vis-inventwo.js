@@ -321,7 +321,6 @@ vis.binds["vis-inventwo"] = {
 				//return false;
 
 				setTimeout(function () {
-					console.log("test");
 					$('.vis-inventwo-nav').each(function () {
 						if($(this).attr('data-inventwo-nav') === vis.activeView){
 							$(this).css('background-color',$(this).attr("data-activecol"));
