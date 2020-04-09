@@ -324,10 +324,10 @@ vis.binds["vis-inventwo"] = {
 
 					$('.vis-inventwo-nav').each(function () {
 						if($(this).attr('data-inventwo-nav') === vis.activeView){
-							$(this).css('background-color',data.iButtonActive);
+							$(this).css('background-color',$(this).data("iButtonActive"));
 						}
 						else{
-							$(this).css('background-color',data.iButtonCol);
+							$(this).css('background-color',$(this).data("iButtonCol"));
 						}
 					});
 
