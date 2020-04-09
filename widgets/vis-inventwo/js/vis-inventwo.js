@@ -326,7 +326,6 @@ vis.binds["vis-inventwo"] = {
 							$(this).css('background-color',$(this).attr("data-activecol"));
 						}
 						else{
-							console.log($(this).attr("data-col") + "test");
 							$(this).css('background-color',$(this).attr("data-col"));
 						}
 					});
