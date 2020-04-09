@@ -321,13 +321,12 @@ vis.binds["vis-inventwo"] = {
 				//return false;
 
 				setTimeout(function () {
-
 					$('.vis-inventwo-nav').each(function () {
 						if($(this).attr('data-inventwo-nav') === vis.activeView){
-							$(this).css('background-color',$(this).data("iButtonActive"));
+							$(this).css('background-color',$(this).attr("data-activecol"));
 						}
 						else{
-							$(this).css('background-color',$(this).data("iButtonCol"));
+							$(this).css('background-color',$(this).attr("data-col"));
 						}
 					});
 
