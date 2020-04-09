@@ -1,7 +1,7 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "1.3.0.2",
+		"version": "1.3.1",
 		"news": {
             "1.3.0": {
               "en": "Added JSON table, Text in buttons can now be HTML, Added delay for navigations",
