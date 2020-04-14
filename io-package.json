@@ -3,6 +3,18 @@
 		"name": "vis-inventwo",
 		"version": "1.3.3",
 		"news": {
+            "1.3.3": {
+              "en": "Fixed background widget value option",
+              "de": "Die Option für den Hintergrund-Widget-Wert wurde korrigiert",
+              "ru": "Исправлена опция значения фонового виджета",
+              "pt": "Corrigida a opção de valor do widget em segundo plano",
+              "nl": "Vaste optie voor achtergrondwidgetwaarde",
+              "fr": "Option de valeur de widget d'arrière-plan fixe",
+              "it": "Risolto il valore dell'opzione widget widget",
+              "es": "Opción de valor de widget de fondo fijo",
+              "pl": "Naprawiono opcję wartości widżetu w tle",
+              "zh-cn": "固定背景小部件值选项"
+            },
             "1.3.2": {
               "en": "Bug fix",
               "de": "Fehlerbehebung",
