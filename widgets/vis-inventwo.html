@@ -633,7 +633,7 @@
  				  	<div class='vis-inventwo-flip-clock-flip-line'></div>
 				</div>
 
-				<div id='min_1' class="flipContainer">
+				<div id='min_1' class="vis-inventwo-flip-clock-flip">
 				  	<div class='vis-inventwo-flip-clock-flip-backnum'><span></span></div>
 				  	<div class='vis-inventwo-flip-clock-flip-upper'><span></span></div>
 				  	<div class='vis-inventwo-flip-clock-flip-lower'><span></span></div>
@@ -651,7 +651,7 @@
 				    <div class='vis-inventwo-flip-clock-flip-line'></div>
 				</div>
 				
-				<div id='second_1' class="flipContainer">
+				<div id='second_1' class="vis-inventwo-flip-clock-flip">
 				  	<div class='vis-inventwo-flip-clock-flip-backnum'><span></span></div>
 				  	<div class='vis-inventwo-flip-clock-flip-upper'><span></span></div>
 				  	<div class='vis-inventwo-flip-clock-flip-lower'><span></span></div>
@@ -667,6 +667,12 @@
         		$('.vis-inventwo-flip-clock-text').css('font-size',this.data.iClockTextSize + "px");
 
         		$('.vis-inventwo-flip-clock-text:not(.vis-inventwo-flip-clock-seperator)').css('color',this.data.iTextColor);
+
+
+        		$('.vis-inventwo-flip-clock-flip').css('background',this.data.iBackgroundColor);
+        		$('.vis-inventwo-flip-clock-flip').css('background',this.data.iBackgroundColor);
+        		$('.vis-inventwo-flip-clock-flip-lower').css('background',this.data.iBackgroundColor);
+
 
         	%>
 
