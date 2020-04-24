@@ -602,7 +602,7 @@
 		data-vis-attrs0="group.i-css;iBackgroundColor[#333333]/color;iTextColor[#ffffff]/color;iClockTextSize[50]/number,0,100,1;iSliderCorners[5]/slider,0,50,1;"
 		data-vis-set="vis-inventwo"
 		data-vis-type=""
-		data-vis-name="Flip Clock">
+		data-vis-name="Flip Clock 1">
 
 		<div class="vis-widget <%== this.data.attr('class') %>" overflow:hidden;z-index:1" id="<%= this.data.attr('wid') %>" >
 
@@ -667,9 +667,9 @@
         		$('.vis-inventwo-flip-clock-text').css('font-size',this.data.iClockTextSize + "px");
 
         		$('.vis-inventwo-flip-clock-text:not(.vis-inventwo-flip-clock-seperator)').css('color',this.data.iTextColor);
+				console.log("test" + this.data.attr('iBackgroundColor'));
 
-
-        		$('.vis-inventwo-flip-clock-flip').css('background',this.data.attr('iBackgroundColor'));
+        		$('#' + this.data.wid).children('.vis-inventwo-flip-clock-flip').css('background',this.data.attr('iBackgroundColor'));
         		$('.vis-inventwo-flip-clock-flip-upper').css('background',this.data.attr('iBackgroundColor'));
         		$('.vis-inventwo-flip-clock-flip-lower').css('background',this.data.iBackgroundColor);
 
