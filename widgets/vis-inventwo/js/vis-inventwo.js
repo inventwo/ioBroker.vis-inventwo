@@ -508,5 +508,9 @@ vis.binds["vis-inventwo"] = {
 			}
 		}
 		$(el).html(output);
+	},
+
+	flipClock01: function (el,data) {
+
 	}
 };
