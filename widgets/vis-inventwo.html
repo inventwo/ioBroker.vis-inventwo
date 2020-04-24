@@ -599,7 +599,7 @@
 		class="vis-tpl"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Table.png">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;"
-		data-vis-attrs0="group.i-css;iBackgroundColor[#333333]/color;iTextColor[#ffffff]/color;iClockTextSize[50]/number,0,100,1;"
+		data-vis-attrs0="group.i-css;iBackgroundColor[#333333]/color;iTextColor[#ffffff]/color;iClockTextSize[50]/number,0,100,1;iSliderCorners[5]/slider,0,50,1;"
 		data-vis-set="vis-inventwo"
 		data-vis-type=""
 		data-vis-name="Flip Clock">
@@ -669,7 +669,7 @@
         		$('.vis-inventwo-flip-clock-text:not(.vis-inventwo-flip-clock-seperator)').css('color',this.data.iTextColor);
 
 
-        		$('.vis-inventwo-flip-clock-flip').css('background',this.data.iBackgroundColor);
+        		$('.vis-inventwo-flip-clock-flip').css('background',this.data.attr('iBackgroundColor'));
         		$('.vis-inventwo-flip-clock-flip').css('background',this.data.iBackgroundColor);
         		$('.vis-inventwo-flip-clock-flip-lower').css('background',this.data.iBackgroundColor);
 
