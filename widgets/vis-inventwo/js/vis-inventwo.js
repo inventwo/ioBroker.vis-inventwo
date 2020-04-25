@@ -514,6 +514,7 @@ vis.binds["vis-inventwo"] = {
 		var $this = $(el);
 		//
 		$this.find('.vis-inventwo-flip-clock-text').css('color',data.iTextColor);
+		$this.find('.vis-inventwo-flip-clock-text').css('font-size',data.iClockTextSize);
 		//
 		$this.find('.vis-inventwo-flip-clock-flip').css('background',data.iBackgroundColor);
 		$this.find('.vis-inventwo-flip-clock-flip-upper').css('background',data.iBackgroundColor);
