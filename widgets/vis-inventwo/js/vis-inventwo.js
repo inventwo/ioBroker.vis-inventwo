@@ -516,6 +516,7 @@ vis.binds["vis-inventwo"] = {
 		$this.find('.vis-inventwo-flip-clock-text').css('color',data.iTextColor);
 		$this.find('.vis-inventwo-flip-clock-text').css('font-size',data.iClockTextSize + "px");
 		//$this.find('.vis-inventwo-flip-clock-text').css('line-height',data.height + "px");
+		console.log(data.height);
 		//
 		$this.find('.vis-inventwo-flip-clock-flip').css('background',data.iBackgroundColor);
 		$this.find('.vis-inventwo-flip-clock-flip-upper').css('background',data.iBackgroundColor);
