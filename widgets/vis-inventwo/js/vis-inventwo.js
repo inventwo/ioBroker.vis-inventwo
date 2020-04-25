@@ -522,6 +522,7 @@ vis.binds["vis-inventwo"] = {
 		$this.find('.vis-inventwo-flip-clock-seperator').css('color',data.iBackgroundColor);
 		//
 		console.log(el.height());
+
 		$this.find('.vis-inventwo-flip-clock-text').css('line-height',el.height() + "px");
 		//
 		$this.find('.vis-inventwo-flip-clock-flip').css('width',data.iFlipWidth + "px");
