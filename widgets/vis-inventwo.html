@@ -602,9 +602,9 @@
 		data-vis-attrs0="group.i-css;iBackgroundColor[#333333]/color;iTextColor[#ffffff]/color;iClockTextSize[50]/number,0,100,1;iSliderCorners[5]/slider,0,50,1;"
 		data-vis-set="vis-inventwo"
 		data-vis-type=""
-		data-vis-name="Flip Clock 20">
+		data-vis-name="Flip Clock 21">
 
-		<div class="vis-widget <%== this.data.attr('class') %>" overflow:hidden;z-index:1" id="<%= this.data.attr('wid') %>" >
+		<div class="vis-widget <%== this.data.attr('class') %>" overflow:hidden;z-index:1" id="<%= this.data.attr('wid') %>" <%= (el) -> vis.binds['vis-inventwo'].flipClock01(el, this.data) %>>
 			<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
         	<div class="vis-inventwo-flip-clock vis-inventwo-flip-clock-text">
@@ -661,7 +661,7 @@
 
 
         	</div>
-        	        <%= (el) -> vis.binds['vis-inventwo'].flipClock01(el, this.data) %>
+
         	</div>
 
 
