@@ -511,6 +511,8 @@ vis.binds["vis-inventwo"] = {
 	},
 
 	flipClock01: function (el,data) {
+		var $this = $(el);
 
+		$this.children('.text').css('color',data.iBackgroundColor);
 	}
 };
