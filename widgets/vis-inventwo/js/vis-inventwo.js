@@ -515,9 +515,7 @@ vis.binds["vis-inventwo"] = {
 		//
 		$this.find('.vis-inventwo-flip-clock-text').css('color',data.iTextColor);
 		$this.find('.vis-inventwo-flip-clock-text').css('font-size',data.iClockTextSize + "px");
-		//$this.find('.vis-inventwo-flip-clock-text').css('line-height',data.height + "px");
-		console.log(el.height());
-		console.log($this.height());
+		$this.find('.vis-inventwo-flip-clock-seperator').css('font-size',data.iClockTextSize + "px");
 		//
 		$this.find('.vis-inventwo-flip-clock-flip').css('background',data.iBackgroundColor);
 		$this.find('.vis-inventwo-flip-clock-flip-upper').css('background',data.iBackgroundColor);
@@ -526,7 +524,15 @@ vis.binds["vis-inventwo"] = {
 		$this.find('.vis-inventwo-flip-clock-seperator').css('color',data.iBackgroundColor);
 		//
 		$this.find('.vis-inventwo-flip-clock-flip').css('width',data.iFlipWidth + "px");
-
+		if(data.iFlipClockShowSeconds){
+			$this.find('#second_2').css('display','block');
+			$this.find('#second_1').css('display','block');
+		}
+		else{
+			$this.find('#second_2').css('display','none');
+			$this.find('#second_1').css('display','none');
+		}
+		//
 		//
 		let date = new Date();
 		let hours = date.getHours();
