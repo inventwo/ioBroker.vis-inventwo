@@ -536,7 +536,7 @@ vis.binds["vis-inventwo"] = {
 		let secVal = ('0' + seconds.toString()).slice(-2)[0];
 		let minVal = ('0' + minutes.toString()).slice(-2)[0];
 		let hVal = ('0' + hours.toString()).slice(-2)[0];
-
+		console.log(secVal + "  test");
 
 		$this.find('#second_2').children('.vis-inventwo-flip-clock-flip-upper').children('span').text(secVal);
 		$this.find('#second_2').children('.vis-inventwo-flip-clock-flip-lower').children('span').text(secVal);
