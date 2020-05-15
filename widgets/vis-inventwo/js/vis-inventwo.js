@@ -526,5 +526,31 @@ vis.binds["vis-inventwo"] = {
 		$this.find('.vis-inventwo-flip-clock-seperator').css('color',data.iBackgroundColor);
 		//
 		$this.find('.vis-inventwo-flip-clock-flip').css('width',data.iFlipWidth + "px");
+
+		//
+		let date = new Date();
+		let hours = date.getHours();
+		let minutes = date.getMinutes();
+		let seconds = date.getSeconds();
+
+		let secVal = ('0' + seconds.toString()).slice(-2)[0];
+		let minVal = ('0' + minutes.toString()).slice(-2)[0];
+		let hVal = ('0' + hours.toString()).slice(-2)[0];
+
+
+		$this.find('#second_2').children('.vis-inventwo-flip-clock-flip-upper').children('span').text(secVal);
+		$this.find('#second_2').children('.vis-inventwo-flip-clock-flip-lower').children('span').text(secVal);
+		$this.find('#second_1').children('.vis-inventwo-flip-clock-flip-upper').children('span').text(seconds % 10);
+		$this.find('#second_1').children('.vis-inventwo-flip-clock-flip-lower').children('span').text(seconds % 10);
+
+		$this.find('#min_2').children('.vis-inventwo-flip-clock-flip-upper').children('span').text(minVal);
+		$this.find('#min_2').children('.vis-inventwo-flip-clock-flip-lower').children('span').text(minVal);
+		$this.find('#min_1').children('.vis-inventwo-flip-clock-flip-upper').children('span').text(minutes % 10);
+		$this.find('#min_1').children('.vis-inventwo-flip-clock-flip-lower').children('span').text(minutes % 10);
+
+		$this.find('#hour_2').children('.vis-inventwo-flip-clock-flip-upper').children('span').text(hVal);
+		$this.find('#hour_2').children('.vis-inventwo-flip-clock-flip-lower').children('span').text(hVal);
+		$this.find('#hour_1').children('.vis-inventwo-flip-clock-flip-upper').children('span').text(hours % 10);
+		$this.find('#hour_1').children('.vis-inventwo-flip-clock-flip-lower').children('span').text(hours % 10);
 	}
 };
