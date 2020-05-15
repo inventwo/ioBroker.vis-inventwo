@@ -101,6 +101,9 @@
     transform-origin: 50% 100%;
     transform-style: preserve-3d;
     transition: transform 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .vis-inventwo-flip-clock-flip-lower{
