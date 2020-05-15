@@ -232,13 +232,12 @@
 			"vis"
 		],
 		"localLink": "%web_protocol%://%ip%:%web_port%/vis/edit.html",
-		"mode": "daemon",
+		"mode": "once",
 		"type": "visualization-widgets",
 		"compact": true,
 		"connectionType": "local",
 		"dataSource": "poll",
 		"materialize": true,
-		"supportCustoms": true,
 		"dependencies": [
 			{
 				"js-controller": ">=1.4.2"
