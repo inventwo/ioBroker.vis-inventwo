@@ -552,5 +552,96 @@ vis.binds["vis-inventwo"] = {
 		$this.find('#hour_2').children('.vis-inventwo-flip-clock-flip-lower').children('span').text(hVal);
 		$this.find('#hour_1').children('.vis-inventwo-flip-clock-flip-upper').children('span').text(hours % 10);
 		$this.find('#hour_1').children('.vis-inventwo-flip-clock-flip-lower').children('span').text(hours % 10);
+
+
+		let interval = setInterval(function(){
+
+			CheckTime();
+
+
+		},1000);
+
+		function CheckTime(){
+			let date = new Date();
+			let hours = date.getHours();
+			let minutes = date.getMinutes();
+			let seconds = date.getSeconds();
+
+			FlipPiece($this.find('#second_1'),(seconds % 10));
+
+			if((seconds + 1) % 10 === 0){
+				let val = ('0' + (seconds + 1).toString()).slice(-2)[0];
+				if(parseInt(val) === 6) val = 0;
+				val--;
+				FlipPiece($this.find('#second_2'),val);
+
+			}
+/*
+			if(seconds === 59){
+				FlipPiece($('#min_1'),(minutes) % 10);
+
+				if((minutes + 1) % 10 === 0){
+					let val = ('0' + (minutes + 1).toString()).slice(-2)[0];
+					if(parseInt(val) === 6) val = 0;
+					val--;
+					FlipPiece($('#min_2'),val);
+				}
+			}
+
+			if(minutes === 59){
+				FlipPiece($('#hour_1'),(hours) % 10);
+
+				if((hours + 1) % 10 === 0){
+					let val = ('0' + (hours + 1).toString()).slice(-2)[0];
+					if(parseInt(val) === 6) val = 0;
+					val--;
+					FlipPiece($('#hour_2'),val);
+				}
+			}
+			*/
+
+		}
+
+
+
+		function FlipPiece(el, val){
+			if(val === 9){
+				el.children('.vis-inventwo-flip-clock-flip-backnum').children('span').text(0);
+			}
+			else{
+				el.children('.vis-inventwo-flip-clock-flip-backnum').children('span').text(val + 1);
+			}
+
+			el.children('.vis-inventwo-flip-clock-flip-upper').children('span').text(val);
+
+			el.children('.vis-inventwo-flip-clock-flip-upper').css('transition','transform 0.5s');
+			el.children('.vis-inventwo-flip-clock-flip-upper').css('transform','rotateX(-180deg)');
+
+			setTimeout(function(){
+				el.children('.vis-inventwo-flip-clock-flip-upper').children('span').css('transform','scaleY(-1)');
+
+				if(val === 9){
+					el.children('.vis-inventwo-flip-clock-flip-upper').children('span').text(0);
+				}
+				else{
+					el.children('.vis-inventwo-flip-clock-flip-upper').children('span').text(val + 1);
+				}
+
+			},250);
+
+			setTimeout(function(){
+				el.children('.vis-inventwo-flip-clock-flip-upper').css('transition','transform 0s');
+				el.children('.vis-inventwo-flip-clock-flip-upper').css('transform','rotateX(0deg)');
+				el.children('.vis-inventwo-flip-clock-flip-upper').children('span').css('transform','scaleY(1)');
+
+				if(val === 9){
+					el.children('.vis-inventwo-flip-clock-flip-lower').children('span').text(0);
+				}
+				else{
+					el.children('.vis-inventwo-flip-clock-flip-lower').children('span').text(val + 1);
+				}
+
+			},500);
+		}
 	}
 };
