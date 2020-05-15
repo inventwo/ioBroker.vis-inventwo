@@ -576,29 +576,29 @@ vis.binds["vis-inventwo"] = {
 				FlipPiece($this.find('#second_2'),val);
 
 			}
-/*
+
 			if(seconds === 59){
-				FlipPiece($('#min_1'),(minutes) % 10);
+				FlipPiece($this.find('#min_1'),(minutes) % 10);
 
 				if((minutes + 1) % 10 === 0){
 					let val = ('0' + (minutes + 1).toString()).slice(-2)[0];
 					if(parseInt(val) === 6) val = 0;
 					val--;
-					FlipPiece($('#min_2'),val);
+					FlipPiece($this.find('#min_2'),val);
 				}
 			}
 
 			if(minutes === 59){
-				FlipPiece($('#hour_1'),(hours) % 10);
+				FlipPiece($this.find('#hour_1'),(hours) % 10);
 
 				if((hours + 1) % 10 === 0){
 					let val = ('0' + (hours + 1).toString()).slice(-2)[0];
 					if(parseInt(val) === 6) val = 0;
 					val--;
-					FlipPiece($('#hour_2'),val);
+					FlipPiece($this.find('#hour_2'),val);
 				}
 			}
-			*/
+
 
 		}
 
