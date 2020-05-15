@@ -594,7 +594,7 @@ vis.binds["vis-inventwo"] = {
 				}
 			}
 
-			if(minutes === 59){
+			if(minutes === 59 && seconds === 59){
 				FlipPiece($this.find('#hour_1'),(hours) % 10);
 
 				if((hours + 1) % 10 === 0){
