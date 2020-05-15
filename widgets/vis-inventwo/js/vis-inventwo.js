@@ -527,10 +527,12 @@ vis.binds["vis-inventwo"] = {
 		if(data.iFlipClockShowSeconds){
 			$this.find('#second_2').css('display','block');
 			$this.find('#second_1').css('display','block');
+			$this.find('#seperator_seconds').css('display','block');
 		}
 		else{
 			$this.find('#second_2').css('display','none');
 			$this.find('#second_1').css('display','none');
+			$this.find('#seperator_seconds').css('display','none');
 		}
 		//
 		//
