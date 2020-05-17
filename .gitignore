@@ -3,6 +3,10 @@
 *.code-workspace
 node_modules
 nbproject
+.vs
+.vscode
+.eslintrc.json
+.github
 
 # npm package files
 iobroker.*.tgz
