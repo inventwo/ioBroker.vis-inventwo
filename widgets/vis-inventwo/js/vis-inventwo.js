@@ -272,6 +272,18 @@ if (vis.editMode) {
 	});
 }
 
+vis.navChangeCallbacks.push(function (view) {
+
+	$('.vis-inventwo-nav').each(function () {
+		if($(this).attr('data-inventwo-nav') === view){
+			$(this).css('background-color',$(this).attr("data-activecol"));
+		}
+		else{
+			$(this).css('background-color',$(this).attr("data-col"));
+		}
+	});
+});
+
 vis.binds["vis-inventwo"] = {
 
 	handleToggle: function (el, data) {
