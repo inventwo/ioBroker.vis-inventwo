@@ -35,6 +35,9 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+# 1.3.4
+- Removed icons and backgrounds, changed config, Fixed navigation
+
 # 1.3.3
 - Fixed background widget value option
 
