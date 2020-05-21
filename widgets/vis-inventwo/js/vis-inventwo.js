@@ -268,6 +268,10 @@ if (vis.editMode) {
 		"iHorScroll":{
 			"en": "Horinzontal scroll",
 			"de": "Scrollen horizontal"
+		},
+		"iTableRefreshRate":{
+			"en": "Refresh rate (ms)",
+			"de": "Aktualisierung (ms)"
 		}
 	});
 }
@@ -513,6 +517,8 @@ vis.binds["vis-inventwo"] = {
 				}
 				output += "</tbody>";
 				output += "</table>";
+
+				setTimeout(vis.binds["vis-inventwo"].jsontable,data.iTableRefreshRate,el,data);
 
 			}
 			else{
