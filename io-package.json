@@ -1,8 +1,20 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "1.3.4",
+		"version": "1.3.5",
 		"news": {
+            "1.3.5": {
+              "en": "Added refresh rate for table",
+              "de": "Aktualisierungsrate für Tabelle hinzugefügt",
+              "ru": "Добавлена частота обновления для таблицы",
+              "pt": "Taxa de atualização adicionada para a tabela",
+              "nl": "Vernieuwingsfrequentie voor tafel toegevoegd",
+              "fr": "Taux de rafraîchissement ajouté pour la table",
+              "it": "Aggiunta frequenza di aggiornamento per la tabella",
+              "es": "Frecuencia de actualización agregada para la tabla",
+              "pl": "Dodano częstotliwość odświeżania tabeli",
+              "zh-cn": "增加了表格的刷新率"
+            },
             "1.3.4": {
               "en": "Removed icons and backgrounds, changed config, Fixed navigation",
               "de": "Symbole und Hintergründe entfernt, Konfiguration geändert, Navigation korrigiert",
