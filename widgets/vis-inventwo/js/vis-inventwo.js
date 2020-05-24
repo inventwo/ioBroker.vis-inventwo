@@ -272,6 +272,10 @@ if (vis.editMode) {
 		"iTableRefreshRate":{
 			"en": "Refresh rate (ms)",
 			"de": "Aktualisierung (ms)"
+		},
+		"iNavValue":{
+			"en": "Value",
+			"de": "Wert"
 		}
 	});
 }
