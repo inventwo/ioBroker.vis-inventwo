@@ -34,36 +34,6 @@ class visInventwo extends utils.Adapter {
 	async onReady() {
 		// Initialize your adapter here
 
-         if(this.config.Button == "" || !this.config.Button){
-        this.config.Button="#333333";
-        }
-        if(this.config.Active == "" || !this.config.Active){
-        this.config.Active="#455618";
-        }
-        if(this.config.Text == "" || !this.config.Text){
-        this.config.Text="#C7C7C7";
-        }
-        /*
-        if(this.config.Radius == "" || !this.config.Radius){
-        this.config.Radius=10;
-        }
-        if(this.config.Stripes == "" || !this.config.Stripes){
-        this.config.Stripes="#393939";
-        }
-        if(this.config.Background == "" || !this.config.Background){
-        this.config.Background='#989898';
-        }*/
-
-		// The adapters config (in the instance object everything under the attribute "native") is accessible via
-		// this.config:
-		this.log.info("config Button: " + this.config.Button);
-        this.log.info("config Active: " + this.config.Active);
-        this.log.info("config Text: " + this.config.Text);
-//      this.log.info("config Stripes: " + this.config.Stripes);
-//      this.log.info("config Background: " + this.config.Background);
-//      this.log.info("config Radius: " + this.config.Radius);
-//      this.log.info("config Info: " + this.config.Info);
-
 		/*
 		For every state in the system there has to be also an object of type state
 		Here a simple template for a boolean variable named "testVariable"
@@ -169,9 +139,9 @@ class visInventwo extends utils.Adapter {
 
 		// same thing, but the value is flagged "ack"
 		// ack should be always set to true if the value is received from or acknowledged from the target system
-        await this.setStateAsync("CSS.Button", { val: this.config.Button, ack: true });
-        await this.setStateAsync("CSS.Active", { val: this.config.Active, ack: true });
-        await this.setStateAsync("CSS.Text", { val: this.config.Text, ack: true });
+        await this.setStateAsync("CSS.Button", { val: "#333333", ack: true });
+        await this.setStateAsync("CSS.Active", { val: "#455618", ack: true });
+        await this.setStateAsync("CSS.Text", { val: "#C7C7C7", ack: true });
 //      await this.setStateAsync("CSS.Stripes", { val: this.config.Stripes, ack: true });
 //      await this.setStateAsync("CSS.Background", { val: this.config.Background, ack: true });
 //      await this.setStateAsync("CSS.Radius", { val: this.config.Radius, ack: true });
