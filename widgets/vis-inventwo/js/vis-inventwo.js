@@ -335,6 +335,7 @@ vis.binds["vis-inventwo"] = {
 				vis.changeView(data.nav_view, data.nav_view);
 				//e.preventDefault();
 				//return false;
+				vis.setValue(data.oid, data.iNavValue);
 
 				setTimeout(function () {
 					$('.vis-inventwo-nav').each(function () {
