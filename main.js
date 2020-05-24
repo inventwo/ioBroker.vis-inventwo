@@ -34,7 +34,7 @@ class visInventwo extends utils.Adapter {
 	async onReady() {
 		// Initialize your adapter here
 
-		this.log.info("TESTESTESTESTESTEST");
+		this.log.info("TESTESTE234534653STESTESTEST");
 
 //      this.log.info("config Stripes: " + this.config.Stripes);
 //      this.log.info("config Background: " + this.config.Background);
@@ -146,9 +146,12 @@ class visInventwo extends utils.Adapter {
 
 		// same thing, but the value is flagged "ack"
 		// ack should be always set to true if the value is received from or acknowledged from the target system
-        await this.setStateAsync("CSS.Button", { val: "#333333", ack: true });
-        await this.setStateAsync("CSS.Active", { val: "#455618", ack: true });
-        await this.setStateAsync("CSS.Text", { val: "#C7C7C7", ack: true });
+		if(await this.getStateAsync("CSS.Button") == null)
+        	await this.setStateAsync("CSS.Button", { val: "#333333", ack: true });
+		if(await this.getStateAsync("CSS.Active") == null)
+        	await this.setStateAsync("CSS.Active", { val: "#455618", ack: true });
+		if(await this.getStateAsync("CSS.Text") == null)
+        	await this.setStateAsync("CSS.Text", { val: "#C7C7C7", ack: true });
 //      await this.setStateAsync("CSS.Stripes", { val: this.config.Stripes, ack: true });
 //      await this.setStateAsync("CSS.Background", { val: this.config.Background, ack: true });
 //      await this.setStateAsync("CSS.Radius", { val: this.config.Radius, ack: true });
