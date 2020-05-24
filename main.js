@@ -34,6 +34,13 @@ class visInventwo extends utils.Adapter {
 	async onReady() {
 		// Initialize your adapter here
 
+		this.log.info("TESTESTESTESTESTEST");
+
+//      this.log.info("config Stripes: " + this.config.Stripes);
+//      this.log.info("config Background: " + this.config.Background);
+//      this.log.info("config Radius: " + this.config.Radius);
+//      this.log.info("config Info: " + this.config.Info);
+
 		/*
 		For every state in the system there has to be also an object of type state
 		Here a simple template for a boolean variable named "testVariable"
