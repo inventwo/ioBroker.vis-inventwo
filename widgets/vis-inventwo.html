@@ -635,10 +635,9 @@
 		            </div>
 
             </div>
-            <%= (el) -> vis.binds['vis-inventwo'].handlePopUpVisibility(el, this.data) %>
 		</div>
 
-		<div id="<%= this.data.attr('wid') %>_dialog" style="display:none" class="vis-widget-dialog" title="<%= this.data.attr('title') %>">
+		<div id="<%= this.data.attr('wid') %>_dialog" style="display:none" class="vis-widget-dialog">
             <div data-vis-contains="<%= this.data.attr('iPopUpNav') %>" class="vis-widget-body vis-view-container"></div>
         </div>
 
