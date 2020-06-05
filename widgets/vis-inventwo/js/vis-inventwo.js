@@ -301,7 +301,7 @@ vis.binds["vis-inventwo"] = {
 
 		if (!vis.editMode) {
 
-			$this.parent().click(function () {
+			$this.parent().on('click touchend',function () {
 				var val = vis.states[oid + '.val'];
 				var type = data.iValueType;
 				var valFalse = data.iValueFalse;
