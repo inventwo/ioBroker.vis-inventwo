@@ -597,7 +597,7 @@
 		type="text/ejs"
 		class="vis-tpl"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Image.png">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;iPopUpNav/nav_view;iText/html;iTextSize[12]/slider,0,50,1;iImage/image;iIconSize[60]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;"
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;iPopUpNav/views;iText/html;iTextSize[12]/slider,0,50,1;iImage/image;iIconSize[60]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;"
 		data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;iButtonActive[#455618]/color;
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
@@ -635,6 +635,7 @@
 		            </div>
 
             </div>
+            <%= (el) -> vis.binds['vis-inventwo'].handlePopUpVisibility(el, this.data) %>
 		</div>
 
 		<div id="<%= this.data.attr('wid') %>_dialog" style="display:none" class="vis-widget-dialog">
