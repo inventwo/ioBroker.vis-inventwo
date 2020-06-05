@@ -372,7 +372,7 @@ vis.binds["vis-inventwo"] = {
 
 		if (!vis.editMode) {
 
-			$this.parent().click(function () {
+			$this.parent().on('click touchend', function () {
 
 				vis.setValue(oid, data.value);
 			});
@@ -532,6 +532,42 @@ vis.binds["vis-inventwo"] = {
 			}
 		}
 		$(el).html(output);
+	},
+
+	handlePopUpVisibility: function (el, data) {
+
+		var $dlg = $(el).parent().find('div.vis-widget-dialog');
+
+		$dlg.dialog($.extend({
+			autoOpen: false,
+			open: function () {
+
+			},
+			close: function () {
+
+			}
+		}, data));
+
+		if (!vis.editMode) {
+			var $this = $(el);
+			var moved = false;
+			$this.parent().on('click touchend', function (e) {
+				// Protect against two events
+				if (vis.detectBounce(this)) return;
+				if (moved) return;
+
+				var $id =  $('#' + $(this).parent().attr('id') + '_dialog');
+				$id.dialog('open');
+
+				console.log("open popup");
+
+			}).on('touchmove', function () {
+				moved = true;
+			}).on('touchstart', function () {
+				moved = false;
+			});
+
+		}
 	},
 
 
