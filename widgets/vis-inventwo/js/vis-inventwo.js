@@ -556,7 +556,7 @@ vis.binds["vis-inventwo"] = {
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
 
-				var $id =  $('#' + $(this).parent().attr('id') + '_dialog');
+				var $id =  $('#' + $(this).attr('id') + '_dialog');
 				$id.dialog('open');
 
 				console.log("open popup");
