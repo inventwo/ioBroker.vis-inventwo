@@ -300,8 +300,11 @@ vis.binds["vis-inventwo"] = {
 		var oid = data.oid;
 
 		if (!vis.editMode) {
-
+			var moved = false;
 			$this.parent().on('click touchend', function () {
+				if (vis.detectBounce(this)) return;
+				if (moved) return;
+
 				var val = vis.states[oid + '.val'];
 				var type = data.iValueType;
 				var valFalse = data.iValueFalse;
@@ -318,6 +321,10 @@ vis.binds["vis-inventwo"] = {
 					}
 				}
 
+			}).on('touchmove', function () {
+				moved = true;
+			}).on('touchstart', function () {
+				moved = false;
 			});
 
 		}
