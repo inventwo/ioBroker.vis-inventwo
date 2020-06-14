@@ -300,8 +300,11 @@ vis.binds["vis-inventwo"] = {
 		var oid = data.oid;
 
 		if (!vis.editMode) {
+			var moved = false;
+			$this.parent().on('click touchend', function () {
+				if (vis.detectBounce(this)) return;
+				if (moved) return;
 
-			$this.parent().on('click touchend',function () {
 				var val = vis.states[oid + '.val'];
 				var type = data.iValueType;
 				var valFalse = data.iValueFalse;
@@ -310,14 +313,23 @@ vis.binds["vis-inventwo"] = {
 				if(type == "boolean")
 					vis.setValue(oid, !val);
 				else{
+
 					if(val == valFalse){
+						if(!isNaN(valTrue))
+							valTrue = parseFloat(valTrue);
 						vis.setValue(oid, valTrue);
 					}
 					else{
+						if(!isNaN(valFalse))
+							valTrue = parseFloat(valFalse);
 						vis.setValue(oid, valFalse);
 					}
 				}
 
+			}).on('touchmove', function () {
+				moved = true;
+			}).on('touchstart', function () {
+				moved = false;
 			});
 
 		}
@@ -339,8 +351,11 @@ vis.binds["vis-inventwo"] = {
 				vis.changeView(data.nav_view, data.nav_view);
 				//e.preventDefault();
 				//return false;
-				if(data.oid !== "")
+				if(data.oid !== "") {
+					if(!isNaN(data.iNavValue))
+						data.iNavValue = parseFloat(data.iNavValue);
 					vis.setValue(data.oid, data.iNavValue);
+				}
 
 				setTimeout(function () {
 					$('.vis-inventwo-nav').each(function () {
@@ -373,7 +388,8 @@ vis.binds["vis-inventwo"] = {
 		if (!vis.editMode) {
 
 			$this.parent().on('click touchend', function () {
-
+				if(!isNaN(data.value))
+					data.value = parseFloat(data.value);
 				vis.setValue(oid, data.value);
 			});
 
@@ -532,42 +548,6 @@ vis.binds["vis-inventwo"] = {
 			}
 		}
 		$(el).html(output);
-	},
-
-	handlePopUpVisibility: function (el, data) {
-
-		var $dlg = $(el).parent().find('div.vis-widget-dialog');
-
-		$dlg.dialog($.extend({
-			autoOpen: false,
-			open: function () {
-
-			},
-			close: function () {
-
-			}
-		}, data));
-
-		if (!vis.editMode) {
-			var $this = $(el);
-			var moved = false;
-			$this.parent().on('click touchend', function (e) {
-				// Protect against two events
-				if (vis.detectBounce(this)) return;
-				if (moved) return;
-
-				var $id =  $('#' + $(this).attr('id') + '_dialog');
-				$id.dialog('open');
-
-				console.log("open popup");
-
-			}).on('touchmove', function () {
-				moved = true;
-			}).on('touchstart', function () {
-				moved = false;
-			});
-
-		}
 	},
 
 
