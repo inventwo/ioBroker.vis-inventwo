@@ -415,9 +415,9 @@ vis.binds["vis-inventwo"] = {
 		var oid = data.oid;
 
 		var settings = $.extend({
-			min: parseInt(data.iMinVal),
-			max: parseInt(data.iMaxVal),
-			step: parseInt(data.iStepVal),
+			min: parseFloat(data.iMinVal),
+			max: parseFloat(data.iMaxVal),
+			step: parseFloat(data.iStepVal),
 			slide: function( event, ui ) {
 				if(!vis.editMode)
 					vis.setValue(oid, ui.value);
