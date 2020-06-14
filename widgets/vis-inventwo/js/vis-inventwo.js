@@ -313,10 +313,15 @@ vis.binds["vis-inventwo"] = {
 				if(type == "boolean")
 					vis.setValue(oid, !val);
 				else{
+
 					if(val == valFalse){
+						if(!isNaN(valTrue))
+							valTrue = parseFloat(valTrue);
 						vis.setValue(oid, valTrue);
 					}
 					else{
+						if(!isNaN(valFalse))
+							valTrue = parseFloat(valFalse);
 						vis.setValue(oid, valFalse);
 					}
 				}
@@ -346,8 +351,11 @@ vis.binds["vis-inventwo"] = {
 				vis.changeView(data.nav_view, data.nav_view);
 				//e.preventDefault();
 				//return false;
-				if(data.oid !== "")
+				if(data.oid !== "") {
+					if(!isNaN(data.iNavValue))
+						data.iNavValue = parseFloat(data.iNavValue);
 					vis.setValue(data.oid, data.iNavValue);
+				}
 
 				setTimeout(function () {
 					$('.vis-inventwo-nav').each(function () {
@@ -380,7 +388,8 @@ vis.binds["vis-inventwo"] = {
 		if (!vis.editMode) {
 
 			$this.parent().on('click touchend', function () {
-
+				if(!isNaN(data.value))
+					data.value = parseFloat(data.value);
 				vis.setValue(oid, data.value);
 			});
 
