@@ -1,8 +1,20 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "1.3.7",
+		"version": "1.3.8",
 		"news": {
+            "1.3.8": {
+              "en": "Changed slider step to decimal, Fixed problem with numeric values",
+              "de": "Schiebereglerschritt auf Dezimal geändert, Problem mit numerischen Werten behoben",
+              "ru": "Изменен шаг ползунка на десятичный, исправлена проблема с числовыми значениями",
+              "pt": "Alteração da etapa do controle deslizante para decimal. Corrigido o problema com valores numéricos",
+              "nl": "Veranderde schuifstap naar decimaal, Probleem opgelost met numerieke waarden",
+              "fr": "Changement du pas du curseur en décimal, Correction d'un problème avec les valeurs numériques",
+              "it": "Passaggio del cursore modificato in decimale, risolto problema con valori numerici",
+              "es": "Se cambió el paso del control deslizante a decimal, se solucionó el problema con los valores numéricos",
+              "pl": "Zmieniono krok suwaka na dziesiętny, Naprawiono problem z wartościami liczbowymi",
+              "zh-cn": "将滑块步进更改为十进制，解决了数值问题"
+            },
             "1.3.7": {
               "en": "Fixed problem with navigation on touchscreens",
               "de": "Problem mit der Navigation auf Touchscreens behoben",
