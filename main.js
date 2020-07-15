@@ -34,8 +34,6 @@ class visInventwo extends utils.Adapter {
 	async onReady() {
 		// Initialize your adapter here
 
-		this.log.info("TESTESTE234534653STESTESTEST");
-
 //      this.log.info("config Stripes: " + this.config.Stripes);
 //      this.log.info("config Background: " + this.config.Background);
 //      this.log.info("config Radius: " + this.config.Radius);
