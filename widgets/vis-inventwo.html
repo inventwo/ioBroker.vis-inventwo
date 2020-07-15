@@ -653,7 +653,7 @@
 		class="vis-tpl"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Image.png">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iRadioValues[0§1§2§3]/text;"
-		data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;
+		data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;iButtonActive[#455618]/color;
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
@@ -668,13 +668,13 @@
 				for(var val in values){
 
 				let backgroundcol = this.data.iButtonCol;
-				if(this.data.nav_view === vis.activeView){
+				if(vis.states.attr(this.data.oid + '.val') == val){
 					backgroundcol = this.data.iButtonActive;
 				}
 			%>
-			<div <%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, data, val) %> >
+			<div>
             <div class="vis-inventwo-button"
-                    style="background: <%= this.data.attr('iButtonCol') %>;
+                    style="background: <%= backgroundcol %>;
                     border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
                     opacity:<%= this.data.attr('iOpacity')%>;"
             >
