@@ -686,7 +686,7 @@
 			<% for(let val = 1; val <= this.data.iRadiobtnsCount; val++){
 
 				let backCol = "";
-				if(vis.states.attr(this.data.oid + '.val') == (this.data.iRadiobtnValue + val)) {
+				if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iRadiobtnValue' + val)) {
 					backCol = this.data.attr('iButtonActive');
 				}
 				else{
@@ -712,7 +712,7 @@
             	        <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
             	    </div>
             	    <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
-            	        <%== this.data.attr('iRadiobtnText' + (val)) %>
+            	        <%== this.data.attr('iRadiobtnText' + val) %>
 		    	    </div>
 
             	</div>
