@@ -276,6 +276,14 @@ if (vis.editMode) {
 		"iNavValue":{
 			"en": "Value",
 			"de": "Wert"
+		},
+		"iEmptyText": {
+			"en": "",
+			"de": ""
+		},
+		"iText-ImgSettings":{
+			"en": "",
+			"de": "Bild Einstellungen"
 		}
 	});
 }
@@ -405,7 +413,10 @@ vis.binds["vis-inventwo"] = {
 	infoText: function (widAttr, data) {
 		let text = '';
 		if (data[1] === 'valueType') {
-			text = 'iValueTypeText'
+			text = 'iValueTypeText';
+		}
+		else if(data[1] === 'imgSettings'){
+			text = 'iText-ImgSettings';
 		}
 		return { input: `<span>${_(text)}</span>` };
 	},
