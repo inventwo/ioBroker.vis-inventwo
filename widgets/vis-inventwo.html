@@ -653,8 +653,11 @@
 		class="vis-tpl"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Switch1.png">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iTextFalse/text;iTextTrue/text;iTextSize[12]/slider,0,50,1;iImageFalse/image;iImageTrue/image;iIconSize[35]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;iValueType[boolean]/select,boolean,value;iValueTypeInfo/custom,vis-inventwo.infoText,valueType;iValueFalse/text;iValueTrue/text;
-						iRadiobtnWidth[100]/slider,1,100,1;"
-		data-vis-attrs0="iRadiobtnsCount[2]/number,0,100,1;group.iRadioBtns/byindex;iRadiobtnText(1-iRadiobtnsCount)/text;"
+						iRadiobtnWidth[100]/slider,1,100,1;iRadiobtnSpace[10]/slider,0,100,1;"
+		data-vis-attrs0="iRadiobtnsCount[2]/number,0,100,1;
+						 group.iRadioBtns/byindex;
+						 iRadiobtnText(1-iRadiobtnsCount)/text;
+						 iRadiobtnValue(1-iRadiobtnsCount)/text;"
 		data-vis-attrs1="group.i-css;iButtonCol[#333333]/color;iButtonActive[#455618]/color;
 		iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
@@ -666,35 +669,39 @@
 		<div class="vis-inventwo-class vis-widget-body vis-inventwo-radiobtnlist-body <%== this.data.attr('class') %>">
 
 			<%
-				let backCol = "";
-				if(vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value') {
-					backCol = this.data.attr('iButtonActive');
-				}
-				else{
-					backCol = this.data.attr('iButtonCol');
-				}
-
 				let flip = 1;
             	if(this.data.attr('iFlipImage')){
             		flip = -1;
             	}
 
             	let btnImg = "";
-            	let btnText = "";
 				if(vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value'){
 					btnImg = this.data.iImageTrue;
-					btnText = this.data.iTextTrue;
 				}
 				else{
 					btnImg = this.data.iImageFalse;
-					btnText = this.data.iTextFalse;
 				}
 
 				console.log(this.data.attr('iRadiobtnText1'));
 
 			%>
-			<% for(let val = 1; val <= this.data.iRadiobtnsCount; val++){ %>
-			<div style="width: <%= this.data.attr('iRadiobtnWidth') %>px;">
+
+			<% for(let val = 1; val <= this.data.iRadiobtnsCount; val++){
+
+				let backCol = "";
+				if(vis.states.attr(this.data.oid + '.val') == this.data.iRadiobtnValue) {
+					backCol = this.data.attr('iButtonActive');
+				}
+				else{
+					backCol = this.data.attr('iButtonCol');
+				}
+
+			%>
+
+			<div style="width: <%= this.data.attr('iRadiobtnWidth') %>px;
+						position: relative;
+						margin-right: <%= this.data.iRadiobtnSpace %>px;">
+
             	<div class="vis-inventwo-button"
             	     style="background: <%= backCol %>;
             	     		border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
