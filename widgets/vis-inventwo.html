@@ -665,11 +665,11 @@
 
 			<%
 				let backCol = "";
-				if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')){
+				if(vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue){
 					backCol = this.data.attr('iButtonActive');
 				}
 				else{
-					this.data.attr('iButtonCol');
+					backCol = this.data.attr('iButtonCol');
 				}
 
 				let flip = 1;
@@ -679,7 +679,7 @@
 
             	let img = "";
             	let text = "";
-            	if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')){
+            	if(vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue)){
             		img = this.data.iImageTrue;
             		text = this.data.iTextTrue;
             	}
