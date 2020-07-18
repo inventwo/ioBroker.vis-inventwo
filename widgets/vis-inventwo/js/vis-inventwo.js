@@ -18,7 +18,7 @@ if (vis.editMode) {
 		},
 		"iText": {
 			"en": "Label",
-			"de": "Beschriftung"
+			"de": "<b>Beschriftung</b>"
 		},
 		"iIconSize": {
 			"en": "Icon size",
