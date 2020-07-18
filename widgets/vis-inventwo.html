@@ -693,7 +693,7 @@
 				console.log(this.data.attr('iRadiobtnText1'));
 
 			%>
-			<% for(let val = 0; val < 4; val++){ %>
+			<% for(let val = 1; val <= this.data.iRadiobtnsCount; val++){ %>
 			<div style="width: <%= this.data.attr('iRadiobtnWidth') %>px;">
             	<div class="vis-inventwo-button"
             	     style="background: <%= backCol %>;
@@ -708,7 +708,7 @@
             	        <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
             	    </div>
             	    <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
-            	        <%== btnText %>
+            	        <%== this.data.attr('iRadiobtnText' + (val)) %>
 		    	    </div>
 
             	</div>
