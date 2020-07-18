@@ -672,7 +672,21 @@
 					backCol = this.data.attr('iButtonCol');
 				}
 
-				console.log('col' + backCol);
+				let flip = 1;
+            	if(this.data.attr('iFlipImage')){
+            		flip = -1;
+            	}
+
+            	let btnImg = "";
+            	let btnText = "";
+				if(vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value'){
+					btnImg = this.data.iImageTrue;
+					btnText = this.data.iTextTrue;
+				}
+				else{
+					btnImg = this.data.iImageFalse;
+					btnText = this.data.iTextFalse;
+				}
 
 			%>
 
@@ -684,30 +698,12 @@
 
             <div class="vis-inventwo-button-content-small" style="opacity: <%= this.data.attr('iOpacityCtn') %>">
 
-			<%
-
-            		let flip = 1;
-            		if(this.data.attr('iFlipImage')){
-            			flip = -1;
-            		}
-
-            	%>
-
-            <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
                 <div style="order:2; position:relative;">
-                    <img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
+                    <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
                 </div>
                 <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
-                    <%== this.data.iTextTrue %>
+                    <%== btnText %>
 		        </div>
-            <% } else { %>
-                <div style="order:2; position:relative;">
-                    <img src='<%= this.data.iImageFalse %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
-                </div>
-                <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
-                    <%== this.data.iTextFalse %>
-		        </div>
-            <% } %>
 
             </div>
             <%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
