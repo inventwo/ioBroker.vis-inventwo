@@ -686,7 +686,7 @@
 			<% for(let val = 1; val <= this.data.iRadiobtnsCount; val++){
 
 				let backCol = "";
-				if(vis.states.attr(this.data.oid + '.val') == this.data.iRadiobtnValue) {
+				if(vis.states.attr(this.data.oid + '.val') == (this.data.iRadiobtnValue + val)) {
 					backCol = this.data.attr('iButtonActive');
 				}
 				else{
