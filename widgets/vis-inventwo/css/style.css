@@ -60,3 +60,8 @@
     padding-left: 5px;
     padding-right: 5px;
 }
+
+.vis-inventwo-radiobtnlist-body{
+    display: flex;
+    flex-direction: row;
+}
