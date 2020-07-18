@@ -716,7 +716,7 @@
 		    	    </div>
 
             	</div>
-            	<%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
+            	<%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, this.data,this.data.attr('iRadiobtnValue + val)) %>
             </div>
             <% } %>
 		</div>
