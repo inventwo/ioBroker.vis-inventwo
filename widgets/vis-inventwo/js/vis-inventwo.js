@@ -25,8 +25,8 @@ if (vis.editMode) {
 			"de": "Bild Größe"
 		},
 		"group_i-css": {
-			"en": "CSS inventwo Button",
-			"de": "CSS inventwo Button"
+			"en": "CSS inventwo Widget",
+			"de": "CSS inventwo Widget"
 		},
 		"iButtonCol": {
 			"en": "color",
