@@ -665,12 +665,14 @@
 
 			<%
 				let backCol = "";
-				if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) {
+				if(vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value') {
 					backCol = this.data.attr('iButtonActive');
 				}
 				else{
 					backCol = this.data.attr('iButtonCol');
 				}
+
+				console.log('col' + backCol);
 
 			%>
 
