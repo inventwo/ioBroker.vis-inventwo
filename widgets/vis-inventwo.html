@@ -695,10 +695,11 @@
             	<div class="vis-inventwo-button"
             	     style="background: <%= backCol %>;
             	     		border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
-            	     		opacity:<%= this.data.attr('iOpacity')%>;">
+            	     		opacity:<%= this.data.attr('iOpacity')%>;
+            	     		width: <%= this.data.attr('iRadiobtnWidth') %>px;">
 		    	</div>
 
-            	<div class="vis-inventwo-button-content-small" style="opacity: <%= this.data.attr('iOpacityCtn') %>">
+            	<div class="vis-inventwo-button-content-small" style="opacity: <%= this.data.attr('iOpacityCtn') %>;width: <%= this.data.attr('iRadiobtnWidth') - 14 %>px;">
 
             	    <div style="order:2; position:relative;">
             	        <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
