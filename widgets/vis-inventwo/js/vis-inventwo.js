@@ -281,7 +281,7 @@ if (vis.editMode) {
 			"en": "",
 			"de": ""
 		},
-		"iText-ImgSettings":{
+		"iText-ImgSettings": {
 			"en": "",
 			"de": "Bild Einstellungen"
 		}

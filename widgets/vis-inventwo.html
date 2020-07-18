@@ -662,10 +662,10 @@
 						 iRadiobtnText(1-iRadiobtnsCount)/text;
 						 iRadiobtnValue(1-iRadiobtnsCount)/text;
 						 iEmptyText/custom,vis-inventwo.infoText,imgSettings;
-						 iImageFalse/image;
-						 iImageTrue/image;
-						 iInvertImageCol/checkbox;
-						 iFlipImage/checkbox;"
+						 iImageFalse(1-iRadiobtnsCount)/image;
+						 iImageTrue(1-iRadiobtnsCount)/image;
+						 iInvertImageCol(1-iRadiobtnsCount)/checkbox;
+						 iFlipImage(1-iRadiobtnsCount)/checkbox;"
 		data-vis-attrs1="group.i-css;
 						 iButtonCol[#333333]/color;
 						 iButtonActive[#455618]/color;
@@ -686,24 +686,6 @@
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:auto; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body vis-inventwo-radiobtnlist-body <%== this.data.attr('class') %>">
 
-			<%
-				let flip = 1;
-            	if(this.data.attr('iFlipImage')){
-            		flip = -1;
-            	}
-
-            	let btnImg = "";
-				if(vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value'){
-					btnImg = this.data.iImageTrue;
-				}
-				else{
-					btnImg = this.data.iImageFalse;
-				}
-
-				console.log(this.data.attr('iRadiobtnText1'));
-
-			%>
-
 			<% for(let val = 1; val <= this.data.iRadiobtnsCount; val++){
 
 				let backCol = "";
@@ -712,6 +694,19 @@
 				}
 				else{
 					backCol = this.data.attr('iButtonCol');
+				}
+
+				let flip = 1;
+            	if(this.data.attr('iFlipImage' + val)){
+            		flip = -1;
+            	}
+
+            	let btnImg = "";
+				if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iValueTrue' + val)){
+					btnImg = this.data.attr('iImageTrue' + val);
+				}
+				else{
+					btnImg = this.data.attr('iImageFalse' + val);
 				}
 
 			%>
@@ -730,7 +725,7 @@
             	<div class="vis-inventwo-button-content-small" style="opacity: <%= this.data.attr('iOpacityCtn') %>;width: <%= this.data.attr('iRadiobtnWidth') - 14 %>px;">
 
             	    <div style="order:2; position:relative;">
-            	        <img src='' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
+            	        <img src='' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol' + val)) %>);transform: scaleX(<%= flip %>);">
             	    </div>
             	    <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
             	        <%== this.data.attr('iRadiobtnText' + val) %>
