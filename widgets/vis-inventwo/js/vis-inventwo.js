@@ -306,20 +306,20 @@ if (vis.editMode) {
 
 		//Custom Text
 		"iText-ImgSettings": {
-			"en": "",
-			"de": "<b>Bild Einstellungen</b>"
+			"en": "<b>Image</b>",
+			"de": "<b>Bild</b>"
 		},
 		"iText-BackgroundSettings": {
-			"en": "",
-			"de": "<b>Hintergrund Einstellungen</b>"
+			"en": "<b>Background</b>",
+			"de": "<b>Hintergrund</b>"
 		},
 		"iText-CornerSettings": {
-			"en": "",
+			"en": "<b>Corners</b>",
 			"de": "<b>Ecken</b>"
 		},
 		"iText-ContentSettings": {
-			"en": "",
-			"de": "<b>Inhalt Einstellungen</b>"
+			"en": "<b>Content</b>",
+			"de": "<b>Inhalt</b>"
 		}
 	});
 }
