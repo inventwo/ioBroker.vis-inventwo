@@ -315,7 +315,7 @@ if (vis.editMode) {
 		},
 		"iBorderStyle":{
 			"en": "Style",
-			"de": "Sty"
+			"de": "Stil"
 		},
 		"iBorderColor":{
 			"en": "Color",

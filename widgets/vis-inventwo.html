@@ -655,7 +655,9 @@
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
 						oid/id;
 						iRadiobtnWidth[100]/slider,50,500,1;
-						iRadiobtnSpace[10]/slider,0,100,1;"
+						iRadiobtnHeight[50]/slider,10,500,1;
+						iRadiobtnSpace[10]/slider,0,100,1;
+						iRadiobtnAlign[horizontal]/select,vertical,horizontal"
 		data-vis-attrs0="iRadiobtnsCount[1]/number,0,100,1;group.iRadioBtns/byindex;
 						 iRadiobtnText(1-iRadiobtnsCount)/text;
 						 iRadiobtnValue(1-iRadiobtnsCount)/text;
@@ -700,8 +702,18 @@
 		data-vis-type="ctrl"
 		data-vis-name="Radiobutton List">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:auto; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
-		<div class="vis-inventwo-class vis-widget-body vis-inventwo-radiobtnlist-body <%== this.data.attr('class') %>">
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:auto; height:auto; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
+
+		<%
+			let align = "";
+			if(this.data.iRadiobtnAlign == 'vertical')
+				align = "column";
+			else if(this.data.iRadiobtnAlign == 'horizontal')
+				align = "row";
+		%>
+
+		<div class="vis-inventwo-class vis-widget-body vis-inventwo-radiobtnlist-body <%== this.data.attr('class') %>"
+			 style="flex-direction: <%= align %>">
 
 			<%
 				let flip = 1;
@@ -744,6 +756,7 @@
 			%>
 
 			<div style="width: <%= this.data.attr('iRadiobtnWidth') %>px;
+						height: <%= this.data.attr('iRadiobtnHeight') %>px;
 						position: relative;
 						margin-right: <%= this.data.iRadiobtnSpace %>px;">
 
