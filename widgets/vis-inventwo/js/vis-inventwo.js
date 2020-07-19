@@ -351,6 +351,10 @@ if (vis.editMode) {
 			"en": "Value",
 			"de": "Wert"
 		},
+		"iRadiobtnAlign":{
+			"en": "Alignment",
+			"de": "Ausrichtung"
+		},
 
 		//Custom Text
 		"iText-ImgSettings": {
