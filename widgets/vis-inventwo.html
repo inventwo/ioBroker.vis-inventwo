@@ -729,6 +729,8 @@
 					borderCol = this.data.attr('iBorderColor');
 				}
 
+				backCol = backCol + Math.floor(this.data.iOpacity * 255).toString(16);
+
 
 			%>
 
@@ -739,7 +741,6 @@
             	<div class="vis-inventwo-button"
             	     style="background: <%= backCol %>;
             	     		border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
-            	     		opacity:<%= this.data.attr('iOpacity')%>;
             	     		width: <%= this.data.attr('iRadiobtnWidth') %>px;
             	     		box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + shadowCol %>;
             	     		border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + borderCol %>;">
