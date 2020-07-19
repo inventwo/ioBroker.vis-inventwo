@@ -277,10 +277,34 @@ if (vis.editMode) {
 			"en": "Value",
 			"de": "Wert"
 		},
-		"iEmptyText": {
-			"en": "",
-			"de": ""
+
+		//Radio Buttons
+		"iRadiobtnWidth":{
+			"en": "Button width",
+			"de": "Button Breite"
 		},
+		"iRadiobtnSpace":{
+			"en": "Button space",
+			"de": "Button Abstand"
+		},
+		"iRadiobtnsCount":{
+			"en": "Count",
+			"de": "Anzahl"
+		},
+		"group_iRadioBtns":{
+			"en": "Radiobutton",
+			"de": "Radiobutton"
+		},
+		"iRadiobtnText":{
+			"en": "Text",
+			"de": "Text"
+		},
+		"iRadiobtnValue":{
+			"en": "Value",
+			"de": "Wert"
+		},
+
+		//Custom Text
 		"iText-ImgSettings": {
 			"en": "",
 			"de": "<b>Bild Einstellungen</b>"
