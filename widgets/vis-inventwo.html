@@ -706,10 +706,15 @@
 
 		<%
 			let align = "";
-			if(this.data.iRadiobtnAlign == 'vertical')
+			let marginDir = "";
+			if(this.data.iRadiobtnAlign == 'vertical'){
 				align = "column";
-			else if(this.data.iRadiobtnAlign == 'horizontal')
+				marginDir = "bottom";
+			}
+			else if(this.data.iRadiobtnAlign == 'horizontal'){
 				align = "row";
+				marginDir = "right";
+			}
 		%>
 
 		<div class="vis-inventwo-class vis-widget-body vis-inventwo-radiobtnlist-body <%== this.data.attr('class') %>"
@@ -758,7 +763,7 @@
 			<div style="width: <%= this.data.attr('iRadiobtnWidth') %>px;
 						height: <%= this.data.attr('iRadiobtnHeight') %>px;
 						position: relative;
-						margin-right: <%= this.data.iRadiobtnSpace %>px;">
+						margin-<%= marginDir %>: <%= this.data.iRadiobtnSpace %>px;">
 
             	<div class="vis-inventwo-button"
             	     style="background: <%= backCol %>;
