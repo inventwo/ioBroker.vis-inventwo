@@ -278,8 +278,8 @@ if (vis.editMode) {
 			"de": "Wert"
 		},
 		"iEmptyText": {
-			"en": "",
-			"de": ""
+			"en": "--->",
+			"de": "--->"
 		},
 		"iText-ImgSettings": {
 			"en": "",
