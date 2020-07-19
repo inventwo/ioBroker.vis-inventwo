@@ -18,7 +18,7 @@ if (vis.editMode) {
 		},
 		"iText": {
 			"en": "Label",
-			"de": "<b>Beschriftung</b>"
+			"de": "Beschriftung"
 		},
 		"iIconSize": {
 			"en": "Icon size",
@@ -278,24 +278,24 @@ if (vis.editMode) {
 			"de": "Wert"
 		},
 		"iEmptyText": {
-			"en": "--->",
-			"de": "--->"
+			"en": "",
+			"de": ""
 		},
 		"iText-ImgSettings": {
 			"en": "",
-			"de": "Bild Einstellungen"
+			"de": "<b>Bild Einstellungen</b>"
 		},
 		"iText-BackgroundSettings": {
 			"en": "",
-			"de": "Hintergrund Einstellungen"
+			"de": "<b>Hintergrund Einstellungen</b>"
 		},
 		"iText-CornerSettings": {
 			"en": "",
-			"de": "Ecken"
+			"de": "<b>Ecken</b>"
 		},
 		"iText-ContentSettings": {
 			"en": "",
-			"de": "Inhalt Einstellungen"
+			"de": "<b>Inhalt Einstellungen</b>"
 		}
 	});
 }
@@ -439,6 +439,9 @@ vis.binds["vis-inventwo"] = {
 		}
 		else if(data[1] === 'contentSettings'){
 			text = 'iText-ContentSettings';
+		}
+		else if(data[1] === 'emptyText'){
+			text = '';
 		}
 
 		return { input: `<span>${_(text)}</span>` };
