@@ -744,17 +744,18 @@
             	     		width: <%= this.data.attr('iRadiobtnWidth') %>px;
             	     		box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + shadowCol %>;
             	     		border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + borderCol %>;">
-		    	</div>
 
-            	<div class="vis-inventwo-button-content-small" style="opacity: <%= this.data.attr('iOpacityCtn') %>;width: <%= this.data.attr('iRadiobtnWidth') - 14 %>px;">
 
-            	    <div style="order:2; position:relative;">
-            	        <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
-            	    </div>
-            	    <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
-            	        <%== this.data.attr('iRadiobtnText' + val) %>
-		    	    </div>
+            		<div class="vis-inventwo-button-content-small" style="opacity: <%= this.data.attr('iOpacityCtn') %>;width: <%= this.data.attr('iRadiobtnWidth') - 14 %>px;">
 
+            		    <div style="order:2; position:relative;">
+            		        <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
+            		    </div>
+            		    <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
+            		        <%== this.data.attr('iRadiobtnText' + val) %>
+		    		    </div>
+
+            		</div>
             	</div>
             	<%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, this.data,this.data.attr('iRadiobtnValue' + val)) %>
             </div>
