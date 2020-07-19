@@ -660,7 +660,9 @@
 						iRadiobtnSpace[10]/slider,0,100,1;"
 		data-vis-attrs0="iRadiobtnsCount[2]/number,0,100,1;group.iRadioBtns/byindex;
 						 iRadiobtnText(1-iRadiobtnsCount)/text;
-						 iRadiobtnValue(1-iRadiobtnsCount)/text;"
+						 iRadiobtnValue(1-iRadiobtnsCount)/text;
+						 iImageFalse(1-iRadiobtnsCount)/image;
+						 iImageTrue(1-iRadiobtnsCount)/image;"
 		data-vis-attrs1="group.i-css;
 						 iButtonCol[#333333]/color;
 						 iButtonActive[#455618]/color;
@@ -703,12 +705,16 @@
 			<% for(let val = 1; val <= this.data.iRadiobtnsCount; val++){
 
 				let backCol = "";
+				let btnImg = "";
 				if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iRadiobtnValue' + val)) {
 					backCol = this.data.attr('iButtonActive');
+					btnImg = this.data.attr('iImageTrue' + val);
 				}
 				else{
 					backCol = this.data.attr('iButtonCol');
+					btnImg = this.data.attr('iImageFalse' + val);
 				}
+
 
 			%>
 
