@@ -65,8 +65,8 @@ if (vis.editMode) {
 			"de": "Abrundung unten links"
 		},
 		"iOpacity": {
-			"en": "Button opacity",
-			"de": "Button Transparenz"
+			"en": "Background opacity",
+			"de": "Hintergrund Transparenz"
 		},
 		"iOpacityCtn": {
 			"en": "Content opacity",
@@ -288,6 +288,14 @@ if (vis.editMode) {
 		"iText-BackgroundSettings": {
 			"en": "",
 			"de": "Hintergrund Einstellungen"
+		},
+		"iText-CornerSettings": {
+			"en": "",
+			"de": "Ecken"
+		},
+		"iText-ContentSettings": {
+			"en": "",
+			"de": "Inhalt Einstellungen"
 		}
 	});
 }
@@ -423,8 +431,14 @@ vis.binds["vis-inventwo"] = {
 		else if(data[1] === 'imgSettings'){
 			text = 'iText-ImgSettings';
 		}
-		else if(data[1] === 'backgroundSetting'){
+		else if(data[1] === 'backgroundSettings'){
 			text = 'iText-BackgroundSettings';
+		}
+		else if(data[1] === 'cornerSettings'){
+			text = 'iText-CornerSettings';
+		}
+		else if(data[1] === 'contentSettings'){
+			text = 'iText-ContentSettings';
 		}
 
 		return { input: `<span>${_(text)}</span>` };
