@@ -278,6 +278,50 @@ if (vis.editMode) {
 			"de": "Wert"
 		},
 
+		//Shadow Settingss
+		"iShadowXOffset":{
+			"en": "X offset",
+			"de": "X Versatz"
+		},
+		"iShadowYOffset":{
+			"en": "Y offset",
+			"de": "Y Versatz"
+		},
+		"iShadowBlur":{
+			"en": "Blur",
+			"de": "Blur"
+		},
+		"iShadowSpread":{
+			"en": "Spread",
+			"de": "Größe"
+		},
+		"iShadowColor":{
+			"en": "Color",
+			"de": "Farbe"
+		},
+		"iShadowColorActive":{
+			"en": "Color active",
+			"de": "Farbe Aktiv"
+		},
+
+		//Border Settingss
+		"iBorderSize":{
+			"en": "Width",
+			"de": "Breite"
+		},
+		"iBorderStyle":{
+			"en": "Style",
+			"de": "Sty"
+		},
+		"iBorderColor":{
+			"en": "Color",
+			"de": "Farbe"
+		},
+		"iBorderColorActive":{
+			"en": "Color active",
+			"de": "Farbe Aktiv"
+		},
+
 		//Radio Buttons
 		"iRadiobtnWidth":{
 			"en": "Button width",
@@ -320,6 +364,14 @@ if (vis.editMode) {
 		"iText-ContentSettings": {
 			"en": "<b>Content</b>",
 			"de": "<b>Inhalt</b>"
+		},
+		"iText-ShadowSettings": {
+			"en": "<b>Shadow</b>",
+			"de": "<b>Schatten</b>"
+		},
+		"iText-BorderSettings": {
+			"en": "<b>Border</b>",
+			"de": "<b>Umrandung</b>"
 		}
 	});
 }
