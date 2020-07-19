@@ -29,8 +29,8 @@ if (vis.editMode) {
 			"de": "CSS inventwo Widget"
 		},
 		"iButtonCol": {
-			"en": "color",
-			"de": "Farbe"
+			"en": "Background",
+			"de": "Hintergrund"
 		},
 		"iTextSize": {
 			"en": "Label size",
@@ -89,8 +89,8 @@ if (vis.editMode) {
 			"de": "Beschriftung wahr"
 		},
 		"iButtonActive": {
-			"en": "Active color",
-			"de": "Aktiv Farbe "
+			"en": "Background active",
+			"de": "Hintergrund Aktiv"
 		},
 		"iTextColor": {
 			"en": "Text color",
@@ -284,6 +284,10 @@ if (vis.editMode) {
 		"iText-ImgSettings": {
 			"en": "",
 			"de": "Bild Einstellungen"
+		},
+		"iText-BackgroundSettings": {
+			"en": "",
+			"de": "Hintergrund Einstellungen"
 		}
 	});
 }
@@ -412,12 +416,17 @@ vis.binds["vis-inventwo"] = {
 	},
 	infoText: function (widAttr, data) {
 		let text = '';
+
 		if (data[1] === 'valueType') {
 			text = 'iValueTypeText';
 		}
 		else if(data[1] === 'imgSettings'){
 			text = 'iText-ImgSettings';
 		}
+		else if(data[1] === 'backgroundSetting'){
+			text = 'iText-BackgroundSettings';
+		}
+
 		return { input: `<span>${_(text)}</span>` };
 	},
 	handleSlider: function (el,data,options) {

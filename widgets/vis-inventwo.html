@@ -654,16 +654,16 @@
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Switch1.png">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
 						oid/id;
-						iImageFalse/image;
-						iImageTrue/image;
 						iRadiobtnWidth[100]/slider,1,100,1;
 						iRadiobtnSpace[10]/slider,0,100,1;"
 		data-vis-attrs0="iRadiobtnsCount[2]/number,0,100,1;group.iRadioBtns/byindex;
 						 iRadiobtnText(1-iRadiobtnsCount)/text;
 						 iRadiobtnValue(1-iRadiobtnsCount)/text;
+						 iEmptyText/custom,vis-inventwo.infoText,imgSettings;
 						 iImageFalse(1-iRadiobtnsCount)/image;
 						 iImageTrue(1-iRadiobtnsCount)/image;"
 		data-vis-attrs1="group.i-css;
+						 iEmptyText/custom,vis-inventwo.infoText,backgroundSettings;
 						 iButtonCol[#333333]/color;
 						 iButtonActive[#455618]/color;
 						 iCornerRadiusUL[12]/slider,0,50,1;
@@ -689,16 +689,6 @@
             	if(this.data.attr('iFlipImage')){
             		flip = -1;
             	}
-
-            	let btnImg = "";
-				if(vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value'){
-					btnImg = this.data.iImageTrue;
-				}
-				else{
-					btnImg = this.data.iImageFalse;
-				}
-
-				console.log(this.data.attr('iRadiobtnText1'));
 
 			%>
 
@@ -741,6 +731,7 @@
             	</div>
             	<%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, this.data,this.data.attr('iRadiobtnValue' + val)) %>
             </div>
+
             <% } %>
 		</div>
 
