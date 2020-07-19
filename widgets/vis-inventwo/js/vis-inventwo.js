@@ -331,6 +331,10 @@ if (vis.editMode) {
 			"en": "Button width",
 			"de": "Button Breite"
 		},
+		"iRadiobtnHeight":{
+			"en": "Button height",
+			"de": "Button Höhe"
+		},
 		"iRadiobtnSpace":{
 			"en": "Button space",
 			"de": "Button Abstand"
