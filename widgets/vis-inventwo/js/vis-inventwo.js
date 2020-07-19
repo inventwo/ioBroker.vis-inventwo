@@ -34,7 +34,11 @@ if (vis.editMode) {
 		},
 		"iTextSize": {
 			"en": "Label size",
-			"de": "Beschriftungsgröße"
+			"de": "Textgröße"
+		},
+		"iTextVertAlign": {
+			"en": "Vertical align",
+			"de": "Vertikale Ausrichtung"
 		},
 		"iImageFalse": {
 			"en": "Icon false",

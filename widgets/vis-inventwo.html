@@ -678,6 +678,7 @@
 						 iOpacityCtn[1]/slider,0,1,0.1;
 						 iTextColor[#ffffff]/color;
 						 iTextSize[12]/slider,0,50,1;
+						 iTextVertAlign/select,top,middle,bottom;
 						 iIconSize[35]/slider,0,200,1;
 						 iInvertImageCol/checkbox;
 						 iFlipImage/checkbox;
@@ -731,6 +732,14 @@
 
 				backCol = backCol + Math.floor(this.data.iOpacity * 255).toString(16);
 
+				let vertTextAlign = "";
+				if(this.data.iTextVertAlign == 'top')
+					vertTextAlign = "flex-start";
+				else if(this.data.iTextVertAlign == 'middle')
+					vertTextAlign = "center";
+				else if(this.data.iTextVertAlign == 'bottom')
+					vertTextAlign = "felx-end";
+
 
 			%>
 
@@ -746,9 +755,12 @@
             	     		border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + borderCol %>;">
 
 
-            		<div class="vis-inventwo-button-content-small" style="opacity: <%= this.data.attr('iOpacityCtn') %>;width: <%= this.data.attr('iRadiobtnWidth') - 14 %>px;">
+            		<div class="vis-inventwo-button-content-small"
+            			 style="opacity: <%= this.data.attr('iOpacityCtn') %>;
+            			 width: <%= this.data.attr('iRadiobtnWidth') - 14 %>px;
+            			 align-items: <%= vertTextAlign %>;">
 
-            		    <div style="order:2; position:relative;">
+            		    <div style="order:2; position:relative;align-self:flex-end;">
             		        <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
             		    </div>
             		    <div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
