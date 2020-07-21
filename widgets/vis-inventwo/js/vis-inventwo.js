@@ -308,6 +308,32 @@ if (vis.editMode) {
 			"de": "Farbe Aktiv"
 		},
 
+		//Shadow Inner Settingss
+		"iShadowInnerXOffset":{
+			"en": "X offset",
+			"de": "X Versatz"
+		},
+		"iShadowInnerYOffset":{
+			"en": "Y offset",
+			"de": "Y Versatz"
+		},
+		"iShadowInnerBlur":{
+			"en": "Blur",
+			"de": "Blur"
+		},
+		"iShadowInnerSpread":{
+			"en": "Spread",
+			"de": "Größe"
+		},
+		"iShadowInnerColor":{
+			"en": "Color",
+			"de": "Farbe"
+		},
+		"iShadowInnerColorActive":{
+			"en": "Color active",
+			"de": "Farbe Aktiv"
+		},
+
 		//Border Settingss
 		"iBorderSize":{
 			"en": "Width",
@@ -378,8 +404,12 @@ if (vis.editMode) {
 			"de": "<b>Inhalt</b>"
 		},
 		"iText-ShadowSettings": {
-			"en": "<b>Shadow</b>",
-			"de": "<b>Schatten</b>"
+			"en": "<b>Outer shadow</b>",
+			"de": "<b>Schatten außen</b>"
+		},
+		"iText-ShadowInnerSettings": {
+			"en": "<b>Inner shadow</b>",
+			"de": "<b>Schatten innen</b>"
 		},
 		"iText-BorderSettings": {
 			"en": "<b>Border</b>",
