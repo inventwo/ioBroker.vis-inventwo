@@ -69,6 +69,7 @@
 				let shadowInnerCol = "";
 				let borderCol = "";
 				let text = "";
+
 				if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) {
 					backCol = this.data.attr('iButtonActive');
 					btnImg = this.data.attr('iImageTrue');
@@ -76,6 +77,7 @@
 					shadowInnerCol = this.data.attr('iShadowInnerColorActive');
 					borderCol = this.data.attr('iBorderColorActive');
 					test = this.data.iTextTrue;
+
 				}
 				else{
 					backCol = this.data.attr('iButtonCol');
@@ -97,6 +99,14 @@
             		flip = -1;
             	}
 
+            	let showImg = "";
+            	if(btnImg == ""){
+            		showImg = "none";
+            	}
+            	else{
+            		showImg = "block";
+            	}
+
 			%>
 
             <div class="vis-inventwo-button"
@@ -108,7 +118,7 @@
 
             	<div class="vis-inventwo-button-content" style="opacity: <%= this.data.attr('iOpacityCtn') %>;">
 
-            		<div class="vis-inventwo-button-imageContainer" style="display: <%= if(btnImg == ''){'none'} else{'block'}%>">
+            		<div class="vis-inventwo-button-imageContainer" style="display: <%= showImg%>">
             		    <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);" >
             		</div>
             		<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>;">
