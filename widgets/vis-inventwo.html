@@ -69,7 +69,7 @@
 				let shadowInnerCol = "";
 				let borderCol = "";
 				let text = "";
-				if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iRadiobtnValue' + val)) {
+				if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) {
 					backCol = this.data.attr('iButtonActive');
 					btnImg = this.data.attr('iImageTrue' + val);
 					shadowCol = this.data.attr('iShadowColorActive');
