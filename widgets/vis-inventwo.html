@@ -71,7 +71,7 @@
 				let text = "";
 				if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) {
 					backCol = this.data.attr('iButtonActive');
-					btnImg = this.data.attr('iImageTrue' + val);
+					btnImg = this.data.attr('iImageTrue');
 					shadowCol = this.data.attr('iShadowColorActive');
 					shadowInnerCol = this.data.attr('iShadowInnerColorActive');
 					borderCol = this.data.attr('iBorderColorActive');
@@ -79,7 +79,7 @@
 				}
 				else{
 					backCol = this.data.attr('iButtonCol');
-					btnImg = this.data.attr('iImageFalse' + val);
+					btnImg = this.data.attr('iImageFalse');
 					shadowCol = this.data.attr('iShadowColor');
 					shadowInnerCol = this.data.attr('iShadowInnerColor');
 					borderCol = this.data.attr('iBorderColor');
