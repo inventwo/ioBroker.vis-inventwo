@@ -546,18 +546,6 @@ vis.binds["vis-inventwo"] = {
 		if (data[1] === 'valueType') {
 			text = 'iValueTypeText';
 		}
-		else if(data[1] === 'imgSettings'){
-			text = 'iText-ImgSettings';
-		}
-		else if(data[1] === 'backgroundSettings'){
-			text = 'iText-BackgroundSettings';
-		}
-		else if(data[1] === 'cornerSettings'){
-			text = 'iText-CornerSettings';
-		}
-		else if(data[1] === 'contentSettings'){
-			text = 'iText-ContentSettings';
-		}
 		else if(data[1] === 'emptyText'){
 			text = '';
 		}

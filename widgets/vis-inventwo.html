@@ -61,7 +61,45 @@
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
-			test
+			<%
+
+				let backCol = "";
+				let btnImg = "";
+				let shadowCol = "";
+				let shadowInnerCol = "";
+				let borderCol = "";
+				let text = "";
+				if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) {
+					backCol = this.data.attr('iButtonActive');
+					btnImg = this.data.attr('iImageTrue' + val);
+					shadowCol = this.data.attr('iShadowColorActive');
+					shadowInnerCol = this.data.attr('iShadowInnerColorActive');
+					borderCol = this.data.attr('iBorderColorActive');
+					test = this.data.iTextTrue;
+				}
+				else{
+					backCol = this.data.attr('iButtonCol');
+					btnImg = this.data.attr('iImageFalse' + val);
+					shadowCol = this.data.attr('iShadowColor');
+					shadowInnerCol = this.data.attr('iShadowInnerColor');
+					borderCol = this.data.attr('iBorderColor');
+					text = this.data.iTextFalse;
+				}
+
+				let hexTrans = Math.floor(this.data.iOpacity * 255).toString(16);
+				backCol = backCol + hexTrans;
+				shadowCol = shadowCol + hexTrans;
+				shadowInnerCol = shadowInnerCol + hexTrans;
+				borderCol = borderCol + hexTrans;
+
+				let flip = 1;
+            	if(this.data.attr('iFlipImage')){
+            		flip = -1;
+            	}
+
+			%>
+
+            testtt
 
             <%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
 		</div>
