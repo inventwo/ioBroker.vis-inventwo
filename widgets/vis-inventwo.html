@@ -34,10 +34,11 @@
 						 iCornerRadiusLL[0]/slider,0,50,1;
 
 						 iText-ContentSettings/custom,vis-inventwo.infoText,emptyText;
+						 iContentFlexDirection[vertical]/select,horizontal,vertical;
+						 iTextVertAlign[space-between]/select,top,middle,bottom,space-between;
 						 iOpacityCtn[1]/slider,0,1,0.1;
 						 iTextColor[#ffffff]/color;
 						 iTextSize[12]/slider,0,50,1;
-						 iTextVertAlign[space-between]/select,top,middle,bottom,space-between;
 						 iIconSize[35]/slider,0,200,1;
 						 iInvertImageCol/checkbox;
 						 iFlipImage/checkbox;
@@ -127,6 +128,12 @@
 				else if(this.data.iTextVertAlign == 'space-between')
 					vertTextAlign = "space-between";
 
+				let contFelxDir = "";
+				if(iContentFlexDirection == "vertical")
+					contFelxDir = "column";
+				else if(iContentFlexDirection == "horizontal")
+					contFlexDir = "row";
+
 			%>
 
             <div class="vis-inventwo-button"
@@ -138,7 +145,8 @@
 
             	<div class="vis-inventwo-button-content"
             		 style="opacity: <%= this.data.attr('iOpacityCtn') %>;
-            		 		justify-content: <%= vertTextAlign %>;">
+            		 		justify-content: <%= vertTextAlign %>;
+            		 		flex-direction: <%= contFlexDir %>;">
 
             		<div class="vis-inventwo-button-imageContainer" style="display: <%= showImg%>">
             		    <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);" >

@@ -32,7 +32,6 @@
     right: 7px;
     bottom: 7px;
     display: flex;
-    flex-direction: column;
 }
 
 .vis-inventwo-button-content-small{
