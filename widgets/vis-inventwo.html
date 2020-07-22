@@ -28,7 +28,7 @@
 						 iOpacityCtn[1]/slider,0,1,0.1;
 						 iTextColor[#ffffff]/color;
 						 iTextSize[12]/slider,0,50,1;
-						 iTextVertAlign[bottom]/select,top,middle,bottom;
+						 iTextVertAlign[space-between]/select,top,middle,bottom,space-between;
 						 iIconSize[35]/slider,0,200,1;
 						 iInvertImageCol/checkbox;
 						 iFlipImage/checkbox;
@@ -108,6 +108,16 @@
             		showImg = "block";
             	}
 
+            	let vertTextAlign = "";
+				if(this.data.iTextVertAlign == 'top')
+					vertTextAlign = "flex-start";
+				else if(this.data.iTextVertAlign == 'middle')
+					vertTextAlign = "center";
+				else if(this.data.iTextVertAlign == 'bottom')
+					vertTextAlign = "felx-end";
+				else if(this.data.iTextVertAlign == 'space-between')
+					vertTextAlign = "space-between";
+
 			%>
 
             <div class="vis-inventwo-button"
@@ -117,7 +127,9 @@
             	     				inset <%= this.data.attr('iShadowInnerXOffset') + 'px ' + this.data.attr('iShadowInnerYOffset') + 'px ' + this.data.attr('iShadowInnerBlur') + 'px ' + this.data.attr('iShadowInnerSpread') + 'px ' + shadowInnerCol %>;
             	     	border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + borderCol %>;">
 
-            	<div class="vis-inventwo-button-content" style="opacity: <%= this.data.attr('iOpacityCtn') %>;">
+            	<div class="vis-inventwo-button-content"
+            		 style="opacity: <%= this.data.attr('iOpacityCtn') %>;
+            		 		justify-content: <%= vertTextAlign %>;">
 
             		<div class="vis-inventwo-button-imageContainer" style="display: <%= showImg%>">
             		    <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);" >
@@ -225,15 +237,7 @@
             		flip = -1;
             	}
 
-            	let vertTextAlign = "";
-				if(this.data.iTextVertAlign == 'top')
-					vertTextAlign = "flex-start";
-				else if(this.data.iTextVertAlign == 'middle')
-					vertTextAlign = "center";
-				else if(this.data.iTextVertAlign == 'bottom')
-					vertTextAlign = "felx-end";
-				else if(this.data.iTextVertAlign == 'space-between')
-					vertTextAlign = "space-between";
+
 			%>
 
             <div class="vis-inventwo-button"
