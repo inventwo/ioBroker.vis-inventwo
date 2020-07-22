@@ -128,7 +128,11 @@
 				else if(this.data.iTextVertAlign == 'space-between')
 					vertTextAlign = "space-between";
 
-
+				let contFlexDir = "";
+				if(this.data.iContentFlexDirection == "vertical")
+					contFlexDir = "column";
+				else if(this.data.iContentFlexDirection == "horizontal")
+					contFlexDir = "row";
 
 			%>
 
@@ -141,7 +145,8 @@
 
             	<div class="vis-inventwo-button-content"
             		 style="opacity: <%= this.data.attr('iOpacityCtn') %>;
-            		 		justify-content: <%= vertTextAlign %>;">
+            		 		justify-content: <%= vertTextAlign %>;
+            		 		flex-direction: <%= contFlexDir %>;">
 
             		<div class="vis-inventwo-button-imageContainer" style="display: <%= showImg%>">
             		    <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);" >
