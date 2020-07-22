@@ -36,10 +36,12 @@
 						 iText-ContentSettings/custom,vis-inventwo.infoText,emptyText;
 						 iContentFlexDirection[vertical]/select,horizontal,vertical;
 						 iTextVertAlign[space-between]/select,top,middle,bottom,space-between;
+						 iContentOrder[orderImgText]/select,orderTextImg,orderImgText;
 						 iOpacityCtn[1]/slider,0,1,0.1;
 						 iTextColor[#ffffff]/color;
 						 iTextSize[12]/slider,0,50,1;
 						 iIconSize[35]/slider,0,200,1;
+						 iImgRotation[0]/slider,0,180,1;
 						 iInvertImageCol/checkbox;
 						 iFlipImage/checkbox;
 
@@ -118,6 +120,7 @@
             		showImg = "block";
             	}
 
+				//Vertikale Inhaltsausrichtung
             	let vertTextAlign = "";
 				if(this.data.iTextVertAlign == 'top')
 					vertTextAlign = "flex-start";
@@ -128,12 +131,19 @@
 				else if(this.data.iTextVertAlign == 'space-between')
 					vertTextAlign = "space-between";
 
+				//Inhaltsausrichtung (Reihe oder Spalte)
 				let contFlexDir = "";
 				if(this.data.iContentFlexDirection == "vertical")
 					contFlexDir = "column";
 				else if(this.data.iContentFlexDirection == "horizontal")
 					contFlexDir = "row";
 
+				//Inhaltsreihenfolge (Erst Bild dann Text oder erst Text dann Bild)
+				let orderContent = "";
+				if(this.data.iContentOrder)
+					orderContent = 2
+				else
+					orderContent = 0;
 			%>
 
             <div class="vis-inventwo-button"
@@ -149,8 +159,12 @@
             		 		flex-direction: <%= contFlexDir %>;
             		 		">
 
-            		<div class="vis-inventwo-button-imageContainer" style="display: <%= showImg%>">
-            		    <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);" >
+            		<div class="vis-inventwo-button-imageContainer"
+            			 style="display: <%= showImg%>;
+            			 		order = <%= orderContent %>;">
+            		    <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>"
+            		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
+            		    	 		transform: scaleX(<%= flip %>) rotateZ( <%= this.data.iImgRotation %> deg);" >
             		</div>
             		<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>;">
             		    <%== text %>

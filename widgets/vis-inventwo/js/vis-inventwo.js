@@ -282,6 +282,27 @@ if (vis.editMode) {
 			"de": "Wert"
 		},
 
+		"iContentFlexDirection":{
+			"en": "Direction",
+			"de": "Richtung"
+		},
+		"iContentOrder":{
+			"en": "Order",
+			"de": "Reihenfolge"
+		},
+		"orderTextImg":{
+			"en": "Text -> Image",
+			"de": "Text -> Bild"
+		},
+		"orderImgText":{
+			"en": "Image -> Text",
+			"de": "Bild -> Text"
+		},
+		"iImgRotation":{
+			"en": "Rotation",
+			"de": "Drehung"
+		},
+
 		//Shadow Settingss
 		"iShadowXOffset":{
 			"en": "X offset",

@@ -17,11 +17,7 @@
 }
 
 .vis-inventwo-button-text {
-    position: relative;
-    width: -moz-available;
-    width: -webkit-fill-available;
-    width: fill-available;
-    z-index: 1;
+
 }
 
 .vis-inventwo-button-content{
