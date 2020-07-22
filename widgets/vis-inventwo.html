@@ -35,9 +35,9 @@
 
 						 iText-ContentSettings/custom,vis-inventwo.infoText,emptyText;
 						 iContentFlexDirection[vertical]/select,horizontal,vertical;
-						 iContentVertAlign[space-between]/select,start,center,end,space-between;
+						 iContentVertAlign[iSpace-between]/select,iStart,iCenter,iEnd,iSpace-between;
 						 iContentOrder[orderImgText]/select,orderTextImg,orderImgText;
-						 iImgAlign[center]/select,start,center,end;
+						 iImgAlign[iCenter]/select,iStart,iCenter,iEnd;
 						 iContentVertAlign[space-between]/select,start,center,end,space-between;
 						 iOpacityCtn[1]/slider,0,1,0.1;
 
@@ -136,13 +136,13 @@
 
 				//Vertikale Inhaltsausrichtung
             	let vertTextAlign = "";
-				if(this.data.iContentVertAlign == 'start')
+				if(this.data.iContentVertAlign == 'iStart')
 					vertTextAlign = "flex-start";
-				else if(this.data.iContentVertAlign == 'center')
+				else if(this.data.iContentVertAlign == 'iCenter')
 					vertTextAlign = "center";
-				else if(this.data.iContentVertAlign == 'end')
+				else if(this.data.iContentVertAlign == 'iEnd')
 					vertTextAlign = "flex-end";
-				else if(this.data.iContentVertAlign == 'space-between')
+				else if(this.data.iContentVertAlign == 'iSpace-between')
 					vertTextAlign = "space-between";
 
 				//Inhaltsausrichtung (Reihe oder Spalte)
@@ -159,9 +159,13 @@
 				else
 					orderContent = 0;
 
-				let imgAlign = this.data.iImgAlign;
-				if(imgAlign == 'start' || imgAlign == 'end')
-					imgAlign = "flex-" + imgAlign;
+				let imgAlign = "";
+				if(this.data.iImgAlign == 'iStart')
+					vertTextAlign = "flex-start";
+				else if(this.data.iImgAlign == 'iCenter')
+					vertTextAlign = "center";
+				else if(this.data.iImgAlign == 'iEnd')
+					vertTextAlign = "flex-end";
 			%>
 
             <div class="vis-inventwo-button"

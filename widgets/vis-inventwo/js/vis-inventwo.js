@@ -282,6 +282,24 @@ if (vis.editMode) {
 			"de": "Wert"
 		},
 
+		//General
+		"iStart":{
+			"en": "Start",
+			"de": "Anfang"
+		},
+		"iEnd":{
+			"en": "End",
+			"de": "Ende"
+		},
+		"iCenter":{
+			"en": "Center",
+			"de": "Mitte"
+		},
+		"iSpace-between":{
+			"en": "Space between",
+			"de": "Platz dazwischen"
+		},
+
 		//Content Settings
 		"iContentFlexDirection":{
 			"en": "Direction",
@@ -304,6 +322,10 @@ if (vis.editMode) {
 		"iImgRotation":{
 			"en": "Rotation",
 			"de": "Drehung"
+		},
+		"iImgAlign":{
+			"en": "Image align",
+			"de": "Bild Ausrichtung"
 		},
 		"iImgSpaceTop":{
 			"en": "Space top",
