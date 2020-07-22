@@ -349,6 +349,10 @@ if (vis.editMode) {
 			"en": "Space top",
 			"de": "Abstand oben"
 		},
+		"iTextAlign":{
+			"en": "Text align",
+			"de": "Text Ausrichtung"
+		},
 		"iTextSpaceLeft":{
 			"en": "Space left",
 			"de": "Abstand links"

@@ -42,6 +42,7 @@
 						 iText-TextSettings/custom,vis-inventwo.infoText,emptyText;
 						 iTextColor[#ffffff]/color;
 						 iTextSize[12]/slider,0,50,1;
+						 iTextAlign[iCenter]/select,iStart,iCenter,iEnd;
 						 iTextSpaceTop[0]/slider,0,50,1;
 						 iTextSpaceBottom[0]/slider,0,50,1;
 						 iTextSpaceLeft[0]/slider,0,50,1;
@@ -158,6 +159,7 @@
 				else
 					orderContent = 0;
 
+				//
 				let imgAlign = "";
 				if(this.data.iImgAlign == 'iStart')
 					imgAlign = "flex-start";
@@ -165,6 +167,15 @@
 					imgAlign = "center";
 				else if(this.data.iImgAlign == 'iEnd')
 					imgAlign = "flex-end";
+
+				//
+				let textAlign = "";
+				if(this.data.iTextAlign == 'iStart')
+					textAlign = "flex-start";
+				else if(this.data.iTextAlign == 'iCenter')
+					textAlign = "center";
+				else if(this.data.iTextAlign == 'iEnd')
+					textAlign = "flex-end";
 			%>
 
             <div class="vis-inventwo-button"
@@ -192,7 +203,8 @@
             		<div class="vis-inventwo-button-text"
             			 style="font-size: <%= this.data.iTextSize %>px;
             			 		color:<%= this.data.iTextColor %>;
-            			 		margin: <%= this.data.iTextSpaceTop + 'px ' + this.data.iTextSpaceRight + 'px ' + this.data.iTextSpaceBottom + 'px ' + this.data.iTextSpaceLeft + 'px' %>;">
+            			 		margin: <%= this.data.iTextSpaceTop + 'px ' + this.data.iTextSpaceRight + 'px ' + this.data.iTextSpaceBottom + 'px ' + this.data.iTextSpaceLeft + 'px' %>;
+            			 		align-self: <%= textAlign %>;">
             		    <%== text %>
 		    		</div>
 
