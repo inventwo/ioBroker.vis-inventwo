@@ -35,13 +35,16 @@
 
 						 iText-ContentSettings/custom,vis-inventwo.infoText,emptyText;
 						 iContentFlexDirection[vertical]/select,horizontal,vertical;
-						 iTextVertAlign[space-between]/select,top,middle,bottom,space-between;
+						 iContentVertAlign[space-between]/select,start,center,end,space-between;
 						 iContentOrder[orderImgText]/select,orderTextImg,orderImgText;
+						 iImgAlign[center]/select,start,center,end;
+						 iContentVertAlign[space-between]/select,start,center,end,space-between;
 						 iOpacityCtn[1]/slider,0,1,0.1;
 						 iTextColor[#ffffff]/color;
 						 iTextSize[12]/slider,0,50,1;
 						 iIconSize[35]/slider,0,200,1;
 						 iImgRotation[0]/slider,0,180,1;
+						 iImgSpace[0]/slider,0,
 						 iInvertImageCol/checkbox;
 						 iFlipImage/checkbox;
 
@@ -122,13 +125,13 @@
 
 				//Vertikale Inhaltsausrichtung
             	let vertTextAlign = "";
-				if(this.data.iTextVertAlign == 'top')
+				if(this.data.iContentVertAlign == 'start')
 					vertTextAlign = "flex-start";
-				else if(this.data.iTextVertAlign == 'middle')
+				else if(this.data.iContentVertAlign == 'center')
 					vertTextAlign = "center";
-				else if(this.data.iTextVertAlign == 'bottom')
+				else if(this.data.iContentVertAlign == 'end')
 					vertTextAlign = "flex-end";
-				else if(this.data.iTextVertAlign == 'space-between')
+				else if(this.data.iContentVertAlign == 'space-between')
 					vertTextAlign = "space-between";
 
 				//Inhaltsausrichtung (Reihe oder Spalte)
@@ -140,10 +143,14 @@
 
 				//Inhaltsreihenfolge (Erst Bild dann Text oder erst Text dann Bild)
 				let orderContent = "";
-				if(this.data.iContentOrder)
+				if(this.data.iContentOrder == 'orderTextImg')
 					orderContent = 2
 				else
 					orderContent = 0;
+
+				let imgAlign = this.data.iImgAlign;
+				if(imgAlign == 'start' || imgAlign == 'end')
+					imgAlign = "felx-" + imgAlign;
 			%>
 
             <div class="vis-inventwo-button"
@@ -161,7 +168,8 @@
 
             		<div class="vis-inventwo-button-imageContainer"
             			 style="display: <%= showImg%>;
-            			 		order: <%= orderContent %>;">
+            			 		order: <%= orderContent %>;
+            			 		align-self: <%= imgAlign %>;">
             		    <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>"
             		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
             		    	 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
@@ -201,7 +209,7 @@
 						 iOpacityCtn[1]/slider,0,1,0.1;
 						 iTextColor[#ffffff]/color;
 						 iTextSize[12]/slider,0,50,1;
-						 iTextVertAlign[space-between]/select,top,middle,bottom,space-between;
+						 iContentVertAlign[space-between]/select,top,middle,bottom,space-between;
 						 iIconSize[35]/slider,0,200,1;
 						 iInvertImageCol/checkbox;
 						 iFlipImage/checkbox;
@@ -867,7 +875,7 @@
 						 iOpacityCtn[1]/slider,0,1,0.1;
 						 iTextColor[#ffffff]/color;
 						 iTextSize[12]/slider,0,50,1;
-						 iTextVertAlign[bottom]/select,top,middle,bottom;
+						 iContentVertAlign[bottom]/select,top,middle,bottom;
 						 iIconSize[35]/slider,0,200,1;
 						 iInvertImageCol/checkbox;
 						 iFlipImage/checkbox;
@@ -953,11 +961,11 @@
 				borderCol = borderCol + hexTrans;
 
 				let vertTextAlign = "";
-				if(this.data.iTextVertAlign == 'top')
+				if(this.data.iContentVertAlign == 'top')
 					vertTextAlign = "flex-start";
-				else if(this.data.iTextVertAlign == 'middle')
+				else if(this.data.iContentVertAlign == 'middle')
 					vertTextAlign = "center";
-				else if(this.data.iTextVertAlign == 'bottom')
+				else if(this.data.iContentVertAlign == 'bottom')
 					vertTextAlign = "felx-end";
 
 

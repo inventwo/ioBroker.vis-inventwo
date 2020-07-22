@@ -36,7 +36,7 @@ if (vis.editMode) {
 			"en": "Label size",
 			"de": "Textgröße"
 		},
-		"iTextVertAlign": {
+		"iContentVertAlign": {
 			"en": "Vertical align",
 			"de": "Vertikale Ausrichtung"
 		},
