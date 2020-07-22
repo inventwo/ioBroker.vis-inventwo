@@ -40,11 +40,22 @@
 						 iImgAlign[center]/select,start,center,end;
 						 iContentVertAlign[space-between]/select,start,center,end,space-between;
 						 iOpacityCtn[1]/slider,0,1,0.1;
+
+						 iText-TextSettings/custom,vis-inventwo.infoText,emptyText;
 						 iTextColor[#ffffff]/color;
 						 iTextSize[12]/slider,0,50,1;
+						 iTextSpaceTop[0]/slider,0,50,1;
+						 iTextSpaceBottom[0]/slider,0,50,1;
+						 iTextSpaceLeft[0]/slider,0,50,1;
+						 iTextSpaceRight[0]/slider,0,50,1;
+
+						 iText-ImageSettings/custom,vis-inventwo.infoText,emptyText;
 						 iIconSize[35]/slider,0,200,1;
 						 iImgRotation[0]/slider,0,180,1;
-						 iImgSpace[0]/slider,0,
+						 iImgSpaceTop[0]/slider,0,50,1;
+						 iImgSpaceBottom[0]/slider,0,50,1;
+						 iImgSpaceLeft[0]/slider,0,50,1;
+						 iImgSpaceRight[0]/slider,0,50,1;
 						 iInvertImageCol/checkbox;
 						 iFlipImage/checkbox;
 
@@ -150,7 +161,7 @@
 
 				let imgAlign = this.data.iImgAlign;
 				if(imgAlign == 'start' || imgAlign == 'end')
-					imgAlign = "felx-" + imgAlign;
+					imgAlign = "flex-" + imgAlign;
 			%>
 
             <div class="vis-inventwo-button"
@@ -169,12 +180,16 @@
             		<div class="vis-inventwo-button-imageContainer"
             			 style="display: <%= showImg%>;
             			 		order: <%= orderContent %>;
-            			 		align-self: <%= imgAlign %>;">
+            			 		align-self: <%= imgAlign %>;
+            			 		margin: <%= this.data.iImgSpaceTop + 'px' + this.data.iImgSpaceRight + 'px' + this.data.iImgSpaceBottom + 'px' + this.data.iImgSpaceLeft + 'px' %>;">
             		    <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>"
             		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
             		    	 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
             		</div>
-            		<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>;">
+            		<div class="vis-inventwo-button-text"
+            			 style="font-size: <%= this.data.iTextSize %>px;
+            			 		color:<%= this.data.iTextColor %>;
+            			 		margin: <%= this.data.iTextSpaceTop + 'px' + this.data.iTextSpaceRight + 'px' + this.data.iTextSpaceBottom + 'px' + this.data.iTextSpaceLeft + 'px' %>;">
             		    <%== text %>
 		    		</div>
 

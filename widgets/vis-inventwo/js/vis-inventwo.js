@@ -282,6 +282,7 @@ if (vis.editMode) {
 			"de": "Wert"
 		},
 
+		//Content Settings
 		"iContentFlexDirection":{
 			"en": "Direction",
 			"de": "Richtung"
@@ -298,9 +299,45 @@ if (vis.editMode) {
 			"en": "Image -> Text",
 			"de": "Bild -> Text"
 		},
+
+		//Image Settings
 		"iImgRotation":{
 			"en": "Rotation",
 			"de": "Drehung"
+		},
+		"iImgSpaceTop":{
+			"en": "Space top",
+			"de": "Abstand oben"
+		},
+		"iImgSpaceLeft":{
+			"en": "Space left",
+			"de": "Abstand links"
+		},
+		"iImgSpaceRight":{
+			"en": "Space right",
+			"de": "Abstand rechts"
+		},
+		"iImgSpaceBottom":{
+			"en": "Space bottom",
+			"de": "Abstand unten"
+		},
+
+		//Text Settings
+		"iTextSpaceTop":{
+			"en": "Space top",
+			"de": "Abstand oben"
+		},
+		"iTextSpaceLeft":{
+			"en": "Space left",
+			"de": "Abstand links"
+		},
+		"iTextSpaceRight":{
+			"en": "Space right",
+			"de": "Abstand rechts"
+		},
+		"iTextSpaceBottom":{
+			"en": "Space bottom",
+			"de": "Abstand unten"
 		},
 
 		//Shadow Settingss
@@ -435,7 +472,15 @@ if (vis.editMode) {
 		"iText-BorderSettings": {
 			"en": "<b>Border</b>",
 			"de": "<b>Umrandung</b>"
-		}
+		},
+		"iText-TextSettings": {
+			"en": "<b>Text</b>",
+			"de": "<b>Text</b>"
+		},
+		"iText-ImageSettings": {
+			"en": "<b>Image</b>",
+			"de": "<b>Bild</b>"
+		},
 	});
 }
 
