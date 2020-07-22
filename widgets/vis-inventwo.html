@@ -157,7 +157,7 @@
 						 iOpacityCtn[1]/slider,0,1,0.1;
 						 iTextColor[#ffffff]/color;
 						 iTextSize[12]/slider,0,50,1;
-						 iTextVertAlign[bottom]/select,top,middle,bottom;
+						 iTextVertAlign[space-between]/select,top,middle,bottom,space-between;
 						 iIconSize[35]/slider,0,200,1;
 						 iInvertImageCol/checkbox;
 						 iFlipImage/checkbox;
@@ -224,6 +224,16 @@
             	if(this.data.attr('iFlipImage')){
             		flip = -1;
             	}
+
+            	let vertTextAlign = "";
+				if(this.data.iTextVertAlign == 'top')
+					vertTextAlign = "flex-start";
+				else if(this.data.iTextVertAlign == 'middle')
+					vertTextAlign = "center";
+				else if(this.data.iTextVertAlign == 'bottom')
+					vertTextAlign = "felx-end";
+				else if(this.data.iTextVertAlign == 'space-between')
+					vertTextAlign = "space-between";
 			%>
 
             <div class="vis-inventwo-button"
