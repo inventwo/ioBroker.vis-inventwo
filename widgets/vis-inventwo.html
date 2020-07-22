@@ -127,7 +127,7 @@
 				else if(this.data.iTextVertAlign == 'middle')
 					vertTextAlign = "center";
 				else if(this.data.iTextVertAlign == 'bottom')
-					vertTextAlign = "felx-end";
+					vertTextAlign = "flex-end";
 				else if(this.data.iTextVertAlign == 'space-between')
 					vertTextAlign = "space-between";
 
@@ -161,10 +161,10 @@
 
             		<div class="vis-inventwo-button-imageContainer"
             			 style="display: <%= showImg%>;
-            			 		order = <%= orderContent %>;">
+            			 		order: <%= orderContent %>;">
             		    <img src='<%= btnImg %>' width="<%= this.data.iIconSize %>"
             		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
-            		    	 		transform: scaleX(<%= flip %>) rotateZ( <%= this.data.iImgRotation %> deg);" >
+            		    	 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
             		</div>
             		<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>;">
             		    <%== text %>
