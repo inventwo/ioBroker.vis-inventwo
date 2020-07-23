@@ -590,7 +590,6 @@ vis.binds["vis-inventwo"] = {
 				console.log(str);
 				let val = str + '.val';
 				console.log(str);
-
 				let s = vis.states[val];
 				console.log(s);
 
