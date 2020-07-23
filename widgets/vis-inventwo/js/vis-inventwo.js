@@ -8,6 +8,9 @@
 
 if (vis.editMode) {
 	$.extend(true, systemDictionary, {
+
+
+		//#region General
 		"Instance": {
 			"en": "Instance",
 			"de": "Instanz"
@@ -16,29 +19,91 @@ if (vis.editMode) {
 			"en": "Object ID",
 			"de": "Objekt ID"
 		},
-		"iText": {
-			"en": "Label",
-			"de": "Beschriftung"
+		"iWiki":{
+			"en": "Manual",
+			"de": "Anleitung"
 		},
-		"iIconSize": {
-			"en": "Icon size",
-			"de": "Bild Größe"
+		"iWikiText":{
+			"en": "To the wiki",
+			"de": "Zum Wiki"
+		},
+		"iStart":{
+			"en": "Start",
+			"de": "Anfang"
+		},
+		"iEnd":{
+			"en": "End",
+			"de": "Ende"
+		},
+		"iCenter":{
+			"en": "Center",
+			"de": "Mitte"
+		},
+		"iSpace-between":{
+			"en": "Space between",
+			"de": "Platz dazwischen"
 		},
 		"group_i-css": {
 			"en": "CSS inventwo Widget",
 			"de": "CSS inventwo Widget"
 		},
-		"iButtonCol": {
-			"en": "Background",
-			"de": "Hintergrund"
-		},
-		"iTextSize": {
-			"en": "Label size",
-			"de": "Textgröße"
+		//#endregion
+
+		//#region Content Settings
+		"iContentFlexDirection":{
+			"en": "Direction",
+			"de": "Richtung"
 		},
 		"iContentVertAlign": {
-			"en": "Vertical align",
-			"de": "Vertikale Ausrichtung"
+			"en": "Align",
+			"de": "Ausrichtung"
+		},
+		"iContentOrder":{
+			"en": "Order",
+			"de": "Reihenfolge"
+		},
+		"orderTextImg":{
+			"en": "Text -> Image",
+			"de": "Text -> Bild"
+		},
+		"orderImgText":{
+			"en": "Image -> Text",
+			"de": "Bild -> Text"
+		},
+		"iOpacityCtn": {
+			"en": "Content opacity",
+			"de": "Inhalt Transparenz"
+		},
+		//#endregion
+
+		//#region Image Settings
+		"iImgRotation":{
+			"en": "Rotation",
+			"de": "Drehung"
+		},
+		"iImgAlign":{
+			"en": "Image align",
+			"de": "Bild Ausrichtung"
+		},
+		"iImgSpaceTop":{
+			"en": "Space top",
+			"de": "Abstand oben"
+		},
+		"iImgSpaceLeft":{
+			"en": "Space left",
+			"de": "Abstand links"
+		},
+		"iImgSpaceRight":{
+			"en": "Space right",
+			"de": "Abstand rechts"
+		},
+		"iImgSpaceBottom":{
+			"en": "Space bottom",
+			"de": "Abstand unten"
+		},
+		"iIconSize": {
+			"en": "Icon size",
+			"de": "Bild Größe"
 		},
 		"iImageFalse": {
 			"en": "Icon false",
@@ -51,6 +116,68 @@ if (vis.editMode) {
 		"iImage": {
 			"en": "Icon",
 			"de": "Bild"
+		},
+		"iFlipImage":{
+			"en": "Flip icon",
+			"de": "Bild spiegeln"
+		},
+		//#endregion
+
+		//#region Text Settings
+		"iTextSpaceTop":{
+			"en": "Space top",
+			"de": "Abstand oben"
+		},
+		"iTextAlign":{
+			"en": "Text align",
+			"de": "Text Ausrichtung"
+		},
+		"iTextSpaceLeft":{
+			"en": "Space left",
+			"de": "Abstand links"
+		},
+		"iTextSpaceRight":{
+			"en": "Space right",
+			"de": "Abstand rechts"
+		},
+		"iTextSpaceBottom":{
+			"en": "Space bottom",
+			"de": "Abstand unten"
+		},
+		"iText": {
+			"en": "Label",
+			"de": "Beschriftung"
+		},
+		"iTextSize": {
+			"en": "Label size",
+			"de": "Textgröße"
+		},
+		"iTextFalse": {
+			"en": "Label  false",
+			"de": "Beschriftung falsch"
+		},
+		"iTextTrue": {
+			"en": "Label true",
+			"de": "Beschriftung wahr"
+		},
+		"iTextColor": {
+			"en": "Text color",
+			"de": "Textfarbe "
+		},
+		"iInvertImageCol": {
+			"en": "Invert icon color",
+			"de": "Bildfarbe invertieren"
+		},
+		//#endregion
+
+		//#region Background Settings
+		"iButtonCol": {
+			"en": "Background",
+			"de": "Hintergrund"
+		},
+		"iButtonActive": {
+			"en": "Background active",
+			"de": "Hintergrund Aktiv"
 		},
 		"iCornerRadiusUL": {
 			"en": "Border radius upper left",
@@ -68,46 +195,90 @@ if (vis.editMode) {
 			"en": "Border radius lower left",
 			"de": "Abrundung unten links"
 		},
-		"iOpacity": {
+		"iOpacityBack": {
 			"en": "Background opacity",
 			"de": "Hintergrund Transparenz"
 		},
-		"iOpacityCtn": {
-			"en": "Content opacity",
-			"de": "Inhalt Transparenz"
+		//#endregion
+
+		//#region Shadow Settingss
+		"iShadowXOffset":{
+			"en": "X offset",
+			"de": "X Versatz"
 		},
-		"iOpacityImg": {
-			"en": "Image opacity",
-			"de": "Bild Transparenz"
+		"iShadowYOffset":{
+			"en": "Y offset",
+			"de": "Y Versatz"
 		},
-		"iOpacityAll": {
-			"en": "Opacity",
-			"de": "Transparenz"
+		"iShadowBlur":{
+			"en": "Blur",
+			"de": "Blur"
 		},
-		"iTextFalse": {
-			"en": "Label  false",
-			"de": "Beschriftung falsch"
+		"iShadowSpread":{
+			"en": "Spread",
+			"de": "Größe"
 		},
-		"iTextTrue": {
-			"en": "Label true",
-			"de": "Beschriftung wahr"
+		"iShadowColor":{
+			"en": "Color",
+			"de": "Farbe"
 		},
-		"iButtonActive": {
-			"en": "Background active",
-			"de": "Hintergrund Aktiv"
+		"iShadowColorActive":{
+			"en": "Color active",
+			"de": "Farbe Aktiv"
 		},
-		"iTextColor": {
-			"en": "Text color",
-			"de": "Textfarbe "
+		//#endregion
+
+		//#region Shadow Inner Settingss
+		"iShadowInnerXOffset":{
+			"en": "X offset",
+			"de": "X Versatz"
 		},
-		"iInvertImageCol": {
-			"en": "Invert icon color",
-			"de": "Bildfarbe invertieren"
+		"iShadowInnerYOffset":{
+			"en": "Y offset",
+			"de": "Y Versatz"
 		},
+		"iShadowInnerBlur":{
+			"en": "Blur",
+			"de": "Blur"
+		},
+		"iShadowInnerSpread":{
+			"en": "Spread",
+			"de": "Größe"
+		},
+		"iShadowInnerColor":{
+			"en": "Color",
+			"de": "Farbe"
+		},
+		"iShadowInnerColorActive":{
+			"en": "Color active",
+			"de": "Farbe Aktiv"
+		},
+		//#endregion
+
+		//#region Border Settingss
+		"iBorderSize":{
+			"en": "Width",
+			"de": "Breite"
+		},
+		"iBorderStyle":{
+			"en": "Style",
+			"de": "Stil"
+		},
+		"iBorderColor":{
+			"en": "Color",
+			"de": "Farbe"
+		},
+		"iBorderColorActive":{
+			"en": "Color active",
+			"de": "Farbe Aktiv"
+		},
+		//#endregion
+
+
+		//#region Switch & State Settings
 		"iValueType":{
 			"en": "Type",
 			"de": "Typ"
-
 		},
 		"iValueFalse":{
 			"en": "Value false",
@@ -125,18 +296,55 @@ if (vis.editMode) {
 			"en": "If type is 'boolean', value fields can be empty",
 			"de": "Wenn Typ ist 'boolean', können Wert Felder leer bleiben"
 		},
-		"iWiki":{
-			"en": "Manual",
-			"de": "Anleitung"
-		},
-		"iWikiText":{
-			"en": "To the wiki",
-			"de": "Zum Wiki"
-		},
+		//#endregion
+
+		//#region Nav Settings
 		"iNavWait":{
 			"en": "Wait x milliseconds to check for active",
 			"de": "Warte x Millisekunden bis Prüfung auf aktiv"
 		},
+		"iNavValue":{
+			"en": "Value",
+			"de": "Wert"
+		},
+		//#endregion
+
+		//#region Radio Buttons
+		"iRadiobtnWidth":{
+			"en": "Button width",
+			"de": "Button Breite"
+		},
+		"iRadiobtnHeight":{
+			"en": "Button height",
+			"de": "Button Höhe"
+		},
+		"iRadiobtnSpace":{
+			"en": "Button space",
+			"de": "Button Abstand"
+		},
+		"iRadiobtnsCount":{
+			"en": "Count",
+			"de": "Anzahl"
+		},
+		"group_iRadioBtns":{
+			"en": "Radiobutton",
+			"de": "Radiobutton"
+		},
+		"iRadiobtnText":{
+			"en": "Text",
+			"de": "Text"
+		},
+		"iRadiobtnValue":{
+			"en": "Value",
+			"de": "Wert"
+		},
+		"iRadiobtnAlign":{
+			"en": "Alignment",
+			"de": "Ausrichtung"
+		},
+		//#endregion
+
+		//#regionSlider Settings
 		"iMinVal":{
 			"en": "Min. value",
 			"de": "Min. Wert"
@@ -201,10 +409,9 @@ if (vis.editMode) {
 			"en": "Pre text",
 			"de": "Text voranstellen"
 		},
-		"iFlipImage":{
-			"en": "Flip icon",
-			"de": "Bild spiegeln"
-		},
+		//#endregion
+
+		//#region Table Settings
 		"iTblShowHead":{
 			"en": "Table Head",
 			"de": "Tabellenkopf"
@@ -277,200 +484,9 @@ if (vis.editMode) {
 			"en": "Refresh rate (ms)",
 			"de": "Aktualisierung (ms)"
 		},
-		"iNavValue":{
-			"en": "Value",
-			"de": "Wert"
-		},
+		//#endregion
 
-		//General
-		"iStart":{
-			"en": "Start",
-			"de": "Anfang"
-		},
-		"iEnd":{
-			"en": "End",
-			"de": "Ende"
-		},
-		"iCenter":{
-			"en": "Center",
-			"de": "Mitte"
-		},
-		"iSpace-between":{
-			"en": "Space between",
-			"de": "Platz dazwischen"
-		},
-
-		//Content Settings
-		"iContentFlexDirection":{
-			"en": "Direction",
-			"de": "Richtung"
-		},
-		"iContentOrder":{
-			"en": "Order",
-			"de": "Reihenfolge"
-		},
-		"orderTextImg":{
-			"en": "Text -> Image",
-			"de": "Text -> Bild"
-		},
-		"orderImgText":{
-			"en": "Image -> Text",
-			"de": "Bild -> Text"
-		},
-
-		//Image Settings
-		"iImgRotation":{
-			"en": "Rotation",
-			"de": "Drehung"
-		},
-		"iImgAlign":{
-			"en": "Image align",
-			"de": "Bild Ausrichtung"
-		},
-		"iImgSpaceTop":{
-			"en": "Space top",
-			"de": "Abstand oben"
-		},
-		"iImgSpaceLeft":{
-			"en": "Space left",
-			"de": "Abstand links"
-		},
-		"iImgSpaceRight":{
-			"en": "Space right",
-			"de": "Abstand rechts"
-		},
-		"iImgSpaceBottom":{
-			"en": "Space bottom",
-			"de": "Abstand unten"
-		},
-
-		//Text Settings
-		"iTextSpaceTop":{
-			"en": "Space top",
-			"de": "Abstand oben"
-		},
-		"iTextAlign":{
-			"en": "Text align",
-			"de": "Text Ausrichtung"
-		},
-		"iTextSpaceLeft":{
-			"en": "Space left",
-			"de": "Abstand links"
-		},
-		"iTextSpaceRight":{
-			"en": "Space right",
-			"de": "Abstand rechts"
-		},
-		"iTextSpaceBottom":{
-			"en": "Space bottom",
-			"de": "Abstand unten"
-		},
-
-		//Shadow Settingss
-		"iShadowXOffset":{
-			"en": "X offset",
-			"de": "X Versatz"
-		},
-		"iShadowYOffset":{
-			"en": "Y offset",
-			"de": "Y Versatz"
-		},
-		"iShadowBlur":{
-			"en": "Blur",
-			"de": "Blur"
-		},
-		"iShadowSpread":{
-			"en": "Spread",
-			"de": "Größe"
-		},
-		"iShadowColor":{
-			"en": "Color",
-			"de": "Farbe"
-		},
-		"iShadowColorActive":{
-			"en": "Color active",
-			"de": "Farbe Aktiv"
-		},
-
-		//Shadow Inner Settingss
-		"iShadowInnerXOffset":{
-			"en": "X offset",
-			"de": "X Versatz"
-		},
-		"iShadowInnerYOffset":{
-			"en": "Y offset",
-			"de": "Y Versatz"
-		},
-		"iShadowInnerBlur":{
-			"en": "Blur",
-			"de": "Blur"
-		},
-		"iShadowInnerSpread":{
-			"en": "Spread",
-			"de": "Größe"
-		},
-		"iShadowInnerColor":{
-			"en": "Color",
-			"de": "Farbe"
-		},
-		"iShadowInnerColorActive":{
-			"en": "Color active",
-			"de": "Farbe Aktiv"
-		},
-
-		//Border Settingss
-		"iBorderSize":{
-			"en": "Width",
-			"de": "Breite"
-		},
-		"iBorderStyle":{
-			"en": "Style",
-			"de": "Stil"
-		},
-		"iBorderColor":{
-			"en": "Color",
-			"de": "Farbe"
-		},
-		"iBorderColorActive":{
-			"en": "Color active",
-			"de": "Farbe Aktiv"
-		},
-
-		//Radio Buttons
-		"iRadiobtnWidth":{
-			"en": "Button width",
-			"de": "Button Breite"
-		},
-		"iRadiobtnHeight":{
-			"en": "Button height",
-			"de": "Button Höhe"
-		},
-		"iRadiobtnSpace":{
-			"en": "Button space",
-			"de": "Button Abstand"
-		},
-		"iRadiobtnsCount":{
-			"en": "Count",
-			"de": "Anzahl"
-		},
-		"group_iRadioBtns":{
-			"en": "Radiobutton",
-			"de": "Radiobutton"
-		},
-		"iRadiobtnText":{
-			"en": "Text",
-			"de": "Text"
-		},
-		"iRadiobtnValue":{
-			"en": "Value",
-			"de": "Wert"
-		},
-		"iRadiobtnAlign":{
-			"en": "Alignment",
-			"de": "Ausrichtung"
-		},
-
-		//Custom Text
+		//#region Custom Text
 		"iText-ImgSettings": {
 			"en": "<b>Image</b>",
 			"de": "<b>Bild</b>"
@@ -507,6 +523,7 @@ if (vis.editMode) {
 			"en": "<b>Image</b>",
 			"de": "<b>Bild</b>"
 		},
+		//#endregion
 	});
 }
 
