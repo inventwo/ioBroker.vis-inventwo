@@ -546,8 +546,6 @@ vis.binds["vis-inventwo"] = {
 		var $this = $(el);
 		var oid = data.oid;
 
-		console.log(oid);
-
 		if (!vis.editMode) {
 			var moved = false;
 			$this.parent().on('click touchend', function () {
