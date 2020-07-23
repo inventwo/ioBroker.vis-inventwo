@@ -588,8 +588,11 @@ vis.binds["vis-inventwo"] = {
 				console.log(data.iButtonCol);
 				let str = (data.iButtonCol).substring(1,data.iButtonCol.length - 1);
 				console.log(str);
-				let val = vis.states[str + '.val'];
+				let val = str + '.val';
 				console.log(str);
+
+				let s = vis.states[val];
+				console.log(s);
 
 			}
 		}
