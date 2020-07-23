@@ -1,6 +1,6 @@
 /*
 	ioBroker.vis vis-inventwo Widget-Set
-	version: "0.1.2"
+	version: "2.0.0"
 	Copyright 2020 jkvarel jkvarel@inventwo.com
 */
 "use strict";
@@ -8,7 +8,6 @@
 
 if (vis.editMode) {
 	$.extend(true, systemDictionary, {
-
 
 		//#region General
 		"Instance": {
@@ -20,12 +19,12 @@ if (vis.editMode) {
 			"de": "Objekt ID"
 		},
 		"iWiki":{
-			"en": "Manual",
-			"de": "Anleitung"
+			"en": "<b>Manual</b>",
+			"de": "<b>Anleitung</b>"
 		},
 		"iWikiText":{
-			"en": "To the wiki",
-			"de": "Zum Wiki"
+			"en": "<b>To the wiki</b>",
+			"de": "<b style='color: #9fdb58'>Zum Wiki</b>"
 		},
 		"iStart":{
 			"en": "Start",
@@ -537,6 +536,7 @@ vis.navChangeCallbacks.push(function (view) {
 			$(this).css('background-color',$(this).attr("data-col"));
 		}
 	});
+
 });
 
 vis.binds["vis-inventwo"] = {
@@ -583,6 +583,9 @@ vis.binds["vis-inventwo"] = {
 		else{
 			if(data.iButtonCol.charAt(0) === "{"){
 				let str = (data.iButtonCol).substring(1,data.iButtonCol.length - 1);
+				console.log(str);
+				let val = vis.states[str + '.val'];
+				console.log(str);
 
 			}
 		}
