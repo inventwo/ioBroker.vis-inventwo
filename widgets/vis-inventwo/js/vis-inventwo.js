@@ -485,6 +485,7 @@ if (vis.editMode) {
 		},
 		//#endregion
 
+
 		//#region Custom Text
 		"iText-ImgSettings": {
 			"en": "<b>Image</b>",
@@ -582,7 +583,6 @@ vis.binds["vis-inventwo"] = {
 		}
 		else{
 			if(data.iButtonCol.charAt(0) === "{"){
-
 				let str = (data.iButtonCol).substring(1,data.iButtonCol.length - 1);
 				let val = vis.states[(str + '.val')];
 				console.log(val);
