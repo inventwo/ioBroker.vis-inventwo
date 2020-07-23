@@ -586,7 +586,7 @@ vis.binds["vis-inventwo"] = {
 				let str = (data.iButtonCol).substring(1,data.iButtonCol.length - 1);
 				let val = vis.states[(str + '.val')];
 				console.log(val);
-				$this.parent().find('.vis-inventwo-button').css('background',val + ' !important');
+				console.log($this);
 			}
 		}
 	},
