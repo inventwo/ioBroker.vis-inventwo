@@ -589,6 +589,7 @@ vis.binds["vis-inventwo"] = {
 				console.log(val);
 				console.log($this.parent().children('.vis-inventwo-button'));
 				$this.parent().children('.vis-inventwo-button').css('background',val);
+				$this.parent().children('.vis-inventwo-button').style.background = val;
 			}
 		}
 	},
