@@ -820,7 +820,7 @@ vis.binds["vis-inventwo"] = {
 
 	getCssData: function (data) {
 
-		let cssData = {};
+		let cssData = {test: "test"};
 
 		if((vis.states.attr(data.oid + '.val') && data.iValueType == 'boolean') || (vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value')) {
 			cssData.backCol = data.attr('iButtonActive');
@@ -839,7 +839,7 @@ vis.binds["vis-inventwo"] = {
 			cssData.borderCol = data.attr('iBorderColor');
 			cssData.text = data.iTextFalse;
 		}
-
+/*
 		let hexTrans = Math.floor(data.iOpacityBack * 255).toString(16);
 		cssData.backCol = cssData.backCol + hexTrans;
 		cssData.shadowCol = cssData.shadowCol + hexTrans;
