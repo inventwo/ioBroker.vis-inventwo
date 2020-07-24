@@ -114,12 +114,7 @@
 					text = this.data.iTextFalse;
 				}
 
-				if(backCol.charAt(0) == '{'){
-					let str = backCol.substring(1,backCol.length - 1);
-					console.log("Str: " + str);
-					//let val = vis.states[str + ".val"];
-					//console.log(val);
-				}
+
 
 				let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
 				backCol = backCol + hexTrans;
