@@ -846,54 +846,54 @@ vis.binds["vis-inventwo"] = {
 		cssData.shadowInnerCol = cssData.shadowInnerCol + hexTrans;
 		cssData.borderCol = cssData.borderCol + hexTrans;
 
-		if(this.data.attr('iFlipImage')){
+		if(this.data.attr("iFlipImage")){
 			cssData.flip = -1;
 		}
 
-		if(cssData.btnImg == "" || cssData.btnImg == undefined){
+		if(cssData.btnImg === "" || cssData.btnImg === undefined){
 			cssData.showImg = "none";
 		}
 		else{
 			cssData.showImg = "block";
 		}
-
+/*
 		//Vertikale Inhaltsausrichtung
-		if(data.iContentVertAlign == 'iStart')
+		if(data.iContentVertAlign === 'iStart')
 			cssData.vertTextAlign = "flex-start";
-		else if(data.iContentVertAlign == 'iCenter')
+		else if(data.iContentVertAlign === 'iCenter')
 			cssData.vertTextAlign = "center";
-		else if(data.iContentVertAlign == 'iEnd')
+		else if(data.iContentVertAlign === 'iEnd')
 			cssData.vertTextAlign = "flex-end";
-		else if(data.iContentVertAlign == 'iSpace-between')
+		else if(data.iContentVertAlign === 'iSpace-between')
 			cssData.vertTextAlign = "space-between";
 
 		//Inhaltsausrichtung (Reihe oder Spalte)
-		if(data.iContentFlexDirection == "vertical")
+		if(data.iContentFlexDirection === "vertical")
 			cssData.contFlexDir = "column";
-		else if(data.iContentFlexDirection == "horizontal")
+		else if(data.iContentFlexDirection === "horizontal")
 			cssData.contFlexDir = "row";
 
 		//Inhaltsreihenfolge (Erst Bild dann Text oder erst Text dann Bild)
-		if(data.iContentOrder == 'orderTextImg')
+		if(data.iContentOrder === 'orderTextImg')
 			cssData.orderContent = 2;
 		else
 			cssData.orderContent = 0;
 
 		//
-		if(data.iImgAlign == 'iStart')
+		if(data.iImgAlign === 'iStart')
 			cssData.imgAlign = "flex-start";
-		else if(data.iImgAlign == 'iCenter')
+		else if(data.iImgAlign === 'iCenter')
 			cssData.imgAlign = "center";
-		else if(data.iImgAlign == 'iEnd')
+		else if(data.iImgAlign === 'iEnd')
 			cssData.imgAlign = "flex-end";
 
 		//
-		if(data.iTextAlign == 'iStart')
+		if(data.iTextAlign === 'iStart')
 			cssData.textAlign = "flex-start";
-		else if(data.iTextAlign == 'iCenter')
+		else if(data.iTextAlign === 'iCenter')
 			cssData.textAlign = "center";
-		else if(data.iTextAlign == 'iEnd')
-			cssData.textAlign = "flex-end";
+		else if(data.iTextAlign === 'iEnd')
+			cssData.textAlign = "flex-end";*/
 
 		return cssData;
 	},
