@@ -818,5 +818,86 @@ vis.binds["vis-inventwo"] = {
 		}
 	},
 
+	getCssData: function (data) {
+
+		let cssData = {};
+
+
+		if((vis.states.attr(data.oid + '.val') && data.iValueType == 'boolean') || (vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value')) {
+			cssData.backCol = data.attr('iButtonActive');
+			cssData.btnImg = data.attr('iImageTrue');
+			cssData.shadowCol = data.attr('iShadowColorActive');
+			cssData.shadowInnerCol = data.attr('iShadowInnerColorActive');
+			cssData.borderCol = data.attr('iBorderColorActive');
+			cssData.text = data.iTextTrue;
+
+		}
+		else {
+			cssData.backCol = data.attr('iButtonCol');
+			cssData.btnImg = data.attr('iImageFalse');
+			cssData.shadowCol = data.attr('iShadowColor');
+			cssData.shadowInnerCol = data.attr('iShadowInnerColor');
+			cssData.borderCol = data.attr('iBorderColor');
+			cssData.text = data.iTextFalse;
+		}
+
+		let hexTrans = Math.floor(data.iOpacityBack * 255).toString(16);
+		cssData.backCol = cssData.backCol + hexTrans;
+		cssData.shadowCol = cssData.shadowCol + hexTrans;
+		cssData.shadowInnerCol = cssData.shadowInnerCol + hexTrans;
+		cssData.borderCol = cssData.borderCol + hexTrans;
+
+		if(this.data.attr('iFlipImage')){
+			cssData.flip = -1;
+		}
+
+		if(cssData.btnImg == "" || cssData.btnImg == undefined){
+			cssData.showImg = "none";
+		}
+		else{
+			cssData.showImg = "block";
+		}
+
+		//Vertikale Inhaltsausrichtung
+		if(data.iContentVertAlign == 'iStart')
+			cssData.vertTextAlign = "flex-start";
+		else if(data.iContentVertAlign == 'iCenter')
+			cssData.vertTextAlign = "center";
+		else if(data.iContentVertAlign == 'iEnd')
+			cssData.vertTextAlign = "flex-end";
+		else if(data.iContentVertAlign == 'iSpace-between')
+			cssData.vertTextAlign = "space-between";
+
+		//Inhaltsausrichtung (Reihe oder Spalte)
+		if(data.iContentFlexDirection == "vertical")
+			cssData.contFlexDir = "column";
+		else if(data.iContentFlexDirection == "horizontal")
+			cssData.contFlexDir = "row";
+
+		//Inhaltsreihenfolge (Erst Bild dann Text oder erst Text dann Bild)
+		if(data.iContentOrder == 'orderTextImg')
+			cssData.orderContent = 2;
+		else
+			cssData.orderContent = 0;
+
+		//
+		if(data.iImgAlign == 'iStart')
+			cssData.imgAlign = "flex-start";
+		else if(data.iImgAlign == 'iCenter')
+			cssData.imgAlign = "center";
+		else if(data.iImgAlign == 'iEnd')
+			cssData.imgAlign = "flex-end";
+
+		//
+		if(data.iTextAlign == 'iStart')
+			cssData.textAlign = "flex-start";
+		else if(data.iTextAlign == 'iCenter')
+			cssData.textAlign = "center";
+		else if(data.iTextAlign == 'iEnd')
+			cssData.textAlign = "flex-end";
+
+		return cssData;
+	},
+
 
 };
