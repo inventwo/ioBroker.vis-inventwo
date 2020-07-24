@@ -584,7 +584,8 @@ vis.binds["vis-inventwo"] = {
 		else{
 			if(data.iButtonCol.charAt(0) === "{"){
 				let str = (data.iButtonCol).substring(1,data.iButtonCol.length - 1);
-				let val = vis.states[(str + '.val')];
+				str = str + '.val';
+				let val = vis.states[str];
 				console.log(val);
 				console.log($this);
 				$this.parent().find('.vis-inventwo-button').css('background',val + ' !important');
