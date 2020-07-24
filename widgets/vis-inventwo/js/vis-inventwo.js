@@ -581,16 +581,6 @@ vis.binds["vis-inventwo"] = {
 			});
 
 		}
-		else{
-			if(data.iButtonCol.charAt(0) === "{"){
-				let str = (data.iButtonCol).substring(1,data.iButtonCol.length - 1);
-				str = str + '.val';
-				let val = vis.states[str];
-				console.log(val);
-				console.log($this.parent().children('.vis-inventwo-button'));
-				$this.parent().children('.vis-inventwo-button').css('background',val);
-			}
-		}
 	},
 	handleNavigation: function (el, data) {
 		if (!vis.editMode && data.nav_view) {
