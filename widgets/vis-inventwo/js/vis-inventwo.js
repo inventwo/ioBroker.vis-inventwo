@@ -840,7 +840,7 @@ vis.binds["vis-inventwo"] = {
 			cssData.borderCol = data.attr('iBorderColor');
 			cssData.text = data.iTextFalse;
 		}
-/*
+
 		let hexTrans = Math.floor(data.iOpacityBack * 255).toString(16);
 		cssData.backCol = cssData.backCol + hexTrans;
 		cssData.shadowCol = cssData.shadowCol + hexTrans;
@@ -895,7 +895,7 @@ vis.binds["vis-inventwo"] = {
 			cssData.textAlign = "center";
 		else if(data.iTextAlign == 'iEnd')
 			cssData.textAlign = "flex-end";
-*/
+
 		return cssData;
 	},
 
