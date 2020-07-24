@@ -846,7 +846,7 @@ vis.binds["vis-inventwo"] = {
 		cssData.shadowInnerCol = cssData.shadowInnerCol + hexTrans;
 		cssData.borderCol = cssData.borderCol + hexTrans;
 
-		if(this.data.attr("iFlipImage")){
+		if(data.attr("iFlipImage")){
 			cssData.flip = -1;
 		}
 
