@@ -557,6 +557,7 @@ function changeNavCss(view,el){
 		//el.css('background-color',el.attr("data-borderCol"));
 		el.children('.vis-inventwo-button-text').html(el.attr("data-text"));
 	}
+	console.log("tste");
 }
 
 vis.binds["vis-inventwo"] = {
