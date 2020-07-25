@@ -533,30 +533,30 @@ if (vis.editMode) {
 
 vis.navChangeCallbacks.push(function (view) {
 
-
-	$('.vis-inventwo-nav').each(function () {
-		changeNavCss(view,$(this));
-	});
+		changeNavCss(view);
 
 });
 
-function changeNavCss(view,el){
-	if(el.attr('data-inventwo-nav') === view){
-		el.css('background',el.attr("data-backColActive"));
-		el.children('img').attr('src', el.attr("data-btnImgActive"));
-		//el.css('background-color',el.attr("data-shadowColActive"));
-		//el.css('background-color',el.attr("data-shadowInnerColActive"));
-		//el.css('background-color',el.attr("data-borderColActive"));
-		el.children('.vis-inventwo-button-text').html(el.attr("data-textActive"));
-	}
-	else{
-		el.css('background',el.attr("data-backCol"));
-		el.children('img').attr('src', el.attr("data-btnImg"));
-		//el.css('background-color',el.attr("data-shadowCol"));
-		//el.css('background-color',el.attr("data-shadowInnerCol"));
-		//el.css('background-color',el.attr("data-borderCol"));
-		el.children('.vis-inventwo-button-text').html(el.attr("data-text"));
-	}
+function changeNavCss(view){
+	$('.vis-inventwo-nav').each(function () {
+		let el = $(this);
+		if(el.attr('data-inventwo-nav') === view){
+			el.css('background',el.attr("data-backColActive"));
+			el.children('img').attr('src', el.attr("data-btnImgActive"));
+			//el.css('background-color',el.attr("data-shadowColActive"));
+			//el.css('background-color',el.attr("data-shadowInnerColActive"));
+			//el.css('background-color',el.attr("data-borderColActive"));
+			el.children('.vis-inventwo-button-text').html(el.attr("data-textActive"));
+		}
+		else{
+			el.css('background',el.attr("data-backCol"));
+			el.children('img').attr('src', el.attr("data-btnImg"));
+			//el.css('background-color',el.attr("data-shadowCol"));
+			//el.css('background-color',el.attr("data-shadowInnerCol"));
+			//el.css('background-color',el.attr("data-borderCol"));
+			el.children('.vis-inventwo-button-text').html(el.attr("data-text"));
+		}
+	});
 	console.log("tste");
 }
 
@@ -620,10 +620,7 @@ vis.binds["vis-inventwo"] = {
 				}
 
 				setTimeout(function () {
-					$('.vis-inventwo-nav').each(function () {
-						changeNavCss(vis.activeView,$(this));
-					});
-
+					changeNavCss(vis.activeView);
 				},data.iNavWait);
 
 			}).on('touchmove', function () {
