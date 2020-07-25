@@ -554,10 +554,10 @@ function changeNavCss(view){
 			//el.css('background-color',el.attr("data-shadowCol"));
 			//el.css('background-color',el.attr("data-shadowInnerCol"));
 			el.css('border-color',el.attr("data-border-col"));
-			el.children('.vis-inventwo-button-text').innerHTML = el.attr("data-text");
+			el.children('.vis-inventwo-button-text').html(el.attr("data-text"));
 		}
 	});
-	console.log("tsdfgdggggggftehhhhhhh");
+	console.log("thhhhhh");
 }
 
 vis.binds["vis-inventwo"] = {
