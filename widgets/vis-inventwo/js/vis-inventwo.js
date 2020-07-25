@@ -543,7 +543,7 @@ vis.navChangeCallbacks.push(function (view) {
 function changeNavCss(view,el){
 	if(el.attr('data-inventwo-nav') === view){
 		el.css('background',el.attr("data-backColActive"));
-		//el.css('background-color',el.attr("data-btnImgActive"));
+		el.children('img').attr('src', el.attr("data-btnImgActive"));
 		//el.css('background-color',el.attr("data-shadowColActive"));
 		//el.css('background-color',el.attr("data-shadowInnerColActive"));
 		//el.css('background-color',el.attr("data-borderColActive"));
@@ -551,7 +551,7 @@ function changeNavCss(view,el){
 	}
 	else{
 		el.css('background',el.attr("data-backCol"));
-		//el.css('background-color',el.attr("data-btnImg"));
+		el.children('img').attr('src', el.attr("data-btnImg"));
 		//el.css('background-color',el.attr("data-shadowCol"));
 		//el.css('background-color',el.attr("data-shadowInnerCol"));
 		//el.css('background-color',el.attr("data-borderCol"));
