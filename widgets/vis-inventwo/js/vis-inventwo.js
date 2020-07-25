@@ -542,19 +542,19 @@ function changeNavCss(view){
 		let el = $(this);
 		if(el.attr('data-inventwo-nav') === view){
 			el.css('background',el.attr("data-back-col-active"));
-			el.children('img').attr('src', el.attr("data-btn-img-active"));
+			el.find('img').attr('src', el.attr("data-btn-img-active"));
 			//el.css('background-color',el.attr("data-shadowColActive"));
 			//el.css('background-color',el.attr("data-shadowInnerColActive"));
 			el.css('border-color',el.attr("data-border-col-active"));
-			el.children('.vis-inventwo-button-text').innerHTML = el.attr("data-text-active");
+			el.find('.vis-inventwo-button-text').html(el.attr("data-text-active"));
 		}
 		else{
 			el.css('background',el.attr("data-back-col"));
-			el.children('img').attr('src', el.attr("data-btn-img"));
+			el.find('img').attr('src', el.attr("data-btn-img"));
 			//el.css('background-color',el.attr("data-shadowCol"));
 			//el.css('background-color',el.attr("data-shadowInnerCol"));
 			el.css('border-color',el.attr("data-border-col"));
-			el.children('.vis-inventwo-button-text').html(el.attr("data-text"));
+			el.find('.vis-inventwo-button-text').html(el.attr("data-text"));
 		}
 	});
 	console.log("thhhhhh");
