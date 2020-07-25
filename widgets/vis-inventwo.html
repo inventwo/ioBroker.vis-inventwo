@@ -222,7 +222,6 @@
 		data-vis-attrs0="group.i-css;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
-						 iButtonActive[#455618]/color;
 						 iOpacityBack[1]/slider,0,1,0.1;
 
 						 iText-CornerSettings/custom,vis-inventwo.infoText,emptyText;
@@ -263,7 +262,6 @@
 						 iShadowBlur[2]/slider,0,20,1;
 						 iShadowSpread[1]/slider,0,20,1;
 						 iShadowColor[#111111]/color;
-						 iShadowColorActive[#111111]/color;
 
 						 iText-ShadowInnerSettings/custom,vis-inventwo.infoText,emptyText;
 						 iShadowInnerXOffset[0]/slider,0,20,1;
@@ -271,13 +269,11 @@
 						 iShadowInnerBlur[0]/slider,0,20,1;
 						 iShadowInnerSpread[0]/slider,0,20,1;
 						 iShadowInnerColor[#111111]/color;
-						 iShadowInnerColorActive[#111111]/color;
 
 						 iText-BorderSettings/custom,vis-inventwo.infoText,emptyText;
 						 iBorderSize[0]/slider,0,20,1;
 						 iBorderStyle[none]/select,dotted,dashed,solid,double,groove,ridge,inset,outset,none;
-						 iBorderColor[#ffffff]/color;
-						 iBorderColorActive[#ffffff]/color;"
+						 iBorderColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
 		data-vis-name="Button">
@@ -288,23 +284,12 @@
 			<%
 				let cssData = {};
 
-				if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) {
-					cssData.backCol = this.data.attr('iButtonActive');
-					cssData.btnImg = this.data.attr('iImageTrue');
-					cssData.shadowCol = this.data.attr('iShadowColorActive');
-					cssData.shadowInnerCol = this.data.attr('iShadowInnerColorActive');
-					cssData.borderCol = this.data.attr('iBorderColorActive');
-					cssData.text = this.data.iTextTrue;
-
-				}
-				else {
 					cssData.backCol = this.data.attr('iButtonCol');
-					cssData.btnImg = this.data.attr('iImageFalse');
+					cssData.btnImg = this.data.attr('iImage');
 					cssData.shadowCol = this.data.attr('iShadowColor');
 					cssData.shadowInnerCol = this.data.attr('iShadowInnerColor');
 					cssData.borderCol = this.data.attr('iBorderColor');
-					cssData.text = this.data.iTextFalse;
-				}
+					cssData.text = this.data.iText;
 
 				let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
 				cssData.backCol = cssData.backCol + hexTrans;
