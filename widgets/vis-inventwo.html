@@ -286,7 +286,7 @@
 			Testtt
 
 			<%
-				let cssData = {};
+				let cssData = {test:"test"};
 
 					cssData.backCol = this.data.attr('iButtonCol');
 					cssData.btnImg = this.data.attr('iImage');
@@ -294,7 +294,7 @@
 					cssData.shadowInnerCol = this.data.attr('iShadowInnerColor');
 					cssData.borderCol = this.data.attr('iBorderColor');
 					cssData.text = this.data.iText;
-
+/*
 				let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
 				cssData.backCol = cssData.backCol + hexTrans;
 				cssData.shadowCol = cssData.shadowCol + hexTrans;
@@ -356,6 +356,9 @@
 					cssData.textAlign = "center";
 				else if(this.data.iTextAlign == 'iEnd')
 					cssData.textAlign = "flex-end";
+
+					*/
+					console.log(cssData);
 			%>
 
 			<!--
