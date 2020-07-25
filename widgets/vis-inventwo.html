@@ -350,7 +350,7 @@
 				else if(this.data.iTextAlign == 'iEnd')
 					cssData.textAlign = "flex-end";
 			%>
-
+<!--
             <div class="vis-inventwo-button"
                     style="background: <%= this.data.attr('iButtonCol') %>;
                     border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
@@ -373,8 +373,10 @@
                     <%== this.data.iText %>
 		        </div>
             </div>
+            <%= (el) -> vis.binds['vis-inventwo'].state(el, this.data) %>
+            -->
+            test
 		</div>
-        <%= (el) -> vis.binds['vis-inventwo'].state(el, this.data) %>
 	</div>
 </script>
 
