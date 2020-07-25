@@ -542,20 +542,20 @@ vis.navChangeCallbacks.push(function (view) {
 
 function changeNavCss(view,el){
 	if(el.attr('data-inventwo-nav') === view){
-		//el.css('background',el.attr("data-backColActive"));
-		//el.children('img').attr('src', el.attr("data-btnImgActive"));
+		el.css('background',el.attr("data-backColActive"));
+		el.children('img').attr('src', el.attr("data-btnImgActive"));
 		//el.css('background-color',el.attr("data-shadowColActive"));
 		//el.css('background-color',el.attr("data-shadowInnerColActive"));
 		//el.css('background-color',el.attr("data-borderColActive"));
-		//el.children('.vis-inventwo-button-text').html(el.attr("data-textActive"));
+		el.children('.vis-inventwo-button-text').html(el.attr("data-textActive"));
 	}
 	else{
-		//el.css('background',el.attr("data-backCol"));
-		//el.children('img').attr('src', el.attr("data-btnImg"));
+		el.css('background',el.attr("data-backCol"));
+		el.children('img').attr('src', el.attr("data-btnImg"));
 		//el.css('background-color',el.attr("data-shadowCol"));
 		//el.css('background-color',el.attr("data-shadowInnerCol"));
 		//el.css('background-color',el.attr("data-borderCol"));
-		//el.children('.vis-inventwo-button-text').html(el.attr("data-text"));
+		el.children('.vis-inventwo-button-text').html(el.attr("data-text"));
 	}
 }
 
