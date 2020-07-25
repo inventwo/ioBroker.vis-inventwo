@@ -489,7 +489,7 @@
 					cssData.borderCol = this.data.attr('iBorderColorActive');
 					cssData.text = this.data.iTextTrue;
 
-					navCssData.backColActive = this.data.attr('iButtonActive') + hexTrans;
+					navCssData.backColActive = this.data.attr('iButtonActive');
 					navCssData.btnImgActive = this.data.attr('iImageTrue');
 					navCssData.shadowColActive = this.data.attr('iShadowColorActive') + hexTrans;
 					navCssData.shadowInnerColActive = this.data.attr('iShadowInnerColorActive') + hexTrans;
@@ -505,7 +505,7 @@
 					cssData.borderCol = this.data.attr('iBorderColor');
 					cssData.text = this.data.iTextFalse;
 
-					navCssData.backCol = this.data.attr('iButtonCol') + hexTrans;
+					navCssData.backCol = this.data.attr('iButtonCol');
 					navCssData.btnImg = this.data.attr('iImageFalse');
 					navCssData.shadowCol = this.data.attr('iShadowColor') + hexTrans;
 					navCssData.shadowInnerCol = this.data.attr('iShadowInnerColor') + hexTrans;
@@ -577,7 +577,7 @@
 
             <div class="vis-inventwo-button vis-inventwo-nav"
             	 data-inventwo-nav="<%= this.data.nav_view%>"
-            	 data-backColActiv="<%= navCssData.backColActive%>"
+            	 data-backColActive="<%= navCssData.backColActive%>"
             	 data-backCol="<%= navCssData.backCol%>"
             	 data-btnImgActive="<%= navCssData.btnImgActive%>"
             	 data-btnImg="<%= navCssData.btnImg%>"
