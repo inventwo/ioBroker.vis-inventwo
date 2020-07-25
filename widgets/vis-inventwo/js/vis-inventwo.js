@@ -542,20 +542,20 @@ vis.navChangeCallbacks.push(function (view) {
 
 function changeNavCss(view,el){
 	if(el.attr('data-inventwo-nav') === view){
-		el.css('background-color',el.attr("data-backColActive"));
-		el.css('background-color',el.attr("data-btnImgActive"));
-		el.css('background-color',el.attr("data-shadowColActive"));
-		el.css('background-color',el.attr("data-shadowInnerColActive"));
-		el.css('background-color',el.attr("data-borderColActive"));
-		el.css('background-color',el.attr("data-textActive"));
+		el.css('background',el.attr("data-backColActive"));
+		//el.css('background-color',el.attr("data-btnImgActive"));
+		//el.css('background-color',el.attr("data-shadowColActive"));
+		//el.css('background-color',el.attr("data-shadowInnerColActive"));
+		//el.css('background-color',el.attr("data-borderColActive"));
+		el.children('.vis-inventwo-button-text').html(el.attr("data-textActive"));
 	}
 	else{
-		el.css('background-color',el.attr("data-backCol"));
-		el.css('background-color',el.attr("data-btnImg"));
-		el.css('background-color',el.attr("data-shadowCol"));
-		el.css('background-color',el.attr("data-shadowInnerCol"));
-		el.css('background-color',el.attr("data-borderCol"));
-		el.css('background-color',el.attr("data-text"));
+		el.css('background',el.attr("data-backCol"));
+		//el.css('background-color',el.attr("data-btnImg"));
+		//el.css('background-color',el.attr("data-shadowCol"));
+		//el.css('background-color',el.attr("data-shadowInnerCol"));
+		//el.css('background-color',el.attr("data-borderCol"));
+		el.children('.vis-inventwo-button-text').html(el.attr("data-text"));
 	}
 }
 
