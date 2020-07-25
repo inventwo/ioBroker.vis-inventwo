@@ -473,7 +473,6 @@
 
 				if(this.data.nav_view === vis.activeView) {
 					cssData.backCol = this.data.attr('iButtonActive');
-					cssData.btnImg = this.data.attr('iImageTrue');
 					cssData.shadowCol = this.data.attr('iShadowColorActive');
 					cssData.shadowInnerCol = this.data.attr('iShadowInnerColorActive');
 					cssData.borderCol = this.data.attr('iBorderColorActive');
@@ -481,14 +480,13 @@
 				}
 				else {
 					cssData.backCol = this.data.attr('iButtonCol');
-					cssData.btnImg = this.data.attr('iImageFalse');
 					cssData.shadowCol = this.data.attr('iShadowColor');
 					cssData.shadowInnerCol = this.data.attr('iShadowInnerColor');
 					cssData.borderCol = this.data.attr('iBorderColor');
 				}
 
 				cssData.text = this.data.iText;
-
+				cssData.btnImg = this.data.attr('iImage');
 				let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
 				cssData.backCol = cssData.backCol + hexTrans;
 				cssData.shadowCol = cssData.shadowCol + hexTrans;
@@ -553,7 +551,7 @@
 			%>
 
 
-            <div class="vis-inventwo-button"
+            <div class="vis-inventwo-button vis-inventwo-nav" data-inventwo-nav="<%= this.data.nav_view%>" data-activeCol="<%= this.data.iButtonActive%>" data-col="<%= this.data.iButtonCol%>"
                  style="background: <%= backCol %>;
             	     	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
             	     	box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + shadowCol %>,
