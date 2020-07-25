@@ -546,7 +546,7 @@ function changeNavCss(view){
 			//el.css('background-color',el.attr("data-shadowColActive"));
 			//el.css('background-color',el.attr("data-shadowInnerColActive"));
 			el.css('border-color',el.attr("data-border-col-active"));
-			el.children('.vis-inventwo-button-text').html(el.attr("data-text-active"));
+			el.children('.vis-inventwo-button-text').innerHTML = el.attr("data-text-active");
 		}
 		else{
 			el.css('background',el.attr("data-back-col"));
@@ -554,10 +554,10 @@ function changeNavCss(view){
 			//el.css('background-color',el.attr("data-shadowCol"));
 			//el.css('background-color',el.attr("data-shadowInnerCol"));
 			el.css('border-color',el.attr("data-border-col"));
-			el.children('.vis-inventwo-button-text').html(el.attr("data-text"));
+			el.children('.vis-inventwo-button-text').innerHTML = el.attr("data-text");
 		}
 	});
-	console.log("tsdfgdftehhhhhhh");
+	console.log("tsdfgdggggggftehhhhhhh");
 }
 
 vis.binds["vis-inventwo"] = {
