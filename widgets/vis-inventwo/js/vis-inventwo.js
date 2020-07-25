@@ -541,16 +541,16 @@ function changeNavCss(view){
 	$('.vis-inventwo-nav').each(function () {
 		let el = $(this);
 		if(el.attr('data-inventwo-nav') === view){
-			el.css('background',el.attr("data-backColActive"));
-			el.children('img').attr('src', el.attr("data-btnImgActive"));
+			el.css('background',el.attr("data-back-col-active"));
+			el.children('img').attr('src', el.attr("data-btn-img-active"));
 			//el.css('background-color',el.attr("data-shadowColActive"));
 			//el.css('background-color',el.attr("data-shadowInnerColActive"));
 			//el.css('background-color',el.attr("data-borderColActive"));
-			el.children('.vis-inventwo-button-text').html(el.attr("data-textActive"));
+			el.children('.vis-inventwo-button-text').html(el.attr("data-text-active"));
 		}
 		else{
-			el.css('background',el.attr("data-backCol"));
-			el.children('img').attr('src', el.attr("data-btnImg"));
+			el.css('background',el.attr("data-back-col"));
+			el.children('img').attr('src', el.attr("data-btn-img"));
 			//el.css('background-color',el.attr("data-shadowCol"));
 			//el.css('background-color',el.attr("data-shadowInnerCol"));
 			//el.css('background-color',el.attr("data-borderCol"));
