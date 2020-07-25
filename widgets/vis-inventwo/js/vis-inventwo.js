@@ -557,7 +557,7 @@ function changeNavCss(view){
 			el.children('.vis-inventwo-button-text').html(el.attr("data-text"));
 		}
 	});
-	console.log("tste");
+	console.log("tsdfgdfte");
 }
 
 vis.binds["vis-inventwo"] = {
