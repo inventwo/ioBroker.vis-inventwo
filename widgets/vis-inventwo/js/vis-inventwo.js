@@ -630,9 +630,9 @@ vis.binds["vis-inventwo"] = {
 		if (!vis.editMode) {
 
 			$this.parent().on('click touchend', function () {
-				if(!isNaN(data.value))
-					data.value = parseFloat(data.value);
-				vis.setValue(oid, data.value);
+				if(!isNaN(data.iValue))
+					data.iValue = parseFloat(data.iValue);
+				vis.setValue(oid, data.iValue);
 			});
 
 		}
