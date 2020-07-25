@@ -545,7 +545,7 @@ function changeNavCss(view){
 			el.children('img').attr('src', el.attr("data-btn-img-active"));
 			//el.css('background-color',el.attr("data-shadowColActive"));
 			//el.css('background-color',el.attr("data-shadowInnerColActive"));
-			//el.css('background-color',el.attr("data-borderColActive"));
+			el.css('border-color',el.attr("data-border-col-active"));
 			el.children('.vis-inventwo-button-text').html(el.attr("data-text-active"));
 		}
 		else{
@@ -553,7 +553,7 @@ function changeNavCss(view){
 			el.children('img').attr('src', el.attr("data-btn-img"));
 			//el.css('background-color',el.attr("data-shadowCol"));
 			//el.css('background-color',el.attr("data-shadowInnerCol"));
-			//el.css('background-color',el.attr("data-borderCol"));
+			el.css('border-color',el.attr("data-border-col"));
 			el.children('.vis-inventwo-button-text').html(el.attr("data-text"));
 		}
 	});
