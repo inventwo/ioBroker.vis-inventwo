@@ -287,6 +287,10 @@ if (vis.editMode) {
 			"en": "Value true",
 			"de": "Wert wahr"
 		},
+		"iValue":{
+			"en": "Value",
+			"de": "Wert"
+		},
 		"iValueTypeInfo":{
 			"en": "Type Info",
 			"de": "Typ Info"
@@ -529,6 +533,7 @@ if (vis.editMode) {
 
 vis.navChangeCallbacks.push(function (view) {
 
+
 	$('.vis-inventwo-nav').each(function () {
 		if($(this).attr('data-inventwo-nav') === view){
 			$(this).css('background-color',$(this).attr("data-activecol"));
@@ -586,7 +591,7 @@ vis.binds["vis-inventwo"] = {
 		if (!vis.editMode && data.nav_view) {
 			var $this = $(el);
 			var moved = false;
-			$this.on('click touchend', function (e) {
+			$this.parent().on('click touchend', function (e) {
 				// Protect against two events
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
