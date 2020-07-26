@@ -814,7 +814,8 @@
             			 		display: flex;
     							justify-content: center;
     							align-items: center;">
-            			<div style="background: radial-gradient(ellipse, <%= cssData.shadowCol %>, transparent <%= this.data.iShadowSpread %>px);"></div>
+            			<div style="width: 100%; height: 100%; position: absolute;
+            						background: radial-gradient(ellipse, <%= cssData.shadowCol %>, transparent <%= this.data.iShadowSpread %>px);"></div>
             		    <img src='<%= cssData.btnImg %>' width="<%= this.data.iIconSize %>"
             		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
             		    	 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);">
