@@ -762,10 +762,10 @@
 						 iFlipImage/checkbox;
 
 						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
-						 iShadowXOffset[2]/slider,0,20,1;
-						 iShadowYOffset[2]/slider,0,20,1;
-						 iShadowBlur[2]/slider,0,20,1;
-						 iShadowSpread[1]/slider,0,20,1;
+						 iShadowXOffset[0]/slider,0,20,1;
+						 iShadowYOffset[0]/slider,0,20,1;
+						 iShadowBlur[0]/slider,0,20,1;
+						 iShadowSpread[0]/slider,0,20,1;
 						 iShadowColor[#111111]/color;
 						 iShadowColorActive[#111111]/color;
 
@@ -824,9 +824,10 @@
             	     	border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + cssData.borderCol %>;">
 
             	<div class="vis-inventwo-button-content"
-            		 style="opacity: <%= this.data.attr('iOpacityCtn') %>;">
+            		 style="opacity: <%= this.data.attr('iOpacityCtn') %>;
+            		 		justify-content: center">
 
-            		<div class="vis-inventwo-button-imageContainer">
+            		<div class="vis-inventwo-button-imageContainer" style="align-self: center">
             		    <img src='<%= cssData.btnImg %>' width="<%= this.data.iIconSize %>"
             		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
             		    	 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >

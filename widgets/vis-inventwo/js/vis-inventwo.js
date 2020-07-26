@@ -532,9 +532,7 @@ if (vis.editMode) {
 }
 
 vis.navChangeCallbacks.push(function (view) {
-
-		changeNavCss(view);
-
+	changeNavCss(view);
 });
 
 function changeNavCss(view){
@@ -555,7 +553,6 @@ function changeNavCss(view){
 			el.find('.vis-inventwo-button-text').html(el.attr("data-text"));
 		}
 	});
-	console.log("dssdfjjjjjd");
 }
 
 vis.binds["vis-inventwo"] = {
