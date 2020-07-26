@@ -500,14 +500,22 @@
 
 				navCssData.backColActive = this.data.attr('iButtonActive') + hexTrans;
 				navCssData.btnImgActive = this.data.attr('iImageTrue');
-				navCssData.shadowColActive = this.data.attr('iShadowColorActive') + hexTrans;
-				navCssData.shadowInnerColActive = this.data.attr('iShadowInnerColorActive') + hexTrans;
+				navCssData.shadowActive = this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') +
+										  'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread')
+										  + 'px ' + this.data.attr('iShadowColorActive') + hexTrans + ", inset " +
+										  this.data.attr('iShadowInnerXOffset') + 'px ' + this.data.attr('iShadowInnerYOffset')
+										  + 'px ' + this.data.attr('iShadowInnerBlur') + 'px ' + this.data.attr('iShadowInnerSpread')
+										  + 'px ' + this.data.attr('iShadowInnerColorActive') + hexTrans;
 				navCssData.borderColActive = this.data.attr('iBorderColorActive') + hexTrans;
 				navCssData.textActive = this.data.iTextTrue;
 				navCssData.backCol = this.data.attr('iButtonCol') + hexTrans;
 				navCssData.btnImg = this.data.attr('iImageFalse');
-				navCssData.shadowCol = this.data.attr('iShadowColor') + hexTrans;
-				navCssData.shadowInnerCol = this.data.attr('iShadowInnerColor') + hexTrans;
+				navCssData.shadow = this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') +
+										  'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread')
+										  + 'px ' + this.data.attr('iShadowColor') + hexTrans + ", inset " +
+										  this.data.attr('iShadowInnerXOffset') + 'px ' + this.data.attr('iShadowInnerYOffset')
+										  + 'px ' + this.data.attr('iShadowInnerBlur') + 'px ' + this.data.attr('iShadowInnerSpread')
+										  + 'px ' + this.data.attr('iShadowInnerColor') + hexTrans;
 				navCssData.borderCol = this.data.attr('iBorderColor') + hexTrans;
 				navCssData.text = this.data.iTextFalse;
 
@@ -579,10 +587,8 @@
             	 data-back-col="<%= navCssData.backCol%>"
             	 data-btn-img-active="<%= navCssData.btnImgActive%>"
             	 data-btn-img="<%= navCssData.btnImg%>"
-            	 data-shadow-col-active="<%= navCssData.shadowColActive%>"
-            	 data-shadow-col="<%= navCssData.shadowCol%>"
-            	 data-shadow-inner-col-active="<%= navCssData.shadowInnerColActive%>"
-            	 data-shadow-inner-col="<%= navCssData.shadowInnerCol%>"
+            	 data-shadow-active="<%= navCssData.shadowActive%>"
+            	 data-shadow="<%= navCssData.shadow%>"
             	 data-border-col-active="<%= navCssData.borderColActive%>"
             	 data-border-col="<%= navCssData.borderCol%>"
             	 data-text-active="<%= navCssData.textActive%>"

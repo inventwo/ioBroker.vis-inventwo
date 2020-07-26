@@ -543,21 +543,19 @@ function changeNavCss(view){
 		if(el.attr('data-inventwo-nav') === view){
 			el.css('background',el.attr("data-back-col-active"));
 			el.find('img').attr('src', el.attr("data-btn-img-active"));
-			//el.css('background-color',el.attr("data-shadowColActive"));
-			//el.css('background-color',el.attr("data-shadowInnerColActive"));
+			el.css('box-shadow',el.attr("data-shadow-active"));
 			el.css('border-color',el.attr("data-border-col-active"));
 			el.find('.vis-inventwo-button-text').html(el.attr("data-text-active"));
 		}
 		else{
 			el.css('background',el.attr("data-back-col"));
 			el.find('img').attr('src', el.attr("data-btn-img"));
-			//el.css('background-color',el.attr("data-shadowCol"));
-			//el.css('background-color',el.attr("data-shadowInnerCol"));
+			el.css('box-shadow',el.attr("data-shadow"));
 			el.css('border-color',el.attr("data-border-col"));
 			el.find('.vis-inventwo-button-text').html(el.attr("data-text"));
 		}
 	});
-	console.log("dssdfd");
+	console.log("dssdfjjjjjd");
 }
 
 vis.binds["vis-inventwo"] = {
