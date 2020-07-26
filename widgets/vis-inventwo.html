@@ -786,25 +786,6 @@
 		data-vis-type="static"
 		data-vis-name="Image">
 
-		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
-		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
-
-			<%
-
-            		let flip = 1;
-            		if(this.data.attr('iFlipImage')){
-            			flip = -1;
-            		}
-
-            	%>
-            <div class="vis-inventwo-button-content" style="opacity: <%= this.data.attr('iOpacityAll') %>;">
-                <div class="vis-inventwo-button-imageContainer">
-                    <img src='<%= this.data.iImage %>' style="width:100%; filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
-                </div>
-            </div>
-		</div>
-	</div>
-
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
