@@ -781,7 +781,7 @@
 			<%
 				let cssData = {};
 
-				if((this.data.oid !== "" || this.data.oid !== undefined) && vis.states.attr(this.data.oid + '.val') == this.data.iValue) {
+				if(this.data.oid !== "" && this.data.oid !== undefined && vis.states.attr(this.data.oid + '.val') == this.data.iValue) {
 					cssData.btnImg = this.data.attr('iImageTrue');
 					cssData.shadowCol = this.data.attr('iShadowColorActive');
 					cssData.borderCol = this.data.attr('iBorderColorActive');
