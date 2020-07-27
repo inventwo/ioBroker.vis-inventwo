@@ -578,13 +578,9 @@ vis.binds["vis-inventwo"] = {
 				else{
 
 					if(val == valFalse){
-						if(!isNaN(valTrue))
-							valTrue = parseFloat(valTrue);
 						vis.setValue(oid, valTrue);
 					}
 					else{
-						if(!isNaN(valFalse))
-							valTrue = parseFloat(valFalse);
 						vis.setValue(oid, valFalse);
 					}
 				}
