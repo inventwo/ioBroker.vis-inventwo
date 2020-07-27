@@ -914,6 +914,8 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
 			<%
+				let cssData = {};
+
 				let flip = 1;
         	    if(this.data.attr('iFlipImage')){
         	    	cssData.flip = -1;
@@ -977,39 +979,25 @@
 
 			<% for(let val = 1; val <= this.data.iRadiobtnsCount; val++){
 
-				let backCol = "";
-				let btnImg = "";
-				let shadowCol = "";
-				let shadowInnerCol = "";
-				let borderCol = "";
 				if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iRadiobtnValue' + val)) {
-					backCol = this.data.attr('iButtonActive');
-					btnImg = this.data.attr('iImageTrue' + val);
-					shadowCol = this.data.attr('iShadowColorActive');
-					shadowInnerCol = this.data.attr('iShadowInnerColorActive');
-					borderCol = this.data.attr('iBorderColorActive');
+					cssData.backCol = this.data.attr('iButtonActive');
+					cssData.shadowCol = this.data.attr('iShadowColorActive');
+					cssData.shadowInnerCol = this.data.attr('iShadowInnerColorActive');
+					cssData.borderCol = this.data.attr('iBorderColorActive');
+
 				}
-				else{
-					backCol = this.data.attr('iButtonCol');
-					btnImg = this.data.attr('iImageFalse' + val);
-					shadowCol = this.data.attr('iShadowColor');
-					shadowInnerCol = this.data.attr('iShadowInnerColor');
-					borderCol = this.data.attr('iBorderColor');
+				else {
+					cssData.backCol = this.data.attr('iButtonCol');
+					cssData.shadowCol = this.data.attr('iShadowColor');
+					cssData.shadowInnerCol = this.data.attr('iShadowInnerColor');
+					cssData.borderCol = this.data.attr('iBorderColor');
 				}
 
 				let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
-				backCol = backCol + hexTrans;
-				shadowCol = shadowCol + hexTrans;
-				shadowInnerCol = shadowInnerCol + hexTrans;
-				borderCol = borderCol + hexTrans;
-
-				let vertTextAlign = "";
-				if(this.data.iContentVertAlign == 'top')
-					vertTextAlign = "flex-start";
-				else if(this.data.iContentVertAlign == 'middle')
-					vertTextAlign = "center";
-				else if(this.data.iContentVertAlign == 'bottom')
-					vertTextAlign = "felx-end";
+				cssData.backCol = cssData.backCol + hexTrans;
+				cssData.shadowCol = cssData.shadowCol + hexTrans;
+				cssData.shadowInnerCol = cssData.shadowInnerCol + hexTrans;
+				cssData.borderCol = cssData.borderCol + hexTrans;
 
 			%>
 
