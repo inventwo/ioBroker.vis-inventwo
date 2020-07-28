@@ -97,14 +97,6 @@
             		cssData.flip = -1;
             	}
 
-            	let showImg = "";
-            	if(cssData.btnImg == "" || cssData.btnImg == undefined){
-            		cssData.showImg = "none";
-            	}
-            	else{
-            		cssData.showImg = "block";
-            	}
-
 				//Vertikale Inhaltsausrichtung
             	let vertTextAlign = "";
 				if(this.data.iContentVertAlign == 'iStart')
@@ -171,15 +163,14 @@
             		 		">
 
             		<div class="vis-inventwo-button-imageContainer"
-            			 style="display: <%= cssData.showImg%>;
-            			 		order: <%= cssData.orderContent %>;
+            			 style="order: <%= cssData.orderContent %>;
             			 		align-self: <%= cssData.imgAlign %>;
             			 		margin: <%= this.data.iImgSpaceTop + 'px ' + this.data.iImgSpaceRight + 'px ' + this.data.iImgSpaceBottom + 'px ' + this.data.iImgSpaceLeft + 'px' %>;">
-            			<% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+            			<% if(((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) && this.data.attr('iImageTrue') != "") { %>
             		    	<img src='<%= this.data.attr('iImageTrue') %>' width="<%= this.data.iIconSize %>"
             		    		 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
             		    		 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
-            		    <% } else { %>
+            		    <% } else if(this.data.attr('iImageFalse') != ""){ %>
             		    	<img src='<%= this.data.attr('iImageFalse') %>' width="<%= this.data.iIconSize %>"
             		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
             		    	 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
