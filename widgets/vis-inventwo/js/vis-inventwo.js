@@ -824,7 +824,7 @@ vis.binds["vis-inventwo"] = {
 
 	getButton: function (el, data) {
 
-		let cssData = {test: "tests"};
+		let cssData = {};
 
 		if((vis.states.attr(data.oid + '.val') && data.iValueType == 'boolean') || (vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value')) {
 			cssData.backCol = data.attr('iButtonActive');
