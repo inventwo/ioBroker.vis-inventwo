@@ -944,7 +944,7 @@ vis.binds["vis-inventwo"] = {
 
 		</div>`;*/
 
-		return "test";
+		return "teseet";
 	}
 
 
