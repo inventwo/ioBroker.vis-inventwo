@@ -923,7 +923,7 @@ vis.binds["vis-inventwo"] = {
 							margin: ` + data.iImgSpaceTop + 'px ' + data.iImgSpaceRight + 'px ' + data.iImgSpaceBottom + 'px ' + data.iImgSpaceLeft + 'px' + `;">
 					<img src='` + cssData.btnImg + `' width="` + data.iIconSize + `"
 						 style="filter: invert(` + Number(data.attr('iInvertImageCol')) + `);
-								transform: scaleX(` + flip + `) rotateZ(` + data.iImgRotation + `deg);" >
+								transform: scaleX(` + cssData.flip + `) rotateZ(` + data.iImgRotation + `deg);" >
 				</div>
 				
 				<div class="vis-inventwo-button-text"
