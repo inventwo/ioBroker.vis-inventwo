@@ -824,8 +824,8 @@ vis.binds["vis-inventwo"] = {
 
 	getButton: function (data) {
 
-		let cssData = {};
-
+		let cssData = {test: "tests"};
+/*
 		if((vis.states.attr(data.oid + '.val') && data.iValueType == 'boolean') || (vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value')) {
 			cssData.backCol = data.attr('iButtonActive');
 			cssData.btnImg = data.attr('iImageTrue');
@@ -899,7 +899,7 @@ vis.binds["vis-inventwo"] = {
 			cssData.textAlign = "center";
 		else if(data.iTextAlign == 'iEnd')
 			cssData.textAlign = "flex-end";
-
+*/
 		console.log(cssData);
 /*
 		let html = `
