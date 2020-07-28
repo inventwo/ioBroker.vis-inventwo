@@ -568,7 +568,7 @@ vis.binds["vis-inventwo"] = {
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
 
-				var val = vis.states[oid + '.val'];
+				//var val = vis.states[oid + '.val'];
 				var type = data.iValueType;
 				var valFalse = data.iValueFalse;
 				var valTrue = data.iValueTrue;

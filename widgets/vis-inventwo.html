@@ -107,7 +107,7 @@
 					cssData.borderCol = this.data.attr('iBorderColor');
 					cssData.text = this.data.iTextFalse;
 				}
-
+/*
 				let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
 				cssData.backCol = cssData.backCol + hexTrans;
 				cssData.shadowCol = cssData.shadowCol + hexTrans;
@@ -169,6 +169,8 @@
 					cssData.textAlign = "center";
 				else if(this.data.iTextAlign == 'iEnd')
 					cssData.textAlign = "flex-end";
+					*/
+					console.log(cssData);
 			%>
 <!--
             <div class="vis-inventwo-button"
@@ -205,7 +207,7 @@
 
             </div>
             -->
-            <%== cssData.text %>test
+            <%== cssData.text %> test2
             <%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
 
 		</div>
