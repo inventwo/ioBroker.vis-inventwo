@@ -206,7 +206,11 @@
             			 		color:<%= this.data.iTextColor %>;
             			 		margin: <%= this.data.iTextSpaceTop + 'px ' + this.data.iTextSpaceRight + 'px ' + this.data.iTextSpaceBottom + 'px ' + this.data.iTextSpaceLeft + 'px' %>;
             			 		align-self: <%= cssData.textAlign %>;">
-            		    <%== cssData.text %>
+            			<% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+            		    <%== this.data.iTextTrue %>
+            		    <% } else { %>
+            		    <%== this.data.iTextFalse %>
+            		    <% } %>
 		    		</div>
 
             	</div>
