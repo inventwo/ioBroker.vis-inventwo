@@ -1000,7 +1000,7 @@
 				cssData.borderCol = cssData.borderCol + hexTrans;
 
 			%>
-
+<!--
 			<div style="width: <%= this.data.attr('iRadiobtnWidth') %>px;
 						height: <%= this.data.attr('iRadiobtnHeight') %>px;
 						position: relative;
@@ -1040,6 +1040,10 @@
 
             	</div>
             	<%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, this.data,this.data.attr('iRadiobtnValue' + val)) %>
+            </div>-->
+            <div>
+            <%== cssData.text %>
+            <%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, this.data,this.data.attr('iRadiobtnValue' + val)) %>
             </div>
 
             <% } %>
