@@ -850,12 +850,11 @@ vis.binds["vis-inventwo"] = {
 		cssData.shadowInnerCol = cssData.shadowInnerCol + hexTrans;
 		cssData.borderCol = cssData.borderCol + hexTrans;
 
-		let flip = 1;
+		cssData.flip = 1;
 		if(data.attr('iFlipImage')){
 			cssData.flip = -1;
 		}
 
-		let showImg = "";
 		if(cssData.btnImg == "" || cssData.btnImg == undefined){
 			cssData.showImg = "none";
 		}
@@ -864,7 +863,6 @@ vis.binds["vis-inventwo"] = {
 		}
 
 		//Vertikale Inhaltsausrichtung
-		let vertTextAlign = "";
 		if(data.iContentVertAlign == 'iStart')
 			cssData.vertTextAlign = "flex-start";
 		else if(data.iContentVertAlign == 'iCenter')
@@ -875,21 +873,18 @@ vis.binds["vis-inventwo"] = {
 			cssData.vertTextAlign = "space-between";
 
 		//Inhaltsausrichtung (Reihe oder Spalte)
-		let contFlexDir = "";
 		if(data.iContentFlexDirection == "vertical")
 			cssData.contFlexDir = "column";
 		else if(data.iContentFlexDirection == "horizontal")
 			cssData.contFlexDir = "row";
 
 		//Inhaltsreihenfolge (Erst Bild dann Text oder erst Text dann Bild)
-		let orderContent = "";
 		if(data.iContentOrder == 'orderTextImg')
 			cssData.orderContent = 2;
 		else
 			cssData.orderContent = 0;
 
 		//
-		let imgAlign = "";
 		if(data.iImgAlign == 'iStart')
 			cssData.imgAlign = "flex-start";
 		else if(data.iImgAlign == 'iCenter')
@@ -898,7 +893,6 @@ vis.binds["vis-inventwo"] = {
 			cssData.imgAlign = "flex-end";
 
 		//
-		let textAlign = "";
 		if(data.iTextAlign == 'iStart')
 			cssData.textAlign = "flex-start";
 		else if(data.iTextAlign == 'iCenter')
