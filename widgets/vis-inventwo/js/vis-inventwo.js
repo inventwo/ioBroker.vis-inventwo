@@ -938,7 +938,7 @@ vis.binds["vis-inventwo"] = {
 
 		</div>`;*/
 
-		$(el).html("<div>teessssstt</div>");
+		$(el).html("<div>tees444sssstt</div>");
 
 
 	}
