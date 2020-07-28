@@ -901,15 +901,24 @@ vis.binds["vis-inventwo"] = {
 			cssData.textAlign = "flex-end";
 
 		console.log(cssData);
-/*
+
 		let html = `
 		<div class="vis-inventwo-button"
-			 style="background: ` + cssData.backCol + `;
+			<% if((vis.states.attr(data.oid + '.val') && data.iValueType == 'boolean') || (vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value')) { %>
+			 style="background: ` + data.attr('iButtonActive') + `;
 				    border-radius: ` + data.attr('iCornerRadiusUL') + `px ` + data.attr('iCornerRadiusUR') + `px ` + data.attr('iCornerRadiusLR') + `px ` + data.attr('iCornerRadiusLL') + `px;
-				    box-shadow: ` + data.attr('iShadowXOffset') + 'px ' + data.attr('iShadowYOffset') + 'px ' + data.attr('iShadowBlur') + 'px ' + data.attr('iShadowSpread') + 'px ' + cssData.shadowCol + `,
-							    inset ` + data.attr('iShadowInnerXOffset') + 'px ' + data.attr('iShadowInnerYOffset') + 'px ' + data.attr('iShadowInnerBlur') + 'px ' + data.attr('iShadowInnerSpread') + 'px ' + cssData.shadowInnerCol + `;
-				    border: ` + data.attr('iBorderSize') + 'px ' + data.attr('iBorderStyle') + ' ' + cssData.borderCol + `;">
-<!--
+				    box-shadow: ` + data.attr('iShadowXOffset') + 'px ' + data.attr('iShadowYOffset') + 'px ' + data.attr('iShadowBlur') + 'px ' + data.attr('iShadowSpread') + 'px ' + data.attr('iShadowColorActive') + `,
+							    inset ` + data.attr('iShadowInnerXOffset') + 'px ' + data.attr('iShadowInnerYOffset') + 'px ' + data.attr('iShadowInnerBlur') + 'px ' + data.attr('iShadowInnerSpread') + 'px ' + data.attr('iShadowInnerColorActive') + `;
+				    border: ` + data.attr('iBorderSize') + 'px ' + data.attr('iBorderStyle') + ' ' + data.attr('iBorderColorActive') + `;"
+			<% } else { %>
+			 
+			 style="background: ` + data.attr('iButton') + `;
+			 		border-radius: ` + data.attr('iCornerRadiusUL') + `px ` + data.attr('iCornerRadiusUR') + `px ` + data.attr('iCornerRadiusLR') + `px ` + data.attr('iCornerRadiusLL') + `px;
+			 		box-shadow: ` + data.attr('iShadowXOffset') + 'px ' + data.attr('iShadowYOffset') + 'px ' + data.attr('iShadowBlur') + 'px ' + data.attr('iShadowSpread') + 'px ' + data.attr('iShadowColor') + `,
+			 					inset ` + data.attr('iShadowInnerXOffset') + 'px ' + data.attr('iShadowInnerYOffset') + 'px ' + data.attr('iShadowInnerBlur') + 'px ' + data.attr('iShadowInnerSpread') + 'px ' + data.attr('iShadowInnerColor') + `;
+			 		border: ` + data.attr('iBorderSize') + 'px ' + data.attr('iBorderStyle') + ' ' + data.attr('iBorderColor') + `;"
+			>
+
 			<div class="vis-inventwo-button-content"
 				 style="opacity: ` + data.attr('iOpacityCtn') + `;
 					 	justify-content: ` + cssData.vertTextAlign + `;
@@ -934,10 +943,10 @@ vis.binds["vis-inventwo"] = {
 					` + cssData.text + `
 				</div>
 
-			</div>-->
+			</div>
 
 		</div>`;
-*/
+
 
 		let html = cssData.text;
 
