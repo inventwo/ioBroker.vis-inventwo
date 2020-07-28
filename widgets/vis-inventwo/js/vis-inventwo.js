@@ -822,6 +822,23 @@ vis.binds["vis-inventwo"] = {
 		}
 	},
 
+	getButton: function (data) {
+		let cssData = "";
+
+		if((vis.states.attr(data.oid + '.val') && data.iValueType == 'boolean') || (vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value')) {
+			cssData = data.iTextTrue;
+
+		}
+		else {
+			cssData = data.iTextFalse;
+		}
+
+		let html = "<div>";
+		html += cssData + " teeeest</div>";
+
+		return html;
+	}
+
 
 
 };
