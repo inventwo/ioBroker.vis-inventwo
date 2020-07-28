@@ -564,7 +564,7 @@ vis.binds["vis-inventwo"] = {
 
 		if (!vis.editMode) {
 			var moved = false;
-			$this.on('click touchend', function () {
+			$this.parent().on('click touchend', function () {
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
 
