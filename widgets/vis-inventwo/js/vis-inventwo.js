@@ -823,18 +823,124 @@ vis.binds["vis-inventwo"] = {
 	},
 
 	getButton: function (data) {
-		let cssData = "";
+
+		let cssData = {};
 
 		if((vis.states.attr(data.oid + '.val') && data.iValueType == 'boolean') || (vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value')) {
-			cssData = data.iTextTrue;
+			cssData.backCol = data.attr('iButtonActive');
+			cssData.btnImg = data.attr('iImageTrue');
+			cssData.shadowCol = data.attr('iShadowColorActive');
+			cssData.shadowInnerCol = data.attr('iShadowInnerColorActive');
+			cssData.borderCol = data.attr('iBorderColorActive');
+			cssData.text = data.iTextTrue;
 
 		}
 		else {
-			cssData = data.iTextFalse;
+			cssData.backCol = data.attr('iButtonCol');
+			cssData.btnImg = data.attr('iImageFalse');
+			cssData.shadowCol = data.attr('iShadowColor');
+			cssData.shadowInnerCol = data.attr('iShadowInnerColor');
+			cssData.borderCol = data.attr('iBorderColor');
+			cssData.text = data.iTextFalse;
 		}
 
-		let html = "<div>";
-		html += cssData + " teeeest</div>";
+		let hexTrans = Math.floor(data.iOpacityBack * 255).toString(16);
+		cssData.backCol = cssData.backCol + hexTrans;
+		cssData.shadowCol = cssData.shadowCol + hexTrans;
+		cssData.shadowInnerCol = cssData.shadowInnerCol + hexTrans;
+		cssData.borderCol = cssData.borderCol + hexTrans;
+
+		let flip = 1;
+		if(data.attr('iFlipImage')){
+			cssData.flip = -1;
+		}
+
+		let showImg = "";
+		if(cssData.btnImg == "" || cssData.btnImg == undefined){
+			cssData.showImg = "none";
+		}
+		else{
+			cssData.showImg = "block";
+		}
+
+		//Vertikale Inhaltsausrichtung
+		let vertTextAlign = "";
+		if(data.iContentVertAlign == 'iStart')
+			cssData.vertTextAlign = "flex-start";
+		else if(data.iContentVertAlign == 'iCenter')
+			cssData.vertTextAlign = "center";
+		else if(data.iContentVertAlign == 'iEnd')
+			cssData.vertTextAlign = "flex-end";
+		else if(data.iContentVertAlign == 'iSpace-between')
+			cssData.vertTextAlign = "space-between";
+
+		//Inhaltsausrichtung (Reihe oder Spalte)
+		let contFlexDir = "";
+		if(data.iContentFlexDirection == "vertical")
+			cssData.contFlexDir = "column";
+		else if(data.iContentFlexDirection == "horizontal")
+			cssData.contFlexDir = "row";
+
+		//Inhaltsreihenfolge (Erst Bild dann Text oder erst Text dann Bild)
+		let orderContent = "";
+		if(data.iContentOrder == 'orderTextImg')
+			cssData.orderContent = 2;
+		else
+			cssData.orderContent = 0;
+
+		//
+		let imgAlign = "";
+		if(data.iImgAlign == 'iStart')
+			cssData.imgAlign = "flex-start";
+		else if(data.iImgAlign == 'iCenter')
+			cssData.imgAlign = "center";
+		else if(data.iImgAlign == 'iEnd')
+			cssData.imgAlign = "flex-end";
+
+		//
+		let textAlign = "";
+		if(data.iTextAlign == 'iStart')
+			cssData.textAlign = "flex-start";
+		else if(data.iTextAlign == 'iCenter')
+			cssData.textAlign = "center";
+		else if(data.iTextAlign == 'iEnd')
+			cssData.textAlign = "flex-end";
+
+		let html = `
+		<div class="vis-inventwo-button"
+			 style="background: ` + cssData.backCol + `;
+				    border-radius: ` + data.attr('iCornerRadiusUL') + `px ` + data.attr('iCornerRadiusUR') + `px ` + data.attr('iCornerRadiusLR') + `px ` + data.attr('iCornerRadiusLL') + `px;
+				    box-shadow: ` + data.attr('iShadowXOffset') + 'px ' + data.attr('iShadowYOffset') + 'px ' + data.attr('iShadowBlur') + 'px ' + data.attr('iShadowSpread') + 'px ' + cssData.shadowCol + `,
+							    inset ` + data.attr('iShadowInnerXOffset') + 'px ' + data.attr('iShadowInnerYOffset') + 'px ' + data.attr('iShadowInnerBlur') + 'px ' + data.attr('iShadowInnerSpread') + 'px ' + cssData.shadowInnerCol + `;
+				    border: ` + data.attr('iBorderSize') + 'px ' + data.attr('iBorderStyle') + ' ' + cssData.borderCol + `;">
+
+			<div class="vis-inventwo-button-content"
+				 style="opacity: ` + data.attr('iOpacityCtn') + `;
+					 	justify-content: ` + cssData.vertTextAlign + `;
+					 	flex-direction: ` + cssData.contFlexDir + `;
+			">
+	
+				<div class="vis-inventwo-button-imageContainer"
+				 	 style="display: ` + cssData.showImg+ `;
+							order: ` + cssData.orderContent + `;
+							align-self: ` + cssData.imgAlign + `;
+							margin: ` + data.iImgSpaceTop + 'px ' + data.iImgSpaceRight + 'px ' + data.iImgSpaceBottom + 'px ' + data.iImgSpaceLeft + 'px' + `;">
+					<img src='` + cssData.btnImg + `' width="` + data.iIconSize + `"
+						 style="filter: invert(` + Number(data.attr('iInvertImageCol')) + `);
+								transform: scaleX(` + flip + `) rotateZ(` + data.iImgRotation + `deg);" >
+				</div>
+				
+				<div class="vis-inventwo-button-text"
+					 style="font-size: ` + data.iTextSize + `px;
+							color:` + data.iTextColor + `;
+							margin: ` + data.iTextSpaceTop + 'px ' + data.iTextSpaceRight + 'px ' + data.iTextSpaceBottom + 'px ' + data.iTextSpaceLeft + 'px' + `;
+							align-self: ` + cssData.textAlign + `;">
+					` + cssData.text + `
+				</div>
+
+			</div>
+
+		</div>`;
 
 		return html;
 	}
