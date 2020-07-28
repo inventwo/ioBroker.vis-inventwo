@@ -88,6 +88,7 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
             <%= (el) -> vis.binds['vis-inventwo'].getButton(el, this.data) %>
+
             <%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
 
 		</div>

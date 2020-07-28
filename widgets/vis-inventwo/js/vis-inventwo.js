@@ -938,6 +938,7 @@ vis.binds["vis-inventwo"] = {
 
 		</div>`;
 */
+
 		let html = cssData.text;
 
 		$(el).html(html);
