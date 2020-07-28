@@ -901,7 +901,7 @@ vis.binds["vis-inventwo"] = {
 			cssData.textAlign = "flex-end";
 
 		console.log(cssData);
-/*
+
 		let html = `
 		<div class="vis-inventwo-button"
 			 style="background: ` + cssData.backCol + `;
@@ -936,9 +936,9 @@ vis.binds["vis-inventwo"] = {
 
 			</div>
 
-		</div>`;*/
+		</div>`;
 
-		$(el).html("<div>tees444sssstt</div>");
+		$(el).html(html);
 
 
 	}
