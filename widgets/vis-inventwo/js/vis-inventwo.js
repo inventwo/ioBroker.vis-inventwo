@@ -593,6 +593,7 @@ vis.binds["vis-inventwo"] = {
 
 		}
 	},
+
 	handleNavigation: function (el, data) {
 		if (!vis.editMode && data.nav_view) {
 			var $this = $(el);
