@@ -88,19 +88,19 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
 			<%
-				let cssData = {};
+				let cssData =
 
 				if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) {
-					cssData.text = this.data.iTextTrue;
+					cssData = this.data.iTextTrue;
 
 				}
 				else {
-					cssData.text = this.data.iTextFalse;
+					cssData = this.data.iTextFalse;
 				}
 
 			%>
 
-            <%== cssData.text %> t6
+            <%== cssData %> t7
             <%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
 
 		</div>
