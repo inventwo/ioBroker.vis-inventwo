@@ -909,7 +909,7 @@ vis.binds["vis-inventwo"] = {
 				    box-shadow: ` + data.attr('iShadowXOffset') + 'px ' + data.attr('iShadowYOffset') + 'px ' + data.attr('iShadowBlur') + 'px ' + data.attr('iShadowSpread') + 'px ' + cssData.shadowCol + `,
 							    inset ` + data.attr('iShadowInnerXOffset') + 'px ' + data.attr('iShadowInnerYOffset') + 'px ' + data.attr('iShadowInnerBlur') + 'px ' + data.attr('iShadowInnerSpread') + 'px ' + cssData.shadowInnerCol + `;
 				    border: ` + data.attr('iBorderSize') + 'px ' + data.attr('iBorderStyle') + ' ' + cssData.borderCol + `;">
-
+<!--
 			<div class="vis-inventwo-button-content"
 				 style="opacity: ` + data.attr('iOpacityCtn') + `;
 					 	justify-content: ` + cssData.vertTextAlign + `;
@@ -934,7 +934,7 @@ vis.binds["vis-inventwo"] = {
 					` + cssData.text + `
 				</div>
 
-			</div>
+			</div>-->
 
 		</div>`;
 
