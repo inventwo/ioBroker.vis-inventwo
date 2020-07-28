@@ -941,6 +941,4 @@ vis.binds["vis-inventwo"] = {
 		return "teseet";
 	}
 
-
-
 };
