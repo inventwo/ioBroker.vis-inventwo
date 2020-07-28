@@ -906,6 +906,8 @@ vis.binds["vis-inventwo"] = {
 		else if(data.iTextAlign == 'iEnd')
 			cssData.textAlign = "flex-end";
 
+		console.log(cssData);
+/*
 		let html = `
 		<div class="vis-inventwo-button"
 			 style="background: ` + cssData.backCol + `;
@@ -940,9 +942,9 @@ vis.binds["vis-inventwo"] = {
 
 			</div>
 
-		</div>`;
+		</div>`;*/
 
-		return html;
+		return "test";
 	}
 
 
