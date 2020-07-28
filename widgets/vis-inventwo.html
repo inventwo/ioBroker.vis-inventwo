@@ -87,7 +87,7 @@
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
-            <%== vis.binds['vis-inventwo'].getButton(el, this.data) %>
+            <%= (el) -> vis.binds['vis-inventwo'].getButton(el, this.data) %>
 
             <%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
 

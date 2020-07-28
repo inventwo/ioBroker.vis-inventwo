@@ -822,7 +822,7 @@ vis.binds["vis-inventwo"] = {
 		}
 	},
 
-	getButton: function (data) {
+	getButton: function (el, data) {
 
 		let cssData = {test: "tests"};
 /*
@@ -938,7 +938,9 @@ vis.binds["vis-inventwo"] = {
 
 		</div>`;*/
 
-		return "teseet";
+		$(el).html("<div>teessssstt</div>");
+
+
 	}
 
 };
