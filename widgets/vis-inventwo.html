@@ -775,10 +775,11 @@
             						"></div>
             		    <img
             		    	<% if(vis.states.attr(this.data.oid + '.val') == this.data.iValue) { %>
-            		    		src='<%= this.data.attr('iImageTrue') %>' width="<%= this.data.iIconSize %>"
+            		    		src='<%= this.data.attr('iImageTrue') %>'
             		    	<% } else { %>
             		    		src='<%= this.data.attr('iImageFalse') %>'
             		    	<% } %>
+            		    	 width="<%= this.data.iIconSize %>"
             		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
             		    	 		transform: scaleX(<%= cssData.flip %>) rotateZ(<%= this.data.iImgRotation %>deg);">
 
@@ -808,7 +809,7 @@
 
 </script>
 
-<!--
+
 <script id="i-vis-radiobutton-list"
 		type="text/ejs"
 		class="vis-tpl"
@@ -998,7 +999,7 @@
 
 	</div>
 </script>
--->
+
 
 <!--
 <script id="i-vis-popup"
