@@ -870,11 +870,23 @@
 		data-vis-beta="true"
 		data-vis-name="Radiobutton List">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
-		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
-			<%
-				let cssData = {};
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:auto; height:auto; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+		<%
+			let cssData = {};
 
+			if(this.data.iRadiobtnAlign == 'vertical'){
+				cssData.align = "column";
+				cssData.marginDir = "bottom";
+			}
+			else if(this.data.iRadiobtnAlign == 'horizontal'){
+				cssData.align = "row";
+				cssData.marginDir = "right";
+			}
+
+		%>
+
+		<div class="vis-inventwo-class vis-widget-body vis-inventwo-radiobtnlist-body <%== this.data.attr('class') %>" style="flex-direction: <%= align %>">
+			<%
 				let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
 
 				cssData.flip = 1;
@@ -882,12 +894,14 @@
         	    	cssData.flip = -1;
         	    }
 
-        	    if(this.data.iRadiobtnAlign == "vertical"){
-        	    	cssData.marginDir = "bottom";
-        	    }
-        	    else{
-        	    	cssData.marginDir = "right";
-        	    }
+        	    if(this.data.iRadiobtnAlign == 'vertical'){
+					cssData.align = "column";
+					cssData.marginDir = "bottom";
+				}
+				else if(this.data.iRadiobtnAlign == 'horizontal'){
+					cssData.align = "row";
+					cssData.marginDir = "right";
+				}
 
 				//Vertikale Inhaltsausrichtung
         	    let vertTextAlign = "";
