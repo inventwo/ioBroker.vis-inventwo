@@ -965,7 +965,7 @@
             				 		margin: <%= this.data.iImgSpaceTop + 'px ' + this.data.iImgSpaceRight + 'px ' + this.data.iImgSpaceBottom + 'px ' + this.data.iImgSpaceLeft + 'px' %>;">
 
             			    	<img
-            			    		<% if(((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) && this.data.attr('iImageTrue' + val) != "") { %>
+            			    		<% if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iRadiobtnValue' + val)) { %>
             			    			src='<%= this.data.attr('iImageTrue' + val) %>'
             			    		<% } else if(this.data.attr('iImageFalse' + val) != ""){ %>
             			    			src='<%= this.data.attr('iImageFalse' + val) %>'
