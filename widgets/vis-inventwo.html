@@ -962,6 +962,7 @@
 
 		<div class="vis-inventwo-class vis-widget-body vis-inventwo-radiobtnlist-body <%== this.data.attr('class') %>" style="flex-direction: <%= cssData.align %>">
 			<%
+
 				let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
 
 				cssData.flip = 1;
@@ -1054,7 +1055,6 @@
             			    	 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
             			    <% } %>
             			</div>
-
             			<div class="vis-inventwo-button-text"
             				 style="font-size: <%= this.data.iTextSize %>px;
             				 		color:<%= this.data.iTextColor %>;
