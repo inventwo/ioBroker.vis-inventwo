@@ -9,6 +9,12 @@
     height: 100%;
 }
 
+.vis-inventwo-button-new {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
 .vis-inventwo-button-active {
 	background-color: #455618;
 }

@@ -141,7 +141,7 @@
 					cssData.textAlign = "flex-end";
 			%>
 
-            <div class="vis-inventwo-button"
+            <div class="vis-inventwo-button-new"
             	<% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
                  style="background: <%= this.data.attr('iButtonActive') + hexTrans%>;
             	     	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
@@ -324,7 +324,7 @@
 					cssData.textAlign = "flex-end";
 			%>
 
-            <div class="vis-inventwo-button"
+            <div class="vis-inventwo-button-new"
 				 style="background: <%= this.data.attr('iButtonCol') + hexTrans%>;
             	     	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
             	     	box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + this.data.attr('iShadowColor') + hexTrans%>,
@@ -549,7 +549,7 @@
 				else if(this.data.iTextAlign == 'iEnd')
 					cssData.textAlign = "flex-end";
 			%>
-			<div class="vis-inventwo-button vis-inventwo-nav"
+			<div class="vis-inventwo-button-new vis-inventwo-nav"
             	 data-inventwo-nav="<%= this.data.nav_view%>"
             	 data-back-col-active="<%= navCssData.backColActive%>"
             	 data-back-col="<%= navCssData.backCol%>"
@@ -753,7 +753,7 @@
 
 			%>
 
-            <div class="vis-inventwo-button">
+            <div class="vis-inventwo-button-new">
 
             	<div class="vis-inventwo-button-content"
             		 style="opacity: <%= this.data.attr('iOpacityCtn') %>;
@@ -935,13 +935,13 @@
 			%>
 
 			<% for(let val = 1; val <= this.data.iRadiobtnsCount; val++){ %>
-
+<!--
 			<div style="width: <%= this.data.attr('iRadiobtnWidth') %>px;
 						height: <%= this.data.attr('iRadiobtnHeight') %>px;
 						position: relative;
 						margin-<%= marginDir %>: <%= this.data.iRadiobtnSpace %>px;">
 
-            	<div class="vis-inventwo-button"
+            	<div class="vis-inventwo-button-new"
             		<% if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iRadiobtnValue' + val)) { %>
             	     style="background: <%= this.data.attr('iButtonActive') + hexTrans%>;
             		     	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
@@ -992,8 +992,8 @@
             	</div>
 
             	<%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, this.data,this.data.attr('iRadiobtnValue' + val)) %>
-            </div>
-
+            </div>-->
+				test <%== this.data.attr.('iRadiobtnText' + val) %>
             <% } %>
 		</div>
 
