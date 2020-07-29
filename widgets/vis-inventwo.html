@@ -932,9 +932,14 @@
 
 			<% for(let val = 1; val <= this.data.iRadiobtnsCount; val++){ %>
 
+			<div style="width: <%= this.data.attr('iRadiobtnWidth') %>px;
+						height: <%= this.data.attr('iRadiobtnHeight') %>px;
+						position: relative;
+						margin-<%= marginDir %>: <%= this.data.iRadiobtnSpace %>px;">
+
             	teeessGFGFGt
 
-
+            </div>
 
 			<% } %>
 		</div>
