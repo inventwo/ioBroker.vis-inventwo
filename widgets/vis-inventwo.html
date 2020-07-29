@@ -494,12 +494,11 @@
 				cssData.shadowInnerCol = cssData.shadowInnerCol + hexTrans;
 				cssData.borderCol = cssData.borderCol + hexTrans;
 
-				let flip = 1;
+				cssData.flip = 1;
             	if(this.data.attr('iFlipImage')){
             		cssData.flip = -1;
             	}
 
-            	let showImg = "";
             	if(cssData.btnImg == "" || cssData.btnImg == undefined){
             		cssData.showImg = "none";
             	}
@@ -808,7 +807,7 @@
 
 </script>
 
-<!--
+
 <script id="i-vis-radiobutton-list"
 		type="text/ejs"
 		class="vis-tpl"
@@ -998,7 +997,7 @@
 
 	</div>
 </script>
--->
+
 
 <!--
 <script id="i-vis-popup"
