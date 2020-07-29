@@ -550,9 +550,51 @@
 				else if(this.data.iTextAlign == 'iEnd')
 					cssData.textAlign = "flex-end";
 			%>
+			<div class="vis-inventwo-button vis-inventwo-nav"
+            	 data-inventwo-nav="<%= this.data.nav_view%>"
+            	 data-back-col-active="<%= navCssData.backColActive%>"
+            	 data-back-col="<%= navCssData.backCol%>"
+            	 data-btn-img-active="<%= navCssData.btnImgActive%>"
+            	 data-btn-img="<%= navCssData.btnImg%>"
+            	 data-shadow-active="<%= navCssData.shadowActive%>"
+            	 data-shadow="<%= navCssData.shadow%>"
+            	 data-border-col-active="<%= navCssData.borderColActive%>"
+            	 data-border-col="<%= navCssData.borderCol%>"
+            	 data-text-active="<%= navCssData.textActive%>"
+            	 data-text="<%= navCssData.text%>"
 
-tt
-            teeest
+                 style="background: <%= cssData.backCol %>;
+            	     	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+            	     	box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + cssData.shadowCol %>,
+            	     				inset <%= this.data.attr('iShadowInnerXOffset') + 'px ' + this.data.attr('iShadowInnerYOffset') + 'px ' + this.data.attr('iShadowInnerBlur') + 'px ' + this.data.attr('iShadowInnerSpread') + 'px ' + cssData.shadowInnerCol %>;
+            	     	border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + cssData.borderCol %>;">
+
+            	<div class="vis-inventwo-button-content"
+            		 style="opacity: <%= this.data.attr('iOpacityCtn') %>;
+            		 		justify-content: <%= cssData.vertTextAlign %>;
+            		 		flex-direction: <%= cssData.contFlexDir %>;
+            		 		">
+
+            		<div class="vis-inventwo-button-imageContainer"
+            			 style="display: <%= cssData.showImg%>;
+            			 		order: <%= cssData.orderContent %>;
+            			 		align-self: <%= cssData.imgAlign %>;
+            			 		margin: <%= this.data.iImgSpaceTop + 'px ' + this.data.iImgSpaceRight + 'px ' + this.data.iImgSpaceBottom + 'px ' + this.data.iImgSpaceLeft + 'px' %>;">
+            		    <img src='<%= cssData.btnImg %>' width="<%= this.data.iIconSize %>"
+            		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
+            		    	 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
+            		</div>
+            		<div class="vis-inventwo-button-text"
+            			 style="font-size: <%= this.data.iTextSize %>px;
+            			 		color:<%= this.data.iTextColor %>;
+            			 		margin: <%= this.data.iTextSpaceTop + 'px ' + this.data.iTextSpaceRight + 'px ' + this.data.iTextSpaceBottom + 'px ' + this.data.iTextSpaceLeft + 'px' %>;
+            			 		align-self: <%= cssData.textAlign %>;">
+            		    <%== cssData.text %>
+		    		</div>
+
+            	</div>
+
+            </div>
 		</div>
 
 	</div>
