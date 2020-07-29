@@ -946,7 +946,7 @@
 						margin-<%= cssData.marginDir %>: <%= this.data.iRadiobtnSpace %>px;">
 
 				<div class="vis-inventwo-button-new"
-            	<% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+            	<% if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iRadiobtnValue' + val)) { %>
                  style="background: <%= this.data.attr('iButtonActive') + hexTrans%>;
             	     	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
             	     	box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + this.data.attr('iShadowColorActive') + hexTrans%>,
@@ -960,9 +960,36 @@
             	     	border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + this.data.attr('iBorderColor') + hexTrans %>;"
             	<% } %> >
 
+					<div class="vis-inventwo-button-content"
+            		 	 style="opacity: <%= this.data.attr('iOpacityCtn') %>;
+            		 			justify-content: <%= cssData.vertTextAlign %>;
+            		 			flex-direction: <%= cssData.contFlexDir %>;">
 
+            		<div class="vis-inventwo-button-imageContainer"
+            			 style="order: <%= cssData.orderContent %>;
+            			 		align-self: <%= cssData.imgAlign %>;
+            			 		margin: <%= this.data.iImgSpaceTop + 'px ' + this.data.iImgSpaceRight + 'px ' + this.data.iImgSpaceBottom + 'px ' + this.data.iImgSpaceLeft + 'px' %>;">
+            			<% if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iRadiobtnValue' + val)) { %>
+            		    	<img src='<%= this.data.attr('iImageTrue') %>' width="<%= this.data.iIconSize %>"
+            		    		 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
+            		    		 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
+            		    <% } else if(this.data.attr('iImageFalse') != ""){ %>
+            		    	<img src='<%= this.data.attr('iImageFalse') %>' width="<%= this.data.iIconSize %>"
+            		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
+            		    	 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
+            		    <% } %>
+            		</div>
+            		<div class="vis-inventwo-button-text"
+            			 style="font-size: <%= this.data.iTextSize %>px;
+            			 		color:<%= this.data.iTextColor %>;
+            			 		margin: <%= this.data.iTextSpaceTop + 'px ' + this.data.iTextSpaceRight + 'px ' + this.data.iTextSpaceBottom + 'px ' + this.data.iTextSpaceLeft + 'px' %>;
+            			 		align-self: <%= cssData.textAlign %>;">
 
-            		tejh
+            			<%== this.data.attr('iRadiobtnText' + val) %>
+		    		</div>
+
+            	</div>
+
             	</div>
 
             </div>
