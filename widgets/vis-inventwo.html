@@ -765,19 +765,22 @@
     							justify-content: center;
     							align-items: center;"
     				>
-						<% if(vis.states.attr(this.data.oid + '.val') == this.data.iValue) { %>
+
             			<div style="width: 100%; height: 100%; position: absolute;
-            						background: radial-gradient(ellipse, <%= this.data.attr('iShadowColorActive') + hexTrans %>, transparent <%= this.data.iShadowSpread %>px);"></div>
-            		    <img src='<%= this.data.attr('iImageTrue') %>' width="<%= this.data.iIconSize %>"
+            					<% if(vis.states.attr(this.data.oid + '.val') == this.data.iValue) { %>
+            						background: radial-gradient(ellipse, <%= this.data.attr('iShadowColorActive') + hexTrans %>, transparent <%= this.data.iShadowSpread %>px);
+            					<% } else { %>
+            						background: radial-gradient(ellipse, <%= this.data.attr('iShadowColor') + hexTrans %>, transparent <%= this.data.iShadowSpread %>px);
+            					<% } %>
+            						"></div>
+            		    <img
+            		    	<% if(vis.states.attr(this.data.oid + '.val') == this.data.iValue) { %>
+            		    		src='<%= this.data.attr('iImageTrue') %>' width="<%= this.data.iIconSize %>"
+            		    	<% } else { %>
+            		    		src='<%= this.data.attr('iImageFalse') %>'
+            		    	<% } %>
             		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
-            		    	 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);">
-            		    <% } else { %>
-            		    <div style="width: 100%; height: 100%; position: absolute;
-            						background: radial-gradient(ellipse, <%= this.data.attr('iShadowColor') + hexTrans %>, transparent <%= this.data.iShadowSpread %>px);"></div>
-            		    <img src='<%= this.data.attr('iImageFalse') %>' width="<%= this.data.iIconSize %>"
-            		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
-            		    	 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);">
-            		    <% } %>
+            		    	 		transform: scaleX(<%= cssData.flip %>) rotateZ(<%= this.data.iImgRotation %>deg);">
 
             		</div>
             	</div>
@@ -805,7 +808,7 @@
 
 </script>
 
-
+<!--
 <script id="i-vis-radiobutton-list"
 		type="text/ejs"
 		class="vis-tpl"
@@ -995,7 +998,7 @@
 
 	</div>
 </script>
-
+-->
 
 <!--
 <script id="i-vis-popup"
