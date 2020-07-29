@@ -581,7 +581,7 @@
             			 		margin: <%= this.data.iImgSpaceTop + 'px ' + this.data.iImgSpaceRight + 'px ' + this.data.iImgSpaceBottom + 'px ' + this.data.iImgSpaceLeft + 'px' %>;">
             		    <img src='<%= cssData.btnImg %>' width="<%= this.data.iIconSize %>"
             		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
-            		    	 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
+            		    	 		transform: scaleX(<%= cssData.flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
             		</div>
             		<div class="vis-inventwo-button-text"
             			 style="font-size: <%= this.data.iTextSize %>px;
