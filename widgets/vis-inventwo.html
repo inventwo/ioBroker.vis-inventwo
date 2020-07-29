@@ -882,6 +882,13 @@
         	    	cssData.flip = -1;
         	    }
 
+        	    if(this.data.iRadiobtnAlign == "vertical"){
+        	    	cssData.marginDir = "bottom";
+        	    }
+        	    else{
+        	    	cssData.marginDir = "right";
+        	    }
+
 				//Vertikale Inhaltsausrichtung
         	    let vertTextAlign = "";
 				if(this.data.iContentVertAlign == 'iStart')
@@ -897,11 +904,9 @@
 				let contFlexDir = "";
 				if(this.data.iContentFlexDirection == "vertical"){
 					cssData.contFlexDir = "column";
-					marginDir = "bottom";
 				}
 				else if(this.data.iContentFlexDirection == "horizontal"){
 					cssData.contFlexDir = "row";
-					marginDir = "right";
 				}
 
 				//Inhaltsreihenfolge (Erst Bild dann Text oder erst Text dann Bild)
@@ -935,7 +940,7 @@
 			<div style="width: <%= this.data.attr('iRadiobtnWidth') %>px;
 						height: <%= this.data.attr('iRadiobtnHeight') %>px;
 						position: relative;
-						margin-<%= marginDir %>: <%= this.data.iRadiobtnSpace %>px;">
+						margin-<%= cssData.marginDir %>: <%= this.data.iRadiobtnSpace %>px;">
 
             	teeessGFGFGtooooo
 
