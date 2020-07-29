@@ -7,7 +7,7 @@
 
 <script type="text/javascript" src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
 
-<script id="i-vis-switch2"
+<script id="i-vis-switch"
 		type="text/ejs"
 		class="vis-tpl"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Switch.png">'
@@ -199,21 +199,187 @@
 	</div>
 </script>
 
-
-<script id="i-vis-switch"
+<script id="i-vis-button"
 		type="text/ejs"
 		class="vis-tpl"
-		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Switch.png">'
+		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Button.png">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
 						oid/id;
+						iText/html;
+						iImage/image;
+						iValue/text;"
+		data-vis-attrs0="group.i-css;
+						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
+						 iButtonCol[#333333]/color;
+						 iOpacityBack[1]/slider,0,1,0.1;
+
+						 iText-CornerSettings/custom,vis-inventwo.infoText,emptyText;
+						 iCornerRadiusUL[12]/slider,0,50,1;
+						 iCornerRadiusUR[0]/slider,0,50,1;
+						 iCornerRadiusLR[12]/slider,0,50,1;
+						 iCornerRadiusLL[0]/slider,0,50,1;
+
+						 iText-ContentSettings/custom,vis-inventwo.infoText,emptyText;
+						 iContentFlexDirection[vertical]/select,horizontal,vertical;
+						 iContentVertAlign[iSpace-between]/select,iStart,iCenter,iEnd,iSpace-between;
+						 iContentOrder[orderImgText]/select,orderTextImg,orderImgText;
+						 iOpacityCtn[1]/slider,0,1,0.1;
+
+						 iText-TextSettings/custom,vis-inventwo.infoText,emptyText;
+						 iTextColor[#ffffff]/color;
+						 iTextSize[12]/slider,0,50,1;
+						 iTextAlign[iStart]/select,iStart,iCenter,iEnd;
+						 iTextSpaceTop[0]/slider,0,50,1;
+						 iTextSpaceBottom[0]/slider,0,50,1;
+						 iTextSpaceLeft[0]/slider,0,50,1;
+						 iTextSpaceRight[0]/slider,0,50,1;
+
+						 iText-ImageSettings/custom,vis-inventwo.infoText,emptyText;
+						 iIconSize[35]/slider,0,200,1;
+						 iImgAlign[iCenter]/select,iStart,iCenter,iEnd;
+						 iImgRotation[0]/slider,0,180,1;
+						 iImgSpaceTop[0]/slider,0,50,1;
+						 iImgSpaceBottom[0]/slider,0,50,1;
+						 iImgSpaceLeft[0]/slider,0,50,1;
+						 iImgSpaceRight[0]/slider,0,50,1;
+						 iInvertImageCol/checkbox;
+						 iFlipImage/checkbox;
+
+						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
+						 iShadowXOffset[2]/slider,0,20,1;
+						 iShadowYOffset[2]/slider,0,20,1;
+						 iShadowBlur[2]/slider,0,20,1;
+						 iShadowSpread[1]/slider,0,20,1;
+						 iShadowColor[#111111]/color;
+
+						 iText-ShadowInnerSettings/custom,vis-inventwo.infoText,emptyText;
+						 iShadowInnerXOffset[0]/slider,0,20,1;
+						 iShadowInnerYOffset[0]/slider,0,20,1;
+						 iShadowInnerBlur[0]/slider,0,20,1;
+						 iShadowInnerSpread[0]/slider,0,20,1;
+						 iShadowInnerColor[#111111]/color;
+
+						 iText-BorderSettings/custom,vis-inventwo.infoText,emptyText;
+						 iBorderSize[0]/slider,0,20,1;
+						 iBorderStyle[none]/select,dotted,dashed,solid,double,groove,ridge,inset,outset,none;
+						 iBorderColor[#ffffff]/color;"
+		data-vis-set="vis-inventwo"
+		data-vis-type="ctrl"
+		data-vis-name="Button">
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
+		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
+
+			<%
+				let cssData = {};
+
+				let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
+
+				let flip = 1;
+            	if(this.data.attr('iFlipImage')){
+            		cssData.flip = -1;
+            	}
+
+				//Vertikale Inhaltsausrichtung
+            	let vertTextAlign = "";
+				if(this.data.iContentVertAlign == 'iStart')
+					cssData.vertTextAlign = "flex-start";
+				else if(this.data.iContentVertAlign == 'iCenter')
+					cssData.vertTextAlign = "center";
+				else if(this.data.iContentVertAlign == 'iEnd')
+					cssData.vertTextAlign = "flex-end";
+				else if(this.data.iContentVertAlign == 'iSpace-between')
+					cssData.vertTextAlign = "space-between";
+
+				//Inhaltsausrichtung (Reihe oder Spalte)
+				let contFlexDir = "";
+				if(this.data.iContentFlexDirection == "vertical")
+					cssData.contFlexDir = "column";
+				else if(this.data.iContentFlexDirection == "horizontal")
+					cssData.contFlexDir = "row";
+
+				//Inhaltsreihenfolge (Erst Bild dann Text oder erst Text dann Bild)
+				let orderContent = "";
+				if(this.data.iContentOrder == 'orderTextImg')
+					cssData.orderContent = 2;
+				else
+					cssData.orderContent = 0;
+
+				//
+				let imgAlign = "";
+				if(this.data.iImgAlign == 'iStart')
+					cssData.imgAlign = "flex-start";
+				else if(this.data.iImgAlign == 'iCenter')
+					cssData.imgAlign = "center";
+				else if(this.data.iImgAlign == 'iEnd')
+					cssData.imgAlign = "flex-end";
+
+				//
+				let textAlign = "";
+				if(this.data.iTextAlign == 'iStart')
+					cssData.textAlign = "flex-start";
+				else if(this.data.iTextAlign == 'iCenter')
+					cssData.textAlign = "center";
+				else if(this.data.iTextAlign == 'iEnd')
+					cssData.textAlign = "flex-end";
+			%>
+
+            <div class="vis-inventwo-button"
+				 style="background: <%= this.data.attr('iButtonCol') + hexTrans%>;
+            	     	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+            	     	box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + this.data.attr('iShadowColor') + hexTrans%>,
+            	     				inset <%= this.data.attr('iShadowInnerXOffset') + 'px ' + this.data.attr('iShadowInnerYOffset') + 'px ' + this.data.attr('iShadowInnerBlur') + 'px ' + this.data.attr('iShadowInnerSpread') + 'px ' + this.data.attr('iShadowInnerColor') + hexTrans%>;
+            	     	border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + this.data.attr('iBorderColor') + hexTrans %>;"
+
+            	<div class="vis-inventwo-button-content"
+            		 style="opacity: <%= this.data.attr('iOpacityCtn') %>;
+            		 		justify-content: <%= cssData.vertTextAlign %>;
+            		 		flex-direction: <%= cssData.contFlexDir %>;
+            		 		">
+
+            		<div class="vis-inventwo-button-imageContainer"
+            			 style="order: <%= cssData.orderContent %>;
+            			 		align-self: <%= cssData.imgAlign %>;
+            			 		margin: <%= this.data.iImgSpaceTop + 'px ' + this.data.iImgSpaceRight + 'px ' + this.data.iImgSpaceBottom + 'px ' + this.data.iImgSpaceLeft + 'px' %>;">
+
+            		    	<img src='<%= this.data.attr('iImage') %>' width="<%= this.data.iIconSize %>"
+            		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
+            		    	 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
+
+            		</div>
+            		<div class="vis-inventwo-button-text"
+            			 style="font-size: <%= this.data.iTextSize %>px;
+            			 		color:<%= this.data.iTextColor %>;
+            			 		margin: <%= this.data.iTextSpaceTop + 'px ' + this.data.iTextSpaceRight + 'px ' + this.data.iTextSpaceBottom + 'px ' + this.data.iTextSpaceLeft + 'px' %>;
+            			 		align-self: <%= cssData.textAlign %>;">
+
+            		    	<%== this.data.iText %>
+
+		    		</div>
+
+            	</div>
+
+            </div>
+
+            <%= (el) -> vis.binds['vis-inventwo'].state(el, this.data) %>
+		</div>
+
+	</div>
+</script>
+
+<script id="i-vis-navigation"
+		type="text/ejs"
+		class="vis-tpl"
+		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Nav.png">'
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
+						nav_view;
 						iTextFalse/html;
 						iTextTrue/html;
 						iImageFalse/image;
 						iImageTrue/image;
-						iValueType[boolean]/select,boolean,value;
-						iValueTypeInfo/custom,vis-inventwo.infoText,valueType;
-						iValueFalse/text;
-						iValueTrue/text;"
+						iNavWait[100]/number;
+						oid/id;
+						iNavValue/text;"
 		data-vis-attrs0="group.i-css;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
@@ -275,22 +441,24 @@
 						 iBorderColorActive[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Switch">
+		data-vis-name="Navigation">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
 			<%
 				let cssData = {};
+				let navCssData = {};
 
-				if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) {
+				let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
+
+				if(this.data.nav_view === vis.activeView) {
 					cssData.backCol = this.data.attr('iButtonActive');
 					cssData.btnImg = this.data.attr('iImageTrue');
 					cssData.shadowCol = this.data.attr('iShadowColorActive');
 					cssData.shadowInnerCol = this.data.attr('iShadowInnerColorActive');
 					cssData.borderCol = this.data.attr('iBorderColorActive');
 					cssData.text = this.data.iTextTrue;
-
 				}
 				else {
 					cssData.backCol = this.data.attr('iButtonCol');
@@ -301,7 +469,27 @@
 					cssData.text = this.data.iTextFalse;
 				}
 
-				let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
+				navCssData.backColActive = this.data.attr('iButtonActive') + hexTrans;
+				navCssData.btnImgActive = this.data.attr('iImageTrue');
+				navCssData.shadowActive = this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') +
+										  'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread')
+										  + 'px ' + this.data.attr('iShadowColorActive') + hexTrans + ", inset " +
+										  this.data.attr('iShadowInnerXOffset') + 'px ' + this.data.attr('iShadowInnerYOffset')
+										  + 'px ' + this.data.attr('iShadowInnerBlur') + 'px ' + this.data.attr('iShadowInnerSpread')
+										  + 'px ' + this.data.attr('iShadowInnerColorActive') + hexTrans;
+				navCssData.borderColActive = this.data.attr('iBorderColorActive') + hexTrans;
+				navCssData.textActive = this.data.iTextTrue;
+				navCssData.backCol = this.data.attr('iButtonCol') + hexTrans;
+				navCssData.btnImg = this.data.attr('iImageFalse');
+				navCssData.shadow = this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') +
+										  'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread')
+										  + 'px ' + this.data.attr('iShadowColor') + hexTrans + ", inset " +
+										  this.data.attr('iShadowInnerXOffset') + 'px ' + this.data.attr('iShadowInnerYOffset')
+										  + 'px ' + this.data.attr('iShadowInnerBlur') + 'px ' + this.data.attr('iShadowInnerSpread')
+										  + 'px ' + this.data.attr('iShadowInnerColor') + hexTrans;
+				navCssData.borderCol = this.data.attr('iBorderColor') + hexTrans;
+				navCssData.text = this.data.iTextFalse;
+
 				cssData.backCol = cssData.backCol + hexTrans;
 				cssData.shadowCol = cssData.shadowCol + hexTrans;
 				cssData.shadowInnerCol = cssData.shadowInnerCol + hexTrans;
@@ -364,7 +552,19 @@
 					cssData.textAlign = "flex-end";
 			%>
 
-            <div class="vis-inventwo-button"
+            <div class="vis-inventwo-button vis-inventwo-nav"
+            	 data-inventwo-nav="<%= this.data.nav_view%>"
+            	 data-back-col-active="<%= navCssData.backColActive%>"
+            	 data-back-col="<%= navCssData.backCol%>"
+            	 data-btn-img-active="<%= navCssData.btnImgActive%>"
+            	 data-btn-img="<%= navCssData.btnImg%>"
+            	 data-shadow-active="<%= navCssData.shadowActive%>"
+            	 data-shadow="<%= navCssData.shadow%>"
+            	 data-border-col-active="<%= navCssData.borderColActive%>"
+            	 data-border-col="<%= navCssData.borderCol%>"
+            	 data-text-active="<%= navCssData.textActive%>"
+            	 data-text="<%= navCssData.text%>"
+
                  style="background: <%= cssData.backCol %>;
             	     	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
             	     	box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + cssData.shadowCol %>,
@@ -397,13 +597,12 @@
             	</div>
 
             </div>
-            <%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
 
+            <%= (el) -> vis.binds['vis-inventwo'].handleNavigation(el, this.data) %>
 		</div>
 
 	</div>
 </script>
-
 
 <!--
 <script id="i-vis-switch"
