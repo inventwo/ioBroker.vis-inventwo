@@ -967,7 +967,7 @@
             			    	<img
             			    		<% if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iRadiobtnValue' + val)) { %>
             			    			src='<%= this.data.attr('iImageTrue' + val) %>'
-            			    		<% } else if(this.data.attr('iImageFalse' + val) != ""){ %>
+            			    		<% } else { %>
             			    			src='<%= this.data.attr('iImageFalse' + val) %>'
             			    		<% } %>
             			    		width="<%= this.data.iIconSize %>"
