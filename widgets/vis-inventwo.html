@@ -452,23 +452,6 @@
 
 				let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
 
-				if(this.data.nav_view === vis.activeView) {
-					cssData.backCol = this.data.attr('iButtonActive');
-					cssData.btnImg = this.data.attr('iImageTrue');
-					cssData.shadowCol = this.data.attr('iShadowColorActive');
-					cssData.shadowInnerCol = this.data.attr('iShadowInnerColorActive');
-					cssData.borderCol = this.data.attr('iBorderColorActive');
-					cssData.text = this.data.iTextTrue;
-				}
-				else {
-					cssData.backCol = this.data.attr('iButtonCol');
-					cssData.btnImg = this.data.attr('iImageFalse');
-					cssData.shadowCol = this.data.attr('iShadowColor');
-					cssData.shadowInnerCol = this.data.attr('iShadowInnerColor');
-					cssData.borderCol = this.data.attr('iBorderColor');
-					cssData.text = this.data.iTextFalse;
-				}
-
 				navCssData.backColActive = this.data.attr('iButtonActive') + hexTrans;
 				navCssData.btnImgActive = this.data.attr('iImageTrue');
 				navCssData.shadowActive = this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') +
@@ -489,11 +472,6 @@
 										  + 'px ' + this.data.attr('iShadowInnerColor') + hexTrans;
 				navCssData.borderCol = this.data.attr('iBorderColor') + hexTrans;
 				navCssData.text = this.data.iTextFalse;
-
-				cssData.backCol = cssData.backCol + hexTrans;
-				cssData.shadowCol = cssData.shadowCol + hexTrans;
-				cssData.shadowInnerCol = cssData.shadowInnerCol + hexTrans;
-				cssData.borderCol = cssData.borderCol + hexTrans;
 
 				cssData.flip = 1;
             	if(this.data.attr('iFlipImage')){
@@ -563,12 +541,12 @@
             	 data-border-col="<%= navCssData.borderCol%>"
             	 data-text-active="<%= navCssData.textActive%>"
             	 data-text="<%= navCssData.text%>"
-
-                 style="background: <%= cssData.backCol %>;
+            	 style="
             	     	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
-            	     	box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + cssData.shadowCol %>,
-            	     				inset <%= this.data.attr('iShadowInnerXOffset') + 'px ' + this.data.attr('iShadowInnerYOffset') + 'px ' + this.data.attr('iShadowInnerBlur') + 'px ' + this.data.attr('iShadowInnerSpread') + 'px ' + cssData.shadowInnerCol %>;
-            	     	border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + cssData.borderCol %>;">
+            	     	"
+
+
+            	>
 
             	<div class="vis-inventwo-button-content"
             		 style="opacity: <%= this.data.attr('iOpacityCtn') %>;
@@ -581,7 +559,8 @@
             			 		order: <%= cssData.orderContent %>;
             			 		align-self: <%= cssData.imgAlign %>;
             			 		margin: <%= this.data.iImgSpaceTop + 'px ' + this.data.iImgSpaceRight + 'px ' + this.data.iImgSpaceBottom + 'px ' + this.data.iImgSpaceLeft + 'px' %>;">
-            		    <img src='<%= cssData.btnImg %>' width="<%= this.data.iIconSize %>"
+            		    <% if(this.data.nav_view === vis.activeView) { %>
+            		    <img src='' width="<%= this.data.iIconSize %>"
             		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
             		    	 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
             		</div>
@@ -590,7 +569,6 @@
             			 		color:<%= this.data.iTextColor %>;
             			 		margin: <%= this.data.iTextSpaceTop + 'px ' + this.data.iTextSpaceRight + 'px ' + this.data.iTextSpaceBottom + 'px ' + this.data.iTextSpaceLeft + 'px' %>;
             			 		align-self: <%= cssData.textAlign %>;">
-            		    <%== cssData.text %>
 		    		</div>
 
             	</div>
