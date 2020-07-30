@@ -299,6 +299,10 @@ if (vis.editMode) {
 			"en": "If type is 'boolean', value fields can be empty",
 			"de": "Wenn Typ ist 'boolean', können Wert Felder leer bleiben"
 		},
+		"iReadOnly":{
+			"en": "Read only",
+			"de": "Nur lesend"
+		},
 		//#endregion
 
 		//#region Nav Settings
@@ -332,14 +336,6 @@ if (vis.editMode) {
 		"group_iRadioBtns":{
 			"en": "Radiobutton",
 			"de": "Radiobutton"
-		},
-		"iRadiobtnText":{
-			"en": "Text",
-			"de": "Text"
-		},
-		"iRadiobtnValue":{
-			"en": "Value",
-			"de": "Wert"
 		},
 		"iRadiobtnAlign":{
 			"en": "Alignment",
@@ -491,6 +487,10 @@ if (vis.editMode) {
 
 
 		//#region Custom Text
+		"iText-Empty": {
+			"en": "",
+			"de": ""
+		},
 		"iText-ImgSettings": {
 			"en": "<b>Image</b>",
 			"de": "<b>Bild</b>"
@@ -526,6 +526,10 @@ if (vis.editMode) {
 		"iText-ImageSettings": {
 			"en": "<b>Image</b>",
 			"de": "<b>Bild</b>"
+		},
+		"iText-ReadOnly": {
+			"en": "If checked, the widget can only read the datapoint and can't set it. Useful to only display the status",
+			"de": "Wenn ausgewählt kann das Widget den Datenpunkt nur lesen. Nützlich um nur den Status anzeigen zu lassen"
 		},
 		//#endregion
 	});
@@ -656,6 +660,9 @@ vis.binds["vis-inventwo"] = {
 		}
 		else if(data[1] === 'emptyText'){
 			text = '';
+		}
+		else if(data[1] === 'readOnlyInfo'){
+			text = 'iText-ReadOnly';
 		}
 
 		return { input: `<span>${_(text)}</span>` };

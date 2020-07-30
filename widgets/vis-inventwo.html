@@ -12,6 +12,8 @@
 		class="vis-tpl"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Switch.png">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
+						iText-Empty/custom,vis-inventwo.infoText,readOnlyInfo;
+						iReadOnly/checkbox;
 						oid/id;
 						iTextFalse/html;
 						iTextTrue/html;
@@ -192,8 +194,9 @@
             	</div>
 
             </div>
-            <%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
-
+            <% if(!this.data.iReadOnly) { %>
+            	<%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
+			<% } %>
 		</div>
 
 	</div>
