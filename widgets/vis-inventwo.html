@@ -887,7 +887,7 @@
 		data-vis-type="ctrl"
 		data-vis-name="Radiobutton List">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:auto; height:auto; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 
 		<%
 			let cssData = {};
@@ -960,6 +960,11 @@
 
 			<% for(let val = 1; val <= this.data.iRadiobtnsCount; val++){ %>
 
+			<div style="width: <%= this.data.attr('iRadiobtnWidth') %>px;
+						height: <%= this.data.attr('iRadiobtnHeight') %>px;
+						position: relative;
+						margin-<%= cssData.marginDir %>: <%= this.data.iRadiobtnSpace %>px;">
+
             <div class="vis-inventwo-button-new"
             	<% if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iValue' + val)) { %>
                  style="background: <%= this.data.attr('iButtonActive') + hexTrans%>;
@@ -1009,6 +1014,8 @@
 		    		</div>
 
             	</div>
+
+            </div>
 
             </div>
 
