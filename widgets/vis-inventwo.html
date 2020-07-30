@@ -812,16 +812,15 @@
 		class="vis-tpl"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Switch.png">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
-						oid/id;
-						iTextFalse/html;
-						iTextTrue/html;
-						iImageFalse/image;
-						iImageTrue/image;
-						iValueType[boolean]/select,boolean,value;
-						iValueTypeInfo/custom,vis-inventwo.infoText,valueType;
-						iValueFalse/text;
-						iValueTrue/text;"
-		data-vis-attrs0="group.i-css;
+						oid/id;"
+		data-vis-attrs0="iRadiobtnsCount[1]/number,0,100,1;group.iRadioBtns/byindex;
+						 iTextFalse(1-iRadiobtnsCount)/html;
+						 iTextTrue(1-iRadiobtnsCount)/html;
+						 iValue(1-iRadiobtnsCount)/text;
+						 iText-ImgSettings(1-iRadiobtnsCount)/custom,vis-inventwo.infoText,emptyText;
+						 iImageFalse(1-iRadiobtnsCount)/image;
+						 iImageTrue(1-iRadiobtnsCount)/image;"
+		data-vis-attrs1="group.i-css;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
 						 iButtonActive[#455618]/color;
@@ -941,8 +940,10 @@
 					cssData.textAlign = "flex-end";
 			%>
 
+			<% for(let val = 1; val <= this.data.iRadiobtnsCount; val++){ %>
+
             <div class="vis-inventwo-button-new"
-            	<% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+            	<% if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iValue' + val)) { %>
                  style="background: <%= this.data.attr('iButtonActive') + hexTrans%>;
             	     	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
             	     	box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + this.data.attr('iShadowColorActive') + hexTrans%>,
@@ -967,11 +968,11 @@
             			 		align-self: <%= cssData.imgAlign %>;
             			 		margin: <%= this.data.iImgSpaceTop + 'px ' + this.data.iImgSpaceRight + 'px ' + this.data.iImgSpaceBottom + 'px ' + this.data.iImgSpaceLeft + 'px' %>;">
             			<% if(((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) && this.data.attr('iImageTrue') != "") { %>
-            		    	<img src='<%= this.data.attr('iImageTrue') %>' width="<%= this.data.iIconSize %>"
+            		    	<img src='<%= this.data.attr('iImageTrue' + val) %>' width="<%= this.data.iIconSize %>"
             		    		 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
             		    		 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
             		    <% } else if(this.data.attr('iImageFalse') != ""){ %>
-            		    	<img src='<%= this.data.attr('iImageFalse') %>' width="<%= this.data.iIconSize %>"
+            		    	<img src='<%= this.data.attr('iImageFalse' + val) %>' width="<%= this.data.iIconSize %>"
             		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
             		    	 		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
             		    <% } %>
@@ -983,16 +984,17 @@
             			 		align-self: <%= cssData.textAlign %>;">
 
             			<% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
-            		    	<%== this.data.iTextTrue %>
+            		    	<%== this.data.attr('iTextTrue' + val) %>
             		    <% } else { %>
-            		    	<%== this.data.iTextFalse %>
+            		    	<%== this.data.attr('iTextFalse' + val) %>
             		    <% } %>
 		    		</div>
 
             	</div>
 
             </div>
-            <%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
+
+            <% } %>
 
 		</div>
 
