@@ -488,8 +488,8 @@ if (vis.editMode) {
 
 		//#region Custom Text
 		"iText-Empty": {
-			"en": "",
-			"de": ""
+			"en": " ",
+			"de": " "
 		},
 		"iText-ImgSettings": {
 			"en": "<b>Image</b>",
