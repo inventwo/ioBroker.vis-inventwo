@@ -812,7 +812,11 @@
 		class="vis-tpl"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Switch.png">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
-						oid/id;"
+						oid/id;
+						iRadiobtnWidth[100]/slider,50,200,1;
+						iRadiobtnHeight[50]/slider,10,200,1;
+						iRadiobtnSpace[10]/slider,0,100,1;
+						iRadiobtnAlign[horizontal]/select,vertical,horizontal;"
 		data-vis-attrs0="iRadiobtnsCount[1]/number,0,100,1;group.iRadioBtns/byindex;
 						 iTextFalse(1-iRadiobtnsCount)/html;
 						 iTextTrue(1-iRadiobtnsCount)/html;
@@ -884,10 +888,24 @@
 		data-vis-name="Radiobutton List">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
-		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
+
+		<%
+			let cssData = {};
+
+			if(this.data.iRadiobtnAlign == 'vertical'){
+				cssData.align = "column";
+				cssData.marginDir = "bottom";
+			}
+			else if(this.data.iRadiobtnAlign == 'horizontal'){
+				cssData.align = "row";
+				cssData.marginDir = "right";
+			}
+
+		%>
+
+		<div class="vis-inventwo-class vis-widget-body vis-inventwo-radiobtnlist-body <%== this.data.attr('class') %>" style="flex-direction: <%= cssData.align %>">
 
 			<%
-				let cssData = {};
 
 				let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
 
