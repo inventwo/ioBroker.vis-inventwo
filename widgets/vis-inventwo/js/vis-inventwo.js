@@ -801,9 +801,8 @@ vis.binds["vis-inventwo"] = {
 		$(el).html(output);
 	},
 
-	radiobutton: function (el, data, val) {
+	radiobutton: function (el, oid, val) {
 		var $this = $(el);
-		var oid = data.oid;
 
 		if (!vis.editMode) {
 			var moved = false;
