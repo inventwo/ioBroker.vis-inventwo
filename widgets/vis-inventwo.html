@@ -1020,7 +1020,7 @@
 						height: <%= this.data.attr('iRadiobtnHeight') %>px;
 						position: relative;
 						margin-<%= cssData.marginDir %>: <%= this.data.iRadiobtnSpace %>px;">
-<!--
+
 				<div class="vis-inventwo-button-new"
             	<% if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iRadiobtnValue' + val)) { %>
                  style="background: <%= this.data.attr('iButtonActive') + hexTrans%>;
@@ -1035,7 +1035,7 @@
             	     				inset <%= this.data.attr('iShadowInnerXOffset') + 'px ' + this.data.attr('iShadowInnerYOffset') + 'px ' + this.data.attr('iShadowInnerBlur') + 'px ' + this.data.attr('iShadowInnerSpread') + 'px ' + this.data.attr('iShadowInnerColor') + hexTrans%>;
             	     	border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + this.data.attr('iBorderColor') + hexTrans %>;"
             	<% } %> >
-
+<!--
 					<div class="vis-inventwo-button-content"
             		 	 style="opacity: <%= this.data.attr('iOpacityCtn') %>;
             		 			justify-content: <%= cssData.vertTextAlign %>;
@@ -1064,10 +1064,10 @@
             				<%== this.data.attr('iRadiobtnText' + val) %>
 
 		    			</div>
-            		</div>
+            		</div>-->
             		testgg
-            	</div>-->
-            	<%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, this.data) %>
+            	</div>
+
             </div>
 			<% } %>
 		</div>
