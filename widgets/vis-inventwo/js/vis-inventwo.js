@@ -1,6 +1,6 @@
 /*
 	ioBroker.vis vis-inventwo Widget-Set
-	version: "0.1.2"
+	version: "2.0.0"
 	Copyright 2020 jkvarel jkvarel@inventwo.com
 */
 "use strict";
@@ -674,9 +674,17 @@ vis.binds["vis-inventwo"] = {
 	},
 	infoText: function (widAttr, data) {
 		let text = '';
+
 		if (data[1] === 'valueType') {
-			text = 'iValueTypeText'
+			text = 'iValueTypeText';
 		}
+		else if(data[1] === 'emptyText'){
+			text = '';
+		}
+		else if(data[1] === 'readOnlyInfo'){
+			text = 'iText-ReadOnly';
+		}
+
 		return { input: `<span>${_(text)}</span>` };
 	},
 	handleSlider: function (el,data,options) {
