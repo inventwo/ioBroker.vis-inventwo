@@ -10,8 +10,10 @@
     height: 100%;
 }
 
-.vis-inventwo-button-active {
-    background-color: #455618;
+.vis-inventwo-button-new {
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 .vis-inventwo-button-imageContainer {
@@ -61,3 +63,8 @@
     padding-left: 5px;
     padding-right: 5px;
 }
+.vis-inventwo-radiobtnlist-body{
+    display: flex;
+}
+
+

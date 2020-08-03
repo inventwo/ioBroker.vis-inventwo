@@ -820,5 +820,24 @@ vis.binds["vis-inventwo"] = {
 		$(el).html(output);
 	},
 
+	radiobutton: function (el, oid, val) {
+		var $this = $(el);
+
+		if (!vis.editMode) {
+			var moved = false;
+			$this.parent().on('click touchend', function () {
+				if (vis.detectBounce(this)) return;
+				if (moved) return;
+
+				vis.setValue(oid, val);
+
+			}).on('touchmove', function () {
+				moved = true;
+			}).on('touchstart', function () {
+				moved = false;
+			});
+
+		}
+	},
 
 };
