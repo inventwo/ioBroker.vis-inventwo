@@ -169,10 +169,23 @@
 		data-vis-type="ctrl"
 		data-vis-name="Switch<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" <% vis.binds['vis-inventwo'].btnTest(this.data.wid, this.data) %> >
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
-dsfssfdjljl
+            <div class="vis-inventwo-button"
+                <% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+                    style="background: <%= this.data.attr('iButtonActive') %>;
+                    border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+                    opacity:<%= this.data.attr('iOpacity')%>;"
+                <% } else { %>
+                    style="background: <%= this.data.attr('iButtonCol') %>;
+                    border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+                    opacity:<%= this.data.attr('iOpacity')%>;"
+                <% } %>
+            >
+		    </div>
+
+
             <%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
 		</div>
 

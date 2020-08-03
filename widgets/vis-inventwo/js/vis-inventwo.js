@@ -820,34 +820,5 @@ vis.binds["vis-inventwo"] = {
 		$(el).html(output);
 	},
 
-	btnTest: function (wid,data) {
-
-		let color = "";
-
-		if((vis.states.attr(data.oid + '.val') && data.iValueType == 'boolean') || (vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value')){
-			color = data.iButtonActive;
-		}
-		else{
-			color = data.iButtonCol;
-		}
-
-		let html = "";
-
-		html = "<div style='";
-
-		if((vis.states.attr(data.oid + '.val') && data.iValueType == 'boolean') || (vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value')){
-			html = "background: " + data.iButtonActive + ";";
-		}
-		else{
-			html = "background: " + data.iButtonCol + ";";
-		}
-
-		html = "'>test</div";
-
-		$('#' + wid).html(html);
-
-
-	},
-
 
 };
