@@ -1,3 +1,4 @@
+
 /* Style your widget here */
 
 /* BUTTONS ANFANG */
@@ -9,22 +10,24 @@
     height: 100%;
 }
 
-.vis-inventwo-button-new {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
 .vis-inventwo-button-active {
-	background-color: #455618;
+    background-color: #455618;
 }
 
 .vis-inventwo-button-imageContainer {
-
+    text-align: center;
+    position:relative;
+    z-index: 1;
 }
 
 .vis-inventwo-button-text {
-
+    position: relative;
+    align-self: flex-start;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+    margin-top: auto;
+    z-index: 1;
 }
 
 .vis-inventwo-button-content{
@@ -35,13 +38,13 @@
     right: 7px;
     bottom: 7px;
     display: flex;
+    flex-direction: column;
 }
 
 .vis-inventwo-button-content-small{
     /*padding: 7px;*/
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
     position: absolute;
     top: 7px;
     left: 7px;
@@ -57,8 +60,4 @@
 .vis-inventwo-json-table th, .vis-inventwo-json-table td{
     padding-left: 5px;
     padding-right: 5px;
-}
-
-.vis-inventwo-radiobtnlist-body{
-    display: flex;
 }

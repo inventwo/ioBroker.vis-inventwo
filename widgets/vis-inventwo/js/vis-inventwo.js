@@ -1,6 +1,6 @@
 /*
 	ioBroker.vis vis-inventwo Widget-Set
-	version: "2.0.0"
+	version: "0.1.2"
 	Copyright 2020 jkvarel jkvarel@inventwo.com
 */
 "use strict";
@@ -8,8 +8,6 @@
 
 if (vis.editMode) {
 	$.extend(true, systemDictionary, {
-
-		//#region General
 		"Instance": {
 			"en": "Instance",
 			"de": "Instanz"
@@ -18,91 +16,25 @@ if (vis.editMode) {
 			"en": "Object ID",
 			"de": "Objekt ID"
 		},
-		"iWiki":{
-			"en": "<b>Manual</b>",
-			"de": "<b>Anleitung</b>"
-		},
-		"iWikiText":{
-			"en": "<b>To the wiki</b>",
-			"de": "<b style='color: #9fdb58'>Zum Wiki</b>"
-		},
-		"iStart":{
-			"en": "Start",
-			"de": "Anfang"
-		},
-		"iEnd":{
-			"en": "End",
-			"de": "Ende"
-		},
-		"iCenter":{
-			"en": "Center",
-			"de": "Mitte"
-		},
-		"iSpace-between":{
-			"en": "Space between",
-			"de": "Platz dazwischen"
-		},
-		"group_i-css": {
-			"en": "CSS inventwo Widget",
-			"de": "CSS inventwo Widget"
-		},
-		//#endregion
-
-		//#region Content Settings
-		"iContentFlexDirection":{
-			"en": "Direction",
-			"de": "Richtung"
-		},
-		"iContentVertAlign": {
-			"en": "Align",
-			"de": "Ausrichtung"
-		},
-		"iContentOrder":{
-			"en": "Order",
-			"de": "Reihenfolge"
-		},
-		"orderTextImg":{
-			"en": "Text -> Image",
-			"de": "Text -> Bild"
-		},
-		"orderImgText":{
-			"en": "Image -> Text",
-			"de": "Bild -> Text"
-		},
-		"iOpacityCtn": {
-			"en": "Content opacity",
-			"de": "Inhalt Transparenz"
-		},
-		//#endregion
-
-		//#region Image Settings
-		"iImgRotation":{
-			"en": "Rotation",
-			"de": "Drehung"
-		},
-		"iImgAlign":{
-			"en": "Image align",
-			"de": "Bild Ausrichtung"
-		},
-		"iImgSpaceTop":{
-			"en": "Space top",
-			"de": "Abstand oben"
-		},
-		"iImgSpaceLeft":{
-			"en": "Space left",
-			"de": "Abstand links"
-		},
-		"iImgSpaceRight":{
-			"en": "Space right",
-			"de": "Abstand rechts"
-		},
-		"iImgSpaceBottom":{
-			"en": "Space bottom",
-			"de": "Abstand unten"
+		"iText": {
+			"en": "Label",
+			"de": "Beschriftung"
 		},
 		"iIconSize": {
 			"en": "Icon size",
 			"de": "Bild Größe"
+		},
+		"group_i-css": {
+			"en": "CSS inventwo Button",
+			"de": "CSS inventwo Button"
+		},
+		"iButtonCol": {
+			"en": "color",
+			"de": "Farbe"
+		},
+		"iTextSize": {
+			"en": "Label size",
+			"de": "Beschriftungsgröße"
 		},
 		"iImageFalse": {
 			"en": "Icon false",
@@ -115,68 +47,6 @@ if (vis.editMode) {
 		"iImage": {
 			"en": "Icon",
 			"de": "Bild"
-		},
-		"iFlipImage":{
-			"en": "Flip icon",
-			"de": "Bild spiegeln"
-		},
-		//#endregion
-
-		//#region Text Settings
-		"iTextSpaceTop":{
-			"en": "Space top",
-			"de": "Abstand oben"
-		},
-		"iTextAlign":{
-			"en": "Text align",
-			"de": "Text Ausrichtung"
-		},
-		"iTextSpaceLeft":{
-			"en": "Space left",
-			"de": "Abstand links"
-		},
-		"iTextSpaceRight":{
-			"en": "Space right",
-			"de": "Abstand rechts"
-		},
-		"iTextSpaceBottom":{
-			"en": "Space bottom",
-			"de": "Abstand unten"
-		},
-		"iText": {
-			"en": "Label",
-			"de": "Beschriftung"
-		},
-		"iTextSize": {
-			"en": "Label size",
-			"de": "Textgröße"
-		},
-		"iTextFalse": {
-			"en": "Label  false",
-			"de": "Beschriftung falsch"
-		},
-		"iTextTrue": {
-			"en": "Label true",
-			"de": "Beschriftung wahr"
-		},
-		"iTextColor": {
-			"en": "Text color",
-			"de": "Textfarbe "
-		},
-		"iInvertImageCol": {
-			"en": "Invert icon color",
-			"de": "Bildfarbe invertieren"
-		},
-		//#endregion
-
-		//#region Background Settings
-		"iButtonCol": {
-			"en": "Background",
-			"de": "Hintergrund"
-		},
-		"iButtonActive": {
-			"en": "Background active",
-			"de": "Hintergrund Aktiv"
 		},
 		"iCornerRadiusUL": {
 			"en": "Border radius upper left",
@@ -194,90 +64,46 @@ if (vis.editMode) {
 			"en": "Border radius lower left",
 			"de": "Abrundung unten links"
 		},
-		"iOpacityBack": {
-			"en": "Background opacity",
-			"de": "Hintergrund Transparenz"
+		"iOpacity": {
+			"en": "Button opacity",
+			"de": "Button Transparenz"
 		},
-		//#endregion
-
-		//#region Shadow Settingss
-		"iShadowXOffset":{
-			"en": "X offset",
-			"de": "X Versatz"
+		"iOpacityCtn": {
+			"en": "Content opacity",
+			"de": "Inhalt Transparenz"
 		},
-		"iShadowYOffset":{
-			"en": "Y offset",
-			"de": "Y Versatz"
+		"iOpacityImg": {
+			"en": "Image opacity",
+			"de": "Bild Transparenz"
 		},
-		"iShadowBlur":{
-			"en": "Blur",
-			"de": "Blur"
+		"iOpacityAll": {
+			"en": "Opacity",
+			"de": "Transparenz"
 		},
-		"iShadowSpread":{
-			"en": "Spread",
-			"de": "Größe"
+		"iTextFalse": {
+			"en": "Label  false",
+			"de": "Beschriftung falsch"
 		},
-		"iShadowColor":{
-			"en": "Color",
-			"de": "Farbe"
+		"iTextTrue": {
+			"en": "Label true",
+			"de": "Beschriftung wahr"
 		},
-		"iShadowColorActive":{
-			"en": "Color active",
-			"de": "Farbe Aktiv"
+		"iButtonActive": {
+			"en": "Active color",
+			"de": "Aktiv Farbe "
 		},
-		//#endregion
-
-		//#region Shadow Inner Settingss
-		"iShadowInnerXOffset":{
-			"en": "X offset",
-			"de": "X Versatz"
+		"iTextColor": {
+			"en": "Text color",
+			"de": "Textfarbe "
 		},
-		"iShadowInnerYOffset":{
-			"en": "Y offset",
-			"de": "Y Versatz"
+		"iInvertImageCol": {
+			"en": "Invert icon color",
+			"de": "Bildfarbe invertieren"
 		},
-		"iShadowInnerBlur":{
-			"en": "Blur",
-			"de": "Blur"
-		},
-		"iShadowInnerSpread":{
-			"en": "Spread",
-			"de": "Größe"
-		},
-		"iShadowInnerColor":{
-			"en": "Color",
-			"de": "Farbe"
-		},
-		"iShadowInnerColorActive":{
-			"en": "Color active",
-			"de": "Farbe Aktiv"
-		},
-		//#endregion
-
-		//#region Border Settingss
-		"iBorderSize":{
-			"en": "Width",
-			"de": "Breite"
-		},
-		"iBorderStyle":{
-			"en": "Style",
-			"de": "Stil"
-		},
-		"iBorderColor":{
-			"en": "Color",
-			"de": "Farbe"
-		},
-		"iBorderColorActive":{
-			"en": "Color active",
-			"de": "Farbe Aktiv"
-		},
-		//#endregion
-
-
-		//#region Switch & State Settings
 		"iValueType":{
 			"en": "Type",
 			"de": "Typ"
+
 		},
 		"iValueFalse":{
 			"en": "Value false",
@@ -287,10 +113,6 @@ if (vis.editMode) {
 			"en": "Value true",
 			"de": "Wert wahr"
 		},
-		"iValue":{
-			"en": "Value",
-			"de": "Wert"
-		},
 		"iValueTypeInfo":{
 			"en": "Type Info",
 			"de": "Typ Info"
@@ -299,51 +121,18 @@ if (vis.editMode) {
 			"en": "If type is 'boolean', value fields can be empty",
 			"de": "Wenn Typ ist 'boolean', können Wert Felder leer bleiben"
 		},
-		"iReadOnly":{
-			"en": "Read only",
-			"de": "Nur lesend"
+		"iWiki":{
+			"en": "Manual",
+			"de": "Anleitung"
 		},
-		//#endregion
-
-		//#region Nav Settings
+		"iWikiText":{
+			"en": "To the wiki",
+			"de": "Zum Wiki"
+		},
 		"iNavWait":{
 			"en": "Wait x milliseconds to check for active",
 			"de": "Warte x Millisekunden bis Prüfung auf aktiv"
 		},
-		"iNavValue":{
-			"en": "Value",
-			"de": "Wert"
-		},
-		//#endregion
-
-		//#region Radio Buttons
-		"iRadiobtnWidth":{
-			"en": "Button width",
-			"de": "Button Breite"
-		},
-		"iRadiobtnHeight":{
-			"en": "Button height",
-			"de": "Button Höhe"
-		},
-		"iRadiobtnSpace":{
-			"en": "Button space",
-			"de": "Button Abstand"
-		},
-		"iRadiobtnsCount":{
-			"en": "Count",
-			"de": "Anzahl"
-		},
-		"group_iRadioBtns":{
-			"en": "Radiobutton",
-			"de": "Radiobutton"
-		},
-		"iRadiobtnAlign":{
-			"en": "Alignment",
-			"de": "Ausrichtung"
-		},
-		//#endregion
-
-		//#regionSlider Settings
 		"iMinVal":{
 			"en": "Min. value",
 			"de": "Min. Wert"
@@ -408,9 +197,10 @@ if (vis.editMode) {
 			"en": "Pre text",
 			"de": "Text voranstellen"
 		},
-		//#endregion
-
-		//#region Table Settings
+		"iFlipImage":{
+			"en": "Flip icon",
+			"de": "Bild spiegeln"
+		},
 		"iTblShowHead":{
 			"en": "Table Head",
 			"de": "Tabellenkopf"
@@ -483,81 +273,24 @@ if (vis.editMode) {
 			"en": "Refresh rate (ms)",
 			"de": "Aktualisierung (ms)"
 		},
-		//#endregion
-
-
-		//#region Custom Text
-		"iText-Empty": {
-			"en": " ",
-			"de": " "
-		},
-		"iText-ImgSettings": {
-			"en": "<b>Image</b>",
-			"de": "<b>Bild</b>"
-		},
-		"iText-BackgroundSettings": {
-			"en": "<b>Background</b>",
-			"de": "<b>Hintergrund</b>"
-		},
-		"iText-CornerSettings": {
-			"en": "<b>Corners</b>",
-			"de": "<b>Ecken</b>"
-		},
-		"iText-ContentSettings": {
-			"en": "<b>Content</b>",
-			"de": "<b>Inhalt</b>"
-		},
-		"iText-ShadowSettings": {
-			"en": "<b>Outer shadow</b>",
-			"de": "<b>Schatten außen</b>"
-		},
-		"iText-ShadowInnerSettings": {
-			"en": "<b>Inner shadow</b>",
-			"de": "<b>Schatten innen</b>"
-		},
-		"iText-BorderSettings": {
-			"en": "<b>Border</b>",
-			"de": "<b>Umrandung</b>"
-		},
-		"iText-TextSettings": {
-			"en": "<b>Text</b>",
-			"de": "<b>Text</b>"
-		},
-		"iText-ImageSettings": {
-			"en": "<b>Image</b>",
-			"de": "<b>Bild</b>"
-		},
-		"iText-ReadOnly": {
-			"en": "If checked, the widget can only read the datapoint and can't set it. Useful to only display the status",
-			"de": "Wenn ausgewählt kann das Widget den Datenpunkt nur lesen. Nützlich um nur den Status anzeigen zu lassen"
-		},
-		//#endregion
+		"iNavValue":{
+			"en": "Value",
+			"de": "Wert"
+		}
 	});
 }
 
 vis.navChangeCallbacks.push(function (view) {
-	changeNavCss(view);
-});
 
-function changeNavCss(view){
 	$('.vis-inventwo-nav').each(function () {
-		let el = $(this);
-		if(el.attr('data-inventwo-nav') === view){
-			el.css('background',el.attr("data-back-col-active"));
-			el.find('img').attr('src', el.attr("data-btn-img-active"));
-			el.css('box-shadow',el.attr("data-shadow-active"));
-			el.css('border-color',el.attr("data-border-col-active"));
-			el.find('.vis-inventwo-button-text').html(el.attr("data-text-active"));
+		if($(this).attr('data-inventwo-nav') === view){
+			$(this).css('background-color',$(this).attr("data-activecol"));
 		}
 		else{
-			el.css('background',el.attr("data-back-col"));
-			el.find('img').attr('src', el.attr("data-btn-img"));
-			el.css('box-shadow',el.attr("data-shadow"));
-			el.css('border-color',el.attr("data-border-col"));
-			el.find('.vis-inventwo-button-text').html(el.attr("data-text"));
+			$(this).css('background-color',$(this).attr("data-col"));
 		}
 	});
-}
+});
 
 vis.binds["vis-inventwo"] = {
 
@@ -582,9 +315,13 @@ vis.binds["vis-inventwo"] = {
 				else{
 
 					if(val == valFalse){
+						if(!isNaN(valTrue))
+							valTrue = parseFloat(valTrue);
 						vis.setValue(oid, valTrue);
 					}
 					else{
+						if(!isNaN(valFalse))
+							valTrue = parseFloat(valFalse);
 						vis.setValue(oid, valFalse);
 					}
 				}
@@ -596,13 +333,18 @@ vis.binds["vis-inventwo"] = {
 			});
 
 		}
-	},
+		else{
+			if(data.iButtonCol.charAt(0) === "{"){
+				let str = (data.iButtonCol).substring(1,data.iButtonCol.length - 1);
 
+			}
+		}
+	},
 	handleNavigation: function (el, data) {
 		if (!vis.editMode && data.nav_view) {
 			var $this = $(el);
 			var moved = false;
-			$this.parent().on('click touchend', function (e) {
+			$this.on('click touchend', function (e) {
 				// Protect against two events
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
@@ -616,7 +358,15 @@ vis.binds["vis-inventwo"] = {
 				}
 
 				setTimeout(function () {
-					changeNavCss(vis.activeView);
+					$('.vis-inventwo-nav').each(function () {
+						if($(this).attr('data-inventwo-nav') === vis.activeView){
+							$(this).css('background-color',$(this).attr("data-activecol"));
+						}
+						else{
+							$(this).css('background-color',$(this).attr("data-col"));
+						}
+					});
+
 				},data.iNavWait);
 
 			}).on('touchmove', function () {
@@ -638,9 +388,9 @@ vis.binds["vis-inventwo"] = {
 		if (!vis.editMode) {
 
 			$this.parent().on('click touchend', function () {
-				if(!isNaN(data.iValue))
-					data.iValue = parseFloat(data.iValue);
-				vis.setValue(oid, data.iValue);
+				if(!isNaN(data.value))
+					data.value = parseFloat(data.value);
+				vis.setValue(oid, data.value);
 			});
 
 		}
@@ -654,17 +404,9 @@ vis.binds["vis-inventwo"] = {
 	},
 	infoText: function (widAttr, data) {
 		let text = '';
-
 		if (data[1] === 'valueType') {
-			text = 'iValueTypeText';
+			text = 'iValueTypeText'
 		}
-		else if(data[1] === 'emptyText'){
-			text = '';
-		}
-		else if(data[1] === 'readOnlyInfo'){
-			text = 'iText-ReadOnly';
-		}
-
 		return { input: `<span>${_(text)}</span>` };
 	},
 	handleSlider: function (el,data,options) {
@@ -806,26 +548,6 @@ vis.binds["vis-inventwo"] = {
 			}
 		}
 		$(el).html(output);
-	},
-
-	radiobutton: function (el, oid, val) {
-		var $this = $(el);
-
-		if (!vis.editMode) {
-			var moved = false;
-			$this.parent().on('click touchend', function () {
-				if (vis.detectBounce(this)) return;
-				if (moved) return;
-
-				vis.setValue(oid, val);
-
-			}).on('touchmove', function () {
-				moved = true;
-			}).on('touchstart', function () {
-				moved = false;
-			});
-
-		}
 	},
 
 
