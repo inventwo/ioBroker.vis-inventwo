@@ -542,6 +542,10 @@ if (vis.editMode) {
 			"en": "<b>Image</b>",
 			"de": "<b>Bild</b>"
 		},
+		"iText-ReadOnlyTitle": {
+			"en": "<b>Read only</b>",
+			"de": "<b>Nur Lesend</b>"
+		},
 		"iText-ReadOnly": {
 			"en": "If checked, the widget can only read the datapoint and can't set it. Useful to only display the status",
 			"de": "Wenn ausgewählt kann das Widget den Datenpunkt nur lesen. Nützlich um nur den Status anzeigen zu lassen"
