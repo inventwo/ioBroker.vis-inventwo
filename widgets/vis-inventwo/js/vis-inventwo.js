@@ -820,7 +820,7 @@ vis.binds["vis-inventwo"] = {
 		$(el).html(output);
 	},
 
-	btnTest: function (el,data) {
+	btnTest: function (wid,data) {
 
 		let color = "";
 
@@ -844,7 +844,7 @@ vis.binds["vis-inventwo"] = {
 
 		html = "'>test</div";
 
-		return html;
+		$('#' + wid).html(html);
 
 
 	},
