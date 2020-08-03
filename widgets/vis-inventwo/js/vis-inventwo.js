@@ -842,7 +842,7 @@ vis.binds["vis-inventwo"] = {
 			html = "backgroun: " + data.iButtonCol + ";";
 		}
 
-		html = "'>teeeeeest</div";
+		html = "'>teeeee eeeeeeest</div";
 
 		$(el).html(html);
 
