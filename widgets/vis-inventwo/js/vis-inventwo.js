@@ -852,4 +852,10 @@ vis.binds["vis-inventwo"] = {
 		}
 	},
 
+	updateUniversalDataFields: function (widAttr, data) {
+		console.log("TEEEEEEEEEEEEEEEEEEESST");
+		console.log(widAttr);
+		console.log(data);
+	},
+
 };
