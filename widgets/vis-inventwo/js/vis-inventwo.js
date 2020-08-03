@@ -836,10 +836,10 @@ vis.binds["vis-inventwo"] = {
 		html = "<div style='";
 
 		if((vis.states.attr(data.oid + '.val') && data.iValueType == 'boolean') || (vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value')){
-			html = "backgroun: " + data.iButtonActive + ";";
+			html = "background: " + data.iButtonActive + ";";
 		}
 		else{
-			html = "backgroun: " + data.iButtonCol + ";";
+			html = "background: " + data.iButtonCol + ";";
 		}
 
 		html = "'>teeeee eeeeeeest</div";

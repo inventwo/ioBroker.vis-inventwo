@@ -1,7 +1,7 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "1.3.137",
+		"version": "1.3.138",
 		"news": {
             "1.3.8": {
               "en": "Changed slider step to decimal, Fixed problem with numeric values",
