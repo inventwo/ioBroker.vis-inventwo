@@ -186,12 +186,16 @@ if (vis.editMode) {
 
 		//#region Background Settings
 		"iButtonCol": {
-			"en": "Background",
-			"de": "Hintergrund"
+			"en": "Color",
+			"de": "Farbe"
 		},
 		"iButtonActive": {
-			"en": "Background active",
-			"de": "Hintergrund Aktiv"
+			"en": "Color active",
+			"de": "Farbe Aktiv"
+		},
+		"iButtonActiveM": {
+			"en": "Background",
+			"de": "Hintergrund"
 		},
 		"iCornerRadiusUL": {
 			"en": "Border radius upper left",
@@ -210,8 +214,8 @@ if (vis.editMode) {
 			"de": "Abrundung unten links"
 		},
 		"iOpacityBack": {
-			"en": "Background opacity",
-			"de": "Hintergrund Transparenz"
+			"en": "opacity",
+			"de": "Transparenz"
 		},
 		//#endregion
 
@@ -240,6 +244,10 @@ if (vis.editMode) {
 			"en": "Color active",
 			"de": "Farbe Aktiv"
 		},
+		"iShadowColorActiveM":{
+			"en": "Outer Shadow",
+			"de": "Schatten außen"
+		},
 		//#endregion
 
 		//#region Shadow Inner Settingss
@@ -267,6 +275,10 @@ if (vis.editMode) {
 			"en": "Color active",
 			"de": "Farbe Aktiv"
 		},
+		"iShadowInnerColorActiveM":{
+			"en": "Inner shadow",
+			"de": "Schatten innen"
+		},
 		//#endregion
 
 		//#region Border Settingss
@@ -285,6 +297,10 @@ if (vis.editMode) {
 		"iBorderColorActive":{
 			"en": "Color active",
 			"de": "Farbe Aktiv"
+		},
+		"iBorderColorActiveM":{
+			"en": "Border",
+			"de": "Umrandung"
 		},
 		//#endregion
 
@@ -500,6 +516,49 @@ if (vis.editMode) {
 		},
 		//#endregion
 
+		//#region Universal & Multi Widget Settings
+		"iUniversalWidgetTypeInfo":{
+			"en": "Type info",
+			"de": "Typ Info"
+		},
+		"iUniversalWidgetTypeInfoText":{
+			"en": "Should it be a switch, state, navigation or background?",
+			"de": "Soll es ein Switch, State, Navigation oder Hintergrund sein?"
+		},
+		"iUniversalWidgetType":{
+			"en": "Widget type",
+			"de": "Widget Typ"
+		},
+		"iUniversalValueCount":{
+			"en": "Number of states",
+			"de": "Anzahl der Zustände"
+		},
+		"group_iUniversalValues":{
+			"en": "State",
+			"de": "Zustand"
+		},
+		"iRefreshDataFieldsInfo":{
+			"en": "---->",
+			"de": "---->"
+		},
+		"iRefreshDataFields":{
+			"en": "---->",
+			"de": "---->"
+		},
+		"iRefreshDataFieldsText":{
+			"en": "Click on the button below to hide unimportant fields for this widget",
+			"de": "Klicke auf den Button um nicht für das Widget relevante Felder zu verstecken"
+		},
+		"iRefreshBtnText":{
+			"en": "Refresh fields",
+			"de": "Felder neuladen"
+		},
+		"iView":{
+			"en": "View",
+			"de": "View"
+		},
+		//#endregion
+
 
 		//#region Custom Text
 		"iText-Empty": {
@@ -556,18 +615,69 @@ if (vis.editMode) {
 
 vis.navChangeCallbacks.push(function (view) {
 
-	$('.vis-inventwo-nav').each(function () {
-		if($(this).attr('data-inventwo-nav') === view){
-			$(this).css('background-color',$(this).attr("data-activecol"));
-		}
-		else{
-			$(this).css('background-color',$(this).attr("data-col"));
-		}
-	});
+	vis.binds["vis-inventwo"].iUpdateNavigations(0);
+
 });
 
 vis.binds["vis-inventwo"] = {
 
+	iUpdateNavigations: function (timeoutVal) {
+
+		if(timeoutVal <= 0){
+			$('#visview_'+ vis.activeView + '.vis-inventwo-nav, #visview_'+ vis.activeView +' .iUniversalNav').each(function (el) {
+
+				let id = $(this).parent().parent().attr('id');
+				let data = vis.views[vis.activeView].widgets[id].data;
+
+				if(data.iNavWait > timeoutVal)
+					timeoutVal = data.iNavWait;
+
+			});
+		}
+
+		setTimeout(function () {
+
+			$('.vis-inventwo-nav').each(function (el) {
+
+				if($(this).attr('data-inventwo-nav') === vis.activeView)
+					$(this).css('background-color',$(this).attr("data-activecol"));
+				else
+					$(this).css('background-color',$(this).attr("data-col"));
+
+			});
+
+			$('#visview_'+ vis.activeView +' .iUniversalNav').each(function () {
+				let id = $(this).parent().parent().attr('id');
+				let data = vis.views[vis.activeView].widgets[id].data;
+
+				if(data.nav_view === vis.activeView)
+					$(this).children().css('background',data.iButtonActive);
+				else
+					$(this).children().css('background',data.iButtonCol);
+
+			});
+
+			$('#visview_'+ vis.activeView +' .iMultiNav').each(function () {
+				let id = $(this).parent().parent().attr('id');
+				let data = vis.views[vis.activeView].widgets[id].data;
+				let stateFound = false;
+				for(let i = 1; i <= data.iUniversalValueCount; i++){
+					if(data['iView' + i] === vis.activeView){
+						stateFound = true;
+						$(this).children().css('background',data['iButtonActiveM' + i]);
+						break;
+					}
+				}
+				if(!stateFound){
+					$(this).children().css('background',data.iButtonCol);
+				}
+
+			});
+
+		},timeoutVal);
+
+
+	},
 	handleToggle: function (el, data) {
 
 		var $this = $(el);
@@ -607,18 +717,13 @@ vis.binds["vis-inventwo"] = {
 			});
 
 		}
-		else{
-			if(data.iButtonCol.charAt(0) === "{"){
-				let str = (data.iButtonCol).substring(1,data.iButtonCol.length - 1);
 
-			}
-		}
 	},
 	handleNavigation: function (el, data) {
 		if (!vis.editMode && data.nav_view) {
 			var $this = $(el);
 			var moved = false;
-			$this.on('click touchend', function (e) {
+			$this.parent().on('click touchend', function (e) {
 				// Protect against two events
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
@@ -631,17 +736,8 @@ vis.binds["vis-inventwo"] = {
 					vis.setValue(data.oid, data.iNavValue);
 				}
 
-				setTimeout(function () {
-					$('.vis-inventwo-nav').each(function () {
-						if($(this).attr('data-inventwo-nav') === vis.activeView){
-							$(this).css('background-color',$(this).attr("data-activecol"));
-						}
-						else{
-							$(this).css('background-color',$(this).attr("data-col"));
-						}
-					});
+				vis.binds['vis-inventwo'].iUpdateNavigations(data.iNavWait);
 
-				},data.iNavWait);
 
 			}).on('touchmove', function () {
 				moved = true;
@@ -651,7 +747,7 @@ vis.binds["vis-inventwo"] = {
 
 		}
 	},
-	state: function (el, data) {
+	state: function (el, data, type) {
 
 		var $this = $(el);
 
@@ -665,6 +761,37 @@ vis.binds["vis-inventwo"] = {
 				if(!isNaN(data.value))
 					data.value = parseFloat(data.value);
 				vis.setValue(oid, data.value);
+
+				console.log($(el).find('.vis-inventwo-button-new'));
+				if(type == 'universal') {
+					console.log("active");
+					let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data.iShadowColorActive + ',inset ' +
+						data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data.iShadowInnerColorActive;
+					let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
+					$this.find('.vis-inventwo-button-new').css('background', data.iButtonActive);
+					$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
+					$this.find('.vis-inventwo-button-new').css('border', border);
+					if(data.iImageTrue != undefined)
+						$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageTrue);
+					if(data.iTextTrue != undefined)
+						$this.find('.vis-inventwo-button-text').html(data.iTextTrue);
+
+					setTimeout(function () {
+						console.log("inactive");
+						let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data.iShadowColor + ',inset ' +
+							data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data.iShadowInnerColor;
+						let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
+						$this.find('.vis-inventwo-button-new').css('background', data.iButtonCol);
+						$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
+						$this.find('.vis-inventwo-button-new').css('border', border);
+						if(data.iImageFalse != undefined)
+							$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageFalse);
+						if(data.iTextFalse != undefined)
+							$this.find('.vis-inventwo-button-text').html(data.iTextFalse);
+					}, data.iStateResponseTime);
+
+
+				}
 			});
 
 		}
@@ -687,6 +814,12 @@ vis.binds["vis-inventwo"] = {
 		}
 		else if(data[1] === 'readOnlyInfo'){
 			text = 'iText-ReadOnly';
+		}
+		else if(data[1] === 'universalTypeInfo'){
+			text = 'iUniversalWidgetTypeInfoText';
+		}
+		else if(data[1] === 'refreshDataFieldsText'){
+			text = 'iRefreshDataFieldsText';
 		}
 
 		return { input: `<span>${_(text)}</span>` };
@@ -852,9 +985,295 @@ vis.binds["vis-inventwo"] = {
 		}
 	},
 
-	updateUniversalDataFields: function () {
-		console.log("TEEEEEEeeEEEEEEEEEEEEESST");
+	updateUniversalDataFields: function (wid,view) {
+
+		console.log(vis.activeWidgets);
+		vis.activeWidgets.forEach(function (el) {
+			let data = vis.views[vis.activeView].widgets[el].data;
+			let val = data.iUniversalWidgetType;
+			console.log(val);
+
+			if(val == "Switch"){
+				vis.hideShowAttr("iNavWait",false);
+				vis.hideShowAttr("iValueType",true);
+				vis.hideShowAttr("iValueTypeInfo",true);
+				vis.hideShowAttr("iValueFalse",true);
+				vis.hideShowAttr("iValueTrue",true);
+				vis.hideShowAttr("value",false);
+				vis.hideShowAttr("iStateResponseTime",false);
+				vis.hideShowAttr("nav_view",false);
+				for (let i = 1; i <= data.iUniversalValueCount; i++){
+					vis.hideShowAttr("oid" + i,true);
+					vis.hideShowAttr("iTextFalse" + i,true);
+					vis.hideShowAttr("iTextTrue" + i,true);
+					vis.hideShowAttr("iImageFalse" + i,true);
+					vis.hideShowAttr("iImageTrue" + i,true);
+					vis.hideShowAttr("iValue" + i,true);
+					vis.hideShowAttr("iView" + i,false);
+				}
+			}
+			else if(val == "State"){
+				vis.hideShowAttr("iNavWait",false);
+				vis.hideShowAttr("iValueType",false);
+				vis.hideShowAttr("iValueTypeInfo",false);
+				vis.hideShowAttr("iValueFalse",false);
+				vis.hideShowAttr("iValueTrue",false);
+				vis.hideShowAttr("value",true);
+				vis.hideShowAttr("iStateResponseTime",true);
+				vis.hideShowAttr("nav_view",false);
+				for (let i = 1; i <= data.iUniversalValueCount; i++){
+					vis.hideShowAttr("oid" + i,true);
+					vis.hideShowAttr("iTextFalse" + i,true);
+					vis.hideShowAttr("iTextTrue" + i,true);
+					vis.hideShowAttr("iImageFalse" + i,true);
+					vis.hideShowAttr("iImageTrue" + i,true);
+					vis.hideShowAttr("iValue" + i,true);
+					vis.hideShowAttr("iView" + i,false);
+				}
+			}
+			else if(val == "Navigation"){
+				vis.hideShowAttr("iNavWait",true);
+				vis.hideShowAttr("iValueType",false);
+				vis.hideShowAttr("iValueTypeInfo",false);
+				vis.hideShowAttr("iValueFalse",false);
+				vis.hideShowAttr("iValueTrue",false);
+				vis.hideShowAttr("value",true);
+				vis.hideShowAttr("iStateResponseTime",false);
+				vis.hideShowAttr("nav_view",true);
+				for (let i = 1; i <= data.iUniversalValueCount; i++){
+					vis.hideShowAttr("oid" + i,false);
+					vis.hideShowAttr("iTextFalse" + i,true);
+					vis.hideShowAttr("iTextTrue" + i,true);
+					vis.hideShowAttr("iImageFalse" + i,true);
+					vis.hideShowAttr("iImageTrue" + i,true);
+					vis.hideShowAttr("iValue" + i,false);
+					vis.hideShowAttr("iView" + i,true);
+				}
+			}
+			else if(val == "Background"){
+				vis.hideShowAttr("iNavWait",false);
+				vis.hideShowAttr("iValueType",false);
+				vis.hideShowAttr("iValueTypeInfo",false);
+				vis.hideShowAttr("iValueFalse",false);
+				vis.hideShowAttr("iValueTrue",false);
+				vis.hideShowAttr("value",false);
+				vis.hideShowAttr("iStateResponseTime",false);
+				vis.hideShowAttr("nav_view",false);
+				for (let i = 1; i <= data.iUniversalValueCount; i++){
+					vis.hideShowAttr("oid" + i,true);
+					vis.hideShowAttr("iTextFalse" + i,true);
+					vis.hideShowAttr("iTextTrue" + i,true);
+					vis.hideShowAttr("iImageFalse" + i,true);
+					vis.hideShowAttr("iImageTrue" + i,true);
+					vis.hideShowAttr("iValue" + i,true);
+					vis.hideShowAttr("iView" + i,false);
+				}
+			}
+		});
 
 	},
+
+	refreshDataFieldBtn: function () {
+
+		let text = "iRefreshBtnText";
+		return {input: `<button class="iUniversalWidgetRefreshBtn" onclick="vis.binds['vis-inventwo'].updateUniversalDataFields()">${_(text)}</button>`}
+
+	},
+
+	universalButton: function (el,data,type) {
+
+		createWidget();
+		this.updateUniversalDataFields;
+		vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){
+			createWidget();
+		});
+		vis.states.bind(vis.activeView, function (e, newVal, oldVal){
+			createWidget();
+		});
+
+
+		function createWidget() {
+			let hexTrans = Math.floor(data.iOpacityBack * 255).toString(16);
+
+			//Farben, Text & Bild bei true oder false
+			let backCol = "";
+			let shadowCol = "";
+			let shadowColInner = "";
+			let borderCol = "";
+			let img = "";
+			let txt = "";
+
+			backCol = data.iButtonCol;
+			shadowCol = data.iShadowColor;
+			shadowColInner = data.iShadowInnerColor;
+			borderCol = data.iBorderColor;
+			if(data.iImageFalse != undefined)
+				img = data.iImageFalse;
+			if(data.iTextFalse != undefined)
+				txt = data.iTextFalse;
+
+			if(type == "multi") {
+				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+					if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data['oid' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
+						backCol = data['iButtonActiveM' + i];
+						shadowCol = data['iShadowColorActiveM' + i];
+						shadowColInner = data['iShadowInnerColorActiveM' + i];
+						borderCol = data['iBorderColorActiveM' + i];
+						if (data.attr('iImage' + i) != undefined)
+							img = data.attr('iImage' + i);
+						if (data.attr('iText' + i) != undefined)
+							txt = data.attr('iText' + i);
+						break;
+					}
+				}
+			}
+
+			else if(type == "universal"){
+				if ((data.iUniversalWidgetType == "Navigation" && data.nav_view === vis.activeView) ||
+					(
+						(data.iUniversalWidgetType == "Switch" || data.iUniversalWidgetType == "Background") &&
+						(
+							(vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value') ||
+							(vis.states.attr(data.oid + '.val') === true && data.iValueType == 'boolean')
+						)
+
+					) )
+				{
+
+					backCol = data.iButtonActive;
+					shadowCol = data.iShadowColorActive;
+					shadowColInner = data.iShadowInnerColorActive;
+					borderCol = data.iBorderColorActive;
+
+					if (data.iImageTrue != undefined)
+						img = data.iImageTrue;
+					if (data.iTextFalse != undefined)
+						txt = data.iTextTrue;
+				}
+			}
+
+			backCol.match(/(#[0-9A-F]{6})/ig).forEach(function (hex) {
+				hex = hex.replace('#','');
+				console.log(hex);
+				let re = new RegExp('\b' + hex + '\b','gi')
+				backCol = backCol.replace(re,hex + hexTrans);
+				console.log(backCol);
+			});
+
+
+
+			let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + shadowCol + ',inset ' +
+				data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + shadowColInner;
+			let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
+			let borderRadius = data.iCornerRadiusUL + 'px ' + data.iCornerRadiusUR + 'px ' + data.iCornerRadiusLR + 'px ' + data.iCornerRadiusLL + 'px';
+
+			//Bild spiegeln
+			let flip = 1;
+			if (data.attr('iFlipImage')) {
+				flip = -1;
+			}
+
+			//
+			let imgMargin = data.iImgSpaceTop + 'px ' + data.iImgSpaceRight + 'px ' + data.iImgSpaceBottom + 'px ' + data.iImgSpaceLeft + 'px';
+			let txtMargin = data.iTextSpaceTop + 'px ' + data.iTextSpaceRight + 'px ' + data.iTextSpaceBottom + 'px ' + data.iTextSpaceLeft + 'px'
+
+			//Vertikale Inhaltsausrichtung
+			let vertTextAlign = "";
+			if (data.iContentVertAlign == 'iStart')
+				vertTextAlign = "flex-start";
+			else if (data.iContentVertAlign == 'iCenter')
+				vertTextAlign = "center";
+			else if (data.iContentVertAlign == 'iEnd')
+				vertTextAlign = "flex-end";
+			else if (data.iContentVertAlign == 'iSpace-between')
+				vertTextAlign = "space-between";
+
+			//Inhaltsausrichtung (Reihe oder Spalte)
+			let contFlexDir = "";
+			if (data.iContentFlexDirection == "vertical")
+				contFlexDir = "column";
+			else if (data.iContentFlexDirection == "horizontal")
+				contFlexDir = "row";
+
+			//Inhaltsreihenfolge (Erst Bild dann Text oder erst Text dann Bild)
+			let orderContent = "";
+			if (data.iContentOrder == 'orderTextImg')
+				orderContent = 2;
+			else
+				orderContent = 0;
+
+			//Bildausrichtung
+			let imgAlign = "";
+			if (data.iImgAlign == 'iStart')
+				imgAlign = "flex-start";
+			else if (data.iImgAlign == 'iCenter')
+				imgAlign = "center";
+			else if (data.iImgAlign == 'iEnd')
+				imgAlign = "flex-end";
+
+			//Textausrichtung
+			let textAlign = "";
+			if (data.iTextAlign == 'iStart')
+				textAlign = "flex-start";
+			else if (data.iTextAlign == 'iCenter')
+				textAlign = "center";
+			else if (data.iTextAlign == 'iEnd')
+				textAlign = "flex-end";
+
+
+			let navWidgetClass = "";
+			if(data.iUniversalWidgetType == "Navigation"){
+				navWidgetClass = "iMultiNav";
+			}
+
+			let html = `
+			<div class="vis-inventwo-class vis-widget-body `+ navWidgetClass +`">
+				<div class="vis-inventwo-button-new"
+					 style="background: ` + backCol + `;
+					 		box-shadow: `+ shadow +`;
+					 		border: `+ border +`;
+					 		border-radius: `+ borderRadius +`;">
+					<div class="vis-inventwo-button-content"
+						 style="opacity: `+ data.iOpacityCtn +`;
+						 		justify-content: `+ vertTextAlign +`;
+						 		flex-direction: `+ contFlexDir +`">
+						
+						<div class="vis-inventwo-button-imageContainer"
+							 style="order: `+ orderContent +`;
+							 align-self: `+ imgAlign +`;
+							 margin: `+ imgMargin +`;">
+							<img src="`+ img +`" width="`+ data.iIconSize +`"
+								 style="filter: invert(`+ Number(data.iInvertImageCol) +`);
+								 		transform: scaleX(`+ flip +`) rotateZ(`+ data.iImgRotation +`deg);"> 
+						</div>
+						
+						<div class="vis-inventwo-button-text"
+							 style="font-size: `+ data.iTextSize +`px;
+							 		color: `+ data.iTextColor +`;
+							 		margin: `+ txtMargin +`;
+							 		align-self: `+ textAlign +`;">
+							`+ txt +`
+						</div>
+						
+					</div>
+				</div>
+			</div>`;
+
+			$(el).html(html);
+
+			//Bindings
+			if(data.iUniversalWidgetType == "Switch"){
+				vis.binds['vis-inventwo'].handleToggle(el, data);
+			}
+			else if(data.iUniversalWidgetType == "State"){
+				vis.binds['vis-inventwo'].state(el, data, type);
+			}
+			else if(data.iUniversalWidgetType == "Navigation"){
+				vis.binds['vis-inventwo'].handleNavigation(el, data);
+			}
+
+		}
+
+	}
 
 };

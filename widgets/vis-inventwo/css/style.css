@@ -67,4 +67,20 @@
     display: flex;
 }
 
+.iUniversalWidgetRefreshBtn{
+    background: #9fdb58;
+    border-radius: 0 2px;
+    color: white;
+    padding: 8px;
+    width: 100%;
+    border: 1px dashed black;
+}
+.iUniversalWidgetRefreshBtn:hover{
+    background: #b6f171;
+    border: 1px dashed #848484;
+}
+.iUniversalWidgetRefreshBtn:active{
+    background: #6c6c6c;
+    border: 1px dashed #848484;
+}
 
