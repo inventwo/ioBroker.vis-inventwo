@@ -139,6 +139,7 @@ if (vis.editMode) {
 			"en": "Invert color",
 			"de": "Farbe invertieren"
 		},
+
 		//#endregion
 
 		//#region Text Settings
@@ -247,6 +248,10 @@ if (vis.editMode) {
 		"iShadowColorActiveM":{
 			"en": "Outer Shadow active",
 			"de": "Schatten außen aktiv"
+		},
+		"iShadowInnerSpread": {
+			"en": "Inner size",
+			"de": "Größe innen"
 		},
 		//#endregion
 
