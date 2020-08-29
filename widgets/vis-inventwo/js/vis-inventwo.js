@@ -546,8 +546,8 @@ if (vis.editMode) {
 			"de": "---->"
 		},
 		"iRefreshDataFieldsText":{
-			"en": "Click on the button below to hide unimportant fields for this widget",
-			"de": "Klicke auf den Button um nicht für das Widget relevante Felder zu verstecken"
+			"en": "<span style='color:red'>Click on the button below to hide unimportant fields for this widget</span>",
+			"de": "<span style='color:red'>Klicke auf den Button um nicht für das Widget relevante Felder zu verstecken</span>"
 		},
 		"iRefreshBtnText":{
 			"en": "Refresh fields",
@@ -1093,7 +1093,6 @@ vis.binds["vis-inventwo"] = {
 
 
 		function createWidget() {
-			let hexTrans = Math.floor(data.iOpacityBack * 255).toString(16);
 
 			//Farben, Text & Bild bei true oder false
 			let backCol = "";
@@ -1151,15 +1150,6 @@ vis.binds["vis-inventwo"] = {
 						txt = data.iTextTrue;
 				}
 			}
-
-			backCol.match(/(#[0-9A-F]{6})/ig).forEach(function (hex) {
-				hex = hex.replace('#','');
-				console.log(hex);
-				let re = new RegExp('\b' + hex + '\b','gi')
-				backCol = backCol.replace(re,hex + hexTrans);
-				console.log(backCol);
-			});
-
 
 
 			let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + shadowCol + ',inset ' +
@@ -1228,11 +1218,13 @@ vis.binds["vis-inventwo"] = {
 
 			let html = `
 			<div class="vis-inventwo-class vis-widget-body `+ navWidgetClass +`">
-				<div class="vis-inventwo-button-new"
-					 style="background: ` + backCol + `;
-					 		box-shadow: `+ shadow +`;
-					 		border: `+ border +`;
-					 		border-radius: `+ borderRadius +`;">
+				<div>
+					<div class="vis-inventwo-button-new"
+						 style="background: ` + backCol + `;
+						 		opacity: ` + data.iOpacityBack + `;
+						 		box-shadow: `+ shadow +`;
+						 		border: `+ border +`;
+						 		border-radius: `+ borderRadius +`;"></div>
 					<div class="vis-inventwo-button-content"
 						 style="opacity: `+ data.iOpacityCtn +`;
 						 		justify-content: `+ vertTextAlign +`;
