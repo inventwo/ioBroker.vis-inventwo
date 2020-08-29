@@ -7,10 +7,6 @@
 <link rel="stylesheet" href="widgets/vis-inventwo/css/style.css" />
 <script type="text/javascript" src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
 
-
-
-
-
 <script id="i-vis-universal"
 		type="text/ejs"
 		class="vis-tpl"
@@ -103,8 +99,6 @@
 
 
 </script>
-
-
 
 <script id="i-vis-multi"
 		type="text/ejs"
@@ -201,7 +195,6 @@
 
 
 </script>
-
 
 <script id="i-vis-slider-simple"
 		type="text/ejs"
@@ -311,7 +304,8 @@
 						oid/id;
 						iValue/text;
 						iImageFalse/image;
-						iImageTrue/image;"
+						iImageTrue/image;
+						iPointerEvents/checkbox;"
 		data-vis-attrs0="group.i-css;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iOpacityBack[1]/slider,0,1,0.1;
@@ -338,7 +332,17 @@
 		data-vis-type="static"
 		data-vis-name="Image">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
+	<%
+	let pointer_event = "auto";
+	if(this.data.iPointerEvents == true){
+		pointer_event = "none";
+	}
+
+	%>
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light"
+		 style="width:110px; height:110px; overflow:visible; cursor:default; z-index:1; pointer-events:<%== pointer_event %>;"
+		 id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
 			<%
@@ -468,6 +472,7 @@
 						 iShadowBlur[2]/slider,0,20,1;
 						 iShadowSpread[1]/slider,0,20,1;
 						 iShadowColor[#111111]/color;
+						 iShadowColor[#111111]/color;
 						 iShadowColorActive[#111111]/color;
 
 						 iText-ShadowInnerSettings/custom,vis-inventwo.infoText,emptyText;
@@ -480,7 +485,7 @@
 
 						 iText-BorderSettings/custom,vis-inventwo.infoText,emptyText;
 						 iBorderSize[0]/slider,0,20,1;
-						 iBorderStyle[none]/select,dotted,dashed,solid,double,groove,ridge,inset,outset,none;
+						 iBorderStyle[none]/nselect,dotted,dashed,solid,double,groove,ridge,inset,outset,none;
 						 iBorderColor[#ffffff]/color;
 						 iBorderColorActive[#ffffff]/color;"
 		data-vis-set="vis-inventwo"

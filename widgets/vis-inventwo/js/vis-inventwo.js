@@ -331,8 +331,8 @@ if (vis.editMode) {
 			"de": "Wenn Typ ist 'boolean', können Wert Felder leer bleiben"
 		},
 		"iStateResponseTime":{
-			"en": "How long should the active status be displayed after a click? (in ms)",
-			"de": "Wie lange soll aktiver Status nach klick angezeigt werden? (in ms)"
+			"en": "Response time (in Ms)",
+			"de": "Rückmeldungsdauer (in Ms)"
 		},
 		//#endregion
 
@@ -556,6 +556,13 @@ if (vis.editMode) {
 		"iView":{
 			"en": "View",
 			"de": "View"
+		},
+		//#endregion
+
+		//#region Image Settings
+		"iPointerEvents":{
+			"en": "Click through?",
+			"de": "Klick durchlassen?"
 		},
 		//#endregion
 
@@ -1267,6 +1274,9 @@ vis.binds["vis-inventwo"] = {
 			}
 			else if(data.iUniversalWidgetType == "Navigation"){
 				vis.binds['vis-inventwo'].handleNavigation(el, data);
+			}
+			else if(data.iUniversalWidgetType == "Background"){
+				$(el).css('cursor','default');
 			}
 
 		}
