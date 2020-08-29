@@ -65,8 +65,8 @@ if (vis.editMode) {
 
 		//#region Content Settings
 		"iContentFlexDirection":{
-			"en": "Direction",
-			"de": "Richtung"
+			"en": "Style",
+			"de": "Stil"
 		},
 		"iContentVertAlign": {
 			"en": "Align",
@@ -96,8 +96,8 @@ if (vis.editMode) {
 			"de": "Drehung"
 		},
 		"iImgAlign":{
-			"en": "Image align",
-			"de": "Bild Ausrichtung"
+			"en": "Position",
+			"de": "Position"
 		},
 		"iImgSpaceTop":{
 			"en": "Space top",
@@ -116,8 +116,8 @@ if (vis.editMode) {
 			"de": "Abstand unten"
 		},
 		"iIconSize": {
-			"en": "Icon size",
-			"de": "Bild Größe"
+			"en": "Size",
+			"de": "Größe"
 		},
 		"iImageFalse": {
 			"en": "Icon false",
@@ -132,8 +132,12 @@ if (vis.editMode) {
 			"de": "Bild"
 		},
 		"iFlipImage":{
-			"en": "Flip icon",
-			"de": "Bild spiegeln"
+			"en": "Flip",
+			"de": "Spiegeln"
+		},
+		"iInvertImageCol": {
+			"en": "Invert color",
+			"de": "Farbe invertieren"
 		},
 		//#endregion
 
@@ -143,8 +147,8 @@ if (vis.editMode) {
 			"de": "Abstand oben"
 		},
 		"iTextAlign":{
-			"en": "Text align",
-			"de": "Text Ausrichtung"
+			"en": "Position",
+			"de": "Position"
 		},
 		"iTextSpaceLeft":{
 			"en": "Space left",
@@ -164,7 +168,7 @@ if (vis.editMode) {
 		},
 		"iTextSize": {
 			"en": "Label size",
-			"de": "Textgröße"
+			"de": "Größe"
 		},
 		"iTextFalse": {
 			"en": "Label  false",
@@ -176,11 +180,7 @@ if (vis.editMode) {
 		},
 		"iTextColor": {
 			"en": "Text color",
-			"de": "Textfarbe "
-		},
-		"iInvertImageCol": {
-			"en": "Invert icon color",
-			"de": "Bildfarbe invertieren"
+			"de": "Farbe "
 		},
 		//#endregion
 
@@ -330,9 +330,9 @@ if (vis.editMode) {
 			"en": "If type is 'boolean', value fields can be empty",
 			"de": "Wenn Typ ist 'boolean', können Wert Felder leer bleiben"
 		},
-		"iReadOnly":{
-			"en": "Read only",
-			"de": "Nur lesend"
+		"iStateResponseTime":{
+			"en": "How long should the active status be displayed after a click? (in ms)",
+			"de": "Wie lange soll aktiver Status nach klick angezeigt werden? (in ms)"
 		},
 		//#endregion
 
@@ -716,6 +716,11 @@ vis.binds["vis-inventwo"] = {
 				moved = false;
 			});
 
+		}else{
+			$this.parent().on('click', function () {
+				console.log("teeeest");
+
+			});
 		}
 
 	},
