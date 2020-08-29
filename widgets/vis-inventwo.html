@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="widgets/vis-inventwo/css/style.css" />
 <script type="text/javascript" src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
 
+
 <script id="i-vis-universal"
 		type="text/ejs"
 		class="vis-tpl"
@@ -66,6 +67,8 @@
 						 iImgSpaceRight[0]/slider,0,50,1;
 						 iInvertImageCol/checkbox;
 						 iFlipImage/checkbox;
+						 iImgBlinkFalse[0]/slider,0,2000,100;
+						 iImgBlinkTrue[0]/slider,0,2000,100;
 
 						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
 						 iShadowXOffset[2]/slider,0,20,1;
@@ -103,14 +106,14 @@
 <script id="i-vis-multi"
 		type="text/ejs"
 		class="vis-tpl"
-		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Universal.png">'
+		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Multi.png">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
 						iUniversalWidgetTypeInfo/custom,vis-inventwo.infoText,universalTypeInfo;
 						iUniversalWidgetType[Switch]/nselect,Switch,State,Navigation,Background/updateUniversalDataFields();
 						iRefreshDataFieldsInfo/custom,vis-inventwo.infoText,refreshDataFieldsText;
 						iRefreshDataFields/custom,vis-inventwo.refreshDataFieldBtn,this.data.iUniversalWidgetType;
 						nav_view;
-						oid/id;
+						iOidToggle/id;
 						iValueType[boolean]/select,boolean,value;
 						iValueTypeInfo/custom,vis-inventwo.infoText,valueType;
 						iValueFalse/text;
@@ -118,13 +121,16 @@
 						value/text;
 						iTextFalse/html;
 						iImageFalse/image;
+						iImgBlinkFalse[0]/slider,0,2000,100;
+						iStateResponseTime[0]/slider,0,2000,100;
 						iNavWait[100]/number;"
-		data-vis-attrs0="iUniversalValueCount[1]/number,1,20,1;group.iUniversalValues/byindex;
+		data-vis-attrs0="iUniversalValueCount[1]/number,1,20,1;group.iUniversalValues/byindex/updateUniversalDataFields();
 						 iView(1-iUniversalValueCount)/views;
-						 oid(1-iUniversalValueCount)/id;
+						 iOidState(1-iUniversalValueCount)/id;
 						 iValue(1-iUniversalValueCount)/text;
-						 iText(1-iUniversalValueCount)/html;
-						 iImage(1-iUniversalValueCount)/image;
+						 iTextTrue(1-iUniversalValueCount)/html;
+						 iImageTrue(1-iUniversalValueCount)/image;
+						 iImgBlinkTrue(1-iUniversalValueCount)[0]/slider,0,2000,100;
 						 iButtonActiveM(1-iUniversalValueCount)[#455618]/color;
 						 iShadowColorActiveM(1-iUniversalValueCount)[#111111]/color;
 						 iShadowInnerColorActiveM(1-iUniversalValueCount)[#111111]/color;
@@ -165,6 +171,7 @@
 						 iImgSpaceRight[0]/slider,0,50,1;
 						 iInvertImageCol/checkbox;
 						 iFlipImage/checkbox;
+						 iImgBlinkFalse[0]/slider,0,2000,100;
 
 						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
 						 iShadowXOffset[2]/slider,0,20,1;
@@ -191,8 +198,6 @@
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<%= (el) -> vis.binds['vis-inventwo'].universalButton(el, this.data,'multi') %>
 	</div>
-
-
 
 </script>
 
@@ -307,9 +312,6 @@
 						iImageTrue/image;
 						iPointerEvents/checkbox;"
 		data-vis-attrs0="group.i-css;
-						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
-						 iOpacityBack[1]/slider,0,1,0.1;
-
 						 iText-CornerSettings/custom,vis-inventwo.infoText,emptyText;
 						 iCornerRadiusUL[12]/slider,0,50,1;
 						 iCornerRadiusUR[0]/slider,0,50,1;
@@ -319,7 +321,6 @@
 						 iOpacityCtn[1]/slider,0,1,0.1;
 
 						 iText-ImageSettings/custom,vis-inventwo.infoText,emptyText;
-						 iIconSize[35]/slider,0,200,1;
 						 iImgRotation[0]/slider,0,180,1;
 						 iInvertImageCol/checkbox;
 						 iFlipImage/checkbox;
@@ -359,9 +360,9 @@
 
             <div class="vis-inventwo-button-new">
 
-            	<div class="vis-inventwo-button-content"
+            	<div class=""
             		 style="opacity: <%= this.data.attr('iOpacityCtn') %>;
-            		 		justify-content: center">
+            		 		">
 
             		<div class="vis-inventwo-button-imageContainer"
             			 style="align-self: center;
@@ -382,7 +383,7 @@
             		    	<% } else { %>
             		    		src='<%= this.data.attr('iImageFalse') %>'
             		    	<% } %>
-            		    	 width="<%= this.data.iIconSize %>"
+            		    	 width="100%"
             		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
             		    	 		transform: scaleX(<%= cssData.flip %>) rotateZ(<%= this.data.iImgRotation %>deg);">
 

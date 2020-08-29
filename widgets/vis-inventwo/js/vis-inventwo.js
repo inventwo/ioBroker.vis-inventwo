@@ -194,8 +194,8 @@ if (vis.editMode) {
 			"de": "Farbe Aktiv"
 		},
 		"iButtonActiveM": {
-			"en": "Background",
-			"de": "Hintergrund"
+			"en": "Background active",
+			"de": "Hintergrund aktiv"
 		},
 		"iCornerRadiusUL": {
 			"en": "Border radius upper left",
@@ -245,8 +245,8 @@ if (vis.editMode) {
 			"de": "Farbe Aktiv"
 		},
 		"iShadowColorActiveM":{
-			"en": "Outer Shadow",
-			"de": "Schatten außen"
+			"en": "Outer Shadow active",
+			"de": "Schatten außen aktiv"
 		},
 		//#endregion
 
@@ -276,8 +276,8 @@ if (vis.editMode) {
 			"de": "Farbe Aktiv"
 		},
 		"iShadowInnerColorActiveM":{
-			"en": "Inner shadow",
-			"de": "Schatten innen"
+			"en": "Inner shadow active",
+			"de": "Schatten innen aktiv"
 		},
 		//#endregion
 
@@ -299,8 +299,8 @@ if (vis.editMode) {
 			"de": "Farbe Aktiv"
 		},
 		"iBorderColorActiveM":{
-			"en": "Border",
-			"de": "Umrandung"
+			"en": "Border active",
+			"de": "Umrandung aktiv"
 		},
 		//#endregion
 
@@ -557,6 +557,22 @@ if (vis.editMode) {
 			"en": "View",
 			"de": "View"
 		},
+		"iOidToggle":{
+			"en": "Object ID to switch/set",
+			"de": "Objekt ID zum Schalten/Setzen"
+		},
+		"iOidState":{
+			"en": "Object ID to check",
+			"de": "Objekt ID zum prüfen"
+		},
+		"iImgBlinkFalse":{
+			"en": "Image blinkinterval",
+			"de": "Bild falsch Blinkintervall"
+		},
+		"iImgBlinkTrue":{
+			"en": "Image blinkinterval",
+			"de": "Bild wahr Blinkintervall"
+		},
 		//#endregion
 
 		//#region Image Settings
@@ -685,16 +701,22 @@ vis.binds["vis-inventwo"] = {
 
 
 	},
-	handleToggle: function (el, data) {
+	handleToggle: function (el, data, type) {
 
 		var $this = $(el);
-		var oid = data.oid;
+
+		if(type == undefined || type == 'universal')
+			var oid = data.oid;
+		else{
+			var oid = data.iOidToggle;
+		}
 
 		if (!vis.editMode) {
 			var moved = false;
 			$this.parent().on('click touchend', function () {
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
+				console.log(oid);
 
 				var val = vis.states[oid + '.val'];
 				var type = data.iValueType;
@@ -763,7 +785,11 @@ vis.binds["vis-inventwo"] = {
 
 		var $this = $(el);
 
-		var oid = data.oid;
+		if(type == undefined || type == 'universal')
+			var oid = data.oid;
+		else{
+			var oid = data.iOidToggle;
+		}
 
 		//$(el).html(valFalse);
 
@@ -773,6 +799,9 @@ vis.binds["vis-inventwo"] = {
 				if(!isNaN(data.value))
 					data.value = parseFloat(data.value);
 				vis.setValue(oid, data.value);
+
+				console.log(type);
+				console.log(data.iOidToggle);
 
 				console.log($(el).find('.vis-inventwo-button-new'));
 				if(type == 'universal') {
@@ -794,6 +823,59 @@ vis.binds["vis-inventwo"] = {
 							data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data.iShadowInnerColor;
 						let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
 						$this.find('.vis-inventwo-button-new').css('background', data.iButtonCol);
+						$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
+						$this.find('.vis-inventwo-button-new').css('border', border);
+						if(data.iImageFalse != undefined)
+							$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageFalse);
+						if(data.iTextFalse != undefined)
+							$this.find('.vis-inventwo-button-text').html(data.iTextFalse);
+					}, data.iStateResponseTime);
+
+
+				}
+				else if(type == 'multi') {
+					console.log("active");
+					let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data['iShadowColorActiveM1'] + ',inset ' +
+						data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data['iShadowInnerColorActiveM1'];
+					let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
+					$this.find('.vis-inventwo-button-new').css('background', data['iButtonActiveM1']);
+					$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
+					$this.find('.vis-inventwo-button-new').css('border', border);
+					if(data.iImageTrue != undefined)
+						$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageTrue);
+					if(data.iTextTrue != undefined)
+						$this.find('.vis-inventwo-button-text').html(data.iTextTrue);
+
+					setTimeout(function () {
+						console.log("inactive");
+
+						let backCol = data.iButtonCol;
+						let shadowCol = data.iShadowColor;
+						let shadowColInner = data.iShadowInnerColor;
+						let borderCol = data.iBorderColor;
+						if(data.iImageFalse != undefined)
+							img = data.iImageFalse;
+						if(data.iTextFalse != undefined)
+							txt = data.iTextFalse;
+
+						for (let i = 1; i <= data.iUniversalValueCount; i++) {
+							if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data['iOidState' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
+								backCol = data['iButtonActiveM' + i];
+								shadowCol = data['iShadowColorActiveM' + i];
+								shadowColInner = data['iShadowInnerColorActiveM' + i];
+								borderCol = data['iBorderColorActiveM' + i];
+								if (data.attr('iImageTrue' + i) != undefined)
+									img = data.attr('iImageTrue' + i);
+								if (data.attr('iTextTrue' + i) != undefined)
+									txt = data.attr('iTextTrue' + i);
+								break;
+							}
+						}
+
+						let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + shadowCol + ',inset ' +
+							data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + shadowColInner;
+						let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + borderCol;
+						$this.find('.vis-inventwo-button-new').css('background', backCol);
 						$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
 						$this.find('.vis-inventwo-button-new').css('border', border);
 						if(data.iImageFalse != undefined)
@@ -999,11 +1081,9 @@ vis.binds["vis-inventwo"] = {
 
 	updateUniversalDataFields: function (wid,view) {
 
-		console.log(vis.activeWidgets);
 		vis.activeWidgets.forEach(function (el) {
 			let data = vis.views[vis.activeView].widgets[el].data;
 			let val = data.iUniversalWidgetType;
-			console.log(val);
 
 			if(val == "Switch"){
 				vis.hideShowAttr("iNavWait",false);
@@ -1014,6 +1094,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("value",false);
 				vis.hideShowAttr("iStateResponseTime",false);
 				vis.hideShowAttr("nav_view",false);
+				vis.hideShowAttr("iOidToggle",true);
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,true);
 					vis.hideShowAttr("iTextFalse" + i,true);
@@ -1022,6 +1103,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iImageTrue" + i,true);
 					vis.hideShowAttr("iValue" + i,true);
 					vis.hideShowAttr("iView" + i,false);
+					vis.hideShowAttr("iOidState" + i,true);
 				}
 			}
 			else if(val == "State"){
@@ -1033,6 +1115,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("value",true);
 				vis.hideShowAttr("iStateResponseTime",true);
 				vis.hideShowAttr("nav_view",false);
+				vis.hideShowAttr("iOidToggle",true);
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,true);
 					vis.hideShowAttr("iTextFalse" + i,true);
@@ -1041,6 +1124,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iImageTrue" + i,true);
 					vis.hideShowAttr("iValue" + i,true);
 					vis.hideShowAttr("iView" + i,false);
+					vis.hideShowAttr("iOidState" + i,true);
 				}
 			}
 			else if(val == "Navigation"){
@@ -1052,6 +1136,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("value",true);
 				vis.hideShowAttr("iStateResponseTime",false);
 				vis.hideShowAttr("nav_view",true);
+				vis.hideShowAttr("iOidToggle",true);
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,false);
 					vis.hideShowAttr("iTextFalse" + i,true);
@@ -1060,6 +1145,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iImageTrue" + i,true);
 					vis.hideShowAttr("iValue" + i,false);
 					vis.hideShowAttr("iView" + i,true);
+					vis.hideShowAttr("iOidState" + i,false);
 				}
 			}
 			else if(val == "Background"){
@@ -1071,6 +1157,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("value",false);
 				vis.hideShowAttr("iStateResponseTime",false);
 				vis.hideShowAttr("nav_view",false);
+				vis.hideShowAttr("iOidToggle",false);
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,true);
 					vis.hideShowAttr("iTextFalse" + i,true);
@@ -1079,6 +1166,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iImageTrue" + i,true);
 					vis.hideShowAttr("iValue" + i,true);
 					vis.hideShowAttr("iView" + i,false);
+					vis.hideShowAttr("iOidState" + i,true);
 				}
 			}
 		});
@@ -1094,15 +1182,21 @@ vis.binds["vis-inventwo"] = {
 
 	universalButton: function (el,data,type) {
 
-		createWidget();
 		this.updateUniversalDataFields;
 		vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){
+			createWidget();
+		});
+		vis.states.bind(data.iOidState + '.val', function (e, newVal, oldVal){
+			createWidget();
+		});
+		vis.states.bind(data.iOidToggle + '.val', function (e, newVal, oldVal){
 			createWidget();
 		});
 		vis.states.bind(vis.activeView, function (e, newVal, oldVal){
 			createWidget();
 		});
 
+		createWidget();
 
 		function createWidget() {
 
@@ -1113,6 +1207,7 @@ vis.binds["vis-inventwo"] = {
 			let borderCol = "";
 			let img = "";
 			let txt = "";
+			let imgBlink = 0;
 
 			backCol = data.iButtonCol;
 			shadowCol = data.iShadowColor;
@@ -1122,18 +1217,21 @@ vis.binds["vis-inventwo"] = {
 				img = data.iImageFalse;
 			if(data.iTextFalse != undefined)
 				txt = data.iTextFalse;
+			imgBlink = data.iImgBlinkFalse;
+
 
 			if(type == "multi") {
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
-					if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data['oid' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
+					if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data['iOidState' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
 						backCol = data['iButtonActiveM' + i];
 						shadowCol = data['iShadowColorActiveM' + i];
 						shadowColInner = data['iShadowInnerColorActiveM' + i];
 						borderCol = data['iBorderColorActiveM' + i];
-						if (data.attr('iImage' + i) != undefined)
-							img = data.attr('iImage' + i);
-						if (data.attr('iText' + i) != undefined)
-							txt = data.attr('iText' + i);
+						if (data.attr('iImageTrue' + i) != undefined)
+							img = data.attr('iImageTrue' + i);
+						if (data.attr('iTextTrue' + i) != undefined)
+							txt = data.attr('iTextTrue' + i);
+						imgBlink = data.attr('iImgBlinkTrue' + i);
 						break;
 					}
 				}
@@ -1160,8 +1258,12 @@ vis.binds["vis-inventwo"] = {
 						img = data.iImageTrue;
 					if (data.iTextFalse != undefined)
 						txt = data.iTextTrue;
+
+					imgBlink = data.iImgBlinkTrue;
 				}
 			}
+
+			imgBlink = imgBlink / 1000;
 
 
 			let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + shadowCol + ',inset ' +
@@ -1248,7 +1350,8 @@ vis.binds["vis-inventwo"] = {
 							 margin: `+ imgMargin +`;">
 							<img src="`+ img +`" width="`+ data.iIconSize +`"
 								 style="filter: invert(`+ Number(data.iInvertImageCol) +`);
-								 		transform: scaleX(`+ flip +`) rotateZ(`+ data.iImgRotation +`deg);"> 
+								 		transform: scaleX(`+ flip +`) rotateZ(`+ data.iImgRotation +`deg);
+								 		animation:blink ` + imgBlink + `s infinite;"> 
 						</div>
 						
 						<div class="vis-inventwo-button-text"
@@ -1267,7 +1370,7 @@ vis.binds["vis-inventwo"] = {
 
 			//Bindings
 			if(data.iUniversalWidgetType == "Switch"){
-				vis.binds['vis-inventwo'].handleToggle(el, data);
+				vis.binds['vis-inventwo'].handleToggle(el, data, type);
 			}
 			else if(data.iUniversalWidgetType == "State"){
 				vis.binds['vis-inventwo'].state(el, data, type);

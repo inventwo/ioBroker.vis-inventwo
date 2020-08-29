@@ -45,6 +45,7 @@
     /*padding: 7px;*/
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     position: absolute;
     top: 7px;
     left: 7px;
@@ -80,5 +81,13 @@
 .iUniversalWidgetRefreshBtn:active{
     background: #6c6c6c;
     border: 1px dashed #848484;
+}
+
+@keyframes blink{
+    0%{		opacity: 1;	}
+
+    50%{	opacity: 0;	}
+
+    100%{	opacity: 1;	}
 }
 
