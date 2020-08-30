@@ -650,8 +650,6 @@ vis.navChangeCallbacks.push(function (view) {
 vis.binds["vis-inventwo"] = {
 
 	iUpdateNavigations: function (timeoutVal, byclick) {
-		console.log("NAV");
-		console.log($("#visview_" + vis.activeView + " .vis-inventwo-nav, #visview_" + vis.activeView + " .iUniversalNav"));
 		if (byclick == false) {
 			$("#visview_" + vis.activeView + " .vis-inventwo-nav, #visview_" + vis.activeView + " .iUniversalNav").each(function () {
 				let id = $(this).attr("id");
@@ -678,7 +676,6 @@ vis.binds["vis-inventwo"] = {
 				let id = $(this).attr("id");
 				let data = vis.views[vis.activeView].widgets[id].data;
 
-				console.log($(this).find('.vis-inventwo-button-new'));
 				if (data.nav_view === vis.activeView)
 					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonActive);
 				else
@@ -686,7 +683,6 @@ vis.binds["vis-inventwo"] = {
 
 			});
 
-			console.log($("#visview_" + vis.activeView + " .iMultiNav"));
 			$("#visview_" + vis.activeView + " .iMultiNav").each(function () {
 				let id = $(this).attr("id");
 				let data = vis.views[vis.activeView].widgets[id].data;
@@ -723,7 +719,6 @@ vis.binds["vis-inventwo"] = {
 			$this.parent().on('click touchend', function () {
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
-				console.log(oid);
 
 				var val = vis.states[oid + '.val'];
 				var type = data.iValueType;
@@ -752,11 +747,6 @@ vis.binds["vis-inventwo"] = {
 				moved = false;
 			});
 
-		}else{
-			$this.parent().on('click', function () {
-				console.log("teeeest");
-
-			});
 		}
 
 	},
@@ -807,12 +797,7 @@ vis.binds["vis-inventwo"] = {
 					data.value = parseFloat(data.value);
 				vis.setValue(oid, data.value);
 
-				console.log(type);
-				console.log(data.iOidToggle);
-
-				console.log($(el).find('.vis-inventwo-button-new'));
 				if(type == 'universal') {
-					console.log("active");
 					let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data.iShadowColorActive + ',inset ' +
 						data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data.iShadowInnerColorActive;
 					let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
@@ -825,7 +810,6 @@ vis.binds["vis-inventwo"] = {
 						$this.find('.vis-inventwo-button-text').html(data.iTextTrue);
 
 					setTimeout(function () {
-						console.log("inactive");
 						let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data.iShadowColor + ',inset ' +
 							data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data.iShadowInnerColor;
 						let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
@@ -841,7 +825,6 @@ vis.binds["vis-inventwo"] = {
 
 				}
 				else if(type == 'multi') {
-					console.log("active");
 					let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data['iShadowColorActiveM1'] + ',inset ' +
 						data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data['iShadowInnerColorActiveM1'];
 					let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
@@ -854,7 +837,6 @@ vis.binds["vis-inventwo"] = {
 						$this.find('.vis-inventwo-button-text').html(data.iTextTrue);
 
 					setTimeout(function () {
-						console.log("inactive");
 
 						let backCol = data.iButtonCol;
 						let shadowCol = data.iShadowColor;
