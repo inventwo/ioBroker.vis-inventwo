@@ -1,1376 +1,1132 @@
-/*
+<!--
 	ioBroker.vis vis-inventwo Widget-Set
 	version: "2.0.0"
 	Copyright 2020 jkvarel jkvarel@inventwo.com
-*/
-"use strict";
-// add translations for edit mode
+-->
 
-if (vis.editMode) {
-	$.extend(true, systemDictionary, {
+<link rel="stylesheet" href="widgets/vis-inventwo/css/style.css" />
+	<script type="text/javascript" src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
 
-		//#region OLD
-		"iOpacity": {
-			"en": "Button opacity",
-			"de": "Button Transparenz"
-		},
-		"iOpacityImg": {
-			"en": "Image opacity",
-			"de": "Bild Transparenz"
-		},
-		"iOpacityAll": {
-			"en": "Opacity",
-			"de": "Transparenz"
-		},
-		//#endregion END OLD
+	<script id="i-vis-universal"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Universal.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
+iUniversalWidgetTypeInfo/custom,vis-inventwo.infoText,universalTypeInfo;
+iUniversalWidgetType[Switch]/nselect,Switch,State,Navigation,Background/updateUniversalDataFields();
+iRefreshDataFieldsInfo/custom,vis-inventwo.infoText,refreshDataFieldsText;
+iRefreshDataFields/custom,vis-inventwo.refreshDataFieldBtn,this.data.iUniversalWidgetType;
+nav_view;
+oid/id;
+iValueType[boolean]/select,boolean,value;
+iValueTypeInfo/custom,vis-inventwo.infoText,valueType;
+iValueFalse/text;
+iValueTrue/text;
+value/text;
+iTextFalse/html;
+iTextTrue/html;
+iImageFalse/image;
+iImageTrue/image;
+iStateResponseTime[0]/slider,0,2000,100;
+iNavWait[100]/number;"
+data-vis-attrs0="group.i-css;
+iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
+iButtonCol[#333333]/color;
+iButtonActive[#455618]/color;
+iOpacityBack[1]/slider,0,1,0.1;
 
-		//#region General
-		"Instance": {
-			"en": "Instance",
-			"de": "Instanz"
-		},
-		"oid":{
-			"en": "Object ID",
-			"de": "Objekt ID"
-		},
-		"iWiki":{
-			"en": "<b>Manual</b>",
-			"de": "<b>Anleitung</b>"
-		},
-		"iWikiText":{
-			"en": "<b>To the wiki</b>",
-			"de": "<b style='color: #9fdb58'>Zum Wiki</b>"
-		},
-		"iStart":{
-			"en": "Start",
-			"de": "Anfang"
-		},
-		"iEnd":{
-			"en": "End",
-			"de": "Ende"
-		},
-		"iCenter":{
-			"en": "Center",
-			"de": "Mitte"
-		},
-		"iSpace-between":{
-			"en": "Space between",
-			"de": "Platz dazwischen"
-		},
-		"group_i-css": {
-			"en": "CSS inventwo Widget",
-			"de": "CSS inventwo Widget"
-		},
-		//#endregion
+iText-CornerSettings/custom,vis-inventwo.infoText,emptyText;
+iCornerRadiusUL[12]/slider,0,50,1;
+iCornerRadiusUR[0]/slider,0,50,1;
+iCornerRadiusLR[12]/slider,0,50,1;
+iCornerRadiusLL[0]/slider,0,50,1;
 
-		//#region Content Settings
-		"iContentFlexDirection":{
-			"en": "Style",
-			"de": "Stil"
-		},
-		"iContentVertAlign": {
-			"en": "Align",
-			"de": "Ausrichtung"
-		},
-		"iContentOrder":{
-			"en": "Order",
-			"de": "Reihenfolge"
-		},
-		"orderTextImg":{
-			"en": "Text -> Image",
-			"de": "Text -> Bild"
-		},
-		"orderImgText":{
-			"en": "Image -> Text",
-			"de": "Bild -> Text"
-		},
-		"iOpacityCtn": {
-			"en": "Content opacity",
-			"de": "Inhalt Transparenz"
-		},
-		//#endregion
+iText-ContentSettings/custom,vis-inventwo.infoText,emptyText;
+iContentFlexDirection[vertical]/select,horizontal,vertical;
+iContentVertAlign[iSpace-between]/select,iStart,iCenter,iEnd,iSpace-between;
+iContentOrder[orderImgText]/select,orderTextImg,orderImgText;
+iOpacityCtn[1]/slider,0,1,0.1;
 
-		//#region Image Settings
-		"iImgRotation":{
-			"en": "Rotation",
-			"de": "Drehung"
-		},
-		"iImgAlign":{
-			"en": "Position",
-			"de": "Position"
-		},
-		"iImgSpaceTop":{
-			"en": "Space top",
-			"de": "Abstand oben"
-		},
-		"iImgSpaceLeft":{
-			"en": "Space left",
-			"de": "Abstand links"
-		},
-		"iImgSpaceRight":{
-			"en": "Space right",
-			"de": "Abstand rechts"
-		},
-		"iImgSpaceBottom":{
-			"en": "Space bottom",
-			"de": "Abstand unten"
-		},
-		"iIconSize": {
-			"en": "Size",
-			"de": "Größe"
-		},
-		"iImageFalse": {
-			"en": "Icon false",
-			"de": "Bild falsch"
-		},
-		"iImageTrue": {
-			"en": "Icon true",
-			"de": "Bild wahr"
-		},
-		"iImage": {
-			"en": "Icon",
-			"de": "Bild"
-		},
-		"iFlipImage":{
-			"en": "Flip",
-			"de": "Spiegeln"
-		},
-		"iInvertImageCol": {
-			"en": "Invert color",
-			"de": "Farbe invertieren"
-		},
+iText-TextSettings/custom,vis-inventwo.infoText,emptyText;
+iTextColor[#ffffff]/color;
+iTextSize[12]/slider,0,50,1;
+iTextAlign[iStart]/select,iStart,iCenter,iEnd;
+iTextSpaceTop[0]/slider,0,50,1;
+iTextSpaceBottom[0]/slider,0,50,1;
+iTextSpaceLeft[0]/slider,0,50,1;
+iTextSpaceRight[0]/slider,0,50,1;
 
-		//#endregion
+iText-ImageSettings/custom,vis-inventwo.infoText,emptyText;
+iIconSize[35]/slider,0,200,1;
+iImgAlign[iCenter]/select,iStart,iCenter,iEnd;
+iImgRotation[0]/slider,0,180,1;
+iImgSpaceTop[5]/slider,0,50,1;
+iImgSpaceBottom[0]/slider,0,50,1;
+iImgSpaceLeft[0]/slider,0,50,1;
+iImgSpaceRight[0]/slider,0,50,1;
+iInvertImageCol/checkbox;
+iFlipImage/checkbox;
+iImgBlinkFalse[0]/slider,0,2000,100;
+iImgBlinkTrue[0]/slider,0,2000,100;
 
-		//#region Text Settings
-		"iTextSpaceTop":{
-			"en": "Space top",
-			"de": "Abstand oben"
-		},
-		"iTextAlign":{
-			"en": "Position",
-			"de": "Position"
-		},
-		"iTextSpaceLeft":{
-			"en": "Space left",
-			"de": "Abstand links"
-		},
-		"iTextSpaceRight":{
-			"en": "Space right",
-			"de": "Abstand rechts"
-		},
-		"iTextSpaceBottom":{
-			"en": "Space bottom",
-			"de": "Abstand unten"
-		},
-		"iText": {
-			"en": "Label",
-			"de": "Beschriftung"
-		},
-		"iTextSize": {
-			"en": "Label size",
-			"de": "Größe"
-		},
-		"iTextFalse": {
-			"en": "Label  false",
-			"de": "Beschriftung falsch"
-		},
-		"iTextTrue": {
-			"en": "Label true",
-			"de": "Beschriftung wahr"
-		},
-		"iTextColor": {
-			"en": "Text color",
-			"de": "Farbe "
-		},
-		//#endregion
+iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
+iShadowXOffset[2]/slider,0,20,1;
+iShadowYOffset[2]/slider,0,20,1;
+iShadowBlur[2]/slider,0,20,1;
+iShadowSpread[1]/slider,0,20,1;
+iShadowColor[#111111]/color;
+iShadowColorActive[#111111]/color;
 
-		//#region Background Settings
-		"iButtonCol": {
-			"en": "Color",
-			"de": "Farbe"
-		},
-		"iButtonActive": {
-			"en": "Color active",
-			"de": "Farbe Aktiv"
-		},
-		"iButtonActiveM": {
-			"en": "Background active",
-			"de": "Hintergrund aktiv"
-		},
-		"iCornerRadiusUL": {
-			"en": "Border radius upper left",
-			"de": "Abrundung oben links"
-		},
-		"iCornerRadiusUR": {
-			"en": "Border radius upper right",
-			"de": "Abrundung oben rechts"
-		},
-		"iCornerRadiusLR": {
-			"en": "Border radius lower right",
-			"de": "Abrundung unten right"
-		},
-		"iCornerRadiusLL": {
-			"en": "Border radius lower left",
-			"de": "Abrundung unten links"
-		},
-		"iOpacityBack": {
-			"en": "opacity",
-			"de": "Transparenz"
-		},
-		//#endregion
+iText-ShadowInnerSettings/custom,vis-inventwo.infoText,emptyText;
+iShadowInnerXOffset[0]/slider,0,20,1;
+iShadowInnerYOffset[0]/slider,0,20,1;
+iShadowInnerBlur[0]/slider,0,20,1;
+iShadowInnerSpread[0]/slider,0,20,1;
+iShadowInnerColor[#111111]/color;
+iShadowInnerColorActive[#111111]/color;
 
-		//#region Shadow Settingss
-		"iShadowXOffset":{
-			"en": "X offset",
-			"de": "X Versatz"
-		},
-		"iShadowYOffset":{
-			"en": "Y offset",
-			"de": "Y Versatz"
-		},
-		"iShadowBlur":{
-			"en": "Blur",
-			"de": "Blur"
-		},
-		"iShadowSpread":{
-			"en": "Spread",
-			"de": "Größe"
-		},
-		"iShadowColor":{
-			"en": "Color",
-			"de": "Farbe"
-		},
-		"iShadowColorActive":{
-			"en": "Color active",
-			"de": "Farbe Aktiv"
-		},
-		"iShadowColorActiveM":{
-			"en": "Outer Shadow active",
-			"de": "Schatten außen aktiv"
-		},
-		"iShadowInnerSpread": {
-			"en": "Inner size",
-			"de": "Größe innen"
-		},
-		//#endregion
+iText-BorderSettings/custom,vis-inventwo.infoText,emptyText;
+iBorderSize[0]/slider,0,20,1;
+iBorderStyle[none]/nselect,dotted,dashed,solid,double,groove,ridge,inset,outset,none;
+iBorderColor[#ffffff]/color;
+iBorderColorActive[#ffffff]/color;"
+data-vis-set="vis-inventwo"
+data-vis-type="ctrl"
+data-vis-name="Universal">
 
-		//#region Shadow Inner Settingss
-		"iShadowInnerXOffset":{
-			"en": "X offset",
-			"de": "X Versatz"
-		},
-		"iShadowInnerYOffset":{
-			"en": "Y offset",
-			"de": "Y Versatz"
-		},
-		"iShadowInnerBlur":{
-			"en": "Blur",
-			"de": "Blur"
-		},
-		"iShadowInnerSpread":{
-			"en": "Spread",
-			"de": "Größe"
-		},
-		"iShadowInnerColor":{
-			"en": "Color",
-			"de": "Farbe"
-		},
-		"iShadowInnerColorActive":{
-			"en": "Color active",
-			"de": "Farbe Aktiv"
-		},
-		"iShadowInnerColorActiveM":{
-			"en": "Inner shadow active",
-			"de": "Schatten innen aktiv"
-		},
-		//#endregion
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+<%= (el) -> vis.binds['vis-inventwo'].universalButton(el, this.data,'universal') %>
+	</div>
 
-		//#region Border Settingss
-		"iBorderSize":{
-			"en": "Width",
-			"de": "Breite"
-		},
-		"iBorderStyle":{
-			"en": "Style",
-			"de": "Stil"
-		},
-		"iBorderColor":{
-			"en": "Color",
-			"de": "Farbe"
-		},
-		"iBorderColorActive":{
-			"en": "Color active",
-			"de": "Farbe Aktiv"
-		},
-		"iBorderColorActiveM":{
-			"en": "Border active",
-			"de": "Umrandung aktiv"
-		},
-		//#endregion
+	</script>
 
+	<script id="i-vis-multi"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Multi.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
+iUniversalWidgetTypeInfo/custom,vis-inventwo.infoText,universalTypeInfo;
+iUniversalWidgetType[Switch]/nselect,Switch,State,Navigation,Background/updateUniversalDataFields();
+iRefreshDataFieldsInfo/custom,vis-inventwo.infoText,refreshDataFieldsText;
+iRefreshDataFields/custom,vis-inventwo.refreshDataFieldBtn,this.data.iUniversalWidgetType;
+nav_view;
+iOidToggle/id;
+iValueType[boolean]/select,boolean,value;
+iValueTypeInfo/custom,vis-inventwo.infoText,valueType;
+iValueFalse/text;
+iValueTrue/text;
+value/text;
+iTextFalse/html;
+iImageFalse/image;
+iImgBlinkFalse[0]/slider,0,2000,100;
+iStateResponseTime[0]/slider,0,2000,100;
+iNavWait[100]/number;"
+data-vis-attrs0="iUniversalValueCount[1]/number,1,20,1;group.iUniversalValues/byindex/updateUniversalDataFields();
+iView(1-iUniversalValueCount)/views;
+iOidState(1-iUniversalValueCount)/id;
+iValue(1-iUniversalValueCount)/text;
+iTextTrue(1-iUniversalValueCount)/html;
+iImageTrue(1-iUniversalValueCount)/image;
+iImgBlinkTrue(1-iUniversalValueCount)[0]/slider,0,2000,100;
+iButtonActiveM(1-iUniversalValueCount)[#455618]/color;
+iShadowColorActiveM(1-iUniversalValueCount)[#111111]/color;
+iShadowInnerColorActiveM(1-iUniversalValueCount)[#111111]/color;
+iBorderColorActiveM(1-iUniversalValueCount)[#ffffff]/color;"
+data-vis-attrs1="group.i-css;
+iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
+iButtonCol[#333333]/color;
+iOpacityBack[1]/slider,0,1,0.1;
 
-		//#region Switch & State Settings
-		"iValueType":{
-			"en": "Type",
-			"de": "Typ"
-		},
-		"iValueFalse":{
-			"en": "Value false",
-			"de": "Wert falsch"
-		},
-		"iValueTrue":{
-			"en": "Value true",
-			"de": "Wert wahr"
-		},
-		"iValue":{
-			"en": "Value",
-			"de": "Wert"
-		},
-		"iValueTypeInfo":{
-			"en": "Type Info",
-			"de": "Typ Info"
-		},
-		"iValueTypeText":{
-			"en": "If type is 'boolean', value fields can be empty",
-			"de": "Wenn Typ ist 'boolean', können Wert Felder leer bleiben"
-		},
-		"iStateResponseTime":{
-			"en": "Response time (in Ms)",
-			"de": "Rückmeldungsdauer (in Ms)"
-		},
-		//#endregion
+iText-CornerSettings/custom,vis-inventwo.infoText,emptyText;
+iCornerRadiusUL[12]/slider,0,50,1;
+iCornerRadiusUR[0]/slider,0,50,1;
+iCornerRadiusLR[12]/slider,0,50,1;
+iCornerRadiusLL[0]/slider,0,50,1;
 
-		//#region Nav Settings
-		"iNavWait":{
-			"en": "Wait x milliseconds to check for active",
-			"de": "Warte x Millisekunden bis Prüfung auf aktiv"
-		},
-		"iNavValue":{
-			"en": "Value",
-			"de": "Wert"
-		},
-		//#endregion
+iText-ContentSettings/custom,vis-inventwo.infoText,emptyText;
+iContentFlexDirection[vertical]/select,horizontal,vertical;
+iContentVertAlign[iSpace-between]/select,iStart,iCenter,iEnd,iSpace-between;
+iContentOrder[orderImgText]/select,orderTextImg,orderImgText;
+iOpacityCtn[1]/slider,0,1,0.1;
 
-		//#region Radio Buttons
-		"iRadiobtnWidth":{
-			"en": "Button width",
-			"de": "Button Breite"
-		},
-		"iRadiobtnHeight":{
-			"en": "Button height",
-			"de": "Button Höhe"
-		},
-		"iRadiobtnSpace":{
-			"en": "Button space",
-			"de": "Button Abstand"
-		},
-		"iRadiobtnsCount":{
-			"en": "Count",
-			"de": "Anzahl"
-		},
-		"group_iRadioBtns":{
-			"en": "Radiobutton",
-			"de": "Radiobutton"
-		},
-		"iRadiobtnAlign":{
-			"en": "Alignment",
-			"de": "Ausrichtung"
-		},
-		//#endregion
+iText-TextSettings/custom,vis-inventwo.infoText,emptyText;
+iTextColor[#ffffff]/color;
+iTextSize[12]/slider,0,50,1;
+iTextAlign[iStart]/select,iStart,iCenter,iEnd;
+iTextSpaceTop[0]/slider,0,50,1;
+iTextSpaceBottom[0]/slider,0,50,1;
+iTextSpaceLeft[0]/slider,0,50,1;
+iTextSpaceRight[0]/slider,0,50,1;
 
-		//#regionSlider Settings
-		"iMinVal":{
-			"en": "Min. value",
-			"de": "Min. Wert"
-		},
-		"iMaxVal":{
-			"en": "Max. value",
-			"de": "Max. Wert"
-		},
-		"iStepVal":{
-			"en": "Step",
-			"de": "Schritt"
-		},
-		"iSliderColor":{
-			"en": "Bar Color",
-			"de": "Balken Farbe"
-		},
-		"iSliderKnobColor":{
-			"en": "Handle Color",
-			"de": "Regler Farbe"
-		},
-		"iSliderCorners":{
-			"en": "Border radius",
-			"de": "Rundung"
-		},
-		"iSliderKnobCorners":{
-			"en": "Handle border radius",
-			"de": "Regler Rundung"
-		},
-		"iSliderHeight":{
-			"en": "Bar size",
-			"de": "Balken dicke"
-		},
-		"iSliderKnobSize":{
-			"en": "Handle size",
-			"de": "Regler Größe"
-		},
-		"iSliderRotation":{
-			"en": "Rotation",
-			"de": "Ausrichtung"
-		},
-		"iSliderLabel":{
-			"en": "Label",
-			"de": "Beschriftung"
-		},
-		"iShowMinMax":{
-			"en": "Show Min/Max Value",
-			"de": "Zeige Min/Max Wert"
-		},
-		"iSliderTextColor":{
-			"en": "Text color",
-			"de": "Textfarbe"
-		},
-		"iShowValue":{
-			"en": "Show value",
-			"de": "Zeige Wert"
-		},
-		"iValueTextColor":{
-			"en": "Value color",
-			"de": "Wert Farbe"
-		},
-		"iValuePreText":{
-			"en": "Pre text",
-			"de": "Text voranstellen"
-		},
-		//#endregion
+iText-ImageSettings/custom,vis-inventwo.infoText,emptyText;
+iIconSize[35]/slider,0,200,1;
+iImgAlign[iCenter]/select,iStart,iCenter,iEnd;
+iImgRotation[0]/slider,0,180,1;
+iImgSpaceTop[5]/slider,0,50,1;
+iImgSpaceBottom[0]/slider,0,50,1;
+iImgSpaceLeft[0]/slider,0,50,1;
+iImgSpaceRight[0]/slider,0,50,1;
+iInvertImageCol/checkbox;
+iFlipImage/checkbox;
+iImgBlinkFalse[0]/slider,0,2000,100;
 
-		//#region Table Settings
-		"iTblShowHead":{
-			"en": "Table Head",
-			"de": "Tabellenkopf"
-		},
-		"iTblRowLimit":{
-			"en": "Rowlimit",
-			"de": "Zeilenlimit"
-		},
-		"iColCount":{
-			"en": "Columncount",
-			"de": "Spaltenanzahl"
-		},
-		"group_iTableCol":{
-			"en": "Table Column",
-			"de": "Tabellenspalte"
-		},
-		"iColName":{
-			"en": "Header",
-			"de": "Spaltenüberschrift"
-		},
-		"iColAttr":{
-			"en": "Attribute in JSON",
-			"de": "Attribut in JSON"
-		},
-		"iColWidth":{
-			"en": "Columnwidth",
-			"de": "Spaltenbreite"
-		},
-		"iTblRowEvenColor":{
-			"en": "Background (row even)",
-			"de": "Hintergrund (gerade Zeile)"
-		},
-		"iTblRowUnevenColor":{
-			"en": "Background (row uneven)",
-			"de": "Hintergrund (ungerade Zeile)"
-		},
-		"iTblHeaderColor":{
-			"en": "Background (header)",
-			"de": "Hintergrund (Überschrift)"
-		},
-		"iTblRowEvenTextColor":{
-			"en": "Font Color (row even)",
-			"de": "Textfarbe (gerade Zeile)"
-		},
-		"iTblRowUnevenTextColor":{
-			"en": "Font color (row uneven)",
-			"de": "Textfarbe (ungerade Zeile)"
-		},
-		"iTblHeaderTextColor":{
-			"en": "Font color (header)",
-			"de": "Textfarbe (Überschrift)"
-		},
-		"iRowSpacing":{
-			"en": "Row spacing",
-			"de": "Zeilenabstand"
-		},
-		"iColShow":{
-			"en": "Show column",
-			"de": "Zeige Spalte"
-		},
-		"iVertScroll":{
-			"en": "Vertical scroll",
-			"de": "Scrollen vertikal"
-		},
-		"iHorScroll":{
-			"en": "Horinzontal scroll",
-			"de": "Scrollen horizontal"
-		},
-		"iTableRefreshRate":{
-			"en": "Refresh rate (ms)",
-			"de": "Aktualisierung (ms)"
-		},
-		//#endregion
+iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
+iShadowXOffset[2]/slider,0,20,1;
+iShadowYOffset[2]/slider,0,20,1;
+iShadowBlur[2]/slider,0,20,1;
+iShadowSpread[1]/slider,0,20,1;
+iShadowColor[#111111]/color;
 
-		//#region Universal & Multi Widget Settings
-		"iUniversalWidgetTypeInfo":{
-			"en": "Type info",
-			"de": "Typ Info"
-		},
-		"iUniversalWidgetTypeInfoText":{
-			"en": "Should it be a switch, state, navigation or background?",
-			"de": "Soll es ein Switch, State, Navigation oder Hintergrund sein?"
-		},
-		"iUniversalWidgetType":{
-			"en": "Widget type",
-			"de": "Widget Typ"
-		},
-		"iUniversalValueCount":{
-			"en": "Number of states",
-			"de": "Anzahl der Zustände"
-		},
-		"group_iUniversalValues":{
-			"en": "State",
-			"de": "Zustand"
-		},
-		"iRefreshDataFieldsInfo":{
-			"en": "---->",
-			"de": "---->"
-		},
-		"iRefreshDataFields":{
-			"en": "---->",
-			"de": "---->"
-		},
-		"iRefreshDataFieldsText":{
-			"en": "<span style='color:red'>Click on the button below to hide unimportant fields for this widget</span>",
-			"de": "<span style='color:red'>Klicke auf den Button um nicht für das Widget relevante Felder zu verstecken</span>"
-		},
-		"iRefreshBtnText":{
-			"en": "Refresh fields",
-			"de": "Felder neuladen"
-		},
-		"iView":{
-			"en": "View",
-			"de": "View"
-		},
-		"iOidToggle":{
-			"en": "Object ID to switch/set",
-			"de": "Objekt ID zum Schalten/Setzen"
-		},
-		"iOidState":{
-			"en": "Object ID to check",
-			"de": "Objekt ID zum prüfen"
-		},
-		"iImgBlinkFalse":{
-			"en": "Image blinkinterval",
-			"de": "Bild falsch Blinkintervall"
-		},
-		"iImgBlinkTrue":{
-			"en": "Image blinkinterval",
-			"de": "Bild wahr Blinkintervall"
-		},
-		//#endregion
+iText-ShadowInnerSettings/custom,vis-inventwo.infoText,emptyText;
+iShadowInnerXOffset[0]/slider,0,20,1;
+iShadowInnerYOffset[0]/slider,0,20,1;
+iShadowInnerBlur[0]/slider,0,20,1;
+iShadowInnerSpread[0]/slider,0,20,1;
+iShadowInnerColor[#111111]/color;
 
-		//#region Image Settings
-		"iPointerEvents":{
-			"en": "Click through?",
-			"de": "Klick durchlassen?"
-		},
-		//#endregion
+iText-BorderSettings/custom,vis-inventwo.infoText,emptyText;
+iBorderSize[0]/slider,0,20,1;
+iBorderStyle[none]/nselect,dotted,dashed,solid,double,groove,ridge,inset,outset,none;
+iBorderColor[#ffffff]/color;"
+data-vis-set="vis-inventwo"
+data-vis-type="ctrl"
+data-vis-name="Multi">
 
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+<%= (el) -> vis.binds['vis-inventwo'].universalButton(el, this.data,'multi') %>
+	</div>
 
-		//#region Custom Text
-		"iText-Empty": {
-			"en": " ",
-			"de": " "
-		},
-		"iText-ImgSettings": {
-			"en": "<b>Image</b>",
-			"de": "<b>Bild</b>"
-		},
-		"iText-BackgroundSettings": {
-			"en": "<b>Background</b>",
-			"de": "<b>Hintergrund</b>"
-		},
-		"iText-CornerSettings": {
-			"en": "<b>Corners</b>",
-			"de": "<b>Ecken</b>"
-		},
-		"iText-ContentSettings": {
-			"en": "<b>Content</b>",
-			"de": "<b>Inhalt</b>"
-		},
-		"iText-ShadowSettings": {
-			"en": "<b>Outer shadow</b>",
-			"de": "<b>Schatten außen</b>"
-		},
-		"iText-ShadowInnerSettings": {
-			"en": "<b>Inner shadow</b>",
-			"de": "<b>Schatten innen</b>"
-		},
-		"iText-BorderSettings": {
-			"en": "<b>Border</b>",
-			"de": "<b>Umrandung</b>"
-		},
-		"iText-TextSettings": {
-			"en": "<b>Text</b>",
-			"de": "<b>Text</b>"
-		},
-		"iText-ImageSettings": {
-			"en": "<b>Image</b>",
-			"de": "<b>Bild</b>"
-		},
-		"iText-ReadOnlyTitle": {
-			"en": "<b>Read only</b>",
-			"de": "<b>Nur Lesend</b>"
-		},
-		"iText-ReadOnly": {
-			"en": "If checked, the widget can only read the datapoint and can't set it. Useful to only display the status",
-			"de": "Wenn ausgewählt kann das Widget den Datenpunkt nur lesen. Nützlich um nur den Status anzeigen zu lassen"
-		},
-		//#endregion
-	});
+	</script>
+
+	<script id="i-vis-slider-simple"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Slider1b.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iMinVal[1]/number;iMaxVal[100]/number;iStepVal[1]/slider,0,100,0.1;iSliderRotation[0]/slider,-45,45,1;iSliderLabel/text;iShowMinMax/checkbox;iShowValue/checkbox;iValuePreText/text;"
+data-vis-attrs0="group.i-css;iSliderHeight[10]/slider,1,200,1;iSliderKnobSize[20]/slider,1,200,1;iSliderColor[#ffffff]/color;iSliderKnobColor[#455618]/color;iSliderTextColor[#ffffff]/color;iValueTextColor[#455618]/color;iTextSize[12]/slider,0,50,1;iSliderCorners[100]/slider,0,100,1;iSliderKnobCorners[100]/slider,0,100,1;"
+data-vis-set="vis-inventwo"
+data-vis-type="ctrl"
+data-vis-name="Simple Slider horizontal">
+
+	<%
+
+	let elHeight;
+let topSpace = 0;
+if((this.data.iSliderKnobSize < this.data.iTextSize) && this.data.iShowMinMax){
+	elHeight = elHeight = parseInt(this.data.iTextSize) * 2 + 15;
+	topSpace = parseInt(this.data.iTextSize) / 2;
+}
+else{
+	elHeight = parseInt(this.data.iSliderKnobSize) + parseInt(this.data.iTextSize) + 15;
+	topSpace = parseInt(this.data.iSliderKnobSize) / 2;
 }
 
-vis.navChangeCallbacks.push(function (view) {
+%>
 
-	vis.binds["vis-inventwo"].iUpdateNavigations(0,false);
+<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
+style="width:200px; height:<%= elHeight%>px; overflow:visible; cursor:pointer;font-size:<%= this.data.iTextSize %>px;color:<%= this.data.iSliderTextColor %>;z-index:1" >
+	<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: auto; display:flex;align-items:center;flex-wrap:wrap; top:<%= topSpace%>px;">
 
-});
+	<% if(this.data.iShowMinMax){ %>
+<div style="margin-right: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iMinVal %></div>
 
-vis.binds["vis-inventwo"] = {
+		<div style="top:50%;flex-grow:1; border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; height: <%= this.data.iSliderHeight %>px;"
+	<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data,{orientation:"horizontal"}) %> ></div>
 
-	iUpdateNavigations: function (timeoutVal, byclick) {
-		if (byclick == false) {
-			$("#visview_" + vis.activeView + " .vis-inventwo-nav, #visview_" + vis.activeView + " .iUniversalNav").each(function () {
-				let id = $(this).attr("id");
-				let data = vis.views[vis.activeView].widgets[id].data;
+		<div style="margin-left: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iMaxVal %></div>
 
-				if (data.iNavWait > timeoutVal)
-					timeoutVal = data.iNavWait;
+		<% } else { %>
+<div style="top:50%;flex-grow:1; border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; height: <%= this.data.iSliderHeight %>px; margin: 0 <%= this.data.iShowMinMax %>px;"
+	<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data,{orientation:"horizontal"}) %> ></div>
 
-			});
+		<% } %>
+
+</div>
+
+<div style="position:absolute; left:0px; bottom:0px;"><%= this.data.iSliderLabel %></div>
+	<% if(this.data.iShowValue){ %>
+<div style="position:absolute; right:0px; bottom:0px;color:<%= this.data.iValueTextColor%>"><%== this.data.iValuePreText%><%= vis.states.attr(this.data.oid + '.val') %></div>
+		<% } %>
+
+</div>
+</script>
+<script id="i-vis-slider-simple-2"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Slider2b.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iMinVal[1]/number;iMaxVal[100]/number;iStepVal[1]/slider,0,100,0.1;iSliderRotation[0]/slider,-45,45,1;iSliderLabel/text;iShowMinMax/checkbox;iShowValue/checkbox;iValuePreText/text;"
+data-vis-attrs0="group.i-css;iSliderHeight[10]/slider,1,200,1;iSliderKnobSize[20]/slider,1,200,1;iSliderColor[#ffffff]/color;iSliderKnobColor[#455618]/color;iSliderTextColor[#ffffff]/color;iValueTextColor[#455618]/color;iTextSize[12]/slider,0,50,1;iSliderCorners[100]/slider,0,100,1;iSliderKnobCorners[100]/slider,0,100,1;"
+data-vis-set="vis-inventwo"
+data-vis-type="ctrl"
+data-vis-name="Simple Slider vertical">
+
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
+style="height:200px; width:<%= this.data.iSliderHeight%>px; overflow:visible; cursor:pointer;font-size:<%= this.data.iTextSize %>px;color:<%= this.data.iSliderTextColor %>;z-index:1" >
+
+	<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: 100%;display: flex;flex-direction: column;align-items: center;">
+
+	<% if(this.data.iShowMinMax){ %>
+<% if(this.data.iShowValue){ %>
+	<div><span style="color:<%= this.data.iValueTextColor%>"><%== this.data.iValuePreText%></span></div>
+		<div style="margin-bottom: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px">
+			<span style="color:<%= this.data.iValueTextColor%>"><%= vis.states.attr(this.data.oid + '.val') %> / </span><%= this.data.iMaxVal %>
+			</div>
+			<% } else { %>
+	<div style="margin-bottom: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iMaxVal %></div>
+			<% } %>
+
+<div style="border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; width: <%= this.data.iSliderHeight %>px;flex-grow:1"
+	<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data,{orientation:"vertical"}) %> ></div>
+
+		<div style="margin-top: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iMinVal %></div>
+	<div><%= this.data.iSliderLabel %></div>
+
+		<% } else { %>
+<div style="border: 0px; border-radius: <%= this.data.iSliderCorners %>px;background: <%= this.data.iSliderColor %>; width: <%= this.data.iSliderHeight %>px;flex-grow:1"
+	<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, this.data,{orientation:"vertical"}) %> ></div>
+
+		<div style="margin-top: <%= (parseInt(this.data.iSliderKnobSize) / 2) + 5 %>px"><%= this.data.iSliderLabel %></div>
+
+		<% } %>
+
+
+
+</div>
+
+
+</div>
+</script>
+
+<script id="i-vis-image-new"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Image.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
+oid/id;
+iValue/text;
+iImageFalse/image;
+iImageTrue/image;
+iPointerEvents/checkbox;"
+data-vis-attrs0="group.i-css;
+iText-CornerSettings/custom,vis-inventwo.infoText,emptyText;
+iCornerRadiusUL[0]/slider,0,50,1;
+iCornerRadiusUR[0]/slider,0,50,1;
+iCornerRadiusLR[0]/slider,0,50,1;
+iCornerRadiusLL[0]/slider,0,50,1;
+
+iOpacityCtn[1]/slider,0,1,0.1;
+
+iText-ImageSettings/custom,vis-inventwo.infoText,emptyText;
+iImgRotation[0]/slider,0,180,1;
+iInvertImageCol/checkbox;
+iFlipImage/checkbox;
+
+iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
+iShadowSpread[0]/slider,0,50,1;
+iShadowSpreadInner[0]/slider,0,50,1;
+iShadowBlur[0]/slider,0,50,1;
+iShadowColor[#111111]/color;
+iShadowColorActive[#111111]/color;"
+data-vis-set="vis-inventwo"
+data-vis-type="static"
+data-vis-name="Image">
+
+	<%
+	let pointer_event = "auto";
+if(this.data.iPointerEvents == true){
+	pointer_event = "none";
+}
+
+%>
+
+<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light"
+style="width:110px; height:110px; overflow:visible; cursor:default; z-index:1; pointer-events:<%== pointer_event %>;"
+id="<%= this.data.attr('wid') %>" >
+	<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
+
+	<%
+	let cssData = {};
+
+let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
+
+cssData.flip = 1;
+if(this.data.attr('iFlipImage')){
+	cssData.flip = -1;
+}
+
+%>
+
+<div class="vis-inventwo-button-new" style="width:100%; height:100%;">
+
+	<div style="opacity: <%= this.data.attr('iOpacityCtn') %>;width:100%; height:100%;">
+
+	<div class="vis-inventwo-button-imageContainer"
+style="align-self: center;
+display: flex;
+justify-content: center;
+align-items: center;
+width:100%; height:100%;">
+
+<div style="width: <%= this.data.iShadowSpreadInner %>px; height: <%= this.data.iShadowSpreadInner%>px; position: absolute; background:<%= this.data.attr('iShadowColor')%>; border-radius: 100%;
+	<% if(this.data.oid != undefined && vis.states.attr(this.data.oid + '.val') == this.data.iValue) { %>
+	box-shadow: 0px 0px <%= this.data.iShadowBlur %>px <%= this.data.iShadowSpread %>px <%= this.data.attr('iShadowColorActive')%>;
+<% } else { %>
+	box-shadow: 0px 0px <%= this.data.iShadowBlur %>px <%= this.data.iShadowSpread %>px <%= this.data.attr('iShadowColor')%>;
+<% } %>
+"></div>
+<img
+<% if(this.data.oid != undefined && vis.states.attr(this.data.oid + '.val') == this.data.iValue) { %>
+	src='<%= this.data.attr('iImageTrue') %>'
+	<% } else { %>
+	src='<%= this.data.attr('iImageFalse') %>'
+	<% } %>
+width="100%;height:100%;"
+style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
+transform: scaleX(<%= cssData.flip %>) rotateZ(<%= this.data.iImgRotation %>deg);
+border-radius: <%= this.data.iCornerRadiusUL %>px <%= data.iCornerRadiusUR%>px <%= data.iCornerRadiusLR%>px <%= data.iCornerRadiusLL%>px">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</script>
+
+<script id="i-vis-jsontable"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Table.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iTblShowHead/checkbox;iTblRowLimit/number;iVertScroll/checkbox;iHorScroll/checkbox;iTableRefreshRate[50]/number,0,10000,1;"
+data-vis-attrs0="iColCount/number,0,100,1;group.iTableCol/byindex;iColShow(1-iColCount)[true]/checkbox;iColName(1-iColCount)/text;iColAttr(1-iColCount)/text;iColWidth(1-iColCount)/text;"
+data-vis-attrs1="group.i-css;iOpacityAll[1]/slider,0,1,0.1;iTblRowEvenColor[#333333]/color;iTblRowUnevenColor[#455618]/color;iTblHeaderColor[#333333]/color;
+iTblRowEvenTextColor[#ffffff]/color;iTblRowUnevenTextColor[#ffffff]/color;iTblHeaderTextColor[#ffffff]/color;iRowSpacing[10]/slider,0,50,0.1;"
+data-vis-set="vis-inventwo"
+data-vis-type="table"
+data-vis-name="JSON Table">
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:auto; height:auto; overflow:hidden;z-index:1" id="<%= this.data.attr('wid') %>" >
+<%= (el) -> vis.binds['vis-inventwo'].jsontable(el, this.data) %>
+	</div>
+
+	</script>
+
+	<script id="i-vis-radiobutton-list"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Radio.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
+oid/id;
+iRadiobtnWidth[100]/slider,50,200,1;
+iRadiobtnHeight[50]/slider,10,200,1;
+iRadiobtnSpace[10]/slider,0,100,1;
+iRadiobtnAlign[horizontal]/select,vertical,horizontal;"
+data-vis-attrs0="iRadiobtnsCount[1]/number,0,100,1;group.iRadioBtns/byindex;
+iTextFalse(1-iRadiobtnsCount)/html;
+iTextTrue(1-iRadiobtnsCount)/html;
+iValue(1-iRadiobtnsCount)/text;
+iText-BackgroundSettings(1-iRadiobtnsCount)/custom,vis-inventwo.infoText,emptyText;
+iText-BackColorRadioInfo/custom,vis-inventwo.infoText,radioBtnBackColInfoText;
+iButtonBackM(1-iRadiobtnsCount)/color;
+iButtonBackActiveM(1-iRadiobtnsCount)/color;
+iText-ImgSettings(1-iRadiobtnsCount)/custom,vis-inventwo.infoText,emptyText;
+iImageFalse(1-iRadiobtnsCount)/image;
+iImageTrue(1-iRadiobtnsCount)/image;"
+data-vis-attrs1="group.i-css;
+iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
+iButtonCol[#333333]/color;
+iButtonActive[#455618]/color;
+iOpacityBack[1]/slider,0,1,0.1;
+
+iText-CornerSettings/custom,vis-inventwo.infoText,emptyText;
+iCornerRadiusUL[12]/slider,0,50,1;
+iCornerRadiusUR[0]/slider,0,50,1;
+iCornerRadiusLR[12]/slider,0,50,1;
+iCornerRadiusLL[0]/slider,0,50,1;
+
+iText-ContentSettings/custom,vis-inventwo.infoText,emptyText;
+iContentFlexDirection[vertical]/select,horizontal,vertical;
+iContentVertAlign[iSpace-between]/select,iStart,iCenter,iEnd,iSpace-between;
+iContentOrder[orderImgText]/select,orderTextImg,orderImgText;
+iOpacityCtn[1]/slider,0,1,0.1;
+
+iText-TextSettings/custom,vis-inventwo.infoText,emptyText;
+iTextColor[#ffffff]/color;
+iTextSize[12]/slider,0,50,1;
+iTextAlign[iStart]/select,iStart,iCenter,iEnd;
+iTextSpaceTop[0]/slider,0,50,1;
+iTextSpaceBottom[0]/slider,0,50,1;
+iTextSpaceLeft[0]/slider,0,50,1;
+iTextSpaceRight[0]/slider,0,50,1;
+
+iText-ImageSettings/custom,vis-inventwo.infoText,emptyText;
+iIconSize[35]/slider,0,200,1;
+iImgAlign[iCenter]/select,iStart,iCenter,iEnd;
+iImgRotation[0]/slider,0,180,1;
+iImgSpaceTop[0]/slider,0,50,1;
+iImgSpaceBottom[0]/slider,0,50,1;
+iImgSpaceLeft[0]/slider,0,50,1;
+iImgSpaceRight[0]/slider,0,50,1;
+iInvertImageCol/checkbox;
+iFlipImage/checkbox;
+
+iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
+iShadowXOffset[2]/slider,0,20,1;
+iShadowYOffset[2]/slider,0,20,1;
+iShadowBlur[2]/slider,0,20,1;
+iShadowSpread[1]/slider,0,20,1;
+iShadowColor[#111111]/color;
+iShadowColor[#111111]/color;
+iShadowColorActive[#111111]/color;
+
+iText-ShadowInnerSettings/custom,vis-inventwo.infoText,emptyText;
+iShadowInnerXOffset[0]/slider,0,20,1;
+iShadowInnerYOffset[0]/slider,0,20,1;
+iShadowInnerBlur[0]/slider,0,20,1;
+iShadowInnerSpread[0]/slider,0,20,1;
+iShadowInnerColor[#111111]/color;
+iShadowInnerColorActive[#111111]/color;
+
+iText-BorderSettings/custom,vis-inventwo.infoText,emptyText;
+iBorderSize[0]/slider,0,20,1;
+iBorderStyle[none]/nselect,dotted,dashed,solid,double,groove,ridge,inset,outset,none;
+iBorderColor[#ffffff]/color;
+iBorderColorActive[#ffffff]/color;"
+data-vis-set="vis-inventwo"
+data-vis-type="ctrl"
+data-vis-name="Radiobutton List">
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:auto; height:auto; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+
+	<%
+	let cssData = {};
+
+if(this.data.iRadiobtnAlign == 'vertical'){
+	cssData.align = "column";
+	cssData.marginDir = "bottom";
+}
+else if(this.data.iRadiobtnAlign == 'horizontal'){
+	cssData.align = "row";
+	cssData.marginDir = "right";
+}
+
+%>
+
+<div class="vis-inventwo-class vis-widget-body vis-inventwo-radiobtnlist-body <%== this.data.attr('class') %>" style="flex-direction: <%= cssData.align %>">
+
+	<%
+
+	let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
+
+let flip = 1;
+if(this.data.attr('iFlipImage')){
+	cssData.flip = -1;
+}
+
+//Vertikale Inhaltsausrichtung
+let vertTextAlign = "";
+if(this.data.iContentVertAlign == 'iStart')
+	cssData.vertTextAlign = "flex-start";
+else if(this.data.iContentVertAlign == 'iCenter')
+	cssData.vertTextAlign = "center";
+else if(this.data.iContentVertAlign == 'iEnd')
+	cssData.vertTextAlign = "flex-end";
+else if(this.data.iContentVertAlign == 'iSpace-between')
+	cssData.vertTextAlign = "space-between";
+
+//Inhaltsausrichtung (Reihe oder Spalte)
+let contFlexDir = "";
+if(this.data.iContentFlexDirection == "vertical")
+	cssData.contFlexDir = "column";
+else if(this.data.iContentFlexDirection == "horizontal")
+	cssData.contFlexDir = "row";
+
+//Inhaltsreihenfolge (Erst Bild dann Text oder erst Text dann Bild)
+let orderContent = "";
+if(this.data.iContentOrder == 'orderTextImg')
+	cssData.orderContent = 2;
+else
+	cssData.orderContent = 0;
+
+//
+let imgAlign = "";
+if(this.data.iImgAlign == 'iStart')
+	cssData.imgAlign = "flex-start";
+else if(this.data.iImgAlign == 'iCenter')
+	cssData.imgAlign = "center";
+else if(this.data.iImgAlign == 'iEnd')
+	cssData.imgAlign = "flex-end";
+
+//
+let textAlign = "";
+if(this.data.iTextAlign == 'iStart')
+	cssData.textAlign = "flex-start";
+else if(this.data.iTextAlign == 'iCenter')
+	cssData.textAlign = "center";
+else if(this.data.iTextAlign == 'iEnd')
+	cssData.textAlign = "flex-end";
+%>
+
+<% for(let val = 1; val <= this.data.iRadiobtnsCount; val++){ %>
+
+<div style="width: <%= this.data.attr('iRadiobtnWidth') %>px;
+	height: <%= this.data.attr('iRadiobtnHeight') %>px;
+	position: relative;
+	margin-<%= cssData.marginDir %>: <%= this.data.iRadiobtnSpace %>px;">
+
+	<div>
+
+	<%
+
+	let backCol = "";
+	if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iValue' + val)){
+
+		if(this.data.attr('iButtonBackActiveM' + val) != undefined){
+			backCol = this.data.attr('iButtonBackActiveM' + val);
 		}
-
-		setTimeout(function () {
-
-			$(".vis-inventwo-nav").each(function (el) {
-
-				if ($(this).attr("data-inventwo-nav") === vis.activeView)
-					$(this).css("background-color", $(this).attr("data-activecol"));
-				else
-					$(this).css("background-color", $(this).attr("data-col"));
-
-			});
-
-			$("#visview_" + vis.activeView + " .iUniversalNav").each(function () {
-				let id = $(this).attr("id");
-				let data = vis.views[vis.activeView].widgets[id].data;
-
-				if (data.nav_view === vis.activeView)
-					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonActive);
-				else
-					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonCol);
-
-			});
-
-			$("#visview_" + vis.activeView + " .iMultiNav").each(function () {
-				let id = $(this).attr("id");
-				let data = vis.views[vis.activeView].widgets[id].data;
-				let stateFound = false;
-				for (let i = 1; i <= data.iUniversalValueCount; i++) {
-					if (data["iView" + i] === vis.activeView) {
-						stateFound = true;
-						$(this).find('.vis-inventwo-button-new').css("background", data["iButtonActiveM" + i]);
-						break;
-					}
-				}
-				if (!stateFound) {
-					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonCol);
-				}
-
-			});
-
-		}, timeoutVal);
-
-
-	},
-	handleToggle: function (el, data, type) {
-
-		var $this = $(el);
-
-		if(type == undefined || type == 'universal')
-			var oid = data.oid;
 		else{
-			var oid = data.iOidToggle;
+			backCol = this.data.iButtonActive;
 		}
-
-		if (!vis.editMode) {
-			var moved = false;
-			$this.parent().on('click touchend', function () {
-				if (vis.detectBounce(this)) return;
-				if (moved) return;
-
-				var val = vis.states[oid + '.val'];
-				var type = data.iValueType;
-				var valFalse = data.iValueFalse;
-				var valTrue = data.iValueTrue;
-
-				if(type == "boolean")
-					vis.setValue(oid, !val);
-				else{
-
-					if(val == valFalse){
-						if(!isNaN(valTrue))
-							valTrue = parseFloat(valTrue);
-						vis.setValue(oid, valTrue);
-					}
-					else{
-						if(!isNaN(valFalse))
-							valTrue = parseFloat(valFalse);
-						vis.setValue(oid, valFalse);
-					}
-				}
-
-			}).on('touchmove', function () {
-				moved = true;
-			}).on('touchstart', function () {
-				moved = false;
-			});
-
-		}
-
-	},
-	handleNavigation: function (el, data) {
-		if (!vis.editMode && data.nav_view) {
-			var $this = $(el);
-			var moved = false;
-			$this.parent().on('click touchend', function (e) {
-				// Protect against two events
-				if (vis.detectBounce(this)) return;
-				if (moved) return;
-				vis.changeView(data.nav_view, data.nav_view);
-				//e.preventDefault();
-				//return false;
-				if(data.oid !== "") {
-					if(!isNaN(data.iNavValue))
-						data.iNavValue = parseFloat(data.iNavValue);
-					vis.setValue(data.oid, data.iNavValue);
-				}
-
-				vis.binds['vis-inventwo'].iUpdateNavigations(data.iNavWait,true);
-
-
-			}).on('touchmove', function () {
-				moved = true;
-			}).on('touchstart', function () {
-				moved = false;
-			});
-
-		}
-	},
-	state: function (el, data, type) {
-
-		var $this = $(el);
-
-		if(type == undefined || type == 'universal')
-			var oid = data.oid;
-		else{
-			var oid = data.iOidToggle;
-		}
-
-		//$(el).html(valFalse);
-
-		if (!vis.editMode) {
-
-			$this.parent().on('click touchend', function () {
-				if(!isNaN(data.value))
-					data.value = parseFloat(data.value);
-				vis.setValue(oid, data.value);
-
-				if(type == 'universal') {
-					let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data.iShadowColorActive + ',inset ' +
-						data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data.iShadowInnerColorActive;
-					let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
-					$this.find('.vis-inventwo-button-new').css('background', data.iButtonActive);
-					$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
-					$this.find('.vis-inventwo-button-new').css('border', border);
-					if(data.iImageTrue != undefined)
-						$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageTrue);
-					if(data.iTextTrue != undefined)
-						$this.find('.vis-inventwo-button-text').html(data.iTextTrue);
-
-					setTimeout(function () {
-						let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data.iShadowColor + ',inset ' +
-							data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data.iShadowInnerColor;
-						let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
-						$this.find('.vis-inventwo-button-new').css('background', data.iButtonCol);
-						$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
-						$this.find('.vis-inventwo-button-new').css('border', border);
-						if(data.iImageFalse != undefined)
-							$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageFalse);
-						if(data.iTextFalse != undefined)
-							$this.find('.vis-inventwo-button-text').html(data.iTextFalse);
-					}, data.iStateResponseTime);
-
-
-				}
-				else if(type == 'multi') {
-					let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data['iShadowColorActiveM1'] + ',inset ' +
-						data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data['iShadowInnerColorActiveM1'];
-					let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
-					$this.find('.vis-inventwo-button-new').css('background', data['iButtonActiveM1']);
-					$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
-					$this.find('.vis-inventwo-button-new').css('border', border);
-					if(data.iImageTrue != undefined)
-						$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageTrue);
-					if(data.iTextTrue != undefined)
-						$this.find('.vis-inventwo-button-text').html(data.iTextTrue);
-
-					setTimeout(function () {
-
-						let backCol = data.iButtonCol;
-						let shadowCol = data.iShadowColor;
-						let shadowColInner = data.iShadowInnerColor;
-						let borderCol = data.iBorderColor;
-						if(data.iImageFalse != undefined)
-							img = data.iImageFalse;
-						if(data.iTextFalse != undefined)
-							txt = data.iTextFalse;
-
-						for (let i = 1; i <= data.iUniversalValueCount; i++) {
-							if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data['iOidState' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
-								backCol = data['iButtonActiveM' + i];
-								shadowCol = data['iShadowColorActiveM' + i];
-								shadowColInner = data['iShadowInnerColorActiveM' + i];
-								borderCol = data['iBorderColorActiveM' + i];
-								if (data.attr('iImageTrue' + i) != undefined)
-									img = data.attr('iImageTrue' + i);
-								if (data.attr('iTextTrue' + i) != undefined)
-									txt = data.attr('iTextTrue' + i);
-								break;
-							}
-						}
-
-						let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + shadowCol + ',inset ' +
-							data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + shadowColInner;
-						let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + borderCol;
-						$this.find('.vis-inventwo-button-new').css('background', backCol);
-						$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
-						$this.find('.vis-inventwo-button-new').css('border', border);
-						if(data.iImageFalse != undefined)
-							$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageFalse);
-						if(data.iTextFalse != undefined)
-							$this.find('.vis-inventwo-button-text').html(data.iTextFalse);
-					}, data.iStateResponseTime);
-
-
-				}
-			});
-
-		}
-	},
-	externalLinks: function (widAttr, data) {
-		let url = '';
-		if (data[1] === 'wiki') {
-			url = 'https://github.com/inventwo/ioBroker.vis-inventwo/wiki'
-		}
-		return { input: `<a target="_blank" href="${url}">${_('iWikiText')}</a>` }
-	},
-	infoText: function (widAttr, data) {
-		let text = '';
-
-		if (data[1] === 'valueType') {
-			text = 'iValueTypeText';
-		}
-		else if(data[1] === 'emptyText'){
-			text = '';
-		}
-		else if(data[1] === 'readOnlyInfo'){
-			text = 'iText-ReadOnly';
-		}
-		else if(data[1] === 'universalTypeInfo'){
-			text = 'iUniversalWidgetTypeInfoText';
-		}
-		else if(data[1] === 'refreshDataFieldsText'){
-			text = 'iRefreshDataFieldsText';
-		}
-
-		return { input: `<span>${_(text)}</span>` };
-	},
-	handleSlider: function (el,data,options) {
-
-		var $this = $(el);
-		var oid = data.oid;
-
-		var settings = $.extend({
-			min: parseFloat(data.iMinVal),
-			max: parseFloat(data.iMaxVal),
-			step: parseFloat(data.iStepVal),
-			slide: function( event, ui ) {
-				if(!vis.editMode)
-					vis.setValue(oid, ui.value);
-			}
-		},options);
-
-		$this.slider(settings);
-
-		$this.css('transform','rotate('+data.iSliderRotation+'deg)');
-		$this.children().css("width",data.iSliderKnobSize + "px");
-		$this.children().css("height",data.iSliderKnobSize + "px");
-		$this.children().css("border","0px");
-		$this.children().css("border-radius",data.iSliderKnobCorners + "%");
-		$this.children().css("background",data.iSliderKnobColor);
-		$this.children().css("box-shadow","0 0 5px 1px black");
-		if(options.orientation === "horizontal") {
-			$this.children().css("margin-left", "-" + (data.iSliderKnobSize / 2) + "px");
-			let topPos = ((data.iSliderKnobSize - data.iSliderHeight) / 2) * (-1);
-			$this.children().css("top",topPos + "px");
+	}
+	else{
+		if(this.data.attr('iButtonBackM' + val) != undefined){
+			backCol = this.data.attr('iButtonBackM' + val);
 		}
 		else{
-			$this.children().css("left", "-" + (data.iSliderKnobSize / 2 - data.iSliderHeight/2) + "px");
-			$this.children().css("margin-bottom", "-" + (data.iSliderKnobSize / 2) + "px");
+			backCol = this.data.iButtonCol;
 		}
-
-		$this.slider("option","value",vis.states.attr(oid + ".val"));
-
-		vis.states.bind(oid + ".val",function () {
-			$this.slider("option","value",vis.states.attr(oid + ".val"));
-		});
-
-	},
-
-	jsontable: function (el,data) {
-
-		let output = "";
-
-		if(data.oid === "" || data.oid === "nothing_selected" || data.oid === undefined) {
-			output = "No data";
-		}
-
-		else{
-			if(data.iColCount  !== "" && data.iColCount > 0){
-				let jd = vis.states.attr(data.oid + ".val");
-				let jsondata;
-
-				if(typeof jd === "string")
-					jsondata = JSON.parse(jd);
-				else
-					jsondata = jd;
-
-				let rowLimit = jsondata.length;
-				if (data.iTblRowLimit < rowLimit)
-					rowLimit = data.iTblRowLimit;
-				let colLimit = Object.keys(jsondata[0]).length;
-				if (data.iColCount < colLimit)
-					colLimit = data.iColCount;
-
-				if(data.iVertScroll){
-					$(el).parent().css("overflow-y","scroll");
-				}
-				else{
-					$(el).parent().css("overflow-y","hidden");
-				}
-
-				if(data.iHorScroll){
-					$(el).parent().css("overflow-x","scroll");
-				}
-				else{
-					$(el).parent().css("overflow-x","hidden");
-				}
-
-				output = "<table class='vis-inventwo-json-table' style='opacity: " + data.iOpacityAll + ";'>";
-				if (data.iTblShowHead) {
-					output += "<thead style='background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor + "'>";
-					for (let i = 0; i < colLimit; i++) {
-						if(data["iColShow" + (i + 1)]) {
-							let colWidth = "";
-							if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
-								colWidth = data["iColWidth" + (i + 1)];
-							}
-							if (data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== "") {
-								output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + data["iColName" + (i + 1)] + "</th>";
-							} else {
-								//if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
-								output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + Object.keys(jsondata[0])[i] + "</th>";
-							}
-						}
-					}
-					output += "</thead>";
-				}
-				output += "<tbody>";
-				for (let e = 0; e < rowLimit; e++) {
-					let tdColor = "";
-					let tdTextColor = "";
-					if (e % 2 === 0) {
-						tdColor = data.iTblRowUnevenColor;
-						tdTextColor = data.iTblRowUnevenTextColor;
-					} else {
-						tdColor = data.iTblRowEvenColor;
-						tdTextColor = data.iTblRowEvenTextColor;
-					}
-					output += "<tr style='background: " + tdColor + "; color: " + tdTextColor + "'>";
-					for (let i = 0; i < colLimit; i++) {
-						if(data["iColShow" + (i + 1)]) {
-							let colWidth = "";
-							if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
-								colWidth = data["iColWidth" + (i + 1)];
-							}
-							if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
-								output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][data["iColAttr" + (i + 1)]] + "</td>";
-							} else {
-								//if(Object.keys(jsondata[e])[i].charAt(0) !== "_")
-								output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
-							}
-						}
-					}
-					output += "</tr>";
-				}
-				output += "</tbody>";
-				output += "</table>";
-
-				setTimeout(vis.binds["vis-inventwo"].jsontable,data.iTableRefreshRate,el,data);
-
-			}
-			else{
-				output = "Columncount can't be zero/empty";
-			}
-		}
-		$(el).html(output);
-	},
-
-	radiobutton: function (el, oid, val) {
-		var $this = $(el);
-
-		if (!vis.editMode) {
-			var moved = false;
-			$this.parent().on('click touchend', function () {
-				if (vis.detectBounce(this)) return;
-				if (moved) return;
-
-				vis.setValue(oid, val);
-
-			}).on('touchmove', function () {
-				moved = true;
-			}).on('touchstart', function () {
-				moved = false;
-			});
-
-		}
-	},
-
-	updateUniversalDataFields: function (wid,view) {
-
-		vis.activeWidgets.forEach(function (el) {
-			let data = vis.views[vis.activeView].widgets[el].data;
-			let val = data.iUniversalWidgetType;
-
-			if(val == "Switch"){
-				vis.hideShowAttr("iNavWait",false);
-				vis.hideShowAttr("iValueType",true);
-				vis.hideShowAttr("iValueTypeInfo",true);
-				vis.hideShowAttr("iValueFalse",true);
-				vis.hideShowAttr("iValueTrue",true);
-				vis.hideShowAttr("value",false);
-				vis.hideShowAttr("iStateResponseTime",false);
-				vis.hideShowAttr("nav_view",false);
-				vis.hideShowAttr("iOidToggle",true);
-				for (let i = 1; i <= data.iUniversalValueCount; i++){
-					vis.hideShowAttr("oid" + i,true);
-					vis.hideShowAttr("iTextFalse" + i,true);
-					vis.hideShowAttr("iTextTrue" + i,true);
-					vis.hideShowAttr("iImageFalse" + i,true);
-					vis.hideShowAttr("iImageTrue" + i,true);
-					vis.hideShowAttr("iValue" + i,true);
-					vis.hideShowAttr("iView" + i,false);
-					vis.hideShowAttr("iOidState" + i,true);
-				}
-			}
-			else if(val == "State"){
-				vis.hideShowAttr("iNavWait",false);
-				vis.hideShowAttr("iValueType",false);
-				vis.hideShowAttr("iValueTypeInfo",false);
-				vis.hideShowAttr("iValueFalse",false);
-				vis.hideShowAttr("iValueTrue",false);
-				vis.hideShowAttr("value",true);
-				vis.hideShowAttr("iStateResponseTime",true);
-				vis.hideShowAttr("nav_view",false);
-				vis.hideShowAttr("iOidToggle",true);
-				for (let i = 1; i <= data.iUniversalValueCount; i++){
-					vis.hideShowAttr("oid" + i,true);
-					vis.hideShowAttr("iTextFalse" + i,true);
-					vis.hideShowAttr("iTextTrue" + i,true);
-					vis.hideShowAttr("iImageFalse" + i,true);
-					vis.hideShowAttr("iImageTrue" + i,true);
-					vis.hideShowAttr("iValue" + i,true);
-					vis.hideShowAttr("iView" + i,false);
-					vis.hideShowAttr("iOidState" + i,true);
-				}
-			}
-			else if(val == "Navigation"){
-				vis.hideShowAttr("iNavWait",true);
-				vis.hideShowAttr("iValueType",false);
-				vis.hideShowAttr("iValueTypeInfo",false);
-				vis.hideShowAttr("iValueFalse",false);
-				vis.hideShowAttr("iValueTrue",false);
-				vis.hideShowAttr("value",true);
-				vis.hideShowAttr("iStateResponseTime",false);
-				vis.hideShowAttr("nav_view",true);
-				vis.hideShowAttr("iOidToggle",true);
-				for (let i = 1; i <= data.iUniversalValueCount; i++){
-					vis.hideShowAttr("oid" + i,false);
-					vis.hideShowAttr("iTextFalse" + i,true);
-					vis.hideShowAttr("iTextTrue" + i,true);
-					vis.hideShowAttr("iImageFalse" + i,true);
-					vis.hideShowAttr("iImageTrue" + i,true);
-					vis.hideShowAttr("iValue" + i,false);
-					vis.hideShowAttr("iView" + i,true);
-					vis.hideShowAttr("iOidState" + i,false);
-				}
-			}
-			else if(val == "Background"){
-				vis.hideShowAttr("iNavWait",false);
-				vis.hideShowAttr("iValueType",false);
-				vis.hideShowAttr("iValueTypeInfo",false);
-				vis.hideShowAttr("iValueFalse",false);
-				vis.hideShowAttr("iValueTrue",false);
-				vis.hideShowAttr("value",false);
-				vis.hideShowAttr("iStateResponseTime",false);
-				vis.hideShowAttr("nav_view",false);
-				vis.hideShowAttr("iOidToggle",false);
-				for (let i = 1; i <= data.iUniversalValueCount; i++){
-					vis.hideShowAttr("oid" + i,true);
-					vis.hideShowAttr("iTextFalse" + i,true);
-					vis.hideShowAttr("iTextTrue" + i,true);
-					vis.hideShowAttr("iImageFalse" + i,true);
-					vis.hideShowAttr("iImageTrue" + i,true);
-					vis.hideShowAttr("iValue" + i,true);
-					vis.hideShowAttr("iView" + i,false);
-					vis.hideShowAttr("iOidState" + i,true);
-				}
-			}
-		});
-
-	},
-
-	refreshDataFieldBtn: function () {
-
-		let text = "iRefreshBtnText";
-		return {input: `<button class="iUniversalWidgetRefreshBtn" onclick="vis.binds['vis-inventwo'].updateUniversalDataFields()">${_(text)}</button>`}
-
-	},
-
-	universalButton: function (el,data,type) {
-
-		this.updateUniversalDataFields;
-		vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){
-			createWidget();
-		});
-		vis.states.bind(data.iOidState + '.val', function (e, newVal, oldVal){
-			createWidget();
-		});
-		vis.states.bind(data.iOidToggle + '.val', function (e, newVal, oldVal){
-			createWidget();
-		});
-		vis.states.bind(vis.activeView, function (e, newVal, oldVal){
-			createWidget();
-		});
-
-		createWidget();
-
-		function createWidget() {
-
-			//Farben, Text & Bild bei true oder false
-			let backCol = "";
-			let shadowCol = "";
-			let shadowColInner = "";
-			let borderCol = "";
-			let img = "";
-			let txt = "";
-			let imgBlink = 0;
-
-			backCol = data.iButtonCol;
-			shadowCol = data.iShadowColor;
-			shadowColInner = data.iShadowInnerColor;
-			borderCol = data.iBorderColor;
-			if(data.iImageFalse != undefined)
-				img = data.iImageFalse;
-			if(data.iTextFalse != undefined)
-				txt = data.iTextFalse;
-			imgBlink = data.iImgBlinkFalse;
-
-
-			if(type == "multi") {
-				for (let i = 1; i <= data.iUniversalValueCount; i++) {
-					if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data['iOidState' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
-						backCol = data['iButtonActiveM' + i];
-						shadowCol = data['iShadowColorActiveM' + i];
-						shadowColInner = data['iShadowInnerColorActiveM' + i];
-						borderCol = data['iBorderColorActiveM' + i];
-						if (data.attr('iImageTrue' + i) != undefined)
-							img = data.attr('iImageTrue' + i);
-						if (data.attr('iTextTrue' + i) != undefined)
-							txt = data.attr('iTextTrue' + i);
-						imgBlink = data.attr('iImgBlinkTrue' + i);
-						break;
-					}
-				}
-			}
-
-			else if(type == "universal"){
-				if ((data.iUniversalWidgetType == "Navigation" && data.nav_view === vis.activeView) ||
-					(
-						(data.iUniversalWidgetType == "Switch" || data.iUniversalWidgetType == "Background") &&
-						(
-							(vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value') ||
-							(vis.states.attr(data.oid + '.val') === true && data.iValueType == 'boolean')
-						)
-
-					) )
-				{
-
-					backCol = data.iButtonActive;
-					shadowCol = data.iShadowColorActive;
-					shadowColInner = data.iShadowInnerColorActive;
-					borderCol = data.iBorderColorActive;
-
-					if (data.iImageTrue != undefined)
-						img = data.iImageTrue;
-					if (data.iTextFalse != undefined)
-						txt = data.iTextTrue;
-
-					imgBlink = data.iImgBlinkTrue;
-				}
-			}
-
-			imgBlink = imgBlink / 1000;
-
-
-			let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + shadowCol + ',inset ' +
-				data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + shadowColInner;
-			let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
-			let borderRadius = data.iCornerRadiusUL + 'px ' + data.iCornerRadiusUR + 'px ' + data.iCornerRadiusLR + 'px ' + data.iCornerRadiusLL + 'px';
-
-			//Bild spiegeln
-			let flip = 1;
-			if (data.attr('iFlipImage')) {
-				flip = -1;
-			}
-
-			//
-			let imgMargin = data.iImgSpaceTop + 'px ' + data.iImgSpaceRight + 'px ' + data.iImgSpaceBottom + 'px ' + data.iImgSpaceLeft + 'px';
-			let txtMargin = data.iTextSpaceTop + 'px ' + data.iTextSpaceRight + 'px ' + data.iTextSpaceBottom + 'px ' + data.iTextSpaceLeft + 'px'
-
-			//Vertikale Inhaltsausrichtung
-			let vertTextAlign = "";
-			if (data.iContentVertAlign == 'iStart')
-				vertTextAlign = "flex-start";
-			else if (data.iContentVertAlign == 'iCenter')
-				vertTextAlign = "center";
-			else if (data.iContentVertAlign == 'iEnd')
-				vertTextAlign = "flex-end";
-			else if (data.iContentVertAlign == 'iSpace-between')
-				vertTextAlign = "space-between";
-
-			//Inhaltsausrichtung (Reihe oder Spalte)
-			let contFlexDir = "";
-			if (data.iContentFlexDirection == "vertical")
-				contFlexDir = "column";
-			else if (data.iContentFlexDirection == "horizontal")
-				contFlexDir = "row";
-
-			//Inhaltsreihenfolge (Erst Bild dann Text oder erst Text dann Bild)
-			let orderContent = "";
-			if (data.iContentOrder == 'orderTextImg')
-				orderContent = 2;
-			else
-				orderContent = 0;
-
-			//Bildausrichtung
-			let imgAlign = "";
-			if (data.iImgAlign == 'iStart')
-				imgAlign = "flex-start";
-			else if (data.iImgAlign == 'iCenter')
-				imgAlign = "center";
-			else if (data.iImgAlign == 'iEnd')
-				imgAlign = "flex-end";
-
-			//Textausrichtung
-			let textAlign = "";
-			if (data.iTextAlign == 'iStart')
-				textAlign = "flex-start";
-			else if (data.iTextAlign == 'iCenter')
-				textAlign = "center";
-			else if (data.iTextAlign == 'iEnd')
-				textAlign = "flex-end";
-
-			let html = `
-			<div class="vis-inventwo-class vis-widget-body">
-				<div>
-					<div class="vis-inventwo-button-new"
-						 style="background: ` + backCol + `;
-						 		opacity: ` + data.iOpacityBack + `;
-						 		box-shadow: `+ shadow +`;
-						 		border: `+ border +`;
-						 		border-radius: `+ borderRadius +`;"></div>
-					<div class="vis-inventwo-button-content"
-						 style="opacity: `+ data.iOpacityCtn +`;
-						 		justify-content: `+ vertTextAlign +`;
-						 		flex-direction: `+ contFlexDir +`">
-						
-						<div class="vis-inventwo-button-imageContainer"
-							 style="order: `+ orderContent +`;
-							 align-self: `+ imgAlign +`;
-							 margin: `+ imgMargin +`;">
-							<img src="`+ img +`" width="`+ data.iIconSize +`"
-								 style="filter: invert(`+ Number(data.iInvertImageCol) +`);
-								 		transform: scaleX(`+ flip +`) rotateZ(`+ data.iImgRotation +`deg);
-								 		animation:blink ` + imgBlink + `s infinite;"> 
-						</div>
-						
-						<div class="vis-inventwo-button-text"
-							 style="font-size: `+ data.iTextSize +`px;
-							 		color: `+ data.iTextColor +`;
-							 		margin: `+ txtMargin +`;
-							 		align-self: `+ textAlign +`;">
-							`+ txt +`
-						</div>
-						
-					</div>
-				</div>
-			</div>`;
-
-			$(el).html(html);
-
-			//Bindings
-			if(data.iUniversalWidgetType == "Switch"){
-				vis.binds['vis-inventwo'].handleToggle(el, data, type);
-			}
-			else if(data.iUniversalWidgetType == "State"){
-				vis.binds['vis-inventwo'].state(el, data, type);
-			}
-			else if(data.iUniversalWidgetType == "Navigation"){
-				vis.binds['vis-inventwo'].handleNavigation(el, data);
-				if(type == "universal")
-					$(el).parent().addClass('iUniversalNav');
-				else if(type == "multi")
-					$(el).parent().addClass('iMultiNav');
-			}
-			else if(data.iUniversalWidgetType == "Background"){
-				$(el).parent().css('cursor','default');
-			}
-
-		}
-
 	}
 
-};
+%>
+
+
+<div class="vis-inventwo-button-new"
+		<% if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iValue' + val)) { %>
+		style="background: <%= backCol%>;
+		opacity: <%= this.data.iOpacityBack %>;
+		border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+		box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + this.data.attr('iShadowColorActive')%>,
+			inset <%= this.data.attr('iShadowInnerXOffset') + 'px ' + this.data.attr('iShadowInnerYOffset') + 'px ' + this.data.attr('iShadowInnerBlur') + 'px ' + this.data.attr('iShadowInnerSpread') + 'px ' + this.data.attr('iShadowInnerColorActive') %>;
+		border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + this.data.attr('iBorderColorActive')%>;"
+		<% } else { %>
+		style="background: <%= backCol%>;
+		opacity: <%= this.data.iOpacityBack %>;
+		border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+		box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + this.data.attr('iShadowColor')%>,
+			inset <%= this.data.attr('iShadowInnerXOffset') + 'px ' + this.data.attr('iShadowInnerYOffset') + 'px ' + this.data.attr('iShadowInnerBlur') + 'px ' + this.data.attr('iShadowInnerSpread') + 'px ' + this.data.attr('iShadowInnerColor')%>;
+		border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + this.data.attr('iBorderColor') %>;"
+		<% } %> ></div>
+
+	<div class="vis-inventwo-button-content"
+	style="opacity: <%= this.data.attr('iOpacityCtn') %>;
+	justify-content: <%= cssData.vertTextAlign %>;
+	flex-direction: <%= cssData.contFlexDir %>;
+	">
+
+	<div style="order: <%= cssData.orderContent %>;
+	align-self: <%= cssData.imgAlign %>;
+	margin: <%= this.data.iImgSpaceTop + 'px ' + this.data.iImgSpaceRight + 'px ' + this.data.iImgSpaceBottom + 'px ' + this.data.iImgSpaceLeft + 'px' %>;">
+	<% if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iValue' + val)) { %>
+	<img src='<%= this.data.attr('iImageTrue' + val) %>' width="<%= this.data.iIconSize %>"
+		style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
+		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
+		<% } else if(this.data.attr('iImageFalse') != ""){ %>
+	<img src='<%= this.data.attr('iImageFalse' + val) %>' width="<%= this.data.iIconSize %>"
+		style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
+		transform: scaleX(<%= flip %>) rotateZ(<%= this.data.iImgRotation %>deg);" >
+		<% } %>
+</div>
+	<div style="font-size: <%= this.data.iTextSize %>px;
+	color:<%= this.data.iTextColor %>;
+	margin: <%= this.data.iTextSpaceTop + 'px ' + this.data.iTextSpaceRight + 'px ' + this.data.iTextSpaceBottom + 'px ' + this.data.iTextSpaceLeft + 'px' %>;
+	align-self: <%= cssData.textAlign %>;">
+
+	<% if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iValue' + val)) { %>
+	<%== this.data.attr('iTextTrue' + val) %>
+			<% } else { %>
+	<%== this.data.attr('iTextFalse' + val) %>
+			<% } %>
+</div>
+
+	</div>
+
+	</div>
+
+	<%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, this.data.attr('oid'),this.data.attr('iValue' + val)) %>
+
+		</div>
+
+		<% } %>
+
+</div>
+
+</div>
+</script>
+
+
+
+<!-- WERDEN ENTFERNT -->
+<script id="i-vis-switch"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Switch.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iTextFalse/html;iTextTrue/html;iTextSize[12]/slider,0,50,1;iImageFalse/image;iImageTrue/image;iIconSize[60]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;iValueType[boolean]/select,boolean,value;iValueTypeInfo/custom,vis-inventwo.infoText,valueType;iValueFalse/text;iValueTrue/text;"
+data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;iButtonActive[#455618]/color;
+iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
+iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
+data-vis-set="vis-inventwo"
+data-vis-type="ctrl"
+data-vis-name="Switch<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
+	<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
+
+	<div class="vis-inventwo-button"
+	<% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+	style="background: <%= this.data.attr('iButtonActive') %>;
+	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+	opacity:<%= this.data.attr('iOpacity')%>;"
+	<% } else { %>
+	style="background: <%= this.data.attr('iButtonCol') %>;
+	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+	opacity:<%= this.data.attr('iOpacity')%>;"
+	<% } %>
+>
+</div>
+
+<div class="vis-inventwo-button-content" style="opacity: <%= this.data.attr('iOpacityCtn') %>;">
+
+	<%
+
+	let flip = 1;
+if(this.data.attr('iFlipImage')){
+	flip = -1;
+}
+
+%>
+
+
+<% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+<div class="vis-inventwo-button-imageContainer">
+		<img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);" >
+		</div>
+		<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>;">
+	<%== this.data.iTextTrue %>
+		</div>
+		<% } else { %>
+<div class="vis-inventwo-button-imageContainer">
+		<img src='<%= this.data.iImageFalse %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);" >
+		</div>
+		<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>;">
+	<%== this.data.iTextFalse %>
+		</div>
+		<% } %>
+
+</div>
+<%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
+	</div>
+
+	</div>
+	</script>
+	<script id="i-vis-switch-small"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Switch1.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iTextFalse/text;iTextTrue/text;iTextSize[12]/slider,0,50,1;iImageFalse/image;iImageTrue/image;iIconSize[35]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;iValueType[boolean]/select,boolean,value;iValueTypeInfo/custom,vis-inventwo.infoText,valueType;iValueFalse/text;iValueTrue/text;"
+data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;iButtonActive[#455618]/color;
+iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
+iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
+data-vis-set="vis-inventwo"
+data-vis-type="ctrl"
+data-vis-name="Switch Small<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
+	<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
+
+	<div class="vis-inventwo-button"
+	<% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+	style="background: <%= this.data.attr('iButtonActive') %>;
+	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+	opacity:<%= this.data.attr('iOpacity')%>;"
+	<% } else { %>
+	style="background: <%= this.data.attr('iButtonCol') %>;
+	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+	opacity:<%= this.data.attr('iOpacity')%>;"
+	<% } %>
+>
+</div>
+
+<div class="vis-inventwo-button-content-small" style="opacity: <%= this.data.attr('iOpacityCtn') %>">
+
+	<%
+
+	let flip = 1;
+if(this.data.attr('iFlipImage')){
+	flip = -1;
+}
+
+%>
+
+<% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+<div style="order:2; position:relative;">
+		<img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
+		</div>
+		<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
+	<%== this.data.iTextTrue %>
+		</div>
+		<% } else { %>
+<div style="order:2; position:relative;">
+		<img src='<%= this.data.iImageFalse %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
+		</div>
+		<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
+	<%== this.data.iTextFalse %>
+		</div>
+		<% } %>
+
+</div>
+<%= (el) -> vis.binds['vis-inventwo'].handleToggle(el, this.data) %>
+	</div>
+
+	</div>
+	</script>
+
+	<script id="i-vis-button"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Button.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;value;iText/text;iTextSize[12]/slider,0,50,1;iImage/image;iIconSize[60]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;"
+data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;
+iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
+iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
+data-vis-set="vis-inventwo"
+data-vis-type="ctrl"
+data-vis-name="Button<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
+	<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
+
+	<div class="vis-inventwo-button"
+style="background: <%= this.data.attr('iButtonCol') %>;
+border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+opacity:<%= this.data.attr('iOpacity')%>;"
+>
+</div>
+<%
+
+let flip = 1;
+if(this.data.attr('iFlipImage')){
+	flip = -1;
+}
+
+%>
+<div class="vis-inventwo-button-content" style="opacity: <%= this.data.attr('iOpacityCtn') %>;">
+	<div class="vis-inventwo-button-imageContainer">
+	<img src='<%= this.data.iImage %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
+	</div>
+	<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>">
+<%== this.data.iText %>
+</div>
+</div>
+</div>
+<%= (el) -> vis.binds['vis-inventwo'].state(el, this.data) %>
+	</div>
+	</script>
+	<script id="i-vis-button-small"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Button1.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;value;iText/text;iTextSize[12]/slider,0,50,1;iImage/image;iIconSize[35]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;"
+data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;
+iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
+iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
+data-vis-set="vis-inventwo"
+data-vis-type="ctrl"
+data-vis-name="Button Small<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
+	<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
+
+	<div class="vis-inventwo-button"
+style="background: <%= this.data.attr('iButtonCol') %>;
+border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+opacity:<%= this.data.attr('iOpacity')%>;"
+>
+</div>
+<%
+
+let flip = 1;
+if(this.data.attr('iFlipImage')){
+	flip = -1;
+}
+
+%>
+<div class="vis-inventwo-button-content-small" style="opacity: <%= this.data.attr('iOpacityCtn') %>">
+
+	<div style="order:2; position:relative;">
+	<img src='<%= this.data.iImage %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
+	</div>
+	<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
+<%== this.data.iText %>
+</div>
+
+</div>
+<%= (el) -> vis.binds['vis-inventwo'].state(el, this.data) %>
+	</div>
+
+	</div>
+	</script>
+
+	<script id="i-vis-navigation"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Nav.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;nav_view;iText/text;iTextSize[12]/slider,0,50,1;iImage/image;iIconSize[60]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;iNavWait[100]/number;oid/id;iNavValue/text;"
+data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;iButtonActive[#455618]/color;
+iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
+iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
+data-vis-set="vis-inventwo"
+data-vis-type="ctrl"
+data-vis-name="Navigation<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+	<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
+
+	<%
+	let backgroundcol = this.data.iButtonCol;
+if(this.data.nav_view === vis.activeView){
+	backgroundcol = this.data.iButtonActive;
+}
+%>
+
+<div class="vis-inventwo-button vis-inventwo-nav" data-inventwo-nav="<%= this.data.nav_view%>" data-activeCol="<%= this.data.iButtonActive%>" data-col="<%= this.data.iButtonCol%>"
+style="background: <%= backgroundcol %>;
+border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+opacity:<%= this.data.attr('iOpacity')%>;"
+>
+</div>
+<%
+
+let flip = 1;
+if(this.data.attr('iFlipImage')){
+	flip = -1;
+}
+
+%>
+<div class="vis-inventwo-button-content" style="opacity: <%= this.data.attr('iOpacityCtn') %>;">
+	<div class="vis-inventwo-button-imageContainer">
+
+	<img src='<%= this.data.iImage %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
+
+	</div>
+	<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>">
+<%== this.data.iText %>
+</div>
+</div>
+<%= (el) -> vis.binds['vis-inventwo'].handleNavigation(el, this.data) %>
+	</div>
+
+	</div>
+	</script>
+	<script id="i-vis-navigation-small"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Nav1.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;nav_view;iText/text;iTextSize[12]/slider,0,50,1;iImage/image;iIconSize[35]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;iNavWait[100]/number;oid/id;iNavValue/text;"
+data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;iButtonActive[#455618]/color;
+iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
+iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
+data-vis-set="vis-inventwo"
+data-vis-type="ctrl"
+data-vis-name="Navigation Small<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+	<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
+
+	<%
+	let backgroundcol = this.data.iButtonCol;
+if(this.data.nav_view === vis.activeView){
+	backgroundcol = this.data.iButtonActive;
+}
+%>
+
+<div class="vis-inventwo-button vis-inventwo-nav" data-inventwo-nav="<%= this.data.nav_view%>" data-activeCol="<%= this.data.iButtonActive%>" data-col="<%= this.data.iButtonCol%>"
+style="background:  <%= backgroundcol %>;
+border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+opacity:<%= this.data.attr('iOpacity')%>;"
+>
+</div>
+<%
+
+let flip = 1;
+if(this.data.attr('iFlipImage')){
+	flip = -1;
+}
+
+%>
+<div class="vis-inventwo-button-content-small" style="opacity: <%= this.data.attr('iOpacityCtn') %>">
+
+	<div style="order:2; position:relative;">
+	<img src='<%= this.data.iImage %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
+	</div>
+	<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
+<%== this.data.iText %>
+</div>
+
+</div>
+<%= (el) -> vis.binds['vis-inventwo'].handleNavigation(el, this.data) %>
+	</div>
+
+	</div>
+	</script>
+
+	<script id="i-vis-background"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Background.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iTextFalse/html;iTextTrue/html;iTextSize[12]/slider,0,50,1;iImageFalse/image;iImageTrue/image;iIconSize[60]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;iValueType[boolean]/select,boolean,value;iValueTypeInfo/custom,vis-inventwo.infoText,valueType;iValueFalse/text;iValueTrue/text;"
+data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;iButtonActive[#455618]/color;
+iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
+iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
+data-vis-set="vis-inventwo"
+data-vis-type="val"
+data-vis-name="Background<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
+	<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
+
+	<div class="vis-inventwo-button"
+	<% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+	style="background: <%= this.data.attr('iButtonActive') %>;
+	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+	opacity:<%= this.data.attr('iOpacity')%>;"
+	<% } else { %>
+	style="background: <%= this.data.attr('iButtonCol') %>;
+	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+	opacity:<%= this.data.attr('iOpacity')%>;"
+	<% } %>
+>
+</div>
+
+<div class="vis-inventwo-button-content" style="opacity: <%= this.data.attr('iOpacityCtn') %>;">
+
+	<%
+
+	let flip = 1;
+if(this.data.attr('iFlipImage')){
+	flip = -1;
+}
+
+%>
+
+
+<% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+<div class="vis-inventwo-button-imageContainer">
+		<img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);" >
+		</div>
+		<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>;">
+	<%== this.data.iTextTrue %>
+		</div>
+		<% } else { %>
+<div class="vis-inventwo-button-imageContainer">
+		<img src='<%= this.data.iImageFalse %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);" >
+		</div>
+		<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;color:<%= this.data.iTextColor %>;">
+	<%== this.data.iTextFalse %>
+		</div>
+		<% } %>
+
+</div>
+</div>
+
+</div>
+</script>
+<script id="i-vis-background-small"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Background1.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iTextFalse/text;iTextTrue/text;iTextSize[12]/slider,0,50,1;iImageFalse/image;iImageTrue/image;iIconSize[35]/slider,0,200,1;iInvertImageCol/checkbox;iFlipImage/checkbox;iValueType[boolean]/select,boolean,value;iValueTypeInfo/custom,vis-inventwo.infoText,valueType;iValueFalse/text;iValueTrue/text;"
+data-vis-attrs0="group.i-css;iButtonCol[#333333]/color;iButtonActive[#455618]/color;
+iCornerRadiusUL[12]/slider,0,50,1;iCornerRadiusUR[0]/slider,0,50,1;iCornerRadiusLR[12]/slider,0,50,1;iCornerRadiusLL[0]/slider,0,50,1;
+iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
+data-vis-set="vis-inventwo"
+data-vis-type="val"
+data-vis-name="Background Small<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
+	<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
+
+	<div class="vis-inventwo-button"
+	<% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+	style="background: <%= this.data.attr('iButtonActive') %>;
+	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+	opacity:<%= this.data.attr('iOpacity')%>;"
+	<% } else { %>
+	style="background: <%= this.data.attr('iButtonCol') %>;
+	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
+	opacity:<%= this.data.attr('iOpacity')%>;"
+	<% } %>
+>
+</div>
+
+<div class="vis-inventwo-button-content-small" style="opacity: <%= this.data.attr('iOpacityCtn') %>">
+
+	<%
+
+	let flip = 1;
+if(this.data.attr('iFlipImage')){
+	flip = -1;
+}
+
+%>
+
+<% if((vis.states.attr(this.data.oid + '.val') && this.data.iValueType == 'boolean') || (vis.states.attr(this.data.oid + '.val') == this.data.iValueTrue && this.data.iValueType == 'value')) { %>
+<div style="order:2; position:relative;">
+		<img src='<%= this.data.iImageTrue %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
+		</div>
+		<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
+	<%== this.data.iTextTrue %>
+		</div>
+		<% } else { %>
+<div style="order:2; position:relative;">
+		<img src='<%= this.data.iImageFalse %>' width="<%= this.data.iIconSize %>" style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
+		</div>
+		<div class="vis-inventwo-button-text" style="font-size: <%= this.data.iTextSize %>px;display:table-cell;color:<%= this.data.iTextColor %>">
+	<%== this.data.iTextFalse %>
+		</div>
+		<% } %>
+
+</div>
+</div>
+
+</div>
+</script>
+
+<script id="i-vis-image"
+type="text/ejs"
+class="vis-tpl"
+data-vis-prev='<img src="widgets/vis-inventwo/img/0_Image.png">'
+data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;iImage/image;iInvertImageCol/checkbox;iFlipImage/checkbox;"
+data-vis-attrs0="group.i-css;iOpacityImg[1]/slider,0,1,0.1;"
+data-vis-set="vis-inventwo"
+data-vis-type="static"
+data-vis-name="Image<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
+	<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
+
+	<%
+
+	let flip = 1;
+if(this.data.attr('iFlipImage')){
+	flip = -1;
+}
+
+%>
+<div class="vis-inventwo-button-content" style="opacity: <%= this.data.attr('iOpacityImg') %>;">
+	<div class="vis-inventwo-button-imageContainer">
+	<img src='<%= this.data.iImage %>' style="width:100%; filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);transform: scaleX(<%= flip %>);">
+	</div>
+	</div>
+	</div>
+	</div>
+	</script>
