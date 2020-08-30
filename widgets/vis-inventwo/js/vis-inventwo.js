@@ -1196,6 +1196,15 @@ vis.binds["vis-inventwo"] = {
 			createWidget();
 		});
 
+		if(type == 'multi'){
+			for (let index = 1; index <= data.iUniversalValueCount; index++) {
+				vis.states.bind(data.attr('iOidState' + index) + '.val', function (e, newVal, oldVal){
+					createWidget();
+				});
+			}
+		}
+
+
 		createWidget();
 
 		function createWidget() {
