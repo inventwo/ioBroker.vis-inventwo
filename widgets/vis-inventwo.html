@@ -337,7 +337,7 @@
 
 	<%
 	let pointer_event = "auto";
-	if(this.data.iPointerEvents == true){
+	if(this.data.iPointerEvents == true && !vis.editMode){
 		pointer_event = "none";
 	}
 
