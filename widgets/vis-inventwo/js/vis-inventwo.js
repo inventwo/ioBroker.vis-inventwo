@@ -1222,7 +1222,7 @@ vis.binds["vis-inventwo"] = {
 				let found = false;
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					console.log("TEST");
-					console.log(vis.states.attr(data['iOidState' + i] + '.val'));
+					console.log(data['iOidState' + i]);
 					if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data['iOidState' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
 						backCol = data['iButtonActiveM' + i];
 						shadowCol = data['iShadowColorActiveM' + i];
