@@ -8,6 +8,12 @@
 <script type="text/javascript" src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
 
 
+
+
+
+
+
+
 <script id="i-vis-universal"
 		type="text/ejs"
 		class="vis-tpl"
@@ -61,7 +67,7 @@
 						 iIconSize[35]/slider,0,200,1;
 						 iImgAlign[iCenter]/select,iStart,iCenter,iEnd;
 						 iImgRotation[0]/slider,0,180,1;
-						 iImgSpaceTop[0]/slider,0,50,1;
+						 iImgSpaceTop[5]/slider,0,50,1;
 						 iImgSpaceBottom[0]/slider,0,50,1;
 						 iImgSpaceLeft[0]/slider,0,50,1;
 						 iImgSpaceRight[0]/slider,0,50,1;
@@ -311,7 +317,7 @@
 						iPointerEvents/checkbox;"
 		data-vis-attrs0="group.i-css;
 						 iText-CornerSettings/custom,vis-inventwo.infoText,emptyText;
-						 iCornerRadiusUL[12]/slider,0,50,1;
+						 iCornerRadiusUL[0]/slider,0,50,1;
 						 iCornerRadiusUR[0]/slider,0,50,1;
 						 iCornerRadiusLR[12]/slider,0,50,1;
 						 iCornerRadiusLL[0]/slider,0,50,1;
@@ -358,17 +364,16 @@
 
 			%>
 
-            <div class="vis-inventwo-button-new">
+            <div class="vis-inventwo-button-new" style="width:100%; height:100%;">
 
-            	<div class=""
-            		 style="opacity: <%= this.data.attr('iOpacityCtn') %>;
-            		 		">
+            	<div style="opacity: <%= this.data.attr('iOpacityCtn') %>;width:100%; height:100%;">
 
             		<div class="vis-inventwo-button-imageContainer"
             			 style="align-self: center;
             			 		display: flex;
     							justify-content: center;
-    							align-items: center;">
+    							align-items: center;
+    							width:100%; height:100%;">
 
             			<div style="width: <%= this.data.iShadowSpreadInner %>px; height: <%= this.data.iShadowSpreadInner%>px; position: absolute; background:<%= this.data.attr('iShadowColor')%>; border-radius: 100%;
             					<% if(this.data.oid != undefined && vis.states.attr(this.data.oid + '.val') == this.data.iValue) { %>
@@ -383,7 +388,7 @@
             		    	<% } else { %>
             		    		src='<%= this.data.attr('iImageFalse') %>'
             		    	<% } %>
-            		    	 width="100%"
+            		    	 width="100%;height:100%;"
             		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
             		    	 		transform: scaleX(<%= cssData.flip %>) rotateZ(<%= this.data.iImgRotation %>deg);
             		    	 		border-radius: <%= this.data.iCornerRadiusUL %>px <%= data.iCornerRadiusUR%>px <%= data.iCornerRadiusLR%>px <%= data.iCornerRadiusLL%>px">

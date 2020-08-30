@@ -643,21 +643,21 @@ if (vis.editMode) {
 
 vis.navChangeCallbacks.push(function (view) {
 
-	vis.binds["vis-inventwo"].iUpdateNavigations(0);
+	vis.binds["vis-inventwo"].iUpdateNavigations(0,false);
 
 });
 
 vis.binds["vis-inventwo"] = {
 
-	iUpdateNavigations: function (timeoutVal) {
-
-		if(timeoutVal <= 0){
-			$('#visview_'+ vis.activeView + '.vis-inventwo-nav, #visview_'+ vis.activeView +' .iUniversalNav').each(function (el) {
-
-				let id = $(this).parent().parent().attr('id');
+	iUpdateNavigations: function (timeoutVal, byclick) {
+		console.log("NAV");
+		console.log($("#visview_" + vis.activeView + " .vis-inventwo-nav, #visview_" + vis.activeView + " .iUniversalNav"));
+		if (byclick == false) {
+			$("#visview_" + vis.activeView + " .vis-inventwo-nav, #visview_" + vis.activeView + " .iUniversalNav").each(function () {
+				let id = $(this).attr("id");
 				let data = vis.views[vis.activeView].widgets[id].data;
 
-				if(data.iNavWait > timeoutVal)
+				if (data.iNavWait > timeoutVal)
 					timeoutVal = data.iNavWait;
 
 			});
@@ -665,44 +665,46 @@ vis.binds["vis-inventwo"] = {
 
 		setTimeout(function () {
 
-			$('.vis-inventwo-nav').each(function (el) {
+			$(".vis-inventwo-nav").each(function (el) {
 
-				if($(this).attr('data-inventwo-nav') === vis.activeView)
-					$(this).css('background-color',$(this).attr("data-activecol"));
+				if ($(this).attr("data-inventwo-nav") === vis.activeView)
+					$(this).css("background-color", $(this).attr("data-activecol"));
 				else
-					$(this).css('background-color',$(this).attr("data-col"));
+					$(this).css("background-color", $(this).attr("data-col"));
 
 			});
 
-			$('#visview_'+ vis.activeView +' .iUniversalNav').each(function () {
-				let id = $(this).parent().parent().attr('id');
+			$("#visview_" + vis.activeView + " .iUniversalNav").each(function () {
+				let id = $(this).attr("id");
 				let data = vis.views[vis.activeView].widgets[id].data;
 
-				if(data.nav_view === vis.activeView)
-					$(this).children().css('background',data.iButtonActive);
+				console.log($(this).find('.vis-inventwo-button-new'));
+				if (data.nav_view === vis.activeView)
+					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonActive);
 				else
-					$(this).children().css('background',data.iButtonCol);
+					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonCol);
 
 			});
 
-			$('#visview_'+ vis.activeView +' .iMultiNav').each(function () {
-				let id = $(this).parent().parent().attr('id');
+			console.log($("#visview_" + vis.activeView + " .iMultiNav"));
+			$("#visview_" + vis.activeView + " .iMultiNav").each(function () {
+				let id = $(this).attr("id");
 				let data = vis.views[vis.activeView].widgets[id].data;
 				let stateFound = false;
-				for(let i = 1; i <= data.iUniversalValueCount; i++){
-					if(data['iView' + i] === vis.activeView){
+				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+					if (data["iView" + i] === vis.activeView) {
 						stateFound = true;
-						$(this).children().css('background',data['iButtonActiveM' + i]);
+						$(this).find('.vis-inventwo-button-new').css("background", data["iButtonActiveM" + i]);
 						break;
 					}
 				}
-				if(!stateFound){
-					$(this).children().css('background',data.iButtonCol);
+				if (!stateFound) {
+					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonCol);
 				}
 
 			});
 
-		},timeoutVal);
+		}, timeoutVal);
 
 
 	},
@@ -775,7 +777,7 @@ vis.binds["vis-inventwo"] = {
 					vis.setValue(data.oid, data.iNavValue);
 				}
 
-				vis.binds['vis-inventwo'].iUpdateNavigations(data.iNavWait);
+				vis.binds['vis-inventwo'].iUpdateNavigations(data.iNavWait,true);
 
 
 			}).on('touchmove', function () {
@@ -1329,14 +1331,8 @@ vis.binds["vis-inventwo"] = {
 			else if (data.iTextAlign == 'iEnd')
 				textAlign = "flex-end";
 
-
-			let navWidgetClass = "";
-			if(data.iUniversalWidgetType == "Navigation"){
-				navWidgetClass = "iMultiNav";
-			}
-
 			let html = `
-			<div class="vis-inventwo-class vis-widget-body `+ navWidgetClass +`">
+			<div class="vis-inventwo-class vis-widget-body">
 				<div>
 					<div class="vis-inventwo-button-new"
 						 style="background: ` + backCol + `;
@@ -1382,9 +1378,13 @@ vis.binds["vis-inventwo"] = {
 			}
 			else if(data.iUniversalWidgetType == "Navigation"){
 				vis.binds['vis-inventwo'].handleNavigation(el, data);
+				if(type == "universal")
+					$(el).parent().addClass('iUniversalNav');
+				else if(type == "multi")
+					$(el).parent().addClass('iMultiNav');
 			}
 			else if(data.iUniversalWidgetType == "Background"){
-				$(el).css('cursor','default');
+				$(el).parent().css('cursor','default');
 			}
 
 		}
