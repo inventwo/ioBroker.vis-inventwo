@@ -1223,7 +1223,7 @@ vis.binds["vis-inventwo"] = {
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					console.log("TEST");
 					console.log(data['iOidState' + i]);
-					if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data['iOidState' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
+					if ((data.iUniversalWidgetType != "Navigation" && data['iOidState' + i] != undefined && vis.states.attr(data['iOidState' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
 						backCol = data['iButtonActiveM' + i];
 						shadowCol = data['iShadowColorActiveM' + i];
 						shadowColInner = data['iShadowInnerColorActiveM' + i];
