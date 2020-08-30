@@ -1196,7 +1196,7 @@ vis.binds["vis-inventwo"] = {
 			createWidget();
 		});
 
-		if(type == 'multi'){
+		if(type == 'multi' && data.iUniversalWidgetType != "Navigation"){
 			for (let index = 1; index <= data.iUniversalValueCount; index++) {
 				vis.states.bind(data.attr('iOidState' + index) + '.val', function (e, newVal, oldVal){
 					createWidget();
@@ -1221,6 +1221,7 @@ vis.binds["vis-inventwo"] = {
 			if(type == "multi") {
 				let found = false;
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+					console.log("TEST");
 					if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data['iOidState' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
 						backCol = data['iButtonActiveM' + i];
 						shadowCol = data['iShadowColorActiveM' + i];
