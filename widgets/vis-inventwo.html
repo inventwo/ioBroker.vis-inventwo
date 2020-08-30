@@ -162,7 +162,7 @@
 						 iIconSize[35]/slider,0,200,1;
 						 iImgAlign[iCenter]/select,iStart,iCenter,iEnd;
 						 iImgRotation[0]/slider,0,180,1;
-						 iImgSpaceTop[0]/slider,0,50,1;
+						 iImgSpaceTop[5]/slider,0,50,1;
 						 iImgSpaceBottom[0]/slider,0,50,1;
 						 iImgSpaceLeft[0]/slider,0,50,1;
 						 iImgSpaceRight[0]/slider,0,50,1;
@@ -312,7 +312,7 @@
 						 iText-CornerSettings/custom,vis-inventwo.infoText,emptyText;
 						 iCornerRadiusUL[0]/slider,0,50,1;
 						 iCornerRadiusUR[0]/slider,0,50,1;
-						 iCornerRadiusLR[12]/slider,0,50,1;
+						 iCornerRadiusLR[0]/slider,0,50,1;
 						 iCornerRadiusLL[0]/slider,0,50,1;
 
 						 iOpacityCtn[1]/slider,0,1,0.1;
@@ -425,6 +425,10 @@
 						 iTextFalse(1-iRadiobtnsCount)/html;
 						 iTextTrue(1-iRadiobtnsCount)/html;
 						 iValue(1-iRadiobtnsCount)/text;
+						 iText-BackgroundSettings(1-iRadiobtnsCount)/custom,vis-inventwo.infoText,emptyText;
+						 iText-BackColorRadioInfo/custom,vis-inventwo.infoText,radioBtnBackColInfoText;
+						 iButtonBackM(1-iRadiobtnsCount)/color;
+						 iButtonBackActiveM(1-iRadiobtnsCount)/color;
 						 iText-ImgSettings(1-iRadiobtnsCount)/custom,vis-inventwo.infoText,emptyText;
 						 iImageFalse(1-iRadiobtnsCount)/image;
 						 iImageTrue(1-iRadiobtnsCount)/image;"
@@ -571,21 +575,46 @@
 						margin-<%= cssData.marginDir %>: <%= this.data.iRadiobtnSpace %>px;">
 
 			<div>
+
+			<%
+
+				let backCol = "";
+				if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iValue' + val)){
+
+					if(this.data.attr('iButtonBackActiveM' + val) != undefined){
+						backCol = this.data.attr('iButtonBackActiveM' + val);
+					}
+					else{
+						backCol = this.data.iButtonActive;
+					}
+				}
+				else{
+						if(this.data.attr('iButtonBackM' + val) != undefined){
+						backCol = this.data.attr('iButtonBackM' + val);
+					}
+					else{
+						backCol = this.data.iButtonCol;
+					}
+				}
+
+			%>
+
+
             <div class="vis-inventwo-button-new"
             	<% if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iValue' + val)) { %>
-                 style="background: <%= this.data.attr('iButtonActive') + hexTrans%>;
+                 style="background: <%= backCol%>;
                  		opacity: <%= this.data.iOpacityBack %>;
             	     	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
-            	     	box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + this.data.attr('iShadowColorActive') + hexTrans%>,
-            	     				inset <%= this.data.attr('iShadowInnerXOffset') + 'px ' + this.data.attr('iShadowInnerYOffset') + 'px ' + this.data.attr('iShadowInnerBlur') + 'px ' + this.data.attr('iShadowInnerSpread') + 'px ' + this.data.attr('iShadowInnerColorActive') + hexTrans %>;
-            	     	border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + this.data.attr('iBorderColorActive') + hexTrans%>;"
+            	     	box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + this.data.attr('iShadowColorActive')%>,
+            	     				inset <%= this.data.attr('iShadowInnerXOffset') + 'px ' + this.data.attr('iShadowInnerYOffset') + 'px ' + this.data.attr('iShadowInnerBlur') + 'px ' + this.data.attr('iShadowInnerSpread') + 'px ' + this.data.attr('iShadowInnerColorActive') %>;
+            	     	border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + this.data.attr('iBorderColorActive')%>;"
             	<% } else { %>
-				 style="background: <%= this.data.attr('iButtonCol') + hexTrans%>;
+				 style="background: <%= backCol%>;
 				 		opacity: <%= this.data.iOpacityBack %>;
             	     	border-radius: <%= this.data.attr('iCornerRadiusUL') %>px <%= this.data.attr('iCornerRadiusUR') %>px <%= this.data.attr('iCornerRadiusLR') %>px <%= this.data.attr('iCornerRadiusLL') %>px;
-            	     	box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + this.data.attr('iShadowColor') + hexTrans%>,
-            	     				inset <%= this.data.attr('iShadowInnerXOffset') + 'px ' + this.data.attr('iShadowInnerYOffset') + 'px ' + this.data.attr('iShadowInnerBlur') + 'px ' + this.data.attr('iShadowInnerSpread') + 'px ' + this.data.attr('iShadowInnerColor') + hexTrans%>;
-            	     	border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + this.data.attr('iBorderColor') + hexTrans %>;"
+            	     	box-shadow: <%= this.data.attr('iShadowXOffset') + 'px ' + this.data.attr('iShadowYOffset') + 'px ' + this.data.attr('iShadowBlur') + 'px ' + this.data.attr('iShadowSpread') + 'px ' + this.data.attr('iShadowColor')%>,
+            	     				inset <%= this.data.attr('iShadowInnerXOffset') + 'px ' + this.data.attr('iShadowInnerYOffset') + 'px ' + this.data.attr('iShadowInnerBlur') + 'px ' + this.data.attr('iShadowInnerSpread') + 'px ' + this.data.attr('iShadowInnerColor')%>;
+            	     	border: <%= this.data.attr('iBorderSize') + 'px ' + this.data.attr('iBorderStyle') + ' ' + this.data.attr('iBorderColor') %>;"
             	<% } %> ></div>
 
             	<div class="vis-inventwo-button-content"

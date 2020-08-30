@@ -1209,18 +1209,8 @@ vis.binds["vis-inventwo"] = {
 			let txt = "";
 			let imgBlink = 0;
 
-			backCol = data.iButtonCol;
-			shadowCol = data.iShadowColor;
-			shadowColInner = data.iShadowInnerColor;
-			borderCol = data.iBorderColor;
-			if(data.iImageFalse != undefined)
-				img = data.iImageFalse;
-			if(data.iTextFalse != undefined)
-				txt = data.iTextFalse;
-			imgBlink = data.iImgBlinkFalse;
-
-
 			if(type == "multi") {
+				let found = false;
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data['iOidState' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
 						backCol = data['iButtonActiveM' + i];
@@ -1232,8 +1222,25 @@ vis.binds["vis-inventwo"] = {
 						if (data.attr('iTextTrue' + i) != undefined)
 							txt = data.attr('iTextTrue' + i);
 						imgBlink = data.attr('iImgBlinkTrue' + i);
+						found = true
 						break;
 					}
+				}
+				if(!found){
+					backCol = data.iButtonCol;
+					shadowCol = data.iShadowColor;
+					shadowColInner = data.iShadowInnerColor;
+					borderCol = data.iBorderColor;
+					if(data.iImageFalse != undefined)
+						img = data.iImageFalse;
+					else{
+						img = "";
+					}
+					if(data.iTextFalse != undefined)
+						txt = data.iTextFalse;
+					else
+						txt = "";
+					imgBlink = data.iImgBlinkFalse;
 				}
 			}
 
@@ -1260,6 +1267,24 @@ vis.binds["vis-inventwo"] = {
 						txt = data.iTextTrue;
 
 					imgBlink = data.iImgBlinkTrue;
+				}
+				else{
+					backCol = data.iButtonCol;
+					shadowCol = data.iShadowColor;
+					shadowColInner = data.iShadowInnerColor;
+					borderCol = data.iBorderColor;
+					if(data.iImageFalse != undefined)
+						img = data.iImageFalse;
+					else{
+						img = "";
+					}
+					if(data.iTextFalse != undefined)
+						txt = data.iTextFalse;
+					else
+						txt = "";
+					imgBlink = data.iImgBlinkFalse;
+
+
 				}
 			}
 
