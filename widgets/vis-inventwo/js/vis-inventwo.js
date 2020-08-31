@@ -29,7 +29,10 @@ if (vis.editMode) {
 			"en": "Instance",
 			"de": "Instanz"
 		},
-
+		"oid":{
+			"en": "Object ID",
+			"de": "Objekt ID"
+		},
 		"iWiki":{
 			"en": "<b>Manual</b>",
 			"de": "<b>Anleitung</b>"
