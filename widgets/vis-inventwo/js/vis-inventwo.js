@@ -758,7 +758,7 @@ vis.binds["vis-inventwo"] = {
 		}
 
 	},
-	handleNavigation: function (el, data) {
+	handleNavigation: function (el, data, type) {
 		if (!vis.editMode && data.nav_view) {
 			var $this = $(el);
 			var moved = false;
@@ -769,10 +769,17 @@ vis.binds["vis-inventwo"] = {
 				vis.changeView(data.nav_view, data.nav_view);
 				//e.preventDefault();
 				//return false;
+
 				if(data.oid !== "") {
-					if(!isNaN(data.iNavValue))
-						data.iNavValue = parseFloat(data.iNavValue);
-					vis.setValue(data.oid, data.iNavValue);
+					let val;
+					if(type == "universal" || type == "multi")
+						val = data.value;
+					else
+						val = data.iNavValue;
+
+					if(!isNaN(val))
+						val = parseFloat(val);
+					vis.setValue(data.oid, val);
 				}
 
 				vis.binds['vis-inventwo'].iUpdateNavigations(data.iNavWait,true);
@@ -1409,7 +1416,7 @@ vis.binds["vis-inventwo"] = {
 				vis.binds['vis-inventwo'].state(el, data, type);
 			}
 			else if(data.iUniversalWidgetType == "Navigation"){
-				vis.binds['vis-inventwo'].handleNavigation(el, data);
+				vis.binds['vis-inventwo'].handleNavigation(el, data, type);
 				if(type == "universal")
 					$(el).parent().addClass('iUniversalNav');
 				else if(type == "multi")
