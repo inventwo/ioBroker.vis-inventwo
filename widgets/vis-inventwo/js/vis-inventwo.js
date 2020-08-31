@@ -780,7 +780,11 @@ vis.binds["vis-inventwo"] = {
 					else
 						val = data.iNavValue;
 
-					if(!isNaN(val))
+					if(val == "true")
+						val = true;
+					else if(val == "false")
+						val = false;
+					else if(!isNaN(val))
 						val = parseFloat(val);
 					vis.setValue(data.oid, val);
 				}
