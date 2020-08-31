@@ -29,10 +29,7 @@ if (vis.editMode) {
 			"en": "Instance",
 			"de": "Instanz"
 		},
-		"oid":{
-			"en": "Object ID",
-			"de": "Objekt ID"
-		},
+
 		"iWiki":{
 			"en": "<b>Manual</b>",
 			"de": "<b>Anleitung</b>"
@@ -208,7 +205,7 @@ if (vis.editMode) {
 		},
 		"iCornerRadiusLR": {
 			"en": "Border radius lower right",
-			"de": "Abrundung unten right"
+			"de": "Abrundung unten rechts"
 		},
 		"iCornerRadiusLL": {
 			"en": "Border radius lower left",
@@ -718,11 +715,12 @@ vis.binds["vis-inventwo"] = {
 
 		var $this = $(el);
 
-		if(type == undefined || type == 'universal')
+		/*if(type == undefined || type == 'universal')
 			var oid = data.oid;
 		else{
 			var oid = data.iOidToggle;
-		}
+		}*/
+		var oid = data.oid;
 
 		if (!vis.editMode) {
 			var moved = false;
@@ -792,11 +790,12 @@ vis.binds["vis-inventwo"] = {
 
 		var $this = $(el);
 
-		if(type == undefined || type == 'universal')
+		/*if(type == undefined || type == 'universal')
 			var oid = data.oid;
 		else{
 			var oid = data.iOidToggle;
-		}
+		}*/
+		var oid = data.oid;
 
 		//$(el).html(valFalse);
 
@@ -858,7 +857,7 @@ vis.binds["vis-inventwo"] = {
 							txt = data.iTextFalse;
 
 						for (let i = 1; i <= data.iUniversalValueCount; i++) {
-							if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data['iOidState' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
+							if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data['oid' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
 								backCol = data['iButtonActiveM' + i];
 								shadowCol = data['iShadowColorActiveM' + i];
 								shadowColInner = data['iShadowInnerColorActiveM' + i];
@@ -1068,6 +1067,9 @@ vis.binds["vis-inventwo"] = {
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
 
+				if(!isNaN(val))
+					val = parseFloat(val);
+
 				vis.setValue(oid, val);
 
 			}).on('touchmove', function () {
@@ -1094,7 +1096,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("value",false);
 				vis.hideShowAttr("iStateResponseTime",false);
 				vis.hideShowAttr("nav_view",false);
-				vis.hideShowAttr("iOidToggle",true);
+				vis.hideShowAttr("oid",true);
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,true);
 					vis.hideShowAttr("iTextFalse" + i,true);
@@ -1103,7 +1105,6 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iImageTrue" + i,true);
 					vis.hideShowAttr("iValue" + i,true);
 					vis.hideShowAttr("iView" + i,false);
-					vis.hideShowAttr("iOidState" + i,true);
 				}
 			}
 			else if(val == "State"){
@@ -1115,7 +1116,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("value",true);
 				vis.hideShowAttr("iStateResponseTime",true);
 				vis.hideShowAttr("nav_view",false);
-				vis.hideShowAttr("iOidToggle",true);
+				vis.hideShowAttr("oid",true);
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,true);
 					vis.hideShowAttr("iTextFalse" + i,true);
@@ -1124,7 +1125,6 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iImageTrue" + i,true);
 					vis.hideShowAttr("iValue" + i,true);
 					vis.hideShowAttr("iView" + i,false);
-					vis.hideShowAttr("iOidState" + i,true);
 				}
 			}
 			else if(val == "Navigation"){
@@ -1136,7 +1136,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("value",true);
 				vis.hideShowAttr("iStateResponseTime",false);
 				vis.hideShowAttr("nav_view",true);
-				vis.hideShowAttr("iOidToggle",true);
+				vis.hideShowAttr("oid",true);
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,false);
 					vis.hideShowAttr("iTextFalse" + i,true);
@@ -1145,7 +1145,6 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iImageTrue" + i,true);
 					vis.hideShowAttr("iValue" + i,false);
 					vis.hideShowAttr("iView" + i,true);
-					vis.hideShowAttr("iOidState" + i,false);
 				}
 			}
 			else if(val == "Background"){
@@ -1157,7 +1156,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("value",false);
 				vis.hideShowAttr("iStateResponseTime",false);
 				vis.hideShowAttr("nav_view",false);
-				vis.hideShowAttr("iOidToggle",false);
+				vis.hideShowAttr("oid",false);
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,true);
 					vis.hideShowAttr("iTextFalse" + i,true);
@@ -1166,7 +1165,6 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iImageTrue" + i,true);
 					vis.hideShowAttr("iValue" + i,true);
 					vis.hideShowAttr("iView" + i,false);
-					vis.hideShowAttr("iOidState" + i,true);
 				}
 			}
 		});
@@ -1186,21 +1184,22 @@ vis.binds["vis-inventwo"] = {
 		vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){
 			createWidget();
 		});
-		vis.states.bind(data.iOidState + '.val', function (e, newVal, oldVal){
-			createWidget();
-		});
+		/*
 		vis.states.bind(data.iOidToggle + '.val', function (e, newVal, oldVal){
 			createWidget();
-		});
+		});*/
 		vis.states.bind(vis.activeView, function (e, newVal, oldVal){
 			createWidget();
 		});
 
 		if(type == 'multi' && data.iUniversalWidgetType != "Navigation"){
 			for (let index = 1; index <= data.iUniversalValueCount; index++) {
-				vis.states.bind(data.attr('iOidState' + index) + '.val', function (e, newVal, oldVal){
+
+				vis.states.bind(data.attr('oid' + index) + '.val', function (e, newVal, oldVal){
 					createWidget();
 				});
+
+				console.log(vis.states);
 			}
 		}
 
@@ -1208,6 +1207,10 @@ vis.binds["vis-inventwo"] = {
 		createWidget();
 
 		function createWidget() {
+
+			if(!$(el).length){
+				createWidget(el,data,type);
+			}
 
 			//Farben, Text & Bild bei true oder false
 			let backCol = "";
@@ -1222,8 +1225,8 @@ vis.binds["vis-inventwo"] = {
 				let found = false;
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					console.log("TEST");
-					console.log(data['iOidState' + i]);
-					if ((data.iUniversalWidgetType != "Navigation" && data['iOidState' + i] != undefined && vis.states.attr(data['iOidState' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
+					console.log(data['oid' + i]);
+					if ((data.iUniversalWidgetType != "Navigation" && data['oid' + i] != undefined && vis.states.attr(data['oid' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
 						backCol = data['iButtonActiveM' + i];
 						shadowCol = data['iShadowColorActiveM' + i];
 						shadowColInner = data['iShadowInnerColorActiveM' + i];
