@@ -1238,9 +1238,17 @@ vis.binds["vis-inventwo"] = {
 			if(type == "multi") {
 				let found = false;
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
-					console.log("TEST");
-					console.log(data['oid' + i]);
-					if ((data.iUniversalWidgetType != "Navigation" && data['oid' + i] != undefined && vis.states.attr(data['oid' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
+
+					let val = data['iValue' + i];
+					if(val == "true")
+						val = true;
+					else if(val == "false")
+						val = false;
+					else if(!isNaN(val))
+						val = parseFloat(val);
+
+					if ((data.iUniversalWidgetType != "Navigation" && data['oid' + i] != undefined && vis.states.attr(data['oid' + i] + '.val') == val) ||
+						(data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
 						backCol = data['iButtonActiveM' + i];
 						shadowCol = data['iShadowColorActiveM' + i];
 						shadowColInner = data['iShadowInnerColorActiveM' + i];
