@@ -595,6 +595,26 @@ if (vis.editMode) {
 		},
 		//#endregion
 
+		//#region Value List Settings
+		"iValueListText":{
+			"en": "Text",
+			"de": "Text"
+		},
+		"iValueListDelimiter":{
+			"en": "Delimiter",
+			"de": "Trennzeichen"
+		},
+		"iValueListStyle":{
+			"en": "Style",
+			"de": "Stil"
+		},
+		"iValueListInfo":{
+			"en": "Info",
+			"de": "Info"
+		},
+		//#endregion
+
+
 
 		//#region Custom Text
 		"iText-Empty": {
@@ -644,6 +664,10 @@ if (vis.editMode) {
 		"iText-BackColorRadio": {
 			"en": "Enter if the color should differ from the general settings",
 			"de": "Eintragen, wenn Farbe von allgemeinen Einstellungen abweichen soll"
+		},
+		"iText-valueListInfoText": {
+			"en": "Textfield is preferred!",
+			"de": "Textfeld wird bevorzugt!"
 		},
 		//#endregion
 	});
@@ -927,6 +951,9 @@ vis.binds["vis-inventwo"] = {
 		else if(data[1] === 'radioBtnBackColInfoText'){
 			text = 'iText-BackColorRadio';
 		}
+		else if(data[1] === 'valueListInfoText'){
+			text = 'iText-valueListInfoText';
+		}
 
 
 		return { input: `<span>${_(text)}</span>` };
@@ -1170,7 +1197,10 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("value",false);
 				vis.hideShowAttr("iStateResponseTime",false);
 				vis.hideShowAttr("nav_view",false);
-				vis.hideShowAttr("oid",false);
+				if(data.iUniversalValueCount == undefined)
+					vis.hideShowAttr("oid",true);
+				else
+					vis.hideShowAttr("oid",false);
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,true);
 					vis.hideShowAttr("iTextFalse" + i,true);
@@ -1234,6 +1264,7 @@ vis.binds["vis-inventwo"] = {
 			let img = "";
 			let txt = "";
 			let imgBlink = 0;
+			let imgColInvert = 0;
 
 			if(type == "multi") {
 				let found = false;
@@ -1258,6 +1289,7 @@ vis.binds["vis-inventwo"] = {
 						if (data.attr('iTextTrue' + i) != undefined)
 							txt = data.attr('iTextTrue' + i);
 						imgBlink = data.attr('iImgBlinkTrue' + i);
+						imgColInvert = data.attr('iInvertImageCol' + i);
 						found = true
 						break;
 					}
@@ -1277,6 +1309,7 @@ vis.binds["vis-inventwo"] = {
 					else
 						txt = "";
 					imgBlink = data.iImgBlinkFalse;
+					imgColInvert = data.iInvertImageCol;
 				}
 			}
 
@@ -1322,6 +1355,8 @@ vis.binds["vis-inventwo"] = {
 
 
 				}
+
+				imgColInvert = data.iInvertImageCol;
 			}
 
 			imgBlink = imgBlink / 1000;
@@ -1404,7 +1439,7 @@ vis.binds["vis-inventwo"] = {
 							 align-self: `+ imgAlign +`;
 							 margin: `+ imgMargin +`;">
 							<img src="`+ img +`" width="`+ data.iIconSize +`"
-								 style="filter: invert(`+ Number(data.iInvertImageCol) +`);
+								 style="filter: invert(`+ Number(imgColInvert) +`);
 								 		transform: scaleX(`+ flip +`) rotateZ(`+ data.iImgRotation +`deg);
 								 		animation:blink ` + imgBlink + `s infinite;"> 
 						</div>

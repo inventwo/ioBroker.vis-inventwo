@@ -60,11 +60,11 @@
 						 iText-ImageSettings/custom,vis-inventwo.infoText,emptyText;
 						 iIconSize[35]/slider,0,200,1;
 						 iImgAlign[iCenter]/select,iStart,iCenter,iEnd;
-						 iImgRotation[0]/slider,0,180,1;
 						 iImgSpaceTop[5]/slider,0,50,1;
 						 iImgSpaceBottom[0]/slider,0,50,1;
 						 iImgSpaceLeft[0]/slider,0,50,1;
 						 iImgSpaceRight[0]/slider,0,50,1;
+						 iImgRotation[0]/slider,0,180,1;
 						 iInvertImageCol/checkbox;
 						 iFlipImage/checkbox;
 						 iImgBlinkFalse[0]/slider,0,2000,100;
@@ -128,6 +128,7 @@
 						 iValue(1-iUniversalValueCount)/text;
 						 iTextTrue(1-iUniversalValueCount)/html;
 						 iImageTrue(1-iUniversalValueCount)/image;
+						 iInvertImageCol(1-iUniversalValueCount)/checkbox;
 						 iImgBlinkTrue(1-iUniversalValueCount)[0]/slider,0,2000,100;
 						 iButtonActiveM(1-iUniversalValueCount)[#455618]/color;
 						 iShadowColorActiveM(1-iUniversalValueCount)[#111111]/color;
@@ -432,7 +433,8 @@
 						 iButtonBackActiveM(1-iRadiobtnsCount)/color;
 						 iText-ImgSettings(1-iRadiobtnsCount)/custom,vis-inventwo.infoText,emptyText;
 						 iImageFalse(1-iRadiobtnsCount)/image;
-						 iImageTrue(1-iRadiobtnsCount)/image;"
+						 iImageTrue(1-iRadiobtnsCount)/image;
+						 iInvertImageCol(1-iRadiobtnsCount)/checkbox;"
 		data-vis-attrs1="group.i-css;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
@@ -580,6 +582,7 @@
 			<%
 
 				let backCol = "";
+				let imgColorInvert = 0;
 				if(vis.states.attr(this.data.oid + '.val') == this.data.attr('iValue' + val)){
 
 					if(this.data.attr('iButtonBackActiveM' + val) != undefined){
@@ -588,14 +591,17 @@
 					else{
 						backCol = this.data.iButtonActive;
 					}
+
+					imgColorInvert = this.data.attr('iInvertImageCol' + val);
 				}
 				else{
-						if(this.data.attr('iButtonBackM' + val) != undefined){
+					if(this.data.attr('iButtonBackM' + val) != undefined){
 						backCol = this.data.attr('iButtonBackM' + val);
 					}
 					else{
 						backCol = this.data.iButtonCol;
 					}
+					imgColorInvert = this.data.iInvertImageCol;
 				}
 
 			%>
@@ -661,6 +667,71 @@
 
 		</div>
 
+	</div>
+</script>
+
+<script id="i-vis-valuelist"
+		type="text/ejs"
+		class="vis-tpl"
+		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Image.png">'
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
+						iValueListInfo/custom,vis-inventwo.infoText,valueListInfoText;
+						oid/id;
+						iValueListText/html;
+						iValueListDelimiter/text;
+						iValueListStyle[disc]/nselect,none,lower-alpha,upper-alpha,square,circle,decimal, decimal-leading-zero,disc;"
+		data-vis-attrs0="group.i-css;
+						 iText-TextSettings/custom,vis-inventwo.infoText,emptyText;
+						 iTextColor[#ffffff]/color;
+						 iTextSize[12]/slider,0,50,1;"
+		data-vis-set="vis-inventwo"
+		data-vis-type="static"
+		data-vis-name="Value List">
+
+	<%
+	let pointer_event = "auto";
+	if(this.data.iPointerEvents == true && !vis.editMode){
+		pointer_event = "none";
+	}
+
+	%>
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light"
+		 style="width:110px; height:110px; overflow:visible; cursor:default; z-index:1; pointer-events:<%== pointer_event %>;"
+		 id="<%= this.data.attr('wid') %>" >
+		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
+
+			<%
+				let text = "";
+				let arr = [];
+				let data = "";
+
+				if(this.data.iValueListText != undefined && this.data.iValueListText != ''){
+					data = this.data.iValueListText;
+				}
+				else if(this.data.oid != undefined && this.data.oid != '' && vis.states.attr(this.data.oid + '.val') != ''){
+					data = vis.states.attr(this.data.oid + '.val');
+				}
+
+				if(data != ''){
+					arr = data.split(this.data.iValueListDelimiter);
+
+					text = "<li>";
+					text += arr.join('</li><li>');
+					text += "</li>";
+				}
+
+
+			%>
+
+			<ul style=" margin: 0; padding-left: 24px;
+						color: <%= this.data.iTextColor %>;
+						font-size: <%= this.data.iTextSize %>px;
+						list-style: <%= this.data.iValueListStyle %>;">
+				<%== text %>
+			<ul>
+
+		</div>
 	</div>
 </script>
 
