@@ -1,8 +1,20 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "1.3.8",
+		"version": "2.0.0",
 		"news": {
+            "2.0.0":{
+              "en": "Merge Switch, Button, Nav and Background Widget to one Widget (Universal Widget), Added Multi Widget, Added new Image Widget, Added Radiobuttons Widget, Added Value List Widget, New CSS options",
+              "de": "Switch, Button, Nav and Background Widget zu einem Widget zusammengeführt (Universal Widget), Multi-Widget hinzugefügt, neues Image Widget hinzugefügt, Radiobuttons hinzugefügt, Werteliste Widget hinzugefügt, Neue CSS Einstellungen",
+              "ru": "Объединить переключатель, кнопку, навигацию и фоновый виджет в один виджет (универсальный виджет), добавлен мульти виджет, добавлен новый виджет изображения, добавлены радиокнопки, список добавленных значений, новые параметры CSS",
+              "pt": "Merge Switch, Button, Nav e Background Widget em um widget (Universal Widget), Multi Widget adicionado, Novo widget de imagem adicionado, Radiobuttons adicionados, Lista de valor adicionado, Novas opções de CSS",
+              "nl": "Samenvoegen Switch, Button, Nav en Achtergrond Widget tot één Widget (Universal Widget), Multi Widget toegevoegd, Nieuwe Image Widget toegevoegd, Radiobuttons toegevoegd, Value List toegevoegd, Nieuwe CSS-opties",
+              "fr": "Fusionner le commutateur, le bouton, le navigateur et le widget d'arrière-plan en un seul widget (widget universel), un widget multiple ajouté, un nouveau widget d'image, des boutons radio ajoutés, une liste de valeur ajoutée, de nouvelles options CSS",
+              "it": "Unisci Switch, Button, Nav e Background Widget in un Widget (Universal Widget), Aggiunto Multi Widget, Aggiunto nuovo widget immagine, Aggiunto Radiobuttons, Aggiunto Value List, Nuove opzioni CSS",
+              "es": "Combinar interruptor, botón, navegación y widget de fondo en un widget (widget universal), widget múltiple agregado, widget de imagen nuevo agregado, botones de radio agregados, lista de valor agregado, nuevas opciones de CSS",
+              "pl": "Połącz przełącznik, przycisk, nawigację i widżet tła w jeden widżet (widżet uniwersalny), dodano widżet Multi, dodano nowy widżet obrazu, dodano przyciski radiowe, lista wartości dodanych, nowe opcje CSS",
+              "zh-cn": "将开关，按钮，导航和背景小部件合并到一个小部件（通用小部件）中，添加了多小部件，添加了新的图像小部件，添加了单选按钮，添加了值列表，新的CSS选项"
+            },
             "1.3.8": {
               "en": "Changed slider step to decimal, Fixed problem with numeric values",
               "de": "Schiebereglerschritt auf Dezimal geändert, Problem mit numerischen Werten behoben",

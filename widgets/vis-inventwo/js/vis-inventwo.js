@@ -1,6 +1,6 @@
 /*
 	ioBroker.vis vis-inventwo Widget-Set
-	version: "0.1.2"
+	version: "2.0.0"
 	Copyright 2020 jkvarel jkvarel@inventwo.com
 */
 "use strict";
@@ -8,6 +8,23 @@
 
 if (vis.editMode) {
 	$.extend(true, systemDictionary, {
+
+		//#region OLD
+		"iOpacity": {
+			"en": "Button opacity",
+			"de": "Button Transparenz"
+		},
+		"iOpacityImg": {
+			"en": "Image opacity",
+			"de": "Bild Transparenz"
+		},
+		"iOpacityAll": {
+			"en": "Opacity",
+			"de": "Transparenz"
+		},
+		//#endregion END OLD
+
+		//#region General
 		"Instance": {
 			"en": "Instance",
 			"de": "Instanz"
@@ -16,25 +33,91 @@ if (vis.editMode) {
 			"en": "Object ID",
 			"de": "Objekt ID"
 		},
-		"iText": {
-			"en": "Label",
-			"de": "Beschriftung"
+		"iWiki":{
+			"en": "<b>Manual</b>",
+			"de": "<b>Anleitung</b>"
 		},
-		"iIconSize": {
-			"en": "Icon size",
-			"de": "Bild Größe"
+		"iWikiText":{
+			"en": "<b>To the wiki</b>",
+			"de": "<b style='color: #9fdb58'>Zum Wiki</b>"
+		},
+		"iStart":{
+			"en": "Start",
+			"de": "Anfang"
+		},
+		"iEnd":{
+			"en": "End",
+			"de": "Ende"
+		},
+		"iCenter":{
+			"en": "Center",
+			"de": "Mitte"
+		},
+		"iSpace-between":{
+			"en": "Space between",
+			"de": "Platz dazwischen"
 		},
 		"group_i-css": {
-			"en": "CSS inventwo Button",
-			"de": "CSS inventwo Button"
+			"en": "CSS inventwo Widget",
+			"de": "CSS inventwo Widget"
 		},
-		"iButtonCol": {
-			"en": "color",
-			"de": "Farbe"
+		//#endregion
+
+		//#region Content Settings
+		"iContentFlexDirection":{
+			"en": "Style",
+			"de": "Stil"
 		},
-		"iTextSize": {
-			"en": "Label size",
-			"de": "Beschriftungsgröße"
+		"iContentVertAlign": {
+			"en": "Align",
+			"de": "Ausrichtung"
+		},
+		"iContentOrder":{
+			"en": "Order",
+			"de": "Reihenfolge"
+		},
+		"orderTextImg":{
+			"en": "Text -> Image",
+			"de": "Text -> Bild"
+		},
+		"orderImgText":{
+			"en": "Image -> Text",
+			"de": "Bild -> Text"
+		},
+		"iOpacityCtn": {
+			"en": "Content opacity",
+			"de": "Inhalt Transparenz"
+		},
+		//#endregion
+
+		//#region Image Settings
+		"iImgRotation":{
+			"en": "Rotation",
+			"de": "Drehung"
+		},
+		"iImgAlign":{
+			"en": "Position",
+			"de": "Position"
+		},
+		"iImgSpaceTop":{
+			"en": "Space top",
+			"de": "Abstand oben"
+		},
+		"iImgSpaceLeft":{
+			"en": "Space left",
+			"de": "Abstand links"
+		},
+		"iImgSpaceRight":{
+			"en": "Space right",
+			"de": "Abstand rechts"
+		},
+		"iImgSpaceBottom":{
+			"en": "Space bottom",
+			"de": "Abstand unten"
+		},
+		"iIconSize": {
+			"en": "Size",
+			"de": "Größe"
 		},
 		"iImageFalse": {
 			"en": "Icon false",
@@ -48,6 +131,73 @@ if (vis.editMode) {
 			"en": "Icon",
 			"de": "Bild"
 		},
+		"iFlipImage":{
+			"en": "Flip",
+			"de": "Spiegeln"
+		},
+		"iInvertImageCol": {
+			"en": "Invert color",
+			"de": "Farbe invertieren"
+		},
+
+		//#endregion
+
+		//#region Text Settings
+		"iTextSpaceTop":{
+			"en": "Space top",
+			"de": "Abstand oben"
+		},
+		"iTextAlign":{
+			"en": "Position",
+			"de": "Position"
+		},
+		"iTextSpaceLeft":{
+			"en": "Space left",
+			"de": "Abstand links"
+		},
+		"iTextSpaceRight":{
+			"en": "Space right",
+			"de": "Abstand rechts"
+		},
+		"iTextSpaceBottom":{
+			"en": "Space bottom",
+			"de": "Abstand unten"
+		},
+		"iText": {
+			"en": "Label",
+			"de": "Beschriftung"
+		},
+		"iTextSize": {
+			"en": "Label size",
+			"de": "Größe"
+		},
+		"iTextFalse": {
+			"en": "Label  false",
+			"de": "Beschriftung falsch"
+		},
+		"iTextTrue": {
+			"en": "Label true",
+			"de": "Beschriftung wahr"
+		},
+		"iTextColor": {
+			"en": "Text color",
+			"de": "Farbe "
+		},
+		//#endregion
+
+		//#region Background Settings
+		"iButtonCol": {
+			"en": "Color",
+			"de": "Farbe"
+		},
+		"iButtonActive": {
+			"en": "Color active",
+			"de": "Farbe Aktiv"
+		},
+		"iButtonActiveM": {
+			"en": "Background active",
+			"de": "Hintergrund aktiv"
+		},
 		"iCornerRadiusUL": {
 			"en": "Border radius upper left",
 			"de": "Abrundung oben links"
@@ -58,52 +208,112 @@ if (vis.editMode) {
 		},
 		"iCornerRadiusLR": {
 			"en": "Border radius lower right",
-			"de": "Abrundung unten right"
+			"de": "Abrundung unten rechts"
 		},
 		"iCornerRadiusLL": {
 			"en": "Border radius lower left",
 			"de": "Abrundung unten links"
 		},
-		"iOpacity": {
-			"en": "Button opacity",
-			"de": "Button Transparenz"
-		},
-		"iOpacityCtn": {
-			"en": "Content opacity",
-			"de": "Inhalt Transparenz"
-		},
-		"iOpacityImg": {
-			"en": "Image opacity",
-			"de": "Bild Transparenz"
-		},
-		"iOpacityAll": {
-			"en": "Opacity",
+		"iOpacityBack": {
+			"en": "opacity",
 			"de": "Transparenz"
 		},
-		"iTextFalse": {
-			"en": "Label  false",
-			"de": "Beschriftung falsch"
+		//#endregion
+
+		//#region Shadow Settingss
+		"iShadowXOffset":{
+			"en": "X offset",
+			"de": "X Versatz"
 		},
-		"iTextTrue": {
-			"en": "Label true",
-			"de": "Beschriftung wahr"
+		"iShadowYOffset":{
+			"en": "Y offset",
+			"de": "Y Versatz"
 		},
-		"iButtonActive": {
-			"en": "Active color",
-			"de": "Aktiv Farbe "
+		"iShadowBlur":{
+			"en": "Blur",
+			"de": "Blur"
 		},
-		"iTextColor": {
-			"en": "Text color",
-			"de": "Textfarbe "
+		"iShadowSpread":{
+			"en": "Spread",
+			"de": "Größe"
 		},
-		"iInvertImageCol": {
-			"en": "Invert icon color",
-			"de": "Bildfarbe invertieren"
+		"iShadowColor":{
+			"en": "Color",
+			"de": "Farbe"
 		},
+		"iShadowColorActive":{
+			"en": "Color active",
+			"de": "Farbe Aktiv"
+		},
+		"iShadowColorActiveM":{
+			"en": "Outer Shadow active",
+			"de": "Schatten außen aktiv"
+		},
+		"iShadowInnerSpread": {
+			"en": "Inner size",
+			"de": "Größe innen"
+		},
+		//#endregion
+
+		//#region Shadow Inner Settingss
+		"iShadowInnerXOffset":{
+			"en": "X offset",
+			"de": "X Versatz"
+		},
+		"iShadowInnerYOffset":{
+			"en": "Y offset",
+			"de": "Y Versatz"
+		},
+		"iShadowInnerBlur":{
+			"en": "Blur",
+			"de": "Blur"
+		},
+		"iShadowInnerSpread":{
+			"en": "Spread",
+			"de": "Größe"
+		},
+		"iShadowInnerColor":{
+			"en": "Color",
+			"de": "Farbe"
+		},
+		"iShadowInnerColorActive":{
+			"en": "Color active",
+			"de": "Farbe Aktiv"
+		},
+		"iShadowInnerColorActiveM":{
+			"en": "Inner shadow active",
+			"de": "Schatten innen aktiv"
+		},
+		//#endregion
+
+		//#region Border Settingss
+		"iBorderSize":{
+			"en": "Width",
+			"de": "Breite"
+		},
+		"iBorderStyle":{
+			"en": "Style",
+			"de": "Stil"
+		},
+		"iBorderColor":{
+			"en": "Color",
+			"de": "Farbe"
+		},
+		"iBorderColorActive":{
+			"en": "Color active",
+			"de": "Farbe Aktiv"
+		},
+		"iBorderColorActiveM":{
+			"en": "Border active",
+			"de": "Umrandung aktiv"
+		},
+		//#endregion
+
+
+		//#region Switch & State Settings
 		"iValueType":{
 			"en": "Type",
 			"de": "Typ"
-
 		},
 		"iValueFalse":{
 			"en": "Value false",
@@ -113,6 +323,10 @@ if (vis.editMode) {
 			"en": "Value true",
 			"de": "Wert wahr"
 		},
+		"iValue":{
+			"en": "Value",
+			"de": "Wert"
+		},
 		"iValueTypeInfo":{
 			"en": "Type Info",
 			"de": "Typ Info"
@@ -121,18 +335,59 @@ if (vis.editMode) {
 			"en": "If type is 'boolean', value fields can be empty",
 			"de": "Wenn Typ ist 'boolean', können Wert Felder leer bleiben"
 		},
-		"iWiki":{
-			"en": "Manual",
-			"de": "Anleitung"
+		"iStateResponseTime":{
+			"en": "Response time (in Ms)",
+			"de": "Rückmeldungsdauer (in Ms)"
 		},
-		"iWikiText":{
-			"en": "To the wiki",
-			"de": "Zum Wiki"
-		},
+		//#endregion
+
+		//#region Nav Settings
 		"iNavWait":{
 			"en": "Wait x milliseconds to check for active",
 			"de": "Warte x Millisekunden bis Prüfung auf aktiv"
 		},
+		"iNavValue":{
+			"en": "Value",
+			"de": "Wert"
+		},
+		//#endregion
+
+		//#region Radio Buttons
+		"iRadiobtnWidth":{
+			"en": "Button width",
+			"de": "Button Breite"
+		},
+		"iRadiobtnHeight":{
+			"en": "Button height",
+			"de": "Button Höhe"
+		},
+		"iRadiobtnSpace":{
+			"en": "Button space",
+			"de": "Button Abstand"
+		},
+		"iRadiobtnsCount":{
+			"en": "Count",
+			"de": "Anzahl"
+		},
+		"group_iRadioBtns":{
+			"en": "Radiobutton",
+			"de": "Radiobutton"
+		},
+		"iRadiobtnAlign":{
+			"en": "Alignment",
+			"de": "Ausrichtung"
+		},
+		"iButtonBackM":{
+			"en": "Color",
+			"de": "Farbe"
+		},
+		"iButtonBackActiveM":{
+			"en": "Color active",
+			"de": "Farbe Aktiv"
+		},
+		//#endregion
+
+		//#regionSlider Settings
 		"iMinVal":{
 			"en": "Min. value",
 			"de": "Min. Wert"
@@ -197,10 +452,9 @@ if (vis.editMode) {
 			"en": "Pre text",
 			"de": "Text voranstellen"
 		},
-		"iFlipImage":{
-			"en": "Flip icon",
-			"de": "Bild spiegeln"
-		},
+		//#endregion
+
+		//#region Table Settings
 		"iTblShowHead":{
 			"en": "Table Head",
 			"de": "Tabellenkopf"
@@ -273,30 +527,226 @@ if (vis.editMode) {
 			"en": "Refresh rate (ms)",
 			"de": "Aktualisierung (ms)"
 		},
-		"iNavValue":{
-			"en": "Value",
-			"de": "Wert"
-		}
+		//#endregion
+
+		//#region Universal & Multi Widget Settings
+		"iUniversalWidgetTypeInfo":{
+			"en": "Type info",
+			"de": "Typ Info"
+		},
+		"iUniversalWidgetTypeInfoText":{
+			"en": "Should it be a switch, state, navigation or background?",
+			"de": "Soll es ein Switch, State, Navigation oder Hintergrund sein?"
+		},
+		"iUniversalWidgetType":{
+			"en": "Widget type",
+			"de": "Widget Typ"
+		},
+		"iUniversalValueCount":{
+			"en": "Number of states",
+			"de": "Anzahl der Zustände"
+		},
+		"group_iUniversalValues":{
+			"en": "State",
+			"de": "Zustand"
+		},
+		"iRefreshDataFieldsInfo":{
+			"en": "---->",
+			"de": "---->"
+		},
+		"iRefreshDataFields":{
+			"en": "---->",
+			"de": "---->"
+		},
+		"iRefreshDataFieldsText":{
+			"en": "<span style='color:red'>Click on the button below to hide unimportant fields for this widget</span>",
+			"de": "<span style='color:red'>Klicke auf den Button um nicht für das Widget relevante Felder zu verstecken</span>"
+		},
+		"iRefreshBtnText":{
+			"en": "Refresh fields",
+			"de": "Felder neuladen"
+		},
+		"iView":{
+			"en": "View",
+			"de": "View"
+		},
+		"iOidToggle":{
+			"en": "Object ID to switch/set",
+			"de": "Objekt ID zum Schalten/Setzen"
+		},
+		"iOidState":{
+			"en": "Object ID to check",
+			"de": "Objekt ID zum prüfen"
+		},
+		"iImgBlinkFalse":{
+			"en": "Image blinkinterval",
+			"de": "Bild falsch Blinkintervall"
+		},
+		"iImgBlinkTrue":{
+			"en": "Image blinkinterval",
+			"de": "Bild wahr Blinkintervall"
+		},
+		//#endregion
+
+		//#region Image Settings
+		"iPointerEvents":{
+			"en": "Click through?",
+			"de": "Klick durchlassen?"
+		},
+		//#endregion
+
+		//#region Value List Settings
+		"iValueListText":{
+			"en": "Text",
+			"de": "Text"
+		},
+		"iValueListDelimiter":{
+			"en": "Delimiter",
+			"de": "Trennzeichen"
+		},
+		"iValueListStyle":{
+			"en": "Style",
+			"de": "Stil"
+		},
+		"iValueListInfo":{
+			"en": "Info",
+			"de": "Info"
+		},
+		//#endregion
+
+
+
+		//#region Custom Text
+		"iText-Empty": {
+			"en": " ",
+			"de": " "
+		},
+		"iText-ImgSettings": {
+			"en": "<b>Image</b>",
+			"de": "<b>Bild</b>"
+		},
+		"iText-BackgroundSettings": {
+			"en": "<b>Background</b>",
+			"de": "<b>Hintergrund</b>"
+		},
+		"iText-CornerSettings": {
+			"en": "<b>Corners</b>",
+			"de": "<b>Ecken</b>"
+		},
+		"iText-ContentSettings": {
+			"en": "<b>Content</b>",
+			"de": "<b>Inhalt</b>"
+		},
+		"iText-ShadowSettings": {
+			"en": "<b>Outer shadow</b>",
+			"de": "<b>Schatten außen</b>"
+		},
+		"iText-ShadowInnerSettings": {
+			"en": "<b>Inner shadow</b>",
+			"de": "<b>Schatten innen</b>"
+		},
+		"iText-BorderSettings": {
+			"en": "<b>Border</b>",
+			"de": "<b>Umrandung</b>"
+		},
+		"iText-TextSettings": {
+			"en": "<b>Text</b>",
+			"de": "<b>Text</b>"
+		},
+		"iText-ImageSettings": {
+			"en": "<b>Image</b>",
+			"de": "<b>Bild</b>"
+		},
+		"iText-BackColorRadioInfo": {
+			"en": "Info",
+			"de": "Info"
+		},
+		"iText-BackColorRadio": {
+			"en": "Enter if the color should differ from the general settings",
+			"de": "Eintragen, wenn Farbe von allgemeinen Einstellungen abweichen soll"
+		},
+		"iText-valueListInfoText": {
+			"en": "Textfield is preferred!",
+			"de": "Textfeld wird bevorzugt!"
+		},
+		//#endregion
 	});
 }
 
 vis.navChangeCallbacks.push(function (view) {
 
-	$('.vis-inventwo-nav').each(function () {
-		if($(this).attr('data-inventwo-nav') === view){
-			$(this).css('background-color',$(this).attr("data-activecol"));
-		}
-		else{
-			$(this).css('background-color',$(this).attr("data-col"));
-		}
-	});
+	vis.binds["vis-inventwo"].iUpdateNavigations(0,false);
+
 });
 
 vis.binds["vis-inventwo"] = {
 
-	handleToggle: function (el, data) {
+	iUpdateNavigations: function (timeoutVal, byclick) {
+		if (byclick == false) {
+			$("#visview_" + vis.activeView + " .vis-inventwo-nav, #visview_" + vis.activeView + " .iUniversalNav").each(function () {
+				let id = $(this).attr("id");
+				if (id != undefined) {
+					let data = vis.views[vis.activeView].widgets[id].data;
+
+					if (data.iNavWait > timeoutVal)
+						timeoutVal = data.iNavWait;
+				}
+
+			});
+		}
+
+		setTimeout(function () {
+
+			$(".vis-inventwo-nav").each(function (el) {
+
+				if ($(this).attr("data-inventwo-nav") === vis.activeView)
+					$(this).css("background-color", $(this).attr("data-activecol"));
+				else
+					$(this).css("background-color", $(this).attr("data-col"));
+
+			});
+
+			$("#visview_" + vis.activeView + " .iUniversalNav").each(function () {
+				let id = $(this).attr("id");
+				let data = vis.views[vis.activeView].widgets[id].data;
+
+				if (data.nav_view === vis.activeView)
+					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonActive);
+				else
+					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonCol);
+
+			});
+
+			$("#visview_" + vis.activeView + " .iMultiNav").each(function () {
+				let id = $(this).attr("id");
+				let data = vis.views[vis.activeView].widgets[id].data;
+				let stateFound = false;
+				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+					if (data["iView" + i] === vis.activeView) {
+						stateFound = true;
+						$(this).find('.vis-inventwo-button-new').css("background", data["iButtonActiveM" + i]);
+						break;
+					}
+				}
+				if (!stateFound) {
+					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonCol);
+				}
+
+			});
+
+		}, timeoutVal);
+
+
+	},
+	handleToggle: function (el, data, type) {
 
 		var $this = $(el);
+
+		/*if(type == undefined || type == 'universal')
+			var oid = data.oid;
+		else{
+			var oid = data.iOidToggle;
+		}*/
 		var oid = data.oid;
 
 		if (!vis.editMode) {
@@ -333,41 +783,38 @@ vis.binds["vis-inventwo"] = {
 			});
 
 		}
-		else{
-			if(data.iButtonCol.charAt(0) === "{"){
-				let str = (data.iButtonCol).substring(1,data.iButtonCol.length - 1);
 
-			}
-		}
 	},
-	handleNavigation: function (el, data) {
+	handleNavigation: function (el, data, type) {
 		if (!vis.editMode && data.nav_view) {
 			var $this = $(el);
 			var moved = false;
-			$this.on('click touchend', function (e) {
+			$this.parent().on('click touchend', function (e) {
 				// Protect against two events
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
 				vis.changeView(data.nav_view, data.nav_view);
 				//e.preventDefault();
 				//return false;
+
 				if(data.oid !== "") {
-					if(!isNaN(data.iNavValue))
-						data.iNavValue = parseFloat(data.iNavValue);
-					vis.setValue(data.oid, data.iNavValue);
+					let val;
+					if(type == "universal" || type == "multi")
+						val = data.value;
+					else
+						val = data.iNavValue;
+
+					if(val == "true")
+						val = true;
+					else if(val == "false")
+						val = false;
+					else if(!isNaN(val))
+						val = parseFloat(val);
+					vis.setValue(data.oid, val);
 				}
 
-				setTimeout(function () {
-					$('.vis-inventwo-nav').each(function () {
-						if($(this).attr('data-inventwo-nav') === vis.activeView){
-							$(this).css('background-color',$(this).attr("data-activecol"));
-						}
-						else{
-							$(this).css('background-color',$(this).attr("data-col"));
-						}
-					});
+				vis.binds['vis-inventwo'].iUpdateNavigations(data.iNavWait,true);
 
-				},data.iNavWait);
 
 			}).on('touchmove', function () {
 				moved = true;
@@ -377,10 +824,15 @@ vis.binds["vis-inventwo"] = {
 
 		}
 	},
-	state: function (el, data) {
+	state: function (el, data, type) {
 
 		var $this = $(el);
 
+		/*if(type == undefined || type == 'universal')
+			var oid = data.oid;
+		else{
+			var oid = data.iOidToggle;
+		}*/
 		var oid = data.oid;
 
 		//$(el).html(valFalse);
@@ -391,6 +843,85 @@ vis.binds["vis-inventwo"] = {
 				if(!isNaN(data.value))
 					data.value = parseFloat(data.value);
 				vis.setValue(oid, data.value);
+
+				if(type == 'universal') {
+					let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data.iShadowColorActive + ',inset ' +
+						data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data.iShadowInnerColorActive;
+					let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
+					$this.find('.vis-inventwo-button-new').css('background', data.iButtonActive);
+					$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
+					$this.find('.vis-inventwo-button-new').css('border', border);
+					if(data.iImageTrue != undefined)
+						$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageTrue);
+					if(data.iTextTrue != undefined)
+						$this.find('.vis-inventwo-button-text').html(data.iTextTrue);
+
+					setTimeout(function () {
+						let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data.iShadowColor + ',inset ' +
+							data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data.iShadowInnerColor;
+						let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
+						$this.find('.vis-inventwo-button-new').css('background', data.iButtonCol);
+						$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
+						$this.find('.vis-inventwo-button-new').css('border', border);
+						if(data.iImageFalse != undefined)
+							$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageFalse);
+						if(data.iTextFalse != undefined)
+							$this.find('.vis-inventwo-button-text').html(data.iTextFalse);
+					}, data.iStateResponseTime);
+
+
+				}
+				else if(type == 'multi') {
+					let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data['iShadowColorActiveM1'] + ',inset ' +
+						data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data['iShadowInnerColorActiveM1'];
+					let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
+					$this.find('.vis-inventwo-button-new').css('background', data['iButtonActiveM1']);
+					$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
+					$this.find('.vis-inventwo-button-new').css('border', border);
+					if(data.iImageTrue != undefined)
+						$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageTrue);
+					if(data.iTextTrue != undefined)
+						$this.find('.vis-inventwo-button-text').html(data.iTextTrue);
+
+					setTimeout(function () {
+
+						let backCol = data.iButtonCol;
+						let shadowCol = data.iShadowColor;
+						let shadowColInner = data.iShadowInnerColor;
+						let borderCol = data.iBorderColor;
+						if(data.iImageFalse != undefined)
+							img = data.iImageFalse;
+						if(data.iTextFalse != undefined)
+							txt = data.iTextFalse;
+
+						for (let i = 1; i <= data.iUniversalValueCount; i++) {
+							if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data['oid' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
+								backCol = data['iButtonActiveM' + i];
+								shadowCol = data['iShadowColorActiveM' + i];
+								shadowColInner = data['iShadowInnerColorActiveM' + i];
+								borderCol = data['iBorderColorActiveM' + i];
+								if (data.attr('iImageTrue' + i) != undefined)
+									img = data.attr('iImageTrue' + i);
+								if (data.attr('iTextTrue' + i) != undefined)
+									txt = data.attr('iTextTrue' + i);
+								break;
+							}
+						}
+
+						let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + shadowCol + ',inset ' +
+							data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + shadowColInner;
+						let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + borderCol;
+						$this.find('.vis-inventwo-button-new').css('background', backCol);
+						$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
+						$this.find('.vis-inventwo-button-new').css('border', border);
+						if(data.iImageFalse != undefined)
+							$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageFalse);
+						if(data.iTextFalse != undefined)
+							$this.find('.vis-inventwo-button-text').html(data.iTextFalse);
+					}, data.iStateResponseTime);
+
+
+				}
 			});
 
 		}
@@ -404,9 +935,27 @@ vis.binds["vis-inventwo"] = {
 	},
 	infoText: function (widAttr, data) {
 		let text = '';
+
 		if (data[1] === 'valueType') {
-			text = 'iValueTypeText'
+			text = 'iValueTypeText';
 		}
+		else if(data[1] === 'emptyText'){
+			text = '';
+		}
+		else if(data[1] === 'universalTypeInfo'){
+			text = 'iUniversalWidgetTypeInfoText';
+		}
+		else if(data[1] === 'refreshDataFieldsText'){
+			text = 'iRefreshDataFieldsText';
+		}
+		else if(data[1] === 'radioBtnBackColInfoText'){
+			text = 'iText-BackColorRadio';
+		}
+		else if(data[1] === 'valueListInfoText'){
+			text = 'iText-valueListInfoText';
+		}
+
+
 		return { input: `<span>${_(text)}</span>` };
 	},
 	handleSlider: function (el,data,options) {
@@ -550,5 +1099,385 @@ vis.binds["vis-inventwo"] = {
 		$(el).html(output);
 	},
 
+	radiobutton: function (el, oid, val) {
+		var $this = $(el);
+
+		if (!vis.editMode) {
+			var moved = false;
+			$this.parent().on('click touchend', function () {
+				if (vis.detectBounce(this)) return;
+				if (moved) return;
+
+				if(!isNaN(val))
+					val = parseFloat(val);
+
+				vis.setValue(oid, val);
+
+			}).on('touchmove', function () {
+				moved = true;
+			}).on('touchstart', function () {
+				moved = false;
+			});
+
+		}
+	},
+
+	updateUniversalDataFields: function (wid,view) {
+
+		vis.activeWidgets.forEach(function (el) {
+			let data = vis.views[vis.activeView].widgets[el].data;
+			let val = data.iUniversalWidgetType;
+
+			if(val == "Switch"){
+				vis.hideShowAttr("iNavWait",false);
+				vis.hideShowAttr("iValueType",true);
+				vis.hideShowAttr("iValueTypeInfo",true);
+				vis.hideShowAttr("iValueFalse",true);
+				vis.hideShowAttr("iValueTrue",true);
+				vis.hideShowAttr("value",false);
+				vis.hideShowAttr("iStateResponseTime",false);
+				vis.hideShowAttr("nav_view",false);
+				vis.hideShowAttr("oid",true);
+				for (let i = 1; i <= data.iUniversalValueCount; i++){
+					vis.hideShowAttr("oid" + i,true);
+					vis.hideShowAttr("iTextFalse" + i,true);
+					vis.hideShowAttr("iTextTrue" + i,true);
+					vis.hideShowAttr("iImageFalse" + i,true);
+					vis.hideShowAttr("iImageTrue" + i,true);
+					vis.hideShowAttr("iValue" + i,true);
+					vis.hideShowAttr("iView" + i,false);
+				}
+			}
+			else if(val == "State"){
+				vis.hideShowAttr("iNavWait",false);
+				vis.hideShowAttr("iValueType",false);
+				vis.hideShowAttr("iValueTypeInfo",false);
+				vis.hideShowAttr("iValueFalse",false);
+				vis.hideShowAttr("iValueTrue",false);
+				vis.hideShowAttr("value",true);
+				vis.hideShowAttr("iStateResponseTime",true);
+				vis.hideShowAttr("nav_view",false);
+				vis.hideShowAttr("oid",true);
+				for (let i = 1; i <= data.iUniversalValueCount; i++){
+					vis.hideShowAttr("oid" + i,true);
+					vis.hideShowAttr("iTextFalse" + i,true);
+					vis.hideShowAttr("iTextTrue" + i,true);
+					vis.hideShowAttr("iImageFalse" + i,true);
+					vis.hideShowAttr("iImageTrue" + i,true);
+					vis.hideShowAttr("iValue" + i,true);
+					vis.hideShowAttr("iView" + i,false);
+				}
+			}
+			else if(val == "Navigation"){
+				vis.hideShowAttr("iNavWait",true);
+				vis.hideShowAttr("iValueType",false);
+				vis.hideShowAttr("iValueTypeInfo",false);
+				vis.hideShowAttr("iValueFalse",false);
+				vis.hideShowAttr("iValueTrue",false);
+				vis.hideShowAttr("value",true);
+				vis.hideShowAttr("iStateResponseTime",false);
+				vis.hideShowAttr("nav_view",true);
+				vis.hideShowAttr("oid",true);
+				for (let i = 1; i <= data.iUniversalValueCount; i++){
+					vis.hideShowAttr("oid" + i,false);
+					vis.hideShowAttr("iTextFalse" + i,true);
+					vis.hideShowAttr("iTextTrue" + i,true);
+					vis.hideShowAttr("iImageFalse" + i,true);
+					vis.hideShowAttr("iImageTrue" + i,true);
+					vis.hideShowAttr("iValue" + i,false);
+					vis.hideShowAttr("iView" + i,true);
+				}
+			}
+			else if(val == "Background"){
+				vis.hideShowAttr("iNavWait",false);
+				vis.hideShowAttr("iValueType",false);
+				vis.hideShowAttr("iValueTypeInfo",false);
+				vis.hideShowAttr("iValueFalse",false);
+				vis.hideShowAttr("iValueTrue",false);
+				vis.hideShowAttr("value",false);
+				vis.hideShowAttr("iStateResponseTime",false);
+				vis.hideShowAttr("nav_view",false);
+				if(data.iUniversalValueCount == undefined)
+					vis.hideShowAttr("oid",true);
+				else
+					vis.hideShowAttr("oid",false);
+				for (let i = 1; i <= data.iUniversalValueCount; i++){
+					vis.hideShowAttr("oid" + i,true);
+					vis.hideShowAttr("iTextFalse" + i,true);
+					vis.hideShowAttr("iTextTrue" + i,true);
+					vis.hideShowAttr("iImageFalse" + i,true);
+					vis.hideShowAttr("iImageTrue" + i,true);
+					vis.hideShowAttr("iValue" + i,true);
+					vis.hideShowAttr("iView" + i,false);
+				}
+			}
+		});
+
+	},
+
+	refreshDataFieldBtn: function () {
+
+		let text = "iRefreshBtnText";
+		return {input: `<button class="iUniversalWidgetRefreshBtn" onclick="vis.binds['vis-inventwo'].updateUniversalDataFields()">${_(text)}</button>`}
+
+	},
+
+	universalButton: function (el,data,type) {
+
+		this.updateUniversalDataFields;
+		vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){
+			createWidget();
+		});
+		/*
+		vis.states.bind(data.iOidToggle + '.val', function (e, newVal, oldVal){
+			createWidget();
+		});*/
+		vis.states.bind(vis.activeView, function (e, newVal, oldVal){
+			createWidget();
+		});
+
+		if(type == 'multi' && data.iUniversalWidgetType != "Navigation"){
+			for (let index = 1; index <= data.iUniversalValueCount; index++) {
+
+				vis.states.bind(data.attr('oid' + index) + '.val', function (e, newVal, oldVal){
+					createWidget();
+				});
+
+				console.log(vis.states);
+			}
+		}
+
+
+		createWidget();
+
+		function createWidget() {
+
+			if(!$(el).length){
+				createWidget(el,data,type);
+			}
+
+			//Farben, Text & Bild bei true oder false
+			let backCol = "";
+			let shadowCol = "";
+			let shadowColInner = "";
+			let borderCol = "";
+			let img = "";
+			let txt = "";
+			let imgBlink = 0;
+			let imgColInvert = 0;
+
+			if(type == "multi") {
+				let found = false;
+				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+
+					let val = data['iValue' + i];
+					if(val == "true")
+						val = true;
+					else if(val == "false")
+						val = false;
+					else if(!isNaN(val))
+						val = parseFloat(val);
+
+					if ((data.iUniversalWidgetType != "Navigation" && data['oid' + i] != undefined && vis.states.attr(data['oid' + i] + '.val') == val) ||
+						(data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
+						backCol = data['iButtonActiveM' + i];
+						shadowCol = data['iShadowColorActiveM' + i];
+						shadowColInner = data['iShadowInnerColorActiveM' + i];
+						borderCol = data['iBorderColorActiveM' + i];
+						if (data.attr('iImageTrue' + i) != undefined)
+							img = data.attr('iImageTrue' + i);
+						if (data.attr('iTextTrue' + i) != undefined)
+							txt = data.attr('iTextTrue' + i);
+						imgBlink = data.attr('iImgBlinkTrue' + i);
+						imgColInvert = data.attr('iInvertImageCol' + i);
+						found = true
+						break;
+					}
+				}
+				if(!found){
+					backCol = data.iButtonCol;
+					shadowCol = data.iShadowColor;
+					shadowColInner = data.iShadowInnerColor;
+					borderCol = data.iBorderColor;
+					if(data.iImageFalse != undefined)
+						img = data.iImageFalse;
+					else{
+						img = "";
+					}
+					if(data.iTextFalse != undefined)
+						txt = data.iTextFalse;
+					else
+						txt = "";
+					imgBlink = data.iImgBlinkFalse;
+					imgColInvert = data.iInvertImageCol;
+				}
+			}
+
+			else if(type == "universal"){
+				if ((data.iUniversalWidgetType == "Navigation" && data.nav_view === vis.activeView) ||
+					(
+						(data.iUniversalWidgetType == "Switch" || data.iUniversalWidgetType == "Background") &&
+						(
+							(vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value') ||
+							(vis.states.attr(data.oid + '.val') === true && data.iValueType == 'boolean')
+						)
+
+					) )
+				{
+
+					backCol = data.iButtonActive;
+					shadowCol = data.iShadowColorActive;
+					shadowColInner = data.iShadowInnerColorActive;
+					borderCol = data.iBorderColorActive;
+
+					if (data.iImageTrue != undefined)
+						img = data.iImageTrue;
+					if (data.iTextFalse != undefined)
+						txt = data.iTextTrue;
+
+					imgBlink = data.iImgBlinkTrue;
+				}
+				else{
+					backCol = data.iButtonCol;
+					shadowCol = data.iShadowColor;
+					shadowColInner = data.iShadowInnerColor;
+					borderCol = data.iBorderColor;
+					if(data.iImageFalse != undefined)
+						img = data.iImageFalse;
+					else{
+						img = "";
+					}
+					if(data.iTextFalse != undefined)
+						txt = data.iTextFalse;
+					else
+						txt = "";
+					imgBlink = data.iImgBlinkFalse;
+
+
+				}
+
+				imgColInvert = data.iInvertImageCol;
+			}
+
+			imgBlink = imgBlink / 1000;
+
+
+			let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + shadowCol + ',inset ' +
+				data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + shadowColInner;
+			let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
+			let borderRadius = data.iCornerRadiusUL + 'px ' + data.iCornerRadiusUR + 'px ' + data.iCornerRadiusLR + 'px ' + data.iCornerRadiusLL + 'px';
+
+			//Bild spiegeln
+			let flip = 1;
+			if (data.attr('iFlipImage')) {
+				flip = -1;
+			}
+
+			//
+			let imgMargin = data.iImgSpaceTop + 'px ' + data.iImgSpaceRight + 'px ' + data.iImgSpaceBottom + 'px ' + data.iImgSpaceLeft + 'px';
+			let txtMargin = data.iTextSpaceTop + 'px ' + data.iTextSpaceRight + 'px ' + data.iTextSpaceBottom + 'px ' + data.iTextSpaceLeft + 'px'
+
+			//Vertikale Inhaltsausrichtung
+			let vertTextAlign = "";
+			if (data.iContentVertAlign == 'iStart')
+				vertTextAlign = "flex-start";
+			else if (data.iContentVertAlign == 'iCenter')
+				vertTextAlign = "center";
+			else if (data.iContentVertAlign == 'iEnd')
+				vertTextAlign = "flex-end";
+			else if (data.iContentVertAlign == 'iSpace-between')
+				vertTextAlign = "space-between";
+
+			//Inhaltsausrichtung (Reihe oder Spalte)
+			let contFlexDir = "";
+			if (data.iContentFlexDirection == "vertical")
+				contFlexDir = "column";
+			else if (data.iContentFlexDirection == "horizontal")
+				contFlexDir = "row";
+
+			//Inhaltsreihenfolge (Erst Bild dann Text oder erst Text dann Bild)
+			let orderContent = "";
+			if (data.iContentOrder == 'orderTextImg')
+				orderContent = 2;
+			else
+				orderContent = 0;
+
+			//Bildausrichtung
+			let imgAlign = "";
+			if (data.iImgAlign == 'iStart')
+				imgAlign = "flex-start";
+			else if (data.iImgAlign == 'iCenter')
+				imgAlign = "center";
+			else if (data.iImgAlign == 'iEnd')
+				imgAlign = "flex-end";
+
+			//Textausrichtung
+			let textAlign = "";
+			if (data.iTextAlign == 'iStart')
+				textAlign = "flex-start";
+			else if (data.iTextAlign == 'iCenter')
+				textAlign = "center";
+			else if (data.iTextAlign == 'iEnd')
+				textAlign = "flex-end";
+
+			let html = `
+			<div class="vis-inventwo-class vis-widget-body">
+				<div>
+					<div class="vis-inventwo-button-new"
+						 style="background: ` + backCol + `;
+						 		opacity: ` + data.iOpacityBack + `;
+						 		box-shadow: `+ shadow +`;
+						 		border: `+ border +`;
+						 		border-radius: `+ borderRadius +`;"></div>
+					<div class="vis-inventwo-button-content"
+						 style="opacity: `+ data.iOpacityCtn +`;
+						 		justify-content: `+ vertTextAlign +`;
+						 		flex-direction: `+ contFlexDir +`">
+						
+						<div class="vis-inventwo-button-imageContainer"
+							 style="order: `+ orderContent +`;
+							 align-self: `+ imgAlign +`;
+							 margin: `+ imgMargin +`;">
+							<img src="`+ img +`" width="`+ data.iIconSize +`"
+								 style="filter: invert(`+ Number(imgColInvert) +`);
+								 		transform: scaleX(`+ flip +`) rotateZ(`+ data.iImgRotation +`deg);
+								 		animation:blink ` + imgBlink + `s infinite;"> 
+						</div>
+						
+						<div class="vis-inventwo-button-text"
+							 style="font-size: `+ data.iTextSize +`px;
+							 		color: `+ data.iTextColor +`;
+							 		margin: `+ txtMargin +`;
+							 		align-self: `+ textAlign +`;">
+							`+ txt +`
+						</div>
+						
+					</div>
+				</div>
+			</div>`;
+
+			$(el).html(html);
+
+			//Bindings
+			if(data.iUniversalWidgetType == "Switch"){
+				vis.binds['vis-inventwo'].handleToggle(el, data, type);
+			}
+			else if(data.iUniversalWidgetType == "State"){
+				vis.binds['vis-inventwo'].state(el, data, type);
+			}
+			else if(data.iUniversalWidgetType == "Navigation"){
+				vis.binds['vis-inventwo'].handleNavigation(el, data, type);
+				if(type == "universal")
+					$(el).parent().addClass('iUniversalNav');
+				else if(type == "multi")
+					$(el).parent().addClass('iMultiNav');
+			}
+			else if(data.iUniversalWidgetType == "Background"){
+				$(el).parent().css('cursor','default');
+			}
+
+		}
+
+	}
 
 };

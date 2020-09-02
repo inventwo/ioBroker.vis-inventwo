@@ -1,3 +1,4 @@
+
 /* Style your widget here */
 
 /* BUTTONS ANFANG */
@@ -9,12 +10,14 @@
     height: 100%;
 }
 
-.vis-inventwo-button-active {
-	background-color: #455618;
+.vis-inventwo-button-new {
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 .vis-inventwo-button-imageContainer {
-	text-align: center;
+    text-align: center;
     position:relative;
     z-index: 1;
 }
@@ -22,9 +25,7 @@
 .vis-inventwo-button-text {
     position: relative;
     align-self: flex-start;
-    width: -moz-available;
-    width: -webkit-fill-available;
-    width: fill-available;
+    width: auto;
     margin-top: auto;
     z-index: 1;
 }
@@ -44,6 +45,7 @@
     /*padding: 7px;*/
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     position: absolute;
     top: 7px;
     left: 7px;
@@ -60,3 +62,32 @@
     padding-left: 5px;
     padding-right: 5px;
 }
+.vis-inventwo-radiobtnlist-body{
+    display: flex;
+}
+
+.iUniversalWidgetRefreshBtn{
+    background: #9fdb58;
+    border-radius: 0 2px;
+    color: white;
+    padding: 8px;
+    width: 100%;
+    border: 1px dashed black;
+}
+.iUniversalWidgetRefreshBtn:hover{
+    background: #b6f171;
+    border: 1px dashed #848484;
+}
+.iUniversalWidgetRefreshBtn:active{
+    background: #6c6c6c;
+    border: 1px dashed #848484;
+}
+
+@keyframes blink{
+    0%{		opacity: 1;	}
+
+    50%{	opacity: 0;	}
+
+    100%{	opacity: 1;	}
+}
+
