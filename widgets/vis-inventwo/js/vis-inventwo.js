@@ -1258,6 +1258,32 @@ vis.binds["vis-inventwo"] = {
 				createWidget(el,data,type);
 			}
 
+			let dataNew = Object.assign({},data);
+
+			if(vis.editMode) {
+				//  Datenpunkte auslesen
+				// Farben
+				for (let [key, value] of Object.entries(dataNew)) {
+					if (key.substring(0, 1) == 'i') {
+
+						let matches = [];
+						let reg = /\{([^\{\}]*)\}/gm;
+						let match = reg.exec(value);
+						while (match != null) {
+							matches.push(match);
+							match = reg.exec(value);
+						}
+
+						matches.forEach(function (match) {
+							let val = vis.states.attr(match[1] + '.val');
+							dataNew[key] = dataNew[key].replace(match[0], val);
+						});
+					}
+				}
+
+			}
+
+
 			//Farben, Text & Bild bei true oder false
 			let backCol = "";
 			let shadowCol = "";
@@ -1270,9 +1296,9 @@ vis.binds["vis-inventwo"] = {
 
 			if(type == "multi") {
 				let found = false;
-				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+				for (let i = 1; i <= dataNew.iUniversalValueCount; i++) {
 
-					let val = data['iValue' + i];
+					let val = dataNew['iValue' + i];
 					if(val == "true")
 						val = true;
 					else if(val == "false")
@@ -1280,145 +1306,146 @@ vis.binds["vis-inventwo"] = {
 					else if(!isNaN(val))
 						val = parseFloat(val);
 
-					if ((data.iUniversalWidgetType != "Navigation" && data['oid' + i] != undefined && vis.states.attr(data['oid' + i] + '.val') == val) ||
-						(data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
-						backCol = data['iButtonActiveM' + i];
-						shadowCol = data['iShadowColorActiveM' + i];
-						shadowColInner = data['iShadowInnerColorActiveM' + i];
-						borderCol = data['iBorderColorActiveM' + i];
-						if (data.attr('iImageTrue' + i) != undefined)
-							img = data.attr('iImageTrue' + i);
-						if (data.attr('iTextTrue' + i) != undefined)
-							txt = data.attr('iTextTrue' + i);
-						imgBlink = data.attr('iImgBlinkTrue' + i);
-						imgColInvert = data.attr('iInvertImageCol' + i);
+					if ((dataNew.iUniversalWidgetType != "Navigation" && dataNew['oid' + i] != undefined && vis.states.attr(dataNew['oid' + i] + '.val') == val) ||
+						(dataNew.iUniversalWidgetType == "Navigation" && dataNew['iView' + i] === vis.activeView)) {
+						backCol = dataNew['iButtonActiveM' + i];
+						shadowCol = dataNew['iShadowColorActiveM' + i];
+						shadowColInner = dataNew['iShadowInnerColorActiveM' + i];
+						borderCol = dataNew['iBorderColorActiveM' + i];
+						if (dataNew['iImageTrue' + i] != undefined)
+							img = dataNew['iImageTrue' + i];
+						if (dataNew['iTextTrue' + i] != undefined)
+							txt = dataNew['iTextTrue' + i]
+						imgBlink = dataNew['iImgBlinkTrue' + i];
+						imgColInvert = dataNew['iInvertImageCol' + i];
 						found = true
 						break;
 					}
 				}
 				if(!found){
-					backCol = data.iButtonCol;
-					shadowCol = data.iShadowColor;
-					shadowColInner = data.iShadowInnerColor;
-					borderCol = data.iBorderColor;
-					if(data.iImageFalse != undefined)
-						img = data.iImageFalse;
+					backCol = dataNew.iButtonCol;
+					shadowCol = dataNew.iShadowColor;
+					shadowColInner = dataNew.iShadowInnerColor;
+					borderCol = dataNew.iBorderColor;
+					if(dataNew.iImageFalse != undefined)
+						img = dataNew.iImageFalse;
 					else{
 						img = "";
 					}
-					if(data.iTextFalse != undefined)
-						txt = data.iTextFalse;
+					if(dataNew.iTextFalse != undefined)
+						txt = dataNew.iTextFalse;
 					else
 						txt = "";
-					imgBlink = data.iImgBlinkFalse;
-					imgColInvert = data.iInvertImageCol;
+					imgBlink = dataNew.iImgBlinkFalse;
+					imgColInvert = dataNew.iInvertImageCol;
 				}
 			}
 
 			else if(type == "universal"){
-				if ((data.iUniversalWidgetType == "Navigation" && data.nav_view === vis.activeView) ||
+				if ((dataNew.iUniversalWidgetType == "Navigation" && dataNewNew.nav_view === vis.activeView) ||
 					(
-						(data.iUniversalWidgetType == "Switch" || data.iUniversalWidgetType == "Background") &&
+						(dataNew.iUniversalWidgetType == "Switch" || dataNew.iUniversalWidgetType == "Background") &&
 						(
-							(vis.states.attr(data.oid + '.val') == data.iValueTrue && data.iValueType == 'value') ||
-							(vis.states.attr(data.oid + '.val') === true && data.iValueType == 'boolean')
+							(vis.states.attr(dataNew.oid + '.val') == dataNew.iValueTrue && dataNew.iValueType == 'value') ||
+							(vis.states.attr(dataNew.oid + '.val') === true && dataNew.iValueType == 'boolean')
 						)
 
 					) )
 				{
 
-					backCol = data.iButtonActive;
-					shadowCol = data.iShadowColorActive;
-					shadowColInner = data.iShadowInnerColorActive;
-					borderCol = data.iBorderColorActive;
+					backCol = dataNew.iButtonActive;
+					shadowCol = dataNew.iShadowColorActive;
+					shadowColInner = dataNew.iShadowInnerColorActive;
+					borderCol = dataNew.iBorderColorActive;
 
-					if (data.iImageTrue != undefined)
-						img = data.iImageTrue;
-					if (data.iTextFalse != undefined)
-						txt = data.iTextTrue;
+					if (dataNew.iImageTrue != undefined)
+						img = dataNew.iImageTrue;
+					if (dataNew.iTextFalse != undefined)
+						txt = dataNew.iTextTrue;
 
-					imgBlink = data.iImgBlinkTrue;
+					imgBlink = dataNew.iImgBlinkTrue;
 				}
 				else{
-					backCol = data.iButtonCol;
-					shadowCol = data.iShadowColor;
-					shadowColInner = data.iShadowInnerColor;
-					borderCol = data.iBorderColor;
-					if(data.iImageFalse != undefined)
-						img = data.iImageFalse;
+					backCol = dataNew.iButtonCol;
+					shadowCol = dataNew.iShadowColor;
+					shadowColInner = dataNew.iShadowInnerColor;
+					borderCol = dataNew.iBorderColor;
+					if(dataNew.iImageFalse != undefined)
+						img = dataNew.iImageFalse;
 					else{
 						img = "";
 					}
-					if(data.iTextFalse != undefined)
-						txt = data.iTextFalse;
+					if(dataNew.iTextFalse != undefined)
+						txt = dataNew.iTextFalse;
 					else
 						txt = "";
-					imgBlink = data.iImgBlinkFalse;
+					imgBlink = dataNew.iImgBlinkFalse;
 
 
 				}
 
-				imgColInvert = data.iInvertImageCol;
+				imgColInvert = dataNew.iInvertImageCol;
 			}
+
 
 			imgBlink = imgBlink / 1000;
 
-			let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + shadowCol + ',inset ' +
-				data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + shadowColInner;
-			let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + borderCol;
-			let borderRadius = data.iCornerRadiusUL + 'px ' + data.iCornerRadiusUR + 'px ' + data.iCornerRadiusLR + 'px ' + data.iCornerRadiusLL + 'px';
+			let shadow = dataNew.iShadowXOffset + 'px ' + dataNew.iShadowYOffset + 'px ' + dataNew.iShadowBlur + 'px ' + dataNew.iShadowSpread + 'px ' + shadowCol + ',inset ' +
+				dataNew.iShadowInnerXOffset + 'px ' + dataNew.iShadowInnerYOffset + 'px ' + dataNew.iShadowInnerBlur + 'px ' + dataNew.iShadowInnerSpread + 'px ' + shadowColInner;
+			let border = dataNew.iBorderSize + 'px ' + dataNew.iBorderStyle + ' ' + borderCol;
+			let borderRadius = dataNew.iCornerRadiusUL + 'px ' + dataNew.iCornerRadiusUR + 'px ' + dataNew.iCornerRadiusLR + 'px ' + dataNew.iCornerRadiusLL + 'px';
 
 			//Bild spiegeln
 			let flip = 1;
-			if (data.attr('iFlipImage')) {
+			if (dataNew.iFlipImage) {
 				flip = -1;
 			}
 
 			//
-			let imgMargin = data.iImgSpaceTop + 'px ' + data.iImgSpaceRight + 'px ' + data.iImgSpaceBottom + 'px ' + data.iImgSpaceLeft + 'px';
-			let txtMargin = data.iTextSpaceTop + 'px ' + data.iTextSpaceRight + 'px ' + data.iTextSpaceBottom + 'px ' + data.iTextSpaceLeft + 'px'
+			let imgMargin = dataNew.iImgSpaceTop + 'px ' + dataNew.iImgSpaceRight + 'px ' + dataNew.iImgSpaceBottom + 'px ' + dataNew.iImgSpaceLeft + 'px';
+			let txtMargin = dataNew.iTextSpaceTop + 'px ' + dataNew.iTextSpaceRight + 'px ' + dataNew.iTextSpaceBottom + 'px ' + dataNew.iTextSpaceLeft + 'px'
 
 			//Vertikale Inhaltsausrichtung
 			let vertTextAlign = "";
-			if (data.iContentVertAlign == 'iStart')
+			if (dataNew.iContentVertAlign == 'iStart')
 				vertTextAlign = "flex-start";
-			else if (data.iContentVertAlign == 'iCenter')
+			else if (dataNew.iContentVertAlign == 'iCenter')
 				vertTextAlign = "center";
-			else if (data.iContentVertAlign == 'iEnd')
+			else if (dataNew.iContentVertAlign == 'iEnd')
 				vertTextAlign = "flex-end";
-			else if (data.iContentVertAlign == 'iSpace-between')
+			else if (dataNew.iContentVertAlign == 'iSpace-between')
 				vertTextAlign = "space-between";
 
 			//Inhaltsausrichtung (Reihe oder Spalte)
 			let contFlexDir = "";
-			if (data.iContentFlexDirection == "vertical")
+			if (dataNew.iContentFlexDirection == "vertical")
 				contFlexDir = "column";
-			else if (data.iContentFlexDirection == "horizontal")
+			else if (dataNew.iContentFlexDirection == "horizontal")
 				contFlexDir = "row";
 
 			//Inhaltsreihenfolge (Erst Bild dann Text oder erst Text dann Bild)
 			let orderContent = "";
-			if (data.iContentOrder == 'orderTextImg')
+			if (dataNew.iContentOrder == 'orderTextImg')
 				orderContent = 2;
 			else
 				orderContent = 0;
 
 			//Bildausrichtung
 			let imgAlign = "";
-			if (data.iImgAlign == 'iStart')
+			if (dataNew.iImgAlign == 'iStart')
 				imgAlign = "flex-start";
-			else if (data.iImgAlign == 'iCenter')
+			else if (dataNew.iImgAlign == 'iCenter')
 				imgAlign = "center";
-			else if (data.iImgAlign == 'iEnd')
+			else if (dataNew.iImgAlign == 'iEnd')
 				imgAlign = "flex-end";
 
 			//Textausrichtung
 			let textAlign = "";
-			if (data.iTextAlign == 'iStart')
+			if (dataNew.iTextAlign == 'iStart')
 				textAlign = "flex-start";
-			else if (data.iTextAlign == 'iCenter')
+			else if (dataNew.iTextAlign == 'iCenter')
 				textAlign = "center";
-			else if (data.iTextAlign == 'iEnd')
+			else if (dataNew.iTextAlign == 'iEnd')
 				textAlign = "flex-end";
 
 			let html = `
@@ -1426,12 +1453,12 @@ vis.binds["vis-inventwo"] = {
 				<div>
 					<div class="vis-inventwo-button-new"
 						 style="background: ` + backCol + `;
-						 		opacity: ` + data.iOpacityBack + `;
+						 		opacity: ` + dataNew.iOpacityBack + `;
 						 		box-shadow: `+ shadow +`;
 						 		border: `+ border +`;
 						 		border-radius: `+ borderRadius +`;"></div>
 					<div class="vis-inventwo-button-content"
-						 style="opacity: `+ data.iOpacityCtn +`;
+						 style="opacity: `+ dataNew.iOpacityCtn +`;
 						 		justify-content: `+ vertTextAlign +`;
 						 		flex-direction: `+ contFlexDir +`">
 						
@@ -1439,15 +1466,15 @@ vis.binds["vis-inventwo"] = {
 							 style="order: `+ orderContent +`;
 							 align-self: `+ imgAlign +`;
 							 margin: `+ imgMargin +`;">
-							<img src="`+ img +`" width="`+ data.iIconSize +`"
+							<img src="`+ img +`" width="`+ dataNew.iIconSize +`"
 								 style="filter: invert(`+ Number(imgColInvert) +`);
-								 		transform: scaleX(`+ flip +`) rotateZ(`+ data.iImgRotation +`deg);
+								 		transform: scaleX(`+ flip +`) rotateZ(`+ dataNew.iImgRotation +`deg);
 								 		animation:blink ` + imgBlink + `s infinite;"> 
 						</div>
 						
 						<div class="vis-inventwo-button-text"
-							 style="font-size: `+ data.iTextSize +`px;
-							 		color: `+ data.iTextColor +`;
+							 style="font-size: `+ dataNew.iTextSize +`px;
+							 		color: `+ dataNew.iTextColor +`;
 							 		margin: `+ txtMargin +`;
 							 		align-self: `+ textAlign +`;">
 							`+ txt +`
@@ -1460,20 +1487,20 @@ vis.binds["vis-inventwo"] = {
 			$(el).html(html);
 
 			//Bindings
-			if(data.iUniversalWidgetType == "Switch"){
-				vis.binds['vis-inventwo'].handleToggle(el, data, type);
+			if(dataNew.iUniversalWidgetType == "Switch"){
+				vis.binds['vis-inventwo'].handleToggle(el, dataNew, type);
 			}
-			else if(data.iUniversalWidgetType == "State"){
-				vis.binds['vis-inventwo'].state(el, data, type);
+			else if(dataNew.iUniversalWidgetType == "State"){
+				vis.binds['vis-inventwo'].state(el, dataNew, type);
 			}
-			else if(data.iUniversalWidgetType == "Navigation"){
-				vis.binds['vis-inventwo'].handleNavigation(el, data, type);
+			else if(dataNew.iUniversalWidgetType == "Navigation"){
+				vis.binds['vis-inventwo'].handleNavigation(el, dataNew, type);
 				if(type == "universal")
 					$(el).parent().addClass('iUniversalNav');
 				else if(type == "multi")
 					$(el).parent().addClass('iMultiNav');
 			}
-			else if(data.iUniversalWidgetType == "Background"){
+			else if(dataNew.iUniversalWidgetType == "Background"){
 				$(el).parent().css('cursor','default');
 			}
 
