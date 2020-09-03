@@ -1,8 +1,20 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "2.0.0",
+		"version": "2.0.1",
 		"news": {
+            "2.0.1": {
+              "en": "Fixed translation, Fixed border color, fixed widget subtitles",
+              "de": "Übersetzung behoben,Border Farbe behoben,Widget-Untertitel behoben",
+              "ru": "Фиксированный перевод, фиксированный цвет границы, фиксированные субтитры виджета",
+              "pt": "Tradução fixa, cor de borda fixa, legendas de widget fixas",
+              "nl": "Vaste vertaling, vaste randkleur, vaste widget-ondertitels",
+              "fr": "Traduction fixe, couleur de bordure fixe, sous-titres de widget fixes",
+              "it": "Traduzione fissa, colore bordo fisso, sottotitoli widget fissi",
+              "es": "Traducción fija, color de borde fijo, subtítulos de widget fijos",
+              "pl": "Naprawiono tłumaczenie, naprawiono kolor obramowania, poprawiono napisy do widgetów",
+              "zh-cn": "固定翻译，固定边框颜色，固定小工具字幕"
+            },
             "2.0.0":{
               "en": "Merge Switch, Button, Nav and Background Widget to one Widget (Universal Widget), Added Multi Widget, Added new Image Widget, Added Radiobuttons Widget, Added Value List Widget, New CSS options",
               "de": "Switch, Button, Nav and Background Widget zu einem Widget zusammengeführt (Universal Widget), Multi-Widget hinzugefügt, neues Image Widget hinzugefügt, Radiobuttons hinzugefügt, Werteliste Widget hinzugefügt, Neue CSS Einstellungen",
@@ -242,18 +254,6 @@
                 "es": "Primeros widgets",
                 "pl": "Pierwsze widżety",
                 "zh-cn": "第一个小部件"
-            },
-            "0.0.1": {
-                "en": "The idea is born",
-                "de": "Die Idee ist geboren",
-                "ru": "Идея рождается",
-                "pt": "A ideia nasce",
-                "nl": "Het idee is geboren",
-                "fr": "L'idée est née",
-                "it": "L'idea è nata",
-                "es": "La idea nace",
-                "pl": "Pomysł się rodzi",
-                "zh-cn": "这个想法诞生了"
             }
 		},
 		"title": "inventwo Design Widgets",

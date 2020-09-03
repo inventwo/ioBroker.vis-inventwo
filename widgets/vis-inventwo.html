@@ -10,7 +10,7 @@
 <script id="i-vis-universal"
 		type="text/ejs"
 		class="vis-tpl"
-		data-vis-prev='Switch - SState/Button - Navigation - background<br><img src="widgets/vis-inventwo/img/0_Universal.png">'
+		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Universal.png">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
 						iUniversalWidgetTypeInfo/custom,vis-inventwo.infoText,universalTypeInfo;
 						iUniversalWidgetType[Switch]/nselect,Switch,State,Navigation,Background/updateUniversalDataFields();
@@ -92,7 +92,8 @@
 						 iBorderColorActive[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Universal">
+		data-vis-name="Universal<br>
+						<span style='color:#888888;'>Switch - State/Button - Navigation - Background</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<%= (el) -> vis.binds['vis-inventwo'].universalButton(el, this.data,'universal') %>
@@ -103,7 +104,7 @@
 <script id="i-vis-multi"
 		type="text/ejs"
 		class="vis-tpl"
-		data-vis-prev='Switch - SState/Button - Navigation - background<br><img src="widgets/vis-inventwo/img/0_Multi.png">'
+		data-vis-prev='<img src="widgets/vis-inventwo/img/0_Multi.png">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
 						iUniversalWidgetTypeInfo/custom,vis-inventwo.infoText,universalTypeInfo;
 						iUniversalWidgetType[Switch]/nselect,Switch,State,Navigation,Background/updateUniversalDataFields();
@@ -191,7 +192,8 @@
 						 iBorderColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Multi">
+		data-vis-name="Multi<br>
+						<span style='color:#888888;'>Switch - State/Button - Navigation - Background</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<%= (el) -> vis.binds['vis-inventwo'].universalButton(el, this.data,'multi') %>
@@ -684,7 +686,7 @@
 						 iTextColor[#ffffff]/color;
 						 iTextSize[12]/slider,0,50,1;"
 		data-vis-set="vis-inventwo"
-		data-vis-type="static"
+		data-vis-type="table"
 		data-vis-name="Value List">
 
 	<%
@@ -733,6 +735,9 @@
 		</div>
 	</div>
 </script>
+
+
+
 
 
 

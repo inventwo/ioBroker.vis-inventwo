@@ -249,7 +249,7 @@ if (vis.editMode) {
 			"en": "Outer Shadow active",
 			"de": "Schatten außen aktiv"
 		},
-		"iShadowInnerSpread": {
+		"iShadowSpreadInner": {
 			"en": "Inner size",
 			"de": "Größe innen"
 		},
@@ -859,7 +859,7 @@ vis.binds["vis-inventwo"] = {
 					setTimeout(function () {
 						let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data.iShadowColor + ',inset ' +
 							data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data.iShadowInnerColor;
-						let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
+						let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColor;
 						$this.find('.vis-inventwo-button-new').css('background', data.iButtonCol);
 						$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
 						$this.find('.vis-inventwo-button-new').css('border', border);
@@ -874,7 +874,7 @@ vis.binds["vis-inventwo"] = {
 				else if(type == 'multi') {
 					let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data['iShadowColorActiveM1'] + ',inset ' +
 						data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data['iShadowInnerColorActiveM1'];
-					let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
+					let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data['iBorderColorActiveM1'];
 					$this.find('.vis-inventwo-button-new').css('background', data['iButtonActiveM1']);
 					$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
 					$this.find('.vis-inventwo-button-new').css('border', border);
@@ -889,6 +889,8 @@ vis.binds["vis-inventwo"] = {
 						let shadowCol = data.iShadowColor;
 						let shadowColInner = data.iShadowInnerColor;
 						let borderCol = data.iBorderColor;
+						let img = '';
+						let txt = '';
 						if(data.iImageFalse != undefined)
 							img = data.iImageFalse;
 						if(data.iTextFalse != undefined)
@@ -1361,10 +1363,9 @@ vis.binds["vis-inventwo"] = {
 
 			imgBlink = imgBlink / 1000;
 
-
 			let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + shadowCol + ',inset ' +
 				data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + shadowColInner;
-			let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
+			let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + borderCol;
 			let borderRadius = data.iCornerRadiusUL + 'px ' + data.iCornerRadiusUR + 'px ' + data.iCornerRadiusLR + 'px ' + data.iCornerRadiusLL + 'px';
 
 			//Bild spiegeln
