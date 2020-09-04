@@ -7,6 +7,11 @@
 
 
 
+
+
+
+
+
 <link rel="stylesheet" href="widgets/vis-inventwo/css/style.css" />
 <script type="text/javascript" src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
 
@@ -352,12 +357,17 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
 			<%
+
+				let dataNew = Object.assign({},this.data);
+				if(vis.editMode){
+					dataNew = vis.binds['vis-inventwo'].getDatapointsValues(dataNew);
+				}
+				console.log(dataNew);
+
 				let cssData = {};
 
-				let hexTrans = Math.floor(this.data.iOpacityBack * 255).toString(16);
-
 				cssData.flip = 1;
-            	if(this.data.attr('iFlipImage')){
+            	if(dataNew.iFlipImage){
             		cssData.flip = -1;
             	}
 
@@ -365,7 +375,7 @@
 
             <div class="vis-inventwo-button-new" style="width:100%; height:100%;">
 
-            	<div style="opacity: <%= this.data.attr('iOpacityCtn') %>;width:100%; height:100%;">
+            	<div style="opacity: <%= dataNew.iOpacityCtn %>;width:100%; height:100%;">
 
             		<div class="vis-inventwo-button-imageContainer"
             			 style="align-self: center;
@@ -374,23 +384,23 @@
     							align-items: center;
     							width:100%; height:100%;">
 
-            			<div style="width: <%= this.data.iShadowSpreadInner %>px; height: <%= this.data.iShadowSpreadInner%>px; position: absolute; background:<%= this.data.attr('iShadowColor')%>; border-radius: 100%;
-            					<% if(this.data.oid != undefined && vis.states.attr(this.data.oid + '.val') == this.data.iValue) { %>
-            						box-shadow: 0px 0px <%= this.data.iShadowBlur %>px <%= this.data.iShadowSpread %>px <%= this.data.attr('iShadowColorActive')%>;
+            			<div style="width: <%= dataNew.iShadowSpreadInner %>px; height: <%= dataNew.iShadowSpreadInner%>px; position: absolute; background:<%= dataNew.iShadowColor%>; border-radius: 100%;
+            					<% if(dataNew.oid != undefined && vis.states.attr(dataNew.oid + '.val') == dataNew.iValue) { %>
+            						box-shadow: 0px 0px <%= dataNew.iShadowBlur %>px <%= dataNew.iShadowSpread %>px <%= dataNew.iShadowColorActive%>;
             					<% } else { %>
-            						box-shadow: 0px 0px <%= this.data.iShadowBlur %>px <%= this.data.iShadowSpread %>px <%= this.data.attr('iShadowColor')%>;
+            						box-shadow: 0px 0px <%= dataNew.iShadowBlur %>px <%= dataNew.iShadowSpread %>px <%= dataNew.iShadowColor%>;
             					<% } %>
             						"></div>
             		    <img
-            		    	<% if(this.data.oid != undefined && vis.states.attr(this.data.oid + '.val') == this.data.iValue) { %>
-            		    		src='<%= this.data.attr('iImageTrue') %>'
+            		    	<% if(dataNew.oid != undefined && vis.states.attr(dataNew.oid + '.val') == dataNew.iValue) { %>
+            		    		src='<%= dataNew.iImageTrue %>'
             		    	<% } else { %>
-            		    		src='<%= this.data.attr('iImageFalse') %>'
+            		    		src='<%= dataNew.iImageFalse %>'
             		    	<% } %>
             		    	 width="100%;height:100%;"
-            		    	 style="filter: invert(<%= Number(this.data.attr('iInvertImageCol')) %>);
-            		    	 		transform: scaleX(<%= cssData.flip %>) rotateZ(<%= this.data.iImgRotation %>deg);
-            		    	 		border-radius: <%= this.data.iCornerRadiusUL %>px <%= data.iCornerRadiusUR%>px <%= data.iCornerRadiusLR%>px <%= data.iCornerRadiusLL%>px">
+            		    	 style="filter: invert(<%= Number(dataNew.iInvertImageCol) %>);
+            		    	 		transform: scaleX(<%= cssData.flip %>) rotateZ(<%= dataNew.iImgRotation %>deg);
+            		    	 		border-radius: <%= dataNew.iCornerRadiusUL %>px <%= data.iCornerRadiusUR%>px <%= data.iCornerRadiusLR%>px <%= data.iCornerRadiusLL%>px">
 
             		</div>
             	</div>
@@ -725,10 +735,16 @@
 					text += "</li>";
 				}
 
+				let paddingLeft = 24;
+
+				if(this.data.iValueListStyle == 'none'){
+					paddingLeft = 0;
+				}
+
 
 			%>
 
-			<ul style=" margin: 0; padding-left: 24px;
+			<ul style=" margin: 0; padding-left: <%= paddingLeft %>px;
 						color: <%= this.data.iTextColor %>;
 						font-size: <%= this.data.iTextSize %>px;
 						list-style: <%= this.data.iValueListStyle %>;">

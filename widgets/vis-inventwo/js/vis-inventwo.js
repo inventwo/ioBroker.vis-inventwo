@@ -1261,28 +1261,9 @@ vis.binds["vis-inventwo"] = {
 			let dataNew = Object.assign({},data);
 
 			if(vis.editMode) {
-				//  Datenpunkte auslesen
-				// Farben
-
-				for (let [key, value] of Object.entries(dataNew)) {
-					if (key.substring(0, 1) == "i") {
-
-						let matches = [];
-						let reg = /\{([^\{\}]*)\}/gm;
-						let match = reg.exec(value);
-						while (match != null) {
-							matches.push(match);
-							match = reg.exec(value);
-						}
-
-						matches.forEach(function (match) {
-							let val = vis.states.attr(match[1] + ".val");
-							dataNew[key] = dataNew[key].replace(match[0], val);
-						});
-					}
-				}
+				dataNew = vis.binds["vis-inventwo"].getDatapointsValues(dataNew);
+				console.log(dataNew);
 			}
-
 
 			//Farben, Text & Bild bei true oder false
 			let backCol = "";
@@ -1506,6 +1487,29 @@ vis.binds["vis-inventwo"] = {
 
 		}
 
+	},
+
+	getDatapointsValues: function (data) {
+
+		for (let [key, value] of Object.entries(data)) {
+			if (key.substring(0, 1) == "i") {
+
+				let matches = [];
+				let reg = /\{([^\{\}]*)\}/gm;
+				let match = reg.exec(value);
+				while (match != null) {
+					matches.push(match);
+					match = reg.exec(value);
+				}
+
+				matches.forEach(function (match) {
+					let val = vis.states.attr(match[1] + ".val");
+					data[key] = data[key].replace(match[0], val);
+				});
+			}
+		}
+
+		return data;
 	}
 
 };
