@@ -1263,8 +1263,9 @@ vis.binds["vis-inventwo"] = {
 			if(vis.editMode) {
 				//  Datenpunkte auslesen
 				// Farben
+
 				for (let [key, value] of Object.entries(dataNew)) {
-					if (key.substring(0, 1) == 'i') {
+					if (key.substring(0, 1) == "i") {
 
 						let matches = [];
 						let reg = /\{([^\{\}]*)\}/gm;
@@ -1275,12 +1276,11 @@ vis.binds["vis-inventwo"] = {
 						}
 
 						matches.forEach(function (match) {
-							let val = vis.states.attr(match[1] + '.val');
+							let val = vis.states.attr(match[1] + ".val");
 							dataNew[key] = dataNew[key].replace(match[0], val);
 						});
 					}
 				}
-
 			}
 
 
@@ -1342,7 +1342,7 @@ vis.binds["vis-inventwo"] = {
 			}
 
 			else if(type == "universal"){
-				if ((dataNew.iUniversalWidgetType == "Navigation" && dataNewNew.nav_view === vis.activeView) ||
+				if ((dataNew.iUniversalWidgetType == "Navigation" && dataNew.nav_view === vis.activeView) ||
 					(
 						(dataNew.iUniversalWidgetType == "Switch" || dataNew.iUniversalWidgetType == "Background") &&
 						(
