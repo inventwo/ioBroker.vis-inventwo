@@ -295,7 +295,7 @@
 		"license": "MIT",
 		"platform": "Javascript/Node.js",
 		"main": "main.js",
-		"icon": "i1_150.png",
+		"icon": "inventwo.png",
 		"enabled": true,
 		"extIcon": "https://raw.githubusercontent.com/inventwo/ioBroker.vis-inventwo/master/admin/i1_150.png",
 		"readme": "https://github.com/inventwo/ioBroker.vis-inventwo/blob/master/README.md",

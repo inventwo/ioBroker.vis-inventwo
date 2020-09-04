@@ -1,4 +1,4 @@
-![Logo](admin/i1_150.png)
+![Logo](admin/inventwo.png)
 # ioBroker.vis-inventwo
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
