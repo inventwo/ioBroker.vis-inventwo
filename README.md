@@ -39,8 +39,11 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 2.1.0
+- Datenpunktwerte werden im VIS Editor angezeigt!
+
 ## 2.0.1
-- bersetzungsfehler behoben
+- Übersetzungsfehler behoben
 - Border Farbe behoben
 - Widget-Untertitel behoben
 
