@@ -720,6 +720,8 @@
 				let arr = [];
 				let data = "";
 
+				let dataNew = Object.assign({},this.data);
+
 				if(this.data.iValueListText != undefined && this.data.iValueListText != ''){
 					data = this.data.iValueListText;
 				}
@@ -741,15 +743,34 @@
 					paddingLeft = 0;
 				}
 
+				vis.states.bind(dataNew.oid + '.val', function (e, newVal, oldVal){
+
+					if(dataNew.iValueListText != undefined && dataNew.iValueListText != ''){
+						data = dataNew.iValueListText;
+					}
+					else if(dataNew.oid != undefined && dataNew.oid != '' && vis.states.attr(dataNew.oid + '.val') != ''){
+						data = vis.states.attr(dataNew.oid + '.val');
+					}
+					arr = data.split(dataNew.iValueListDelimiter);
+
+					text = "<li>";
+					text += arr.join('</li><li>');
+					text += "</li>";
+
+					$('#' + dataNew.wid).find('.vis-inventwo-valuelist-list').html(text);
+				});
+
 
 			%>
 
-			<ul style=" margin: 0; padding-left: <%= paddingLeft %>px;
+			<ul class="vis-inventwo-valuelist-list" style=" margin: 0; padding-left: <%= paddingLeft %>px;
 						color: <%= this.data.iTextColor %>;
 						font-size: <%= this.data.iTextSize %>px;
 						list-style: <%= this.data.iValueListStyle %>;">
 				<%== text %>
 			<ul>
+
+
 
 		</div>
 	</div>
