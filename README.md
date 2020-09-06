@@ -15,46 +15,36 @@
 
 ###### .. ab v 2.0.0
 
-<style>
-table tr:nth-child(odd){
-    background:#DDD;
-}
-table tr:nth-child(even) td{
-    background:#fff;
-}
-
-</style>
-
 <table>
-   <tr>
+   <tr style="background:#EEE">
         <th>Universal Widget</th>
         <th>Multi Widget</th>
         <th>Image Widget</th>
    </tr>
    <tr>
-        <td><img src="widgets/vis-inventwo/img/Universal.gif"></td>
-        <td><img src="widgets/vis-inventwo/img/Multi.gif"></td>
-        <td><img src="widgets/vis-inventwo/img/Image.png"></td>
+        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Universal.gif"></td>
+        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Multi.gif"></td>
+        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Image.png"></td>
     </tr>
-    <tr>
+    <tr style="background:#EEE">
         <th>Table Widget</th>
         <th>List Widget</th>
         <th>Marquee Widget</th>
    </tr>
    <tr>
-        <td><img src="widgets/vis-inventwo/img/Table.png"></td>
-        <td><img src="widgets/vis-inventwo/img/List.png"></td>
-        <td><img src="widgets/vis-inventwo/img/Marquee.gif"></td>
+        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Table.png"></td>
+        <td style="background:#fff"><img src="widgets/vis-inventwo/img/List.png"></td>
+        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Marquee.gif"></td>
     </tr>
-    <tr>
+    <tr style="background:#EEE">
         <th>Radio Buttons</th>
         <th>Slider vertical</th>
         <th>Slider horizontal</th>
    </tr>
    <tr>
-        <td><img src="widgets/vis-inventwo/img/Radio.gif"></td>
-        <td><img src="widgets/vis-inventwo/img/Slider2.gif"></td>
-        <td><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
+        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Radio.gif"></td>
+        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Slider2.gif"></td>
+        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
     </tr>
 </table>
 
