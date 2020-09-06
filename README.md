@@ -19,14 +19,22 @@ ab v 2.0.0
 |![Beispiel](widgets/vis-inventwo/img/Universal.gif)|![Beispiel](widgets/vis-inventwo/img/Multi.gif)|![Beispiel](widgets/vis-inventwo/img/Image.png)|
 |<b>Table Widget     |<b>List Widget    |<b>Marquee Widget  |
 |![Beispiel](widgets/vis-inventwo/img/Table.png)|![Beispiel](widgets/vis-inventwo/img/List.png)|![Beispiel](widgets/vis-inventwo/img/Marquee.gif)|
-|<b>Radio Buttons   |<b>Slider Vert.   |<b>Slider Hor.    |
+|<b>Radio Buttons   |<b>Slider vertical   |<b>Slider horizontal    |
 |![Beispiel](widgets/vis-inventwo/img/Radio.gif)|![Beispiel](widgets/vis-inventwo/img/Slider2.gif)|![Beispiel](widgets/vis-inventwo/img/Slider1.gif)|
 
 
 
 v 1.3.8
 
-![Beispiel](admin/Set.png)
+|Switch |Switch xs   |State   |State xs|
+|----|----|----|----|
+|![Beispiel](widgets/vis-inventwo/img/0_Switch.png)|![Beispiel](widgets/vis-inventwo/img/0_Switch1.png)|![Beispiel](widgets/vis-inventwo/img/0_Button.png)|![Beispiel](widgets/vis-inventwo/img/0_Button1.png)|
+|<b>Background |<b>Background xs   |<b>Navigation   |<b>Navigation xs|
+|![Beispiel](widgets/vis-inventwo/img/0_Background.png)|![Beispiel](widgets/vis-inventwo/img/0_Background.png)|![Beispiel](widgets/vis-inventwo/img/0_Nav.png)|![Beispiel](widgets/vis-inventwo/img/0_Nav1.png)|
+|<b>Slider vertical   |<b>Slider horizontal    <b>Image Widget   |<b>Table Widget|
+|![Beispiel](widgets/vis-inventwo/img/Slider2.gif)|![Beispiel](widgets/vis-inventwo/img/Slider1.gif)|![Beispiel](widgets/vis-inventwo/img/Image.png)|![Beispiel](widgets/vis-inventwo/img/Table.png)|
+
+
 
 Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben) und die Icons. Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
 
