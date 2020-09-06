@@ -15,36 +15,26 @@
 
 ###### .. ab v 2.0.0
 
+
+
 <table>
-   <tr style="background:#EEE">
-        <th>Universal Widget</th>
-        <th>Multi Widget</th>
-        <th>Image Widget</th>
-   </tr>
+   
    <tr>
-        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Universal.gif"></td>
-        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Multi.gif"></td>
-        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Image.png"></td>
+        <td><center><h6>Universal</h6><center><img src="widgets/vis-inventwo/img/Universal.gif"></td>
+        <td><center><h6>Multi</h6><center><img src="widgets/vis-inventwo/img/Multi.gif"></td>
+        <td><center><h6>Image</h6><center><img src="widgets/vis-inventwo/img/Image.png"></td>
     </tr>
-    <tr style="background:#EEE">
-        <th>Table Widget</th>
-        <th>List Widget</th>
-        <th>Marquee Widget</th>
-   </tr>
-   <tr>
-        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Table.png"></td>
-        <td style="background:#fff"><img src="widgets/vis-inventwo/img/List.png"></td>
-        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Marquee.gif"></td>
+<tr><td colspan=3></td></tr>   
+    <tr>
+        <td><center><h6>Table</h6><center><img src="widgets/vis-inventwo/img/Table.png"></td>
+        <td><center><h6>List</h6><center><img src="widgets/vis-inventwo/img/List.png"></td>
+        <td><center><h6>Marquee</h6><center><img src="widgets/vis-inventwo/img/Marquee.gif"></td>
     </tr>
-    <tr style="background:#EEE">
-        <th>Radio Buttons</th>
-        <th>Slider vertical</th>
-        <th>Slider horizontal</th>
-   </tr>
-   <tr>
-        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Radio.gif"></td>
-        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Slider2.gif"></td>
-        <td style="background:#fff"><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
+<tr><td colspan=3></td></tr>   
+      <tr>
+        <td><center><h6>Radio Button</h6><center><img src="widgets/vis-inventwo/img/Radio.gif"></td>
+        <td><center><h6>Slider vertical</h6><center><img src="widgets/vis-inventwo/img/Slider2.gif"></td>
+        <td><center><h6>Slider horizontal</h6><center><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
     </tr>
 </table>
 
