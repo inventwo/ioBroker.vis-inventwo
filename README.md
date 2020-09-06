@@ -14,7 +14,15 @@
 ## Schalter Widgets für den ioBroker.vis Adapter
 ab v 2.0.0
 
-![Beispiel](admin/Set_new.png)
+|Universal Widget |Multi Widget   |Image Widget   |
+|----|----|----|
+|![Beispiel](widgets/vis-inventwo/img/Universal.gif)|![Beispiel](widgets/vis-inventwo/img/Multi.gif)|![Beispiel](widgets/vis-inventwo/img/Image.png)|
+|<b>Table Widget     |<b>List Widget    |<b>Marquee Widget  |
+|![Beispiel](widgets/vis-inventwo/img/Table.png)|![Beispiel](widgets/vis-inventwo/img/List.png)|![Beispiel](widgets/vis-inventwo/img/Marquee.gif)|
+|<b>Radio Buttons   |<b>Slider Vert.   |<b>Slider Hor.    |
+|![Beispiel](widgets/vis-inventwo/img/Radio.gif)|![Beispiel](widgets/vis-inventwo/img/Slider2.gif)|![Beispiel](widgets/vis-inventwo/img/Slider1.gif)|
+
+
 
 v 1.3.8
 
