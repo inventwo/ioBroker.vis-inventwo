@@ -18,23 +18,22 @@
 
 
 <table>
-   
    <tr>
-        <td><center><h6>Universal</h6><center><img src="widgets/vis-inventwo/img/Universal.gif"></td>
-        <td><center><h6>Multi</h6><center><img src="widgets/vis-inventwo/img/Multi.gif"></td>
-        <td><center><h6>Image</h6><center><img src="widgets/vis-inventwo/img/Image.png"></td>
+        <td><center><b>Universal</b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td>
+        <td><center><b>Multi</b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td>
+        <td><center><b>Image</b><br><img src="widgets/vis-inventwo/img/Image.png"></td>
     </tr>
 <tr><td colspan=3></td></tr>   
     <tr>
-        <td><center><h6>Table</h6><center><img src="widgets/vis-inventwo/img/Table.png"></td>
-        <td><center><h6>List</h6><center><img src="widgets/vis-inventwo/img/List.png"></td>
-        <td><center><h6>Marquee</h6><center><img src="widgets/vis-inventwo/img/Marquee.gif"></td>
+        <td><center><b>Table</b><br><img src="widgets/vis-inventwo/img/Table.png"></td>
+        <td><center><b>List</b><br><img src="widgets/vis-inventwo/img/List.png"></td>
+        <td><center><b>Marquee</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td>
     </tr>
 <tr><td colspan=3></td></tr>   
       <tr>
-        <td><center><h6>Radio Button</h6><center><img src="widgets/vis-inventwo/img/Radio.gif"></td>
-        <td><center><h6>Slider vertical</h6><center><img src="widgets/vis-inventwo/img/Slider2.gif"></td>
-        <td><center><h6>Slider horizontal</h6><center><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
+        <td><center><b>Radio Button</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td>
+        <td><center><b>Slider vertical</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td>
+        <td><center><b>Slider horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
     </tr>
 </table>
 
