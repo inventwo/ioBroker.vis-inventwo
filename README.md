@@ -15,25 +15,56 @@
 
 ###### .. ab v 2.0.0
 
-|Universal Widget |Multi Widget   |Image Widget   |
-|:---:|:---:|:---:|
-|![Beispiel](widgets/vis-inventwo/img/Universal.gif)|![Beispiel](widgets/vis-inventwo/img/Multi.gif)|![Beispiel](widgets/vis-inventwo/img/Image.png)|
-|<b>Table Widget     |<b>List Widget    |<b>Marquee Widget  |
-|![Beispiel](widgets/vis-inventwo/img/Table.png)|![Beispiel](widgets/vis-inventwo/img/List.png)|![Beispiel](widgets/vis-inventwo/img/Marquee.gif)|
-|<b>Radio Buttons   |<b>Slider vertical   |<b>Slider horizontal    |
-|![Beispiel](widgets/vis-inventwo/img/Radio.gif)|![Beispiel](widgets/vis-inventwo/img/Slider2.gif)|![Beispiel](widgets/vis-inventwo/img/Slider1.gif)|
+<style>
+table tr:nth-child(odd){
+    background:#DDD;
+}
+table tr:nth-child(even) td{
+    background:#fff;
+}
+
+</style>
+
+<table>
+   <tr>
+        <th>Universal Widget</th>
+        <th>Multi Widget</th>
+        <th>Image Widget</th>
+   </tr>
+   <tr>
+        <td><img src="widgets/vis-inventwo/img/Universal.gif"></td>
+        <td><img src="widgets/vis-inventwo/img/Multi.gif"></td>
+        <td><img src="widgets/vis-inventwo/img/Image.png"></td>
+    </tr>
+    <tr>
+        <th>Table Widget</th>
+        <th>List Widget</th>
+        <th>Marquee Widget</th>
+   </tr>
+   <tr>
+        <td><img src="widgets/vis-inventwo/img/Table.png"></td>
+        <td><img src="widgets/vis-inventwo/img/List.png"></td>
+        <td><img src="widgets/vis-inventwo/img/Marquee.gif"></td>
+    </tr>
+    <tr>
+        <th>Radio Buttons</th>
+        <th>Slider vertical</th>
+        <th>Slider horizontal</th>
+   </tr>
+   <tr>
+        <td><img src="widgets/vis-inventwo/img/Radio.gif"></td>
+        <td><img src="widgets/vis-inventwo/img/Slider2.gif"></td>
+        <td><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
+    </tr>
+</table>
+
+
 
 
 
 ###### .. v 1.3.8
 
-|Switch|Switch xs|State|State xs|
-:---:|:---:|:---:|:---:|
-|![Beispiel](widgets/vis-inventwo/img/0_Switch.png)|![Beispiel](widgets/vis-inventwo/img/0_Switch1.png)|![Beispiel](widgets/vis-inventwo/img/0_Button.png)|![Beispiel](widgets/vis-inventwo/img/0_Button1.png)|
-|<b>Background |<b>Background xs|<b>Navigation|<b>Navigation xs|
-|![Beispiel](widgets/vis-inventwo/img/0_Background.png)|![Beispiel](widgets/vis-inventwo/img/0_Background1.png)|![Beispiel](widgets/vis-inventwo/img/0_Nav.png)|![Beispiel](widgets/vis-inventwo/img/0_Nav1.png)|
-|<b>Slider vertical|<b>Slider horizontal|<b>Image Widget|<b>Table Widget|
-|![Beispiel](widgets/vis-inventwo/img/Slider2.gif)|![Beispiel](widgets/vis-inventwo/img/Slider1.gif)|![Beispiel](widgets/vis-inventwo/img/Image.png)|![Beispiel](widgets/vis-inventwo/img/Table.png)|
+![Beispiel](admin/Set.png)
 
 
 
