@@ -91,3 +91,8 @@
     100%{	opacity: 1;	}
 }
 
+.vis-inventwo-valuelist-list{
+    margin: 0;
+    word-break: break-word;
+}
+

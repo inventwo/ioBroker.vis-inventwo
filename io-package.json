@@ -1,8 +1,20 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "2.1.0",
+		"version": "2.2.0",
 		"news": {
+            "2.2.0": {
+              "en": "New Widget: Marquee, Added Length  of stay to State, Value List entry distance can be changed",
+              "de": "Neues Widget: Laufschrift, Verweildauer für State hinzugefügt, Value List: Abstand zwischen den Eintr#gen kann geändert werden",
+              "ru": "Новый виджет: выделение, добавленная длительность пребывания в состоянии, расстояние входа в список значений можно изменить",
+              "pt": "Novo widget: letreiro, tempo de permanência adicionado ao estado, distância de entrada da lista de valores pode ser alterada",
+              "nl": "Nieuwe widget: selectiekader, duur van verblijf toegevoegd aan staat, invoerafstand in waardelijst kan worden gewijzigd",
+              "fr": "Nouveau widget: Marquee, Ajout de la durée du séjour à l'état, la distance d'entrée de la liste de valeurs peut être modifiée",
+              "it": "Nuovo widget: selezione, durata del soggiorno aggiunta allo stato, distanza di immissione dell'elenco valori possono essere modificati",
+              "es": "Nuevo widget: marquesina, duración añadida de la estancia al estado, se puede cambiar la distancia de entrada de la lista de valores",
+              "pl": "Nowy widżet: markiza, dodana długość pobytu do stanu, odległość wpisu listy wartości można zmienić",
+              "zh-cn": "新的小部件：字幕，已添加状态停留时间，值列表输入距离可以更改"
+            },
             "2.1.0": {
               "en": "Values of datapoints now visible in vis editor!",
               "de": "Werte von Datenpunkten jetzt im vis-Editor sichtbar!",

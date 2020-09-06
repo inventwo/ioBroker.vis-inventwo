@@ -339,6 +339,10 @@ if (vis.editMode) {
 			"en": "Response time (in Ms)",
 			"de": "Rückmeldungsdauer (in Ms)"
 		},
+		"iStateResetValueTime":{
+			"en": "Length of stay (in ms)",
+			"de": "Verweildauer (in Ms)"
+		},
 		//#endregion
 
 		//#region Nav Settings
@@ -612,8 +616,26 @@ if (vis.editMode) {
 			"en": "Info",
 			"de": "Info"
 		},
+		"iValueListEntryDistance":{
+			"en": "Distance",
+			"de": "Abstand"
+		},
 		//#endregion
 
+		//#region Marquee Settings
+		"iMarqueeText":{
+			"en": "Text",
+			"de": "Text"
+		},
+		"iMarqueeDirection":{
+			"en": "Direction",
+			"de": "Richtung"
+		},
+		"iMarqueeSpeed":{
+			"en": "Speed",
+			"de": "Geschwindigkeit"
+		},
+		//#endregion
 
 
 		//#region Custom Text
@@ -842,6 +864,8 @@ vis.binds["vis-inventwo"] = {
 			$this.parent().on('click touchend', function () {
 				if(!isNaN(data.value))
 					data.value = parseFloat(data.value);
+
+				let oldValue = vis.states[oid + '.val'];
 				vis.setValue(oid, data.value);
 
 				if(type == 'universal') {
@@ -923,6 +947,12 @@ vis.binds["vis-inventwo"] = {
 					}, data.iStateResponseTime);
 
 
+				}
+
+				if(data.iStateResetValueTime > 0){
+					setTimeout(function () {
+						vis.setValue(oid, oldValue);
+					},data.iStateResetValueTime);
 				}
 			});
 
@@ -1140,6 +1170,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResponseTime",false);
 				vis.hideShowAttr("nav_view",false);
 				vis.hideShowAttr("oid",true);
+				vis.hideShowAttr("iStateResetTime",false);
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,true);
 					vis.hideShowAttr("iTextFalse" + i,true);
@@ -1160,6 +1191,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResponseTime",true);
 				vis.hideShowAttr("nav_view",false);
 				vis.hideShowAttr("oid",true);
+				vis.hideShowAttr("iStateResetTime",true);
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,true);
 					vis.hideShowAttr("iTextFalse" + i,true);
@@ -1180,6 +1212,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResponseTime",false);
 				vis.hideShowAttr("nav_view",true);
 				vis.hideShowAttr("oid",true);
+				vis.hideShowAttr("iStateResetTime",false);
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,false);
 					vis.hideShowAttr("iTextFalse" + i,true);
@@ -1192,17 +1225,23 @@ vis.binds["vis-inventwo"] = {
 			}
 			else if(val == "Background"){
 				vis.hideShowAttr("iNavWait",false);
-				vis.hideShowAttr("iValueType",false);
-				vis.hideShowAttr("iValueTypeInfo",false);
 				vis.hideShowAttr("iValueFalse",false);
-				vis.hideShowAttr("iValueTrue",false);
 				vis.hideShowAttr("value",false);
 				vis.hideShowAttr("iStateResponseTime",false);
 				vis.hideShowAttr("nav_view",false);
-				if(data.iUniversalValueCount == undefined)
-					vis.hideShowAttr("oid",true);
-				else
-					vis.hideShowAttr("oid",false);
+				vis.hideShowAttr("iStateResetTime",false);
+				if(data.iUniversalValueCount == undefined) {
+					vis.hideShowAttr("oid", true);
+					vis.hideShowAttr("iValueType", true);
+					vis.hideShowAttr("iValueTypeInfo", true);
+					vis.hideShowAttr("iValueTrue", true);
+				}
+				else {
+					vis.hideShowAttr("oid", false);
+					vis.hideShowAttr("iValueType", false);
+					vis.hideShowAttr("iValueTypeInfo", false);
+					vis.hideShowAttr("iValueTrue", false);
+				}
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,true);
 					vis.hideShowAttr("iTextFalse" + i,true);

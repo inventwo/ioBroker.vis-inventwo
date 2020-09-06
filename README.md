@@ -66,6 +66,12 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 2.2.0
+- Datenpunktwerte werden jetzt bei allen Widgets im Editor angezeigt
+- Neues Widget: Marquee (Laufschrift)
+- Universal und Multi State Verweildauer hinzugefügt
+- List Widget Abstand zwischen den Einträgen kann eingestell werden
+
 ## 2.1.0
 - Datenpunktwerte werden im VIS Editor angezeigt!
 
