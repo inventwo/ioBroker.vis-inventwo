@@ -1034,6 +1034,18 @@ vis.binds["vis-inventwo"] = {
 
 	jsontable: function (el,data) {
 
+		function testJSON(text) {
+			if (typeof text !== "string") {
+				return false;
+			}
+			try {
+				JSON.parse(text);
+				return true;
+			} catch (error) {
+				return false;
+			}
+		}
+
 		let output = "";
 
 		if(data.oid === "" || data.oid === "nothing_selected" || data.oid === undefined) {
@@ -1051,87 +1063,88 @@ vis.binds["vis-inventwo"] = {
 				let jd = vis.states.attr(data.oid + ".val");
 				let jsondata;
 
-				if(typeof jd === "string")
+				if(testJSON(jd)) {
 					jsondata = JSON.parse(jd);
-				else
-					jsondata = jd;
 
-				let rowLimit = jsondata.length;
-				if (data.iTblRowLimit < rowLimit)
-					rowLimit = data.iTblRowLimit;
-				let colLimit = Object.keys(jsondata[0]).length;
-				if (data.iColCount < colLimit)
-					colLimit = data.iColCount;
 
-				if(data.iVertScroll){
-					$(el).parent().css("overflow-y","scroll");
-				}
-				else{
-					$(el).parent().css("overflow-y","hidden");
-				}
+					let rowLimit = jsondata.length;
+					if (data.iTblRowLimit < rowLimit)
+						rowLimit = data.iTblRowLimit;
+					let colLimit = Object.keys(jsondata[0]).length;
+					if (data.iColCount < colLimit)
+						colLimit = data.iColCount;
 
-				if(data.iHorScroll){
-					$(el).parent().css("overflow-x","scroll");
-				}
-				else{
-					$(el).parent().css("overflow-x","hidden");
-				}
-
-				output = "<table class='vis-inventwo-json-table' style='opacity: " + data.iOpacityAll + ";'>";
-				if (data.iTblShowHead) {
-					output += "<thead style='background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor + "'>";
-					for (let i = 0; i < colLimit; i++) {
-						if(data["iColShow" + (i + 1)]) {
-							let colWidth = "";
-							if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
-								colWidth = data["iColWidth" + (i + 1)];
-							}
-							if (data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== "") {
-								output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + data["iColName" + (i + 1)] + "</th>";
-							} else {
-								//if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
-								output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + Object.keys(jsondata[0])[i] + "</th>";
-							}
-						}
-					}
-					output += "</thead>";
-				}
-				output += "<tbody>";
-				for (let e = 0; e < rowLimit; e++) {
-					let tdColor = "";
-					let tdTextColor = "";
-					if (e % 2 === 0) {
-						tdColor = data.iTblRowUnevenColor;
-						tdTextColor = data.iTblRowUnevenTextColor;
+					if (data.iVertScroll) {
+						$(el).parent().css("overflow-y", "scroll");
 					} else {
-						tdColor = data.iTblRowEvenColor;
-						tdTextColor = data.iTblRowEvenTextColor;
+						$(el).parent().css("overflow-y", "hidden");
 					}
-					output += "<tr style='background: " + tdColor + "; color: " + tdTextColor + "'>";
-					for (let i = 0; i < colLimit; i++) {
-						if(data["iColShow" + (i + 1)]) {
-							let colWidth = "";
-							if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
-								colWidth = data["iColWidth" + (i + 1)];
-							}
-							if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
-								output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][data["iColAttr" + (i + 1)]] + "</td>";
-							} else {
-								//if(Object.keys(jsondata[e])[i].charAt(0) !== "_")
-								output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
+
+					if (data.iHorScroll) {
+						$(el).parent().css("overflow-x", "scroll");
+					} else {
+						$(el).parent().css("overflow-x", "hidden");
+					}
+
+					output = "<table class='vis-inventwo-json-table' style='opacity: " + data.iOpacityAll + ";'>";
+					if (data.iTblShowHead) {
+						output += "<thead style='background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor + "'>";
+						for (let i = 0; i < colLimit; i++) {
+							if (data["iColShow" + (i + 1)]) {
+								let colWidth = "";
+								if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
+									colWidth = data["iColWidth" + (i + 1)];
+								}
+								if (data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== "") {
+									output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + data["iColName" + (i + 1)] + "</th>";
+								} else {
+									//if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
+									output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + Object.keys(jsondata[0])[i] + "</th>";
+								}
 							}
 						}
+						output += "</thead>";
 					}
-					output += "</tr>";
-				}
-				output += "</tbody>";
-				output += "</table>";
+					output += "<tbody>";
+					for (let e = 0; e < rowLimit; e++) {
+						let tdColor = "";
+						let tdTextColor = "";
+						if (e % 2 === 0) {
+							tdColor = data.iTblRowUnevenColor;
+							tdTextColor = data.iTblRowUnevenTextColor;
+						} else {
+							tdColor = data.iTblRowEvenColor;
+							tdTextColor = data.iTblRowEvenTextColor;
+						}
+						output += "<tr style='background: " + tdColor + "; color: " + tdTextColor + "'>";
+						for (let i = 0; i < colLimit; i++) {
+							if (data["iColShow" + (i + 1)]) {
+								let colWidth = "";
+								if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
+									colWidth = data["iColWidth" + (i + 1)];
+								}
+								if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
+									output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][data["iColAttr" + (i + 1)]] + "</td>";
+								} else {
+									//if(Object.keys(jsondata[e])[i].charAt(0) !== "_")
+									output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + jsondata[e][Object.keys(jsondata[e])[i]] + "</td>";
+								}
+							}
+						}
+						output += "</tr>";
+					}
+					output += "</tbody>";
+					output += "</table>";
 
-				setTimeout(vis.binds["vis-inventwo"].jsontable,data.iTableRefreshRate,el,data);
+					setTimeout(vis.binds["vis-inventwo"].jsontable, data.iTableRefreshRate, el, data);
+				}
+				else{
+					output = "No valid JSON in datapoint!";
+				}
 
 			}
 			else{
-				output = "Columncount can't be zero/empty";
+				output = "Columncount can't be zero/empty!";
 			}
 		}
 		$(el).html(output);

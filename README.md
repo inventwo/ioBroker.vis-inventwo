@@ -66,6 +66,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 2.2.1
+- Fehler in JSON Tabelle behoben, wenn kein gültiges JSON-Objekt vorhanden ist
+- Fehler in Value-List behoben: Wert wird nicht aktualisiert
+
 ## 2.2.0
 - Datenpunktwerte werden jetzt bei allen Widgets im Editor angezeigt
 - Neues Widget: Marquee (Laufschrift)

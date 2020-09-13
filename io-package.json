@@ -1,8 +1,20 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "2.2.0",
+		"version": "2.2.1",
 		"news": {
+            "2.2.1": {
+              "en": "FIxed bug in JSON Table if no valid JSON Object, Fixed error in Value-List: value not updating",
+              "de": "Fehler in der JSON-Tabelle behoben, wenn kein gültiges JSON-Objekt vorhanden ist. Fehler in der Werteliste behoben: Wert wird nicht aktualisiert",
+              "ru": "Исправлена ошибка в таблице JSON при отсутствии действительного объекта JSON, исправлена ошибка в списке значений: значение не обновляется",
+              "pt": "Bug corrigido na tabela JSON se nenhum objeto JSON válido, erro corrigido na lista de valores: valor não atualizando",
+              "nl": "Vaste bug in JSON-tabel als er geen geldig JSON-object is, vaste fout in waardenlijst: waarde wordt niet bijgewerkt",
+              "fr": "Correction d'un bug dans la table JSON si aucun objet JSON valide, erreur corrigée dans Value-List: la valeur ne se met pas à jour",
+              "it": "Bug risolto nella tabella JSON se nessun oggetto JSON valido, errore corretto in Value-List: valore non aggiornato",
+              "es": "Error corregido en la tabla JSON si no hay un objeto JSON válido, error corregido en la lista de valores: el valor no se actualiza",
+              "pl": "Naprawiono błąd w tabeli JSON, jeśli nie ma prawidłowego obiektu JSON, naprawiono błąd w liście wartości: wartość nie jest aktualizowana",
+              "zh-cn": "修复JSON表中的错误（如果没有有效的JSON对象），修复了值列表中的错误：值未更新"
+            },
             "2.2.0": {
               "en": "New Widget: Marquee, Added Length  of stay to State, Value List entry distance can be changed",
               "de": "Neues Widget: Laufschrift, Verweildauer für State hinzugefügt, Value List: Abstand zwischen den Eintr#gen kann geändert werden",
