@@ -1,8 +1,20 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "2.2.1",
+		"version": "2.2.2",
 		"news": {
+            "2.2.2": {
+              "en": "fixed bug in multi-widget: image and text don't change",
+              "de": "Fehler im Multi-Widget behoben: Bild und Text ändern sich nicht",
+              "ru": "исправлена ошибка в мульти-виджете: изображение и текст не меняются",
+              "pt": "bug corrigido em multi-widget: imagem e texto não mudam",
+              "nl": "bug opgelost in multi-widget: afbeelding en tekst veranderen niet",
+              "fr": "correction d'un bug dans le multi-widget: l'image et le texte ne changent pas",
+              "it": "bug corretto nel multi-widget: immagine e testo non cambiano",
+              "es": "error corregido en multi-widget: la imagen y el texto no cambian",
+              "pl": "naprawiony błąd w multi-widżecie: obraz i tekst się nie zmieniają",
+              "zh-cn": "修复了多窗口小部件中的错误：图像和文本不变"
+            },
             "2.2.1": {
               "en": "FIxed bug in JSON Table if no valid JSON Object, Fixed error in Value-List: value not updating",
               "de": "Fehler in der JSON-Tabelle behoben, wenn kein gültiges JSON-Objekt vorhanden ist. Fehler in der Werteliste behoben: Wert wird nicht aktualisiert",

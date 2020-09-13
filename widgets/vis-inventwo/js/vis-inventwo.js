@@ -732,10 +732,16 @@ vis.binds["vis-inventwo"] = {
 				let id = $(this).attr("id");
 				let data = vis.views[vis.activeView].widgets[id].data;
 
-				if (data.nav_view === vis.activeView)
+				if (data.nav_view === vis.activeView) {
 					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonActive);
-				else
+					$(this).find('.vis-inventwo-button-imageContainer img').attr("src", data.iImageTrue);
+					$(this).find('.vis-inventwo-button-text').html(data.iTextTrue);
+				}
+				else {
 					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonCol);
+					$(this).find('.vis-inventwo-button-imageContainer img').attr("src", data.iImageFalse);
+					$(this).find('.vis-inventwo-button-text').html(data.iTextFalse);
+				}
 
 			});
 
@@ -747,11 +753,15 @@ vis.binds["vis-inventwo"] = {
 					if (data["iView" + i] === vis.activeView) {
 						stateFound = true;
 						$(this).find('.vis-inventwo-button-new').css("background", data["iButtonActiveM" + i]);
+						$(this).find('.vis-inventwo-button-imageContainer img').attr("src", data['iImageTrue' + i]);
+						$(this).find('.vis-inventwo-button-text').html(data['iTextTrue' + i]);
 						break;
 					}
 				}
 				if (!stateFound) {
 					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonCol);
+					$(this).find('.vis-inventwo-button-imageContainer img').attr("src", data.iImageFalse);
+					$(this).find('.vis-inventwo-button-text').html(data.iTextFalse);
 				}
 
 			});
@@ -1189,7 +1199,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResponseTime",false);
 				vis.hideShowAttr("nav_view",false);
 				vis.hideShowAttr("oid",true);
-				vis.hideShowAttr("iStateResetTime",false);
+				vis.hideShowAttr("iStateResetValueTime",false);
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,true);
 					vis.hideShowAttr("iTextFalse" + i,true);
@@ -1210,7 +1220,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResponseTime",true);
 				vis.hideShowAttr("nav_view",false);
 				vis.hideShowAttr("oid",true);
-				vis.hideShowAttr("iStateResetTime",true);
+				vis.hideShowAttr("iStateResetValueTime",true);
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,true);
 					vis.hideShowAttr("iTextFalse" + i,true);
@@ -1231,7 +1241,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResponseTime",false);
 				vis.hideShowAttr("nav_view",true);
 				vis.hideShowAttr("oid",true);
-				vis.hideShowAttr("iStateResetTime",false);
+				vis.hideShowAttr("iStateResetValueTime",false);
 				for (let i = 1; i <= data.iUniversalValueCount; i++){
 					vis.hideShowAttr("oid" + i,false);
 					vis.hideShowAttr("iTextFalse" + i,true);
@@ -1248,7 +1258,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("value",false);
 				vis.hideShowAttr("iStateResponseTime",false);
 				vis.hideShowAttr("nav_view",false);
-				vis.hideShowAttr("iStateResetTime",false);
+				vis.hideShowAttr("iStateResetValueTime",false);
 				if(data.iUniversalValueCount == undefined) {
 					vis.hideShowAttr("oid", true);
 					vis.hideShowAttr("iValueType", true);
