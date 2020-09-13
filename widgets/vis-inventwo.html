@@ -386,7 +386,6 @@
 				if(vis.editMode){
 					dataNew = vis.binds['vis-inventwo'].getDatapointsValues(dataNew);
 				}
-				console.log(dataNew);
 
 				let cssData = {};
 
@@ -477,6 +476,11 @@
 		</div>
 
 </script>
+
+
+
+
+
 
 <script id="i-vis-radiobutton-list"
 		type="text/ejs"
@@ -760,11 +764,10 @@
 		data-vis-name="Value List">
 
 	<%
-	let pointer_event = "auto";
-	if(this.data.iPointerEvents == true && !vis.editMode){
-		pointer_event = "none";
-	}
-
+		let pointer_event = "auto";
+		if(this.data.iPointerEvents == true && !vis.editMode){
+			pointer_event = "none";
+		}
 	%>
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light"
@@ -772,60 +775,7 @@
 		 id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
 
-			<%
-				let text = "";
-				let arr = [];
-				let data = "";
-
-				let dataNew = Object.assign({},this.data);
-
-				if(this.data.iValueListText != undefined && this.data.iValueListText != ''){
-					data = this.data.iValueListText;
-				}
-				else if(this.data.oid != undefined && this.data.oid != '' && vis.states.attr(this.data.oid + '.val') != ''){
-					data = vis.states.attr(this.data.oid + '.val');
-				}
-
-				if(data != ''){
-					arr = data.split(this.data.iValueListDelimiter);
-
-					text = "<li class='vis-inventwo-valuelist-li' style='padding-bottom: "+ this.data.iValueListEntryDistance +"px;'>";
-					text += arr.join('</li><li>');
-					text += "</li>";
-				}
-
-				let paddingLeft = 14;
-
-				if(this.data.iValueListStyle == 'none'){
-					paddingLeft = 0;
-				}
-
-				vis.states.bind(dataNew.oid + '.val', function (e, newVal, oldVal){
-
-					if(dataNew.iValueListText != undefined && dataNew.iValueListText != ''){
-						data = dataNew.iValueListText;
-					}
-					else if(dataNew.oid != undefined && dataNew.oid != '' && vis.states.attr(dataNew.oid + '.val') != ''){
-						data = vis.states.attr(dataNew.oid + '.val');
-					}
-					arr = data.split(dataNew.iValueListDelimiter);
-
-					text = "<li class='vis-inventwo-valuelist-li' style='padding-bottom: "+ this.data.iValueListEntryDistance +"px;'>";
-					text += arr.join('</li><li>');
-					text += "</li>";
-
-					$('#' + dataNew.wid).find('.vis-inventwo-valuelist-list').html(text);
-				});
-
-
-			%>
-
-			<ul class="vis-inventwo-valuelist-list" style="padding-left: <%= paddingLeft %>px;
-						color: <%= this.data.iTextColor %>;
-						font-size: <%= this.data.iTextSize %>px;
-						list-style: <%= this.data.iValueListStyle %>;">
-				<%== text %>
-			<ul>
+			<%= (el) -> vis.binds['vis-inventwo'].valueList(el, this.data) %>
 
 		</div>
 	</div>

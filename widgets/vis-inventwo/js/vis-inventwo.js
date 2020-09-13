@@ -1040,6 +1040,12 @@ vis.binds["vis-inventwo"] = {
 			output = "No data";
 		}
 
+		else if(vis.states.attr(data.oid + ".val") == undefined || vis.states.attr(data.oid + ".val") == "" ||
+			vis.states.attr(data.oid + ".val") == "null" || typeof vis.states.attr(data.oid + ".val") == 'null'){
+
+			output = "No or wrong data in datapoint!";
+		}
+
 		else{
 			if(data.iColCount  !== "" && data.iColCount > 0){
 				let jd = vis.states.attr(data.oid + ".val");
@@ -1284,7 +1290,6 @@ vis.binds["vis-inventwo"] = {
 					createWidget();
 				});
 
-				console.log(vis.states);
 			}
 		}
 
@@ -1301,7 +1306,6 @@ vis.binds["vis-inventwo"] = {
 
 			if(vis.editMode) {
 				dataNew = vis.binds["vis-inventwo"].getDatapointsValues(dataNew);
-				console.log(dataNew);
 			}
 
 			//Farben, Text & Bild bei true oder false
@@ -1549,6 +1553,56 @@ vis.binds["vis-inventwo"] = {
 		}
 
 		return data;
+	},
+
+
+	valueList: function (el,data) {
+
+		vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){
+			createList();
+		});
+
+		createList();
+
+		function createList(){
+			let text = "";
+			let arr = [];
+			let listTxt = "";
+
+			let dataNew = Object.assign({},data);
+
+			if(dataNew.iValueListText != undefined && dataNew.iValueListText != ''){
+				listTxt = dataNew.iValueListText;
+			}
+			else if(data.oid != undefined && data.oid != '' && vis.states.attr(data.oid + '.val') != ''){
+				listTxt = vis.states.attr(data.oid + '.val');
+			}
+
+			let paddingLeft = 14;
+
+			if(data.iValueListStyle == 'none'){
+				paddingLeft = 0;
+			}
+
+			if(listTxt != ''){
+				arr = listTxt.split(dataNew.iValueListDelimiter);
+
+				text = `<ul class="vis-inventwo-valuelist-list"
+					style="padding-left: ` + paddingLeft + `px;
+							color: ` + dataNew.iTextColor + `;
+							font-size: ` + dataNew.iTextSize + `px;
+							list-style: ` + dataNew.iValueListStyle + `">`;
+
+				text += "<li class='vis-inventwo-valuelist-li' style='padding-bottom: "+ dataNew.iValueListEntryDistance +"px;'>";
+				text += arr.join("</li><li class='vis-inventwo-valuelist-li' style='padding-bottom: "+ dataNew.iValueListEntryDistance +"px;'>");
+				text += "</li></ul>";
+
+			}
+
+			$(el).html(text);
+
+		}
+
 	}
 
 };
