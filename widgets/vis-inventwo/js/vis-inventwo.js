@@ -1073,7 +1073,7 @@ vis.binds["vis-inventwo"] = {
 				let jd = vis.states.attr(data.oid + ".val");
 				let jsondata;
 
-				if(testJSON(jd)) {
+				if(testJSON(jd) || jsondata.length > 0) {
 					jsondata = JSON.parse(jd);
 
 

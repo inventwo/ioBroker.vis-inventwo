@@ -1,8 +1,20 @@
 {
 	"common": {
 		"name": "vis-inventwo",
-		"version": "2.2.2",
+		"version": "2.2.3",
 		"news": {
+            "2.2.3":{
+              "en": "Fixed bug in JSON Table",
+              "de": "Fehler in JSON-Tabelle behoben",
+              "ru": "Исправлена ошибка в таблице JSON",
+              "pt": "Bug corrigido na tabela JSON",
+              "nl": "Bug opgelost in JSON-tabel",
+              "fr": "Correction d'un bug dans la table JSON",
+              "it": "Risolto bug nella tabella JSON",
+              "es": "Error solucionado en la tabla JSON",
+              "pl": "Naprawiono błąd w tabeli JSON",
+              "zh-cn": "修复了JSON表中的错误"
+            },
             "2.2.2": {
               "en": "fixed bug in multi-widget: image and text don't change",
               "de": "Fehler im Multi-Widget behoben: Bild und Text ändern sich nicht",
