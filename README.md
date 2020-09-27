@@ -66,6 +66,11 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 2.3.0
+- Problem behoben, bei dem Schaltflächen zweimal Werte senden
+- Datum / Uhrzeit und Bildformat für Tabellenzellen hinzugefügt
+- Universal- und Multi-Widget-Attribute werden beim Klicken auf Widget aktualisiert
+
 ## 2.2.3
 - Fehler in JSON Tabelle behoben
 

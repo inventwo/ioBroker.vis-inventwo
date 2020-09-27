@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.2.3",
+    "version": "2.3.0",
     "news": {
+      "2.3.0": {
+        "en": "Fixed issue with buttons sending value twice, Added datetime and image format for table cells, Universal and Multi Widget attributes know refresh when clicking on widget",
+        "de": "Problem behoben, bei dem Schaltflächen zweimal Werte senden, Datum / Uhrzeit und Bildformat für Tabellenzellen hinzugefügt, Universal- und Multi-Widget-Attribute werden beim Klicken auf Widget aktualisiert",
+        "ru": "Исправлена проблема с кнопками, отправляющими значение дважды, добавлены дата, время и формат изображения для ячеек таблицы, атрибуты Universal и Multi Widget знают обновление при нажатии на виджет",
+        "pt": "Corrigido problema com botões enviando valor duas vezes, data e hora adicionadas e formato de imagem para células de tabela, atributos Universal e Multi Widget sabem atualizar ao clicar no widget",
+        "nl": "Probleem opgelost waarbij knoppen twee keer waarde zenden, datum / tijd en afbeeldingsindeling voor tabelcellen toegevoegd, kenmerken voor universele en multi-widgets weten vernieuwen bij klikken op widget",
+        "fr": "Correction d'un problème avec les boutons envoyant la valeur deux fois, date / heure ajoutée et format d'image pour les cellules de tableau, les attributs universels et multi-widgets savent actualiser en cliquant sur le widget",
+        "it": "Risolto il problema con i pulsanti che inviavano il valore due volte, aggiunta di data e ora e formato immagine per le celle della tabella, gli attributi Universal e Multi Widget conoscono l'aggiornamento quando si fa clic sul widget",
+        "es": "Se solucionó el problema con los botones que enviaban el valor dos veces, se agregó el formato de fecha y hora y la imagen para las celdas de la tabla, los atributos Universal y Multi Widget se actualizan al hacer clic en el widget",
+        "pl": "Naprawiono problem z przyciskami wysyłającymi wartość dwukrotnie, Dodano datę i godzinę oraz format obrazu dla komórek tabeli, atrybuty Universal i Multi Widget rozpoznają odświeżanie po kliknięciu widżetu",
+        "zh-cn": "修复了按钮两次发送值的问题，为表格单元格添加了日期时间和图像格式，单击了小部件时通用和多小部件属性知道刷新的问题"
+      },
       "2.2.3": {
         "en": "Fixed bug in JSON Table",
         "de": "Fehler in JSON-Tabelle behoben",
