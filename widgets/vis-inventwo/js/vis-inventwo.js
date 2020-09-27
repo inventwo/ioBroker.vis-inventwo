@@ -29,31 +29,31 @@ if (vis.editMode) {
 			"en": "Instance",
 			"de": "Instanz"
 		},
-		"oid":{
+		"oid": {
 			"en": "Object ID",
 			"de": "Objekt ID"
 		},
-		"iWiki":{
+		"iWiki": {
 			"en": "<b>Manual</b>",
 			"de": "<b>Anleitung</b>"
 		},
-		"iWikiText":{
+		"iWikiText": {
 			"en": "<b>To the wiki</b>",
 			"de": "<b style='color: #9fdb58'>Zum Wiki</b>"
 		},
-		"iStart":{
+		"iStart": {
 			"en": "Start",
 			"de": "Anfang"
 		},
-		"iEnd":{
+		"iEnd": {
 			"en": "End",
 			"de": "Ende"
 		},
-		"iCenter":{
+		"iCenter": {
 			"en": "Center",
 			"de": "Mitte"
 		},
-		"iSpace-between":{
+		"iSpace-between": {
 			"en": "Space between",
 			"de": "Platz dazwischen"
 		},
@@ -64,7 +64,7 @@ if (vis.editMode) {
 		//#endregion
 
 		//#region Content Settings
-		"iContentFlexDirection":{
+		"iContentFlexDirection": {
 			"en": "Style",
 			"de": "Stil"
 		},
@@ -72,15 +72,15 @@ if (vis.editMode) {
 			"en": "Align",
 			"de": "Ausrichtung"
 		},
-		"iContentOrder":{
+		"iContentOrder": {
 			"en": "Order",
 			"de": "Reihenfolge"
 		},
-		"orderTextImg":{
+		"orderTextImg": {
 			"en": "Text -> Image",
 			"de": "Text -> Bild"
 		},
-		"orderImgText":{
+		"orderImgText": {
 			"en": "Image -> Text",
 			"de": "Bild -> Text"
 		},
@@ -91,27 +91,27 @@ if (vis.editMode) {
 		//#endregion
 
 		//#region Image Settings
-		"iImgRotation":{
+		"iImgRotation": {
 			"en": "Rotation",
 			"de": "Drehung"
 		},
-		"iImgAlign":{
+		"iImgAlign": {
 			"en": "Position",
 			"de": "Position"
 		},
-		"iImgSpaceTop":{
+		"iImgSpaceTop": {
 			"en": "Space top",
 			"de": "Abstand oben"
 		},
-		"iImgSpaceLeft":{
+		"iImgSpaceLeft": {
 			"en": "Space left",
 			"de": "Abstand links"
 		},
-		"iImgSpaceRight":{
+		"iImgSpaceRight": {
 			"en": "Space right",
 			"de": "Abstand rechts"
 		},
-		"iImgSpaceBottom":{
+		"iImgSpaceBottom": {
 			"en": "Space bottom",
 			"de": "Abstand unten"
 		},
@@ -131,7 +131,7 @@ if (vis.editMode) {
 			"en": "Icon",
 			"de": "Bild"
 		},
-		"iFlipImage":{
+		"iFlipImage": {
 			"en": "Flip",
 			"de": "Spiegeln"
 		},
@@ -143,23 +143,23 @@ if (vis.editMode) {
 		//#endregion
 
 		//#region Text Settings
-		"iTextSpaceTop":{
+		"iTextSpaceTop": {
 			"en": "Space top",
 			"de": "Abstand oben"
 		},
-		"iTextAlign":{
+		"iTextAlign": {
 			"en": "Position",
 			"de": "Position"
 		},
-		"iTextSpaceLeft":{
+		"iTextSpaceLeft": {
 			"en": "Space left",
 			"de": "Abstand links"
 		},
-		"iTextSpaceRight":{
+		"iTextSpaceRight": {
 			"en": "Space right",
 			"de": "Abstand rechts"
 		},
-		"iTextSpaceBottom":{
+		"iTextSpaceBottom": {
 			"en": "Space bottom",
 			"de": "Abstand unten"
 		},
@@ -221,31 +221,31 @@ if (vis.editMode) {
 		//#endregion
 
 		//#region Shadow Settingss
-		"iShadowXOffset":{
+		"iShadowXOffset": {
 			"en": "X offset",
 			"de": "X Versatz"
 		},
-		"iShadowYOffset":{
+		"iShadowYOffset": {
 			"en": "Y offset",
 			"de": "Y Versatz"
 		},
-		"iShadowBlur":{
+		"iShadowBlur": {
 			"en": "Blur",
 			"de": "Blur"
 		},
-		"iShadowSpread":{
+		"iShadowSpread": {
 			"en": "Spread",
 			"de": "Größe"
 		},
-		"iShadowColor":{
+		"iShadowColor": {
 			"en": "Color",
 			"de": "Farbe"
 		},
-		"iShadowColorActive":{
+		"iShadowColorActive": {
 			"en": "Color active",
 			"de": "Farbe Aktiv"
 		},
-		"iShadowColorActiveM":{
+		"iShadowColorActiveM": {
 			"en": "Outer Shadow active",
 			"de": "Schatten außen aktiv"
 		},
@@ -256,54 +256,54 @@ if (vis.editMode) {
 		//#endregion
 
 		//#region Shadow Inner Settingss
-		"iShadowInnerXOffset":{
+		"iShadowInnerXOffset": {
 			"en": "X offset",
 			"de": "X Versatz"
 		},
-		"iShadowInnerYOffset":{
+		"iShadowInnerYOffset": {
 			"en": "Y offset",
 			"de": "Y Versatz"
 		},
-		"iShadowInnerBlur":{
+		"iShadowInnerBlur": {
 			"en": "Blur",
 			"de": "Blur"
 		},
-		"iShadowInnerSpread":{
+		"iShadowInnerSpread": {
 			"en": "Spread",
 			"de": "Größe"
 		},
-		"iShadowInnerColor":{
+		"iShadowInnerColor": {
 			"en": "Color",
 			"de": "Farbe"
 		},
-		"iShadowInnerColorActive":{
+		"iShadowInnerColorActive": {
 			"en": "Color active",
 			"de": "Farbe Aktiv"
 		},
-		"iShadowInnerColorActiveM":{
+		"iShadowInnerColorActiveM": {
 			"en": "Inner shadow active",
 			"de": "Schatten innen aktiv"
 		},
 		//#endregion
 
 		//#region Border Settingss
-		"iBorderSize":{
+		"iBorderSize": {
 			"en": "Width",
 			"de": "Breite"
 		},
-		"iBorderStyle":{
+		"iBorderStyle": {
 			"en": "Style",
 			"de": "Stil"
 		},
-		"iBorderColor":{
+		"iBorderColor": {
 			"en": "Color",
 			"de": "Farbe"
 		},
-		"iBorderColorActive":{
+		"iBorderColorActive": {
 			"en": "Color active",
 			"de": "Farbe Aktiv"
 		},
-		"iBorderColorActiveM":{
+		"iBorderColorActiveM": {
 			"en": "Border active",
 			"de": "Umrandung aktiv"
 		},
@@ -311,335 +311,335 @@ if (vis.editMode) {
 
 
 		//#region Switch & State Settings
-		"iValueType":{
+		"iValueType": {
 			"en": "Type",
 			"de": "Typ"
 		},
-		"iValueFalse":{
+		"iValueFalse": {
 			"en": "Value false",
 			"de": "Wert falsch"
 		},
-		"iValueTrue":{
+		"iValueTrue": {
 			"en": "Value true",
 			"de": "Wert wahr"
 		},
-		"iValue":{
+		"iValue": {
 			"en": "Value",
 			"de": "Wert"
 		},
-		"iValueTypeInfo":{
+		"iValueTypeInfo": {
 			"en": "Type Info",
 			"de": "Typ Info"
 		},
-		"iValueTypeText":{
+		"iValueTypeText": {
 			"en": "If type is 'boolean', value fields can be empty",
 			"de": "Wenn Typ ist 'boolean', können Wert Felder leer bleiben"
 		},
-		"iStateResponseTime":{
+		"iStateResponseTime": {
 			"en": "Response time (in Ms)",
 			"de": "Rückmeldungsdauer (in Ms)"
 		},
-		"iStateResetValueTime":{
+		"iStateResetValueTime": {
 			"en": "Length of stay (in ms)",
 			"de": "Verweildauer (in Ms)"
 		},
 		//#endregion
 
 		//#region Nav Settings
-		"iNavWait":{
+		"iNavWait": {
 			"en": "Wait x milliseconds to check for active",
 			"de": "Warte x Millisekunden bis Prüfung auf aktiv"
 		},
-		"iNavValue":{
+		"iNavValue": {
 			"en": "Value",
 			"de": "Wert"
 		},
 		//#endregion
 
 		//#region Radio Buttons
-		"iRadiobtnWidth":{
+		"iRadiobtnWidth": {
 			"en": "Button width",
 			"de": "Button Breite"
 		},
-		"iRadiobtnHeight":{
+		"iRadiobtnHeight": {
 			"en": "Button height",
 			"de": "Button Höhe"
 		},
-		"iRadiobtnSpace":{
+		"iRadiobtnSpace": {
 			"en": "Button space",
 			"de": "Button Abstand"
 		},
-		"iRadiobtnsCount":{
+		"iRadiobtnsCount": {
 			"en": "Count",
 			"de": "Anzahl"
 		},
-		"group_iRadioBtns":{
+		"group_iRadioBtns": {
 			"en": "Radiobutton",
 			"de": "Radiobutton"
 		},
-		"iRadiobtnAlign":{
+		"iRadiobtnAlign": {
 			"en": "Alignment",
 			"de": "Ausrichtung"
 		},
-		"iButtonBackM":{
+		"iButtonBackM": {
 			"en": "Color",
 			"de": "Farbe"
 		},
-		"iButtonBackActiveM":{
+		"iButtonBackActiveM": {
 			"en": "Color active",
 			"de": "Farbe Aktiv"
 		},
 		//#endregion
 
 		//#regionSlider Settings
-		"iMinVal":{
+		"iMinVal": {
 			"en": "Min. value",
 			"de": "Min. Wert"
 		},
-		"iMaxVal":{
+		"iMaxVal": {
 			"en": "Max. value",
 			"de": "Max. Wert"
 		},
-		"iStepVal":{
+		"iStepVal": {
 			"en": "Step",
 			"de": "Schritt"
 		},
-		"iSliderColor":{
+		"iSliderColor": {
 			"en": "Bar Color",
 			"de": "Balken Farbe"
 		},
-		"iSliderKnobColor":{
+		"iSliderKnobColor": {
 			"en": "Handle Color",
 			"de": "Regler Farbe"
 		},
-		"iSliderCorners":{
+		"iSliderCorners": {
 			"en": "Border radius",
 			"de": "Rundung"
 		},
-		"iSliderKnobCorners":{
+		"iSliderKnobCorners": {
 			"en": "Handle border radius",
 			"de": "Regler Rundung"
 		},
-		"iSliderHeight":{
+		"iSliderHeight": {
 			"en": "Bar size",
 			"de": "Balken dicke"
 		},
-		"iSliderKnobSize":{
+		"iSliderKnobSize": {
 			"en": "Handle size",
 			"de": "Regler Größe"
 		},
-		"iSliderRotation":{
+		"iSliderRotation": {
 			"en": "Rotation",
 			"de": "Ausrichtung"
 		},
-		"iSliderLabel":{
+		"iSliderLabel": {
 			"en": "Label",
 			"de": "Beschriftung"
 		},
-		"iShowMinMax":{
+		"iShowMinMax": {
 			"en": "Show Min/Max Value",
 			"de": "Zeige Min/Max Wert"
 		},
-		"iSliderTextColor":{
+		"iSliderTextColor": {
 			"en": "Text color",
 			"de": "Textfarbe"
 		},
-		"iShowValue":{
+		"iShowValue": {
 			"en": "Show value",
 			"de": "Zeige Wert"
 		},
-		"iValueTextColor":{
+		"iValueTextColor": {
 			"en": "Value color",
 			"de": "Wert Farbe"
 		},
-		"iValuePreText":{
+		"iValuePreText": {
 			"en": "Pre text",
 			"de": "Text voranstellen"
 		},
 		//#endregion
 
 		//#region Table Settings
-		"iTblShowHead":{
+		"iTblShowHead": {
 			"en": "Table Head",
 			"de": "Tabellenkopf"
 		},
-		"iTblRowLimit":{
+		"iTblRowLimit": {
 			"en": "Rowlimit",
 			"de": "Zeilenlimit"
 		},
-		"iColCount":{
+		"iColCount": {
 			"en": "Columncount",
 			"de": "Spaltenanzahl"
 		},
-		"group_iTableCol":{
+		"group_iTableCol": {
 			"en": "Table Column",
 			"de": "Tabellenspalte"
 		},
-		"iColName":{
+		"iColName": {
 			"en": "Header",
 			"de": "Spaltenüberschrift"
 		},
-		"iColAttr":{
+		"iColAttr": {
 			"en": "Attribute in JSON",
 			"de": "Attribut in JSON"
 		},
-		"iColWidth":{
+		"iColWidth": {
 			"en": "Columnwidth",
 			"de": "Spaltenbreite"
 		},
-		"iTblRowEvenColor":{
+		"iTblRowEvenColor": {
 			"en": "Background (row even)",
 			"de": "Hintergrund (gerade Zeile)"
 		},
-		"iTblRowUnevenColor":{
+		"iTblRowUnevenColor": {
 			"en": "Background (row uneven)",
 			"de": "Hintergrund (ungerade Zeile)"
 		},
-		"iTblHeaderColor":{
+		"iTblHeaderColor": {
 			"en": "Background (header)",
 			"de": "Hintergrund (Überschrift)"
 		},
-		"iTblRowEvenTextColor":{
+		"iTblRowEvenTextColor": {
 			"en": "Font Color (row even)",
 			"de": "Textfarbe (gerade Zeile)"
 		},
-		"iTblRowUnevenTextColor":{
+		"iTblRowUnevenTextColor": {
 			"en": "Font color (row uneven)",
 			"de": "Textfarbe (ungerade Zeile)"
 		},
-		"iTblHeaderTextColor":{
+		"iTblHeaderTextColor": {
 			"en": "Font color (header)",
 			"de": "Textfarbe (Überschrift)"
 		},
-		"iRowSpacing":{
+		"iRowSpacing": {
 			"en": "Row spacing",
 			"de": "Zeilenabstand"
 		},
-		"iColShow":{
+		"iColShow": {
 			"en": "Show column",
 			"de": "Zeige Spalte"
 		},
-		"iVertScroll":{
+		"iVertScroll": {
 			"en": "Vertical scroll",
 			"de": "Scrollen vertikal"
 		},
-		"iHorScroll":{
+		"iHorScroll": {
 			"en": "Horinzontal scroll",
 			"de": "Scrollen horizontal"
 		},
-		"iTableRefreshRate":{
+		"iTableRefreshRate": {
 			"en": "Refresh rate (ms)",
 			"de": "Aktualisierung (ms)"
 		},
-		"iTblCellFormat":{
+		"iTblCellFormat": {
 			"en": "Format",
 			"de": "Format"
 		},
-		"iTblCellDatetimeFormat":{
+		"iTblCellDatetimeFormat": {
 			"en": "Date/Time format (if format is datetime)",
 			"de": "Datum/Zeit Format (wenn Format = datetime)"
 		},
 		//#endregion
 
 		//#region Universal & Multi Widget Settings
-		"iUniversalWidgetTypeInfo":{
+		"iUniversalWidgetTypeInfo": {
 			"en": "Type info",
 			"de": "Typ Info"
 		},
-		"iUniversalWidgetTypeInfoText":{
+		"iUniversalWidgetTypeInfoText": {
 			"en": "Should it be a switch, state, navigation or background?",
 			"de": "Soll es ein Switch, State, Navigation oder Hintergrund sein?"
 		},
-		"iUniversalWidgetType":{
+		"iUniversalWidgetType": {
 			"en": "Widget type",
 			"de": "Widget Typ"
 		},
-		"iUniversalValueCount":{
+		"iUniversalValueCount": {
 			"en": "Number of states",
 			"de": "Anzahl der Zustände"
 		},
-		"group_iUniversalValues":{
+		"group_iUniversalValues": {
 			"en": "State",
 			"de": "Zustand"
 		},
-		"iRefreshDataFieldsInfo":{
+		"iRefreshDataFieldsInfo": {
 			"en": "---->",
 			"de": "---->"
 		},
-		"iRefreshDataFields":{
+		"iRefreshDataFields": {
 			"en": "---->",
 			"de": "---->"
 		},
-		"iRefreshDataFieldsText":{
+		"iRefreshDataFieldsText": {
 			"en": "<span style='color:red'>Click on the button below to hide unimportant fields for this widget</span>",
 			"de": "<span style='color:red'>Klicke auf den Button um nicht für das Widget relevante Felder zu verstecken</span>"
 		},
-		"iRefreshBtnText":{
+		"iRefreshBtnText": {
 			"en": "Refresh fields",
 			"de": "Felder neuladen"
 		},
-		"iView":{
+		"iView": {
 			"en": "View",
 			"de": "View"
 		},
-		"iOidToggle":{
+		"iOidToggle": {
 			"en": "Object ID to switch/set",
 			"de": "Objekt ID zum Schalten/Setzen"
 		},
-		"iOidState":{
+		"iOidState": {
 			"en": "Object ID to check",
 			"de": "Objekt ID zum prüfen"
 		},
-		"iImgBlinkFalse":{
+		"iImgBlinkFalse": {
 			"en": "Image blinkinterval",
 			"de": "Bild falsch Blinkintervall"
 		},
-		"iImgBlinkTrue":{
+		"iImgBlinkTrue": {
 			"en": "Image blinkinterval",
 			"de": "Bild wahr Blinkintervall"
 		},
 		//#endregion
 
 		//#region Image Settings
-		"iPointerEvents":{
+		"iPointerEvents": {
 			"en": "Click through?",
 			"de": "Klick durchlassen?"
 		},
 		//#endregion
 
 		//#region Value List Settings
-		"iValueListText":{
+		"iValueListText": {
 			"en": "Text",
 			"de": "Text"
 		},
-		"iValueListDelimiter":{
+		"iValueListDelimiter": {
 			"en": "Delimiter",
 			"de": "Trennzeichen"
 		},
-		"iValueListStyle":{
+		"iValueListStyle": {
 			"en": "Style",
 			"de": "Stil"
 		},
-		"iValueListInfo":{
+		"iValueListInfo": {
 			"en": "Info",
 			"de": "Info"
 		},
-		"iValueListEntryDistance":{
+		"iValueListEntryDistance": {
 			"en": "Distance",
 			"de": "Abstand"
 		},
 		//#endregion
 
 		//#region Marquee Settings
-		"iMarqueeText":{
+		"iMarqueeText": {
 			"en": "Text",
 			"de": "Text"
 		},
-		"iMarqueeDirection":{
+		"iMarqueeDirection": {
 			"en": "Direction",
 			"de": "Richtung"
 		},
-		"iMarqueeSpeed":{
+		"iMarqueeSpeed": {
 			"en": "Speed",
 			"de": "Geschwindigkeit"
 		},
@@ -705,7 +705,7 @@ if (vis.editMode) {
 
 vis.navChangeCallbacks.push(function (view) {
 
-	vis.binds["vis-inventwo"].iUpdateNavigations(0,false);
+	vis.binds["vis-inventwo"].iUpdateNavigations(0, false);
 
 });
 
@@ -741,14 +741,13 @@ vis.binds["vis-inventwo"] = {
 				let data = vis.views[vis.activeView].widgets[id].data;
 
 				if (data.nav_view === vis.activeView) {
-					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonActive);
-					$(this).find('.vis-inventwo-button-imageContainer img').attr("src", data.iImageTrue);
-					$(this).find('.vis-inventwo-button-text').html(data.iTextTrue);
-				}
-				else {
-					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonCol);
-					$(this).find('.vis-inventwo-button-imageContainer img').attr("src", data.iImageFalse);
-					$(this).find('.vis-inventwo-button-text').html(data.iTextFalse);
+					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonActive);
+					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
+					$(this).find(".vis-inventwo-button-text").html(data.iTextTrue);
+				} else {
+					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
+					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
+					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
 				}
 
 			});
@@ -760,16 +759,16 @@ vis.binds["vis-inventwo"] = {
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					if (data["iView" + i] === vis.activeView) {
 						stateFound = true;
-						$(this).find('.vis-inventwo-button-new').css("background", data["iButtonActiveM" + i]);
-						$(this).find('.vis-inventwo-button-imageContainer img').attr("src", data['iImageTrue' + i]);
-						$(this).find('.vis-inventwo-button-text').html(data['iTextTrue' + i]);
+						$(this).find(".vis-inventwo-button-new").css("background", data["iButtonActiveM" + i]);
+						$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data["iImageTrue" + i]);
+						$(this).find(".vis-inventwo-button-text").html(data["iTextTrue" + i]);
 						break;
 					}
 				}
 				if (!stateFound) {
-					$(this).find('.vis-inventwo-button-new').css("background", data.iButtonCol);
-					$(this).find('.vis-inventwo-button-imageContainer img').attr("src", data.iImageFalse);
-					$(this).find('.vis-inventwo-button-text').html(data.iTextFalse);
+					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
+					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
+					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
 				}
 
 			});
@@ -791,34 +790,33 @@ vis.binds["vis-inventwo"] = {
 
 		if (!vis.editMode) {
 			var moved = false;
-			$this.parent().on('click touchend', function () {
+			$this.parent().on("click touchend", function () {
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
 
-				var val = vis.states[oid + '.val'];
+				var val = vis.states[oid + ".val"];
 				var type = data.iValueType;
 				var valFalse = data.iValueFalse;
 				var valTrue = data.iValueTrue;
 
-				if(type == "boolean")
+				if (type == "boolean")
 					vis.setValue(oid, !val);
-				else{
+				else {
 
-					if(val == valFalse){
-						if(!isNaN(valTrue))
+					if (val == valFalse) {
+						if (!isNaN(valTrue))
 							valTrue = parseFloat(valTrue);
 						vis.setValue(oid, valTrue);
-					}
-					else{
-						if(!isNaN(valFalse))
+					} else {
+						if (!isNaN(valFalse))
 							valTrue = parseFloat(valFalse);
 						vis.setValue(oid, valFalse);
 					}
 				}
 
-			}).on('touchmove', function () {
+			}).on("touchmove", function () {
 				moved = true;
-			}).on('touchstart', function () {
+			}).on("touchstart", function () {
 				moved = false;
 			});
 
@@ -829,7 +827,7 @@ vis.binds["vis-inventwo"] = {
 		if (!vis.editMode && data.nav_view) {
 			var $this = $(el);
 			var moved = false;
-			$this.parent().on('click touchend', function (e) {
+			$this.parent().on("click touchend", function (e) {
 				// Protect against two events
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
@@ -837,28 +835,28 @@ vis.binds["vis-inventwo"] = {
 				//e.preventDefault();
 				//return false;
 
-				if(data.oid !== "") {
+				if (data.oid !== "") {
 					let val;
-					if(type == "universal" || type == "multi")
+					if (type == "universal" || type == "multi")
 						val = data.value;
 					else
 						val = data.iNavValue;
 
-					if(val == "true")
+					if (val == "true")
 						val = true;
-					else if(val == "false")
+					else if (val == "false")
 						val = false;
-					else if(!isNaN(val))
+					else if (!isNaN(val))
 						val = parseFloat(val);
 					vis.setValue(data.oid, val);
 				}
 
-				vis.binds['vis-inventwo'].iUpdateNavigations(data.iNavWait,true);
+				vis.binds["vis-inventwo"].iUpdateNavigations(data.iNavWait, true);
 
 
-			}).on('touchmove', function () {
+			}).on("touchmove", function () {
 				moved = true;
-			}).on('touchstart', function () {
+			}).on("touchstart", function () {
 				moved = false;
 			});
 
@@ -879,51 +877,50 @@ vis.binds["vis-inventwo"] = {
 
 		if (!vis.editMode) {
 
-			$this.parent().on('click touchend', function () {
-				if(!isNaN(data.value))
+			$this.parent().on("click touchend", function () {
+				if (!isNaN(data.value))
 					data.value = parseFloat(data.value);
 
-				let oldValue = vis.states[oid + '.val'];
+				let oldValue = vis.states[oid + ".val"];
 				vis.setValue(oid, data.value);
 
-				if(type == 'universal') {
-					let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data.iShadowColorActive + ',inset ' +
-						data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data.iShadowInnerColorActive;
-					let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColorActive;
-					$this.find('.vis-inventwo-button-new').css('background', data.iButtonActive);
-					$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
-					$this.find('.vis-inventwo-button-new').css('border', border);
-					if(data.iImageTrue != undefined)
-						$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageTrue);
-					if(data.iTextTrue != undefined)
-						$this.find('.vis-inventwo-button-text').html(data.iTextTrue);
+				if (type == "universal") {
+					let shadow = data.iShadowXOffset + "px " + data.iShadowYOffset + "px " + data.iShadowBlur + "px " + data.iShadowSpread + "px " + data.iShadowColorActive + ",inset " +
+						data.iShadowInnerXOffset + "px " + data.iShadowInnerYOffset + "px " + data.iShadowInnerBlur + "px " + data.iShadowInnerSpread + "px " + data.iShadowInnerColorActive;
+					let border = data.iBorderSize + "px " + data.iBorderStyle + " " + data.iBorderColorActive;
+					$this.find(".vis-inventwo-button-new").css("background", data.iButtonActive);
+					$this.find(".vis-inventwo-button-new").css("box-shadow", shadow);
+					$this.find(".vis-inventwo-button-new").css("border", border);
+					if (data.iImageTrue != undefined)
+						$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
+					if (data.iTextTrue != undefined)
+						$this.find(".vis-inventwo-button-text").html(data.iTextTrue);
 
 					setTimeout(function () {
-						let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data.iShadowColor + ',inset ' +
-							data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data.iShadowInnerColor;
-						let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data.iBorderColor;
-						$this.find('.vis-inventwo-button-new').css('background', data.iButtonCol);
-						$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
-						$this.find('.vis-inventwo-button-new').css('border', border);
-						if(data.iImageFalse != undefined)
-							$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageFalse);
-						if(data.iTextFalse != undefined)
-							$this.find('.vis-inventwo-button-text').html(data.iTextFalse);
+						let shadow = data.iShadowXOffset + "px " + data.iShadowYOffset + "px " + data.iShadowBlur + "px " + data.iShadowSpread + "px " + data.iShadowColor + ",inset " +
+							data.iShadowInnerXOffset + "px " + data.iShadowInnerYOffset + "px " + data.iShadowInnerBlur + "px " + data.iShadowInnerSpread + "px " + data.iShadowInnerColor;
+						let border = data.iBorderSize + "px " + data.iBorderStyle + " " + data.iBorderColor;
+						$this.find(".vis-inventwo-button-new").css("background", data.iButtonCol);
+						$this.find(".vis-inventwo-button-new").css("box-shadow", shadow);
+						$this.find(".vis-inventwo-button-new").css("border", border);
+						if (data.iImageFalse != undefined)
+							$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
+						if (data.iTextFalse != undefined)
+							$this.find(".vis-inventwo-button-text").html(data.iTextFalse);
 					}, data.iStateResponseTime);
 
 
-				}
-				else if(type == 'multi') {
-					let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + data['iShadowColorActiveM1'] + ',inset ' +
-						data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + data['iShadowInnerColorActiveM1'];
-					let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + data['iBorderColorActiveM1'];
-					$this.find('.vis-inventwo-button-new').css('background', data['iButtonActiveM1']);
-					$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
-					$this.find('.vis-inventwo-button-new').css('border', border);
-					if(data.iImageTrue != undefined)
-						$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageTrue);
-					if(data.iTextTrue != undefined)
-						$this.find('.vis-inventwo-button-text').html(data.iTextTrue);
+				} else if (type == "multi") {
+					let shadow = data.iShadowXOffset + "px " + data.iShadowYOffset + "px " + data.iShadowBlur + "px " + data.iShadowSpread + "px " + data["iShadowColorActiveM1"] + ",inset " +
+						data.iShadowInnerXOffset + "px " + data.iShadowInnerYOffset + "px " + data.iShadowInnerBlur + "px " + data.iShadowInnerSpread + "px " + data["iShadowInnerColorActiveM1"];
+					let border = data.iBorderSize + "px " + data.iBorderStyle + " " + data["iBorderColorActiveM1"];
+					$this.find(".vis-inventwo-button-new").css("background", data["iButtonActiveM1"]);
+					$this.find(".vis-inventwo-button-new").css("box-shadow", shadow);
+					$this.find(".vis-inventwo-button-new").css("border", border);
+					if (data.iImageTrue != undefined)
+						$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
+					if (data.iTextTrue != undefined)
+						$this.find(".vis-inventwo-button-text").html(data.iTextTrue);
 
 					setTimeout(function () {
 
@@ -931,84 +928,79 @@ vis.binds["vis-inventwo"] = {
 						let shadowCol = data.iShadowColor;
 						let shadowColInner = data.iShadowInnerColor;
 						let borderCol = data.iBorderColor;
-						let img = '';
-						let txt = '';
-						if(data.iImageFalse != undefined)
+						let img = "";
+						let txt = "";
+						if (data.iImageFalse != undefined)
 							img = data.iImageFalse;
-						if(data.iTextFalse != undefined)
+						if (data.iTextFalse != undefined)
 							txt = data.iTextFalse;
 
 						for (let i = 1; i <= data.iUniversalValueCount; i++) {
-							if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data['oid' + i] + '.val') == data['iValue' + i]) || (data.iUniversalWidgetType == "Navigation" && data['iView' + i] === vis.activeView)) {
-								backCol = data['iButtonActiveM' + i];
-								shadowCol = data['iShadowColorActiveM' + i];
-								shadowColInner = data['iShadowInnerColorActiveM' + i];
-								borderCol = data['iBorderColorActiveM' + i];
-								if (data.attr('iImageTrue' + i) != undefined)
-									img = data.attr('iImageTrue' + i);
-								if (data.attr('iTextTrue' + i) != undefined)
-									txt = data.attr('iTextTrue' + i);
+							if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data["oid" + i] + ".val") == data["iValue" + i]) || (data.iUniversalWidgetType == "Navigation" && data["iView" + i] === vis.activeView)) {
+								backCol = data["iButtonActiveM" + i];
+								shadowCol = data["iShadowColorActiveM" + i];
+								shadowColInner = data["iShadowInnerColorActiveM" + i];
+								borderCol = data["iBorderColorActiveM" + i];
+								if (data.attr("iImageTrue" + i) != undefined)
+									img = data.attr("iImageTrue" + i);
+								if (data.attr("iTextTrue" + i) != undefined)
+									txt = data.attr("iTextTrue" + i);
 								break;
 							}
 						}
 
-						let shadow = data.iShadowXOffset + 'px ' + data.iShadowYOffset + 'px ' + data.iShadowBlur + 'px ' + data.iShadowSpread + 'px ' + shadowCol + ',inset ' +
-							data.iShadowInnerXOffset + 'px ' + data.iShadowInnerYOffset + 'px ' + data.iShadowInnerBlur + 'px ' + data.iShadowInnerSpread + 'px ' + shadowColInner;
-						let border = data.iBorderSize + 'px ' + data.iBorderStyle + ' ' + borderCol;
-						$this.find('.vis-inventwo-button-new').css('background', backCol);
-						$this.find('.vis-inventwo-button-new').css('box-shadow', shadow);
-						$this.find('.vis-inventwo-button-new').css('border', border);
-						if(data.iImageFalse != undefined)
-							$this.find('.vis-inventwo-button-imageContainer img').attr('src', data.iImageFalse);
-						if(data.iTextFalse != undefined)
-							$this.find('.vis-inventwo-button-text').html(data.iTextFalse);
+						let shadow = data.iShadowXOffset + "px " + data.iShadowYOffset + "px " + data.iShadowBlur + "px " + data.iShadowSpread + "px " + shadowCol + ",inset " +
+							data.iShadowInnerXOffset + "px " + data.iShadowInnerYOffset + "px " + data.iShadowInnerBlur + "px " + data.iShadowInnerSpread + "px " + shadowColInner;
+						let border = data.iBorderSize + "px " + data.iBorderStyle + " " + borderCol;
+						$this.find(".vis-inventwo-button-new").css("background", backCol);
+						$this.find(".vis-inventwo-button-new").css("box-shadow", shadow);
+						$this.find(".vis-inventwo-button-new").css("border", border);
+						if (data.iImageFalse != undefined)
+							$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
+						if (data.iTextFalse != undefined)
+							$this.find(".vis-inventwo-button-text").html(data.iTextFalse);
 					}, data.iStateResponseTime);
 
 
 				}
 
-				if(data.iStateResetValueTime > 0){
+				if (data.iStateResetValueTime > 0) {
 					setTimeout(function () {
 						vis.setValue(oid, oldValue);
-					},data.iStateResetValueTime);
+					}, data.iStateResetValueTime);
 				}
 			});
 
 		}
 	},
 	externalLinks: function (widAttr, data) {
-		let url = '';
-		if (data[1] === 'wiki') {
-			url = 'https://github.com/inventwo/ioBroker.vis-inventwo/wiki'
+		let url = "";
+		if (data[1] === "wiki") {
+			url = "https://github.com/inventwo/ioBroker.vis-inventwo/wiki";
 		}
-		return { input: `<a target="_blank" href="${url}">${_('iWikiText')}</a>` }
+		return {input: `<a target="_blank" href="${url}">${_("iWikiText")}</a>`};
 	},
 	infoText: function (widAttr, data) {
-		let text = '';
+		let text = "";
 
-		if (data[1] === 'valueType') {
-			text = 'iValueTypeText';
-		}
-		else if(data[1] === 'emptyText'){
-			text = '';
-		}
-		else if(data[1] === 'universalTypeInfo'){
-			text = 'iUniversalWidgetTypeInfoText';
-		}
-		else if(data[1] === 'refreshDataFieldsText'){
-			text = 'iRefreshDataFieldsText';
-		}
-		else if(data[1] === 'radioBtnBackColInfoText'){
-			text = 'iText-BackColorRadio';
-		}
-		else if(data[1] === 'valueListInfoText'){
-			text = 'iText-valueListInfoText';
+		if (data[1] === "valueType") {
+			text = "iValueTypeText";
+		} else if (data[1] === "emptyText") {
+			text = "";
+		} else if (data[1] === "universalTypeInfo") {
+			text = "iUniversalWidgetTypeInfoText";
+		} else if (data[1] === "refreshDataFieldsText") {
+			text = "iRefreshDataFieldsText";
+		} else if (data[1] === "radioBtnBackColInfoText") {
+			text = "iText-BackColorRadio";
+		} else if (data[1] === "valueListInfoText") {
+			text = "iText-valueListInfoText";
 		}
 
 
-		return { input: `<span>${_(text)}</span>` };
+		return {input: `<span>${_(text)}</span>`};
 	},
-	handleSlider: function (el,data,options) {
+	handleSlider: function (el, data, options) {
 
 		var $this = $(el);
 		var oid = data.oid;
@@ -1017,40 +1009,39 @@ vis.binds["vis-inventwo"] = {
 			min: parseFloat(data.iMinVal),
 			max: parseFloat(data.iMaxVal),
 			step: parseFloat(data.iStepVal),
-			slide: function( event, ui ) {
-				if(!vis.editMode)
+			slide: function (event, ui) {
+				if (!vis.editMode)
 					vis.setValue(oid, ui.value);
 			}
-		},options);
+		}, options);
 
 		$this.slider(settings);
 
-		$this.css('transform','rotate('+data.iSliderRotation+'deg)');
-		$this.children().css("width",data.iSliderKnobSize + "px");
-		$this.children().css("height",data.iSliderKnobSize + "px");
-		$this.children().css("border","0px");
-		$this.children().css("border-radius",data.iSliderKnobCorners + "%");
-		$this.children().css("background",data.iSliderKnobColor);
-		$this.children().css("box-shadow","0 0 5px 1px black");
-		if(options.orientation === "horizontal") {
+		$this.css("transform", "rotate(" + data.iSliderRotation + "deg)");
+		$this.children().css("width", data.iSliderKnobSize + "px");
+		$this.children().css("height", data.iSliderKnobSize + "px");
+		$this.children().css("border", "0px");
+		$this.children().css("border-radius", data.iSliderKnobCorners + "%");
+		$this.children().css("background", data.iSliderKnobColor);
+		$this.children().css("box-shadow", "0 0 5px 1px black");
+		if (options.orientation === "horizontal") {
 			$this.children().css("margin-left", "-" + (data.iSliderKnobSize / 2) + "px");
 			let topPos = ((data.iSliderKnobSize - data.iSliderHeight) / 2) * (-1);
-			$this.children().css("top",topPos + "px");
-		}
-		else{
-			$this.children().css("left", "-" + (data.iSliderKnobSize / 2 - data.iSliderHeight/2) + "px");
+			$this.children().css("top", topPos + "px");
+		} else {
+			$this.children().css("left", "-" + (data.iSliderKnobSize / 2 - data.iSliderHeight / 2) + "px");
 			$this.children().css("margin-bottom", "-" + (data.iSliderKnobSize / 2) + "px");
 		}
 
-		$this.slider("option","value",vis.states.attr(oid + ".val"));
+		$this.slider("option", "value", vis.states.attr(oid + ".val"));
 
-		vis.states.bind(oid + ".val",function () {
-			$this.slider("option","value",vis.states.attr(oid + ".val"));
+		vis.states.bind(oid + ".val", function () {
+			$this.slider("option", "value", vis.states.attr(oid + ".val"));
 		});
 
 	},
 
-	jsontable: function (el,data) {
+	jsontable: function (el, data) {
 
 		function testJSON(text) {
 			if (typeof text !== "string") {
@@ -1066,22 +1057,18 @@ vis.binds["vis-inventwo"] = {
 
 		let output = "";
 
-		if(data.oid === "" || data.oid === "nothing_selected" || data.oid === undefined) {
+		if (data.oid === "" || data.oid === "nothing_selected" || data.oid === undefined) {
 			output = "No data";
-		}
-
-		else if(vis.states.attr(data.oid + ".val") == undefined || vis.states.attr(data.oid + ".val") == "" ||
-			vis.states.attr(data.oid + ".val") == "null" || typeof vis.states.attr(data.oid + ".val") == 'null'){
+		} else if (vis.states.attr(data.oid + ".val") == undefined || vis.states.attr(data.oid + ".val") == "" ||
+			vis.states.attr(data.oid + ".val") == "null" || typeof vis.states.attr(data.oid + ".val") == "null") {
 
 			output = "No or wrong data in datapoint!";
-		}
-
-		else{
-			if(data.iColCount  !== "" && data.iColCount > 0){
+		} else {
+			if (data.iColCount !== "" && data.iColCount > 0) {
 				let jd = vis.states.attr(data.oid + ".val");
 				let jsondata;
 
-				if(typeof jd === "string")
+				if (typeof jd === "string")
 					jsondata = JSON.parse(jd);
 				else
 					jsondata = jd;
@@ -1148,8 +1135,7 @@ vis.binds["vis-inventwo"] = {
 
 							if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
 								cellValue = jsondata[e][Object.keys(jsondata[e])[i]];
-							}
-							else {
+							} else {
 								cellValue = jsondata[e][Object.keys(jsondata[e])[i]];
 							}
 
@@ -1157,538 +1143,528 @@ vis.binds["vis-inventwo"] = {
 								case "normal":
 									break;
 								case "datetime":
-									if(data["iTblCellDatetimeFormat" + (i + 1)] != ""){
-										if(!isNaN(cellValue) && cellValue.toString().length > 10)
+									if (data["iTblCellDatetimeFormat" + (i + 1)] != "") {
+										if (!isNaN(cellValue) && cellValue.toString().length > 10)
 											cellValue = cellValue;
-										else if(!isNaN(cellValue) && cellValue.toString().length <= 10)
+										else if (!isNaN(cellValue) && cellValue.toString().length <= 10)
 											cellValue = cellValue * 1000;
 
-										var  getDateString = function(date, format) {
-											var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-												getPaddedComp = function(comp) {
-													return ((parseInt(comp) < 10) ? ('0' + comp) : comp)
+										var getDateString = function (date, format) {
+											var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+												getPaddedComp = function (comp) {
+													return ((parseInt(comp) < 10) ? ("0" + comp) : comp);
 												},
 												formattedDate = format,
 												o = {
 													"y": date.getFullYear(), // year
-													"m": getPaddedComp(date.getMonth() + 1)), //month number
-	"M": months[date.getMonth()], //month
-	"d": getPaddedComp(date.getDate()), //day
-	"h": getPaddedComp((date.getHours() > 12) ? date.getHours() % 12 : date.getHours()), //hour
-	"H": getPaddedComp(date.getHours()), //hour
-	"i": getPaddedComp(date.getMinutes()), //minute
-	"s": getPaddedComp(date.getSeconds()), //second
-	"S": getPaddedComp(date.getMilliseconds()), //millisecond,
-	"b": (date.getHours() >= 12) ? 'PM' : 'AM'
-};
+													"m": getPaddedComp(date.getMonth() + 1), //month number
+													"M": months[date.getMonth()], //month
+													"d": getPaddedComp(date.getDate()), //day
+													"h": getPaddedComp((date.getHours() > 12) ? date.getHours() % 12 : date.getHours()), //hour
+													"H": getPaddedComp(date.getHours()), //hour
+													"i": getPaddedComp(date.getMinutes()), //minute
+													"s": getPaddedComp(date.getSeconds()), //second
+													"S": getPaddedComp(date.getMilliseconds()), //millisecond,
+													"b": (date.getHours() >= 12) ? "PM" : "AM"
+												};
 
-for (var k in o) {
-	if (new RegExp("(" + k + ")", "g").test(format)) {
-		formattedDate = formattedDate.replace(RegExp.$1, o[k]);
-	}
-}
-return formattedDate;
-};
+											for (var k in o) {
+												if (new RegExp("(" + k + ")", "g").test(format)) {
+													formattedDate = formattedDate.replace(RegExp.$1, o[k]);
+												}
+											}
+											return formattedDate;
+										};
 
-var formattedDate = getDateString(new Date(cellValue ), data["iTblCellDatetimeFormat" + (i + 1)])
-cellValue = formattedDate;
-}
-break;
-case "image":
-cellValue = "<img src='" + cellValue + "'>";
-break;
-}
+										var formattedDate = getDateString(new Date(cellValue), data["iTblCellDatetimeFormat" + (i + 1)]);
+										cellValue = formattedDate;
+									}
+									break;
+								case "image":
+									cellValue = "<img src='" + cellValue + "'>";
+									break;
+							}
 
-output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + cellValue + "</td>";
-}
-}
-output += "</tr>";
-}
-output += "</tbody>";
-output += "</table>";
+							output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + cellValue + "</td>";
+						}
+					}
+					output += "</tr>";
+				}
+				output += "</tbody>";
+				output += "</table>";
 
-setTimeout(vis.binds["vis-inventwo"].jsontable, data.iTableRefreshRate, el, data);
+				setTimeout(vis.binds["vis-inventwo"].jsontable, data.iTableRefreshRate, el, data);
 
 
-}
-else{
-	output = "Columncount can't be zero/empty!";
-}
-}
-$(el).html(output);
-},
-
-radiobutton: function (el, oid, val) {
-	var $this = $(el);
-
-	if (!vis.editMode) {
-		var moved = false;
-		$this.parent().on('click touchend', function () {
-			if (vis.detectBounce(this)) return;
-			if (moved) return;
-
-			if(!isNaN(val))
-				val = parseFloat(val);
-
-			vis.setValue(oid, val);
-
-		}).on('touchmove', function () {
-			moved = true;
-		}).on('touchstart', function () {
-			moved = false;
-		});
-
-	}
-},
-
-updateUniversalDataFields: function (wid,view) {
-
-	vis.activeWidgets.forEach(function (el) {
-		let data = vis.views[vis.activeView].widgets[el].data;
-		let val = data.iUniversalWidgetType;
-
-		if(val == "Switch"){
-			vis.hideShowAttr("iNavWait",false);
-			vis.hideShowAttr("iValueType",true);
-			vis.hideShowAttr("iValueTypeInfo",true);
-			vis.hideShowAttr("iValueFalse",true);
-			vis.hideShowAttr("iValueTrue",true);
-			vis.hideShowAttr("value",false);
-			vis.hideShowAttr("iStateResponseTime",false);
-			vis.hideShowAttr("nav_view",false);
-			vis.hideShowAttr("oid",true);
-			vis.hideShowAttr("iStateResetValueTime",false);
-			for (let i = 1; i <= data.iUniversalValueCount; i++){
-				vis.hideShowAttr("oid" + i,true);
-				vis.hideShowAttr("iTextFalse" + i,true);
-				vis.hideShowAttr("iTextTrue" + i,true);
-				vis.hideShowAttr("iImageFalse" + i,true);
-				vis.hideShowAttr("iImageTrue" + i,true);
-				vis.hideShowAttr("iValue" + i,true);
-				vis.hideShowAttr("iView" + i,false);
+			} else {
+				output = "Columncount can't be zero/empty!";
 			}
 		}
-		else if(val == "State"){
-			vis.hideShowAttr("iNavWait",false);
-			vis.hideShowAttr("iValueType",false);
-			vis.hideShowAttr("iValueTypeInfo",false);
-			vis.hideShowAttr("iValueFalse",false);
-			vis.hideShowAttr("iValueTrue",false);
-			vis.hideShowAttr("value",true);
-			vis.hideShowAttr("iStateResponseTime",true);
-			vis.hideShowAttr("nav_view",false);
-			vis.hideShowAttr("oid",true);
-			vis.hideShowAttr("iStateResetValueTime",true);
-			for (let i = 1; i <= data.iUniversalValueCount; i++){
-				vis.hideShowAttr("oid" + i,true);
-				vis.hideShowAttr("iTextFalse" + i,true);
-				vis.hideShowAttr("iTextTrue" + i,true);
-				vis.hideShowAttr("iImageFalse" + i,true);
-				vis.hideShowAttr("iImageTrue" + i,true);
-				vis.hideShowAttr("iValue" + i,true);
-				vis.hideShowAttr("iView" + i,false);
-			}
-		}
-		else if(val == "Navigation"){
-			vis.hideShowAttr("iNavWait",true);
-			vis.hideShowAttr("iValueType",false);
-			vis.hideShowAttr("iValueTypeInfo",false);
-			vis.hideShowAttr("iValueFalse",false);
-			vis.hideShowAttr("iValueTrue",false);
-			vis.hideShowAttr("value",true);
-			vis.hideShowAttr("iStateResponseTime",false);
-			vis.hideShowAttr("nav_view",true);
-			vis.hideShowAttr("oid",true);
-			vis.hideShowAttr("iStateResetValueTime",false);
-			for (let i = 1; i <= data.iUniversalValueCount; i++){
-				vis.hideShowAttr("oid" + i,false);
-				vis.hideShowAttr("iTextFalse" + i,true);
-				vis.hideShowAttr("iTextTrue" + i,true);
-				vis.hideShowAttr("iImageFalse" + i,true);
-				vis.hideShowAttr("iImageTrue" + i,true);
-				vis.hideShowAttr("iValue" + i,false);
-				vis.hideShowAttr("iView" + i,true);
-			}
-		}
-		else if(val == "Background"){
-			vis.hideShowAttr("iNavWait",false);
-			vis.hideShowAttr("iValueFalse",false);
-			vis.hideShowAttr("value",false);
-			vis.hideShowAttr("iStateResponseTime",false);
-			vis.hideShowAttr("nav_view",false);
-			vis.hideShowAttr("iStateResetValueTime",false);
-			if(data.iUniversalValueCount == undefined) {
-				vis.hideShowAttr("oid", true);
-				vis.hideShowAttr("iValueType", true);
-				vis.hideShowAttr("iValueTypeInfo", true);
-				vis.hideShowAttr("iValueTrue", true);
-			}
-			else {
-				vis.hideShowAttr("oid", false);
-				vis.hideShowAttr("iValueType", false);
-				vis.hideShowAttr("iValueTypeInfo", false);
-				vis.hideShowAttr("iValueTrue", false);
-			}
-			for (let i = 1; i <= data.iUniversalValueCount; i++){
-				vis.hideShowAttr("oid" + i,true);
-				vis.hideShowAttr("iTextFalse" + i,true);
-				vis.hideShowAttr("iTextTrue" + i,true);
-				vis.hideShowAttr("iImageFalse" + i,true);
-				vis.hideShowAttr("iImageTrue" + i,true);
-				vis.hideShowAttr("iValue" + i,true);
-				vis.hideShowAttr("iView" + i,false);
-			}
-		}
-	});
-
-},
-/*
-	refreshDataFieldBtn: function () {
-
-		let text = "iRefreshBtnText";
-		return {input: `<button class="iUniversalWidgetRefreshBtn" onclick="vis.binds['vis-inventwo'].updateUniversalDataFields()">${_(text)}</button>`}
-
+		$(el).html(output);
 	},
-*/
-universalButton: function (el,data,type) {
 
-	this.updateUniversalDataFields;
-	vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){
-		createWidget(false);
-	});
-	/*
-	vis.states.bind(data.iOidToggle + '.val', function (e, newVal, oldVal){
-		createWidget();
-	});*/
-	vis.states.bind(vis.activeView, function (e, newVal, oldVal){
-		createWidget(false);
-	});
+	radiobutton: function (el, oid, val) {
+		var $this = $(el);
 
-	if(type == 'multi' && data.iUniversalWidgetType != "Navigation"){
-		for (let index = 1; index <= data.iUniversalValueCount; index++) {
+		if (!vis.editMode) {
+			var moved = false;
+			$this.parent().on("click touchend", function () {
+				if (vis.detectBounce(this)) return;
+				if (moved) return;
 
-			vis.states.bind(data.attr('oid' + index) + '.val', function (e, newVal, oldVal){
-				createWidget(false);
+				if (!isNaN(val))
+					val = parseFloat(val);
+
+				vis.setValue(oid, val);
+
+			}).on("touchmove", function () {
+				moved = true;
+			}).on("touchstart", function () {
+				moved = false;
 			});
 
 		}
-	}
+	},
 
+	updateUniversalDataFields: function (wid, view) {
 
-	createWidget(true);
+		vis.activeWidgets.forEach(function (el) {
+			let data = vis.views[vis.activeView].widgets[el].data;
+			let val = data.iUniversalWidgetType;
 
-	function createWidget(createEvents) {
-		/*
-		if(!$(el).length){
-			createWidget(el,data,type);
-		}*/
-
-		let dataNew = Object.assign({},data);
-
-		if(vis.editMode) {
-			dataNew = vis.binds["vis-inventwo"].getDatapointsValues(dataNew);
-		}
-
-		//Farben, Text & Bild bei true oder false
-		let backCol = "";
-		let shadowCol = "";
-		let shadowColInner = "";
-		let borderCol = "";
-		let img = "";
-		let txt = "";
-		let imgBlink = 0;
-		let imgColInvert = 0;
-
-		if(type == "multi") {
-			let found = false;
-			for (let i = 1; i <= dataNew.iUniversalValueCount; i++) {
-
-				let val = dataNew['iValue' + i];
-				if(val == "true")
-					val = true;
-				else if(val == "false")
-					val = false;
-				else if(!isNaN(val))
-					val = parseFloat(val);
-
-				if ((dataNew.iUniversalWidgetType != "Navigation" && dataNew['oid' + i] != undefined && vis.states.attr(dataNew['oid' + i] + '.val') == val) ||
-					(dataNew.iUniversalWidgetType == "Navigation" && dataNew['iView' + i] === vis.activeView)) {
-					backCol = dataNew['iButtonActiveM' + i];
-					shadowCol = dataNew['iShadowColorActiveM' + i];
-					shadowColInner = dataNew['iShadowInnerColorActiveM' + i];
-					borderCol = dataNew['iBorderColorActiveM' + i];
-					if (dataNew['iImageTrue' + i] != undefined)
-						img = dataNew['iImageTrue' + i];
-					if (dataNew['iTextTrue' + i] != undefined)
-						txt = dataNew['iTextTrue' + i]
-					imgBlink = dataNew['iImgBlinkTrue' + i];
-					imgColInvert = dataNew['iInvertImageCol' + i];
-					found = true
-					break;
+			if (val == "Switch") {
+				vis.hideShowAttr("iNavWait", false);
+				vis.hideShowAttr("iValueType", true);
+				vis.hideShowAttr("iValueTypeInfo", true);
+				vis.hideShowAttr("iValueFalse", true);
+				vis.hideShowAttr("iValueTrue", true);
+				vis.hideShowAttr("value", false);
+				vis.hideShowAttr("iStateResponseTime", false);
+				vis.hideShowAttr("nav_view", false);
+				vis.hideShowAttr("oid", true);
+				vis.hideShowAttr("iStateResetValueTime", false);
+				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+					vis.hideShowAttr("oid" + i, true);
+					vis.hideShowAttr("iTextFalse" + i, true);
+					vis.hideShowAttr("iTextTrue" + i, true);
+					vis.hideShowAttr("iImageFalse" + i, true);
+					vis.hideShowAttr("iImageTrue" + i, true);
+					vis.hideShowAttr("iValue" + i, true);
+					vis.hideShowAttr("iView" + i, false);
+				}
+			} else if (val == "State") {
+				vis.hideShowAttr("iNavWait", false);
+				vis.hideShowAttr("iValueType", false);
+				vis.hideShowAttr("iValueTypeInfo", false);
+				vis.hideShowAttr("iValueFalse", false);
+				vis.hideShowAttr("iValueTrue", false);
+				vis.hideShowAttr("value", true);
+				vis.hideShowAttr("iStateResponseTime", true);
+				vis.hideShowAttr("nav_view", false);
+				vis.hideShowAttr("oid", true);
+				vis.hideShowAttr("iStateResetValueTime", true);
+				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+					vis.hideShowAttr("oid" + i, true);
+					vis.hideShowAttr("iTextFalse" + i, true);
+					vis.hideShowAttr("iTextTrue" + i, true);
+					vis.hideShowAttr("iImageFalse" + i, true);
+					vis.hideShowAttr("iImageTrue" + i, true);
+					vis.hideShowAttr("iValue" + i, true);
+					vis.hideShowAttr("iView" + i, false);
+				}
+			} else if (val == "Navigation") {
+				vis.hideShowAttr("iNavWait", true);
+				vis.hideShowAttr("iValueType", false);
+				vis.hideShowAttr("iValueTypeInfo", false);
+				vis.hideShowAttr("iValueFalse", false);
+				vis.hideShowAttr("iValueTrue", false);
+				vis.hideShowAttr("value", true);
+				vis.hideShowAttr("iStateResponseTime", false);
+				vis.hideShowAttr("nav_view", true);
+				vis.hideShowAttr("oid", true);
+				vis.hideShowAttr("iStateResetValueTime", false);
+				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+					vis.hideShowAttr("oid" + i, false);
+					vis.hideShowAttr("iTextFalse" + i, true);
+					vis.hideShowAttr("iTextTrue" + i, true);
+					vis.hideShowAttr("iImageFalse" + i, true);
+					vis.hideShowAttr("iImageTrue" + i, true);
+					vis.hideShowAttr("iValue" + i, false);
+					vis.hideShowAttr("iView" + i, true);
+				}
+			} else if (val == "Background") {
+				vis.hideShowAttr("iNavWait", false);
+				vis.hideShowAttr("iValueFalse", false);
+				vis.hideShowAttr("value", false);
+				vis.hideShowAttr("iStateResponseTime", false);
+				vis.hideShowAttr("nav_view", false);
+				vis.hideShowAttr("iStateResetValueTime", false);
+				if (data.iUniversalValueCount == undefined) {
+					vis.hideShowAttr("oid", true);
+					vis.hideShowAttr("iValueType", true);
+					vis.hideShowAttr("iValueTypeInfo", true);
+					vis.hideShowAttr("iValueTrue", true);
+				} else {
+					vis.hideShowAttr("oid", false);
+					vis.hideShowAttr("iValueType", false);
+					vis.hideShowAttr("iValueTypeInfo", false);
+					vis.hideShowAttr("iValueTrue", false);
+				}
+				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+					vis.hideShowAttr("oid" + i, true);
+					vis.hideShowAttr("iTextFalse" + i, true);
+					vis.hideShowAttr("iTextTrue" + i, true);
+					vis.hideShowAttr("iImageFalse" + i, true);
+					vis.hideShowAttr("iImageTrue" + i, true);
+					vis.hideShowAttr("iValue" + i, true);
+					vis.hideShowAttr("iView" + i, false);
 				}
 			}
-			if(!found){
-				backCol = dataNew.iButtonCol;
-				shadowCol = dataNew.iShadowColor;
-				shadowColInner = dataNew.iShadowInnerColor;
-				borderCol = dataNew.iBorderColor;
-				if(dataNew.iImageFalse != undefined)
-					img = dataNew.iImageFalse;
-				else{
-					img = "";
+		});
+
+	},
+	/*
+		refreshDataFieldBtn: function () {
+
+			let text = "iRefreshBtnText";
+			return {input: `<button class="iUniversalWidgetRefreshBtn" onclick="vis.binds['vis-inventwo'].updateUniversalDataFields()">${_(text)}</button>`}
+
+		},
+	*/
+	universalButton: function (el, data, type) {
+
+		this.updateUniversalDataFields;
+		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
+			createWidget(false);
+		});
+		/*
+		vis.states.bind(data.iOidToggle + '.val', function (e, newVal, oldVal){
+			createWidget();
+		});*/
+		vis.states.bind(vis.activeView, function (e, newVal, oldVal) {
+			createWidget(false);
+		});
+
+		if (type == "multi" && data.iUniversalWidgetType != "Navigation") {
+			for (let index = 1; index <= data.iUniversalValueCount; index++) {
+
+				vis.states.bind(data.attr("oid" + index) + ".val", function (e, newVal, oldVal) {
+					createWidget(false);
+				});
+
+			}
+		}
+
+
+		createWidget(true);
+
+		function createWidget(createEvents) {
+			/*
+			if(!$(el).length){
+				createWidget(el,data,type);
+			}*/
+
+			let dataNew = Object.assign({}, data);
+
+			if (vis.editMode) {
+				dataNew = vis.binds["vis-inventwo"].getDatapointsValues(dataNew);
+			}
+
+			//Farben, Text & Bild bei true oder false
+			let backCol = "";
+			let shadowCol = "";
+			let shadowColInner = "";
+			let borderCol = "";
+			let img = "";
+			let txt = "";
+			let imgBlink = 0;
+			let imgColInvert = 0;
+
+			if (type == "multi") {
+				let found = false;
+				for (let i = 1; i <= dataNew.iUniversalValueCount; i++) {
+
+					let val = dataNew["iValue" + i];
+					if (val == "true")
+						val = true;
+					else if (val == "false")
+						val = false;
+					else if (!isNaN(val))
+						val = parseFloat(val);
+
+					if ((dataNew.iUniversalWidgetType != "Navigation" && dataNew["oid" + i] != undefined && vis.states.attr(dataNew["oid" + i] + ".val") == val) ||
+						(dataNew.iUniversalWidgetType == "Navigation" && dataNew["iView" + i] === vis.activeView)) {
+						backCol = dataNew["iButtonActiveM" + i];
+						shadowCol = dataNew["iShadowColorActiveM" + i];
+						shadowColInner = dataNew["iShadowInnerColorActiveM" + i];
+						borderCol = dataNew["iBorderColorActiveM" + i];
+						if (dataNew["iImageTrue" + i] != undefined)
+							img = dataNew["iImageTrue" + i];
+						if (dataNew["iTextTrue" + i] != undefined)
+							txt = dataNew["iTextTrue" + i];
+						imgBlink = dataNew["iImgBlinkTrue" + i];
+						imgColInvert = dataNew["iInvertImageCol" + i];
+						found = true;
+						break;
+					}
 				}
-				if(dataNew.iTextFalse != undefined)
-					txt = dataNew.iTextFalse;
-				else
-					txt = "";
-				imgBlink = dataNew.iImgBlinkFalse;
+				if (!found) {
+					backCol = dataNew.iButtonCol;
+					shadowCol = dataNew.iShadowColor;
+					shadowColInner = dataNew.iShadowInnerColor;
+					borderCol = dataNew.iBorderColor;
+					if (dataNew.iImageFalse != undefined)
+						img = dataNew.iImageFalse;
+					else {
+						img = "";
+					}
+					if (dataNew.iTextFalse != undefined)
+						txt = dataNew.iTextFalse;
+					else
+						txt = "";
+					imgBlink = dataNew.iImgBlinkFalse;
+					imgColInvert = dataNew.iInvertImageCol;
+				}
+			} else if (type == "universal") {
+				if ((dataNew.iUniversalWidgetType == "Navigation" && dataNew.nav_view === vis.activeView) ||
+					(
+						(dataNew.iUniversalWidgetType == "Switch" || dataNew.iUniversalWidgetType == "Background") &&
+						(
+							(vis.states.attr(dataNew.oid + ".val") == dataNew.iValueTrue && dataNew.iValueType == "value") ||
+							(vis.states.attr(dataNew.oid + ".val") === true && dataNew.iValueType == "boolean")
+						)
+
+					)) {
+
+					backCol = dataNew.iButtonActive;
+					shadowCol = dataNew.iShadowColorActive;
+					shadowColInner = dataNew.iShadowInnerColorActive;
+					borderCol = dataNew.iBorderColorActive;
+
+					if (dataNew.iImageTrue != undefined)
+						img = dataNew.iImageTrue;
+					if (dataNew.iTextFalse != undefined)
+						txt = dataNew.iTextTrue;
+
+					imgBlink = dataNew.iImgBlinkTrue;
+				} else {
+					backCol = dataNew.iButtonCol;
+					shadowCol = dataNew.iShadowColor;
+					shadowColInner = dataNew.iShadowInnerColor;
+					borderCol = dataNew.iBorderColor;
+					if (dataNew.iImageFalse != undefined)
+						img = dataNew.iImageFalse;
+					else {
+						img = "";
+					}
+					if (dataNew.iTextFalse != undefined)
+						txt = dataNew.iTextFalse;
+					else
+						txt = "";
+					imgBlink = dataNew.iImgBlinkFalse;
+
+
+				}
+
 				imgColInvert = dataNew.iInvertImageCol;
 			}
-		}
-
-		else if(type == "universal"){
-			if ((dataNew.iUniversalWidgetType == "Navigation" && dataNew.nav_view === vis.activeView) ||
-				(
-					(dataNew.iUniversalWidgetType == "Switch" || dataNew.iUniversalWidgetType == "Background") &&
-					(
-						(vis.states.attr(dataNew.oid + '.val') == dataNew.iValueTrue && dataNew.iValueType == 'value') ||
-						(vis.states.attr(dataNew.oid + '.val') === true && dataNew.iValueType == 'boolean')
-					)
-
-				) )
-			{
-
-				backCol = dataNew.iButtonActive;
-				shadowCol = dataNew.iShadowColorActive;
-				shadowColInner = dataNew.iShadowInnerColorActive;
-				borderCol = dataNew.iBorderColorActive;
-
-				if (dataNew.iImageTrue != undefined)
-					img = dataNew.iImageTrue;
-				if (dataNew.iTextFalse != undefined)
-					txt = dataNew.iTextTrue;
-
-				imgBlink = dataNew.iImgBlinkTrue;
-			}
-			else{
-				backCol = dataNew.iButtonCol;
-				shadowCol = dataNew.iShadowColor;
-				shadowColInner = dataNew.iShadowInnerColor;
-				borderCol = dataNew.iBorderColor;
-				if(dataNew.iImageFalse != undefined)
-					img = dataNew.iImageFalse;
-				else{
-					img = "";
-				}
-				if(dataNew.iTextFalse != undefined)
-					txt = dataNew.iTextFalse;
-				else
-					txt = "";
-				imgBlink = dataNew.iImgBlinkFalse;
 
 
+			imgBlink = imgBlink / 1000;
+
+			let shadow = dataNew.iShadowXOffset + "px " + dataNew.iShadowYOffset + "px " + dataNew.iShadowBlur + "px " + dataNew.iShadowSpread + "px " + shadowCol + ",inset " +
+				dataNew.iShadowInnerXOffset + "px " + dataNew.iShadowInnerYOffset + "px " + dataNew.iShadowInnerBlur + "px " + dataNew.iShadowInnerSpread + "px " + shadowColInner;
+			let border = dataNew.iBorderSize + "px " + dataNew.iBorderStyle + " " + borderCol;
+			let borderRadius = dataNew.iCornerRadiusUL + "px " + dataNew.iCornerRadiusUR + "px " + dataNew.iCornerRadiusLR + "px " + dataNew.iCornerRadiusLL + "px";
+
+			//Bild spiegeln
+			let flip = 1;
+			if (dataNew.iFlipImage) {
+				flip = -1;
 			}
 
-			imgColInvert = dataNew.iInvertImageCol;
-		}
+			//
+			let imgMargin = dataNew.iImgSpaceTop + "px " + dataNew.iImgSpaceRight + "px " + dataNew.iImgSpaceBottom + "px " + dataNew.iImgSpaceLeft + "px";
+			let txtMargin = dataNew.iTextSpaceTop + "px " + dataNew.iTextSpaceRight + "px " + dataNew.iTextSpaceBottom + "px " + dataNew.iTextSpaceLeft + "px";
 
+			//Vertikale Inhaltsausrichtung
+			let vertTextAlign = "";
+			if (dataNew.iContentVertAlign == "iStart")
+				vertTextAlign = "flex-start";
+			else if (dataNew.iContentVertAlign == "iCenter")
+				vertTextAlign = "center";
+			else if (dataNew.iContentVertAlign == "iEnd")
+				vertTextAlign = "flex-end";
+			else if (dataNew.iContentVertAlign == "iSpace-between")
+				vertTextAlign = "space-between";
 
-		imgBlink = imgBlink / 1000;
+			//Inhaltsausrichtung (Reihe oder Spalte)
+			let contFlexDir = "";
+			if (dataNew.iContentFlexDirection == "vertical")
+				contFlexDir = "column";
+			else if (dataNew.iContentFlexDirection == "horizontal")
+				contFlexDir = "row";
 
-		let shadow = dataNew.iShadowXOffset + 'px ' + dataNew.iShadowYOffset + 'px ' + dataNew.iShadowBlur + 'px ' + dataNew.iShadowSpread + 'px ' + shadowCol + ',inset ' +
-			dataNew.iShadowInnerXOffset + 'px ' + dataNew.iShadowInnerYOffset + 'px ' + dataNew.iShadowInnerBlur + 'px ' + dataNew.iShadowInnerSpread + 'px ' + shadowColInner;
-		let border = dataNew.iBorderSize + 'px ' + dataNew.iBorderStyle + ' ' + borderCol;
-		let borderRadius = dataNew.iCornerRadiusUL + 'px ' + dataNew.iCornerRadiusUR + 'px ' + dataNew.iCornerRadiusLR + 'px ' + dataNew.iCornerRadiusLL + 'px';
+			//Inhaltsreihenfolge (Erst Bild dann Text oder erst Text dann Bild)
+			let orderContent = "";
+			if (dataNew.iContentOrder == "orderTextImg")
+				orderContent = 2;
+			else
+				orderContent = 0;
 
-		//Bild spiegeln
-		let flip = 1;
-		if (dataNew.iFlipImage) {
-			flip = -1;
-		}
+			//Bildausrichtung
+			let imgAlign = "";
+			if (dataNew.iImgAlign == "iStart")
+				imgAlign = "flex-start";
+			else if (dataNew.iImgAlign == "iCenter")
+				imgAlign = "center";
+			else if (dataNew.iImgAlign == "iEnd")
+				imgAlign = "flex-end";
 
-		//
-		let imgMargin = dataNew.iImgSpaceTop + 'px ' + dataNew.iImgSpaceRight + 'px ' + dataNew.iImgSpaceBottom + 'px ' + dataNew.iImgSpaceLeft + 'px';
-		let txtMargin = dataNew.iTextSpaceTop + 'px ' + dataNew.iTextSpaceRight + 'px ' + dataNew.iTextSpaceBottom + 'px ' + dataNew.iTextSpaceLeft + 'px'
+			//Textausrichtung
+			let textAlign = "";
+			if (dataNew.iTextAlign == "iStart")
+				textAlign = "flex-start";
+			else if (dataNew.iTextAlign == "iCenter")
+				textAlign = "center";
+			else if (dataNew.iTextAlign == "iEnd")
+				textAlign = "flex-end";
 
-		//Vertikale Inhaltsausrichtung
-		let vertTextAlign = "";
-		if (dataNew.iContentVertAlign == 'iStart')
-			vertTextAlign = "flex-start";
-		else if (dataNew.iContentVertAlign == 'iCenter')
-			vertTextAlign = "center";
-		else if (dataNew.iContentVertAlign == 'iEnd')
-			vertTextAlign = "flex-end";
-		else if (dataNew.iContentVertAlign == 'iSpace-between')
-			vertTextAlign = "space-between";
-
-		//Inhaltsausrichtung (Reihe oder Spalte)
-		let contFlexDir = "";
-		if (dataNew.iContentFlexDirection == "vertical")
-			contFlexDir = "column";
-		else if (dataNew.iContentFlexDirection == "horizontal")
-			contFlexDir = "row";
-
-		//Inhaltsreihenfolge (Erst Bild dann Text oder erst Text dann Bild)
-		let orderContent = "";
-		if (dataNew.iContentOrder == 'orderTextImg')
-			orderContent = 2;
-		else
-			orderContent = 0;
-
-		//Bildausrichtung
-		let imgAlign = "";
-		if (dataNew.iImgAlign == 'iStart')
-			imgAlign = "flex-start";
-		else if (dataNew.iImgAlign == 'iCenter')
-			imgAlign = "center";
-		else if (dataNew.iImgAlign == 'iEnd')
-			imgAlign = "flex-end";
-
-		//Textausrichtung
-		let textAlign = "";
-		if (dataNew.iTextAlign == 'iStart')
-			textAlign = "flex-start";
-		else if (dataNew.iTextAlign == 'iCenter')
-			textAlign = "center";
-		else if (dataNew.iTextAlign == 'iEnd')
-			textAlign = "flex-end";
-
-		let html = `
+			let html = `
 			<div class="vis-inventwo-class vis-widget-body">
 				<div>
 					<div class="vis-inventwo-button-new"
 						 style="background: ` + backCol + `;
 						 		opacity: ` + dataNew.iOpacityBack + `;
-						 		box-shadow: `+ shadow +`;
-						 		border: `+ border +`;
-						 		border-radius: `+ borderRadius +`;"></div>
+						 		box-shadow: ` + shadow + `;
+						 		border: ` + border + `;
+						 		border-radius: ` + borderRadius + `;"></div>
 					<div class="vis-inventwo-button-content"
-						 style="opacity: `+ dataNew.iOpacityCtn +`;
-						 		justify-content: `+ vertTextAlign +`;
-						 		flex-direction: `+ contFlexDir +`">
+						 style="opacity: ` + dataNew.iOpacityCtn + `;
+						 		justify-content: ` + vertTextAlign + `;
+						 		flex-direction: ` + contFlexDir + `">
 						
 						<div class="vis-inventwo-button-imageContainer"
-							 style="order: `+ orderContent +`;
-							 align-self: `+ imgAlign +`;
-							 margin: `+ imgMargin +`;">
-							<img src="`+ img +`" width="`+ dataNew.iIconSize +`"
-								 style="filter: invert(`+ Number(imgColInvert) +`);
-								 		transform: scaleX(`+ flip +`) rotateZ(`+ dataNew.iImgRotation +`deg);
+							 style="order: ` + orderContent + `;
+							 align-self: ` + imgAlign + `;
+							 margin: ` + imgMargin + `;">
+							<img src="` + img + `" width="` + dataNew.iIconSize + `"
+								 style="filter: invert(` + Number(imgColInvert) + `);
+								 		transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
 								 		animation:blink ` + imgBlink + `s infinite;"> 
 						</div>
 						
 						<div class="vis-inventwo-button-text"
-							 style="font-size: `+ dataNew.iTextSize +`px;
-							 		color: `+ dataNew.iTextColor +`;
-							 		margin: `+ txtMargin +`;
-							 		align-self: `+ textAlign +`;">
-							`+ txt +`
+							 style="font-size: ` + dataNew.iTextSize + `px;
+							 		color: ` + dataNew.iTextColor + `;
+							 		margin: ` + txtMargin + `;
+							 		align-self: ` + textAlign + `;">
+							` + txt + `
 						</div>
 						
 					</div>
 				</div>
 			</div>`;
 
-		$(el).html(html);
+			$(el).html(html);
 
-		//Bindings
-		if(createEvents) {
-			if (dataNew.iUniversalWidgetType == "Switch") {
-				vis.binds['vis-inventwo'].handleToggle(el, dataNew, type);
-			} else if (dataNew.iUniversalWidgetType == "State") {
-				vis.binds['vis-inventwo'].state(el, dataNew, type);
-			} else if (dataNew.iUniversalWidgetType == "Navigation") {
-				vis.binds['vis-inventwo'].handleNavigation(el, dataNew, type);
-				if (type == "universal")
-					$(el).parent().addClass('iUniversalNav');
-				else if (type == "multi")
-					$(el).parent().addClass('iMultiNav');
-			} else if (dataNew.iUniversalWidgetType == "Background") {
-				$(el).parent().css('cursor', 'default');
+			//Bindings
+			if (createEvents) {
+				if (dataNew.iUniversalWidgetType == "Switch") {
+					vis.binds["vis-inventwo"].handleToggle(el, dataNew, type);
+				} else if (dataNew.iUniversalWidgetType == "State") {
+					vis.binds["vis-inventwo"].state(el, dataNew, type);
+				} else if (dataNew.iUniversalWidgetType == "Navigation") {
+					vis.binds["vis-inventwo"].handleNavigation(el, dataNew, type);
+					if (type == "universal")
+						$(el).parent().addClass("iUniversalNav");
+					else if (type == "multi")
+						$(el).parent().addClass("iMultiNav");
+				} else if (dataNew.iUniversalWidgetType == "Background") {
+					$(el).parent().css("cursor", "default");
+				}
+
+				$(el).parent().on("mouseup click", function () {
+					setTimeout(function () {
+						vis.binds["vis-inventwo"].updateUniversalDataFields();
+					}, 100);
+				});
 			}
 
-			$(el).parent().on('mouseup click', function () {
-				setTimeout(function () {
-					vis.binds['vis-inventwo'].updateUniversalDataFields();
-				},100)
-			});
 		}
 
-	}
+	},
 
-},
+	getDatapointsValues: function (data) {
 
-getDatapointsValues: function (data) {
+		for (let [key, value] of Object.entries(data)) {
+			if (key.substring(0, 1) == "i") {
 
-	for (let [key, value] of Object.entries(data)) {
-		if (key.substring(0, 1) == "i") {
+				let matches = [];
+				let reg = /\{([^\{\}]*)\}/gm;
+				let match = reg.exec(value);
+				while (match != null) {
+					matches.push(match);
+					match = reg.exec(value);
+				}
 
-			let matches = [];
-			let reg = /\{([^\{\}]*)\}/gm;
-			let match = reg.exec(value);
-			while (match != null) {
-				matches.push(match);
-				match = reg.exec(value);
+				matches.forEach(function (match) {
+					let val = vis.states.attr(match[1] + ".val");
+					data[key] = data[key].replace(match[0], val);
+				});
 			}
-
-			matches.forEach(function (match) {
-				let val = vis.states.attr(match[1] + ".val");
-				data[key] = data[key].replace(match[0], val);
-			});
 		}
-	}
 
-	return data;
-},
+		return data;
+	},
 
 
-valueList: function (el,data) {
+	valueList: function (el, data) {
 
-	vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){
+		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
+			createList();
+		});
+
 		createList();
-	});
 
-	createList();
+		function createList() {
+			let text = "";
+			let arr = [];
+			let listTxt = "";
 
-	function createList(){
-		let text = "";
-		let arr = [];
-		let listTxt = "";
+			let dataNew = Object.assign({}, data);
 
-		let dataNew = Object.assign({},data);
+			if (dataNew.iValueListText != undefined && dataNew.iValueListText != "") {
+				listTxt = dataNew.iValueListText;
+			} else if (data.oid != undefined && data.oid != "" && vis.states.attr(data.oid + ".val") != "") {
+				listTxt = vis.states.attr(data.oid + ".val");
+			}
 
-		if(dataNew.iValueListText != undefined && dataNew.iValueListText != ''){
-			listTxt = dataNew.iValueListText;
-		}
-		else if(data.oid != undefined && data.oid != '' && vis.states.attr(data.oid + '.val') != ''){
-			listTxt = vis.states.attr(data.oid + '.val');
-		}
+			let paddingLeft = 14;
 
-		let paddingLeft = 14;
+			if (data.iValueListStyle == "none") {
+				paddingLeft = 0;
+			}
 
-		if(data.iValueListStyle == 'none'){
-			paddingLeft = 0;
-		}
+			if (listTxt != "") {
+				arr = listTxt.split(dataNew.iValueListDelimiter);
 
-		if(listTxt != ''){
-			arr = listTxt.split(dataNew.iValueListDelimiter);
-
-			text = `<ul class="vis-inventwo-valuelist-list"
+				text = `<ul class="vis-inventwo-valuelist-list"
 					style="padding-left: ` + paddingLeft + `px;
 							color: ` + dataNew.iTextColor + `;
 							font-size: ` + dataNew.iTextSize + `px;
 							list-style: ` + dataNew.iValueListStyle + `">`;
 
-			text += "<li class='vis-inventwo-valuelist-li' style='padding-bottom: "+ dataNew.iValueListEntryDistance +"px;'>";
-			text += arr.join("</li><li class='vis-inventwo-valuelist-li' style='padding-bottom: "+ dataNew.iValueListEntryDistance +"px;'>");
-			text += "</li></ul>";
+				text += "<li class='vis-inventwo-valuelist-li' style='padding-bottom: " + dataNew.iValueListEntryDistance + "px;'>";
+				text += arr.join("</li><li class='vis-inventwo-valuelist-li' style='padding-bottom: " + dataNew.iValueListEntryDistance + "px;'>");
+				text += "</li></ul>";
+
+			}
+
+			$(el).html(text);
 
 		}
 
-		$(el).html(text);
-
 	}
-
-}
 
 };
