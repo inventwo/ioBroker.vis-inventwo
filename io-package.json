@@ -1,204 +1,214 @@
 {
-	"common": {
-		"name": "vis-inventwo",
-		"version": "2.2.3",
-		"news": {
-            "2.2.3":{
-              "en": "Fixed bug in JSON Table",
-              "de": "Fehler in JSON-Tabelle behoben",
-              "ru": "Исправлена ошибка в таблице JSON",
-              "pt": "Bug corrigido na tabela JSON",
-              "nl": "Bug opgelost in JSON-tabel",
-              "fr": "Correction d'un bug dans la table JSON",
-              "it": "Risolto bug nella tabella JSON",
-              "es": "Error solucionado en la tabla JSON",
-              "pl": "Naprawiono błąd w tabeli JSON",
-              "zh-cn": "修复了JSON表中的错误"
-            },
-            "2.2.2": {
-              "en": "fixed bug in multi-widget: image and text don't change",
-              "de": "Fehler im Multi-Widget behoben: Bild und Text ändern sich nicht",
-              "ru": "исправлена ошибка в мульти-виджете: изображение и текст не меняются",
-              "pt": "bug corrigido em multi-widget: imagem e texto não mudam",
-              "nl": "bug opgelost in multi-widget: afbeelding en tekst veranderen niet",
-              "fr": "correction d'un bug dans le multi-widget: l'image et le texte ne changent pas",
-              "it": "bug corretto nel multi-widget: immagine e testo non cambiano",
-              "es": "error corregido en multi-widget: la imagen y el texto no cambian",
-              "pl": "naprawiony błąd w multi-widżecie: obraz i tekst się nie zmieniają",
-              "zh-cn": "修复了多窗口小部件中的错误：图像和文本不变"
-            },
-            "2.2.1": {
-              "en": "FIxed bug in JSON Table if no valid JSON Object, Fixed error in Value-List: value not updating",
-              "de": "Fehler in der JSON-Tabelle behoben, wenn kein gültiges JSON-Objekt vorhanden ist. Fehler in der Werteliste behoben: Wert wird nicht aktualisiert",
-              "ru": "Исправлена ошибка в таблице JSON при отсутствии действительного объекта JSON, исправлена ошибка в списке значений: значение не обновляется",
-              "pt": "Bug corrigido na tabela JSON se nenhum objeto JSON válido, erro corrigido na lista de valores: valor não atualizando",
-              "nl": "Vaste bug in JSON-tabel als er geen geldig JSON-object is, vaste fout in waardenlijst: waarde wordt niet bijgewerkt",
-              "fr": "Correction d'un bug dans la table JSON si aucun objet JSON valide, erreur corrigée dans Value-List: la valeur ne se met pas à jour",
-              "it": "Bug risolto nella tabella JSON se nessun oggetto JSON valido, errore corretto in Value-List: valore non aggiornato",
-              "es": "Error corregido en la tabla JSON si no hay un objeto JSON válido, error corregido en la lista de valores: el valor no se actualiza",
-              "pl": "Naprawiono błąd w tabeli JSON, jeśli nie ma prawidłowego obiektu JSON, naprawiono błąd w liście wartości: wartość nie jest aktualizowana",
-              "zh-cn": "修复JSON表中的错误（如果没有有效的JSON对象），修复了值列表中的错误：值未更新"
-            },
-            "2.2.0": {
-              "en": "New Widget: Marquee, Added Length  of stay to State, Value List entry distance can be changed",
-              "de": "Neues Widget: Laufschrift, Verweildauer für State hinzugefügt, Value List: Abstand zwischen den Eintr#gen kann geändert werden",
-              "ru": "Новый виджет: выделение, добавленная длительность пребывания в состоянии, расстояние входа в список значений можно изменить",
-              "pt": "Novo widget: letreiro, tempo de permanência adicionado ao estado, distância de entrada da lista de valores pode ser alterada",
-              "nl": "Nieuwe widget: selectiekader, duur van verblijf toegevoegd aan staat, invoerafstand in waardelijst kan worden gewijzigd",
-              "fr": "Nouveau widget: Marquee, Ajout de la durée du séjour à l'état, la distance d'entrée de la liste de valeurs peut être modifiée",
-              "it": "Nuovo widget: selezione, durata del soggiorno aggiunta allo stato, distanza di immissione dell'elenco valori possono essere modificati",
-              "es": "Nuevo widget: marquesina, duración añadida de la estancia al estado, se puede cambiar la distancia de entrada de la lista de valores",
-              "pl": "Nowy widżet: markiza, dodana długość pobytu do stanu, odległość wpisu listy wartości można zmienić",
-              "zh-cn": "新的小部件：字幕，已添加状态停留时间，值列表输入距离可以更改"
-            },
-            "2.1.0": {
-              "en": "Values of datapoints now visible in vis editor!",
-              "de": "Werte von Datenpunkten jetzt im vis-Editor sichtbar!",
-              "ru": "Значения точек данных теперь отображаются в редакторе vis!",
-              "pt": "Valores de pontos de dados agora visíveis no editor vis!",
-              "nl": "Waarden van datapunten nu zichtbaar in vis editor!",
-              "fr": "Les valeurs des points de données désormais visibles dans l'éditeur vis!",
-              "it": "I valori dei datapoint sono ora visibili nell'editor vis!",
-              "es": "¡Los valores de los puntos de datos ahora son visibles en vis editor!",
-              "pl": "Wartości punktów danych są teraz widoczne w edytorze vis!",
-              "zh-cn": "数据点的值现在在可视化编辑器中可见！"
-            },
-            "2.0.1": {
-              "en": "Fixed translation, Fixed border color, fixed widget subtitles",
-              "de": "Übersetzung behoben,Border Farbe behoben,Widget-Untertitel behoben",
-              "ru": "Фиксированный перевод, фиксированный цвет границы, фиксированные субтитры виджета",
-              "pt": "Tradução fixa, cor de borda fixa, legendas de widget fixas",
-              "nl": "Vaste vertaling, vaste randkleur, vaste widget-ondertitels",
-              "fr": "Traduction fixe, couleur de bordure fixe, sous-titres de widget fixes",
-              "it": "Traduzione fissa, colore bordo fisso, sottotitoli widget fissi",
-              "es": "Traducción fija, color de borde fijo, subtítulos de widget fijos",
-              "pl": "Naprawiono tłumaczenie, naprawiono kolor obramowania, poprawiono napisy do widgetów",
-              "zh-cn": "固定翻译，固定边框颜色，固定小工具字幕"
-            },
-            "2.0.0":{
-              "en": "Merge Switch, Button, Nav and Background Widget to one Widget (Universal Widget), Added Multi Widget, Added new Image Widget, Added Radiobuttons Widget, Added Value List Widget, New CSS options",
-              "de": "Switch, Button, Nav and Background Widget zu einem Widget zusammengeführt (Universal Widget), Multi-Widget hinzugefügt, neues Image Widget hinzugefügt, Radiobuttons hinzugefügt, Werteliste Widget hinzugefügt, Neue CSS Einstellungen",
-              "ru": "Объединить переключатель, кнопку, навигацию и фоновый виджет в один виджет (универсальный виджет), добавлен мульти виджет, добавлен новый виджет изображения, добавлены радиокнопки, список добавленных значений, новые параметры CSS",
-              "pt": "Merge Switch, Button, Nav e Background Widget em um widget (Universal Widget), Multi Widget adicionado, Novo widget de imagem adicionado, Radiobuttons adicionados, Lista de valor adicionado, Novas opções de CSS",
-              "nl": "Samenvoegen Switch, Button, Nav en Achtergrond Widget tot één Widget (Universal Widget), Multi Widget toegevoegd, Nieuwe Image Widget toegevoegd, Radiobuttons toegevoegd, Value List toegevoegd, Nieuwe CSS-opties",
-              "fr": "Fusionner le commutateur, le bouton, le navigateur et le widget d'arrière-plan en un seul widget (widget universel), un widget multiple ajouté, un nouveau widget d'image, des boutons radio ajoutés, une liste de valeur ajoutée, de nouvelles options CSS",
-              "it": "Unisci Switch, Button, Nav e Background Widget in un Widget (Universal Widget), Aggiunto Multi Widget, Aggiunto nuovo widget immagine, Aggiunto Radiobuttons, Aggiunto Value List, Nuove opzioni CSS",
-              "es": "Combinar interruptor, botón, navegación y widget de fondo en un widget (widget universal), widget múltiple agregado, widget de imagen nuevo agregado, botones de radio agregados, lista de valor agregado, nuevas opciones de CSS",
-              "pl": "Połącz przełącznik, przycisk, nawigację i widżet tła w jeden widżet (widżet uniwersalny), dodano widżet Multi, dodano nowy widżet obrazu, dodano przyciski radiowe, lista wartości dodanych, nowe opcje CSS",
-              "zh-cn": "将开关，按钮，导航和背景小部件合并到一个小部件（通用小部件）中，添加了多小部件，添加了新的图像小部件，添加了单选按钮，添加了值列表，新的CSS选项"
-            },
-            "1.3.8": {
-              "en": "Changed slider step to decimal, Fixed problem with numeric values",
-              "de": "Schiebereglerschritt auf Dezimal geändert, Problem mit numerischen Werten behoben",
-              "ru": "Изменен шаг ползунка на десятичный, исправлена проблема с числовыми значениями",
-              "pt": "Alteração da etapa do controle deslizante para decimal. Corrigido o problema com valores numéricos",
-              "nl": "Veranderde schuifstap naar decimaal, Probleem opgelost met numerieke waarden",
-              "fr": "Changement du pas du curseur en décimal, Correction d'un problème avec les valeurs numériques",
-              "it": "Passaggio del cursore modificato in decimale, risolto problema con valori numerici",
-              "es": "Se cambió el paso del control deslizante a decimal, se solucionó el problema con los valores numéricos",
-              "pl": "Zmieniono krok suwaka na dziesiętny, Naprawiono problem z wartościami liczbowymi",
-              "zh-cn": "将滑块步进更改为十进制，解决了数值问题"
-            },
-            "1.3.7": {
-              "en": "Fixed problem with navigation on touchscreens",
-              "de": "Problem mit der Navigation auf Touchscreens behoben",
-              "ru": "Исправлена проблема с навигацией на сенсорных экранах",
-              "pt": "Corrigido o problema com a navegação em telas sensíveis ao toque",
-              "nl": "Probleem opgelost met navigatie op touchscreens",
-              "fr": "Correction d'un problème de navigation sur les écrans tactiles",
-              "it": "Risolto il problema con la navigazione sui touchscreen",
-              "es": "Problema solucionado con la navegación en pantallas táctiles",
-              "pl": "Naprawiono problem z nawigacją na ekranach dotykowych",
-              "zh-cn": "解决了触摸屏上导航的问题"
-            },
-            "1.3.6": {
-              "en": "Added set state option for navigation, fixed problem with datapoints without config",
-              "de": "Set-Status-Option für die Navigation hinzugefügt, Problem mit Datenpunkten ohne Konfiguration behoben",
-              "ru": "Добавлена опция установки состояния для навигации, исправлена проблема с точками данных без конфигурации",
-              "pt": "Adicionada opção de estado definido para navegação, problema corrigido com pontos de dados sem configuração",
-              "nl": "Set state-optie voor navigatie toegevoegd, probleem opgelost met datapunten zonder configuratie",
-              "fr": "Ajout de l'option de définition de l'état pour la navigation, correction du problème avec les points de données sans configuration",
-              "it": "Aggiunta opzione set di stato per la navigazione, risolto problema con punti dati senza configurazione",
-              "es": "Se agregó la opción de estado establecido para la navegación, se solucionó el problema con los puntos de datos sin configuración",
-              "pl": "Dodano opcję ustawiania stanu dla nawigacji, naprawiono problem z punktami danych bez konfiguracji",
-              "zh-cn": "添加了导航的设置状态选项，解决了没有配置的数据点问题"
-            },
-            "1.3.5": {
-              "en": "Added refresh rate for table",
-              "de": "Aktualisierungsrate für Tabelle hinzugefügt",
-              "ru": "Добавлена частота обновления для таблицы",
-              "pt": "Taxa de atualização adicionada para a tabela",
-              "nl": "Vernieuwingsfrequentie voor tafel toegevoegd",
-              "fr": "Taux de rafraîchissement ajouté pour la table",
-              "it": "Aggiunta frequenza di aggiornamento per la tabella",
-              "es": "Frecuencia de actualización agregada para la tabla",
-              "pl": "Dodano częstotliwość odświeżania tabeli",
-              "zh-cn": "增加了表格的刷新率"
-            }
-		},
-		"title": "inventwo Design Widgets",
-		"titleLang": {
-            "en": "inventwo Design Widgets",
-            "de": "inventwo Design Widgets",
-            "ru": "Изобретательские Виджеты Дизайна",
-            "pt": "inventwo Design Widgets",
-            "nl": "inventwo Design Widgets",
-            "fr": "inventwo Design Widgets",
-            "it": "inventwo Design Widgets",
-            "es": "inventwo Widgets de diseño",
-            "pl": "wynalazki dwóch widżetów projektowych",
-            "zh-cn": "inventwo设计小部件"
-        },
-		"desc": {
-            "en": "inventwo Design widgets for ioBroker.vis",
-            "de": "inventwo Design Widgets für ioBroker.vis",
-            "ru": "Изобретены виджеты дизайна для ioBroker.vis",
-            "pt": "widgets de Design do inventwo para ioBroker.vis",
-            "nl": "inventwo Ontwerpwidgets voor ioBroker.vis",
-            "fr": "widgets Inventwo Design pour ioBroker.vis",
-            "it": "inventwo Widget di design per ioBroker.vis",
-            "es": "inventwo Widgets de diseño para ioBroker.vis",
-            "pl": "wynalazki Widżety projektowe dla ioBroker.vis",
-            "zh-cn": "ioBroker.vis的inventwo设计小部件"
-        },
-		"authors": [
-			"jkvarel <jkvarel@inventwo.com>",
-            "skvarel <skvarel@inventwo.com>"
-		],
-		"keywords": [
-            "ioBroker",
-            "Smart Home",
-            "home automation",
-            "inventwo",
-            "vis"
-        ],
-		"license": "MIT",
-		"platform": "Javascript/Node.js",
-		"main": "main.js",
-		"icon": "inventwo.png",
-		"enabled": true,
-		"extIcon": "https://raw.githubusercontent.com/inventwo/ioBroker.vis-inventwo/master/admin/i1_150.png",
-		"readme": "https://github.com/inventwo/ioBroker.vis-inventwo/blob/master/README.md",
-		"loglevel": "info",
-		"restartAdapters": [
-			"vis",
-            "web"
-		],
-		"localLink": "%web_protocol%://%ip%:%web_port%/vis/edit.html",
-		"mode": "daemon",
-		"type": "visualization-widgets",
-		"compact": true,
-		"connectionType": "local",
-		"dataSource": "poll",
-		"materialize": true,
-		"dependencies": [
-			{
-				"js-controller": ">=1.4.2"
-			},
-			"vis"
-		]
-	},
-	"native": {},
-	"objects": [],
-	"instanceObjects": []
+  "common": {
+    "name": "vis-inventwo",
+    "version": "2.2.3",
+    "news": {
+      "2.2.3": {
+        "en": "Fixed bug in JSON Table",
+        "de": "Fehler in JSON-Tabelle behoben",
+        "ru": "Исправлена ошибка в таблице JSON",
+        "pt": "Bug corrigido na tabela JSON",
+        "nl": "Bug opgelost in JSON-tabel",
+        "fr": "Correction d'un bug dans la table JSON",
+        "it": "Risolto bug nella tabella JSON",
+        "es": "Error solucionado en la tabla JSON",
+        "pl": "Naprawiono błąd w tabeli JSON",
+        "zh-cn": "修复了JSON表中的错误"
+      },
+      "2.2.2": {
+        "en": "fixed bug in multi-widget: image and text don't change",
+        "de": "Fehler im Multi-Widget behoben: Bild und Text ändern sich nicht",
+        "ru": "исправлена ошибка в мульти-виджете: изображение и текст не меняются",
+        "pt": "bug corrigido em multi-widget: imagem e texto não mudam",
+        "nl": "bug opgelost in multi-widget: afbeelding en tekst veranderen niet",
+        "fr": "correction d'un bug dans le multi-widget: l'image et le texte ne changent pas",
+        "it": "bug corretto nel multi-widget: immagine e testo non cambiano",
+        "es": "error corregido en multi-widget: la imagen y el texto no cambian",
+        "pl": "naprawiony błąd w multi-widżecie: obraz i tekst się nie zmieniają",
+        "zh-cn": "修复了多窗口小部件中的错误：图像和文本不变"
+      },
+      "2.2.1": {
+        "en": "FIxed bug in JSON Table if no valid JSON Object, Fixed error in Value-List: value not updating",
+        "de": "Fehler in der JSON-Tabelle behoben, wenn kein gültiges JSON-Objekt vorhanden ist. Fehler in der Werteliste behoben: Wert wird nicht aktualisiert",
+        "ru": "Исправлена ошибка в таблице JSON при отсутствии действительного объекта JSON, исправлена ошибка в списке значений: значение не обновляется",
+        "pt": "Bug corrigido na tabela JSON se nenhum objeto JSON válido, erro corrigido na lista de valores: valor não atualizando",
+        "nl": "Vaste bug in JSON-tabel als er geen geldig JSON-object is, vaste fout in waardenlijst: waarde wordt niet bijgewerkt",
+        "fr": "Correction d'un bug dans la table JSON si aucun objet JSON valide, erreur corrigée dans Value-List: la valeur ne se met pas à jour",
+        "it": "Bug risolto nella tabella JSON se nessun oggetto JSON valido, errore corretto in Value-List: valore non aggiornato",
+        "es": "Error corregido en la tabla JSON si no hay un objeto JSON válido, error corregido en la lista de valores: el valor no se actualiza",
+        "pl": "Naprawiono błąd w tabeli JSON, jeśli nie ma prawidłowego obiektu JSON, naprawiono błąd w liście wartości: wartość nie jest aktualizowana",
+        "zh-cn": "修复JSON表中的错误（如果没有有效的JSON对象），修复了值列表中的错误：值未更新"
+      },
+      "2.2.0": {
+        "en": "New Widget: Marquee, Added Length  of stay to State, Value List entry distance can be changed",
+        "de": "Neues Widget: Laufschrift, Verweildauer für State hinzugefügt, Value List: Abstand zwischen den Eintr#gen kann geändert werden",
+        "ru": "Новый виджет: выделение, добавленная длительность пребывания в состоянии, расстояние входа в список значений можно изменить",
+        "pt": "Novo widget: letreiro, tempo de permanência adicionado ao estado, distância de entrada da lista de valores pode ser alterada",
+        "nl": "Nieuwe widget: selectiekader, duur van verblijf toegevoegd aan staat, invoerafstand in waardelijst kan worden gewijzigd",
+        "fr": "Nouveau widget: Marquee, Ajout de la durée du séjour à l'état, la distance d'entrée de la liste de valeurs peut être modifiée",
+        "it": "Nuovo widget: selezione, durata del soggiorno aggiunta allo stato, distanza di immissione dell'elenco valori possono essere modificati",
+        "es": "Nuevo widget: marquesina, duración añadida de la estancia al estado, se puede cambiar la distancia de entrada de la lista de valores",
+        "pl": "Nowy widżet: markiza, dodana długość pobytu do stanu, odległość wpisu listy wartości można zmienić",
+        "zh-cn": "新的小部件：字幕，已添加状态停留时间，值列表输入距离可以更改"
+      },
+      "2.1.0": {
+        "en": "Values of datapoints now visible in vis editor!",
+        "de": "Werte von Datenpunkten jetzt im vis-Editor sichtbar!",
+        "ru": "Значения точек данных теперь отображаются в редакторе vis!",
+        "pt": "Valores de pontos de dados agora visíveis no editor vis!",
+        "nl": "Waarden van datapunten nu zichtbaar in vis editor!",
+        "fr": "Les valeurs des points de données désormais visibles dans l'éditeur vis!",
+        "it": "I valori dei datapoint sono ora visibili nell'editor vis!",
+        "es": "¡Los valores de los puntos de datos ahora son visibles en vis editor!",
+        "pl": "Wartości punktów danych są teraz widoczne w edytorze vis!",
+        "zh-cn": "数据点的值现在在可视化编辑器中可见！"
+      },
+      "2.0.1": {
+        "en": "Fixed translation, Fixed border color, fixed widget subtitles",
+        "de": "Übersetzung behoben,Border Farbe behoben,Widget-Untertitel behoben",
+        "ru": "Фиксированный перевод, фиксированный цвет границы, фиксированные субтитры виджета",
+        "pt": "Tradução fixa, cor de borda fixa, legendas de widget fixas",
+        "nl": "Vaste vertaling, vaste randkleur, vaste widget-ondertitels",
+        "fr": "Traduction fixe, couleur de bordure fixe, sous-titres de widget fixes",
+        "it": "Traduzione fissa, colore bordo fisso, sottotitoli widget fissi",
+        "es": "Traducción fija, color de borde fijo, subtítulos de widget fijos",
+        "pl": "Naprawiono tłumaczenie, naprawiono kolor obramowania, poprawiono napisy do widgetów",
+        "zh-cn": "固定翻译，固定边框颜色，固定小工具字幕"
+      },
+      "2.0.0": {
+        "en": "Merge Switch, Button, Nav and Background Widget to one Widget (Universal Widget), Added Multi Widget, Added new Image Widget, Added Radiobuttons Widget, Added Value List Widget, New CSS options",
+        "de": "Switch, Button, Nav and Background Widget zu einem Widget zusammengeführt (Universal Widget), Multi-Widget hinzugefügt, neues Image Widget hinzugefügt, Radiobuttons hinzugefügt, Werteliste Widget hinzugefügt, Neue CSS Einstellungen",
+        "ru": "Объединить переключатель, кнопку, навигацию и фоновый виджет в один виджет (универсальный виджет), добавлен мульти виджет, добавлен новый виджет изображения, добавлены радиокнопки, список добавленных значений, новые параметры CSS",
+        "pt": "Merge Switch, Button, Nav e Background Widget em um widget (Universal Widget), Multi Widget adicionado, Novo widget de imagem adicionado, Radiobuttons adicionados, Lista de valor adicionado, Novas opções de CSS",
+        "nl": "Samenvoegen Switch, Button, Nav en Achtergrond Widget tot één Widget (Universal Widget), Multi Widget toegevoegd, Nieuwe Image Widget toegevoegd, Radiobuttons toegevoegd, Value List toegevoegd, Nieuwe CSS-opties",
+        "fr": "Fusionner le commutateur, le bouton, le navigateur et le widget d'arrière-plan en un seul widget (widget universel), un widget multiple ajouté, un nouveau widget d'image, des boutons radio ajoutés, une liste de valeur ajoutée, de nouvelles options CSS",
+        "it": "Unisci Switch, Button, Nav e Background Widget in un Widget (Universal Widget), Aggiunto Multi Widget, Aggiunto nuovo widget immagine, Aggiunto Radiobuttons, Aggiunto Value List, Nuove opzioni CSS",
+        "es": "Combinar interruptor, botón, navegación y widget de fondo en un widget (widget universal), widget múltiple agregado, widget de imagen nuevo agregado, botones de radio agregados, lista de valor agregado, nuevas opciones de CSS",
+        "pl": "Połącz przełącznik, przycisk, nawigację i widżet tła w jeden widżet (widżet uniwersalny), dodano widżet Multi, dodano nowy widżet obrazu, dodano przyciski radiowe, lista wartości dodanych, nowe opcje CSS",
+        "zh-cn": "将开关，按钮，导航和背景小部件合并到一个小部件（通用小部件）中，添加了多小部件，添加了新的图像小部件，添加了单选按钮，添加了值列表，新的CSS选项"
+      },
+      "1.3.8": {
+        "en": "Changed slider step to decimal, Fixed problem with numeric values",
+        "de": "Schiebereglerschritt auf Dezimal geändert, Problem mit numerischen Werten behoben",
+        "ru": "Изменен шаг ползунка на десятичный, исправлена проблема с числовыми значениями",
+        "pt": "Alteração da etapa do controle deslizante para decimal. Corrigido o problema com valores numéricos",
+        "nl": "Veranderde schuifstap naar decimaal, Probleem opgelost met numerieke waarden",
+        "fr": "Changement du pas du curseur en décimal, Correction d'un problème avec les valeurs numériques",
+        "it": "Passaggio del cursore modificato in decimale, risolto problema con valori numerici",
+        "es": "Se cambió el paso del control deslizante a decimal, se solucionó el problema con los valores numéricos",
+        "pl": "Zmieniono krok suwaka na dziesiętny, Naprawiono problem z wartościami liczbowymi",
+        "zh-cn": "将滑块步进更改为十进制，解决了数值问题"
+      },
+      "1.3.7": {
+        "en": "Fixed problem with navigation on touchscreens",
+        "de": "Problem mit der Navigation auf Touchscreens behoben",
+        "ru": "Исправлена проблема с навигацией на сенсорных экранах",
+        "pt": "Corrigido o problema com a navegação em telas sensíveis ao toque",
+        "nl": "Probleem opgelost met navigatie op touchscreens",
+        "fr": "Correction d'un problème de navigation sur les écrans tactiles",
+        "it": "Risolto il problema con la navigazione sui touchscreen",
+        "es": "Problema solucionado con la navegación en pantallas táctiles",
+        "pl": "Naprawiono problem z nawigacją na ekranach dotykowych",
+        "zh-cn": "解决了触摸屏上导航的问题"
+      },
+      "1.3.6": {
+        "en": "Added set state option for navigation, fixed problem with datapoints without config",
+        "de": "Set-Status-Option für die Navigation hinzugefügt, Problem mit Datenpunkten ohne Konfiguration behoben",
+        "ru": "Добавлена опция установки состояния для навигации, исправлена проблема с точками данных без конфигурации",
+        "pt": "Adicionada opção de estado definido para navegação, problema corrigido com pontos de dados sem configuração",
+        "nl": "Set state-optie voor navigatie toegevoegd, probleem opgelost met datapunten zonder configuratie",
+        "fr": "Ajout de l'option de définition de l'état pour la navigation, correction du problème avec les points de données sans configuration",
+        "it": "Aggiunta opzione set di stato per la navigazione, risolto problema con punti dati senza configurazione",
+        "es": "Se agregó la opción de estado establecido para la navegación, se solucionó el problema con los puntos de datos sin configuración",
+        "pl": "Dodano opcję ustawiania stanu dla nawigacji, naprawiono problem z punktami danych bez konfiguracji",
+        "zh-cn": "添加了导航的设置状态选项，解决了没有配置的数据点问题"
+      },
+      "1.3.5": {
+        "en": "Added refresh rate for table",
+        "de": "Aktualisierungsrate für Tabelle hinzugefügt",
+        "ru": "Добавлена частота обновления для таблицы",
+        "pt": "Taxa de atualização adicionada para a tabela",
+        "nl": "Vernieuwingsfrequentie voor tafel toegevoegd",
+        "fr": "Taux de rafraîchissement ajouté pour la table",
+        "it": "Aggiunta frequenza di aggiornamento per la tabella",
+        "es": "Frecuencia de actualización agregada para la tabla",
+        "pl": "Dodano częstotliwość odświeżania tabeli",
+        "zh-cn": "增加了表格的刷新率"
+      }
+    },
+    "title": "inventwo Design Widgets",
+    "titleLang": {
+      "en": "inventwo Design Widgets",
+      "de": "inventwo Design Widgets",
+      "ru": "Изобретательские Виджеты Дизайна",
+      "pt": "inventwo Design Widgets",
+      "nl": "inventwo Design Widgets",
+      "fr": "inventwo Design Widgets",
+      "it": "inventwo Design Widgets",
+      "es": "inventwo Widgets de diseño",
+      "pl": "wynalazki dwóch widżetów projektowych",
+      "zh-cn": "inventwo设计小部件"
+    },
+    "desc": {
+      "en": "inventwo Design widgets for ioBroker.vis",
+      "de": "inventwo Design Widgets für ioBroker.vis",
+      "ru": "Изобретены виджеты дизайна для ioBroker.vis",
+      "pt": "widgets de Design do inventwo para ioBroker.vis",
+      "nl": "inventwo Ontwerpwidgets voor ioBroker.vis",
+      "fr": "widgets Inventwo Design pour ioBroker.vis",
+      "it": "inventwo Widget di design per ioBroker.vis",
+      "es": "inventwo Widgets de diseño para ioBroker.vis",
+      "pl": "wynalazki Widżety projektowe dla ioBroker.vis",
+      "zh-cn": "ioBroker.vis的inventwo设计小部件"
+    },
+    "authors": [
+      "jkvarel <jkvarel@inventwo.com>",
+      "skvarel <skvarel@inventwo.com>"
+    ],
+    "keywords": [
+      "ioBroker",
+      "Smart Home",
+      "home automation",
+      "inventwo",
+      "vis"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "inventwo.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/inventwo/ioBroker.vis-inventwo/master/admin/i1_150.png",
+    "readme": "https://github.com/inventwo/ioBroker.vis-inventwo/blob/master/README.md",
+    "loglevel": "info",
+    "restartAdapters": [
+      "vis",
+      "web"
+    ],
+    "localLink": "#tab-vis-inventwo",
+    "adminTab": {
+      "link": "#tab-vis-inventwo",
+      "fa-icon": "dashboard",
+      "singleton": true,
+      "name": {
+        "en": "inventwo config",
+        "de": "inventwo Widgets"
+      }
+    },
+    "mode": "daemon",
+    "type": "visualization-widgets",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "poll",
+    "materialize": true,
+    "materializeTab": true,
+    "dependencies": [
+      {
+        "js-controller": ">=1.4.2"
+      },
+      "vis"
+    ]
+  },
+  "native": {},
+  "objects": [],
+  "instanceObjects": []
 }
