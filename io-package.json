@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.3.0",
+    "version": "2.3.1",
     "news": {
+      "2.3.1": {
+        "en": "Fixed bug in JSON Table",
+        "de": "Fehler in JSON-Tabelle behoben",
+        "ru": "Исправлена ошибка в таблице JSON",
+        "pt": "Bug corrigido na tabela JSON",
+        "nl": "Bug opgelost in JSON-tabel",
+        "fr": "Correction d'un bug dans la table JSON",
+        "it": "Risolto bug nella tabella JSON",
+        "es": "Error solucionado en la tabla JSON",
+        "pl": "Naprawiono błąd w tabeli JSON",
+        "zh-cn": "修复了JSON表中的错误"
+      },
       "2.3.0": {
         "en": "Fixed issue with buttons sending value twice, Added datetime and image format for table cells, Universal and Multi Widget attributes know refresh when clicking on widget",
         "de": "Problem behoben, bei dem Schaltflächen zweimal Werte senden, Datum / Uhrzeit und Bildformat für Tabellenzellen hinzugefügt, Universal- und Multi-Widget-Attribute werden beim Klicken auf Widget aktualisiert",
@@ -196,16 +208,18 @@
       "vis",
       "web"
     ],
-    "localLink": "#tab-vis-inventwo",
     "adminTab": {
-      "link": "#tab-vis-inventwo",
-      "fa-icon": "dashboard",
       "singleton": true,
       "name": {
-        "en": "inventwo config",
-        "de": "inventwo Widgets"
-      }
+        "en": "inventwo VIS",
+        "de": "inventwo VIS"
+      },
+      "link": "/adapter/vis-inventwo/index_m.html?%instance%",
+      "fa-icon": "dashboard"
     },
+    "singleton": true,
+    "noConfig": false,
+    "messagebox": true,
     "mode": "daemon",
     "type": "visualization-widgets",
     "compact": true,

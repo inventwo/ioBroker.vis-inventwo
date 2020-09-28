@@ -527,10 +527,6 @@ if (vis.editMode) {
 			"en": "Horinzontal scroll",
 			"de": "Scrollen horizontal"
 		},
-		"iTableRefreshRate": {
-			"en": "Refresh rate (ms)",
-			"de": "Aktualisierung (ms)"
-		},
 		"iTblCellFormat": {
 			"en": "Format",
 			"de": "Format"
@@ -538,6 +534,14 @@ if (vis.editMode) {
 		"iTblCellDatetimeFormat": {
 			"en": "Date/Time format (if format is datetime)",
 			"de": "Datum/Zeit Format (wenn Format = datetime)"
+		},
+		"iTblCellImageSize": {
+			"en": "Image size",
+			"de": "Bildgröße"
+		},
+		"iTblCellDatetimeFormatInfo": {
+			"en": "Format help",
+			"de": "Format Hilfe"
 		},
 		//#endregion
 
@@ -698,6 +702,10 @@ if (vis.editMode) {
 		"iText-valueListInfoText": {
 			"en": "Textfield is preferred!",
 			"de": "Textfeld wird bevorzugt!"
+		},
+		"iText-tblDateInfo": {
+			"en": "H = Hours, i = Minutes, s = Seconds, d = Day, M = Month, m = Monthnumber, y = Year",
+			"de": "H = Stunden, i = Minuten, s = Sekunden, d = Tag, M = Monat, m = Monatszahl, y = Jahr"
 		},
 		//#endregion
 	});
@@ -996,6 +1004,9 @@ vis.binds["vis-inventwo"] = {
 		} else if (data[1] === "valueListInfoText") {
 			text = "iText-valueListInfoText";
 		}
+		else if (data[1] === "tblDateInfo") {
+			text = "iText-tblDateInfo";
+		}
 
 
 		return {input: `<span>${_(text)}</span>`};
@@ -1043,6 +1054,7 @@ vis.binds["vis-inventwo"] = {
 
 	jsontable: function (el, data) {
 
+
 		function testJSON(text) {
 			if (typeof text !== "string") {
 				return false;
@@ -1055,152 +1067,168 @@ vis.binds["vis-inventwo"] = {
 			}
 		}
 
-		let output = "";
 
-		if (data.oid === "" || data.oid === "nothing_selected" || data.oid === undefined) {
-			output = "No data";
-		} else if (vis.states.attr(data.oid + ".val") == undefined || vis.states.attr(data.oid + ".val") == "" ||
-			vis.states.attr(data.oid + ".val") == "null" || typeof vis.states.attr(data.oid + ".val") == "null") {
+		function create(el, data) {
+			let output = "";
 
-			output = "No or wrong data in datapoint!";
-		} else {
-			if (data.iColCount !== "" && data.iColCount > 0) {
-				let jd = vis.states.attr(data.oid + ".val");
-				let jsondata;
+			if (data.oid === "" || data.oid === "nothing_selected" || data.oid === undefined) {
+				output = "No data";
+			} else if (vis.states.attr(data.oid + ".val") == undefined || vis.states.attr(data.oid + ".val") == "" ||
+				vis.states.attr(data.oid + ".val") == "null" || typeof vis.states.attr(data.oid + ".val") == "null") {
 
-				if (typeof jd === "string")
-					jsondata = JSON.parse(jd);
-				else
-					jsondata = jd;
-
-				let rowLimit = jsondata.length;
-				if (data.iTblRowLimit < rowLimit)
-					rowLimit = data.iTblRowLimit;
-				let colLimit = Object.keys(jsondata[0]).length;
-				if (data.iColCount < colLimit)
-					colLimit = data.iColCount;
-
-				if (data.iVertScroll) {
-					$(el).parent().css("overflow-y", "scroll");
-				} else {
-					$(el).parent().css("overflow-y", "hidden");
-				}
-
-				if (data.iHorScroll) {
-					$(el).parent().css("overflow-x", "scroll");
-				} else {
-					$(el).parent().css("overflow-x", "hidden");
-				}
-
-				output = "<table class='vis-inventwo-json-table' style='opacity: " + data.iOpacityAll + ";'>";
-				if (data.iTblShowHead) {
-					output += "<thead style='background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor + "'>";
-					for (let i = 0; i < colLimit; i++) {
-						if (data["iColShow" + (i + 1)]) {
-							let colWidth = "";
-							if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
-								colWidth = data["iColWidth" + (i + 1)];
-							}
-							if (data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== "") {
-								output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + data["iColName" + (i + 1)] + "</th>";
-							} else {
-								//if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
-								output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + Object.keys(jsondata[0])[i] + "</th>";
-							}
-						}
-					}
-					output += "</thead>";
-				}
-				output += "<tbody>";
-				for (let e = 0; e < rowLimit; e++) {
-					let tdColor = "";
-					let tdTextColor = "";
-					if (e % 2 === 0) {
-						tdColor = data.iTblRowUnevenColor;
-						tdTextColor = data.iTblRowUnevenTextColor;
-					} else {
-						tdColor = data.iTblRowEvenColor;
-						tdTextColor = data.iTblRowEvenTextColor;
-					}
-					output += "<tr style='background: " + tdColor + "; color: " + tdTextColor + "'>";
-					for (let i = 0; i < colLimit; i++) {
-						if (data["iColShow" + (i + 1)]) {
-
-							let colWidth = "";
-							if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
-								colWidth = data["iColWidth" + (i + 1)];
-							}
-
-							let cellValue = "";
-
-							if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
-								cellValue = jsondata[e][Object.keys(jsondata[e])[i]];
-							} else {
-								cellValue = jsondata[e][Object.keys(jsondata[e])[i]];
-							}
-
-							switch (data["iTblCellFormat" + (i + 1)]) {
-								case "normal":
-									break;
-								case "datetime":
-									if (data["iTblCellDatetimeFormat" + (i + 1)] != "") {
-										if (!isNaN(cellValue) && cellValue.toString().length > 10)
-											cellValue = cellValue;
-										else if (!isNaN(cellValue) && cellValue.toString().length <= 10)
-											cellValue = cellValue * 1000;
-
-										var getDateString = function (date, format) {
-											var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-												getPaddedComp = function (comp) {
-													return ((parseInt(comp) < 10) ? ("0" + comp) : comp);
-												},
-												formattedDate = format,
-												o = {
-													"y": date.getFullYear(), // year
-													"m": getPaddedComp(date.getMonth() + 1), //month number
-													"M": months[date.getMonth()], //month
-													"d": getPaddedComp(date.getDate()), //day
-													"h": getPaddedComp((date.getHours() > 12) ? date.getHours() % 12 : date.getHours()), //hour
-													"H": getPaddedComp(date.getHours()), //hour
-													"i": getPaddedComp(date.getMinutes()), //minute
-													"s": getPaddedComp(date.getSeconds()), //second
-													"S": getPaddedComp(date.getMilliseconds()), //millisecond,
-													"b": (date.getHours() >= 12) ? "PM" : "AM"
-												};
-
-											for (var k in o) {
-												if (new RegExp("(" + k + ")", "g").test(format)) {
-													formattedDate = formattedDate.replace(RegExp.$1, o[k]);
-												}
-											}
-											return formattedDate;
-										};
-
-										var formattedDate = getDateString(new Date(cellValue), data["iTblCellDatetimeFormat" + (i + 1)]);
-										cellValue = formattedDate;
-									}
-									break;
-								case "image":
-									cellValue = "<img src='" + cellValue + "'>";
-									break;
-							}
-
-							output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + cellValue + "</td>";
-						}
-					}
-					output += "</tr>";
-				}
-				output += "</tbody>";
-				output += "</table>";
-
-				setTimeout(vis.binds["vis-inventwo"].jsontable, data.iTableRefreshRate, el, data);
-
-
+				output = "No or wrong data in datapoint!";
 			} else {
-				output = "Columncount can't be zero/empty!";
+				if (data.iColCount !== "" && data.iColCount > 0) {
+					let jd = vis.states.attr(data.oid + ".val");
+					let jsondata;
+
+					if (typeof jd === "string")
+						jsondata = JSON.parse(jd);
+					else
+						jsondata = jd;
+
+					let rowLimit = jsondata.length;
+					if (data.iTblRowLimit < rowLimit)
+						rowLimit = data.iTblRowLimit;
+					let colLimit = Object.keys(jsondata[0]).length;
+					if (data.iColCount < colLimit)
+						colLimit = data.iColCount;
+
+					if (data.iVertScroll) {
+						$(el).parent().css("overflow-y", "scroll");
+					} else {
+						$(el).parent().css("overflow-y", "hidden");
+					}
+
+					if (data.iHorScroll) {
+						$(el).parent().css("overflow-x", "scroll");
+					} else {
+						$(el).parent().css("overflow-x", "hidden");
+					}
+
+					output = "<table class='vis-inventwo-json-table' style='opacity: " + data.iOpacityAll + ";'>";
+					if (data.iTblShowHead) {
+						output += "<thead style='background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor + "'>";
+						for (let i = 0; i < colLimit; i++) {
+							if (data["iColShow" + (i + 1)]) {
+								let colWidth = "";
+								if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
+									colWidth = data["iColWidth" + (i + 1)];
+								}
+								if (data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== "") {
+									output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + data["iColName" + (i + 1)] + "</th>";
+								} else {
+									//if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
+									if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
+										output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + data["iColAttr" + (i + 1)] + "</th>";
+									} else {
+										output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + Object.keys(jsondata[0])[i] + "</th>";
+									}
+								}
+							}
+						}
+						output += "</thead>";
+					}
+					output += "<tbody>";
+					for (let e = 0; e < rowLimit; e++) {
+						let tdColor = "";
+						let tdTextColor = "";
+						if (e % 2 === 0) {
+							tdColor = data.iTblRowUnevenColor;
+							tdTextColor = data.iTblRowUnevenTextColor;
+						} else {
+							tdColor = data.iTblRowEvenColor;
+							tdTextColor = data.iTblRowEvenTextColor;
+						}
+						output += "<tr style='background: " + tdColor + "; color: " + tdTextColor + "'>";
+						for (let i = 0; i < colLimit; i++) {
+							if (data["iColShow" + (i + 1)]) {
+
+								let colWidth = "";
+								if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
+									colWidth = data["iColWidth" + (i + 1)];
+								}
+
+								let cellValue = "";
+
+								if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
+									cellValue = jsondata[e][data["iColAttr" + (i + 1)]];
+								} else {
+									cellValue = jsondata[e][Object.keys(jsondata[e])[i]];
+								}
+
+								switch (data["iTblCellFormat" + (i + 1)]) {
+									case "normal":
+										break;
+									case "datetime":
+										if (data["iTblCellDatetimeFormat" + (i + 1)] != "") {
+											if (!isNaN(cellValue) && cellValue.toString().length > 10)
+												cellValue = cellValue;
+											else if (!isNaN(cellValue) && cellValue.toString().length <= 10)
+												cellValue = cellValue * 1000;
+
+											var getDateString = function (date, format) {
+												var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+													getPaddedComp = function (comp) {
+														return ((parseInt(comp) < 10) ? ("0" + comp) : comp);
+													},
+													formattedDate = format,
+													o = {
+														"y": date.getFullYear(), // year
+														"m": getPaddedComp(date.getMonth() + 1), //month number
+														"M": months[date.getMonth()], //month
+														"d": getPaddedComp(date.getDate()), //day
+														"h": getPaddedComp((date.getHours() > 12) ? date.getHours() % 12 : date.getHours()), //hour
+														"H": getPaddedComp(date.getHours()), //hour
+														"i": getPaddedComp(date.getMinutes()), //minute
+														"s": getPaddedComp(date.getSeconds()), //second
+														"S": getPaddedComp(date.getMilliseconds()), //millisecond,
+														"b": (date.getHours() >= 12) ? "PM" : "AM"
+													};
+
+												for (var k in o) {
+													if (new RegExp("(" + k + ")", "g").test(format)) {
+														formattedDate = formattedDate.replace(RegExp.$1, o[k]);
+													}
+												}
+												return formattedDate;
+											};
+
+											var formattedDate = getDateString(new Date(cellValue), data["iTblCellDatetimeFormat" + (i + 1)]);
+											cellValue = formattedDate;
+										}
+										break;
+									case "image":
+										if (cellValue != undefined && cellValue != "") {
+											cellValue = "<img src='" + cellValue + "' style='width:" + data["iTblCellImageSize" + (i + 1)] + "px;' onerror='this.style.display=`none`'>";
+										}
+										break;
+								}
+
+								if (cellValue == undefined)
+									cellValue = "";
+
+								output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px;'>" + cellValue + "</td>";
+							}
+						}
+						output += "</tr>";
+					}
+					output += "</tbody>";
+					output += "</table>";
+
+
+				} else {
+					output = "Columncount can't be zero/empty!";
+				}
 			}
+			$(el).html(output);
 		}
-		$(el).html(output);
+
+		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
+			create(el, data);
+		});
+
+		create(el, data);
 	},
 
 	radiobutton: function (el, oid, val) {

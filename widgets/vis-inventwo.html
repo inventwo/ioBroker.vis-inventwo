@@ -437,15 +437,16 @@
 						iTblShowHead/checkbox;
 						iTblRowLimit[1]/number;
 						iVertScroll/checkbox;
-						iHorScroll/checkbox;
-						iTableRefreshRate[50]/number,0,10000,1;"
+						iHorScroll/checkbox;"
 		data-vis-attrs0="iColCount[1]/number,0,100,1;group.iTableCol/byindex;
 						 iColShow(1-iColCount)[true]/checkbox;
 						 iColName(1-iColCount)/text;
 						 iColAttr(1-iColCount)/text;
 						 iColWidth(1-iColCount)/text;
 						 iTblCellFormat(1-iColCount)/nselect,normal,datetime,image;
-						 iTblCellDatetimeFormat(1-iColCount)/text;"
+						 iTblCellDatetimeFormat(1-iColCount)/text;
+						 iTblCellDatetimeFormatInfo(1-iColCount)/custom,vis-inventwo.infoText,tblDateInfo;
+						 iTblCellImageSize(1-iColCount)[200]/slider,0,1000,1;"
 		data-vis-attrs1="group.i-css;
 						 iOpacityAll[1]/slider,0,1,0.1;
 						 iTblRowEvenColor[#333333]/color;
@@ -473,10 +474,6 @@
 		</div>
 
 </script>
-
-
-
-
 
 <script id="i-vis-radiobutton-list"
 		type="text/ejs"
@@ -821,7 +818,6 @@
 	</div>
 
 </script>
-
 
 
 

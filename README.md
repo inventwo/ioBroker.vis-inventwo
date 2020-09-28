@@ -66,6 +66,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 2.3.1
+- Fehler in JSON Tabelle behoben
+
+
 ## 2.3.0
 - Problem behoben, bei dem Schaltflächen zweimal Werte senden
 - Datum / Uhrzeit und Bildformat für Tabellenzellen hinzugefügt
