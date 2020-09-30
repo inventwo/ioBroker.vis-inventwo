@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.3.1",
+    "version": "2.3.2",
     "news": {
+      "2.3.2": {
+        "en": "Fixed bug with navigation in with 'View in Widget' Widget",
+        "de": "Fehler bei der Navigation mit dem Widget 'View in Widget' behoben",
+        "ru": "Исправлена ошибка навигации в виджете 'Просмотр в виджете'.",
+        "pt": "Bug corrigido na navegação com o widget 'Visualizar no widget'",
+        "nl": "Bug opgelost met navigatie binnen met de 'Weergeven in widget'-widget",
+        "fr": "Correction d'un bug avec la navigation avec le widget `` Afficher dans le widget ''",
+        "it": "Risolto bug con la navigazione con il widget 'Visualizza nel widget'",
+        "es": "Se corrigió un error con la navegación en el widget 'Ver en widget'",
+        "pl": "Naprawiono błąd z nawigacją w widżecie „Wyświetl w widżecie”",
+        "zh-cn": "修复了使用“在小部件中查看”小部件进行导航的错误"
+      },
       "2.3.1": {
         "en": "Fixed bug in JSON Table",
         "de": "Fehler in JSON-Tabelle behoben",

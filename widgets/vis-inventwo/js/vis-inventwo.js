@@ -712,15 +712,15 @@ if (vis.editMode) {
 }
 
 vis.navChangeCallbacks.push(function (view) {
-
 	vis.binds["vis-inventwo"].iUpdateNavigations(0, false);
-
 });
 
 vis.binds["vis-inventwo"] = {
 
+	//Navigationen updaten - Farben, Texte und Bilder wechseln
 	iUpdateNavigations: function (timeoutVal, byclick) {
 		if (byclick == false) {
+			/*
 			$("#visview_" + vis.activeView + " .vis-inventwo-nav, #visview_" + vis.activeView + " .iUniversalNav").each(function () {
 				let id = $(this).attr("id");
 				if (id != undefined) {
@@ -730,7 +730,8 @@ vis.binds["vis-inventwo"] = {
 						timeoutVal = data.iNavWait;
 				}
 
-			});
+			});*/
+			timeoutVal = 0;
 		}
 
 		setTimeout(function () {
@@ -744,9 +745,9 @@ vis.binds["vis-inventwo"] = {
 
 			});
 
-			$("#visview_" + vis.activeView + " .iUniversalNav").each(function () {
+			$(".iUniversalNav").each(function () {
 				let id = $(this).attr("id");
-				let data = vis.views[vis.activeView].widgets[id].data;
+				let data = vis.widgets[id].data;
 
 				if (data.nav_view === vis.activeView) {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonActive);
@@ -760,9 +761,9 @@ vis.binds["vis-inventwo"] = {
 
 			});
 
-			$("#visview_" + vis.activeView + " .iMultiNav").each(function () {
+			$(".iMultiNav").each(function () {
 				let id = $(this).attr("id");
-				let data = vis.views[vis.activeView].widgets[id].data;
+				let data = vis.widgets[id].data;
 				let stateFound = false;
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					if (data["iView" + i] === vis.activeView) {
@@ -781,19 +782,49 @@ vis.binds["vis-inventwo"] = {
 
 			});
 
+
 		}, timeoutVal);
 
 
 	},
-	handleToggle: function (el, data, type) {
 
+	//VIS Edit Links
+	externalLinks: function (widAttr, data) {
+		let url = "";
+		if (data[1] === "wiki") {
+			url = "https://github.com/inventwo/ioBroker.vis-inventwo/wiki";
+		}
+		return {input: `<a target="_blank" href="${url}">${_("iWikiText")}</a>`};
+	},
+
+	//VIS Edit Info Texte
+	infoText: function (widAttr, data) {
+		let text = "";
+
+		if (data[1] === "valueType") {
+			text = "iValueTypeText";
+		} else if (data[1] === "emptyText") {
+			text = "";
+		} else if (data[1] === "universalTypeInfo") {
+			text = "iUniversalWidgetTypeInfoText";
+		} else if (data[1] === "refreshDataFieldsText") {
+			text = "iRefreshDataFieldsText";
+		} else if (data[1] === "radioBtnBackColInfoText") {
+			text = "iText-BackColorRadio";
+		} else if (data[1] === "valueListInfoText") {
+			text = "iText-valueListInfoText";
+		}
+		else if (data[1] === "tblDateInfo") {
+			text = "iText-tblDateInfo";
+		}
+
+		return {input: `<span>${_(text)}</span>`};
+	},
+
+	//Switch Funktion - Datenpunktwert wechseln
+	handleToggle: function (el, data, type) {
 		var $this = $(el);
 
-		/*if(type == undefined || type == 'universal')
-			var oid = data.oid;
-		else{
-			var oid = data.iOidToggle;
-		}*/
 		var oid = data.oid;
 
 		if (!vis.editMode) {
@@ -831,6 +862,8 @@ vis.binds["vis-inventwo"] = {
 		}
 
 	},
+
+	//Navigation Funktion - Wechsel der View
 	handleNavigation: function (el, data, type) {
 		if (!vis.editMode && data.nav_view) {
 			var $this = $(el);
@@ -861,27 +894,18 @@ vis.binds["vis-inventwo"] = {
 
 				vis.binds["vis-inventwo"].iUpdateNavigations(data.iNavWait, true);
 
-
 			}).on("touchmove", function () {
 				moved = true;
 			}).on("touchstart", function () {
 				moved = false;
 			});
-
 		}
 	},
+
+	//State Funktion - Datenpunktwert setzen
 	state: function (el, data, type) {
-
 		var $this = $(el);
-
-		/*if(type == undefined || type == 'universal')
-			var oid = data.oid;
-		else{
-			var oid = data.iOidToggle;
-		}*/
 		var oid = data.oid;
-
-		//$(el).html(valFalse);
 
 		if (!vis.editMode) {
 
@@ -981,38 +1005,9 @@ vis.binds["vis-inventwo"] = {
 
 		}
 	},
-	externalLinks: function (widAttr, data) {
-		let url = "";
-		if (data[1] === "wiki") {
-			url = "https://github.com/inventwo/ioBroker.vis-inventwo/wiki";
-		}
-		return {input: `<a target="_blank" href="${url}">${_("iWikiText")}</a>`};
-	},
-	infoText: function (widAttr, data) {
-		let text = "";
 
-		if (data[1] === "valueType") {
-			text = "iValueTypeText";
-		} else if (data[1] === "emptyText") {
-			text = "";
-		} else if (data[1] === "universalTypeInfo") {
-			text = "iUniversalWidgetTypeInfoText";
-		} else if (data[1] === "refreshDataFieldsText") {
-			text = "iRefreshDataFieldsText";
-		} else if (data[1] === "radioBtnBackColInfoText") {
-			text = "iText-BackColorRadio";
-		} else if (data[1] === "valueListInfoText") {
-			text = "iText-valueListInfoText";
-		}
-		else if (data[1] === "tblDateInfo") {
-			text = "iText-tblDateInfo";
-		}
-
-
-		return {input: `<span>${_(text)}</span>`};
-	},
+	//Slider Funktion - Setzt den Wert beim schieben
 	handleSlider: function (el, data, options) {
-
 		var $this = $(el);
 		var oid = data.oid;
 
@@ -1049,11 +1044,10 @@ vis.binds["vis-inventwo"] = {
 		vis.states.bind(oid + ".val", function () {
 			$this.slider("option", "value", vis.states.attr(oid + ".val"));
 		});
-
 	},
 
+	//JSON Tabelle Funktion - Generiert aus einem JSON eine HTML Tabelle
 	jsontable: function (el, data) {
-
 
 		function testJSON(text) {
 			if (typeof text !== "string") {
@@ -1066,7 +1060,6 @@ vis.binds["vis-inventwo"] = {
 				return false;
 			}
 		}
-
 
 		function create(el, data) {
 			let output = "";
@@ -1231,6 +1224,7 @@ vis.binds["vis-inventwo"] = {
 		create(el, data);
 	},
 
+	//Radiobutton Funktion - Setzt den Datenpunktwert
 	radiobutton: function (el, oid, val) {
 		var $this = $(el);
 
@@ -1254,6 +1248,7 @@ vis.binds["vis-inventwo"] = {
 		}
 	},
 
+	//Aktualisierung der Felder in VIS Edit für Universal und Multi Widget
 	updateUniversalDataFields: function (wid, view) {
 
 		vis.activeWidgets.forEach(function (el) {
@@ -1351,24 +1346,15 @@ vis.binds["vis-inventwo"] = {
 		});
 
 	},
-	/*
-		refreshDataFieldBtn: function () {
 
-			let text = "iRefreshBtnText";
-			return {input: `<button class="iUniversalWidgetRefreshBtn" onclick="vis.binds['vis-inventwo'].updateUniversalDataFields()">${_(text)}</button>`}
-
-		},
-	*/
+	//Generierung des Universal und Multi Widgets
 	universalButton: function (el, data, type) {
 
 		this.updateUniversalDataFields;
 		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
 			createWidget(false);
 		});
-		/*
-		vis.states.bind(data.iOidToggle + '.val', function (e, newVal, oldVal){
-			createWidget();
-		});*/
+
 		vis.states.bind(vis.activeView, function (e, newVal, oldVal) {
 			createWidget(false);
 		});
@@ -1387,11 +1373,6 @@ vis.binds["vis-inventwo"] = {
 		createWidget(true);
 
 		function createWidget(createEvents) {
-			/*
-			if(!$(el).length){
-				createWidget(el,data,type);
-			}*/
-
 			let dataNew = Object.assign({}, data);
 
 			if (vis.editMode) {
@@ -1612,17 +1593,18 @@ vis.binds["vis-inventwo"] = {
 					$(el).parent().css("cursor", "default");
 				}
 
-				$(el).parent().on("mouseup click", function () {
-					setTimeout(function () {
-						vis.binds["vis-inventwo"].updateUniversalDataFields();
-					}, 100);
-				});
+				if(vis.editMode) {
+					$(el).parent().on("mouseup click", function () {
+						setTimeout(function () {
+							vis.binds["vis-inventwo"].updateUniversalDataFields();
+						}, 100);
+					});
+				}
 			}
-
 		}
-
 	},
 
+	//Funktion um im VIS Edit das Binding der Datenpunkte aufzulösen, damit die Werte wie in der Live auch im Editor zu sehen sind
 	getDatapointsValues: function (data) {
 
 		for (let [key, value] of Object.entries(data)) {
@@ -1646,7 +1628,7 @@ vis.binds["vis-inventwo"] = {
 		return data;
 	},
 
-
+	//Generierung des List Widgets
 	valueList: function (el, data) {
 
 		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {

@@ -66,6 +66,9 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 2.3.2
+- Fehler bei der Navigation mit dem Widget 'View in Widget' behoben
+
 ## 2.3.1
 - Fehler in JSON Tabelle behoben
 
