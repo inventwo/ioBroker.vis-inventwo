@@ -6,7 +6,6 @@ nbproject
 .vs
 .vscode
 .eslintrc.json
-.github
 
 # npm package files
 iobroker.*.tgz
