@@ -66,6 +66,11 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 2.4.0
+- Randstil zur JSON-Tabelle hinzugefügt
+- Farbauswahö für Icons zu allen Widgets hinzugefügt
+- Fehlerbehebung
+
 ## 2.3.2
 - Fehler bei der Navigation mit dem Widget 'View in Widget' behoben
 

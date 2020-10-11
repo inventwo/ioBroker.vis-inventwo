@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.3.2",
+    "version": "2.4.0",
     "news": {
+      "2.4.0": {
+        "en": "Added border style to json table, Added color picker for images to all widgets, Bug fixes",
+        "de": "Randstil zur JSON-Tabelle hinzugefügt, Farbauswahl für Bilder zu allen Widgets hinzugefügt, Fehlerbehebungen",
+        "ru": "Добавлен стиль границы в таблицу json, добавлен выбор цвета для изображений для всех виджетов, исправлены ошибки",
+        "pt": "Adicionado estilo de borda à tabela json, Adicionado seletor de cores para imagens em todos os widgets, correções de bugs",
+        "nl": "Randstijl toegevoegd aan json-tabel, kleurkiezer voor afbeeldingen toegevoegd aan alle widgets, bugfixes",
+        "fr": "Ajout d'un style de bordure à la table json, ajout d'un sélecteur de couleur pour les images à tous les widgets, correction de bugs",
+        "it": "Aggiunto lo stile del bordo alla tabella json, aggiunto il selettore di colori per le immagini a tutti i widget, correzioni di bug",
+        "es": "Se agregó un estilo de borde a la tabla json, se agregó un selector de color para las imágenes a todos los widgets, se corrigieron errores",
+        "pl": "Dodano styl obramowania do tabeli json, Dodano próbnik kolorów dla obrazów do wszystkich widżetów, Poprawki błędów",
+        "zh-cn": "向json表添加边框样式，向所有小部件添加图像的颜色选择器，错误修复"
+      },
       "2.3.2": {
         "en": "Fixed bug with navigation in with 'View in Widget' Widget",
         "de": "Fehler bei der Navigation mit dem Widget 'View in Widget' behoben",
