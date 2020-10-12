@@ -428,35 +428,31 @@
             		}
 
             		return `
+            		<div class="vis-inventwo-button-imageContainer"
+            			 style="align-self: center;
+            			 		display: flex;
+    							justify-content: center;
+    							align-items: center;
+    							width:100%; height:100%;
+    							opacity: ` + dataNew.iOpacityCtn + `;">
 
             			<div style="width: ` + dataNew.iShadowSpreadInner + `px; height: ` + dataNew.iShadowSpreadInner+
-            			 			`px; position: absolute; background:` + dataNew.iShadowColor+ `; border-radius: 100%; ` + shadow + `; opacity: ` + dataNew.iOpacityCtn + `"></div>
+            			 			`px; position: absolute; background:` + dataNew.iShadowColor+ `; border-radius: 100%; ` + shadow + `;"></div>
             		    <img src='` + img + `'
             		    	 width="100%;height:100%;"
             		    	 style="
             		    	 		transform: scaleX(` + cssData.flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
             		    	 		border-radius: ` + dataNew.iCornerRadiusUL + `px ` + data.iCornerRadiusUR+ `px ` + data.iCornerRadiusLR+ `px ` + data.iCornerRadiusLL+ `px;
             		    	 		animation:blink ` + imgBlink + `s infinite; ` + imgColorFilter + `">
-
+					</div>
             		`;
 
             	}
 			%>
 
             <div class="vis-inventwo-button-new" style="width:100%; height:100%;">
-
             	<div style="width:100%; height:100%;">
-
-            		<div class="vis-inventwo-button-imageContainer"
-            			 style="align-self: center;
-            			 		display: flex;
-    							justify-content: center;
-    							align-items: center;
-    							width:100%; height:100%;">
-
-            			<%== create() %>
-
-            		</div>
+            		<%== create() %>
             	</div>
             </div>
 		</div>
