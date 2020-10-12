@@ -429,7 +429,8 @@
 
             		return `
 
-            			<div style="width: ` + dataNew.iShadowSpreadInner + `px; height: ` + dataNew.iShadowSpreadInner+ `px; position: absolute; background:` + dataNew.iShadowColor+ `; border-radius: 100%; ` + shadow + `"></div>
+            			<div style="width: ` + dataNew.iShadowSpreadInner + `px; height: ` + dataNew.iShadowSpreadInner+
+            			 			`px; position: absolute; background:` + dataNew.iShadowColor+ `; border-radius: 100%; ` + shadow + `; opacity: ` + dataNew.iOpacityCtn + `"></div>
             		    <img src='` + img + `'
             		    	 width="100%;height:100%;"
             		    	 style="
@@ -444,7 +445,7 @@
 
             <div class="vis-inventwo-button-new" style="width:100%; height:100%;">
 
-            	<div style="width:100%; height:100%;opacity: <%= dataNew.iOpacityCtn %>;">
+            	<div style="width:100%; height:100%;">
 
             		<div class="vis-inventwo-button-imageContainer"
             			 style="align-self: center;
