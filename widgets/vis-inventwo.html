@@ -66,8 +66,10 @@
 						 iFlipImage/checkbox;
 						 iImgBlinkFalse[0]/slider,0,2000,100;
 						 iImgBlinkTrue[0]/slider,0,2000,100;
-						 iImgColorFalse[]/color;
-						 iImgColorTrue[]/color;
+						 iImgColorFalse[]/color/changeWidgetIconColor();
+						 iImgColorTrue[]/color/changeWidgetIconColor();
+						 iImgColorFalseFilter[]/text;
+						 iImgColorTrueFilter[]/text;
 
 						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
 						 iShadowXOffset[2]/slider,0,20,1;
@@ -97,10 +99,12 @@
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<%= (el) -> vis.binds['vis-inventwo'].universalButton(el, this.data,'universal') %>
+		<%= (el) -> vis.binds['vis-inventwo'].hideImgFilterFields(el) %>
 	</div>
 
 
 </script>
+
 <script id="i-vis-multi"
 		type="text/ejs"
 		class="vis-tpl"
@@ -131,7 +135,8 @@
 						 iShadowColorActiveM(1-iUniversalValueCount)[#111111]/color;
 						 iShadowInnerColorActiveM(1-iUniversalValueCount)[#111111]/color;
 						 iBorderColorActiveM(1-iUniversalValueCount)[#ffffff]/color;
-						 iImgColorTrue(1-iUniversalValueCount)[]/color;"
+						 iImgColorTrue(1-iUniversalValueCount)[]/color/changeWidgetIconColor();
+						 iImgColorTrueFilter(1-iUniversalValueCount)[]/text;"
 		data-vis-attrs1="group.i-css;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
@@ -168,7 +173,8 @@
 						 iImgSpaceRight[0]/slider,0,50,1;
 						 iFlipImage/checkbox;
 						 iImgBlinkFalse[0]/slider,0,2000,100;
-						 iImgColorFalse[]/color;
+						 iImgColorFalse[]/color/changeWidgetIconColor();
+						 iImgColorFalseFilter[]/color;
 
 						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
 						 iShadowXOffset[2]/slider,0,20,1;
@@ -195,6 +201,7 @@
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<%= (el) -> vis.binds['vis-inventwo'].universalButton(el, this.data,'multi') %>
+		<%= (el) -> vis.binds['vis-inventwo'].hideImgFilterFields(el) %>
 	</div>
 
 </script>
@@ -353,8 +360,10 @@
 						 iFlipImage/checkbox;
 						 iImgBlinkFalse[0]/slider,0,2000,100;
 						 iImgBlinkTrue[0]/slider,0,2000,100;
-						 iImgColorFalse[]/color;
-						 iImgColorTrue[]/color;
+						 iImgColorFalse[]/color/changeWidgetIconColor();
+						 iImgColorFalseFilter[]/color;
+						 iImgColorTrue[]/color/changeWidgetIconColor();
+						 iImgColorTrueFilter[]/color;
 
 						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
 						 iShadowSpread[0]/slider,0,50,1;
@@ -383,6 +392,8 @@
 				let d = this.data;
 
 				function create(){
+
+
 					let dataNew = Object.assign({},d);
 					if(vis.editMode){
 						dataNew = vis.binds['vis-inventwo'].getDatapointsValues(dataNew);
@@ -400,22 +411,19 @@
             		let img = "";
             		let shadow = "";
 
-            		let val = dataNew.iValue;
+            		let val = vis.binds["vis-inventwo"].convertValue(dataNew.iValue);
 
-            		if(val == "true")
-            			val = true;
-            		else if(val = "false")
-            			val = false;
 
-            		if(dataNew.oid != undefined && vis.states.attr(dataNew.oid + '.val') == dataNew.iValue) {
+
+            		if(dataNew.oid != undefined && vis.states.attr(dataNew.oid + '.val') == val) {
             			imgBlink = dataNew.iImgBlinkTrue / 1000;
-            			imgColorFilter = vis.binds["vis-inventwo"].colorFilterGenerator(dataNew.iImgColorTrue);
+            			imgColorFilter = dataNew.iImgColorTrueFilter;
             			img = dataNew.iImageTrue;
             			shadow = "box-shadow: 0px 0px " + dataNew.iShadowBlur + "px " + dataNew.iShadowSpread + "px " + dataNew.iShadowColorActive;
             		}
             		else{
             			imgBlink = dataNew.iImgBlinkFalse / 1000;
-            			imgColorFilter = vis.binds["vis-inventwo"].colorFilterGenerator(dataNew.iImgColorFalse);
+            			imgColorFilter = dataNew.iImgColorFalseFilter;
             			img = dataNew.iImageFalse;
             			shadow = "box-shadow: 0px 0px " + dataNew.iShadowBlur + "px " + dataNew.iShadowSpread + "px " + dataNew.iShadowColor;
             		}
@@ -452,6 +460,7 @@
             	</div>
             </div>
 		</div>
+		<%= (el) -> vis.binds['vis-inventwo'].hideImgFilterFields(el) %>
 	</div>
 </script>
 
@@ -540,8 +549,10 @@
 						 iText-ImgSettings(1-iRadiobtnsCount)/custom,vis-inventwo.infoText,emptyText;
 						 iImageFalse(1-iRadiobtnsCount)/image;
 						 iImageTrue(1-iRadiobtnsCount)/image;
-						 iImgColorTrue(1-iRadiobtnsCount)[]/color;
-						 iImgColorFalse(1-iRadiobtnsCount)[]/color;"
+						 iImgColorFalse(1-iRadiobtnsCount)[]/color/changeWidgetIconColor();
+						 iImgColorFalseFilter(1-iRadiobtnsCount)[]/color;
+						 iImgColorTrue(1-iRadiobtnsCount)[]/color/changeWidgetIconColor();
+						 iImgColorTrueFilter(1-iRadiobtnsCount)[]/color;"
 		data-vis-attrs1="group.i-css;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
@@ -625,7 +636,6 @@
 				cssData.align = "row";
 				cssData.marginDir = "right";
 			}
-
 		%>
 
 		<div class="vis-inventwo-class vis-widget-body vis-inventwo-radiobtnlist-body <%== this.data.attr('class') %>" style="flex-direction: <%= cssData.align %>">
@@ -695,7 +705,9 @@
 				let backCol = "";
 				let imgColorInvert = 0;
 				let imgColorFilter = "";
-				if(vis.states.attr(this.data.oid + '.val') == dataNew['iValue' + val]){
+				let value = vis.binds["vis-inventwo"].convertValue(dataNew['iValue' + val]);
+
+				if(vis.states.attr(this.data.oid + '.val') == value){
 
 					if(dataNew['iButtonBackActiveM' + val] != undefined){
 						backCol = dataNew['iButtonBackActiveM' + val];
@@ -705,7 +717,7 @@
 					}
 
 					imgColorInvert = dataNew['iInvertImageCol' + val];
-					imgColorFilter = vis.binds["vis-inventwo"].colorFilterGenerator(dataNew["iImgColorTrue" + val]);
+					imgColorFilter = dataNew["iImgColorTrueFilter" + val];
 				}
 				else{
 					if(dataNew['iButtonBackM' + val] != undefined){
@@ -715,7 +727,7 @@
 						backCol = dataNew.iButtonCol;
 					}
 					imgColorInvert = dataNew.iInvertImageCol;
-					imgColorFilter = vis.binds["vis-inventwo"].colorFilterGenerator(dataNew["iImgColorFalse" + val]);
+					imgColorFilter = dataNew["iImgColorFalseFilter" + val];
 				}
 
 			%>
@@ -781,7 +793,10 @@
 
 		</div>
 
+		<%= (el) -> vis.binds['vis-inventwo'].hideImgFilterFields(el) %>
+
 	</div>
+
 </script>
 
 <script id="i-vis-valuelist"
@@ -865,9 +880,6 @@
 	</div>
 
 </script>
-
-
-
 
 
 <!-- WERDEN ENTFERNT -->

@@ -3,6 +3,18 @@
     "name": "vis-inventwo",
     "version": "2.4.0",
     "news": {
+      "2.4.1": {
+        "en": "Bug fixes",
+        "de": "Fehlerbehebung",
+        "ru": "Исправление ошибок",
+        "pt": "Correções de bugs",
+        "nl": "Bugfixes",
+        "fr": "Corrections de bogues",
+        "it": "Correzioni di bug",
+        "es": "Corrección de errores",
+        "pl": "Poprawki błędów",
+        "zh-cn": "Bug修复"
+      },
       "2.4.0": {
         "en": "Added border style to json table, Added color picker for images to all widgets, Bug fixes",
         "de": "Randstil zur JSON-Tabelle hinzugefügt, Farbauswahl für Bilder zu allen Widgets hinzugefügt, Fehlerbehebungen",
@@ -146,42 +158,6 @@
         "es": "Se cambió el paso del control deslizante a decimal, se solucionó el problema con los valores numéricos",
         "pl": "Zmieniono krok suwaka na dziesiętny, Naprawiono problem z wartościami liczbowymi",
         "zh-cn": "将滑块步进更改为十进制，解决了数值问题"
-      },
-      "1.3.7": {
-        "en": "Fixed problem with navigation on touchscreens",
-        "de": "Problem mit der Navigation auf Touchscreens behoben",
-        "ru": "Исправлена проблема с навигацией на сенсорных экранах",
-        "pt": "Corrigido o problema com a navegação em telas sensíveis ao toque",
-        "nl": "Probleem opgelost met navigatie op touchscreens",
-        "fr": "Correction d'un problème de navigation sur les écrans tactiles",
-        "it": "Risolto il problema con la navigazione sui touchscreen",
-        "es": "Problema solucionado con la navegación en pantallas táctiles",
-        "pl": "Naprawiono problem z nawigacją na ekranach dotykowych",
-        "zh-cn": "解决了触摸屏上导航的问题"
-      },
-      "1.3.6": {
-        "en": "Added set state option for navigation, fixed problem with datapoints without config",
-        "de": "Set-Status-Option für die Navigation hinzugefügt, Problem mit Datenpunkten ohne Konfiguration behoben",
-        "ru": "Добавлена опция установки состояния для навигации, исправлена проблема с точками данных без конфигурации",
-        "pt": "Adicionada opção de estado definido para navegação, problema corrigido com pontos de dados sem configuração",
-        "nl": "Set state-optie voor navigatie toegevoegd, probleem opgelost met datapunten zonder configuratie",
-        "fr": "Ajout de l'option de définition de l'état pour la navigation, correction du problème avec les points de données sans configuration",
-        "it": "Aggiunta opzione set di stato per la navigazione, risolto problema con punti dati senza configurazione",
-        "es": "Se agregó la opción de estado establecido para la navegación, se solucionó el problema con los puntos de datos sin configuración",
-        "pl": "Dodano opcję ustawiania stanu dla nawigacji, naprawiono problem z punktami danych bez konfiguracji",
-        "zh-cn": "添加了导航的设置状态选项，解决了没有配置的数据点问题"
-      },
-      "1.3.5": {
-        "en": "Added refresh rate for table",
-        "de": "Aktualisierungsrate für Tabelle hinzugefügt",
-        "ru": "Добавлена частота обновления для таблицы",
-        "pt": "Taxa de atualização adicionada para a tabela",
-        "nl": "Vernieuwingsfrequentie voor tafel toegevoegd",
-        "fr": "Taux de rafraîchissement ajouté pour la table",
-        "it": "Aggiunta frequenza di aggiornamento per la tabella",
-        "es": "Frecuencia de actualización agregada para la tabla",
-        "pl": "Dodano częstotliwość odświeżania tabeli",
-        "zh-cn": "增加了表格的刷新率"
       }
     },
     "title": "inventwo Design Widgets",

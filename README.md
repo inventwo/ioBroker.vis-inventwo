@@ -66,6 +66,9 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 2.4.1
+- Bugfix
+
 ## 2.4.0
 - Randstil zur JSON-Tabelle hinzugefügt
 - Farbauswahö für Icons zu allen Widgets hinzugefügt
