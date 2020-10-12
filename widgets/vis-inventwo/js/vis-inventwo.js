@@ -780,7 +780,8 @@ vis.binds["vis-inventwo"] = {
 				if (data.nav_view === vis.activeView) {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonActive);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
-					$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorTrueFilter.substring(8,data.iImgColorTrueFilter.length - 1));
+					if(data.iImgColorTrueFilter != undefined)
+						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorTrueFilter.substring(8,data.iImgColorTrueFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextTrue);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColorActive);
 					$(this).find(".vis-inventwo-button-new").css("--box-shadow-col", data.iShadowColorActive);
@@ -788,7 +789,8 @@ vis.binds["vis-inventwo"] = {
 				} else {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
-					$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8,data.iImgColorFalseFilter.length - 1));
+					if(data.iImgColorFalseFilter != undefined)
+						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8,data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
 					$(this).find(".vis-inventwo-button-new").css("--box-shadow-col", data.iShadowColor);
@@ -806,7 +808,8 @@ vis.binds["vis-inventwo"] = {
 						stateFound = true;
 						$(this).find(".vis-inventwo-button-new").css("background", data["iButtonActiveM" + i]);
 						$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data["iImageTrue" + i]);
-						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data["iImgColorTrueFilter" + i].substring(8,data["iImgColorTrueFilter" + i].length - 1));
+						if(data["iImgColorTrueFilter" + i] != undefined)
+							$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data["iImgColorTrueFilter" + i].substring(8,data["iImgColorTrueFilter" + i].length - 1));
 						$(this).find(".vis-inventwo-button-text").html(data["iTextTrue" + i]);
 						$(this).find(".vis-inventwo-button-new").css("border-color", data["iBorderColorActiveM" +  i]);
 						$(this).find(".vis-inventwo-button-new").css("--box-shadow-col", data["iShadowColorActiveM" + i]);
@@ -817,7 +820,8 @@ vis.binds["vis-inventwo"] = {
 				if (!stateFound) {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
-					$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8,data.iImgColorFalseFilter.length - 1));
+					if(data.iImgColorFalseFilter != undefined)
+						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8,data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
 					$(this).find(".vis-inventwo-button-new").css("--box-shadow-col", data.iShadowColor);
