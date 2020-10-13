@@ -1498,7 +1498,15 @@ vis.binds["vis-inventwo"] = {
 
 						imgColorFilter = dataNew["iImgColorTrueFilter" + i];
 
-						if(dataNew["iImgColorTrue" + i] != dataNew["iImgColorTrueOld" + i])
+						let oldImgCol = dataNew["iImgColorTrueOld" + i];
+
+						let reg = /\{([^\{\}]*)\}/gm;
+						let match = reg.exec(dataNew["iImgColorTrue" + i]);
+						if(match != null){
+							oldImgCol = vis.states.attr(match[1] + ".val");
+						}
+
+						if(dataNew["iImgColorTrue" + i] != oldImgCol)
 							imgColorFilter = vis.binds["vis-inventwo"].createNewColorFilter(dataNew.wid,"iImgColorTrue" + i);
 
 
@@ -1519,7 +1527,15 @@ vis.binds["vis-inventwo"] = {
 
 					imgColorFilter = dataNew.iImgColorFalseFilter;
 
-					if(dataNew.iImgColorFalse != dataNew.iImgColorFalseOld)
+					let oldImgCol = dataNew.iImgColorFalseOld;
+
+					let reg = /\{([^\{\}]*)\}/gm;
+					let match = reg.exec(dataNew.iImgColorFalse);
+					if(match != null){
+						oldImgCol = vis.states.attr(match[1] + ".val");
+					}
+
+					if(dataNew.iImgColorFalse != oldImgCol)
 						imgColorFilter = vis.binds["vis-inventwo"].createNewColorFilter(dataNew.wid,"iImgColorFalse");
 
 					if (dataNew.iImageFalse != undefined)
@@ -1549,7 +1565,15 @@ vis.binds["vis-inventwo"] = {
 
 					imgColorFilter = dataNew.iImgColorTrueFilter;
 
-					if(dataNew.iImgColorTrue != dataNew.iImgColorTrueOld)
+					let oldImgCol = dataNew.iImgColorTrueOld;
+
+					let reg = /\{([^\{\}]*)\}/gm;
+					let match = reg.exec(dataNew.iImgColorTrue);
+					if(match != null){
+						oldImgCol = vis.states.attr(match[1] + ".val");
+					}
+
+					if(dataNew.iImgColorTrue != oldImgCol)
 						imgColorFilter = vis.binds["vis-inventwo"].createNewColorFilter(dataNew.wid, "iImgColorTrue");
 
 					if (dataNew.iImageTrue != undefined && dataNew.iImageTrue != "")
@@ -1566,7 +1590,15 @@ vis.binds["vis-inventwo"] = {
 
 					imgColorFilter = dataNew.iImgColorFalseFilter;
 
-					if(dataNew.iImgColorFalse != dataNew.iImgColorFalseOld)
+					let oldImgCol = dataNew.iImgColorFalseOld;
+
+					let reg = /\{([^\{\}]*)\}/gm;
+					let match = reg.exec(dataNew.iImgColorFalse);
+					if(match != null){
+						oldImgCol = vis.states.attr(match[1] + ".val");
+					}
+
+					if(dataNew.iImgColorFalse != oldImgCol)
 						imgColorFilter = vis.binds["vis-inventwo"].createNewColorFilter(dataNew.wid,"iImgColorFalse");
 
 					if (dataNew.iImageFalse != undefined && dataNew.iImageFalse != "")
@@ -2158,7 +2190,6 @@ vis.binds["vis-inventwo"] = {
 
 	createNewColorFilter: function(el, attr){
 
-		console.log("new filter");
 		let reg = /\{([^\{\}]*)\}/gm;
 		let match = reg.exec(vis.widgets[el].data[attr]);
 		let color = "";
@@ -2180,8 +2211,9 @@ vis.binds["vis-inventwo"] = {
 			filterAttr = attr + "Filter";
 			oldAttr = attr + "Old";
 		}
-		vis.widgets[el].data[filterAttr] = filter;
-		vis.widgets[el].data[oldAttr] = color;
+
+		vis.views[vis.activeView].widgets[el].data[filterAttr] = filter;
+		vis.views[vis.activeView].widgets[el].data[oldAttr] = color;
 
 		return filter;
 	},
