@@ -777,6 +777,8 @@ vis.binds["vis-inventwo"] = {
 				let id = $(this).attr("id");
 				let data = vis.widgets[id].data;
 
+				console.log(id);
+
 				if (data.nav_view === vis.activeView) {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonActive);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
@@ -803,6 +805,7 @@ vis.binds["vis-inventwo"] = {
 				let id = $(this).attr("id");
 				let data = vis.widgets[id].data;
 				let stateFound = false;
+				console.log(id);
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					if (data["iView" + i] === vis.activeView) {
 						stateFound = true;
