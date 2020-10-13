@@ -777,6 +777,7 @@ vis.binds["vis-inventwo"] = {
 				let id = $(this).attr("id");
 				let data = vis.widgets[id].data;
 
+				console.log("###############");
 				console.log(id);
 
 				if (data.nav_view === vis.activeView) {
@@ -805,6 +806,7 @@ vis.binds["vis-inventwo"] = {
 				let id = $(this).attr("id");
 				let data = vis.widgets[id].data;
 				let stateFound = false;
+				console.log("###############");
 				console.log(id);
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					if (data["iView" + i] === vis.activeView) {
@@ -845,7 +847,7 @@ vis.binds["vis-inventwo"] = {
 		if (data[1] === "wiki") {
 			url = "https://github.com/inventwo/ioBroker.vis-inventwo/wiki";
 		}
-		return {input: `<a target="_blank" href="${url}">${_("iWikiText")}</a>`};
+		return {input: `<a target="_blank" href="${url}">${("iWikiText")}</a>`};
 	},
 
 	//VIS Edit Info Texte
