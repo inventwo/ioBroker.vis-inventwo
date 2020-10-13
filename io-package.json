@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.4.2",
+    "version": "2.4.3",
     "news": {
+      "2.4.3": {
+        "en": "Bug fixes",
+        "de": "Fehlerbehebung",
+        "ru": "Исправление ошибок",
+        "pt": "Correções de bugs",
+        "nl": "Bugfixes",
+        "fr": "Corrections de bogues",
+        "it": "Correzioni di bug",
+        "es": "Corrección de errores",
+        "pl": "Poprawki błędów",
+        "zh-cn": "Bug修复"
+      },
       "2.4.2": {
         "en": "Bug fixes",
         "de": "Fehlerbehebung",
