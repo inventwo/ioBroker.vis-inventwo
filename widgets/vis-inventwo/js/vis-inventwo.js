@@ -2158,6 +2158,7 @@ vis.binds["vis-inventwo"] = {
 
 	createNewColorFilter: function(el, attr){
 
+		console.log("new filter");
 		let reg = /\{([^\{\}]*)\}/gm;
 		let match = reg.exec(vis.widgets[el].data[attr]);
 		let color = "";
@@ -2179,8 +2180,8 @@ vis.binds["vis-inventwo"] = {
 			filterAttr = attr + "Filter";
 			oldAttr = attr + "Old";
 		}
-		vis.views[vis.activeView].widgets[el].data[filterAttr] = filter;
-		vis.views[vis.activeView].widgets[el].data[oldAttr] = color;
+		vis.widgets[el].data[filterAttr] = filter;
+		vis.widgets[el].data[oldAttr] = color;
 
 		return filter;
 	},
