@@ -70,6 +70,8 @@
 						 iImgColorTrue[]/color/changeWidgetIconColor();
 						 iImgColorFalseFilter[]/text;
 						 iImgColorTrueFilter[]/text;
+						 iImgColorFalseOld[]/text;
+						 iImgColorTrueOld[]/text;
 
 						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
 						 iShadowXOffset[2]/slider,0,20,1;
@@ -129,14 +131,25 @@
 						 oid(1-iUniversalValueCount)/id;
 						 iValue(1-iUniversalValueCount)/text;
 						 iTextTrue(1-iUniversalValueCount)/html;
+
+						 iText-BackgroundSettings(1-iUniversalValueCount)/custom,vis-inventwo.infoText,emptyText;
+						 iButtonActiveM(1-iUniversalValueCount)[#455618]/color;
+
+						 iText-ShadowSettings(1-iUniversalValueCount)/custom,vis-inventwo.infoText,emptyText;
+						 iShadowColorActiveM(1-iUniversalValueCount)[#111111]/color;
+
+						 iText-ShadowInnerSettings(1-iUniversalValueCount)/custom,vis-inventwo.infoText,emptyText;
+						 iShadowInnerColorActiveM(1-iUniversalValueCount)[#111111]/color;
+
+						 iText-BorderSettings(1-iUniversalValueCount)/custom,vis-inventwo.infoText,emptyText;
+						 iBorderColorActiveM(1-iUniversalValueCount)[#ffffff]/color;
+
+						 iText-ImageSettings(1-iUniversalValueCount)/custom,vis-inventwo.infoText,emptyText;
 						 iImageTrue(1-iUniversalValueCount)/image;
 						 iImgBlinkTrue(1-iUniversalValueCount)[0]/slider,0,2000,100;
-						 iButtonActiveM(1-iUniversalValueCount)[#455618]/color;
-						 iShadowColorActiveM(1-iUniversalValueCount)[#111111]/color;
-						 iShadowInnerColorActiveM(1-iUniversalValueCount)[#111111]/color;
-						 iBorderColorActiveM(1-iUniversalValueCount)[#ffffff]/color;
 						 iImgColorTrue(1-iUniversalValueCount)[]/color/changeWidgetIconColor();
-						 iImgColorTrueFilter(1-iUniversalValueCount)[]/text;"
+						 iImgColorTrueFilter(1-iUniversalValueCount)[]/text;
+						 iImgColorTrueOld(1-iUniversalValueCount)[]/text;"
 		data-vis-attrs1="group.i-css;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
@@ -175,6 +188,7 @@
 						 iImgBlinkFalse[0]/slider,0,2000,100;
 						 iImgColorFalse[]/color/changeWidgetIconColor();
 						 iImgColorFalseFilter[]/color;
+						 iImgColorFalseOld[]/text;
 
 						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
 						 iShadowXOffset[2]/slider,0,20,1;
@@ -363,6 +377,8 @@
 						 iImgColorFalseFilter[]/color;
 						 iImgColorTrue[]/color/changeWidgetIconColor();
 						 iImgColorTrueFilter[]/color;
+						 iImgColorFalseOld[]/text;
+						 iImgColorTrueOld[]/text;
 
 						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
 						 iShadowSpread[0]/slider,0,50,1;
@@ -417,12 +433,16 @@
             		if(dataNew.oid != undefined && vis.states.attr(dataNew.oid + '.val') == val) {
             			imgBlink = dataNew.iImgBlinkTrue / 1000;
             			imgColorFilter = dataNew.iImgColorTrueFilter;
+            			if(dataNew.iImgColorTrue != dataNew.iImgColorTrueOld)
+							imgColorFilter = vis.binds["vis-inventwo"].createNewColorFilter(dataNew.wid,"iImgColorTrue");
             			img = dataNew.iImageTrue;
             			shadow = "box-shadow: 0px 0px " + dataNew.iShadowBlur + "px " + dataNew.iShadowSpread + "px " + dataNew.iShadowColorActive;
             		}
             		else{
             			imgBlink = dataNew.iImgBlinkFalse / 1000;
             			imgColorFilter = dataNew.iImgColorFalseFilter;
+            			if(dataNew.iImgColorFalse != dataNew.iImgColorFalseOld)
+							imgColorFilter = vis.binds["vis-inventwo"].createNewColorFilter(dataNew.wid,"iImgColorFalse");
             			img = dataNew.iImageFalse;
             			shadow = "box-shadow: 0px 0px " + dataNew.iShadowBlur + "px " + dataNew.iShadowSpread + "px " + dataNew.iShadowColor;
             		}
@@ -548,7 +568,9 @@
 						 iImgColorFalse(1-iRadiobtnsCount)[]/color/changeWidgetIconColor();
 						 iImgColorFalseFilter(1-iRadiobtnsCount)[]/color;
 						 iImgColorTrue(1-iRadiobtnsCount)[]/color/changeWidgetIconColor();
-						 iImgColorTrueFilter(1-iRadiobtnsCount)[]/color;"
+						 iImgColorTrueFilter(1-iRadiobtnsCount)[]/color;
+						 iImgColorFalseOld(1-iRadiobtnsCount)[]/text;
+						 iImgColorTrueOld(1-iRadiobtnsCount)[]/text;"
 		data-vis-attrs1="group.i-css;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
@@ -699,7 +721,6 @@
 			<%
 
 				let backCol = "";
-				let imgColorInvert = 0;
 				let imgColorFilter = "";
 				let value = vis.binds["vis-inventwo"].convertValue(dataNew['iValue' + val]);
 
@@ -711,9 +732,10 @@
 					else{
 						backCol = dataNew.iButtonActive;
 					}
-
-					imgColorInvert = dataNew['iInvertImageCol' + val];
 					imgColorFilter = dataNew["iImgColorTrueFilter" + val];
+
+					if(dataNew["iImgColorTrue" + val] != dataNew["iImgColorTrueOld" + val])
+						imgColorFilter = vis.binds["vis-inventwo"].createNewColorFilter(dataNew.wid,"iImgColorTrue" + val);
 				}
 				else{
 					if(dataNew['iButtonBackM' + val] != undefined){
@@ -722,8 +744,10 @@
 					else{
 						backCol = dataNew.iButtonCol;
 					}
-					imgColorInvert = dataNew.iInvertImageCol;
 					imgColorFilter = dataNew["iImgColorFalseFilter" + val];
+
+					if(dataNew["iImgColorFalse" + val] != dataNew["iImgColorFalseOld" + val])
+						imgColorFilter = vis.binds["vis-inventwo"].createNewColorFilter(dataNew.wid,"iImgColorFalse" + val);
 				}
 
 			%>
@@ -876,8 +900,6 @@
 	</div>
 
 </script>
-
-
 
 
 
