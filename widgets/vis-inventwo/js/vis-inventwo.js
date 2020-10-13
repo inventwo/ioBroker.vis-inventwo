@@ -843,7 +843,7 @@ vis.binds["vis-inventwo"] = {
 		if (data[1] === "wiki") {
 			url = "https://github.com/inventwo/ioBroker.vis-inventwo/wiki";
 		}
-		return {input: `<a target="_blank" href="${url}">${("iWikiText")}</a>`};
+		return {input: `<a target="_blank" href="${url}">${_("iWikiText")}</a>`};
 	},
 
 	//VIS Edit Info Texte
@@ -1458,6 +1458,7 @@ vis.binds["vis-inventwo"] = {
 			}
 		}
 
+
 		createWidget(true);
 
 		function createWidget(createEvents) {
@@ -1495,21 +1496,7 @@ vis.binds["vis-inventwo"] = {
 						shadowCol = dataNew["iShadowColorActiveM" + i];
 						shadowColInner = dataNew["iShadowInnerColorActiveM" + i];
 						borderCol = dataNew["iBorderColorActiveM" + i];
-
 						imgColorFilter = dataNew["iImgColorTrueFilter" + i];
-
-						let oldImgCol = dataNew["iImgColorTrueOld" + i];
-
-						let reg = /\{([^\{\}]*)\}/gm;
-						let match = reg.exec(dataNew["iImgColorTrue" + i]);
-						if(match != null){
-							oldImgCol = vis.states.attr(match[1] + ".val");
-						}
-
-						if(dataNew["iImgColorTrue" + i] != oldImgCol)
-							imgColorFilter = vis.binds["vis-inventwo"].createNewColorFilter(dataNew.wid,"iImgColorTrue" + i);
-
-
 						if (dataNew["iImageTrue" + i] != undefined)
 							img = dataNew["iImageTrue" + i];
 						if (dataNew["iTextTrue" + i] != undefined)
@@ -1524,20 +1511,7 @@ vis.binds["vis-inventwo"] = {
 					shadowCol = dataNew.iShadowColor;
 					shadowColInner = dataNew.iShadowInnerColor;
 					borderCol = dataNew.iBorderColor;
-
 					imgColorFilter = dataNew.iImgColorFalseFilter;
-
-					let oldImgCol = dataNew.iImgColorFalseOld;
-
-					let reg = /\{([^\{\}]*)\}/gm;
-					let match = reg.exec(dataNew.iImgColorFalse);
-					if(match != null){
-						oldImgCol = vis.states.attr(match[1] + ".val");
-					}
-
-					if(dataNew.iImgColorFalse != oldImgCol)
-						imgColorFilter = vis.binds["vis-inventwo"].createNewColorFilter(dataNew.wid,"iImgColorFalse");
-
 					if (dataNew.iImageFalse != undefined)
 						img = dataNew.iImageFalse;
 					if (dataNew.iTextFalse != undefined)
@@ -1562,19 +1536,7 @@ vis.binds["vis-inventwo"] = {
 					shadowCol = dataNew.iShadowColorActive;
 					shadowColInner = dataNew.iShadowInnerColorActive;
 					borderCol = dataNew.iBorderColorActive;
-
 					imgColorFilter = dataNew.iImgColorTrueFilter;
-
-					let oldImgCol = dataNew.iImgColorTrueOld;
-
-					let reg = /\{([^\{\}]*)\}/gm;
-					let match = reg.exec(dataNew.iImgColorTrue);
-					if(match != null){
-						oldImgCol = vis.states.attr(match[1] + ".val");
-					}
-
-					if(dataNew.iImgColorTrue != oldImgCol)
-						imgColorFilter = vis.binds["vis-inventwo"].createNewColorFilter(dataNew.wid, "iImgColorTrue");
 
 					if (dataNew.iImageTrue != undefined && dataNew.iImageTrue != "")
 						img = dataNew.iImageTrue;
@@ -1587,19 +1549,7 @@ vis.binds["vis-inventwo"] = {
 					shadowCol = dataNew.iShadowColor;
 					shadowColInner = dataNew.iShadowInnerColor;
 					borderCol = dataNew.iBorderColor;
-
 					imgColorFilter = dataNew.iImgColorFalseFilter;
-
-					let oldImgCol = dataNew.iImgColorFalseOld;
-
-					let reg = /\{([^\{\}]*)\}/gm;
-					let match = reg.exec(dataNew.iImgColorFalse);
-					if(match != null){
-						oldImgCol = vis.states.attr(match[1] + ".val");
-					}
-
-					if(dataNew.iImgColorFalse != oldImgCol)
-						imgColorFilter = vis.binds["vis-inventwo"].createNewColorFilter(dataNew.wid,"iImgColorFalse");
 
 					if (dataNew.iImageFalse != undefined && dataNew.iImageFalse != "")
 						img = dataNew.iImageFalse;
@@ -2160,62 +2110,15 @@ vis.binds["vis-inventwo"] = {
 
 	//Aktualisierung der Filter für das Icon
 	changeWidgetIconColor: function (t1,t2,t3,attr) {
-
 		vis.activeWidgets.forEach(function (el) {
-			let color = vis.views[vis.activeView].widgets[el].data[attr];
-
-			let reg = /\{([^\{\}]*)\}/gm;
-			let match = reg.exec(color);
-			if(match != null){
-				color = vis.states.attr(match[1] + ".val");
-			}
-
-			let filter = vis.binds["vis-inventwo"].colorFilterGenerator(color);
+			let filter = vis.binds["vis-inventwo"].colorFilterGenerator(vis.views[vis.activeView].widgets[el].data[attr]);
 			let filterAttr = "";
-			let oldAttr = "";
-
-			if(attr.match(/\d/) != null) {
-				filterAttr = attr.substring(0, attr.indexOf(attr.match(/\d/))) + "Filter" + attr.substring(attr.indexOf(attr.match(/\d/)), attr.length);
-				oldAttr = attr.substring(0, attr.indexOf(attr.match(/\d/))) + "Old" + attr.substring(attr.indexOf(attr.match(/\d/)), attr.length);
-			}
-			else {
+			if(attr.match(/\d/) != null)
+				filterAttr = attr.substring(0,attr.indexOf(attr.match(/\d/))) + "Filter" + attr.substring(attr.indexOf(attr.match(/\d/)), attr.length);
+			else
 				filterAttr = attr + "Filter";
-				oldAttr = attr + "Old";
-			}
 			vis.views[vis.activeView].widgets[el].data[filterAttr] = filter;
-			vis.views[vis.activeView].widgets[el].data[oldAttr] = color;
-
 		});
-	},
-
-	createNewColorFilter: function(el, attr){
-
-		let reg = /\{([^\{\}]*)\}/gm;
-		let match = reg.exec(vis.widgets[el].data[attr]);
-		let color = "";
-
-		if(match != null)
-			color = vis.states.attr(match[1] + ".val");
-		else
-			color = vis.widgets[el].data[attr];
-
-		let filter = vis.binds["vis-inventwo"].colorFilterGenerator(color);
-		let filterAttr = "";
-		let oldAttr = "";
-
-		if(attr.match(/\d/) != null) {
-			filterAttr = attr.substring(0, attr.indexOf(attr.match(/\d/))) + "Filter" + attr.substring(attr.indexOf(attr.match(/\d/)), attr.length);
-			oldAttr = attr.substring(0, attr.indexOf(attr.match(/\d/))) + "Old" + attr.substring(attr.indexOf(attr.match(/\d/)), attr.length);
-		}
-		else {
-			filterAttr = attr + "Filter";
-			oldAttr = attr + "Old";
-		}
-
-		vis.views[vis.activeView].widgets[el].data[filterAttr] = filter;
-		vis.views[vis.activeView].widgets[el].data[oldAttr] = color;
-
-		return filter;
 	},
 
 	convertValue: function (val) {
@@ -2242,21 +2145,15 @@ vis.binds["vis-inventwo"] = {
 
 						vis.hideShowAttr("iImgColorFalseFilter", false);
 						vis.hideShowAttr("iImgColorTrueFilter", false);
-						vis.hideShowAttr("iImgColorFalseOld", false);
-						vis.hideShowAttr("iImgColorTrueOld", false);
 
 						for (let i = 1; i <= data.iRadiobtnsCount; i++) {
 							vis.hideShowAttr("iImgColorFalseFilter" + i, false);
 							vis.hideShowAttr("iImgColorTrueFilter" + i, false);
-							vis.hideShowAttr("iImgColorFalseOld" + i, false);
-							vis.hideShowAttr("iImgColorTrueOld" + i, false);
 						}
 
 						for (let i = 1; i <= data.iUniversalValueCount; i++) {
 							vis.hideShowAttr("iImgColorFalseFilter" + i, false);
 							vis.hideShowAttr("iImgColorTrueFilter" + i, false);
-							vis.hideShowAttr("iImgColorFalseOld" + i, false);
-							vis.hideShowAttr("iImgColorTrueOld" + i, false);
 						}
 
 
