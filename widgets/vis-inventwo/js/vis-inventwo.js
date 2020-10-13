@@ -777,7 +777,7 @@ vis.binds["vis-inventwo"] = {
 				let id = $(this).attr("id");
 				let data = vis.widgets[id].data;
 
-				console.log("###############");
+				console.log("################");
 				console.log(id);
 
 				if (data.nav_view === vis.activeView) {
