@@ -780,7 +780,7 @@ vis.binds["vis-inventwo"] = {
 				if (data.nav_view === vis.activeView) {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonActive);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
-					if(data.iImgColorTrueFilter != undefined)
+					if(data.iImgColorTrueFilter != undefined && data.iImgColorTrueFilter != "")
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorTrueFilter.substring(8,data.iImgColorTrueFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextTrue);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColorActive);
@@ -789,7 +789,7 @@ vis.binds["vis-inventwo"] = {
 				} else {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
-					if(data.iImgColorFalseFilter != undefined)
+					if(data.iImgColorFalseFilter != undefined && data.iImgColorFalseFilter != "")
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8,data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
@@ -808,7 +808,7 @@ vis.binds["vis-inventwo"] = {
 						stateFound = true;
 						$(this).find(".vis-inventwo-button-new").css("background", data["iButtonActiveM" + i]);
 						$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data["iImageTrue" + i]);
-						if(data["iImgColorTrueFilter" + i] != undefined)
+						if(data["iImgColorTrueFilter" + i] != undefined && data["iImgColorTrueFilter" + i] != "")
 							$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data["iImgColorTrueFilter" + i].substring(8,data["iImgColorTrueFilter" + i].length - 1));
 						$(this).find(".vis-inventwo-button-text").html(data["iTextTrue" + i]);
 						$(this).find(".vis-inventwo-button-new").css("border-color", data["iBorderColorActiveM" +  i]);
@@ -820,7 +820,7 @@ vis.binds["vis-inventwo"] = {
 				if (!stateFound) {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
-					if(data.iImgColorFalseFilter != undefined)
+					if(data.iImgColorFalseFilter != undefined && data.iImgColorFalseFilter != "")
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8,data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
