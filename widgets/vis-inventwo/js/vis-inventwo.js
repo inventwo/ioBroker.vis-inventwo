@@ -735,6 +735,10 @@ if (vis.editMode) {
 			"en": "H = Hours, i = Minutes, s = Seconds, d = Day, M = Month, m = Monthnumber, y = Year",
 			"de": "H = Stunden, i = Minuten, s = Sekunden, d = Tag, M = Monat, m = Monatszahl, y = Jahr"
 		},
+		"iText-ToggleSwitchSettings": {
+			"en": "<b>Switch</b>",
+			"de": "<b>Schalter</b>"
+		},
 		//#endregion
 	});
 }
@@ -1516,8 +1520,7 @@ vis.binds["vis-inventwo"] = {
 						img = dataNew.iImageFalse;
 					if (dataNew.iTextFalse != undefined)
 						txt = dataNew.iTextFalse;
-					else
-						txt = "";
+
 					imgBlink = dataNew.iImgBlinkFalse;
 				}
 			}
@@ -1540,7 +1543,7 @@ vis.binds["vis-inventwo"] = {
 
 					if (dataNew.iImageTrue != undefined && dataNew.iImageTrue != "")
 						img = dataNew.iImageTrue;
-					if (dataNew.iTextFalse != undefined && dataNew.iTextFalse != "")
+					if (dataNew.iTextTrue != undefined && dataNew.iTextTrue != "")
 						txt = dataNew.iTextTrue;
 
 					imgBlink = dataNew.iImgBlinkTrue;
@@ -1692,6 +1695,12 @@ vis.binds["vis-inventwo"] = {
 						setTimeout(function () {
 							vis.binds["vis-inventwo"].updateUniversalDataFields();
 							//vis.binds["vis-inventwo"].hideImgFilterFields();
+						}, 100);
+					});
+
+					$('.group-control').on("mouseup click", function () {
+						setTimeout(function () {
+							vis.binds["vis-inventwo"].hideImgFilterFields();
 						}, 100);
 					});
 				}
@@ -2161,6 +2170,127 @@ vis.binds["vis-inventwo"] = {
 				}, 100);
 			});
 		}
-	}
+	},
+
+	//Generierung des Universal und Multi Widgets
+	createSwitchWidget: function (el, data, style) {
+
+		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
+			createWidget(false);
+		});
+
+		createWidget(true);
+
+		function createWidget(createEvents) {
+			let dataNew = Object.assign({}, data);
+
+			if (vis.editMode) {
+				dataNew = vis.binds["vis-inventwo"].getDatapointsValues(dataNew);
+			}
+
+			//Farben, Text & Bild bei true oder false
+			let switchOnCol = dataNew.iSwitchColOn;
+			let switchOffCol = dataNew.iSwitchColOff;
+			let switchImg = "";
+			let switchColsSizeStyles = "";
+			let switchWidth = "";
+			let switchHeight = "";
+			let backDirection = "";
+			let flip = 1;
+			let flipStyle = "";
+
+			if(dataNew.iFlipImage){
+				flip = -1;
+			}
+
+			if (vis.states.attr(dataNew.oid + ".val") == dataNew.iValueTrue) {
+				switchOnCol = dataNew.iSwitchColOnActive;
+				if(dataNew.iSwitchOrientation == "vertical"){
+					switchImg = "widgets/vis-inventwo/img/ToggleSwitch/switch-1-vert-on-"+dataNew.iSwitchColor+".png";
+				}
+				else{
+					switchImg = "widgets/vis-inventwo/img/ToggleSwitch/switch-1-hor-on-"+dataNew.iSwitchColor+".png";
+				}
+			} else {
+				switchOffCol = dataNew.iSwitchColOffActive;
+				if(dataNew.iSwitchOrientation == "vertical"){
+					switchImg = "widgets/vis-inventwo/img/ToggleSwitch/switch-1-vert-off-"+dataNew.iSwitchColor+".png";
+				}
+				else{
+					switchImg = "widgets/vis-inventwo/img/ToggleSwitch/switch-1-hor-off-"+dataNew.iSwitchColor+".png";
+				}
+			}
+
+
+			if (dataNew.iSwitchOrientation == "vertical"){
+				switchWidth = dataNew.iSwitchSize + "px";
+				switchHeight = "calc(" + dataNew.iSwitchSize + "px" + " * 2)";
+				switchColsSizeStyles = "margin: auto; width: 90%; height: 45%;";
+				backDirection = "column";
+				flipStyle = "scaleY(" + flip + ")";
+			}
+			else if (dataNew.iSwitchOrientation == "horizontal") {
+				switchWidth = "calc(" + dataNew.iSwitchSize + "px" + " * 2)";
+				switchHeight = dataNew.iSwitchSize + "px";
+				switchColsSizeStyles = "margin: auto; width: 45%; height: 90%;";
+				backDirection = "row";
+				flipStyle = "scaleX(" + flip + ")";
+			}
+
+			let html = `
+			<div class="vis-inventwo-class vis-widget-body" 
+				 style="position: relative; opacity: ` + dataNew.iOpacityBack + `;width: ` + switchWidth + `; height: ` + switchHeight + `; transform: ` + flipStyle + ` ">
+					<div class="vis-inventwo-button-new" style="display: flex; flex-direction: ` + backDirection + `;">
+						 <div style="` + switchColsSizeStyles + ` background: ` + switchOnCol + `;"></div>
+						 <div style="` + switchColsSizeStyles + ` background: ` + switchOffCol + `;"></div>
+					</div>
+					<div class="vis-inventwo-overlay">
+						<img src="` + switchImg + `" width="100%"> 
+					</div>
+			</div>`;
+
+			$(el).html(html);
+
+			//Bindings
+			if (createEvents) {
+				vis.binds["vis-inventwo"].handleToggleSwitch(el, dataNew);
+
+			}
+		}
+	},
+
+
+	//Switch Funktion - Datenpunktwert wechseln
+	handleToggleSwitch: function (el, data) {
+		var $this = $(el);
+
+		var oid = data.oid;
+
+		if (!vis.editMode) {
+			var moved = false;
+			$this.parent().on("click touchend", function () {
+
+				if (vis.detectBounce(this)) return;
+				if (moved) return;
+
+				var val = vis.states[oid + ".val"];
+				var valFalse = vis.binds["vis-inventwo"].convertValue(data.iValueFalse);
+				var valTrue = vis.binds["vis-inventwo"].convertValue(data.iValueTrue);
+
+				if (val == valFalse) {
+					vis.setValue(oid, valTrue);
+				} else {
+					vis.setValue(oid, valFalse);
+				}
+
+			}).on("touchmove", function () {
+				moved = true;
+			}).on("touchstart", function () {
+				moved = false;
+			});
+
+		}
+
+	},
 
 };

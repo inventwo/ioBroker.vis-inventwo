@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.4.3",
+    "version": "2.5.0",
     "news": {
+      "2.5.0": {
+        "en": "Added toggle switch, Bug Fixes",
+        "de": "Kippschalter hinzugefügt, Fehlerbehebungen",
+        "ru": "Добавлен переключатель, исправления ошибок",
+        "pt": "Adicionado botão de alternância, correções de bugs",
+        "nl": "Tuimelschakelaar toegevoegd, bugfixes",
+        "fr": "Ajout d'un interrupteur à bascule, corrections de bugs",
+        "it": "Aggiunto interruttore, correzioni di bug",
+        "es": "Interruptor de palanca agregado, corrección de errores",
+        "pl": "Dodano przełącznik, poprawki błędów",
+        "zh-cn": "添加了拨动开关，错误修复"
+      },
       "2.4.3": {
         "en": "Bug fixes",
         "de": "Fehlerbehebung",

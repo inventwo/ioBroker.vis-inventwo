@@ -714,7 +714,7 @@
 
 				if(vis.states.attr(this.data.oid + '.val') == value){
 
-					if(dataNew['iButtonBackActiveM' + val] != undefined){
+					if(dataNew['iButtonBackActiveM' + val] != undefined && dataNew['iButtonBackActiveM' + val] != ''){
 						backCol = dataNew['iButtonBackActiveM' + val];
 					}
 					else{
@@ -723,7 +723,7 @@
 					imgColorFilter = dataNew["iImgColorTrueFilter" + val];
 				}
 				else{
-					if(dataNew['iButtonBackM' + val] != undefined){
+					if(dataNew['iButtonBackM' + val] != undefined && dataNew['iButtonBackM' + val] != ''){
 						backCol = dataNew['iButtonBackM' + val];
 					}
 					else{
@@ -887,6 +887,50 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+<script id="i-vis-switch-1"
+		type="text/ejs"
+		class="vis-tpl"
+		data-vis-prev='<img src="widgets/vis-inventwo/img/Universal.gif">'
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
+						oid/id;
+						iValueFalse/text;
+						iValueTrue/text;
+						iSwitchOrientation[vertical]/select,horizontal,vertical;"
+		data-vis-attrs0="group.i-css;
+						 iText-ToggleSwitchSettings/custom,vis-inventwo.infoText,emptyText;
+						 iOpacityBack[1]/slider,0,1,0.1;
+						 iSwitchSize[110]/slider,10,200,1;
+						 iFlipImage/checkbox;
+						 iSwitchColOn[#333333]/color;
+						 iSwitchColOnActive[#00ff00]/color;
+						 iSwitchColOff[#333333]/color;
+						 iSwitchColOffActive[#ff0000]/color;
+						 iSwitchColor[white]/select,black,white;"
+		data-vis-set="vis-inventwo"
+		data-vis-type="ctrl"
+		data-vis-name="Switch<br>
+						<span style='color:#888888;'>Simple toggle switch</span>">
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:auto; height: auto; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+
+		<%= (el) -> vis.binds['vis-inventwo'].createSwitchWidget(el, this.data, this.style) %>
+		<%= (el) -> vis.binds['vis-inventwo'].hideImgFilterFields(el) %>
+
+	</div>
+
+
+</script>
 
 
 
