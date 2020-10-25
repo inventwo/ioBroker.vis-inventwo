@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.5.0",
+    "version": "2.5.1",
     "news": {
+      "2.5.1": {
+        "en": "Bug fixes",
+        "de": "Fehlerbehebung",
+        "ru": "Исправление ошибок",
+        "pt": "Correções de bugs",
+        "nl": "Bugfixes",
+        "fr": "Corrections de bogues",
+        "it": "Correzioni di bug",
+        "es": "Corrección de errores",
+        "pl": "Poprawki błędów",
+        "zh-cn": "Bug修复"
+      },
       "2.5.0": {
         "en": "Added toggle switch, Bug Fixes",
         "de": "Kippschalter hinzugefügt, Fehlerbehebungen",
