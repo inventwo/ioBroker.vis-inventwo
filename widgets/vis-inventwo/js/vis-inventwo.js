@@ -677,6 +677,37 @@ if (vis.editMode) {
 		},
 		//#endregion
 
+		//#region Toggle Switch Settings
+		"iSwitchSize": {
+			"en": "Size",
+			"de": "Größe"
+		},
+		"iSwitchColOn": {
+			"en": "Color on",
+			"de": "Farbe an"
+		},
+		"iSwitchColOnActive": {
+			"en": "Color on active",
+			"de": "Farbe an aktiv"
+		},
+		"iSwitchColOff": {
+			"en": "Color off",
+			"de": "Farbe aus"
+		},
+		"iSwitchColOffActive": {
+			"en": "Color off active",
+			"de": "Farbe aus aktiv"
+		},
+		"iSwitchColor": {
+			"en": "Toggle Switch color",
+			"de": "Schalterfarbe"
+		},
+		"iSwitchOrientation": {
+			"en": "Orientation",
+			"de": "Ausrichtung"
+		},
+		//#endregion
+
 
 		//#region Custom Text
 		"iText-Empty": {
@@ -2203,7 +2234,7 @@ vis.binds["vis-inventwo"] = {
 				flip = -1;
 			}
 
-			if (vis.states.attr(dataNew.oid + ".val") == dataNew.iValueTrue) {
+			if (vis.states.attr(dataNew.oid + ".val") == vis.binds["vis-inventwo"].convertValue(dataNew.iValueTrue)) {
 				switchOnCol = dataNew.iSwitchColOnActive;
 				if(dataNew.iSwitchOrientation == "vertical"){
 					switchImg = "widgets/vis-inventwo/img/ToggleSwitch/switch-1-vert-on-"+dataNew.iSwitchColor+".png";

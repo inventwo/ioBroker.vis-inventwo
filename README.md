@@ -75,9 +75,11 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
-## 2.5.1
+## 2.5.2
 - Bugfix
 
+## 2.5.1
+- Bugfix
 
 ## 2.5.0
 - Kippschalter hinzugefügt
