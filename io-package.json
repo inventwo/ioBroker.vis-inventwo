@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.5.2",
+    "version": "2.5.3",
     "news": {
+      "2.5.3": {
+        "en": "Added grey toggle switch",
+        "de": "Grauer Kippschalter hinzugefügt",
+        "ru": "Добавлен серый тумблер",
+        "pt": "Adicionado interruptor cinza",
+        "nl": "Grijze tuimelschakelaar toegevoegd",
+        "fr": "Ajout d'un interrupteur à bascule gris",
+        "it": "Aggiunto interruttore a levetta grigio",
+        "es": "Interruptor de palanca gris agregado",
+        "pl": "Dodano szary przełącznik",
+        "zh-cn": "添加了灰色拨动开关"
+      },
       "2.5.2": {
         "en": "Bug fixes",
         "de": "Fehlerbehebung",
