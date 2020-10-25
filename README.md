@@ -38,6 +38,12 @@
         <td><center><b>Slider vertical</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td>
         <td><center><b>Slider horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
     </tr>
+    <tr><td colspan=3></td></tr>   
+          <tr>
+            <td><center><b>Toggle Switch</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td>
+            <td></td>
+            <td></td>
+        </tr>
 </table>
 
 
@@ -68,6 +74,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ---
 
 ## Changelog / Änderungsprotokoll
+
+## 2.5.0
+- Kippschalter hinzugefügt
+- Bugfix
 
 ## 2.4.3
 - Bugfix
