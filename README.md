@@ -75,6 +75,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 2.5.4
+- Bugfix (State: doppeltes senden dese Wertes bei touch)
+
+
 ## 2.5.3
 - Grauer Kippschalter hinzugefügt
 

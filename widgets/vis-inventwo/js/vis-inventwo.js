@@ -913,7 +913,8 @@ vis.binds["vis-inventwo"] = {
 
 		if (!vis.editMode) {
 			var moved = false;
-			$this.parent().on("click touchend", function () {
+			$this.parent().on("click", function (e) {
+
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
 
@@ -994,8 +995,12 @@ vis.binds["vis-inventwo"] = {
 		var oid = data.oid;
 
 		if (!vis.editMode) {
-
+			var moved = false;
 			$this.parent().on("click touchend", function () {
+
+				if (vis.detectBounce(this)) return;
+				if (moved) return;
+
 				let val = vis.binds["vis-inventwo"].convertValue(data.value);
 
 				let oldValue = vis.states[oid + ".val"];
@@ -1087,6 +1092,11 @@ vis.binds["vis-inventwo"] = {
 						vis.setValue(oid, oldValue);
 					}, data.iStateResetValueTime);
 				}
+			})
+				.on("touchmove", function () {
+					moved = true;
+				}).on("touchstart", function () {
+				moved = false;
 			});
 
 		}
