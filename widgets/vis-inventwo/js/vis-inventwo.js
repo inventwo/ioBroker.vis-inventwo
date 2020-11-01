@@ -571,6 +571,10 @@ if (vis.editMode) {
 			"en": "Text align",
 			"de": "Textausrichtung"
 		},
+		"iTableRefreshRate":{
+			"en": "Refresh rate (ms)",
+			"de": "Aktualisierung (ms)"
+		},
 		//#endregion
 
 		//#region Universal & Multi Widget Settings
@@ -1331,6 +1335,8 @@ vis.binds["vis-inventwo"] = {
 					}
 					output += "</tbody>";
 					output += "</table>";
+
+					setTimeout(vis.binds["vis-inventwo"].jsontable, data.iTableRefreshRate, el, data);
 
 
 				} else {
