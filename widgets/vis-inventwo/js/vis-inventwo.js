@@ -572,8 +572,8 @@ if (vis.editMode) {
 			"de": "Textausrichtung"
 		},
 		"iTableRefreshRate":{
-			"en": "Refresh rate (ms)",
-			"de": "Aktualisierung (ms)"
+			"en": "Refresh rate (seconds)",
+			"de": "Aktualisierung (Sekunden)"
 		},
 		//#endregion
 
@@ -1161,7 +1161,11 @@ vis.binds["vis-inventwo"] = {
 			}
 		}
 
+		let timeout = null;
+
 		function create(el, data) {
+
+			console.log("create table");
 
 			if(vis.editMode){
 				setTimeout(function () {
@@ -1336,19 +1340,27 @@ vis.binds["vis-inventwo"] = {
 					output += "</tbody>";
 					output += "</table>";
 
-					setTimeout(vis.binds["vis-inventwo"].jsontable, data.iTableRefreshRate, el, data);
-
 
 				} else {
 					output = "Columncount can't be zero/empty!";
 				}
 			}
 			$(el).html(output);
+
 		}
 
 		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
 			create(el, data);
 		});
+
+		if (data.oid !== "" && data.oid !== "nothing_selected" && data.oid !== undefined &&  vis.states.attr(data.oid + ".val") != undefined && vis.states.attr(data.oid + ".val") != "" &&
+			vis.states.attr(data.oid + ".val") != "null" && typeof vis.states.attr(data.oid + ".val") != "null") {
+
+			setInterval(function () {
+				create(el, data);
+			}, data.iTableRefreshRate * 1000)
+
+		}
 
 		create(el, data);
 	},
