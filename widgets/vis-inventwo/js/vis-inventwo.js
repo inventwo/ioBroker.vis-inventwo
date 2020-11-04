@@ -823,8 +823,8 @@ vis.binds["vis-inventwo"] = {
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorTrueFilter.substring(8,data.iImgColorTrueFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextTrue);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColorActive);
-					$(this).find(".vis-inventwo-button-new").css("--box-shadow-col", data.iShadowColorActive);
-					$(this).find(".vis-inventwo-button-new").css("--box-shadow-inner-col", data.iShadowInnerColorActive);
+					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", data.iShadowColorActive);
+					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", data.iShadowInnerColorActive);
 				} else {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
@@ -832,8 +832,8 @@ vis.binds["vis-inventwo"] = {
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8,data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
-					$(this).find(".vis-inventwo-button-new").css("--box-shadow-col", data.iShadowColor);
-					$(this).find(".vis-inventwo-button-new").css("--box-shadow-inner-col", data.iShadowInnerColor);
+					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", data.iShadowColor);
+					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", data.iShadowInnerColor);
 				}
 
 			});
@@ -852,8 +852,8 @@ vis.binds["vis-inventwo"] = {
 							$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data["iImgColorTrueFilter" + i].substring(8,data["iImgColorTrueFilter" + i].length - 1));
 						$(this).find(".vis-inventwo-button-text").html(data["iTextTrue" + i]);
 						$(this).find(".vis-inventwo-button-new").css("border-color", data["iBorderColorActiveM" +  i]);
-						$(this).find(".vis-inventwo-button-new").css("--box-shadow-col", data["iShadowColorActiveM" + i]);
-						$(this).find(".vis-inventwo-button-new").css("box-shadow-inner-col", data["iShadowInnerColorActiveM" + i]);
+						$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", data["iShadowColorActiveM" + i]);
+						$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", data["iShadowInnerColorActiveM" + i]);
 						break;
 					}
 				}
@@ -864,8 +864,8 @@ vis.binds["vis-inventwo"] = {
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8,data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
-					$(this).find(".vis-inventwo-button-new").css("--box-shadow-col", data.iShadowColor);
-					$(this).find(".vis-inventwo-button-new").css("box-shadow-inner-col", data.iShadowInnerColor);
+					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", data.iShadowColor);
+					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", data.iShadowInnerColor);
 				}
 
 			});
