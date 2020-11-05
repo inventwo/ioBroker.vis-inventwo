@@ -823,6 +823,15 @@ vis.binds["vis-inventwo"] = {
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorTrueFilter.substring(8,data.iImgColorTrueFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextTrue);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColorActive);
+					if(vis.editMode) {
+						let shadowCols = {
+							iShadowColorActive: data.iShadowColorActive,
+							iShadowInnerColorActive: data.iShadowInnerColorActive
+						};
+						const shadowColors = vis.binds["vis-inventwo"].getDatapointsValues(shadowCols);
+						data.iShadowColorActive = shadowColors.iShadowColorActive;
+						data.iShadowInnerColorActive = shadowColors.iShadowInnerColorActive;
+					}
 					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", data.iShadowColorActive);
 					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", data.iShadowInnerColorActive);
 				} else {
@@ -832,6 +841,15 @@ vis.binds["vis-inventwo"] = {
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8,data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
+					if(vis.editMode) {
+						const shadowColors = vis.binds["vis-inventwo"].getDatapointsValues({
+							iShadowColor: data.iShadowColor,
+							iShadowInnerColor: data.iShadowInnerColor
+						});
+
+						data.iShadowColor = shadowColors.iShadowColor;
+						data.iShadowInnerColor = shadowColors.iShadowInnerColor;
+					}
 					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", data.iShadowColor);
 					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", data.iShadowInnerColor);
 				}
@@ -852,6 +870,15 @@ vis.binds["vis-inventwo"] = {
 							$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data["iImgColorTrueFilter" + i].substring(8,data["iImgColorTrueFilter" + i].length - 1));
 						$(this).find(".vis-inventwo-button-text").html(data["iTextTrue" + i]);
 						$(this).find(".vis-inventwo-button-new").css("border-color", data["iBorderColorActiveM" +  i]);
+						if(vis.editMode) {
+							let shadowCols = {
+								iShadowColorActive: data["iShadowColorActiveM" + i],
+								iShadowInnerColorActive: data["iShadowInnerColorActiveM" + i]
+							};
+							const shadowColors = vis.binds["vis-inventwo"].getDatapointsValues(shadowCols);
+							data["iShadowColorActiveM" + i] = shadowColors.iShadowColorActive;
+							data["iShadowInnerColorActiveM" + i] = shadowColors.iShadowInnerColorActive;
+						}
 						$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", data["iShadowColorActiveM" + i]);
 						$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", data["iShadowInnerColorActiveM" + i]);
 						break;
@@ -864,6 +891,15 @@ vis.binds["vis-inventwo"] = {
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8,data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
+					if(vis.editMode) {
+						const shadowColors = vis.binds["vis-inventwo"].getDatapointsValues({
+							iShadowColor: data.iShadowColor,
+							iShadowInnerColor: data.iShadowInnerColor
+						});
+
+						data.iShadowColor = shadowColors.iShadowColor;
+						data.iShadowInnerColor = shadowColors.iShadowInnerColor;
+					}
 					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", data.iShadowColor);
 					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", data.iShadowInnerColor);
 				}
