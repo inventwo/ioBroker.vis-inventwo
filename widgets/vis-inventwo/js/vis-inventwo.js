@@ -1393,7 +1393,7 @@ vis.binds["vis-inventwo"] = {
 		if (data.oid !== "" && data.oid !== "nothing_selected" && data.oid !== undefined && vis.states.attr(data.oid + ".val") != undefined && vis.states.attr(data.oid + ".val") != "" &&
 			vis.states.attr(data.oid + ".val") != "null" && typeof vis.states.attr(data.oid + ".val") != "null") {
 
-			if(data.iTableRefreshRate > 0) {
+			if(data.iTableRefreshRate > 0 && !vis.editMode) {
 
 				setInterval(function () {
 					create(el, data);
