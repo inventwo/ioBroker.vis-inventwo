@@ -571,7 +571,7 @@ if (vis.editMode) {
 			"en": "Text align",
 			"de": "Textausrichtung"
 		},
-		"iTableRefreshRate":{
+		"iTableRefreshRate": {
 			"en": "Refresh rate (seconds)",
 			"de": "Aktualisierung (Sekunden)"
 		},
@@ -819,11 +819,11 @@ vis.binds["vis-inventwo"] = {
 				if (data.nav_view === vis.activeView) {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonActive);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
-					if(data.iImgColorTrueFilter != undefined && data.iImgColorTrueFilter != "")
-						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorTrueFilter.substring(8,data.iImgColorTrueFilter.length - 1));
+					if (data.iImgColorTrueFilter != undefined && data.iImgColorTrueFilter != "")
+						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorTrueFilter.substring(8, data.iImgColorTrueFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextTrue);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColorActive);
-					if(vis.editMode) {
+					if (vis.editMode) {
 						let shadowCols = {
 							iShadowColorActive: data.iShadowColorActive,
 							iShadowInnerColorActive: data.iShadowInnerColorActive
@@ -837,11 +837,11 @@ vis.binds["vis-inventwo"] = {
 				} else {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
-					if(data.iImgColorFalseFilter != undefined && data.iImgColorFalseFilter != "")
-						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8,data.iImgColorFalseFilter.length - 1));
+					if (data.iImgColorFalseFilter != undefined && data.iImgColorFalseFilter != "")
+						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8, data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
-					if(vis.editMode) {
+					if (vis.editMode) {
 						const shadowColors = vis.binds["vis-inventwo"].getDatapointsValues({
 							iShadowColor: data.iShadowColor,
 							iShadowInnerColor: data.iShadowInnerColor
@@ -866,11 +866,11 @@ vis.binds["vis-inventwo"] = {
 						stateFound = true;
 						$(this).find(".vis-inventwo-button-new").css("background", data["iButtonActiveM" + i]);
 						$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data["iImageTrue" + i]);
-						if(data["iImgColorTrueFilter" + i] != undefined && data["iImgColorTrueFilter" + i] != "")
-							$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data["iImgColorTrueFilter" + i].substring(8,data["iImgColorTrueFilter" + i].length - 1));
+						if (data["iImgColorTrueFilter" + i] != undefined && data["iImgColorTrueFilter" + i] != "")
+							$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data["iImgColorTrueFilter" + i].substring(8, data["iImgColorTrueFilter" + i].length - 1));
 						$(this).find(".vis-inventwo-button-text").html(data["iTextTrue" + i]);
-						$(this).find(".vis-inventwo-button-new").css("border-color", data["iBorderColorActiveM" +  i]);
-						if(vis.editMode) {
+						$(this).find(".vis-inventwo-button-new").css("border-color", data["iBorderColorActiveM" + i]);
+						if (vis.editMode) {
 							let shadowCols = {
 								iShadowColorActive: data["iShadowColorActiveM" + i],
 								iShadowInnerColorActive: data["iShadowInnerColorActiveM" + i]
@@ -887,11 +887,11 @@ vis.binds["vis-inventwo"] = {
 				if (!stateFound) {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
-					if(data.iImgColorFalseFilter != undefined && data.iImgColorFalseFilter != "")
-						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8,data.iImgColorFalseFilter.length - 1));
+					if (data.iImgColorFalseFilter != undefined && data.iImgColorFalseFilter != "")
+						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8, data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
-					if(vis.editMode) {
+					if (vis.editMode) {
 						const shadowColors = vis.binds["vis-inventwo"].getDatapointsValues({
 							iShadowColor: data.iShadowColor,
 							iShadowInnerColor: data.iShadowInnerColor
@@ -937,8 +937,7 @@ vis.binds["vis-inventwo"] = {
 			text = "iText-BackColorRadio";
 		} else if (data[1] === "valueListInfoText") {
 			text = "iText-valueListInfoText";
-		}
-		else if (data[1] === "tblDateInfo") {
+		} else if (data[1] === "tblDateInfo") {
 			text = "iText-tblDateInfo";
 		}
 
@@ -1203,7 +1202,7 @@ vis.binds["vis-inventwo"] = {
 
 			console.log("create table");
 
-			if(vis.editMode){
+			if (vis.editMode) {
 				setTimeout(function () {
 					vis.binds["vis-inventwo"].updateJsonTableFields();
 				}, 100);
@@ -1257,7 +1256,7 @@ vis.binds["vis-inventwo"] = {
 					}
 
 					let tblBorder = "";
-					if(data.iBorderRemoveDouble){
+					if (data.iBorderRemoveDouble) {
 						tblBorder = "border-collapse:collapse;";
 					}
 
@@ -1323,42 +1322,50 @@ vis.binds["vis-inventwo"] = {
 										break;
 									case "datetime":
 										if (data["iTblCellDatetimeFormat" + (i + 1)] != "") {
-											if(!isNaN(cellValue)) {
-												if (cellValue.toString().length > 10)
-													cellValue = cellValue;
-												else if (cellValue.toString().length <= 10)
-													cellValue = cellValue * 1000;
-
-												var getDateString = function (date, format) {
-													var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-														getPaddedComp = function (comp) {
-															return ((parseInt(comp) < 10) ? ("0" + comp) : comp);
-														},
-														formattedDate = format,
-														o = {
-															"y": date.getFullYear(), // year
-															"m": getPaddedComp(date.getMonth() + 1), //month number
-															"M": months[date.getMonth()], //month
-															"d": getPaddedComp(date.getDate()), //day
-															"h": getPaddedComp((date.getHours() > 12) ? date.getHours() % 12 : date.getHours()), //hour
-															"H": getPaddedComp(date.getHours()), //hour
-															"i": getPaddedComp(date.getMinutes()), //minute
-															"s": getPaddedComp(date.getSeconds()), //second
-															"S": getPaddedComp(date.getMilliseconds()), //millisecond,
-															"b": (date.getHours() >= 12) ? "PM" : "AM"
-														};
-
-													for (var k in o) {
-														if (new RegExp("(" + k + ")", "g").test(format)) {
-															formattedDate = formattedDate.replace(RegExp.$1, o[k]);
-														}
-													}
-													return formattedDate;
-
-												};
-												var formattedDate = getDateString(new Date(cellValue), data["iTblCellDatetimeFormat" + (i + 1)]);
-												cellValue = formattedDate;
+											let datetime = null;
+											console.log(cellValue)
+											if (isNaN(cellValue) == true) {
+												datetime = new Date(cellValue).getTime();//Date.parse(cellValue) / 1000;
 											}
+											else{
+												datetime = parseInt(cellValue);
+											}
+											console.log(datetime);
+
+											if (cellValue.toString().length == 13)
+												datetime = datetime / 1000;
+											console.log(datetime);
+
+											var getDateString = function (date, format) {
+												var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+													getPaddedComp = function (comp) {
+														return ((parseInt(comp) < 10) ? ("0" + comp) : comp);
+													},
+													formattedDate = format,
+													o = {
+														"y": date.getFullYear(), // year
+														"m": getPaddedComp(date.getMonth() + 1), //month number
+														"M": months[date.getMonth()], //month
+														"d": getPaddedComp(date.getDate()), //day
+														"h": getPaddedComp((date.getHours() > 12) ? date.getHours() % 12 : date.getHours()), //hour
+														"H": getPaddedComp(date.getHours()), //hour
+														"i": getPaddedComp(date.getMinutes()), //minute
+														"s": getPaddedComp(date.getSeconds()), //second
+														"S": getPaddedComp(date.getMilliseconds()), //millisecond,
+														"b": (date.getHours() >= 12) ? "PM" : "AM"
+													};
+
+												for (var k in o) {
+													if (new RegExp("(" + k + ")", "g").test(format)) {
+														formattedDate = formattedDate.replace(RegExp.$1, o[k]);
+													}
+												}
+												return formattedDate;
+
+											};
+											var formattedDate = getDateString(new Date(datetime), data["iTblCellDatetimeFormat" + (i + 1)]);
+											cellValue = formattedDate;
+
 
 										}
 										break;
@@ -1393,12 +1400,12 @@ vis.binds["vis-inventwo"] = {
 			create(el, data);
 		});
 
-		if (data.oid !== "" && data.oid !== "nothing_selected" && data.oid !== undefined &&  vis.states.attr(data.oid + ".val") != undefined && vis.states.attr(data.oid + ".val") != "" &&
+		if (data.oid !== "" && data.oid !== "nothing_selected" && data.oid !== undefined && vis.states.attr(data.oid + ".val") != undefined && vis.states.attr(data.oid + ".val") != "" &&
 			vis.states.attr(data.oid + ".val") != "null" && typeof vis.states.attr(data.oid + ".val") != "null") {
 
 			setInterval(function () {
 				create(el, data);
-			}, data.iTableRefreshRate * 1000)
+			}, data.iTableRefreshRate * 1000);
 
 		}
 
@@ -1435,17 +1442,15 @@ vis.binds["vis-inventwo"] = {
 			let data = vis.views[vis.activeView].widgets[el].data;
 
 			for (let i = 1; i <= data.iColCount; i++) {
-				if(data["iTblCellFormat" + i] == "normal"){
+				if (data["iTblCellFormat" + i] == "normal") {
 					vis.hideShowAttr("iTblCellDatetimeFormat" + i, false);
 					vis.hideShowAttr("iTblCellDatetimeFormatInfo" + i, false);
 					vis.hideShowAttr("iTblCellImageSize" + i, false);
-				}
-				else if(data["iTblCellFormat" + i] == "datetime"){
+				} else if (data["iTblCellFormat" + i] == "datetime") {
 					vis.hideShowAttr("iTblCellDatetimeFormat" + i, true);
 					vis.hideShowAttr("iTblCellDatetimeFormatInfo" + i, true);
 					vis.hideShowAttr("iTblCellImageSize" + i, false);
-				}
-				else if(data["iTblCellFormat" + i] == "image"){
+				} else if (data["iTblCellFormat" + i] == "image") {
 					vis.hideShowAttr("iTblCellDatetimeFormat" + i, false);
 					vis.hideShowAttr("iTblCellDatetimeFormatInfo" + i, false);
 					vis.hideShowAttr("iTblCellImageSize" + i, true);
@@ -1622,8 +1627,7 @@ vis.binds["vis-inventwo"] = {
 
 					imgBlink = dataNew.iImgBlinkFalse;
 				}
-			}
-			else if (type == "universal") {
+			} else if (type == "universal") {
 				if ((dataNew.iUniversalWidgetType == "Navigation" && dataNew.nav_view === vis.activeView) ||
 					(
 						(dataNew.iUniversalWidgetType == "Switch" || dataNew.iUniversalWidgetType == "Background") &&
@@ -1763,11 +1767,10 @@ vis.binds["vis-inventwo"] = {
 			</div>`;
 
 
-
 			$(el).html(html);
 
 			//Felder beim reinziehen eines Widgets aktualisieren
-			if(vis.editMode){
+			if (vis.editMode) {
 				setTimeout(function () {
 					vis.binds["vis-inventwo"].updateUniversalDataFields();
 				}, 100);
@@ -1789,7 +1792,7 @@ vis.binds["vis-inventwo"] = {
 					$(el).parent().css("cursor", "default");
 				}
 
-				if(vis.editMode) {
+				if (vis.editMode) {
 					$(el).parent().on("mouseup click", function () {
 						setTimeout(function () {
 							vis.binds["vis-inventwo"].updateUniversalDataFields();
@@ -1797,7 +1800,7 @@ vis.binds["vis-inventwo"] = {
 						}, 100);
 					});
 
-					$('.group-control').on("mouseup click", function () {
+					$(".group-control").on("mouseup click", function () {
 						setTimeout(function () {
 							vis.binds["vis-inventwo"].hideImgFilterFields();
 						}, 100);
@@ -1889,9 +1892,10 @@ vis.binds["vis-inventwo"] = {
 
 		Code in Codepen -> https://codepen.io/sosuke/pen/Pjoqqp
 	 */
-	colorFilterGenerator: function(hex){
+	colorFilterGenerator: function (hex) {
 
 		console.log("COLOR FILTER");
+
 		class Color {
 			constructor(r, g, b) {
 				this.set(r, g, b);
@@ -1979,6 +1983,7 @@ vis.binds["vis-inventwo"] = {
 			brightness(value = 1) {
 				this.linear(value);
 			}
+
 			contrast(value = 1) {
 				this.linear(value, -(0.5 * value) + 0.5);
 			}
@@ -2063,7 +2068,7 @@ vis.binds["vis-inventwo"] = {
 				const c = 15;
 				const a = [60, 180, 18000, 600, 1.2, 1.2];
 
-				let best = { loss: Infinity };
+				let best = {loss: Infinity};
 				for (let i = 0; best.loss > 25 && i < 3; i++) {
 					const initial = [50, 20, 3750, 50, 100, 100];
 					const result = this.spsa(A, a, c, initial, 1000);
@@ -2113,7 +2118,7 @@ vis.binds["vis-inventwo"] = {
 						bestLoss = loss;
 					}
 				}
-				return { values: best, loss: bestLoss };
+				return {values: best, loss: bestLoss};
 
 				function fix(value, idx) {
 					let max = 100;
@@ -2165,13 +2170,14 @@ vis.binds["vis-inventwo"] = {
 				function fmt(idx, multiplier = 1) {
 					return Math.round(filters[idx] * multiplier);
 				}
+
 				return `filter: invert(${fmt(0)}%) sepia(${fmt(1)}%) saturate(${fmt(2)}%) hue-rotate(${fmt(3, 3.6)}deg) brightness(${fmt(4)}%) contrast(${fmt(5)}%);`;
 			}
 		}
 
 
 		function hexToRgb(hex) {
-			if((/^#([A-Fa-f0-9]{3}$)|([A-Fa-f0-9]{6}$)/.test(hex))) {
+			if ((/^#([A-Fa-f0-9]{3}$)|([A-Fa-f0-9]{6}$)/.test(hex))) {
 				// Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
 				const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
 				hex = hex.replace(shorthandRegex, (m, r, g, b) => {
@@ -2187,25 +2193,24 @@ vis.binds["vis-inventwo"] = {
 						parseInt(result[3], 16),
 					]
 					: null;
-			}
-			else{
+			} else {
 				return null;
 			}
 		}
 
 		let filter = "";
 
-		if(hex != undefined && hex != "") {
+		if (hex != undefined && hex != "") {
 			let rgb = hexToRgb(hex);
 
 			if (rgb != null && rgb.length === 3) {
 				let loss = 999;
-				for(let i = 0; i < 10; i++) {
+				for (let i = 0; i < 10; i++) {
 					const color = new Color(rgb[0], rgb[1], rgb[2]);
 					const solver = new Solver(color);
 					const result = solver.solve();
 
-					if(result.loss < loss){
+					if (result.loss < loss) {
 						filter = result.filter;
 					}
 				}
@@ -2217,12 +2222,12 @@ vis.binds["vis-inventwo"] = {
 	},
 
 	//Aktualisierung der Filter für das Icon
-	changeWidgetIconColor: function (t1,t2,t3,attr) {
+	changeWidgetIconColor: function (t1, t2, t3, attr) {
 		vis.activeWidgets.forEach(function (el) {
 			let filter = vis.binds["vis-inventwo"].colorFilterGenerator(vis.views[vis.activeView].widgets[el].data[attr]);
 			let filterAttr = "";
-			if(attr.match(/\d/) != null)
-				filterAttr = attr.substring(0,attr.indexOf(attr.match(/\d/))) + "Filter" + attr.substring(attr.indexOf(attr.match(/\d/)), attr.length);
+			if (attr.match(/\d/) != null)
+				filterAttr = attr.substring(0, attr.indexOf(attr.match(/\d/))) + "Filter" + attr.substring(attr.indexOf(attr.match(/\d/)), attr.length);
 			else
 				filterAttr = attr + "Filter";
 			vis.views[vis.activeView].widgets[el].data[filterAttr] = filter;
@@ -2233,9 +2238,9 @@ vis.binds["vis-inventwo"] = {
 
 		if (!isNaN(val))
 			val = parseFloat(val);
-		else if(val == "true")
+		else if (val == "true")
 			val = true;
-		else if(val == "false")
+		else if (val == "false")
 			val = false;
 
 		console.log(typeof val);
@@ -2243,9 +2248,9 @@ vis.binds["vis-inventwo"] = {
 		return val;
 	},
 
-	hideImgFilterFields: function(e){
+	hideImgFilterFields: function (e) {
 
-		if(vis.editMode) {
+		if (vis.editMode) {
 			$(e).parent().on("mouseup click", function () {
 				setTimeout(function () {
 					vis.activeWidgets.forEach(function (el) {
@@ -2298,37 +2303,34 @@ vis.binds["vis-inventwo"] = {
 			let flip = 1;
 			let flipStyle = "";
 
-			if(dataNew.iFlipImage){
+			if (dataNew.iFlipImage) {
 				flip = -1;
 			}
 
 			if (vis.states.attr(dataNew.oid + ".val") == vis.binds["vis-inventwo"].convertValue(dataNew.iValueTrue)) {
 				switchOnCol = dataNew.iSwitchColOnActive;
-				if(dataNew.iSwitchOrientation == "vertical"){
-					switchImg = "widgets/vis-inventwo/img/ToggleSwitch/switch-1-vert-on-"+dataNew.iSwitchColor+".png";
-				}
-				else{
-					switchImg = "widgets/vis-inventwo/img/ToggleSwitch/switch-1-hor-on-"+dataNew.iSwitchColor+".png";
+				if (dataNew.iSwitchOrientation == "vertical") {
+					switchImg = "widgets/vis-inventwo/img/ToggleSwitch/switch-1-vert-on-" + dataNew.iSwitchColor + ".png";
+				} else {
+					switchImg = "widgets/vis-inventwo/img/ToggleSwitch/switch-1-hor-on-" + dataNew.iSwitchColor + ".png";
 				}
 			} else {
 				switchOffCol = dataNew.iSwitchColOffActive;
-				if(dataNew.iSwitchOrientation == "vertical"){
-					switchImg = "widgets/vis-inventwo/img/ToggleSwitch/switch-1-vert-off-"+dataNew.iSwitchColor+".png";
-				}
-				else{
-					switchImg = "widgets/vis-inventwo/img/ToggleSwitch/switch-1-hor-off-"+dataNew.iSwitchColor+".png";
+				if (dataNew.iSwitchOrientation == "vertical") {
+					switchImg = "widgets/vis-inventwo/img/ToggleSwitch/switch-1-vert-off-" + dataNew.iSwitchColor + ".png";
+				} else {
+					switchImg = "widgets/vis-inventwo/img/ToggleSwitch/switch-1-hor-off-" + dataNew.iSwitchColor + ".png";
 				}
 			}
 
 
-			if (dataNew.iSwitchOrientation == "vertical"){
+			if (dataNew.iSwitchOrientation == "vertical") {
 				switchWidth = dataNew.iSwitchSize + "px";
 				switchHeight = "calc(" + dataNew.iSwitchSize + "px" + " * 2)";
 				switchColsSizeStyles = "margin: auto; width: 90%; height: 45%;";
 				backDirection = "column";
 				flipStyle = "scaleY(" + flip + ")";
-			}
-			else if (dataNew.iSwitchOrientation == "horizontal") {
+			} else if (dataNew.iSwitchOrientation == "horizontal") {
 				switchWidth = "calc(" + dataNew.iSwitchSize + "px" + " * 2)";
 				switchHeight = dataNew.iSwitchSize + "px";
 				switchColsSizeStyles = "margin: auto; width: 45%; height: 90%;";
