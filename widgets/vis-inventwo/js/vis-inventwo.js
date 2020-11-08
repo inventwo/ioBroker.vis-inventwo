@@ -1200,8 +1200,6 @@ vis.binds["vis-inventwo"] = {
 
 		function create(el, data) {
 
-			console.log("create table");
-
 			if (vis.editMode) {
 				setTimeout(function () {
 					vis.binds["vis-inventwo"].updateJsonTableFields();
@@ -1231,10 +1229,6 @@ vis.binds["vis-inventwo"] = {
 						jsondata = JSON.parse(jd);
 					else
 						jsondata = jd;
-
-
-					console.log(data.wid);
-					console.log(jsondata);
 
 					let rowLimit = jsondata.length;
 					if (data.iTblRowLimit < rowLimit)
@@ -1323,19 +1317,15 @@ vis.binds["vis-inventwo"] = {
 									case "datetime":
 										if (data["iTblCellDatetimeFormat" + (i + 1)] != "") {
 											let datetime = null;
-											console.log(cellValue)
 											if (isNaN(cellValue) == true) {
 												datetime = new Date(cellValue).getTime();//Date.parse(cellValue) / 1000;
 											}
 											else{
 												datetime = parseInt(cellValue);
 											}
-											console.log(datetime);
 
 											if (cellValue.toString().length == 13)
 												datetime = datetime / 1000;
-											console.log(datetime);
-
 											var getDateString = function (date, format) {
 												var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 													getPaddedComp = function (comp) {
@@ -1403,9 +1393,12 @@ vis.binds["vis-inventwo"] = {
 		if (data.oid !== "" && data.oid !== "nothing_selected" && data.oid !== undefined && vis.states.attr(data.oid + ".val") != undefined && vis.states.attr(data.oid + ".val") != "" &&
 			vis.states.attr(data.oid + ".val") != "null" && typeof vis.states.attr(data.oid + ".val") != "null") {
 
-			setInterval(function () {
-				create(el, data);
-			}, data.iTableRefreshRate * 1000);
+			if(data.iTableRefreshRate > 0) {
+
+				setInterval(function () {
+					create(el, data);
+				}, data.iTableRefreshRate * 1000);
+			}
 
 		}
 
