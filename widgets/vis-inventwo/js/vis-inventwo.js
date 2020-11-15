@@ -1597,7 +1597,9 @@ vis.binds["vis-inventwo"] = {
 						shadowCol = dataNew["iShadowColorActiveM" + i];
 						shadowColInner = dataNew["iShadowInnerColorActiveM" + i];
 						borderCol = dataNew["iBorderColorActiveM" + i];
-						imgColorFilter = dataNew["iImgColorTrueFilter" + i];
+
+						imgColorFilter = dataNew["iImgColorTrue" + i];
+
 						if (dataNew["iImageTrue" + i] != undefined)
 							img = dataNew["iImageTrue" + i];
 						if (dataNew["iTextTrue" + i] != undefined)
@@ -1612,7 +1614,9 @@ vis.binds["vis-inventwo"] = {
 					shadowCol = dataNew.iShadowColor;
 					shadowColInner = dataNew.iShadowInnerColor;
 					borderCol = dataNew.iBorderColor;
-					imgColorFilter = dataNew.iImgColorFalseFilter;
+
+					imgColorFilter = dataNew.iImgColorFalse;
+
 					if (dataNew.iImageFalse != undefined)
 						img = dataNew.iImageFalse;
 					if (dataNew.iTextFalse != undefined)
@@ -1635,7 +1639,9 @@ vis.binds["vis-inventwo"] = {
 					shadowCol = dataNew.iShadowColorActive;
 					shadowColInner = dataNew.iShadowInnerColorActive;
 					borderCol = dataNew.iBorderColorActive;
-					imgColorFilter = dataNew.iImgColorTrueFilter;
+
+					imgColorFilter = dataNew.iImgColorTrue;
+
 
 					if (dataNew.iImageTrue != undefined && dataNew.iImageTrue != "")
 						img = dataNew.iImageTrue;
@@ -1648,7 +1654,8 @@ vis.binds["vis-inventwo"] = {
 					shadowCol = dataNew.iShadowColor;
 					shadowColInner = dataNew.iShadowInnerColor;
 					borderCol = dataNew.iBorderColor;
-					imgColorFilter = dataNew.iImgColorFalseFilter;
+
+					imgColorFilter = dataNew.iImgColorFalse;
 
 					if (dataNew.iImageFalse != undefined && dataNew.iImageFalse != "")
 						img = dataNew.iImageFalse;
@@ -1657,9 +1664,7 @@ vis.binds["vis-inventwo"] = {
 
 					imgBlink = dataNew.iImgBlinkFalse;
 
-
 				}
-
 			}
 
 			imgBlink = imgBlink / 1000;
@@ -1742,8 +1747,7 @@ vis.binds["vis-inventwo"] = {
 							 align-self: ` + imgAlign + `;
 							 margin: ` + imgMargin + `;">
 							<img src="` + img + `" width="` + dataNew.iIconSize + `"
-								 style="` + imgColorFilter + `;
-								 		transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
+								 style="transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
 								 		animation:blink ` + imgBlink + `s infinite;"> 
 						</div>
 						
@@ -1761,6 +1765,8 @@ vis.binds["vis-inventwo"] = {
 
 
 			$(el).html(html);
+
+			vis.binds["vis-inventwo"].getImgColorFilter(imgColorFilter, dataNew.wid);
 
 			//Felder beim reinziehen eines Widgets aktualisieren
 			if (vis.editMode) {
@@ -2215,17 +2221,35 @@ vis.binds["vis-inventwo"] = {
 	},
 
 	//Aktualisierung der Filter für das Icon
-	changeWidgetIconColor: function (t1, t2, t3, attr) {
-		vis.activeWidgets.forEach(function (el) {
-			let filter = vis.binds["vis-inventwo"].colorFilterGenerator(vis.views[vis.activeView].widgets[el].data[attr]);
-			let filterAttr = "";
-			if (attr.match(/\d/) != null)
-				filterAttr = attr.substring(0, attr.indexOf(attr.match(/\d/))) + "Filter" + attr.substring(attr.indexOf(attr.match(/\d/)), attr.length);
-			else
-				filterAttr = attr + "Filter";
-			vis.views[vis.activeView].widgets[el].data[filterAttr] = filter;
+	getImgColorFilter: function (color, wid) {
+
+		let filter = "";
+
+		vis.conn._socket.emit('getState', "vis-inventwo.0.CSS." + color, function (err, obj) {
+			if(obj != undefined){
+				filter = obj.val;
+			}
+			else{
+				filter = vis.binds["vis-inventwo"].colorFilterGenerator(color);
+				vis.conn._socket.emit("setObject", "vis-inventwo.0.CSS." + color, {
+					type: "state",
+					common: {
+						name: color,
+						type: "string",
+						role: "inventwo.color",
+						read: true,
+						write: true,
+					},
+					native: {},
+				});
+
+				vis.setValue("vis-inventwo.0.CSS." + color, filter);
+			}
+			$('#' + wid).find('img').css('filter', filter.substring(8, filter.length -1));
 		});
+
 	},
+
 
 	convertValue: function (val) {
 
