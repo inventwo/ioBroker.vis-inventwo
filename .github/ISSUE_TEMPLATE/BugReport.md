@@ -4,7 +4,6 @@ about: Something is not working as it should
 title: ''
 labels: 'bug'
 assignees: 'jkvarel, skvarel'
-projects: 'inventwo VIS'
 ---
 
 **!!! Before you start !!!**  
