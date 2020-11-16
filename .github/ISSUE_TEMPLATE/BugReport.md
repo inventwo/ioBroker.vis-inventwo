@@ -3,7 +3,7 @@ name: Bug report
 about: Something is not working as it should
 title: ''
 labels: 'bug'
-assignees: 'jkvarel'
+assignees: 'jkvarel, skvarel'
 ---
 
 **!!! Before you start !!!**  
