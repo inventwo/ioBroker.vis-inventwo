@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.5.9",
+    "version": "2.5.10",
     "news": {
+      "2.5.10": {
+        "en": "Bug fixes",
+        "de": "Fehlerbehebung",
+        "ru": "Исправление ошибок",
+        "pt": "Correções de bugs",
+        "nl": "Bugfixes",
+        "fr": "Corrections de bogues",
+        "it": "Correzioni di bug",
+        "es": "Corrección de errores",
+        "pl": "Poprawki błędów",
+        "zh-cn": "Bug修复"
+      },
       "2.5.9": {
         "en": "Changed image color filter process, image color now can be a datapoint",
         "de": "Der Prozess der Bildfarbfilterung wurde geändert. Die Bildfarbe kann jetzt ein Datenpunkt sein",
