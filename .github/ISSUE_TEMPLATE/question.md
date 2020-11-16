@@ -3,7 +3,7 @@ name: Question Request
 about: Request a question
 title: ''
 labels: 'question'
-assignees: 'jkvarel'
+assignees: 'jkvarel, skvarel'
 ---
 
 **!!! Before you start !!!!**  
