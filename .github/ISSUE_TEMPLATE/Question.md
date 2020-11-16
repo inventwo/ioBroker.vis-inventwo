@@ -2,7 +2,7 @@
 name: Question Request
 about: Request a question
 title: ''
-labels: 'question'
+labels: 'question, help wanted'
 assignees: 'jkvarel, skvarel'
 ---
 
