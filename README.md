@@ -75,6 +75,15 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 2.6.0
+- Slider Min/Max invertieren
+- Slider Wert erst beim loslassen setzen
+- Widget um Wert zu erhöhen oder zu senken
+- JSON Tabelle Fehler mit Datum behoben
+. JSON Tabelle Anzeige von Millisekunden möglich
+- JSON Tabelle Platzhalter wenn Eintrag leer ist
+- JSON Tabelle Spalten können per Klick sortiert werden
+
 ## 2.5.11
 - Bugfix
 
