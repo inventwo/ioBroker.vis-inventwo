@@ -18,6 +18,7 @@
 						oid/id;
 						iValueType[boolean]/nselect,boolean,value;
 						iValueTypeInfo/custom,vis-inventwo.infoText,valueType;
+						iValueComparison[equal]/select,equal,greater,lower,not;
 						iValueFalse/text;
 						iValueTrue/text;
 						value/text;
@@ -103,7 +104,6 @@
 
 </script>
 
-
 <script id="i-vis-multi"
 		type="text/ejs"
 		class="vis-tpl"
@@ -126,6 +126,7 @@
 		data-vis-attrs0="iUniversalValueCount[1]/number,1,20,1/updateUniversalDataFields();group.iUniversalValues/byindex;
 						 iView(1-iUniversalValueCount)/views;
 						 oid(1-iUniversalValueCount)/id;
+						 iValueComparison(1-iUniversalValueCount)[equal]/select,equal,greater,lower,not;
 						 iValue(1-iUniversalValueCount)/text;
 						 iTextTrue(1-iUniversalValueCount)/html;
 
@@ -224,6 +225,7 @@
 						iStepVal[1]/slider,0,100,0.1;
 						iSliderRotation[0]/slider,-45,45,1;
 						iSliderLabel/text;
+						iValuePreText/text;
 						iShowMinMax/checkbox;
 						iShowValue/checkbox;
 						iChangeOnRelease/checkbox;
@@ -313,9 +315,9 @@
 						iStepVal[1]/slider,0,100,0.1;
 						iSliderRotation[0]/slider,-45,45,1;
 						iSliderLabel/text;
+						iValuePreText/text;
 						iShowMinMax/checkbox;
 						iShowValue/checkbox;
-						iValuePreText/text;
 						iChangeOnRelease/checkbox;
 						iInvertMinMax/checkbox;"
 		data-vis-attrs0="group.i-css;
@@ -950,7 +952,7 @@
 						 iSwitchColOnActive[#00ff00]/color;
 						 iSwitchColOff[#333333]/color;
 						 iSwitchColOffActive[#ff0000]/color;
-						 iSwitchColor[white]/select,black,white;"
+						 iSwitchColor[white]/select,black,grey,white;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
 		data-vis-name="Switch<br>
