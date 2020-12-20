@@ -1,81 +1,21 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.5.11",
+    "version": "2.6.0",
     "news": {
+      "2.6.0": {
+        "en": "Slider invert min/max, Set slider value on release, New Widget to increase/decrease a value, JSON-Table fixed issue with datetime, JSON-Table placeholder for empty cells, JSON-Table sorting for columns by click on header",
+        "de": "Schieberegler invertieren min / max, Schiebereglerwert bei Freigabe festlegen, Neues Widget zum Erhöhen / Verringern eines Werts, JSON-Tabelle behobenes Problem mit Datum / Uhrzeit, JSON-Tabellenplatzhalter für leere Zellen, JSON-Tabellensortierung für Spalten durch Klicken auf die Überschrift",
+        "ru": "Ползунок инвертировать мин. / Макс., Установить значение ползунка при выпуске, новый виджет для увеличения / уменьшения значения, исправленная проблема JSON-таблицы с датой и временем, заполнитель JSON-таблицы для пустых ячеек, сортировка JSON-таблицы для столбцов нажатием на заголовок",
+        "pt": "Deslocador invertido mín. / Máx., Definir valor do controle deslizante na liberação, Novo widget para aumentar / diminuir um valor, JSON-Table corrigido o problema com data e hora, JSON-Table placeholder para células vazias, JSON-Table classificação para colunas clicando no cabeçalho",
+        "nl": "Schuifregelaar min / max omkeren, schuifregelaarwaarde instellen bij vrijgave, nieuwe widget om een waarde te verhogen / verlagen, JSON-tabel opgelost probleem met datetime, JSON-tabel tijdelijke aanduiding voor lege cellen, JSON-tabel sorteren voor kolommen door op koptekst te klikken",
+        "fr": "Slider invert min / max, Set slider value on release, New Widget pour augmenter / diminuer une valeur, JSON-Table fixe problème avec datetime, JSON-Table placeholder pour les cellules vides, JSON-Table tri pour les colonnes en cliquant sur l'en-tête",
+        "it": "Slider inverti min / max, Imposta valore cursore al rilascio, Nuovo widget per aumentare / diminuire un valore, Problema risolto tabella JSON con datetime, Segnaposto tabella JSON per celle vuote, Ordinamento tabella JSON per colonne facendo clic sull'intestazione",
+        "es": "Slider invert min / max, establecer el valor del control deslizante en el lanzamiento, nuevo widget para aumentar / disminuir un valor, problema solucionado de JSON-Table con fecha y hora, marcador de posición JSON-Table para celdas vacías, clasificación de JSON-Table para columnas haciendo clic en el encabezado",
+        "pl": "Odwrócenie suwaka min / max, ustawianie wartości suwaka przy wydaniu, nowy widżet do zwiększania / zmniejszania wartości, naprawiony problem z datą i godziną w tabeli JSON-Table, element zastępczy tabeli JSON dla pustych komórek, sortowanie tabel JSON dla kolumn po kliknięciu nagłówka",
+        "zh-cn": "滑块反转最小值/最大值，在发布时设置滑块值，用于增加/减少值的新小部件，日期时间的JSON表固定问题，空单元格的JSON表占位符，通过单击标题对列进行JSON表排序"
+      },
       "2.5.11": {
-        "en": "Bug fixes",
-        "de": "Fehlerbehebung",
-        "ru": "Исправление ошибок",
-        "pt": "Correções de bugs",
-        "nl": "Bugfixes",
-        "fr": "Corrections de bogues",
-        "it": "Correzioni di bug",
-        "es": "Corrección de errores",
-        "pl": "Poprawki błędów",
-        "zh-cn": "Bug修复"
-      },
-      "2.5.10": {
-        "en": "Bug fixes",
-        "de": "Fehlerbehebung",
-        "ru": "Исправление ошибок",
-        "pt": "Correções de bugs",
-        "nl": "Bugfixes",
-        "fr": "Corrections de bogues",
-        "it": "Correzioni di bug",
-        "es": "Corrección de errores",
-        "pl": "Poprawki błędów",
-        "zh-cn": "Bug修复"
-      },
-      "2.5.9": {
-        "en": "Changed image color filter process, image color now can be a datapoint",
-        "de": "Der Prozess der Bildfarbfilterung wurde geändert. Die Bildfarbe kann jetzt ein Datenpunkt sein",
-        "ru": "Изменен процесс фильтрации цвета изображения, цвет изображения теперь может быть точкой данных",
-        "pt": "Processo de filtro de cor de imagem alterado, a cor da imagem agora pode ser um ponto de dados",
-        "nl": "Veranderd beeldkleurfilterproces, beeldkleur kan nu een datapunt zijn",
-        "fr": "Processus de filtre de couleur d'image modifié, la couleur de l'image peut maintenant être un point de données",
-        "it": "Modifica del processo di filtraggio del colore dell'immagine, il colore dell'immagine ora può essere un punto dati",
-        "es": "Proceso de filtro de color de imagen modificado, el color de la imagen ahora puede ser un punto de datos",
-        "pl": "Zmieniono proces filtrowania kolorów obrazu, kolor obrazu może być teraz punktem danych",
-        "zh-cn": "更改了图像颜色过滤过程，现在图像颜色可以成为数据点"
-      },
-      "2.5.8": {
-        "en": "Bug fixes",
-        "de": "Fehlerbehebung",
-        "ru": "Исправление ошибок",
-        "pt": "Correções de bugs",
-        "nl": "Bugfixes",
-        "fr": "Corrections de bogues",
-        "it": "Correzioni di bug",
-        "es": "Corrección de errores",
-        "pl": "Poprawki błędów",
-        "zh-cn": "Bug修复"
-      },
-      "2.5.7": {
-        "en": "Bug fixes",
-        "de": "Fehlerbehebung",
-        "ru": "Исправление ошибок",
-        "pt": "Correções de bugs",
-        "nl": "Bugfixes",
-        "fr": "Corrections de bogues",
-        "it": "Correzioni di bug",
-        "es": "Corrección de errores",
-        "pl": "Poprawki błędów",
-        "zh-cn": "Bug修复"
-      },
-      "2.5.6": {
-        "en": "Bug fixes",
-        "de": "Fehlerbehebung",
-        "ru": "Исправление ошибок",
-        "pt": "Correções de bugs",
-        "nl": "Bugfixes",
-        "fr": "Corrections de bogues",
-        "it": "Correzioni di bug",
-        "es": "Corrección de errores",
-        "pl": "Poprawki błędów",
-        "zh-cn": "Bug修复"
-      },
-      "2.5.5": {
         "en": "Bug fixes",
         "de": "Fehlerbehebung",
         "ru": "Исправление ошибок",

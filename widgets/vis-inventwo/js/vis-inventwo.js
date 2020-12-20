@@ -480,6 +480,14 @@ if (vis.editMode) {
 			"en": "Pre text",
 			"de": "Text voranstellen"
 		},
+		"iChangeOnRelease": {
+			"en": "Update value on release",
+			"de": "Wert erst beim loslassen setzen"
+		},
+		"iInvertMinMax": {
+			"en": "Invert min/max",
+			"de": "Invertiere Min/Max"
+		},
 		//#endregion
 
 		//#region Table Settings
@@ -575,6 +583,10 @@ if (vis.editMode) {
 			"en": "Refresh rate (seconds)",
 			"de": "Aktualisierung (Sekunden)"
 		},
+		"iTblCellPlaceholder": {
+			"en": "Placeholder cell is empty",
+			"de": "Platzhalter Zeile leer ist"
+		},
 		//#endregion
 
 		//#region Universal & Multi Widget Settings
@@ -633,6 +645,34 @@ if (vis.editMode) {
 		"iImgBlinkTrue": {
 			"en": "Image blinkinterval",
 			"de": "Bild wahr Blinkintervall"
+		},
+		"iValueComparison": {
+			"en": "Comparison operator",
+			"de": "Vergeleichsoperator"
+		},
+		"equal": {
+			"en": "equal",
+			"de": "Gleich"
+		},
+		"greater": {
+			"en": "greater",
+			"de": "Größer"
+		},
+		"lower": {
+			"en": "lower",
+			"de": "Kleiner"
+		},
+		"not": {
+			"en": "not",
+			"de": "Nicht"
+		},
+		"horizontal": {
+			"en": "horizontal",
+			"de": "Waagerecht"
+		},
+		"vertical": {
+			"en": "vertical",
+			"de": "Senkrecht"
 		},
 		//#endregion
 
@@ -767,14 +807,15 @@ if (vis.editMode) {
 			"de": "Textfeld wird bevorzugt!"
 		},
 		"iText-tblDateInfo": {
-			"en": "H = Hours, i = Minutes, s = Seconds, d = Day, M = Month, m = Monthnumber, y = Year",
-			"de": "H = Stunden, i = Minuten, s = Sekunden, d = Tag, M = Monat, m = Monatszahl, y = Jahr"
+			"en": "H = Hours, i = Minutes, s = Seconds, S = Milliseconds, d = Day, M = Month, m = Monthnumber, y = Year",
+			"de": "H = Stunden, i = Minuten, s = Sekunden, S = Millisekunden, d = Tag, M = Monat, m = Monatszahl, y = Jahr"
 		},
 		"iText-ToggleSwitchSettings": {
 			"en": "<b>Switch</b>",
 			"de": "<b>Schalter</b>"
 		},
 		//#endregion
+
 	});
 }
 
@@ -1151,8 +1192,26 @@ vis.binds["vis-inventwo"] = {
 			max: parseFloat(data.iMaxVal),
 			step: parseFloat(data.iStepVal),
 			slide: function (event, ui) {
-				if (!vis.editMode)
-					vis.setValue(oid, ui.value);
+				if (!vis.editMode) {
+					if (!data.iChangeOnRelease) {
+						if (data.iInvertMinMax) {
+							vis.setValue(oid, (parseFloat(data.iMaxVal) - ui.value + parseFloat(data.iMinVal)));
+						} else {
+							vis.setValue(oid, ui.value);
+						}
+					}
+				}
+			},
+			stop: function (event, ui) {
+				if (!vis.editMode) {
+					if (data.iChangeOnRelease) {
+						if (data.iInvertMinMax) {
+							vis.setValue(oid, (parseFloat(data.iMaxVal) - ui.value + parseFloat(data.iMinVal)));
+						} else {
+							vis.setValue(oid, ui.value);
+						}
+					}
+				}
 			}
 		}, options);
 
@@ -1174,11 +1233,150 @@ vis.binds["vis-inventwo"] = {
 			$this.children().css("margin-bottom", "-" + (data.iSliderKnobSize / 2) + "px");
 		}
 
-		$this.slider("option", "value", vis.states.attr(oid + ".val"));
+		let val = vis.states.attr(oid + ".val");
+		if (data.iInvertMinMax) {
+			val = data.iMaxVal - (val - data.iMinVal);
+		}
+		$this.slider("option", "value", val);
 
 		vis.states.bind(oid + ".val", function () {
-			$this.slider("option", "value", vis.states.attr(oid + ".val"));
+			val = vis.states.attr(oid + ".val");
+			if (data.iInvertMinMax) {
+				val = data.iMaxVal - (val - data.iMinVal);
+			}
+			$this.slider("option", "value", val);
 		});
+	},
+
+	//IncreaseDecreaseValue Funktion - Erhöht oder senkt Datenpunkwert
+	increaseDecreaseValue: function (el, data, type) {
+		var $this = $(el);
+		var oid = data.oid;
+
+		if (!vis.editMode) {
+			var moved = false;
+
+			var lastVal = parseFloat(vis.states[oid + ".val"]);
+			var isChecking = false;
+			var clickCount = 1;
+			var timeout;
+
+			$this.parent().on("click touchend", function () {
+				if (vis.detectBounce(this)) return;
+				if (moved) return;
+
+				if (isChecking) {
+					console.log("already checking");
+					clickCount++;
+					clearTimeout(timeout);
+					timeout = null;
+				} else {
+					console.log("not checking");
+					isChecking = true;
+				}
+
+				if (timeout == null) {
+					timeout = setTimeout(function () {
+						console.log("setze wert");
+						let val = vis.binds["vis-inventwo"].convertValue(data.value);
+						let oldValue = parseFloat(vis.states[oid + ".val"]);
+
+						vis.setValue(oid, (oldValue + val * clickCount));
+
+						clickCount = 1;
+						timeout = null;
+						isChecking = false;
+					}, 500);
+				}
+
+
+				if (type == "universal") {
+					let shadow = data.iShadowXOffset + "px " + data.iShadowYOffset + "px " + data.iShadowBlur + "px " + data.iShadowSpread + "px " + data.iShadowColorActive + ",inset " +
+						data.iShadowInnerXOffset + "px " + data.iShadowInnerYOffset + "px " + data.iShadowInnerBlur + "px " + data.iShadowInnerSpread + "px " + data.iShadowInnerColorActive;
+					let border = data.iBorderSize + "px " + data.iBorderStyle + " " + data.iBorderColorActive;
+					$this.find(".vis-inventwo-button-new").css("background", data.iButtonActive);
+					$this.find(".vis-inventwo-button-new").css("box-shadow", shadow);
+					$this.find(".vis-inventwo-button-new").css("border", border);
+					if (data.iImageTrue != undefined)
+						$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
+					if (data.iTextTrue != undefined)
+						$this.find(".vis-inventwo-button-text").html(data.iTextTrue);
+
+					setTimeout(function () {
+						let shadow = data.iShadowXOffset + "px " + data.iShadowYOffset + "px " + data.iShadowBlur + "px " + data.iShadowSpread + "px " + data.iShadowColor + ",inset " +
+							data.iShadowInnerXOffset + "px " + data.iShadowInnerYOffset + "px " + data.iShadowInnerBlur + "px " + data.iShadowInnerSpread + "px " + data.iShadowInnerColor;
+						let border = data.iBorderSize + "px " + data.iBorderStyle + " " + data.iBorderColor;
+						$this.find(".vis-inventwo-button-new").css("background", data.iButtonCol);
+						$this.find(".vis-inventwo-button-new").css("box-shadow", shadow);
+						$this.find(".vis-inventwo-button-new").css("border", border);
+						if (data.iImageFalse != undefined)
+							$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
+						if (data.iTextFalse != undefined)
+							$this.find(".vis-inventwo-button-text").html(data.iTextFalse);
+					}, data.iStateResponseTime);
+
+
+				} else if (type == "multi") {
+					let shadow = data.iShadowXOffset + "px " + data.iShadowYOffset + "px " + data.iShadowBlur + "px " + data.iShadowSpread + "px " + data["iShadowColorActiveM1"] + ",inset " +
+						data.iShadowInnerXOffset + "px " + data.iShadowInnerYOffset + "px " + data.iShadowInnerBlur + "px " + data.iShadowInnerSpread + "px " + data["iShadowInnerColorActiveM1"];
+					let border = data.iBorderSize + "px " + data.iBorderStyle + " " + data["iBorderColorActiveM1"];
+					$this.find(".vis-inventwo-button-new").css("background", data["iButtonActiveM1"]);
+					$this.find(".vis-inventwo-button-new").css("box-shadow", shadow);
+					$this.find(".vis-inventwo-button-new").css("border", border);
+					if (data.iImageTrue != undefined)
+						$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
+					if (data.iTextTrue != undefined)
+						$this.find(".vis-inventwo-button-text").html(data.iTextTrue);
+
+					setTimeout(function () {
+
+						let backCol = data.iButtonCol;
+						let shadowCol = data.iShadowColor;
+						let shadowColInner = data.iShadowInnerColor;
+						let borderCol = data.iBorderColor;
+						let img = "";
+						let txt = "";
+						if (data.iImageFalse != undefined)
+							img = data.iImageFalse;
+						if (data.iTextFalse != undefined)
+							txt = data.iTextFalse;
+
+						for (let i = 1; i <= data.iUniversalValueCount; i++) {
+							if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data["oid" + i] + ".val") == data["iValue" + i]) || (data.iUniversalWidgetType == "Navigation" && data["iView" + i] === vis.activeView)) {
+								backCol = data["iButtonActiveM" + i];
+								shadowCol = data["iShadowColorActiveM" + i];
+								shadowColInner = data["iShadowInnerColorActiveM" + i];
+								borderCol = data["iBorderColorActiveM" + i];
+								if (data["iImageTrue" + i] != undefined)
+									img = data["iImageTrue" + i];
+								if (data["iTextTrue" + i] != undefined)
+									txt = data["iTextTrue" + i];
+								break;
+							}
+						}
+
+						let shadow = data.iShadowXOffset + "px " + data.iShadowYOffset + "px " + data.iShadowBlur + "px " + data.iShadowSpread + "px " + shadowCol + ",inset " +
+							data.iShadowInnerXOffset + "px " + data.iShadowInnerYOffset + "px " + data.iShadowInnerBlur + "px " + data.iShadowInnerSpread + "px " + shadowColInner;
+						let border = data.iBorderSize + "px " + data.iBorderStyle + " " + borderCol;
+						$this.find(".vis-inventwo-button-new").css("background", backCol);
+						$this.find(".vis-inventwo-button-new").css("box-shadow", shadow);
+						$this.find(".vis-inventwo-button-new").css("border", border);
+						if (data.iImageFalse != undefined)
+							$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
+						if (data.iTextFalse != undefined)
+							$this.find(".vis-inventwo-button-text").html(data.iTextFalse);
+					}, data.iStateResponseTime);
+
+
+				}
+			})
+				.on("touchmove", function () {
+					moved = true;
+				}).on("touchstart", function () {
+				moved = false;
+			});
+
+		}
 	},
 
 	//JSON Tabelle Funktion - Generiert aus einem JSON eine HTML Tabelle
@@ -1197,6 +1395,24 @@ vis.binds["vis-inventwo"] = {
 		}
 
 		let timeout = null;
+
+		let sortColumn = "";
+		let sortOrder = "asc";
+
+		function sortData(column, el, data) {
+			if (sortColumn != column) {
+				sortColumn = column;
+				sortOrder = "asc";
+			} else {
+				if (sortOrder == "desc") {
+					sortColumn = "";
+					sortOrder = "asc";
+				} else {
+					sortOrder = "desc";
+				}
+			}
+			create(el, data);
+		}
 
 		function create(el, data) {
 
@@ -1269,14 +1485,31 @@ vis.binds["vis-inventwo"] = {
 								if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
 									colWidth = data["iColWidth" + (i + 1)];
 								}
+								let sortArrow = "<span style='width: 15px; display: inline-block'></span>";
+								if (Object.keys(jsondata[0])[i] == sortColumn) {
+									let borderWidth = "5px 5px 0 5px;";
+									let borderColor = data.iTblHeaderTextColor + " transparent transparent transparent;";
+									if (sortOrder == "asc") {
+										borderWidth = "0 5px 5px 5px;";
+										borderColor = "transparent transparent " + data.iTblHeaderTextColor + " transparent;";
+									}
+									let style = `border-width: ` + borderWidth + `
+    											 border-color: ` + borderColor + `
+    											 margin-left: 5px;
+    											 display: inline-block;
+    											 vertical-align: middle;
+    											 border-style: solid;`;
+									sortArrow = `<span style="` + style + `"></span>`;
+								}
+
 								if (data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== "") {
-									output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border + "'>" + data["iColName" + (i + 1)] + "</th>";
+									output += "<th data-column='" + Object.keys(jsondata[0])[i] + "' style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border + "'>" + data["iColName" + (i + 1)] + sortArrow + "</th>";
 								} else {
 									//if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
 									if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
-										output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border + "'>" + data["iColAttr" + (i + 1)] + "</th>";
+										output += "<th data-column='" + Object.keys(jsondata[0])[i] + "' style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border + "'>" + data["iColAttr" + (i + 1)] + sortArrow + "</th>";
 									} else {
-										output += "<th style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border + "'>" + Object.keys(jsondata[0])[i] + "</th>";
+										output += "<th data-column='" + Object.keys(jsondata[0])[i] + "' style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border + "'>" + Object.keys(jsondata[0])[i] + sortArrow + "</th>";
 									}
 								}
 							}
@@ -1284,6 +1517,34 @@ vis.binds["vis-inventwo"] = {
 						output += "</thead>";
 					}
 					output += "<tbody>";
+
+					if (sortColumn != "") {
+						jsondata.sort(function (a,b) {
+							let first = a[sortColumn];
+							let second = b[sortColumn];
+							let ret;
+
+							if (isNaN(first)) {
+								if (isNaN(second)) {
+									ret = first.localeCompare(second);
+								} else {
+									ret = 1;
+								}
+							} else {
+								if (isNaN(second)) {
+									ret = -1;
+								} else {
+									ret = parseFloat(first) - parseFloat(second);
+								}
+							}
+
+							if(sortOrder == "desc")
+								ret = ret * (-1);
+
+							return ret;
+						});
+					}
+
 					for (let e = 0; e < rowLimit; e++) {
 						let tdColor = "";
 						let tdTextColor = "";
@@ -1311,59 +1572,68 @@ vis.binds["vis-inventwo"] = {
 									cellValue = jsondata[e][Object.keys(jsondata[e])[i]];
 								}
 
-								switch (data["iTblCellFormat" + (i + 1)]) {
-									case "normal":
-										break;
-									case "datetime":
-										if (data["iTblCellDatetimeFormat" + (i + 1)] != "") {
-											let datetime = null;
-											if (isNaN(cellValue) == true) {
-												datetime = new Date(cellValue).getTime();//Date.parse(cellValue) / 1000;
-											}
-											else{
-												datetime = parseInt(cellValue);
-											}
+								if (cellValue != "") {
 
-											if (cellValue.toString().length == 13)
-												datetime = datetime / 1000;
-											var getDateString = function (date, format) {
-												var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-													getPaddedComp = function (comp) {
-														return ((parseInt(comp) < 10) ? ("0" + comp) : comp);
-													},
-													formattedDate = format,
-													o = {
-														"y": date.getFullYear(), // year
-														"m": getPaddedComp(date.getMonth() + 1), //month number
-														"M": months[date.getMonth()], //month
-														"d": getPaddedComp(date.getDate()), //day
-														"h": getPaddedComp((date.getHours() > 12) ? date.getHours() % 12 : date.getHours()), //hour
-														"H": getPaddedComp(date.getHours()), //hour
-														"i": getPaddedComp(date.getMinutes()), //minute
-														"s": getPaddedComp(date.getSeconds()), //second
-														"S": getPaddedComp(date.getMilliseconds()), //millisecond,
-														"b": (date.getHours() >= 12) ? "PM" : "AM"
-													};
-
-												for (var k in o) {
-													if (new RegExp("(" + k + ")", "g").test(format)) {
-														formattedDate = formattedDate.replace(RegExp.$1, o[k]);
+									switch (data["iTblCellFormat" + (i + 1)]) {
+										case "normal":
+											break;
+										case "datetime":
+											if (cellValue != 0) {
+												if (data["iTblCellDatetimeFormat" + (i + 1)] != "") {
+													let datetime = null;
+													if (isNaN(cellValue) == true) {
+														datetime = new Date(cellValue).getTime();
+													} else {
+														datetime = parseInt(cellValue);
 													}
+
+													if (cellValue.toString().length == 13)
+														datetime = datetime / 1000;
+													var getDateString = function (date, format) {
+														var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+															getPaddedComp = function (comp) {
+																return ((parseInt(comp) < 10) ? ("0" + comp) : comp);
+															},
+															formattedDate = format,
+															o = {
+																"y": date.getFullYear(), // year
+																"m": getPaddedComp(date.getMonth() + 1), //month number
+																"M": months[date.getMonth()], //month
+																"d": getPaddedComp(date.getDate()), //day
+																"h": getPaddedComp((date.getHours() > 12) ? date.getHours() % 12 : date.getHours()), //hour
+																"H": getPaddedComp(date.getHours()), //hour
+																"i": getPaddedComp(date.getMinutes()), //minute
+																"s": getPaddedComp(date.getSeconds()), //second
+																"S": getPaddedComp(date.getMilliseconds()), //millisecond,
+																"b": (date.getHours() >= 12) ? "PM" : "AM"
+															};
+
+														for (var k in o) {
+															if (new RegExp("(" + k + ")", "g").test(format)) {
+																formattedDate = formattedDate.replace(RegExp.$1, o[k]);
+															}
+														}
+														return formattedDate;
+
+													};
+													var formattedDate = getDateString(new Date(datetime), data["iTblCellDatetimeFormat" + (i + 1)]);
+													cellValue = formattedDate;
+
+
 												}
-												return formattedDate;
-
-											};
-											var formattedDate = getDateString(new Date(datetime), data["iTblCellDatetimeFormat" + (i + 1)]);
-											cellValue = formattedDate;
-
-
-										}
-										break;
-									case "image":
-										if (cellValue != undefined && cellValue != "") {
-											cellValue = "<img src='" + cellValue + "' style='width:" + data["iTblCellImageSize" + (i + 1)] + "px;' onerror='this.style.display=`none`'>";
-										}
-										break;
+											} else {
+												cellValue = data["iTblCellPlaceholder" + (i + 1)];
+											}
+											break;
+										case "image":
+											if (cellValue != undefined && cellValue != "") {
+												cellValue = "<img src='" + cellValue + "' style='width:" + data["iTblCellImageSize" + (i + 1)] + "px;' onerror='this.style.display=`none`'>";
+											}
+											break;
+									}
+								}
+								else{
+									cellValue = data["iTblCellPlaceholder" + (i + 1)];
 								}
 
 								if (cellValue == undefined)
@@ -1384,6 +1654,14 @@ vis.binds["vis-inventwo"] = {
 			}
 			$(el).html(output);
 
+			if (!vis.editMode) {
+				console.log($(el));
+				$(el).find("th").on("click touchend", function () {
+					console.log("click");
+					sortData($(this).data("column"), el, data);
+				});
+			}
+
 		}
 
 		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
@@ -1393,7 +1671,7 @@ vis.binds["vis-inventwo"] = {
 		if (data.oid !== "" && data.oid !== "nothing_selected" && data.oid !== undefined && vis.states.attr(data.oid + ".val") != undefined && vis.states.attr(data.oid + ".val") != "" &&
 			vis.states.attr(data.oid + ".val") != "null" && typeof vis.states.attr(data.oid + ".val") != "null") {
 
-			if(data.iTableRefreshRate > 0 && !vis.editMode) {
+			if (data.iTableRefreshRate > 0 && !vis.editMode) {
 
 				setInterval(function () {
 					create(el, data);
@@ -1472,6 +1750,8 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("nav_view", false);
 				vis.hideShowAttr("oid", true);
 				vis.hideShowAttr("iStateResetValueTime", false);
+				vis.hideShowAttr("iIncreaseDecrease", false);
+				vis.hideShowAttr("iValueComparison", true);
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					vis.hideShowAttr("oid" + i, true);
 					vis.hideShowAttr("iValue" + i, true);
@@ -1488,6 +1768,8 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("nav_view", false);
 				vis.hideShowAttr("oid", true);
 				vis.hideShowAttr("iStateResetValueTime", true);
+				vis.hideShowAttr("iIncreaseDecrease", false);
+				vis.hideShowAttr("iValueComparison", true);
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					vis.hideShowAttr("oid" + i, true);
 					vis.hideShowAttr("iValue" + i, true);
@@ -1504,6 +1786,8 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("nav_view", true);
 				vis.hideShowAttr("oid", true);
 				vis.hideShowAttr("iStateResetValueTime", false);
+				vis.hideShowAttr("iIncreaseDecrease", false);
+				vis.hideShowAttr("iValueComparison", false);
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					vis.hideShowAttr("oid" + i, false);
 					vis.hideShowAttr("iValue" + i, false);
@@ -1516,6 +1800,8 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResponseTime", false);
 				vis.hideShowAttr("nav_view", false);
 				vis.hideShowAttr("iStateResetValueTime", false);
+				vis.hideShowAttr("iIncreaseDecrease", false);
+				vis.hideShowAttr("iValueComparison", true);
 				if (data.iUniversalValueCount == undefined) {
 					vis.hideShowAttr("oid", true);
 					vis.hideShowAttr("iValueType", true);
@@ -1532,7 +1818,28 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iValue" + i, true);
 					vis.hideShowAttr("iView" + i, false);
 				}
+			} else if (val == "IncreaseDecreaseValue") {
+				vis.hideShowAttr("iNavWait", false);
+				vis.hideShowAttr("iValueFalse", false);
+				vis.hideShowAttr("value", true);
+				vis.hideShowAttr("iStateResponseTime", false);
+				vis.hideShowAttr("nav_view", false);
+				vis.hideShowAttr("iStateResetValueTime", false);
+				vis.hideShowAttr("iIncreaseDecrease", true);
+				vis.hideShowAttr("iValueComparison", false);
+				vis.hideShowAttr("oid", true);
+				vis.hideShowAttr("iValueType", false);
+				vis.hideShowAttr("iValueTypeInfo", false);
+				vis.hideShowAttr("iValueTrue", false);
+
+				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+					vis.hideShowAttr("oid" + i, true);
+					vis.hideShowAttr("iValue" + i, true);
+					vis.hideShowAttr("iView" + i, false);
+				}
 			}
+
+
 		});
 
 	},
@@ -1584,14 +1891,22 @@ vis.binds["vis-inventwo"] = {
 				for (let i = 1; i <= dataNew.iUniversalValueCount; i++) {
 
 					let val = dataNew["iValue" + i];
-					if (val == "true")
+					if (val == undefined)
+						val = true;
+					else if (val == "true")
 						val = true;
 					else if (val == "false")
 						val = false;
 					else if (!isNaN(val))
 						val = parseFloat(val);
 
-					if ((dataNew.iUniversalWidgetType != "Navigation" && dataNew["oid" + i] != undefined && vis.states.attr(dataNew["oid" + i] + ".val") == val) ||
+					if ((dataNew.iUniversalWidgetType != "Navigation" && dataNew["oid" + i] != undefined
+							&& (vis.states.attr(dataNew["oid" + i] + ".val") == val && dataNew["iValueComparison" + i] == "equal")
+							|| (vis.states.attr(dataNew["oid" + i] + ".val") < val && dataNew["iValueComparison" + i] == "lower")
+							|| (vis.states.attr(dataNew["oid" + i] + ".val") > val && dataNew["iValueComparison" + i] == "greater")
+							|| (vis.states.attr(dataNew["oid" + i] + ".val") != val && dataNew["iValueComparison" + i] == "not")
+						)
+						||
 						(dataNew.iUniversalWidgetType == "Navigation" && dataNew["iView" + i] === vis.activeView)) {
 						backCol = dataNew["iButtonActiveM" + i];
 						shadowCol = dataNew["iShadowColorActiveM" + i];
@@ -1625,15 +1940,30 @@ vis.binds["vis-inventwo"] = {
 					imgBlink = dataNew.iImgBlinkFalse;
 				}
 			} else if (type == "universal") {
+
+				let val = dataNew.iValueTrue;
+				if (val == undefined)
+					val = true;
+				else if (val == "true")
+					val = true;
+				else if (val == "false")
+					val = false;
+				else if (!isNaN(val))
+					val = parseFloat(val);
+
 				if ((dataNew.iUniversalWidgetType == "Navigation" && dataNew.nav_view === vis.activeView) ||
 					(
 						(dataNew.iUniversalWidgetType == "Switch" || dataNew.iUniversalWidgetType == "Background") &&
-						(
-							(vis.states.attr(dataNew.oid + ".val") == dataNew.iValueTrue && dataNew.iValueType == "value") ||
-							(vis.states.attr(dataNew.oid + ".val") === true && dataNew.iValueType == "boolean")
-						)
+						((dataNew.iValueType == "value" && (
+								(vis.states.attr(data.oid + ".val") == val && dataNew.iValueComparison == "equal")
+								|| (vis.states.attr(data.oid + ".val") < val && dataNew.iValueComparison == "lower")
+								|| (vis.states.attr(data.oid + ".val") > val && dataNew.iValueComparison == "greater")
+								|| (vis.states.attr(data.oid + ".val") != val && dataNew.iValueComparison == "not")))
 
-					)) {
+							|| (vis.states.attr(dataNew.oid + ".val") === true && dataNew.iValueType == "boolean")
+						)
+					)
+				) {
 
 					backCol = dataNew.iButtonActive;
 					shadowCol = dataNew.iShadowColorActive;
@@ -1789,7 +2119,10 @@ vis.binds["vis-inventwo"] = {
 						$(el).parent().addClass("iMultiNav");
 				} else if (dataNew.iUniversalWidgetType == "Background") {
 					$(el).parent().css("cursor", "default");
+				} else if (dataNew.iUniversalWidgetType == "IncreaseDecreaseValue") {
+					vis.binds["vis-inventwo"].increaseDecreaseValue(el, dataNew, type);
 				}
+
 
 				if (vis.editMode) {
 					$(el).parent().on("mouseup click", function () {
@@ -2226,9 +2559,9 @@ vis.binds["vis-inventwo"] = {
 		let filter = "";
 		color = color.toLowerCase();
 
-		if(/^#[0-9A-F]{6}$/i.test(color)) {
+		if (/^#[0-9A-F]{6}$/i.test(color)) {
 
-			vis.conn._socket.emit('getState', "vis-inventwo.0.intern.ColorFilter." + color.substring(1), function (err, obj) {
+			vis.conn._socket.emit("getState", "vis-inventwo.0.intern.ColorFilter." + color.substring(1), function (err, obj) {
 				if (obj != undefined) {
 					filter = obj.val;
 				} else {
@@ -2247,7 +2580,7 @@ vis.binds["vis-inventwo"] = {
 
 					vis.setValue("vis-inventwo.0.intern.ColorFilter." + color.substring(1), filter);
 				}
-				$('#' + wid).find('img').css('filter', filter.substring(8, filter.length - 1));
+				$("#" + wid).find("img").css("filter", filter.substring(8, filter.length - 1));
 			});
 		}
 

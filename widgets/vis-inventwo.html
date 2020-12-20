@@ -13,11 +13,12 @@
 		data-vis-prev='<img src="widgets/vis-inventwo/img/Universal.gif">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
 						iUniversalWidgetTypeInfo/custom,vis-inventwo.infoText,universalTypeInfo;
-						iUniversalWidgetType[Switch]/nselect,Switch,State,Navigation,Background/updateUniversalDataFields();
+						iUniversalWidgetType[Switch]/nselect,Switch,State,Navigation,Background,IncreaseDecreaseValue/updateUniversalDataFields();
 						nav_view;
 						oid/id;
 						iValueType[boolean]/nselect,boolean,value;
 						iValueTypeInfo/custom,vis-inventwo.infoText,valueType;
+						iValueComparison[equal]/select,equal,greater,lower,not;
 						iValueFalse/text;
 						iValueTrue/text;
 						value/text;
@@ -103,13 +104,14 @@
 
 </script>
 
+
 <script id="i-vis-multi"
 		type="text/ejs"
 		class="vis-tpl"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/Multi.gif">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
 						iUniversalWidgetTypeInfo/custom,vis-inventwo.infoText,universalTypeInfo;
-						iUniversalWidgetType[Switch]/nselect,Switch,State,Navigation,Background/updateUniversalDataFields();
+						iUniversalWidgetType[Switch]/nselect,Switch,State,Navigation,Background,IncreaseDecreaseValue/updateUniversalDataFields();
 						nav_view;
 						oid/id;
 						iValueType[boolean]/select,boolean,value;
@@ -125,6 +127,7 @@
 		data-vis-attrs0="iUniversalValueCount[1]/number,1,20,1/updateUniversalDataFields();group.iUniversalValues/byindex;
 						 iView(1-iUniversalValueCount)/views;
 						 oid(1-iUniversalValueCount)/id;
+						 iValueComparison(1-iUniversalValueCount)[equal]/select,equal,greater,lower,not;
 						 iValue(1-iUniversalValueCount)/text;
 						 iTextTrue(1-iUniversalValueCount)/html;
 
@@ -223,9 +226,11 @@
 						iStepVal[1]/slider,0,100,0.1;
 						iSliderRotation[0]/slider,-45,45,1;
 						iSliderLabel/text;
+						iValuePreText/text;
 						iShowMinMax/checkbox;
 						iShowValue/checkbox;
-						iValuePreText/text;"
+						iChangeOnRelease/checkbox;
+						iInvertMinMax/checkbox;"
 		data-vis-attrs0="group.i-css;
 						 iSliderHeight[10]/slider,1,200,1;
 						 iSliderKnobSize[20]/slider,1,200,1;
@@ -265,12 +270,24 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: auto; display:flex;align-items:center;flex-wrap:wrap; top:<%= topSpace%>px;">
 
 			<% if(dataNew.iShowMinMax){ %>
-				<div style="margin-right: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px"><%= dataNew.iMinVal %></div>
+				<div style="margin-right: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px">
+					<% if (!dataNew.iInvertMinMax) { %>
+						<%= dataNew.iMinVal %>
+					<% } else { %>
+						<%= dataNew.iMaxVal %>
+					<% } %>
+				</div>
 
 				<div style="top:50%;flex-grow:1; border: 0px; border-radius: <%= dataNew.iSliderCorners %>px;background: <%= dataNew.iSliderColor %>; height: <%= dataNew.iSliderHeight %>px;"
 					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, dataNew,{orientation:"horizontal"}) %> ></div>
 
-				<div style="margin-left: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px"><%= dataNew.iMaxVal %></div>
+				<div style="margin-left: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px">
+					<% if (!dataNew.iInvertMinMax) { %>
+						<%= dataNew.iMaxVal %>
+					<% } else { %>
+						<%= dataNew.iMinVal %>
+					<% } %>
+				</div>
 
 			<% } else { %>
 				<div style="top:50%;flex-grow:1; border: 0px; border-radius: <%= dataNew.iSliderCorners %>px;background: <%= dataNew.iSliderColor %>; height: <%= dataNew.iSliderHeight %>px; margin: 0 <%= dataNew.iShowMinMax %>px;"
@@ -287,12 +304,33 @@
 
 	</div>
 </script>
+
 <script id="i-vis-slider-simple-2"
 		type="text/ejs"
 		class="vis-tpl"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/Slider2.gif">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;oid/id;iMinVal[1]/number;iMaxVal[100]/number;iStepVal[1]/slider,0,100,0.1;iSliderRotation[0]/slider,-45,45,1;iSliderLabel/text;iShowMinMax/checkbox;iShowValue/checkbox;iValuePreText/text;"
-		data-vis-attrs0="group.i-css;iSliderHeight[10]/slider,1,200,1;iSliderKnobSize[20]/slider,1,200,1;iSliderColor[#ffffff]/color;iSliderKnobColor[#455618]/color;iSliderTextColor[#ffffff]/color;iValueTextColor[#455618]/color;iTextSize[12]/slider,0,50,1;iSliderCorners[100]/slider,0,100,1;iSliderKnobCorners[100]/slider,0,100,1;"
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
+						oid/id;
+						iMinVal[1]/number;
+						iMaxVal[100]/number;
+						iStepVal[1]/slider,0,100,0.1;
+						iSliderRotation[0]/slider,-45,45,1;
+						iSliderLabel/text;
+						iValuePreText/text;
+						iShowMinMax/checkbox;
+						iShowValue/checkbox;
+						iChangeOnRelease/checkbox;
+						iInvertMinMax/checkbox;"
+		data-vis-attrs0="group.i-css;
+						 iSliderHeight[10]/slider,1,200,1;
+						 iSliderKnobSize[20]/slider,1,200,1;
+						 iSliderColor[#ffffff]/color;
+						 iSliderKnobColor[#455618]/color;
+						 iSliderTextColor[#ffffff]/color;
+						 iValueTextColor[#455618]/color;
+						 iTextSize[12]/slider,0,50,1;
+						 iSliderCorners[100]/slider,0,100,1;
+						 iSliderKnobCorners[100]/slider,0,100,1;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
 		data-vis-name="Simple Slider vertical">
@@ -493,6 +531,7 @@
 						 iColShow(1-iColCount)[true]/checkbox;
 						 iColName(1-iColCount)/text;
 						 iColAttr(1-iColCount)/text;
+						 iTblCellPlaceholder(1-iColCount)/text;
 						 iColWidth(1-iColCount)/text;
 						 iTblCellFormat(1-iColCount)[normal]/nselect,normal,datetime,image/updateJsonTableFields();
 						 iTblCellDatetimeFormat(1-iColCount)/text;
@@ -500,7 +539,6 @@
 						 iTblCellImageSize(1-iColCount)[200]/slider,0,1000,1;
 						 iTblTextAlign(1-iColCount)[left]/nselect,left,center,right;"
 		data-vis-attrs1="group.i-css;
-
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iOpacityAll[1]/slider,0,1,0.1;
 						 iTblRowEvenColor[#333333]/color;
@@ -529,12 +567,10 @@
 		data-vis-name="JSON Table">
 
 		<%
-
 			let dataNew = Object.assign({},this.data);
 			if(vis.editMode){
 				dataNew = vis.binds['vis-inventwo'].getDatapointsValues(dataNew);
 			}
-
 		%>
 
 		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:auto; height:auto; overflow:hidden;z-index:1" id="<%= this.data.attr('wid') %>" >
@@ -796,9 +832,13 @@
 
             </div>
 
+            <%= imgColorFilter  %>
+
             <%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, this.data.attr('oid'),dataNew['iValue' + val]) %>
 
             </div>
+
+
 
             <%
             	vis.binds["vis-inventwo"].getImgColorFilter(imgColorFilter, dataNew.wid);
@@ -913,7 +953,7 @@
 						 iSwitchColOnActive[#00ff00]/color;
 						 iSwitchColOff[#333333]/color;
 						 iSwitchColOffActive[#ff0000]/color;
-						 iSwitchColor[white]/select,black,white;"
+						 iSwitchColor[white]/select,black,grey,white;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
 		data-vis-name="Switch<br>
