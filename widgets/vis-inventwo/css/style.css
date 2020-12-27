@@ -55,7 +55,12 @@
 /* BUTTONS ENDE */
 
 .vis-inventwo-json-table{
-    border-spacing: 0px
+    border-spacing: 0px;
+}
+
+.vis-inventwo-json-table-fixedheader th{
+    position: sticky;
+    top: 0;
 }
 
 .vis-inventwo-json-table th, .vis-inventwo-json-table td{

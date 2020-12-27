@@ -523,6 +523,7 @@
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
 						oid/id;
 						iTblShowHead/checkbox;
+						iTblFixedHead/checkbox;
 						iTblRowLimit[1]/number;
 						iVertScroll/checkbox;
 						iHorScroll/checkbox;
@@ -574,7 +575,9 @@
 		%>
 
 		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:auto; height:auto; overflow:hidden;z-index:1" id="<%= this.data.attr('wid') %>" >
-        	<%= (el) -> vis.binds['vis-inventwo'].jsontable(el, dataNew) %>
+
+        		<%= (el) -> vis.binds['vis-inventwo'].jsontable(el, dataNew) %>
+
 		</div>
 
 </script>
@@ -832,8 +835,6 @@
 
             </div>
 
-            <%= imgColorFilter  %>
-
             <%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, this.data.attr('oid'),dataNew['iValue' + val]) %>
 
             </div>
@@ -973,6 +974,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- WERDEN ENTFERNT -->
 <script id="i-vis-switch"
 		type="text/ejs"
@@ -984,7 +1003,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Switch<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Switch<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
@@ -1046,7 +1065,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Switch Small<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Switch Small<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
@@ -1108,7 +1127,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Button<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Button<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
@@ -1149,7 +1168,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Button Small<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Button Small<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
@@ -1194,7 +1213,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Navigation<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Navigation<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
@@ -1245,7 +1264,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Navigation Small<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Navigation Small<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
@@ -1297,7 +1316,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="val"
-		data-vis-name="Background<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Background<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
@@ -1358,7 +1377,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="val"
-		data-vis-name="Background Small<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Background Small<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
@@ -1417,7 +1436,7 @@
 		data-vis-attrs0="group.i-css;iOpacityImg[1]/slider,0,1,0.1;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="static"
-		data-vis-name="Image<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Image<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
