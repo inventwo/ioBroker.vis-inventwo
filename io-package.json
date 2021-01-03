@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.7.0",
+    "version": "2.7.1",
     "news": {
+      "2.7.1": {
+        "en": "Bugfix",
+        "de": "Bug-Fix",
+        "ru": "Исправлена ошибка",
+        "pt": "Bugfix",
+        "nl": "Bugfix",
+        "fr": "Correction d'un bug",
+        "it": "Risoluzione del problema",
+        "es": "Arreglo del fallo",
+        "pl": "Naprawa błędów",
+        "zh-cn": "错误修正"
+      },
       "2.7.0": {
         "en": "New widget: Colorslider, JSON Table new columnformats boolean and number, JSON Table fixed header, JSON Table fixed issue with sorting, JSON Table configurable dummyrow, fixed bugs ",
         "de": "Neues Widget: Colorslider, neue Spaltenformate für JSON-Tabelle Boolescher Wert und Nummer, fester Header für JSON-Tabelle, Problem mit JSON-Tabelle beim Sortieren behoben, konfigurierbarer Dummyzeile für JSON-Tabelle, Fehler behoben",
