@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.6.0",
+    "version": "2.7.0",
     "news": {
       "2.7.0": {
         "en": "New widget: Colorslider, JSON Table new columnformats boolean and number, JSON Table fixed header, JSON Table fixed issue with sorting, JSON Table configurable dummyrow, fixed bugs ",
