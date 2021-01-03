@@ -1129,6 +1129,10 @@ vis.binds["vis-inventwo"] = {
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
 
+				/**
+				 * @TODO: Weitere klicks blockieren, wennn Verweildauer und Button schon gedrückt wurde!!!
+				 */
+
 				let val = vis.binds["vis-inventwo"].convertValue(data.value);
 
 				let oldValue = vis.states[oid + ".val"];
@@ -1645,7 +1649,6 @@ vis.binds["vis-inventwo"] = {
 				output = "No data";
 			} else if (vis.states.attr(data.oid + ".val") == undefined || vis.states.attr(data.oid + ".val") == "" ||
 				vis.states.attr(data.oid + ".val") == "null" || typeof vis.states.attr(data.oid + ".val") == "null") {
-
 				output = "No or wrong data in datapoint!";
 			} else {
 				if (data.iColCount !== "" && data.iColCount > 0) {
@@ -1655,12 +1658,13 @@ vis.binds["vis-inventwo"] = {
 					if (typeof jd === "string")
 						jsondata = JSON.parse(jd);
 					else
-						jsondata = jd;
+						jsondata = [].slice.call(jd);
 
 					let rowLimit = jsondata.length;
 					if (data.iTblRowLimit < rowLimit) {
 						rowLimit = data.iTblRowLimit;
 					}
+
 					let colLimit = 0;
 					if (jsondata.length > 0) {
 						colLimit = Object.keys(jsondata[0]).length;
@@ -1668,7 +1672,6 @@ vis.binds["vis-inventwo"] = {
 							colLimit = data.iColCount;
 						}
 					}
-
 
 					if (data.iVertScroll) {
 						$(el).parent().css("overflow-y", "scroll");
@@ -1952,6 +1955,8 @@ vis.binds["vis-inventwo"] = {
 
 			if (!vis.editMode) {
 				$(el).parent().find("th").on("click touchend", function () {
+					console.log('click');
+					console.log($(this));
 					sortData($(this).data("column"), el, data);
 				});
 			}
