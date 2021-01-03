@@ -1955,8 +1955,6 @@ vis.binds["vis-inventwo"] = {
 
 			if (!vis.editMode) {
 				$(el).parent().find("th").on("click touchend", function () {
-					console.log('click');
-					console.log($(this));
 					sortData($(this).data("column"), el, data);
 				});
 			}
