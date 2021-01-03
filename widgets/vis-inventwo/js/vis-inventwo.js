@@ -61,6 +61,14 @@ if (vis.editMode) {
 			"en": "CSS inventwo Widget",
 			"de": "CSS inventwo Widget"
 		},
+		"horizontal": {
+			"en": "Horizontal",
+			"de": "Waagerecht"
+		},
+		"vertical": {
+			"en": "Vertical",
+			"de": "Senkrecht"
+		},
 		//#endregion
 
 		//#region Content Settings
@@ -429,28 +437,28 @@ if (vis.editMode) {
 			"de": "Schritt"
 		},
 		"iSliderColor": {
-			"en": "Bar Color",
-			"de": "Balken Farbe"
+			"en": "Color",
+			"de": "Farbe"
 		},
 		"iSliderKnobColor": {
-			"en": "Handle Color",
-			"de": "Regler Farbe"
+			"en": "Color",
+			"de": "Farbe"
 		},
 		"iSliderCorners": {
 			"en": "Border radius",
 			"de": "Rundung"
 		},
 		"iSliderKnobCorners": {
-			"en": "Handle border radius",
-			"de": "Regler Rundung"
+			"en": "Border radius",
+			"de": "Rundung"
 		},
 		"iSliderHeight": {
-			"en": "Bar size",
-			"de": "Balken dicke"
+			"en": "Size",
+			"de": "Größe"
 		},
 		"iSliderKnobSize": {
-			"en": "Handle size",
-			"de": "Regler Größe"
+			"en": "Size",
+			"de": "Größe"
 		},
 		"iSliderRotation": {
 			"en": "Rotation",
@@ -465,8 +473,8 @@ if (vis.editMode) {
 			"de": "Zeige Min/Max Wert"
 		},
 		"iSliderTextColor": {
-			"en": "Text color",
-			"de": "Textfarbe"
+			"en": "Color",
+			"de": "Farbe"
 		},
 		"iShowValue": {
 			"en": "Show value",
@@ -494,6 +502,10 @@ if (vis.editMode) {
 		"iTblShowHead": {
 			"en": "Table Head",
 			"de": "Tabellenkopf"
+		},
+		"iTblFixedHead": {
+			"en": "Fixed Table Head",
+			"de": "Tabellenkopf fixierenn"
 		},
 		"iTblRowLimit": {
 			"en": "Rowlimit",
@@ -586,6 +598,34 @@ if (vis.editMode) {
 		"iTblCellPlaceholder": {
 			"en": "Placeholder cell is empty",
 			"de": "Platzhalter Zeile leer ist"
+		},
+		"iTblDummyRow": {
+			"en": "Header if JSON is empty (words separated by commas)",
+			"de": "Überschrift, wenn JSON leer ist (Wörter kommagetrennt schreiben)"
+		},
+		"iTblCellNumberDecimals": {
+			"en": "Decimals",
+			"de": "Nachkommastellen"
+		},
+		"iTblCellNumberDecimalSeperator": {
+			"en": "Decimal seperator",
+			"de": "Dezimaltrennzeichen"
+		},
+		"iTblCellNumberThousandSeperator": {
+			"en": "Thousand seperator",
+			"de": "Tausendertrennzeichen"
+		},
+		"iTblCellBooleanCheckbox": {
+			"en": "Show as Checkbox",
+			"de": "Zeige als Checkbox"
+		},
+		"iTblCellBooleanColorFalse": {
+			"en": "Color false",
+			"de": "Farbe falsch"
+		},
+		"iTblCellBooleanColorTrue": {
+			"en": "Color true",
+			"de": "Farbe wahr"
 		},
 		//#endregion
 
@@ -813,6 +853,14 @@ if (vis.editMode) {
 		"iText-ToggleSwitchSettings": {
 			"en": "<b>Switch</b>",
 			"de": "<b>Schalter</b>"
+		},
+		"iText-SliderBarSettings": {
+			"en": "<b>Slider bar</b>",
+			"de": "<b>Slider Balken</b>"
+		},
+		"iText-SliderKnobSettings": {
+			"en": "<b>Slider knob</b>",
+			"de": "<b>Slider Regler</b>"
 		},
 		//#endregion
 
@@ -1183,32 +1231,163 @@ vis.binds["vis-inventwo"] = {
 	},
 
 	//Slider Funktion - Setzt den Wert beim schieben
-	handleSlider: function (el, data, options) {
+	handleSlider: function (el, data, options, type) {
 		var $this = $(el);
 		var oid = data.oid;
 
+		let min = 0;
+		let max = 99;
+		let step = 0.1;
+
+		if(type == "normal"){
+			min = parseFloat(data.iMinVal);
+			max = parseFloat(data.iMaxVal);
+			step = parseFloat(data.iStepVal);
+		}
+
+		function getColor(sliderVal) {
+
+			let myRed, myGreen, myBlue;
+			if ( sliderVal <= 16 ) {
+				myRed = 255;
+				myGreen = parseInt( ( ( sliderVal * 6 ) * 255 ) / 100 );
+				myBlue = 0;
+			}
+			else if ( sliderVal <= 33 )	{
+				myRed = 255 - parseInt( ( ((sliderVal - 16) ) * 6 ) * 255 / 100 );
+				myGreen = 255;
+				myBlue = 0
+			}
+			else if(sliderVal < 50){
+				myRed = 0
+				myGreen = 255;
+				myBlue = parseInt( ( ((sliderVal - 33) ) * 6 ) * 255 / 100 );
+			}
+			else if(sliderVal < 66){
+				myRed = 0
+				myGreen = 255 - parseInt( ( ((sliderVal - 50) ) * 6 ) * 255 / 100 );
+				myBlue = 255;
+			}
+			else if(sliderVal < 83){
+				myRed = parseInt( ( ((sliderVal - 66) ) * 6 ) * 255 / 100 );
+				myGreen = 0;
+				myBlue = 255;
+			}
+			else {
+				myRed = 255;
+				myGreen = 0;
+				myBlue = 255 - parseInt( ( ((sliderVal - 83) ) * 6 ) * 255 / 100 );
+			}
+
+			return [myRed,myGreen,myBlue];
+		}
+
+		function hexToRgb(hex) {
+			if ((/^#([A-Fa-f0-9]{3}$)|([A-Fa-f0-9]{6}$)/.test(hex))) {
+				// Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+				const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+				hex = hex.replace(shorthandRegex, (m, r, g, b) => {
+					return r + r + g + g + b + b;
+				});
+
+				const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+
+				return result
+					? [
+						parseInt(result[1], 16),
+						parseInt(result[2], 16),
+						parseInt(result[3], 16),
+					]
+					: null;
+			} else {
+				return null;
+			}
+		}
+
+		function rgbToDecimal(rgbArr) {
+			let r = parseFloat(rgbArr[0]);
+			let g = parseFloat(rgbArr[1]);
+			let b = parseFloat(rgbArr[2]);
+
+			let sixth = 100/6;
+			let res = 0;
+
+			if (r == 255 && b == 0) {
+				res = g / 255 * sixth;
+			}
+			else if (g == 255 && b == 0)	{
+				res = sixth + sixth - (r / 255 * sixth);
+			}
+			else if(r == 0 && g == 255){
+				res = sixth * 2 + b / 255 * sixth;
+			}
+			else if(r == 0 && b == 255){
+				res = sixth * 3 + sixth - (g / 255 * sixth);
+			}
+			else if(g == 0 &&  b == 255){
+				res = sixth * 4 + r / 255 * sixth;
+			}
+			else {
+				res = sixth * 5 + sixth - (b / 255 * sixth);
+			}
+
+			return res;
+		}
+
+		function componentToHex(c) {
+			var hex = c.toString(16);
+			return hex.length == 1 ? "0" + hex : hex;
+		}
+
+		function rgbToHex(rgb) {
+			return "#" + componentToHex(rgb[0]) + componentToHex(rgb[1]) + componentToHex(rgb[2]);
+		}
+
 		var settings = $.extend({
-			min: parseFloat(data.iMinVal),
-			max: parseFloat(data.iMaxVal),
-			step: parseFloat(data.iStepVal),
+			min: min,
+			max: max,
+			step: step,
 			slide: function (event, ui) {
 				if (!vis.editMode) {
-					if (!data.iChangeOnRelease) {
-						if (data.iInvertMinMax) {
-							vis.setValue(oid, (parseFloat(data.iMaxVal) - ui.value + parseFloat(data.iMinVal)));
-						} else {
-							vis.setValue(oid, ui.value);
-						}
+					switch (type) {
+						case "normal":
+							if (!data.iChangeOnRelease) {
+								if (data.iInvertMinMax) {
+									vis.setValue(oid, (parseFloat(data.iMaxVal) - ui.value + parseFloat(data.iMinVal)));
+								} else {
+									vis.setValue(oid, ui.value);
+								}
+							}
+							break;
+						case "rgb":
+							let sliderVal = parseFloat(ui.value);
+							let rgb = getColor(sliderVal);
+							let color = rgbToHex(rgb);
+							$(ui.handle).css('background', color);
+							if (!data.iChangeOnRelease) {
+								vis.setValue(oid, color);
+							}
+							break;
+
 					}
 				}
 			},
 			stop: function (event, ui) {
 				if (!vis.editMode) {
 					if (data.iChangeOnRelease) {
-						if (data.iInvertMinMax) {
-							vis.setValue(oid, (parseFloat(data.iMaxVal) - ui.value + parseFloat(data.iMinVal)));
-						} else {
-							vis.setValue(oid, ui.value);
+						switch (type) {
+							case "normal":
+								if (data.iInvertMinMax) {
+									vis.setValue(oid, (parseFloat(data.iMaxVal) - ui.value + parseFloat(data.iMinVal)));
+								} else {
+									vis.setValue(oid, ui.value);
+								}
+								break;
+							case "rgb":
+								let sliderVal = parseFloat(ui.value);
+								let color = rgbToHex(getColor(sliderVal));
+								vis.setValue(oid, color);
+								break;
 						}
 					}
 				}
@@ -1217,35 +1396,70 @@ vis.binds["vis-inventwo"] = {
 
 		$this.slider(settings);
 
+		let leftSpace = 0;
+		leftSpace = parseFloat(data.iSliderHeight) / 2 - parseFloat(data.iSliderKnobSize) / 2;
+
+		let val = vis.states.attr(oid + ".val");
+
+		switch (type) {
+			case "normal":
+				$this.children().css("background", data.iSliderKnobColor);
+				if (data.iInvertMinMax) {
+					val = data.iMaxVal - (val - data.iMinVal);
+				}
+				$this.slider("option", "value", val);
+				break;
+			case "rgb":
+				let rgb = hexToRgb(val);
+				if(rgb == null) {
+					rgb = [255,0,0];
+					val = "#ff0000";
+				}
+
+				$this.children().css('background', val);
+				$this.slider("option", "value", rgbToDecimal(rgb));
+				break;
+		}
+
 		$this.css("transform", "rotate(" + data.iSliderRotation + "deg)");
 		$this.children().css("width", data.iSliderKnobSize + "px");
 		$this.children().css("height", data.iSliderKnobSize + "px");
 		$this.children().css("border", "0px");
 		$this.children().css("border-radius", data.iSliderKnobCorners + "%");
-		$this.children().css("background", data.iSliderKnobColor);
 		$this.children().css("box-shadow", "0 0 5px 1px black");
 		if (options.orientation === "horizontal") {
 			$this.children().css("margin-left", "-" + (data.iSliderKnobSize / 2) + "px");
 			let topPos = ((data.iSliderKnobSize - data.iSliderHeight) / 2) * (-1);
 			$this.children().css("top", topPos + "px");
 		} else {
-			$this.children().css("left", "-" + (data.iSliderKnobSize / 2 - data.iSliderHeight / 2) + "px");
+			$this.children().css("left", leftSpace + "px");
 			$this.children().css("margin-bottom", "-" + (data.iSliderKnobSize / 2) + "px");
 		}
 
-		let val = vis.states.attr(oid + ".val");
-		if (data.iInvertMinMax) {
-			val = data.iMaxVal - (val - data.iMinVal);
-		}
-		$this.slider("option", "value", val);
 
 		vis.states.bind(oid + ".val", function () {
 			val = vis.states.attr(oid + ".val");
-			if (data.iInvertMinMax) {
-				val = data.iMaxVal - (val - data.iMinVal);
+			let newVal = val;
+			switch (type) {
+				case "normal":
+					if (data.iInvertMinMax) {
+						newVal = data.iMaxVal - (val - data.iMinVal);
+					}
+					break;
+				case "rgb":
+					$this.children().css('background', val);
+					newVal = hexToRgb(val);
+					if(newVal == null) {
+						newVal = [255,0,0];
+					}
+					newVal = rgbToDecimal(newVal);
+					$this.slider("option", "value", newVal);
+					break;
 			}
-			$this.slider("option", "value", val);
+
+			$this.slider("option", "value", newVal);
 		});
+
 	},
 
 	//IncreaseDecreaseValue Funktion - Erhöht oder senkt Datenpunkwert
@@ -1266,18 +1480,15 @@ vis.binds["vis-inventwo"] = {
 				if (moved) return;
 
 				if (isChecking) {
-					console.log("already checking");
 					clickCount++;
 					clearTimeout(timeout);
 					timeout = null;
 				} else {
-					console.log("not checking");
 					isChecking = true;
 				}
 
 				if (timeout == null) {
 					timeout = setTimeout(function () {
-						console.log("setze wert");
 						let val = vis.binds["vis-inventwo"].convertValue(data.value);
 						let oldValue = parseFloat(vis.states[oid + ".val"]);
 
@@ -1447,11 +1658,17 @@ vis.binds["vis-inventwo"] = {
 						jsondata = jd;
 
 					let rowLimit = jsondata.length;
-					if (data.iTblRowLimit < rowLimit)
+					if (data.iTblRowLimit < rowLimit) {
 						rowLimit = data.iTblRowLimit;
-					let colLimit = Object.keys(jsondata[0]).length;
-					if (data.iColCount < colLimit)
-						colLimit = data.iColCount;
+					}
+					let colLimit = 0;
+					if (jsondata.length > 0) {
+						colLimit = Object.keys(jsondata[0]).length;
+						if (data.iColCount < colLimit) {
+							colLimit = data.iColCount;
+						}
+					}
+
 
 					if (data.iVertScroll) {
 						$(el).parent().css("overflow-y", "scroll");
@@ -1470,194 +1687,271 @@ vis.binds["vis-inventwo"] = {
 						tblBorder = "border-collapse:collapse;";
 					}
 
+					let tblClasses = "vis-inventwo-json-table";
+					if (data.iTblFixedHead == true) {
+						tblClasses += " vis-inventwo-json-table-fixedheader";
+					}
+
+					let noData = false;
+
 					let border = "";
 					border += "border-left: " + data.iBorderSize + "px " + data.iBorderStyleLeft + " " + data.iBorderColor + ";";
 					border += "border-right: " + data.iBorderSize + "px " + data.iBorderStyleRight + " " + data.iBorderColor + ";";
 					border += "border-top: " + data.iBorderSize + "px " + data.iBorderStyleUp + " " + data.iBorderColor + ";";
 					border += "border-bottom: " + data.iBorderSize + "px " + data.iBorderStyleDown + " " + data.iBorderColor + ";";
 
-					output = "<table class='vis-inventwo-json-table' style='opacity: " + data.iOpacityAll + "; " + tblBorder + "'>";
+					output = "<table class='" + tblClasses + "' style='opacity: " + data.iOpacityAll + "; " + tblBorder + "'>";
+
 					if (data.iTblShowHead) {
-						output += "<thead style='background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor + "'>";
-						for (let i = 0; i < colLimit; i++) {
-							if (data["iColShow" + (i + 1)]) {
-								let colWidth = "";
-								if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
-									colWidth = data["iColWidth" + (i + 1)];
-								}
-								let sortArrow = "<span style='width: 15px; display: inline-block'></span>";
-								if (Object.keys(jsondata[0])[i] == sortColumn) {
-									let borderWidth = "5px 5px 0 5px;";
-									let borderColor = data.iTblHeaderTextColor + " transparent transparent transparent;";
-									if (sortOrder == "asc") {
-										borderWidth = "0 5px 5px 5px;";
-										borderColor = "transparent transparent " + data.iTblHeaderTextColor + " transparent;";
+						let tblHead = "";
+						let headStyle = "background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor;
+						tblHead += "<thead style='" + headStyle + "'>";
+
+						if (jsondata.length > 0) {
+							for (let i = 0; i < colLimit; i++) {
+								if (data["iColShow" + (i + 1)]) {
+									let colWidth = "";
+									if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
+										colWidth = data["iColWidth" + (i + 1)];
 									}
-									let style = `border-width: ` + borderWidth + `
+
+									let sortArrow = "<span style='width: 15px; display: inline-block'></span>";
+
+									let colAttr = Object.keys(jsondata[0])[i];
+									if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
+										colAttr = data["iColAttr" + (i + 1)];
+									}
+
+									if (colAttr == sortColumn) {
+										let borderWidth = "5px 5px 0 5px;";
+										let borderColor = data.iTblHeaderTextColor + " transparent transparent transparent;";
+										if (sortOrder == "asc") {
+											borderWidth = "0 5px 5px 5px;";
+											borderColor = "transparent transparent " + data.iTblHeaderTextColor + " transparent;";
+										}
+										let style = `border-width: ` + borderWidth + `
     											 border-color: ` + borderColor + `
     											 margin-left: 5px;
     											 display: inline-block;
     											 vertical-align: middle;
     											 border-style: solid;`;
-									sortArrow = `<span style="` + style + `"></span>`;
-								}
+										sortArrow = `<span style="` + style + `"></span>`;
+									}
 
-								if (data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== "") {
-									output += "<th data-column='" + Object.keys(jsondata[0])[i] + "' style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border + "'>" + data["iColName" + (i + 1)] + sortArrow + "</th>";
-								} else {
-									//if(Object.keys(jsondata[0])[i].charAt(0) !== "_")
-									if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
-										output += "<th data-column='" + Object.keys(jsondata[0])[i] + "' style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border + "'>" + data["iColAttr" + (i + 1)] + sortArrow + "</th>";
+									let thStyle = "width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border;
+									if (data.iTblFixedHead == true) {
+										thStyle += headStyle;
+									}
+									if (data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== "") {
+										tblHead += "<th data-column='" + colAttr + "' style='" + thStyle + "'>" + data["iColName" + (i + 1)] + sortArrow + "</th>";
 									} else {
-										output += "<th data-column='" + Object.keys(jsondata[0])[i] + "' style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border + "'>" + Object.keys(jsondata[0])[i] + sortArrow + "</th>";
+										tblHead += "<th data-column='" + colAttr + "' style='" + thStyle + "'>" + colAttr + sortArrow + "</th>";
 									}
 								}
 							}
-						}
-						output += "</thead>";
-					}
-					output += "<tbody>";
+						} else if (data.iTblDummyRow != "") {
+							let headers = data.iTblDummyRow.split(",");
 
-					if (sortColumn != "") {
-						jsondata.sort(function (a,b) {
-							let first = a[sortColumn];
-							let second = b[sortColumn];
-							let ret;
-
-							if (isNaN(first)) {
-								if (isNaN(second)) {
-									ret = first.localeCompare(second);
-								} else {
-									ret = 1;
-								}
-							} else {
-								if (isNaN(second)) {
-									ret = -1;
-								} else {
-									ret = parseFloat(first) - parseFloat(second);
-								}
-							}
-
-							if(sortOrder == "desc")
-								ret = ret * (-1);
-
-							return ret;
-						});
-					}
-
-					for (let e = 0; e < rowLimit; e++) {
-						let tdColor = "";
-						let tdTextColor = "";
-						if (e % 2 === 0) {
-							tdColor = data.iTblRowUnevenColor;
-							tdTextColor = data.iTblRowUnevenTextColor;
+							let thStyle = "padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border;
+							headers.forEach(head => {
+								tblHead += "<th style='" + thStyle + "'>" + head + "</th>";
+							});
 						} else {
-							tdColor = data.iTblRowEvenColor;
-							tdTextColor = data.iTblRowEvenTextColor;
+							noData = true;
 						}
-						output += "<tr style='background: " + tdColor + "; color: " + tdTextColor + "'>";
-						for (let i = 0; i < colLimit; i++) {
-							if (data["iColShow" + (i + 1)]) {
 
-								let colWidth = "";
-								if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
-									colWidth = data["iColWidth" + (i + 1)];
-								}
+						tblHead += "</thead>";
+						output += tblHead;
 
-								let cellValue = "";
+					}
 
-								if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
-									cellValue = jsondata[e][data["iColAttr" + (i + 1)]];
+					if (jsondata.length > 0) {
+
+						output += "<tbody>";
+
+						if (sortColumn != "") {
+							jsondata.sort(function (a, b) {
+								let first = a[sortColumn];
+								let second = b[sortColumn];
+								let ret;
+
+								if (isNaN(first)) {
+									if (isNaN(second)) {
+										ret = first.localeCompare(second);
+									} else {
+										ret = 1;
+									}
 								} else {
-									cellValue = jsondata[e][Object.keys(jsondata[e])[i]];
-								}
-
-								if (cellValue != "") {
-
-									switch (data["iTblCellFormat" + (i + 1)]) {
-										case "normal":
-											break;
-										case "datetime":
-											if (cellValue != 0) {
-												if (data["iTblCellDatetimeFormat" + (i + 1)] != "") {
-													let datetime = null;
-													if (isNaN(cellValue) == true) {
-														datetime = new Date(cellValue).getTime();
-													} else {
-														datetime = parseInt(cellValue);
-													}
-
-													if (cellValue.toString().length == 13)
-														datetime = datetime / 1000;
-													var getDateString = function (date, format) {
-														var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-															getPaddedComp = function (comp) {
-																return ((parseInt(comp) < 10) ? ("0" + comp) : comp);
-															},
-															formattedDate = format,
-															o = {
-																"y": date.getFullYear(), // year
-																"m": getPaddedComp(date.getMonth() + 1), //month number
-																"M": months[date.getMonth()], //month
-																"d": getPaddedComp(date.getDate()), //day
-																"h": getPaddedComp((date.getHours() > 12) ? date.getHours() % 12 : date.getHours()), //hour
-																"H": getPaddedComp(date.getHours()), //hour
-																"i": getPaddedComp(date.getMinutes()), //minute
-																"s": getPaddedComp(date.getSeconds()), //second
-																"S": getPaddedComp(date.getMilliseconds()), //millisecond,
-																"b": (date.getHours() >= 12) ? "PM" : "AM"
-															};
-
-														for (var k in o) {
-															if (new RegExp("(" + k + ")", "g").test(format)) {
-																formattedDate = formattedDate.replace(RegExp.$1, o[k]);
-															}
-														}
-														return formattedDate;
-
-													};
-													var formattedDate = getDateString(new Date(datetime), data["iTblCellDatetimeFormat" + (i + 1)]);
-													cellValue = formattedDate;
-
-
-												}
-											} else {
-												cellValue = data["iTblCellPlaceholder" + (i + 1)];
-											}
-											break;
-										case "image":
-											if (cellValue != undefined && cellValue != "") {
-												cellValue = "<img src='" + cellValue + "' style='width:" + data["iTblCellImageSize" + (i + 1)] + "px;' onerror='this.style.display=`none`'>";
-											}
-											break;
+									if (isNaN(second)) {
+										ret = -1;
+									} else {
+										ret = parseFloat(first) - parseFloat(second);
 									}
 								}
-								else{
-									cellValue = data["iTblCellPlaceholder" + (i + 1)];
-								}
 
-								if (cellValue == undefined)
-									cellValue = "";
+								if (sortOrder == "desc")
+									ret = ret * (-1);
 
-								output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border + " text-align: " + data["iTblTextAlign" + (i + 1)] + ";'>" + cellValue + "</td>";
-							}
+								return ret;
+							});
 						}
-						output += "</tr>";
+
+						for (let e = 0; e < rowLimit; e++) {
+							let tdColor = "";
+							let tdTextColor = "";
+							if (e % 2 === 0) {
+								tdColor = data.iTblRowUnevenColor;
+								tdTextColor = data.iTblRowUnevenTextColor;
+							} else {
+								tdColor = data.iTblRowEvenColor;
+								tdTextColor = data.iTblRowEvenTextColor;
+							}
+							output += "<tr style='background: " + tdColor + "; color: " + tdTextColor + "'>";
+							for (let i = 0; i < colLimit; i++) {
+								if (data["iColShow" + (i + 1)]) {
+
+									let colWidth = "";
+									if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
+										colWidth = data["iColWidth" + (i + 1)];
+									}
+
+									let cellValue = "";
+
+									if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
+										cellValue = jsondata[e][data["iColAttr" + (i + 1)]];
+									} else {
+										cellValue = jsondata[e][Object.keys(jsondata[e])[i]];
+									}
+
+									if (cellValue != "") {
+
+										switch (data["iTblCellFormat" + (i + 1)]) {
+											case "normal":
+												break;
+											case "datetime":
+												if (cellValue != 0) {
+													if (data["iTblCellDatetimeFormat" + (i + 1)] != "") {
+														let datetime = null;
+														if (isNaN(cellValue) == true) {
+															datetime = new Date(cellValue).getTime();
+														} else {
+															datetime = parseInt(cellValue);
+														}
+
+														//if (cellValue.toString().length == 13)
+														//	datetime = datetime / 1000;
+														var getDateString = function (date, format) {
+															var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+																getPaddedComp = function (comp) {
+																	return ((parseInt(comp) < 10) ? ("0" + comp) : comp);
+																},
+																formattedDate = format,
+																o = {
+																	"y": date.getFullYear(), // year
+																	"m": getPaddedComp(date.getMonth() + 1), //month number
+																	"M": months[date.getMonth()], //month
+																	"d": getPaddedComp(date.getDate()), //day
+																	"h": getPaddedComp((date.getHours() > 12) ? date.getHours() % 12 : date.getHours()), //hour
+																	"H": getPaddedComp(date.getHours()), //hour
+																	"i": getPaddedComp(date.getMinutes()), //minute
+																	"s": getPaddedComp(date.getSeconds()), //second
+																	"S": getPaddedComp(date.getMilliseconds()), //millisecond,
+																	"b": (date.getHours() >= 12) ? "PM" : "AM"
+																};
+
+															for (var k in o) {
+																if (new RegExp("(" + k + ")", "g").test(format)) {
+																	formattedDate = formattedDate.replace(RegExp.$1, o[k]);
+																}
+															}
+															return formattedDate;
+
+														};
+														var formattedDate = getDateString(new Date(datetime), data["iTblCellDatetimeFormat" + (i + 1)]);
+														cellValue = formattedDate;
+
+
+													}
+												} else {
+													cellValue = data["iTblCellPlaceholder" + (i + 1)];
+												}
+												break;
+											case "image":
+												if (cellValue != undefined && cellValue != "") {
+													cellValue = "<img src='" + cellValue + "' style='width:" + data["iTblCellImageSize" + (i + 1)] + "px;' onerror='this.style.display=`none`'>";
+												}
+												break;
+											case "number":
+
+												let tempVal = parseFloat(cellValue).toLocaleString('en',
+													{
+														minimumFractionDigits: parseFloat(data["iTblCellNumberDecimals" + (i + 1)]),
+														maximumFractionDigits: parseFloat(data["iTblCellNumberDecimals" + (i + 1)])
+													});
+
+												let decimalSeperator = ".";
+												let thousandSeperator = ",";
+												if(data["iTblCellNumberDecimalSeperator" + (i + 1)] != ''){
+													decimalSeperator = data["iTblCellNumberDecimalSeperator" + (i + 1)];
+												}
+												thousandSeperator = data["iTblCellNumberThousandSeperator" + (i + 1)];
+
+												tempVal = tempVal.replace(".", "[tempSeperatorXYZ]");
+												tempVal = tempVal.replace(/\,/gm, thousandSeperator);
+												tempVal = tempVal.replace("[tempSeperatorXYZ]", decimalSeperator);
+												cellValue = tempVal;
+												break;
+											case "boolean":
+												if(data["iTblCellBooleanCheckbox" + (i + 1)]){
+													let valBoolean = false;
+													if(cellValue == true || cellValue == "true" || cellValue == "1" || cellValue == 1)
+														valBoolean = true;
+
+													let checkboxSize = 25;
+
+													if(valBoolean){
+														let style = 'background: ' + data["iTblCellBooleanColorTrue" + (i + 1)] + '; width: ' + checkboxSize + 'px; height: ' + checkboxSize + 'px;';
+														cellValue = '<div class="vis-inventwo-json-table-checkbox-container checked"><span style="'+style+'" class="vis-inventwo-json-table-checkbox-checkmark"></span></div>';
+													}
+													else{
+														let style = 'background: ' + data["iTblCellBooleanColorFalse" + (i + 1)] + '; width: ' + checkboxSize + 'px; height: ' + checkboxSize + 'px;';
+														cellValue = '<div class="vis-inventwo-json-table-checkbox-container"><span style="'+style+'" class="vis-inventwo-json-table-checkbox-checkmark"></span></div>';
+													}
+												}
+												break;
+										}
+									} else {
+										cellValue = data["iTblCellPlaceholder" + (i + 1)];
+									}
+
+									if (cellValue == undefined)
+										cellValue = "";
+
+									output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border + " text-align: " + data["iTblTextAlign" + (i + 1)] + ";'>" + cellValue + "</td>";
+								}
+							}
+							output += "</tr>";
+						}
+						output += "</tbody>";
 					}
-					output += "</tbody>";
+
+
 					output += "</table>";
+
+					if (noData == true) {
+						output = "No entries in JSON and no dummy row";
+					}
 
 
 				} else {
 					output = "Columncount can't be zero/empty!";
 				}
 			}
+
 			$(el).html(output);
 
 			if (!vis.editMode) {
-				console.log($(el));
-				$(el).find("th").on("click touchend", function () {
-					console.log("click");
+				$(el).parent().find("th").on("click touchend", function () {
 					sortData($(this).data("column"), el, data);
 				});
 			}
@@ -1716,15 +2010,68 @@ vis.binds["vis-inventwo"] = {
 				if (data["iTblCellFormat" + i] == "normal") {
 					vis.hideShowAttr("iTblCellDatetimeFormat" + i, false);
 					vis.hideShowAttr("iTblCellDatetimeFormatInfo" + i, false);
+
 					vis.hideShowAttr("iTblCellImageSize" + i, false);
+
+					vis.hideShowAttr("iTblCellBooleanCheckbox" + i, false);
+					vis.hideShowAttr("iTblCellBooleanColorFalse" + i, false);
+					vis.hideShowAttr("iTblCellBooleanColorTrue" + i, false);
+
+					vis.hideShowAttr("iTblCellNumberDecimals" + i, false);
+					vis.hideShowAttr("iTblCellNumberDecimalSeperator" + i, false);
+					vis.hideShowAttr("iTblCellNumberThousandSeperator" + i, false);
 				} else if (data["iTblCellFormat" + i] == "datetime") {
 					vis.hideShowAttr("iTblCellDatetimeFormat" + i, true);
 					vis.hideShowAttr("iTblCellDatetimeFormatInfo" + i, true);
+
 					vis.hideShowAttr("iTblCellImageSize" + i, false);
+
+					vis.hideShowAttr("iTblCellBooleanCheckbox" + i, false);
+					vis.hideShowAttr("iTblCellBooleanColorFalse" + i, false);
+					vis.hideShowAttr("iTblCellBooleanColorTrue" + i, false);
+
+					vis.hideShowAttr("iTblCellNumberDecimals" + i, false);
+					vis.hideShowAttr("iTblCellNumberDecimalSeperator" + i, false);
+					vis.hideShowAttr("iTblCellNumberThousandSeperator" + i, false);
 				} else if (data["iTblCellFormat" + i] == "image") {
 					vis.hideShowAttr("iTblCellDatetimeFormat" + i, false);
 					vis.hideShowAttr("iTblCellDatetimeFormatInfo" + i, false);
+
 					vis.hideShowAttr("iTblCellImageSize" + i, true);
+
+					vis.hideShowAttr("iTblCellBooleanCheckbox" + i, false);
+					vis.hideShowAttr("iTblCellBooleanColorFalse" + i, false);
+					vis.hideShowAttr("iTblCellBooleanColorTrue" + i, false);
+
+					vis.hideShowAttr("iTblCellNumberDecimals" + i, false);
+					vis.hideShowAttr("iTblCellNumberDecimalSeperator" + i, false);
+					vis.hideShowAttr("iTblCellNumberThousandSeperator" + i, false);
+				} else if (data["iTblCellFormat" + i] == "number") {
+					vis.hideShowAttr("iTblCellDatetimeFormat" + i, false);
+					vis.hideShowAttr("iTblCellDatetimeFormatInfo" + i, false);
+
+					vis.hideShowAttr("iTblCellImageSize" + i, false);
+
+					vis.hideShowAttr("iTblCellBooleanCheckbox" + i, false);
+					vis.hideShowAttr("iTblCellBooleanColorFalse" + i, false);
+					vis.hideShowAttr("iTblCellBooleanColorTrue" + i, false);
+
+					vis.hideShowAttr("iTblCellNumberDecimals" + i, true);
+					vis.hideShowAttr("iTblCellNumberDecimalSeperator" + i, true);
+					vis.hideShowAttr("iTblCellNumberThousandSeperator" + i, true);
+				} else if (data["iTblCellFormat" + i] == "boolean") {
+					vis.hideShowAttr("iTblCellDatetimeFormat" + i, false);
+					vis.hideShowAttr("iTblCellDatetimeFormatInfo" + i, false);
+
+					vis.hideShowAttr("iTblCellImageSize" + i, false);
+
+					vis.hideShowAttr("iTblCellBooleanCheckbox" + i, true);
+					vis.hideShowAttr("iTblCellBooleanColorFalse" + i, true);
+					vis.hideShowAttr("iTblCellBooleanColorTrue" + i, true);
+
+					vis.hideShowAttr("iTblCellNumberDecimals" + i, false);
+					vis.hideShowAttr("iTblCellNumberDecimalSeperator" + i, false);
+					vis.hideShowAttr("iTblCellNumberThousandSeperator" + i, false);
 				}
 
 			}
@@ -1849,18 +2196,21 @@ vis.binds["vis-inventwo"] = {
 
 		this.updateUniversalDataFields;
 		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
-			createWidget(false);
+			if(newVal != oldVal)
+				createWidget(false);
 		});
 
 		vis.states.bind(vis.activeView, function (e, newVal, oldVal) {
-			createWidget(false);
+			if(newVal != oldVal)
+				createWidget(false);
 		});
 
 		if (type == "multi" && data.iUniversalWidgetType != "Navigation") {
 			for (let index = 1; index <= data.iUniversalValueCount; index++) {
 
 				vis.states.bind(data.attr("oid" + index) + ".val", function (e, newVal, oldVal) {
-					createWidget(false);
+					if(newVal != oldVal)
+						createWidget(false);
 				});
 
 			}
@@ -2556,6 +2906,9 @@ vis.binds["vis-inventwo"] = {
 	//Aktualisierung der Filter für das Icon
 	getImgColorFilter: function (color, wid) {
 
+		if (color == "undefined")
+			return;
+
 		let filter = "";
 		color = color.toLowerCase();
 
@@ -2580,7 +2933,9 @@ vis.binds["vis-inventwo"] = {
 
 					vis.setValue("vis-inventwo.0.intern.ColorFilter." + color.substring(1), filter);
 				}
-				$("#" + wid).find("img").css("filter", filter.substring(8, filter.length - 1));
+
+				if($("#" + wid).find("img").css("filter") != filter.substring(8, filter.length - 1))
+					$("#" + wid).find("img").css("filter", filter.substring(8, filter.length - 1));
 			});
 		}
 

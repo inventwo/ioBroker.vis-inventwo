@@ -3,6 +3,18 @@
     "name": "vis-inventwo",
     "version": "2.6.0",
     "news": {
+      "2.7.0": {
+        "en": "New widget: Colorslider, JSON Table new columnformats boolean and number, JSON Table fixed header, JSON Table fixed issue with sorting, JSON Table configurable dummyrow, fixed bugs ",
+        "de": "Neues Widget: Colorslider, neue Spaltenformate für JSON-Tabelle Boolescher Wert und Nummer, fester Header für JSON-Tabelle, Problem mit JSON-Tabelle beim Sortieren behoben, konfigurierbarer Dummyzeile für JSON-Tabelle, Fehler behoben",
+        "ru": "Новый виджет: Colorslider, таблица JSON, новые форматы столбцов, логические и числовые, фиксированный заголовок таблицы JSON, исправленная проблема с сортировкой таблицы JSON, настраиваемая фиктивная строка таблицы JSON, исправленные ошибки",
+        "pt": "Novo widget: Colorslider, tabela JSON novos formatos de coluna booleano e número, cabeçalho fixo da tabela JSON, problema corrigido da tabela JSON com classificação, dummyrow configurável da tabela JSON, bugs corrigidos",
+        "nl": "Nieuwe widget: Colorslider, JSON Table nieuwe kolomformaten boolean en nummer, JSON Table vaste header, JSON Table opgelost probleem met sorteren, JSON Table configureerbare dummyrow, bugs opgelost",
+        "fr": "Nouveau widget: Colorslider, table JSON nouveaux formats de colonnes booléens et nombre, en-tête fixe de table JSON, problème de table JSON résolu avec le tri, dummyrow configurable de table JSON, bugs corrigés",
+        "it": "Nuovo widget: Colorslider, JSON Table new columnformats boolean and number, JSON Table fixed header, JSON Table fixed issue with sorting, JSON Table configurable dummyrow, fixed bugs",
+        "es": "Nuevo widget: Colorslider, JSON Table nuevos formatos de columna booleanos y numéricos, encabezado fijo de la tabla JSON, problema solucionado de la tabla JSON con la clasificación, ficticia configurable de la tabla JSON, errores arreglados",
+        "pl": "Nowy widżet: Colorslider, nowe formaty kolumn tabeli JSON, wartości logiczne i liczby, stały nagłówek tabeli JSON, naprawiony problem z sortowaniem tabeli JSON, fałszywy wiersz konfigurowalny w tabeli JSON, naprawione błędy",
+        "zh-cn": "新的小部件：Colorslider，JSON表新的列格式布尔值和数字，JSON表固定的标头，JSON表固定的排序问题，JSON表可配置的虚拟行，固定的错误"
+      },
       "2.6.0": {
         "en": "Slider invert min/max, Set slider value on release, New Widget to increase/decrease a value, JSON-Table fixed issue with datetime, JSON-Table placeholder for empty cells, JSON-Table sorting for columns by click on header",
         "de": "Schieberegler invertieren min / max, Schiebereglerwert bei Freigabe festlegen, Neues Widget zum Erhöhen / Verringern eines Werts, JSON-Tabelle behobenes Problem mit Datum / Uhrzeit, JSON-Tabellenplatzhalter für leere Zellen, JSON-Tabellensortierung für Spalten durch Klicken auf die Überschrift",

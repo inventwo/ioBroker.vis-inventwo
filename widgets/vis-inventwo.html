@@ -4,7 +4,8 @@
 	Copyright 2020 jkvarel jkvarel@inventwo.com
 -->
 
-<link rel="stylesheet" href="widgets/vis-inventwo/css/style.css" />
+
+<link rel="stylesheet" href="widgets/vis-inventwo/css/style.css"/>
 <script type="text/javascript" src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
 
 <script id="i-vis-universal"
@@ -102,8 +103,9 @@
 	</div>
 
 
-</script>
 
+
+</script>
 
 <script id="i-vis-multi"
 		type="text/ejs"
@@ -213,6 +215,8 @@
 		<%= (el) -> vis.binds['vis-inventwo'].hideImgFilterFields(el) %>
 	</div>
 
+
+
 </script>
 
 <script id="i-vis-slider-simple"
@@ -232,15 +236,20 @@
 						iChangeOnRelease/checkbox;
 						iInvertMinMax/checkbox;"
 		data-vis-attrs0="group.i-css;
+						 iText-SliderBarSettings/custom,vis-inventwo.infoText,emptyText;
 						 iSliderHeight[10]/slider,1,200,1;
-						 iSliderKnobSize[20]/slider,1,200,1;
 						 iSliderColor[#ffffff]/color;
+						 iSliderCorners[100]/slider,0,100,1;
+
+						 iText-SliderKnobSettings/custom,vis-inventwo.infoText,emptyText;
+						 iSliderKnobSize[20]/slider,1,200,1;
 						 iSliderKnobColor[#455618]/color;
+						 iSliderKnobCorners[100]/slider,0,100,1;
+
+						 iText-TextSettings/custom,vis-inventwo.infoText,emptyText;
 						 iSliderTextColor[#ffffff]/color;
 						 iValueTextColor[#455618]/color;
-						 iTextSize[12]/slider,0,50,1;
-						 iSliderCorners[100]/slider,0,100,1;
-						 iSliderKnobCorners[100]/slider,0,100,1;"
+						 iTextSize[12]/slider,0,50,1;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
 		data-vis-name="Simple Slider horizontal">
@@ -279,7 +288,7 @@
 				</div>
 
 				<div style="top:50%;flex-grow:1; border: 0px; border-radius: <%= dataNew.iSliderCorners %>px;background: <%= dataNew.iSliderColor %>; height: <%= dataNew.iSliderHeight %>px;"
-					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, dataNew,{orientation:"horizontal"}) %> ></div>
+					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, dataNew,{orientation:"horizontal"},"normal") %> ></div>
 
 				<div style="margin-left: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px">
 					<% if (!dataNew.iInvertMinMax) { %>
@@ -291,7 +300,7 @@
 
 			<% } else { %>
 				<div style="top:50%;flex-grow:1; border: 0px; border-radius: <%= dataNew.iSliderCorners %>px;background: <%= dataNew.iSliderColor %>; height: <%= dataNew.iSliderHeight %>px; margin: 0 <%= dataNew.iShowMinMax %>px;"
-					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, dataNew,{orientation:"horizontal"}) %> ></div>
+					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, dataNew,{orientation:"horizontal"}, "normal") %> ></div>
 
 			<% } %>
 
@@ -303,6 +312,8 @@
 		<% } %>
 
 	</div>
+
+
 </script>
 
 <script id="i-vis-slider-simple-2"
@@ -322,15 +333,20 @@
 						iChangeOnRelease/checkbox;
 						iInvertMinMax/checkbox;"
 		data-vis-attrs0="group.i-css;
+						 iText-SliderBarSettings/custom,vis-inventwo.infoText,emptyText;
 						 iSliderHeight[10]/slider,1,200,1;
-						 iSliderKnobSize[20]/slider,1,200,1;
 						 iSliderColor[#ffffff]/color;
+						 iSliderCorners[100]/slider,0,100,1;
+
+						 iText-SliderKnobSettings/custom,vis-inventwo.infoText,emptyText;
+						 iSliderKnobSize[20]/slider,1,200,1;
 						 iSliderKnobColor[#455618]/color;
+						 iSliderKnobCorners[100]/slider,0,100,1;
+
+						 iText-TextSettings/custom,vis-inventwo.infoText,emptyText;
 						 iSliderTextColor[#ffffff]/color;
 						 iValueTextColor[#455618]/color;
-						 iTextSize[12]/slider,0,50,1;
-						 iSliderCorners[100]/slider,0,100,1;
-						 iSliderKnobCorners[100]/slider,0,100,1;"
+						 iTextSize[12]/slider,0,50,1;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
 		data-vis-name="Simple Slider vertical">
@@ -359,14 +375,14 @@
 				<% } %>
 
 				<div style="border: 0px; border-radius: <%= dataNew.iSliderCorners %>px;background: <%= dataNew.iSliderColor %>; width: <%= dataNew.iSliderHeight %>px;flex-grow:1"
-					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, dataNew,{orientation:"vertical"}) %> ></div>
+					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, dataNew,{orientation:"vertical"}, "normal") %> ></div>
 
 				<div style="margin-top: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px"><%= dataNew.iMinVal %></div>
 				<div><%= dataNew.iSliderLabel %></div>
 
 			<% } else { %>
 				<div style="border: 0px; border-radius: <%= dataNew.iSliderCorners %>px;background: <%= dataNew.iSliderColor %>; width: <%= dataNew.iSliderHeight %>px;flex-grow:1"
-					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, dataNew,{orientation:"vertical"}) %> ></div>
+					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, dataNew,{orientation:"vertical"}, "normal") %> ></div>
 
 				<div style="margin-top: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px"><%= dataNew.iSliderLabel %></div>
 
@@ -378,7 +394,126 @@
 
 
 	</div>
+
+
 </script>
+
+
+<script id="i-vis-slider-color-hor"
+		type="text/ejs"
+		class="vis-tpl"
+		data-vis-prev='<img src="widgets/vis-inventwo/img/ColorSliderHor.png">'
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
+						oid/id;
+						iSliderRotation[0]/slider,-45,45,1;
+						iSliderLabel/text;
+						iChangeOnRelease/checkbox;"
+		data-vis-attrs0="group.i-css;
+						 iText-SliderBarSettings/custom,vis-inventwo.infoText,emptyText;
+						 iSliderHeight[10]/slider,1,200,1;
+						 iSliderCorners[100]/slider,0,100,1;
+
+						 iText-SliderKnobSettings/custom,vis-inventwo.infoText,emptyText;
+						 iSliderKnobSize[20]/slider,1,200,1;
+						 iSliderKnobCorners[100]/slider,0,100,1;
+
+                         iText-TextSettings/custom,vis-inventwo.infoText,emptyText;
+						 iSliderTextColor[#ffffff]/color;
+						 iTextSize[12]/slider,0,50,1;"
+		data-vis-set="vis-inventwo"
+		data-vis-type="ctrl"
+		data-vis-name="Color Slider horizontal">
+
+	<%
+
+		let dataNew = Object.assign({},this.data);
+		if(vis.editMode){
+			dataNew = vis.binds['vis-inventwo'].getDatapointsValues(dataNew);
+		}
+
+		let elHeight;
+		let topSpace = 0;
+		if((dataNew.iSliderKnobSize < dataNew.iTextSize) && dataNew.iShowMinMax){
+			elHeight = elHeight = parseInt(dataNew.iTextSize) * 2 + 15;
+			topSpace = parseInt(dataNew.iTextSize) / 2;
+		}
+		else{
+			elHeight = parseInt(dataNew.iSliderKnobSize) + parseInt(dataNew.iTextSize) + 15;
+			topSpace = parseInt(dataNew.iSliderKnobSize) / 2;
+		}
+
+	%>
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
+		style="width:200px; height:<%= elHeight%>px; overflow:visible; cursor:pointer;font-size:<%= dataNew.iTextSize %>px;color:<%= dataNew.iSliderTextColor %>;z-index:1" >
+		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: auto; display:flex;align-items:center;flex-wrap:wrap; top:<%= topSpace%>px;">
+
+				<div style="top:50%;flex-grow:1; border: 0px; border-radius: <%= dataNew.iSliderCorners %>px; height: <%= dataNew.iSliderHeight %>px; margin: 0 <%= dataNew.iShowMinMax %>px; background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,255,0,1) 16%, rgba(0,255,0,1) 33%, rgba(0,255,255,1) 50%, rgba(0,0,158,1) 66%, rgba(255,0,255,1) 83%, rgba(255,0,0,1) 100%);"
+					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, dataNew,{orientation:"horizontal"}, "rgb") %> ></div>
+
+		</div>
+
+		<div style="position:absolute; left:0px; bottom:0px;"><%= dataNew.iSliderLabel %></div>
+		<% if(dataNew.iShowValue){ %>
+			<div style="position:absolute; right:0px; bottom:0px;color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValuePreText%><%= vis.states.attr(this.data.oid + '.val') %></div>
+		<% } %>
+
+	</div>
+
+
+</script>
+
+<script id="i-vis-slider-color-vert"
+		type="text/ejs"
+		class="vis-tpl"
+		data-vis-prev='<img src="widgets/vis-inventwo/img/ColorSliderVert.png">'
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
+						oid/id;
+						iSliderRotation[0]/slider,-45,45,1;
+						iSliderLabel/text;
+						iChangeOnRelease/checkbox;"
+		data-vis-attrs0="group.i-css;
+						 iText-SliderBarSettings/custom,vis-inventwo.infoText,emptyText;
+						 iSliderHeight[10]/slider,1,200,1;
+						 iSliderCorners[100]/slider,0,100,1;
+
+						 iText-SliderKnobSettings/custom,vis-inventwo.infoText,emptyText;
+						 iSliderKnobSize[20]/slider,1,200,1;
+						 iSliderKnobCorners[100]/slider,0,100,1;
+
+                         iText-TextSettings/custom,vis-inventwo.infoText,emptyText;
+						 iSliderTextColor[#ffffff]/color;
+						 iTextSize[12]/slider,0,50,1;"
+		data-vis-set="vis-inventwo"
+		data-vis-type="ctrl"
+		data-vis-name="Simple Slider vertical">
+
+	<%
+
+		let dataNew = Object.assign({},this.data);
+		if(vis.editMode){
+			dataNew = vis.binds['vis-inventwo'].getDatapointsValues(dataNew);
+		}
+
+	%>
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
+		style="height:200px; width:<%= dataNew.iSliderHeight%>px; overflow:visible; cursor:pointer;font-size:<%= dataNew.iTextSize %>px;color:<%= dataNew.iSliderTextColor %>;z-index:1" >
+
+		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: 100%;display: flex;flex-direction: column;align-items: center;">
+
+		    <div style="border: 0px; border-radius: <%= dataNew.iSliderCorners %>px;background: linear-gradient(0deg, rgba(255,0,0,1) 0%, rgba(255,255,0,1) 16%, rgba(0,255,0,1) 33%, rgba(0,255,255,1) 50%, rgba(0,0,158,1) 66%, rgba(255,0,255,1) 83%, rgba(255,0,0,1) 100%); width: <%= dataNew.iSliderHeight %>px;flex-grow:1"
+		    	<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, dataNew,{orientation:"vertical"}, "rgb") %> ></div>
+
+		    <div style="margin-top: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px"><%= dataNew.iSliderLabel %></div>
+
+		</div>
+
+
+	</div>
+
+
+</script>
+
 
 <script id="i-vis-image-new"
 		type="text/ejs"
@@ -514,6 +649,8 @@
 		</div>
 
 	</div>
+
+
 </script>
 
 <script id="i-vis-jsontable"
@@ -523,20 +660,34 @@
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
 						oid/id;
 						iTblShowHead/checkbox;
+						iTblFixedHead/checkbox;
 						iTblRowLimit[1]/number;
 						iVertScroll/checkbox;
 						iHorScroll/checkbox;
-						iTableRefreshRate[0]/number,0,3600,1;"
+						iTableRefreshRate[0]/number,0,3600,1;
+						iTblDummyRow/html;"
 		data-vis-attrs0="iColCount[1]/number,0,100,1;group.iTableCol/byindex;
 						 iColShow(1-iColCount)[true]/checkbox;
 						 iColName(1-iColCount)/text;
 						 iColAttr(1-iColCount)/text;
 						 iTblCellPlaceholder(1-iColCount)/text;
 						 iColWidth(1-iColCount)/text;
-						 iTblCellFormat(1-iColCount)[normal]/nselect,normal,datetime,image/updateJsonTableFields();
+
+						 iTblCellFormat(1-iColCount)[normal]/nselect,normal,datetime,image,boolean,number/updateJsonTableFields();
+
 						 iTblCellDatetimeFormat(1-iColCount)/text;
 						 iTblCellDatetimeFormatInfo(1-iColCount)/custom,vis-inventwo.infoText,tblDateInfo;
+
 						 iTblCellImageSize(1-iColCount)[200]/slider,0,1000,1;
+
+						 iTblCellBooleanCheckbox(1-iColCount)[false]/checkbox;
+						 iTblCellBooleanColorFalse(1-iColCount)[#ff0000]/color;
+						 iTblCellBooleanColorTrue(1-iColCount)[#00ff00]/color;
+
+						 iTblCellNumberDecimals(1-iColCount)[2]/number;
+						 iTblCellNumberDecimalSeperator(1-iColCount)[.]/text;
+						 iTblCellNumberThousandSeperator(1-iColCount)[,]/text;
+
 						 iTblTextAlign(1-iColCount)[left]/nselect,left,center,right;"
 		data-vis-attrs1="group.i-css;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
@@ -574,8 +725,12 @@
 		%>
 
 		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:auto; height:auto; overflow:hidden;z-index:1" id="<%= this.data.attr('wid') %>" >
-        	<%= (el) -> vis.binds['vis-inventwo'].jsontable(el, dataNew) %>
+
+        		<%= (el) -> vis.binds['vis-inventwo'].jsontable(el, dataNew) %>
+
 		</div>
+
+
 
 </script>
 
@@ -832,8 +987,6 @@
 
             </div>
 
-            <%= imgColorFilter  %>
-
             <%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, this.data.attr('oid'),dataNew['iValue' + val]) %>
 
             </div>
@@ -850,6 +1003,8 @@
 		<%= (el) -> vis.binds['vis-inventwo'].hideImgFilterFields(el) %>
 
 	</div>
+
+
 
 </script>
 
@@ -888,6 +1043,8 @@
 
 		</div>
 	</div>
+
+
 </script>
 
 <script id="i-vis-marquee"
@@ -933,6 +1090,8 @@
 		</div>
 	</div>
 
+
+
 </script>
 
 <script id="i-vis-switch-1"
@@ -967,11 +1126,9 @@
 	</div>
 
 
+
+
 </script>
-
-
-
-
 
 <!-- WERDEN ENTFERNT -->
 <script id="i-vis-switch"
@@ -984,7 +1141,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Switch<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Switch<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
@@ -1035,6 +1192,8 @@
 		</div>
 
 	</div>
+
+
 </script>
 <script id="i-vis-switch-small"
 		type="text/ejs"
@@ -1046,7 +1205,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Switch Small<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Switch Small<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
@@ -1096,6 +1255,8 @@
 		</div>
 
 	</div>
+
+
 </script>
 
 <script id="i-vis-button"
@@ -1108,7 +1269,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Button<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Button<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
@@ -1138,6 +1299,8 @@
 		</div>
         <%= (el) -> vis.binds['vis-inventwo'].state(el, this.data) %>
 	</div>
+
+
 </script>
 <script id="i-vis-button-small"
 		type="text/ejs"
@@ -1149,7 +1312,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Button Small<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Button Small<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
@@ -1182,6 +1345,8 @@
 		</div>
 
 	</div>
+
+
 </script>
 
 <script id="i-vis-navigation"
@@ -1194,7 +1359,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Navigation<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Navigation<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
@@ -1234,6 +1399,8 @@
 		</div>
 
 	</div>
+
+
 </script>
 <script id="i-vis-navigation-small"
 		type="text/ejs"
@@ -1245,7 +1412,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Navigation Small<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Navigation Small<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
@@ -1285,6 +1452,8 @@
 		</div>
 
 	</div>
+
+
 </script>
 
 <script id="i-vis-background"
@@ -1297,7 +1466,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="val"
-		data-vis-name="Background<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Background<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
@@ -1347,6 +1516,8 @@
 		</div>
 
 	</div>
+
+
 </script>
 <script id="i-vis-background-small"
 		type="text/ejs"
@@ -1358,7 +1529,7 @@
 		iOpacity[1]/slider,0,1,0.1;iOpacityCtn[1]/slider,0,1,0.1;iTextColor[#ffffff]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="val"
-		data-vis-name="Background Small<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Background Small<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:50px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %>">
@@ -1407,6 +1578,8 @@
 		</div>
 
 	</div>
+
+
 </script>
 
 <script id="i-vis-image"
@@ -1417,7 +1590,7 @@
 		data-vis-attrs0="group.i-css;iOpacityImg[1]/slider,0,1,0.1;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="static"
-		data-vis-name="Image<br><span style='color:red;'>WARNING! No longer supported. Will be removed in future update!</span>">
+		data-vis-name="Image<br><span style='color:red;'>WARNING! Widget won't get any new features! Please use new widgets</span>">
 
 		<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> ">
@@ -1437,4 +1610,6 @@
             </div>
 		</div>
 	</div>
+
+
 </script>
