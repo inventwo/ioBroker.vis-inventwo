@@ -25,25 +25,22 @@
         <td><center><b>Universal</b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td>
         <td><center><b>Multi</b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td>
         <td><center><b>Image</b><br><img src="widgets/vis-inventwo/img/Image.png"></td>
+         <td><center><b>Table</b><br><img src="widgets/vis-inventwo/img/Table.png"></td>
     </tr>
-<tr><td colspan=3></td></tr>   
+<tr><td colspan=4></td></tr>   
     <tr>
-        <td><center><b>Table</b><br><img src="widgets/vis-inventwo/img/Table.png"></td>
         <td><center><b>List</b><br><img src="widgets/vis-inventwo/img/List.png"></td>
         <td><center><b>Marquee</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td>
-    </tr>
-<tr><td colspan=3></td></tr>   
-      <tr>
         <td><center><b>Radio Button</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td>
         <td><center><b>Slider vertical</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td>
-        <td><center><b>Slider horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
     </tr>
-    <tr><td colspan=3></td></tr>   
-          <tr>
-            <td><center><b>Toggle Switch</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td>
-            <td></td>
-            <td></td>
-        </tr>
+<tr><td colspan=4></td></tr>   
+      <tr>
+        <td><center><b>Slider horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
+        <td><center><b>Slider horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td>
+        <td><center><b>Slider horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td>
+        <td><center><b>Toggle Switch</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td>
+    </tr>
 </table>
 
 
