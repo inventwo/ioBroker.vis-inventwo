@@ -206,6 +206,10 @@ if (vis.editMode) {
 			"en": "Color active",
 			"de": "Farbe Aktiv"
 		},
+		"iButtonColHover": {
+			"en": "Hover",
+			"de": "Hover"
+		},
 		"iButtonActiveM": {
 			"en": "Background active",
 			"de": "Hintergrund aktiv"
@@ -487,6 +491,10 @@ if (vis.editMode) {
 		"iValuePreText": {
 			"en": "Pre text",
 			"de": "Text voranstellen"
+		},
+		"iValueAfterText": {
+			"en": "After text",
+			"de": "Text anhängen"
 		},
 		"iChangeOnRelease": {
 			"en": "Update value on release",
@@ -1128,10 +1136,14 @@ vis.binds["vis-inventwo"] = {
 
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
-
-				/**
-				 * @TODO: Weitere klicks blockieren, wennn Verweildauer und Button schon gedrückt wurde!!!
-				 */
+				if(parseFloat(data.iStateResetValueTime) > 0){
+					if(vis.settings[data.wid] == true){
+						return;
+					}
+					else{
+						vis.settings[data.wid] = true;
+					}
+				}
 
 				let val = vis.binds["vis-inventwo"].convertValue(data.value);
 
@@ -1146,8 +1158,10 @@ vis.binds["vis-inventwo"] = {
 					$this.find(".vis-inventwo-button-new").css("background", data.iButtonActive);
 					$this.find(".vis-inventwo-button-new").css("box-shadow", shadow);
 					$this.find(".vis-inventwo-button-new").css("border", border);
-					if (data.iImageTrue != undefined)
+					if (data.iImageTrue != undefined) {
 						$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
+						vis.binds["vis-inventwo"].getImgColorFilter(data.iImgColorTrue, data.wid);
+					}
 					if (data.iTextTrue != undefined)
 						$this.find(".vis-inventwo-button-text").html(data.iTextTrue);
 
@@ -1158,8 +1172,10 @@ vis.binds["vis-inventwo"] = {
 						$this.find(".vis-inventwo-button-new").css("background", data.iButtonCol);
 						$this.find(".vis-inventwo-button-new").css("box-shadow", shadow);
 						$this.find(".vis-inventwo-button-new").css("border", border);
-						if (data.iImageFalse != undefined)
+						if (data.iImageFalse != undefined) {
 							$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
+							vis.binds["vis-inventwo"].getImgColorFilter(data.iImgColorFalse, data.wid);
+						}
 						if (data.iTextFalse != undefined)
 							$this.find(".vis-inventwo-button-text").html(data.iTextFalse);
 					}, data.iStateResponseTime);
@@ -1172,8 +1188,10 @@ vis.binds["vis-inventwo"] = {
 					$this.find(".vis-inventwo-button-new").css("background", data["iButtonActiveM1"]);
 					$this.find(".vis-inventwo-button-new").css("box-shadow", shadow);
 					$this.find(".vis-inventwo-button-new").css("border", border);
-					if (data.iImageTrue != undefined)
-						$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
+					if (data["iImageTrue1"] != undefined) {
+						$this.find(".vis-inventwo-button-imageContainer img").attr("src", data["iImageTrue1"]);
+						vis.binds["vis-inventwo"].getImgColorFilter(data["iImgColorTrue1"], data.wid);
+					}
 					if (data.iTextTrue != undefined)
 						$this.find(".vis-inventwo-button-text").html(data.iTextTrue);
 
@@ -1185,8 +1203,11 @@ vis.binds["vis-inventwo"] = {
 						let borderCol = data.iBorderColor;
 						let img = "";
 						let txt = "";
-						if (data.iImageFalse != undefined)
+						let imgColor = "";
+						if (data.iImageFalse != undefined) {
 							img = data.iImageFalse;
+							imgColor = data.iImgColorFalse;
+						}
 						if (data.iTextFalse != undefined)
 							txt = data.iTextFalse;
 
@@ -1196,8 +1217,10 @@ vis.binds["vis-inventwo"] = {
 								shadowCol = data["iShadowColorActiveM" + i];
 								shadowColInner = data["iShadowInnerColorActiveM" + i];
 								borderCol = data["iBorderColorActiveM" + i];
-								if (data["iImageTrue" + i] != undefined)
+								if (data["iImageTrue" + i] != undefined) {
 									img = data["iImageTrue" + i];
+									imgColor = data["iImgColorFalse" + i]
+								}
 								if (data["iTextTrue" + i] != undefined)
 									txt = data["iTextTrue" + i];
 								break;
@@ -1210,8 +1233,10 @@ vis.binds["vis-inventwo"] = {
 						$this.find(".vis-inventwo-button-new").css("background", backCol);
 						$this.find(".vis-inventwo-button-new").css("box-shadow", shadow);
 						$this.find(".vis-inventwo-button-new").css("border", border);
-						if (data.iImageFalse != undefined)
+						if (data.iImageFalse != undefined) {
 							$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
+							vis.binds["vis-inventwo"].getImgColorFilter(imgColor, data.wid);
+						}
 						if (data.iTextFalse != undefined)
 							$this.find(".vis-inventwo-button-text").html(data.iTextFalse);
 					}, data.iStateResponseTime);
@@ -1222,6 +1247,7 @@ vis.binds["vis-inventwo"] = {
 				if (data.iStateResetValueTime > 0) {
 					setTimeout(function () {
 						vis.setValue(oid, oldValue);
+						delete vis.settings[data.wid];
 					}, data.iStateResetValueTime);
 				}
 			})
@@ -1356,12 +1382,15 @@ vis.binds["vis-inventwo"] = {
 					switch (type) {
 						case "normal":
 							if (!data.iChangeOnRelease) {
+
 								if (data.iInvertMinMax) {
 									vis.setValue(oid, (parseFloat(data.iMaxVal) - ui.value + parseFloat(data.iMinVal)));
 								} else {
 									vis.setValue(oid, ui.value);
 								}
 							}
+
+							$this.parent().parent().find('.vis-inventwo-slider-currentvalue').html(ui.value);
 							break;
 						case "rgb":
 							let sliderVal = parseFloat(ui.value);
@@ -1981,7 +2010,7 @@ vis.binds["vis-inventwo"] = {
 	},
 
 	//Radiobutton Funktion - Setzt den Datenpunktwert
-	radiobutton: function (el, oid, val) {
+	radiobutton: function (el, oid, val, data) {
 		var $this = $(el);
 
 		if (!vis.editMode) {
@@ -1998,6 +2027,18 @@ vis.binds["vis-inventwo"] = {
 				moved = true;
 			}).on("touchstart", function () {
 				moved = false;
+			});
+
+			$this.parent().on("mouseenter", function () {
+				if(data.iButtonColHover != undefined && data.iButtonColHover != '') {
+					$(this).find('.vis-inventwo-button-new').attr('data-oldbackground', $(this).find('.vis-inventwo-button-new').css('background'));
+					$(this).find('.vis-inventwo-button-new').css('background', data.iButtonColHover);
+				}
+			});
+
+			$this.parent().on("mouseleave", function () {
+				if($(this).find('.vis-inventwo-button-new').data('oldbackground') != undefined)
+					$(this).find('.vis-inventwo-button-new').css('background', $(this).find('.vis-inventwo-button-new').data('oldbackground'));
 			});
 
 		}
@@ -2491,6 +2532,18 @@ vis.binds["vis-inventwo"] = {
 						}, 100);
 					});
 				}
+				else{
+					$(el).parent().on("mouseenter", function () {
+						if(data.iButtonColHover != undefined && data.iButtonColHover != '') {
+							$(this).find('.vis-inventwo-button-new').attr('data-oldbackground', $(this).find('.vis-inventwo-button-new').css('background'));
+							$(this).find('.vis-inventwo-button-new').css('background', data.iButtonColHover);
+						}
+					});
+					$(el).parent().on("mouseleave", function () {
+						if($(this).find('.vis-inventwo-button-new').data('oldbackground') != undefined)
+							$(this).find('.vis-inventwo-button-new').css('background', $(this).find('.vis-inventwo-button-new').data('oldbackground'));
+					});
+				}
 			}
 		}
 	},
@@ -2909,8 +2962,9 @@ vis.binds["vis-inventwo"] = {
 	//Aktualisierung der Filter für das Icon
 	getImgColorFilter: function (color, wid) {
 
-		if (color == "undefined")
+		if (color == undefined || color == null) {
 			return;
+		}
 
 		let filter = "";
 		color = color.toLowerCase();

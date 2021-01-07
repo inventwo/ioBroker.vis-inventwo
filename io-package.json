@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.7.1",
+    "version": "2.7.2",
     "news": {
+      "2.7.2": {
+        "en": "Fixed issue with radiobutton and image color, fixed issue with state-widget and doubleclick, hovereffect for buttons, fixed issue with showing slidervalue, slider append text now possible",
+        "de": "Problem mit Radiobutton und Bildfarbe behoben, Problem mit Status-Widget und Doppelklick behoben, Hovereffekt für Schaltflächen, Problem mit Anzeige des Schiebereglers behoben, Schieberegler Text jetzt anhängen möglich",
+        "ru": "Исправлена проблема с радиокнопкой и цветом изображения, исправлена проблема с виджетом состояния и двойным щелчком, эффект зависания для кнопок, исправлена проблема с отображением значения ползунка, теперь возможно добавление текста ползунка",
+        "pt": "Corrigido o problema com o botão de rádio e a cor da imagem, corrigido o problema com o widget de estado e clique duplo, hovereffect para os botões, corrigido o problema com a exibição do valor de slide, o texto de anexo do controle deslizante agora é possível",
+        "nl": "Probleem opgelost met radiobutton- en afbeeldingskleur, probleem opgelost met statuswidget en dubbelklik, hovereffect voor knoppen, probleem opgelost met het tonen van schuifwaarde, tekst met schuifregelaar nu mogelijk",
+        "fr": "Correction d'un problème avec le bouton radio et la couleur de l'image, correction du problème avec le widget d'état et le double clic, l'effet hovereffect pour les boutons, correction du problème d'affichage de la valeur de la glissière, l'ajout de texte par le curseur est désormais possible",
+        "it": "Risolto il problema con il pulsante di opzione e il colore dell'immagine, risolto il problema con il widget di stato e il doppio clic, hovereffect per i pulsanti, risolto il problema con la visualizzazione dello slidervalue, il cursore aggiunge testo ora possibile",
+        "es": "Se solucionó el problema con el botón de radio y el color de la imagen, se corrigió el problema con el widget de estado y el doble clic, el efecto de desplazamiento para los botones, el problema se solucionó al mostrar el valor del control deslizante, ahora es posible agregar texto al control deslizante",
+        "pl": "Naprawiono problem z radiobuttonem i kolorem obrazu, naprawiony problem z widżetem stanu i podwójnym kliknięciem, brak efektu dla przycisków, naprawiony problem z wyświetlaniem wartości suwaka, możliwość dodania tekstu do suwaka",
+        "zh-cn": "解决了单选按钮和图像颜色的问题，解决了状态小部件和双击的问题，解决了按钮的悬停效果，解决了显示滑块值的问题，现在可以添加滑块文本"
+      },
       "2.7.1": {
         "en": "Bugfix",
         "de": "Bug-Fix",

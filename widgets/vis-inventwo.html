@@ -5,9 +5,6 @@
 -->
 
 
-
-
-
 <link rel="stylesheet" href="widgets/vis-inventwo/css/style.css"/>
 <script type="text/javascript" src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
 
@@ -37,6 +34,7 @@
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
 						 iButtonActive[#455618]/color;
+						 iButtonColHover[]/color;
 						 iOpacityBack[1]/slider,0,1,0.1;
 
 						 iText-CornerSettings/custom,vis-inventwo.infoText,emptyText;
@@ -105,9 +103,6 @@
 		<%= (el) -> vis.binds['vis-inventwo'].hideImgFilterFields(el) %>
 	</div>
 
-
-
-
 </script>
 
 <script id="i-vis-multi"
@@ -155,6 +150,7 @@
 		data-vis-attrs1="group.i-css;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
+						 iButtonColHover[]/color;
 						 iOpacityBack[1]/slider,0,1,0.1;
 
 						 iText-CornerSettings/custom,vis-inventwo.infoText,emptyText;
@@ -234,6 +230,7 @@
 						iSliderRotation[0]/slider,-45,45,1;
 						iSliderLabel/text;
 						iValuePreText/text;
+						iValueAfterText/text;
 						iShowMinMax/checkbox;
 						iShowValue/checkbox;
 						iChangeOnRelease/checkbox;
@@ -311,11 +308,21 @@
 
 		<div style="position:absolute; left:0px; bottom:0px;"><%= dataNew.iSliderLabel %></div>
 		<% if(dataNew.iShowValue){ %>
-			<div style="position:absolute; right:0px; bottom:0px;color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValuePreText%><%= vis.states.attr(this.data.oid + '.val') %></div>
+			<div style="position:absolute; right:0px; bottom:0px;color:<%= dataNew.iValueTextColor%>">
+				<%== dataNew.iValuePreText%>
+				<span class="vis-inventwo-slider-currentvalue"><%= vis.states.attr(this.data.oid + '.val') %></span>
+				<%== dataNew.iValueAfterText%>
+			</div>
 		<% } %>
 
 	</div>
 
+	<%
+		vis.states.bind(this.data.oid + ".val", function (e, newVal, oldVal) {
+			if(newVal != oldVal)
+				$('#' + dataNew.wid + ' .vis-inventwo-slider-currentvalue').html(newVal);
+		});
+	%>
 
 </script>
 
@@ -331,6 +338,7 @@
 						iSliderRotation[0]/slider,-45,45,1;
 						iSliderLabel/text;
 						iValuePreText/text;
+						iValueAfterText/text;
 						iShowMinMax/checkbox;
 						iShowValue/checkbox;
 						iChangeOnRelease/checkbox;
@@ -370,8 +378,11 @@
 			<% if(dataNew.iShowMinMax){ %>
 				<% if(dataNew.iShowValue){ %>
 					<div><span style="color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValuePreText%></span></div>
+					<div>
+						<span class="vis-inventwo-slider-currentvalue" style="color:<%= dataNew.iValueTextColor%>"><%= vis.states.attr(this.data.oid + '.val') %></span> / <%= dataNew.iMaxVal %>
+					</div>
 					<div style="margin-bottom: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px">
-						<span style="color:<%= dataNew.iValueTextColor%>"><%= vis.states.attr(this.data.oid + '.val') %> / </span><%= dataNew.iMaxVal %>
+						<span style="color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValueAfterText%></span>
 					</div>
 				<% } else { %>
 					<div style="margin-bottom: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px"><%= dataNew.iMaxVal %></div>
@@ -397,6 +408,13 @@
 
 
 	</div>
+
+		<%
+		vis.states.bind(this.data.oid + ".val", function (e, newVal, oldVal) {
+			if(newVal != oldVal)
+				$('#' + dataNew.wid + ' .vis-inventwo-slider-currentvalue').html(newVal);
+		});
+	%>
 
 
 </script>
@@ -763,6 +781,7 @@
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
 						 iButtonActive[#455618]/color;
+						 iButtonColHover[]/color;
 						 iOpacityBack[1]/slider,0,1,0.1;
 
 						 iText-CornerSettings/custom,vis-inventwo.infoText,emptyText;
@@ -895,14 +914,17 @@
 					cssData.textAlign = "center";
 				else if(dataNew.iTextAlign == 'iEnd')
 					cssData.textAlign = "flex-end";
+
+				let colorFilters = [];
 			%>
 
 			<% for(let val = 1; val <= dataNew.iRadiobtnsCount; val++){ %>
 
-			<div style="width: <%= dataNew.iRadiobtnWidth %>px;
+			<div class="vis-inventwo-radiobutton"
+				 style="width: <%= dataNew.iRadiobtnWidth %>px;
 						height: <%= dataNew.iRadiobtnHeight %>px;
 						position: relative;
-						margin-<%= cssData.marginDir %>: <%= dataNew.iRadiobtnSpace %>px;">
+						margin-<%= cssData.marginDir %>: <%= dataNew.iRadiobtnSpace %>px;" id="<%=dataNew.wid%>_<%= val %>">
 
 			<div>
 
@@ -932,6 +954,8 @@
 					}
 
 					imgColorFilter = dataNew["iImgColorFalse" + val];
+
+					colorFilters.push({color: imgColorFilter, wid: dataNew.wid + '_' + val});
 
 				}
 
@@ -989,15 +1013,14 @@
 
             </div>
 
-            <%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, this.data.attr('oid'),dataNew['iValue' + val]) %>
+            <%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, this.data.attr('oid'),dataNew['iValue' + val], dataNew) %>
 
             </div>
 
-
-
             <%
-            	vis.binds["vis-inventwo"].getImgColorFilter(imgColorFilter, dataNew.wid);
-
+            	colorFilters.forEach(c => {
+            		vis.binds["vis-inventwo"].getImgColorFilter(c.color, c.wid);
+            	});
             } %>
 
 		</div>
@@ -1005,8 +1028,6 @@
 		<%= (el) -> vis.binds['vis-inventwo'].hideImgFilterFields(el) %>
 
 	</div>
-
-
 
 </script>
 

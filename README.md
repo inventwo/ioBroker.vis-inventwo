@@ -74,6 +74,15 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ---
 
 ## Changelog / Änderungsprotokoll
+## 2.7.2
+- Fehler in Radiobutton mit Bildfarbe behoben
+- Fehler behoben: Doppeltes klicken bei State mit Verweildauer
+- Hovereffekt für Buttons eingefügt
+- Problem mit anzeigen des Sliderwertss behoben
+- Slider Text anhängen möglich
+
+## 2.7.1
+- Bugfix
 
 ## 2.7.0
 - Neues Widget: Farbslider
