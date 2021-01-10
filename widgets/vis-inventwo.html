@@ -79,6 +79,7 @@
 						 iShadowSpread[1]/slider,0,20,1;
 						 iShadowColor[#111111]/color;
 						 iShadowColorActive[#111111]/color;
+						 iShadowColorHover[]/color;
 
 						 iText-ShadowInnerSettings/custom,vis-inventwo.infoText,emptyText;
 						 iShadowInnerXOffset[0]/slider,0,20,1;
@@ -87,12 +88,14 @@
 						 iShadowInnerSpread[0]/slider,0,20,1;
 						 iShadowInnerColor[#111111]/color;
 						 iShadowInnerColorActive[#111111]/color;
+						 iShadowInnerColorHover[]/color;
 
 						 iText-BorderSettings/custom,vis-inventwo.infoText,emptyText;
 						 iBorderSize[0]/slider,0,20,1;
 						 iBorderStyle[none]/nselect,dotted,dashed,solid,double,groove,ridge,inset,outset,none;
 						 iBorderColor[#ffffff]/color;
-						 iBorderColorActive[#ffffff]/color;"
+						 iBorderColorActive[#ffffff]/color;
+						 iBorderColorHover[]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
 		data-vis-name="Universal<br>
@@ -954,10 +957,9 @@
 					}
 
 					imgColorFilter = dataNew["iImgColorFalse" + val];
-
-					colorFilters.push({color: imgColorFilter, wid: dataNew.wid + '_' + val});
-
 				}
+
+				colorFilters.push({color: imgColorFilter, wid: dataNew.wid + '_' + val});
 
 			%>
 
