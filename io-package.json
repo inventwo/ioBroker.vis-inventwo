@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.7.2",
+    "version": "2.7.3",
     "news": {
+      "2.7.3": {
+        "en": "Fixed issue for Multi-State with multiple conditions, added shadow and border hover effect for buttons",
+        "de": "Problem für Multi-State mit mehreren Bedingungen behoben, Schatten- und Rahmen-Hover-Effekt für Schaltflächen hinzugefügt",
+        "ru": "Исправлена проблема для Multi-State с несколькими условиями, добавлен эффект тени и наведения границы для кнопок",
+        "pt": "Corrigido o problema de vários estados com várias condições, adição de sombra e efeito de flutuação de borda para botões",
+        "nl": "Probleem opgelost voor Multi-State met meerdere voorwaarden, toegevoegd schaduw- en randeffect voor knoppen",
+        "fr": "Correction d'un problème pour Multi-State avec plusieurs conditions, ajout d'un effet d'ombre et de survol de bordure pour les boutons",
+        "it": "Risolto il problema per Multi-State con condizioni multiple, aggiunta di ombreggiatura e effetto di passaggio del bordo per i pulsanti",
+        "es": "Problema solucionado para Multi-State con múltiples condiciones, efecto agregado de sombra y desplazamiento de borde para botones",
+        "pl": "Naprawiono problem dla wielu stanów z wieloma warunkami, dodanym efektem najechania cieniem i obramowaniem dla przycisków",
+        "zh-cn": "解决了具有多个条件的多状态问题，为按钮添加了阴影和边框悬停效果"
+      },
       "2.7.2": {
         "en": "Fixed issue with radiobutton and image color, fixed issue with state-widget and doubleclick, hovereffect for buttons, fixed issue with showing slidervalue, slider append text now possible",
         "de": "Problem mit Radiobutton und Bildfarbe behoben, Problem mit Status-Widget und Doppelklick behoben, Hovereffekt für Schaltflächen, Problem mit Anzeige des Schiebereglers behoben, Schieberegler Text jetzt anhängen möglich",
