@@ -207,8 +207,8 @@ if (vis.editMode) {
 			"de": "Farbe Aktiv"
 		},
 		"iButtonColHover": {
-			"en": "Hover",
-			"de": "Hover"
+			"en": "Color on Hover",
+			"de": "Farbe bei Hover"
 		},
 		"iButtonActiveM": {
 			"en": "Background active",
@@ -261,6 +261,10 @@ if (vis.editMode) {
 			"en": "Color active",
 			"de": "Farbe Aktiv"
 		},
+		"iShadowColorHover": {
+			"en": "Color on Hover",
+			"de": "Farbe bei Hover"
+		},
 		"iShadowColorActiveM": {
 			"en": "Outer Shadow active",
 			"de": "Schatten außen aktiv"
@@ -296,6 +300,10 @@ if (vis.editMode) {
 			"en": "Color active",
 			"de": "Farbe Aktiv"
 		},
+		"iShadowInnerColorHover": {
+			"en": "Color on Hover",
+			"de": "Farbe bei Hover"
+		},
 		"iShadowInnerColorActiveM": {
 			"en": "Inner shadow active",
 			"de": "Schatten innen aktiv"
@@ -318,6 +326,10 @@ if (vis.editMode) {
 		"iBorderColorActive": {
 			"en": "Color active",
 			"de": "Farbe Aktiv"
+		},
+		"iBorderColorHover": {
+			"en": "Color on Hover",
+			"de": "Farbe bei Hover"
 		},
 		"iBorderColorActiveM": {
 			"en": "Border active",
