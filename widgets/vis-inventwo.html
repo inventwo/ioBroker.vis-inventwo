@@ -565,6 +565,7 @@
 						 iImgBlinkTrue[0]/slider,0,2000,100;
 						 iImgColorFalse[]/color;
 						 iImgColorTrue[]/color;
+						 iImgColorInvert/checkbox;
 
 						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
 						 iShadowSpread[0]/slider,0,50,1;
@@ -614,6 +615,11 @@
             		let img = "";
             		let shadow = "";
 
+            		let invertCol = "";
+            		if(dataNew.iImgColorInvert == true){
+						invertCol = " filter: invert(1);";
+					}
+
             		let val = vis.binds["vis-inventwo"].convertValue(dataNew.iValue);
 
             		if(dataNew.oid != undefined && vis.states.attr(dataNew.oid + '.val') == val) {
@@ -650,7 +656,7 @@
             		    	 width="100%;height:100%;"
             		    	 style="transform: scaleX(` + cssData.flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
             		    	 		border-radius: ` + dataNew.iCornerRadiusUL + `px ` + data.iCornerRadiusUR+ `px ` + data.iCornerRadiusLR+ `px ` + data.iCornerRadiusLL+ `px;
-            		    	 		animation:blink ` + imgBlink + `s infinite;">
+            		    	 		animation:blink ` + imgBlink + `s infinite; ` + invertCol + `">
 					</div>
             		`;
 
