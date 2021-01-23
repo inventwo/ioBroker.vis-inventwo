@@ -151,6 +151,10 @@ if (vis.editMode) {
 			"en": "Color true",
 			"de": "Farbe wahr"
 		},
+		"iImgColorInvert": {
+			"en": "Invert color",
+			"de": "Farbe invertieren"
+		},
 
 		//#endregion
 
@@ -596,8 +600,8 @@ if (vis.editMode) {
 			"de": "Format"
 		},
 		"iTblCellDatetimeFormat": {
-			"en": "Date/Time format (if format is datetime)",
-			"de": "Datum/Zeit Format (wenn Format = datetime)"
+			"en": "Date/Time format",
+			"de": "Datum/Zeit Format"
 		},
 		"iTblCellImageSize": {
 			"en": "Image size",
@@ -616,8 +620,8 @@ if (vis.editMode) {
 			"de": "Aktualisierung (Sekunden)"
 		},
 		"iTblCellPlaceholder": {
-			"en": "Placeholder cell is empty",
-			"de": "Platzhalter Zeile leer ist"
+			"en": "Placeholder if cell is empty",
+			"de": "Platzhalter wenn Zeile leer ist"
 		},
 		"iTblDummyRow": {
 			"en": "Header if JSON is empty (words separated by commas)",
@@ -646,6 +650,14 @@ if (vis.editMode) {
 		"iTblCellBooleanColorTrue": {
 			"en": "Color true",
 			"de": "Farbe wahr"
+		},
+		"iTblCellThresholdsDp": {
+			"en": "Thresholds from Dp",
+			"de": "Schwellenwerte aus Dp"
+		},
+		"iTblCellThresholdsText": {
+			"en": "Thresholds from text",
+			"de": "Schwellenwerte aus Text"
 		},
 		//#endregion
 
@@ -1483,6 +1495,10 @@ vis.binds["vis-inventwo"] = {
 		leftSpace = parseFloat(data.iSliderHeight) / 2 - parseFloat(data.iSliderKnobSize) / 2;
 
 		let val = vis.states.attr(oid + ".val");
+		val = parseFloat(val);
+		if(isNaN(val)){
+			val = min;
+		}
 
 		switch (type) {
 			case "normal":
@@ -1522,7 +1538,10 @@ vis.binds["vis-inventwo"] = {
 
 		vis.states.bind(oid + ".val", function () {
 			val = vis.states.attr(oid + ".val");
-			let newVal = val;
+			let newVal = parseFloat(val);
+			if(isNaN(newVal)){
+				newVal = parseFloat(data.iMinVal);
+			}
 			switch (type) {
 				case "normal":
 					if (data.iInvertMinMax) {
@@ -1797,7 +1816,7 @@ vis.binds["vis-inventwo"] = {
 										colWidth = data["iColWidth" + (i + 1)];
 									}
 
-									let sortArrow = "<span style='width: 15px; display: inline-block'></span>";
+									let sortArrow = "";
 
 									let colAttr = Object.keys(jsondata[0])[i];
 									if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
@@ -1965,6 +1984,8 @@ vis.binds["vis-inventwo"] = {
 												break;
 											case "number":
 
+												let orgVal = parseFloat(cellValue);
+
 												let tempVal = parseFloat(cellValue).toLocaleString("en",
 													{
 														minimumFractionDigits: parseFloat(data["iTblCellNumberDecimals" + (i + 1)]),
@@ -1982,6 +2003,52 @@ vis.binds["vis-inventwo"] = {
 												tempVal = tempVal.replace(/\,/gm, thousandSeperator);
 												tempVal = tempVal.replace("[tempSeperatorXYZ]", decimalSeperator);
 												cellValue = tempVal;
+
+												let thresholds = [];
+
+												let dpContent = vis.states.attr(data["iTblCellThresholdsDp" + (i + 1)] + ".val");
+
+												if(dpContent != undefined && dpContent != ""){
+													try{
+														console.log(dpContent);
+														thresholds = JSON.parse(dpContent);
+													}
+													catch (e) {
+														console.log("error on parse dp");
+														break;
+													}
+												}
+												else if(data["iTblCellThresholdsText" + (i + 1)] != undefined && data["iTblCellThresholdsText" + (i + 1)] != ""){
+													try{
+														console.log(data["iTblCellThresholdsText" + (i + 1)]);
+														thresholds = JSON.parse(data["iTblCellThresholdsText" + (i + 1)]);
+													}
+													catch (e) {
+														console.log("error on parse text");
+														break;
+													}
+												}
+
+												if(thresholds.length > 0){
+													thresholds.forEach(t =>{
+														if(t.comparator != undefined && t.comparator != "" && t.value != undefined){
+															let comparasionTable = {
+																'>' : function (val1, val2) { return val1 > val2 },
+																'<' : function (val1, val2) { return val1 < val2 },
+																'==' : function (val1, val2) { return val1 == val2 },
+																'>=' : function (val1, val2) { return val1 >= val2 },
+																'<=' : function (val1, val2) { return val1 <= val2 },
+																'!=' : function (val1, val2) { return val1 != val2 },
+															}
+															if(comparasionTable[t.comparator](parseFloat(cellValue),parseFloat(t.value))){
+																cellValue = '<span style="color:'+t.color+'">' + cellValue + '</span>';
+															}
+
+														}
+													});
+												}
+
+
 												break;
 											case "boolean":
 												if (data["iTblCellBooleanCheckbox" + (i + 1)]) {
@@ -2113,6 +2180,8 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iTblCellNumberDecimals" + i, false);
 					vis.hideShowAttr("iTblCellNumberDecimalSeperator" + i, false);
 					vis.hideShowAttr("iTblCellNumberThousandSeperator" + i, false);
+					vis.hideShowAttr("iTblCellThresholdsDp" + i, false);
+					vis.hideShowAttr("iTblCellThresholdsText" + i, false);
 				} else if (data["iTblCellFormat" + i] == "datetime") {
 					vis.hideShowAttr("iTblCellDatetimeFormat" + i, true);
 					vis.hideShowAttr("iTblCellDatetimeFormatInfo" + i, true);
@@ -2126,6 +2195,8 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iTblCellNumberDecimals" + i, false);
 					vis.hideShowAttr("iTblCellNumberDecimalSeperator" + i, false);
 					vis.hideShowAttr("iTblCellNumberThousandSeperator" + i, false);
+					vis.hideShowAttr("iTblCellThresholdsDp" + i, false);
+					vis.hideShowAttr("iTblCellThresholdsText" + i, false);
 				} else if (data["iTblCellFormat" + i] == "image") {
 					vis.hideShowAttr("iTblCellDatetimeFormat" + i, false);
 					vis.hideShowAttr("iTblCellDatetimeFormatInfo" + i, false);
@@ -2139,6 +2210,8 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iTblCellNumberDecimals" + i, false);
 					vis.hideShowAttr("iTblCellNumberDecimalSeperator" + i, false);
 					vis.hideShowAttr("iTblCellNumberThousandSeperator" + i, false);
+					vis.hideShowAttr("iTblCellThresholdsDp" + i, false);
+					vis.hideShowAttr("iTblCellThresholdsText" + i, false);
 				} else if (data["iTblCellFormat" + i] == "number") {
 					vis.hideShowAttr("iTblCellDatetimeFormat" + i, false);
 					vis.hideShowAttr("iTblCellDatetimeFormatInfo" + i, false);
@@ -2152,6 +2225,8 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iTblCellNumberDecimals" + i, true);
 					vis.hideShowAttr("iTblCellNumberDecimalSeperator" + i, true);
 					vis.hideShowAttr("iTblCellNumberThousandSeperator" + i, true);
+					vis.hideShowAttr("iTblCellThresholdsDp" + i, true);
+					vis.hideShowAttr("iTblCellThresholdsText" + i, true);
 				} else if (data["iTblCellFormat" + i] == "boolean") {
 					vis.hideShowAttr("iTblCellDatetimeFormat" + i, false);
 					vis.hideShowAttr("iTblCellDatetimeFormatInfo" + i, false);
@@ -2165,6 +2240,8 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iTblCellNumberDecimals" + i, false);
 					vis.hideShowAttr("iTblCellNumberDecimalSeperator" + i, false);
 					vis.hideShowAttr("iTblCellNumberThousandSeperator" + i, false);
+					vis.hideShowAttr("iTblCellThresholdsDp" + i, false);
+					vis.hideShowAttr("iTblCellThresholdsText" + i, false);
 				}
 
 			}
@@ -2287,6 +2364,17 @@ vis.binds["vis-inventwo"] = {
 	//Generierung des Universal und Multi Widgets
 	universalButton: function (el, data, type) {
 
+
+		//console.log("test1");
+		//try {
+		//	vis.conn._socket.emit('sendTo', 'vis-inventwo.0', 'test', null, function (err, result) {
+		//		console.log(result);
+		//	})
+		//}
+		//catch (e) {
+		//	console.log(e);
+		//}
+
 		this.updateUniversalDataFields;
 		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
 			if (newVal != oldVal)
@@ -2328,6 +2416,7 @@ vis.binds["vis-inventwo"] = {
 			let txt = "";
 			let imgBlink = 0;
 			let imgColorFilter = "";
+			let invertCol = "";
 
 			if (type == "multi") {
 				let found = false;
@@ -2363,6 +2452,11 @@ vis.binds["vis-inventwo"] = {
 						if (dataNew["iTextTrue" + i] != undefined)
 							txt = dataNew["iTextTrue" + i];
 						imgBlink = dataNew["iImgBlinkTrue" + i];
+
+						if(dataNew["iImgColorInvert" + i] == true){
+							invertCol = " filter: invert(1);";
+						}
+
 						found = true;
 						break;
 					}
@@ -2381,6 +2475,10 @@ vis.binds["vis-inventwo"] = {
 						txt = dataNew.iTextFalse;
 
 					imgBlink = dataNew.iImgBlinkFalse;
+
+					if(dataNew.iImgColorInvert == true){
+						invertCol = " filter: invert(1);";
+					}
 				}
 			} else if (type == "universal") {
 
@@ -2437,6 +2535,10 @@ vis.binds["vis-inventwo"] = {
 
 					imgBlink = dataNew.iImgBlinkFalse;
 
+				}
+
+				if(dataNew.iImgColorInvert == true){
+					invertCol = " filter: invert(1);";
 				}
 			}
 
@@ -2501,6 +2603,8 @@ vis.binds["vis-inventwo"] = {
 			else if (dataNew.iTextAlign == "iEnd")
 				textAlign = "flex-end";
 
+			console.log("test: " + invertCol);
+
 			let html = `
 			<div class="vis-inventwo-class vis-widget-body">
 				<div>
@@ -2519,9 +2623,9 @@ vis.binds["vis-inventwo"] = {
 							 style="order: ` + orderContent + `;
 							 align-self: ` + imgAlign + `;
 							 margin: ` + imgMargin + `;">
-							<img src="` + img + `" width="` + dataNew.iIconSize + `"
+							<img src="` + img + `" width="` + dataNew.iIconSize + `" class="vis-inventwo-img"
 								 style="transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
-								 		animation:blink ` + imgBlink + `s infinite;"> 
+								 		animation:blink ` + imgBlink + `s infinite; ` + invertCol + `"> 
 						</div>
 						
 						<div class="vis-inventwo-button-text"
@@ -2624,6 +2728,10 @@ vis.binds["vis-inventwo"] = {
 
 		for (let [key, value] of Object.entries(data)) {
 			if (key.substring(0, 1) == "i") {
+
+				if(key.startsWith("iTblCellThresholdsText", 0)){
+					continue;
+				}
 
 				let matches = [];
 				let reg = /\{([^\{\}]*)\}/gm;
@@ -3033,7 +3141,7 @@ vis.binds["vis-inventwo"] = {
 	//Aktualisierung der Filter für das Icon
 	getImgColorFilter: function (color, wid) {
 
-		if (color == undefined || color == null) {
+		if (color == undefined || color == null || color == "") {
 			return;
 		}
 
@@ -3062,8 +3170,9 @@ vis.binds["vis-inventwo"] = {
 					vis.setValue("vis-inventwo.0.intern.ColorFilter." + color.substring(1), filter);
 				}
 
-				if ($("#" + wid).find("img").css("filter") != filter.substring(8, filter.length - 1))
-					$("#" + wid).find("img").css("filter", filter.substring(8, filter.length - 1));
+				if ($("#" + wid).find(".vis-inventwo-img").css("filter") != filter.substring(8, filter.length - 1)) {
+					$("#" + wid).find(".vis-inventwo-img").css("filter", filter.substring(8, filter.length - 1));
+				}
 			});
 		}
 

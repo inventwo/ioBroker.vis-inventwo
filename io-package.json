@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.7.4",
+    "version": "2.7.5",
     "news": {
       "2.7.4": {
         "en": "Added missing translations for hovereffekt colors",
@@ -136,6 +136,7 @@
     "singleton": true,
     "noConfig": false,
     "messagebox": true,
+    "subscribe": "messagebox",
     "mode": "daemon",
     "type": "visualization-widgets",
     "compact": true,

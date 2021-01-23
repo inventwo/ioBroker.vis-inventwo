@@ -1,6 +1,6 @@
 <!--
 	ioBroker.vis vis-inventwo Widget-Set
-	version: "2.0.0"
+	version: "2.x.x"
 	Copyright 2020 jkvarel jkvarel@inventwo.com
 -->
 
@@ -70,6 +70,7 @@
 						 iImgBlinkTrue[0]/slider,0,2000,100;
 						 iImgColorFalse[]/color;
 						 iImgColorTrue[]/color;
+						 iImgColorInvert/checkbox;
 
 						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
 						 iShadowXOffset[2]/slider,0,20,1;
@@ -148,7 +149,8 @@
 						 iText-ImageSettings(1-iUniversalValueCount)/custom,vis-inventwo.infoText,emptyText;
 						 iImageTrue(1-iUniversalValueCount)/image;
 						 iImgBlinkTrue(1-iUniversalValueCount)[0]/slider,0,2000,100;
-						 iImgColorTrue(1-iUniversalValueCount)[]/color;"
+						 iImgColorTrue(1-iUniversalValueCount)[]/color;
+						 iImgColorInvert(1-iUniversalValueCount)/checkbox;"
 		data-vis-attrs1="group.i-css;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
@@ -187,6 +189,7 @@
 						 iFlipImage/checkbox;
 						 iImgBlinkFalse[0]/slider,0,2000,100;
 						 iImgColorFalse[]/color;
+						 iImgColorInvert/checkbox;
 
 						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
 						 iShadowXOffset[2]/slider,0,20,1;
@@ -643,7 +646,7 @@
 
             			<div style="width: ` + dataNew.iShadowSpreadInner + `px; height: ` + dataNew.iShadowSpreadInner+
             			 			`px; position: absolute; background:` + dataNew.iShadowColor+ `; border-radius: 100%; ` + shadow + `;"></div>
-            		    <img src='` + img + `'
+            		    <img src='` + img + `' class='vis-inventwo-img'
             		    	 width="100%;height:100%;"
             		    	 style="transform: scaleX(` + cssData.flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
             		    	 		border-radius: ` + dataNew.iCornerRadiusUL + `px ` + data.iCornerRadiusUR+ `px ` + data.iCornerRadiusLR+ `px ` + data.iCornerRadiusLL+ `px;
@@ -695,6 +698,8 @@
 						 iTblCellPlaceholder(1-iColCount)/text;
 						 iColWidth(1-iColCount)/text;
 
+						 iTblTextAlign(1-iColCount)[left]/nselect,left,center,right;
+
 						 iTblCellFormat(1-iColCount)[normal]/nselect,normal,datetime,image,boolean,number/updateJsonTableFields();
 
 						 iTblCellDatetimeFormat(1-iColCount)/text;
@@ -709,8 +714,8 @@
 						 iTblCellNumberDecimals(1-iColCount)[2]/number;
 						 iTblCellNumberDecimalSeperator(1-iColCount)[.]/text;
 						 iTblCellNumberThousandSeperator(1-iColCount)[,]/text;
-
-						 iTblTextAlign(1-iColCount)[left]/nselect,left,center,right;"
+						 iTblCellThresholdsDp(1-iColCount)[]/id;
+						 iTblCellThresholdsText(1-iColCount)[]/html;"
 		data-vis-attrs1="group.i-css;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iOpacityAll[1]/slider,0,1,0.1;
@@ -778,7 +783,8 @@
 						 iImageFalse(1-iRadiobtnsCount)/image;
 						 iImageTrue(1-iRadiobtnsCount)/image;
 						 iImgColorFalse(1-iRadiobtnsCount)[]/color;
-						 iImgColorTrue(1-iRadiobtnsCount)[]/color;"
+						 iImgColorTrue(1-iRadiobtnsCount)[]/color;
+						 iImgColorInvert(1-iRadiobtnsCount)/checkbox;"
 		data-vis-attrs1="group.i-css;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
@@ -958,6 +964,11 @@
 					imgColorFilter = dataNew["iImgColorFalse" + val];
 				}
 
+				let invertCol = "";
+				if(dataNew["iImgColorInvert" + val] == true){
+					invertCol = " filter: invert(1);";
+				}
+
 				colorFilters.push({color: imgColorFilter, wid: dataNew.wid + '_' + val});
 
 			%>
@@ -990,12 +1001,12 @@
             			 		align-self: <%= cssData.imgAlign %>;
             			 		margin: <%= dataNew.iImgSpaceTop + 'px ' + dataNew.iImgSpaceRight + 'px ' + dataNew.iImgSpaceBottom + 'px ' + dataNew.iImgSpaceLeft + 'px' %>;">
             			<% if(vis.states.attr(this.data.oid + '.val') == dataNew['iValue' + val]) { %>
-            		    	<img src='<%= dataNew['iImageTrue' + val] %>' width="<%= dataNew.iIconSize %>"
+            		    	<img src='<%= dataNew['iImageTrue' + val] %>' width="<%= dataNew.iIconSize %>" class='vis-inventwo-img'
             		    		 style="<%= imgColorFilter %>
-            		    		 		transform: scaleX(<%= flip %>) rotateZ(<%= dataNew.iImgRotation %>deg);" >
+            		    		 		transform: scaleX(<%= flip %>) rotateZ(<%= dataNew.iImgRotation %>deg); <%= invertCol %>" >
             		    <% } else if(dataNew['iImageFalse' + val] != ""){ %>
-            		    	<img src='<%= dataNew['iImageFalse' + val] %>' width="<%= dataNew.iIconSize %>"
-            		    	 style="transform: scaleX(<%= flip %>) rotateZ(<%= dataNew.iImgRotation %>deg);" >
+            		    	<img src='<%= dataNew['iImageFalse' + val] %>' width="<%= dataNew.iIconSize %>" class='vis-inventwo-img'
+            		    	 style="transform: scaleX(<%= flip %>) rotateZ(<%= dataNew.iImgRotation %>deg); <%= invertCol %>" >
             		    <% } %>
             		</div>
             		<div style="font-size: <%= dataNew.iTextSize %>px;
@@ -1154,7 +1165,9 @@
 
 </script>
 
-<!-- WERDEN ENTFERNT -->
+
+
+<!-- BEKOMMEN KEINE NEUEN FEATURES -->
 <script id="i-vis-switch"
 		type="text/ejs"
 		class="vis-tpl"

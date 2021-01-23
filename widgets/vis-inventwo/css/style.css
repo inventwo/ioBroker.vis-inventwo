@@ -109,3 +109,32 @@
     top: 0;
     bottom: 0;
 }
+
+.vis-inventwo-json-table .vis-inventwo-json-table-checkbox-container {
+    display: inline-flex;
+    position: relative;
+    font-size: 22px;
+}
+.vis-inventwo-json-table .vis-inventwo-json-table-checkbox-container .vis-inventwo-json-table-checkbox-checkmark {
+    height: 25px;
+    width: 25px;
+}
+
+.vis-inventwo-json-table .vis-inventwo-json-table-checkbox-container .vis-inventwo-json-table-checkbox-checkmark:after {
+    content: "";
+    position: absolute;
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    display: none;
+}
+
+.vis-inventwo-json-table .vis-inventwo-json-table-checkbox-container.checked .vis-inventwo-json-table-checkbox-checkmark:after{
+    display: block;
+}
