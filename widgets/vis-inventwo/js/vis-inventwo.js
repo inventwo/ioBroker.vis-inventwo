@@ -151,9 +151,13 @@ if (vis.editMode) {
 			"en": "Color true",
 			"de": "Farbe wahr"
 		},
-		"iImgColorInvert": {
-			"en": "Invert color",
-			"de": "Farbe invertieren"
+		"iImgColorInvertTrue": {
+			"en": "Invert color true",
+			"de": "Farbe invertieren wahr"
+		},
+		"iImgColorInvertFalse": {
+			"en": "Invert color false",
+			"de": "Farbe invertieren falsch"
 		},
 
 		//#endregion
@@ -519,6 +523,22 @@ if (vis.editMode) {
 		"iInvertMinMax": {
 			"en": "Invert min/max",
 			"de": "Invertiere Min/Max"
+		},
+		"iIdRed": {
+			"en": "Red",
+			"de": "Rot"
+		},
+		"iIdGreen": {
+			"en": "Green",
+			"de": "Grün"
+		},
+		"iIdBlue": {
+			"en": "Blue",
+			"de": "Blau"
+		},
+		"iColorSliderType": {
+			"en": "Color model",
+			"de": "Farbmodell"
 		},
 		//#endregion
 
@@ -1379,28 +1399,6 @@ vis.binds["vis-inventwo"] = {
 			return [myRed, myGreen, myBlue];
 		}
 
-		function hexToRgb(hex) {
-			if ((/^#([A-Fa-f0-9]{3}$)|([A-Fa-f0-9]{6}$)/.test(hex))) {
-				// Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-				const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-				hex = hex.replace(shorthandRegex, (m, r, g, b) => {
-					return r + r + g + g + b + b;
-				});
-
-				const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-
-				return result
-					? [
-						parseInt(result[1], 16),
-						parseInt(result[2], 16),
-						parseInt(result[3], 16),
-					]
-					: null;
-			} else {
-				return null;
-			}
-		}
-
 		function rgbToDecimal(rgbArr) {
 			let r = parseFloat(rgbArr[0]);
 			let g = parseFloat(rgbArr[1]);
@@ -1426,41 +1424,50 @@ vis.binds["vis-inventwo"] = {
 			return res;
 		}
 
-		function componentToHex(c) {
-			var hex = c.toString(16);
-			return hex.length == 1 ? "0" + hex : hex;
-		}
-
-		function rgbToHex(rgb) {
-			return "#" + componentToHex(rgb[0]) + componentToHex(rgb[1]) + componentToHex(rgb[2]);
-		}
+		let isDragging = false;
 
 		var settings = $.extend({
 			min: min,
 			max: max,
 			step: step,
 			slide: function (event, ui) {
+				isDragging = true;
 				if (!vis.editMode) {
 					switch (type) {
 						case "normal":
 							if (!data.iChangeOnRelease) {
-
 								if (data.iInvertMinMax) {
 									vis.setValue(oid, (parseFloat(data.iMaxVal) - ui.value + parseFloat(data.iMinVal)));
 								} else {
 									vis.setValue(oid, ui.value);
 								}
 							}
-
 							$this.parent().parent().find(".vis-inventwo-slider-currentvalue").html(ui.value);
 							break;
 						case "rgb":
 							let sliderVal = parseFloat(ui.value);
 							let rgb = getColor(sliderVal);
-							let color = rgbToHex(rgb);
-							$(ui.handle).css("background", color);
+							let hex = vis.binds['vis-inventwo'].rgbToHex(rgb);
+							$(ui.handle).css("background", hex);
 							if (!data.iChangeOnRelease) {
-								vis.setValue(oid, color);
+								let output = "";
+								switch (data.iColorSliderType) {
+									case "HEX":
+										output = hex;
+										break;
+									case "RGB":
+										break;
+									case "CIE":
+										output = vis.binds['vis-inventwo'].cieConvert(rgb, "cie");
+										break;
+								}
+								if(data.iColorSliderType != "RGB")
+									vis.setValue(oid, output);
+								else{
+									vis.setValue(data.iIdRed, rgb[0]);
+									vis.setValue(data.iIdGreen, rgb[1]);
+									vis.setValue(data.iIdBlue, rgb[2]);
+								}
 							}
 							break;
 
@@ -1468,20 +1475,45 @@ vis.binds["vis-inventwo"] = {
 				}
 			},
 			stop: function (event, ui) {
+				isDragging = false;
 				if (!vis.editMode) {
 					if (data.iChangeOnRelease) {
 						switch (type) {
 							case "normal":
-								if (data.iInvertMinMax) {
-									vis.setValue(oid, (parseFloat(data.iMaxVal) - ui.value + parseFloat(data.iMinVal)));
-								} else {
-									vis.setValue(oid, ui.value);
+								if (!data.iChangeOnRelease) {
+									if (data.iInvertMinMax) {
+										vis.setValue(oid, (parseFloat(data.iMaxVal) - ui.value + parseFloat(data.iMinVal)));
+									} else {
+										vis.setValue(oid, ui.value);
+									}
 								}
+								$this.parent().parent().find(".vis-inventwo-slider-currentvalue").html(ui.value);
 								break;
 							case "rgb":
 								let sliderVal = parseFloat(ui.value);
-								let color = rgbToHex(getColor(sliderVal));
-								vis.setValue(oid, color);
+								let rgb = getColor(sliderVal);
+								let hex = vis.binds['vis-inventwo'].rgbToHex(rgb);
+								$(ui.handle).css("background", hex);
+								if (!data.iChangeOnRelease) {
+									let output = "";
+									switch (data.iColorSliderType) {
+										case "HEX":
+											output = hex;
+											break;
+										case "RGB":
+											break;
+										case "CIE":
+											output = vis.binds['vis-inventwo'].cieConvert(rgb, "cie");
+											break;
+									}
+									if(data.iColorSliderType != "RGB")
+										vis.setValue(oid, output);
+									else{
+										vis.setValue(data.iIdRed, rgb[0]);
+										vis.setValue(data.iIdGreen, rgb[1]);
+										vis.setValue(data.iIdBlue, rgb[2]);
+									}
+								}
 								break;
 						}
 					}
@@ -1494,31 +1526,59 @@ vis.binds["vis-inventwo"] = {
 		let leftSpace = 0;
 		leftSpace = parseFloat(data.iSliderHeight) / 2 - parseFloat(data.iSliderKnobSize) / 2;
 
-		let val = vis.states.attr(oid + ".val");
-		val = parseFloat(val);
-		if(isNaN(val)){
-			val = min;
+		function updateSlider() {
+
+			let val = vis.states.attr(oid + ".val");
+
+			switch (type) {
+				case "normal":
+					val = parseFloat(val);
+					if(isNaN(val)){
+						val = min;
+					}
+
+					$this.children().css("background", data.iSliderKnobColor);
+					if (data.iInvertMinMax) {
+						val = data.iMaxVal - (val - data.iMinVal);
+					}
+					$this.slider("option", "value", val);
+					break;
+				case "rgb":
+					let rgb = null;
+					switch (data.iColorSliderType) {
+						case "HEX":
+							rgb = vis.binds['vis-inventwo'].hexToRgb(val);
+							break;
+						case "RGB":
+							let r = vis.states.attr(data.iIdRed + ".val");
+							let g = vis.states.attr(data.iIdGreen + ".val");
+							let b = vis.states.attr(data.iIdBlue + ".val");
+							if(r != undefined && r != "" && g != undefined && g != "" && b != undefined && b != "") {
+								rgb = [
+									r, g, b
+								];
+							}
+							break;
+						case "CIE":
+							rgb = vis.binds['vis-inventwo'].cieConvert(val, "rgb");
+							break;
+					}
+					if (rgb == null) {
+						rgb = [255, 0, 0];
+						val = "#ff0000";
+					}
+					else{
+						val = vis.binds['vis-inventwo'].rgbToHex(rgb);
+					}
+
+					$this.children().css("background", val);
+					$this.slider("option", "value", rgbToDecimal(rgb));
+					break;
+			}
+
 		}
 
-		switch (type) {
-			case "normal":
-				$this.children().css("background", data.iSliderKnobColor);
-				if (data.iInvertMinMax) {
-					val = data.iMaxVal - (val - data.iMinVal);
-				}
-				$this.slider("option", "value", val);
-				break;
-			case "rgb":
-				let rgb = hexToRgb(val);
-				if (rgb == null) {
-					rgb = [255, 0, 0];
-					val = "#ff0000";
-				}
-
-				$this.children().css("background", val);
-				$this.slider("option", "value", rgbToDecimal(rgb));
-				break;
-		}
+		updateSlider();
 
 		$this.css("transform", "rotate(" + data.iSliderRotation + "deg)");
 		$this.children().css("width", data.iSliderKnobSize + "px");
@@ -1537,29 +1597,9 @@ vis.binds["vis-inventwo"] = {
 
 
 		vis.states.bind(oid + ".val", function () {
-			val = vis.states.attr(oid + ".val");
-			let newVal = parseFloat(val);
-			if(isNaN(newVal)){
-				newVal = parseFloat(data.iMinVal);
+			if(!isDragging) {
+				updateSlider();
 			}
-			switch (type) {
-				case "normal":
-					if (data.iInvertMinMax) {
-						newVal = data.iMaxVal - (val - data.iMinVal);
-					}
-					break;
-				case "rgb":
-					$this.children().css("background", val);
-					newVal = hexToRgb(val);
-					if (newVal == null) {
-						newVal = [255, 0, 0];
-					}
-					newVal = rgbToDecimal(newVal);
-					$this.slider("option", "value", newVal);
-					break;
-			}
-
-			$this.slider("option", "value", newVal);
 		});
 
 	},
@@ -2010,7 +2050,6 @@ vis.binds["vis-inventwo"] = {
 
 												if(dpContent != undefined && dpContent != ""){
 													try{
-														console.log(dpContent);
 														thresholds = JSON.parse(dpContent);
 													}
 													catch (e) {
@@ -2020,7 +2059,6 @@ vis.binds["vis-inventwo"] = {
 												}
 												else if(data["iTblCellThresholdsText" + (i + 1)] != undefined && data["iTblCellThresholdsText" + (i + 1)] != ""){
 													try{
-														console.log(data["iTblCellThresholdsText" + (i + 1)]);
 														thresholds = JSON.parse(data["iTblCellThresholdsText" + (i + 1)]);
 													}
 													catch (e) {
@@ -2364,17 +2402,6 @@ vis.binds["vis-inventwo"] = {
 	//Generierung des Universal und Multi Widgets
 	universalButton: function (el, data, type) {
 
-
-		//console.log("test1");
-		//try {
-		//	vis.conn._socket.emit('sendTo', 'vis-inventwo.0', 'test', null, function (err, result) {
-		//		console.log(result);
-		//	})
-		//}
-		//catch (e) {
-		//	console.log(e);
-		//}
-
 		this.updateUniversalDataFields;
 		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
 			if (newVal != oldVal)
@@ -2520,6 +2547,11 @@ vis.binds["vis-inventwo"] = {
 						txt = dataNew.iTextTrue;
 
 					imgBlink = dataNew.iImgBlinkTrue;
+
+					if(dataNew.iImgColorInvertTrue == true){
+						invertCol = " filter: invert(1);";
+					}
+
 				} else {
 					backCol = dataNew.iButtonCol;
 					shadowCol = dataNew.iShadowColor;
@@ -2535,11 +2567,12 @@ vis.binds["vis-inventwo"] = {
 
 					imgBlink = dataNew.iImgBlinkFalse;
 
+					if(dataNew.iImgColorInvertFalse == true){
+						invertCol = " filter: invert(1);";
+					}
+
 				}
 
-				if(dataNew.iImgColorInvert == true){
-					invertCol = " filter: invert(1);";
-				}
 			}
 
 			imgBlink = imgBlink / 1000;
@@ -2602,8 +2635,6 @@ vis.binds["vis-inventwo"] = {
 				textAlign = "center";
 			else if (dataNew.iTextAlign == "iEnd")
 				textAlign = "flex-end";
-
-			console.log("test: " + invertCol);
 
 			let html = `
 			<div class="vis-inventwo-class vis-widget-body">
@@ -3181,9 +3212,7 @@ vis.binds["vis-inventwo"] = {
 
 	convertValue: function (val) {
 
-		if (!isNaN(val))
-			val = parseFloat(val);
-		else if (val == "true")
+		if (val == "true")
 			val = true;
 		else if (val == "false")
 			val = false;
@@ -3338,5 +3367,459 @@ vis.binds["vis-inventwo"] = {
 		}
 
 	},
+
+	hexToRgb: function(hex){
+		if ((/^#([A-Fa-f0-9]{3}$)|([A-Fa-f0-9]{6}$)/.test(hex))) {
+			// Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+			const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+			hex = hex.replace(shorthandRegex, (m, r, g, b) => {
+				return r + r + g + g + b + b;
+			});
+
+			const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+
+			return result
+				? [
+					parseInt(result[1], 16),
+					parseInt(result[2], 16),
+					parseInt(result[3], 16),
+				]
+				: null;
+		} else {
+			return null;
+		}
+	},
+
+	rgbToHex: function(rgb){
+		function componentToHex(c) {
+			var hex = c.toString(16);
+			return hex.length == 1 ? "0" + hex : hex;
+		}
+		return "#" + componentToHex(rgb[0]) + componentToHex(rgb[1]) + componentToHex(rgb[2]);
+	},
+
+	cieConvert: function(value, type){
+		class ColorConverter {
+			static getGamutRanges(){
+				let gamutA = {
+					red: [0.704, 0.296],
+					green: [0.2151, 0.7106],
+					blue: [0.138, 0.08]
+				};
+
+				let gamutB = {
+					red: [0.675, 0.322],
+					green: [0.409, 0.518],
+					blue: [0.167, 0.04]
+				};
+
+				let gamutC = {
+					red: [0.692, 0.308],
+					green: [0.17, 0.7],
+					blue: [0.153, 0.048]
+				};
+
+				let defaultGamut ={
+					red: [1.0, 0],
+					green: [0.0, 1.0],
+					blue: [0.0, 0.0]
+				};
+
+				return {"gamutA":gamutA,"gamutB": gamutB, "gamutC":gamutC,"default": defaultGamut}
+			}
+
+			static getLightColorGamutRange(modelId = null){
+				let ranges = ColorConverter.getGamutRanges();
+				let gamutA = ranges.gamutA;
+				let gamutB = ranges.gamutB;
+				let gamutC = ranges.gamutC;
+
+				let philipsModels = {
+					LST001 : gamutA,
+					LLC010 : gamutA,
+					LLC011 : gamutA,
+					LLC012 : gamutA,
+					LLC006 : gamutA,
+					LLC005 : gamutA,
+					LLC007 : gamutA,
+					LLC014 : gamutA,
+					LLC013 : gamutA,
+
+					LCT001 : gamutB,
+					LCT007 : gamutB,
+					LCT002 : gamutB,
+					LCT003 : gamutB,
+					LLM001 : gamutB,
+
+					LCT010 : gamutC,
+					LCT014 : gamutC,
+					LCT015 : gamutC,
+					LCT016 : gamutC,
+					LCT011 : gamutC,
+					LLC020 : gamutC,
+					LST002 : gamutC,
+					LCT012 : gamutC,
+				};
+
+				if(!!philipsModels[modelId]){
+					return philipsModels[modelId];
+				}
+
+				return ranges.default;
+			}
+
+
+			static rgbToXy(red, green, blue,modelId = null) {
+				function getGammaCorrectedValue(value) {
+					return (value > 0.04045) ? Math.pow((value + 0.055) / (1.0 + 0.055), 2.4) : (value / 12.92)
+				}
+
+				let colorGamut = ColorConverter.getLightColorGamutRange(modelId);
+
+				red = parseFloat(red / 255);
+				green = parseFloat(green / 255);
+				blue = parseFloat(blue / 255);
+
+				red = getGammaCorrectedValue(red);
+				green = getGammaCorrectedValue(green);
+				blue = getGammaCorrectedValue(blue);
+
+				let x = red * 0.649926 + green * 0.103455 + blue * 0.197109;
+				let y = red * 0.234327 + green * 0.743075 + blue * 0.022598;
+				let z = red * 0.0000000 + green * 0.053077 + blue * 1.035763;
+
+				let xy = {
+					x: x / (x + y + z),
+					y: y / (x + y + z)
+				};
+
+				if(!ColorConverter.xyIsInGamutRange(xy, colorGamut)){
+					xy = ColorConverter.getClosestColor(xy,colorGamut);
+				}
+
+				return xy;
+			}
+
+			static xyIsInGamutRange(xy, gamut) {
+				gamut = gamut || ColorConverter.getGamutRanges().gamutC;
+				if (Array.isArray(xy)) {
+					xy = {
+						x: xy[0],
+						y: xy[1]
+					};
+				}
+
+				let v0 = [gamut.blue[0] - gamut.red[0], gamut.blue[1] - gamut.red[1]];
+				let v1 = [gamut.green[0] - gamut.red[0], gamut.green[1] - gamut.red[1]];
+				let v2 = [xy.x - gamut.red[0], xy.y - gamut.red[1]];
+
+				let dot00 = (v0[0] * v0[0]) + (v0[1] * v0[1]);
+				let dot01 = (v0[0] * v1[0]) + (v0[1] * v1[1]);
+				let dot02 = (v0[0] * v2[0]) + (v0[1] * v2[1]);
+				let dot11 = (v1[0] * v1[0]) + (v1[1] * v1[1]);
+				let dot12 = (v1[0] * v2[0]) + (v1[1] * v2[1]);
+
+				let invDenom = 1 / (dot00 * dot11 - dot01 * dot01);
+
+				let u = (dot11 * dot02 - dot01 * dot12) * invDenom;
+				let v = (dot00 * dot12 - dot01 * dot02) * invDenom;
+
+				return ((u >= 0) && (v >= 0) && (u + v < 1));
+			}
+
+			static getClosestColor(xy, gamut) {
+				function getLineDistance(pointA,pointB){
+					return Math.hypot(pointB.x - pointA.x, pointB.y - pointA.y);
+				}
+
+				function getClosestPoint(xy, pointA, pointB) {
+					let xy2a = [xy.x - pointA.x, xy.y - pointA.y];
+					let a2b = [pointB.x - pointA.x, pointB.y - pointA.y];
+					let a2bSqr = Math.pow(a2b[0],2) + Math.pow(a2b[1],2);
+					let xy2a_dot_a2b = xy2a[0] * a2b[0] + xy2a[1] * a2b[1];
+					let t = xy2a_dot_a2b /a2bSqr;
+
+					return {
+						x: pointA.x + a2b[0] * t,
+						y: pointA.y + a2b[1] * t
+					}
+				}
+
+				let greenBlue = {
+					a: {
+						x: gamut.green[0],
+						y: gamut.green[1]
+					},
+					b: {
+						x: gamut.blue[0],
+						y: gamut.blue[1]
+					}
+				};
+
+				let greenRed = {
+					a: {
+						x: gamut.green[0],
+						y: gamut.green[1]
+					},
+					b: {
+						x: gamut.red[0],
+						y: gamut.red[1]
+					}
+				};
+
+				let blueRed = {
+					a: {
+						x: gamut.red[0],
+						y: gamut.red[1]
+					},
+					b: {
+						x: gamut.blue[0],
+						y: gamut.blue[1]
+					}
+				};
+
+				let closestColorPoints = {
+					greenBlue : getClosestPoint(xy,greenBlue.a,greenBlue.b),
+					greenRed : getClosestPoint(xy,greenRed.a,greenRed.b),
+					blueRed : getClosestPoint(xy,blueRed.a,blueRed.b)
+				};
+
+				let distance = {
+					greenBlue : getLineDistance(xy,closestColorPoints.greenBlue),
+					greenRed : getLineDistance(xy,closestColorPoints.greenRed),
+					blueRed : getLineDistance(xy,closestColorPoints.blueRed)
+				};
+
+				let closestDistance;
+				let closestColor;
+				for (let i in distance){
+					if(distance.hasOwnProperty(i)){
+						if(!closestDistance){
+							closestDistance = distance[i];
+							closestColor = i;
+						}
+
+						if(closestDistance > distance[i]){
+							closestDistance = distance[i];
+							closestColor = i;
+						}
+					}
+
+				}
+				return  closestColorPoints[closestColor];
+			}
+
+			static xyBriToRgb(x,y,bri){
+				function getReversedGammaCorrectedValue(value){
+					return value <= 0.0031308 ? 12.92 * value : (1.0 + 0.055) * Math.pow(value, (1.0 / 2.4)) - 0.055;
+				}
+
+				let xy = {
+					x: x,
+					y: y
+				};
+
+				let z = 1.0 - xy.x - xy.y;
+				let Y = bri / 255;
+				let X = (Y / xy.y) * xy.x;
+				let Z = (Y / xy.y) * z;
+				let r = X * 1.656492 - Y * 0.354851 - Z * 0.255038;
+				let g = -X * 0.707196 + Y * 1.655397 + Z * 0.036152;
+				let b =  X * 0.051713 - Y * 0.121364 + Z * 1.011530;
+
+				r = getReversedGammaCorrectedValue(r);
+				g = getReversedGammaCorrectedValue(g);
+				b = getReversedGammaCorrectedValue(b);
+
+				let red = parseInt(r * 255) > 255 ? 255: parseInt(r * 255);
+				let green = parseInt(g * 255) > 255 ? 255: parseInt(g * 255);
+				let blue = parseInt(b * 255) > 255 ? 255: parseInt(b * 255);
+
+				red = Math.abs(red);
+				green = Math.abs(green);
+				blue = Math.abs(blue);
+
+				return [red, green, blue];
+			}
+		}
+
+		if(type == "rgb"){
+			let xy = value.split(",");
+			return ColorConverter.xyBriToRgb(xy[0], xy[1], 255);
+		}
+		else if(type == "cie"){
+			let xy = ColorConverter.rgbToXy(value[0], value[1], value[2]);
+			return  xy.x + "," + xy.y;
+		}
+	},
+
+	updateColorSliderFields: function (wid,view) {
+		vis.activeWidgets.forEach(function (el) {
+			let data = vis.views[vis.activeView].widgets[el].data;
+			let val = data.iColorSliderType;
+			if (val == "RGB") {
+				vis.hideShowAttr("oid", false);
+				vis.hideShowAttr("iIdRed", true);
+				vis.hideShowAttr("iIdGreen", true);
+				vis.hideShowAttr("iIdBlue", true);
+			}
+			else{
+				vis.hideShowAttr("oid", true);
+				vis.hideShowAttr("iIdRed", false);
+				vis.hideShowAttr("iIdGreen", false);
+				vis.hideShowAttr("iIdBlue", false);
+			}
+
+		});
+	},
+
+	updateColorSliderFieldsClick: function (el) {
+		if(vis.editMode) {
+			$(el).parent().on("mouseup click", function () {
+				setTimeout(function () {
+					vis.binds["vis-inventwo"].updateColorSliderFields();
+				}, 100);
+			});
+
+			$(".group-control").on("mouseup click", function () {
+				setTimeout(function () {
+					vis.binds["vis-inventwo"].updateColorSliderFields();
+				}, 100);
+			});
+		}
+	}
+
+
+	/*
+		checkIfTrue: function (oid, value, comparator, valueType) {
+			let comparasionTable = {
+				'greater' : function (val1, val2) { return val1 > val2 },
+				'lower' : function (val1, val2) { return val1 < val2 },
+				'equal' : function (val1, val2) { return val1 == val2 },
+				//'>=' : function (val1, val2) { return val1 >= val2 },
+				//'<=' : function (val1, val2) { return val1 <= val2 },
+				'not' : function (val1, val2) { return val1 != val2 },
+			}
+
+			let dpVal = vis.states.attr(oid + ".val");
+			dpVal = this.convertValue(dpVal);
+
+			if(valueType == "boolean")
+				value = true;
+
+			value = this.convertValue(value);
+
+			console.log(value);
+			console.log(dpVal);
+
+			if(comparasionTable[comparator](dpVal,value)){
+				console.log("is strue");
+				return true;
+			}
+			else{
+				console.log("is false");
+				return false;
+			}
+
+		},
+
+		universalButtonBackgroundStyles: function (data) {
+			let style = "";
+			if(this.checkIfTrue(data.oid, data.iValueTrue, data.iValueComparison, data.iValueType)){
+				let invertImg = 0;
+				if(data.iImgColorInvertTrue){
+					invertImg = 1;
+				}
+
+				style = "--background: " + data.iButtonActive + "; " +
+						"--box-shadow-color:" + data.iShadowColorActive + ";" +
+						"--border-color: " + data.iBorderColorActive + ";" +
+						"--image-blink: " + data.iImgBlinkTrue / 1000 + ";" +
+						"--image-invert: " + invertImg + ";";
+
+			}
+			else{
+				let invertImg = 0;
+				if(data.iImgColorInvertFalse){
+					invertImg = 1;
+				}
+
+				style = "--background: " + data.iButtonCol + "; " +
+						"--box-shadow-color:" + data.iShadowColor + ";" +
+						"--border-color: " + data.iBorderColor + ";" +
+						"--image-blink: " + data.iImgBlinkFalse / 1000 + ";" +
+						"--image-invert: " + invertImg + ";";
+			}
+			return style;
+		},
+
+		universalButtonText: function (data) {
+			let text = "";
+			if(this.checkIfTrue(data.oid, data.iValueTrue, data.iValueComparison, data.iValueType)){
+				text = data.iTextTrue;
+			}
+			else{
+				text = data.iTextFalse;
+			}
+			return text;
+		},
+
+		universalButtonImage: function (data) {
+			let img = "";
+			if(this.checkIfTrue(data.oid, data.iValueTrue, data.iValueComparison, data.iValueType)){
+				img = data.iImageTrue;
+			}
+			else{
+				img = data.iImageFalse;
+			}
+			return img;
+		},
+
+		universalButtonAlign: function (align) {
+			let ret = "";
+			if(align == "iStart"){
+				ret = "flex-start";
+			}
+			else if(align == "iCenter"){
+				ret = "center";
+			}
+			else if(align == "iEnd"){
+				ret = "flex-end";
+			}
+			else if(align == "iSpace-between"){
+				ret = "space-between";
+			}
+			return ret;
+		},
+
+		universalButtonContentDirection: function (dir) {
+			let ret = "";
+			if(dir == "vertical"){
+				ret = "column";
+			}
+			else if(dir == "horizontal"){
+				ret = "row";
+			}
+			return ret;
+		},
+
+		universalButtonContentOrder: function (order) {
+			let ret = 0;
+			if(order == "orderTextImg"){
+				ret = 2;
+			}
+			return ret;
+		},
+
+		universalButtonImageFlip: function (flip) {
+			let ret = 1;
+			if(flip){
+				ret = -1;
+			}
+			return ret;
+		},
+	*/
+
+
 
 };

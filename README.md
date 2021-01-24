@@ -77,6 +77,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 - Fehler beim Slider behoben wenn ungültiger Wert im Datenpunkt steht
 - Fehler behoben: Signalbilder wurden mit eingefärbt
 - Option um Bildfarbe zu invertieren eingefügt, um Farbfilter zu umgehen
+- Color Slider kann nun zwischen HEX, RGB und CIE unterscheiden
 
 
 ## 2.7.4

@@ -3,6 +3,18 @@
     "name": "vis-inventwo",
     "version": "2.7.5",
     "news": {
+      "2.7.5": {
+        "en": "Added threshholds for JSON Table, Fixed issue with Color Slider and invalid value, Fixed issue with signal images, Added option to invert icon colors, Color Slider can now differentiate between HEX, RGB and CIE",
+        "de": "Schwellenwerte für JSON-Tabelle hinzugefügt, Problem mit Farbschieberegler und ungültigem Wert behoben, Problem mit Signalbildern behoben, Option zum Invertieren von Symbolfarben hinzugefügt, Farbschieberegler kann jetzt zwischen HEX, RGB und CIE unterscheiden",
+        "ru": "Добавлены пороговые значения для таблицы JSON, исправлена проблема с ползунком цвета и недопустимым значением, исправлена проблема с изображениями сигналов, добавлена возможность инвертировать цвета значков, ползунок цвета теперь может различать HEX, RGB и CIE",
+        "pt": "Limites adicionados para a tabela JSON, problema corrigido com o controle deslizante de cores e valor inválido, problema corrigido com imagens de sinal, opção adicionada para inverter as cores do ícone, controle deslizante de cores agora pode diferenciar entre HEX, RGB e CIE",
+        "nl": "Drempels toegevoegd voor JSON-tabel, probleem opgelost met kleurenschuifregelaar en ongeldige waarde, probleem opgelost met signaalafbeeldingen, optie toegevoegd om pictogramkleuren om te keren, kleurenschuifregelaar kan nu onderscheid maken tussen HEX, RGB en CIE",
+        "fr": "Ajout de seuils pour la table JSON, Correction d'un problème avec le curseur de couleur et une valeur non valide, Correction d'un problème avec les images de signal, Ajout d'une option pour inverser les couleurs des icônes, le curseur de couleur peut maintenant différencier HEX, RVB et CIE",
+        "it": "Aggiunte soglie per la tabella JSON, Risolto problema con il cursore del colore e valore non valido, Risolto il problema con le immagini del segnale, Aggiunta l'opzione per invertire i colori delle icone, Il cursore del colore ora può distinguere tra HEX, RGB e CIE",
+        "es": "Se agregaron umbrales para la tabla JSON, se solucionó el problema con el control deslizante de color y el valor no válido, se corrigió el problema con las imágenes de señal, se agregó la opción para invertir los colores de los iconos, el control deslizante de color ahora puede diferenciar entre HEX, RGB y CIE",
+        "pl": "Dodano progi dla tabeli JSON, Naprawiono problem z suwakiem kolorów i nieprawidłową wartością, Naprawiono problem z obrazami sygnałów, Dodano opcję odwracania kolorów ikon, Suwak kolorów może teraz rozróżniać HEX, RGB i CIE",
+        "zh-cn": "添加了JSON表的阈值，修复了Color Slider和无效值的问题，修复了信号图像的问题，添加了用于反转图标颜色的选项，Color Slider现在可以区分HEX，RGB和CIE"
+      },
       "2.7.4": {
         "en": "Added missing translations for hovereffekt colors",
         "de": "Fehlende Übersetzungen für Hovereffekt-Farben hinzugefügt",
