@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.7.5",
+    "version": "2.7.6",
     "news": {
       "2.7.5": {
         "en": "Added threshholds for JSON Table, Fixed issue with Color Slider and invalid value, Fixed issue with signal images, Added option to invert icon colors, Color Slider can now differentiate between HEX, RGB and CIE",

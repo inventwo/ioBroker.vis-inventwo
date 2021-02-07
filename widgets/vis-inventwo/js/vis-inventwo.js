@@ -160,6 +160,10 @@ if (vis.editMode) {
 			"de": "Farbe invertieren falsch"
 		},
 
+		"iImgColorInvert": {
+			"en": "Invert color",
+			"de": "Farbe invertieren"
+		},
 		//#endregion
 
 		//#region Text Settings
@@ -975,6 +979,12 @@ vis.binds["vis-inventwo"] = {
 					}
 					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", data.iShadowColorActive);
 					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", data.iShadowInnerColorActive);
+					if(data.iImgColorTrue != ""){
+						vis.binds["vis-inventwo"].getImgColorFilter(data.iImgColorTrue, data.wid);
+					}
+					else{
+						$(this).find(".vis-inventwo-img").css("filter", "");
+					}
 				} else {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
@@ -993,6 +1003,13 @@ vis.binds["vis-inventwo"] = {
 					}
 					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", data.iShadowColor);
 					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", data.iShadowInnerColor);
+
+					if(data.iImgColorFalse != ""){
+						vis.binds["vis-inventwo"].getImgColorFilter(data.iImgColorFalse, data.wid);
+					}
+					else{
+						$(this).find(".vis-inventwo-img").css("filter", "");
+					}
 				}
 
 			});
@@ -1022,6 +1039,13 @@ vis.binds["vis-inventwo"] = {
 						}
 						$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", data["iShadowColorActiveM" + i]);
 						$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", data["iShadowInnerColorActiveM" + i]);
+						if(data["iImgColorTrue" + i] != ""){
+							vis.binds["vis-inventwo"].getImgColorFilter(data["iImgColorTrue" + i], data.wid);
+						}
+						else{
+							$(this).find(".vis-inventwo-img").css("filter", "");
+						}
+
 						break;
 					}
 				}
@@ -1029,7 +1053,7 @@ vis.binds["vis-inventwo"] = {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
 					if (data.iImgColorFalseFilter != undefined && data.iImgColorFalseFilter != "")
-						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8, data.iImgColorFalseFilter.length - 1));
+						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.CColorFalseFilter.substring(8, data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
 					if (vis.editMode) {
@@ -1043,6 +1067,13 @@ vis.binds["vis-inventwo"] = {
 					}
 					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", data.iShadowColor);
 					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", data.iShadowInnerColor);
+
+					if(data.iImgColorFalse != ""){
+						vis.binds["vis-inventwo"].getImgColorFilter(data.iImgColorFalse, data.wid);
+					}
+					else{
+						$(this).find(".vis-inventwo-img").css("filter", "");
+					}
 				}
 
 			});
@@ -2174,6 +2205,9 @@ vis.binds["vis-inventwo"] = {
 				if (moved) return;
 
 				val = vis.binds["vis-inventwo"].convertValue(val);
+				if(!isNaN(val)){
+					val = parseFloat(val);
+				}
 
 				vis.setValue(oid, val);
 
@@ -3179,6 +3213,8 @@ vis.binds["vis-inventwo"] = {
 		let filter = "";
 		color = color.toLowerCase();
 
+		console.log(color + " - " + wid);
+
 		if (/^#[0-9A-F]{6}$/i.test(color)) {
 
 			vis.conn._socket.emit("getState", "vis-inventwo.0.intern.ColorFilter." + color.substring(1), function (err, obj) {
@@ -3205,6 +3241,10 @@ vis.binds["vis-inventwo"] = {
 					$("#" + wid).find(".vis-inventwo-img").css("filter", filter.substring(8, filter.length - 1));
 				}
 			});
+		}
+		else{
+			console.log("no filter");
+			$("#" + wid).find(".vis-inventwo-img").css("filter", "");
 		}
 
 	},

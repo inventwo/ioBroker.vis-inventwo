@@ -1,6 +1,10 @@
 
 /* Style your widget here */
 
+.vis-widget {
+    -webkit-tap-highlight-color: transparent;
+}
+
 /* BUTTONS ANFANG */
 
 .vis-inventwo-button {
@@ -20,6 +24,7 @@
     text-align: center;
     position:relative;
     z-index: 1;
+    display: inline-flex;
 }
 
 .vis-inventwo-button-text {
