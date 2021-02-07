@@ -3,6 +3,18 @@
     "name": "vis-inventwo",
     "version": "2.7.6",
     "news": {
+      "2.7.6": {
+        "en": "Fixed issue with icon color for nav-widget, fixed issue with highlighting on touchdevices, fixed issue with radiobutton-widget and numbers datatype",
+        "de": "Problem mit Symbolfarbe für Navi-Widget behoben, Problem mit Highlighting auf Touch-Geräten behoben, Problem mit Radiobutton-Widget und Datentyp Zahlen behoben",
+        "ru": "Исправлена проблема с цветом значка для nav-виджета, исправлена проблема с выделением на сенсорных устройствах, исправлена проблема с виджетом radiobutton и типом данных чисел",
+        "pt": "Corrigido o problema com a cor do ícone para nav-widget, corrigido o problema com destaque em dispositivos de toque, corrigido o problema com radiobutton-widget e tipo de dados de números",
+        "nl": "Probleem opgelost met pictogramkleur voor nav-widget, probleem opgelost met accentuering op aanraakapparatuur, probleem opgelost met radiobutton-widget en getallen datatype",
+        "fr": "Correction d'un problème avec la couleur de l'icône pour le widget de navigation, correction d'un problème de mise en évidence sur les appareils tactiles, résolution d'un problème avec le widget radiobutton et le type de données des nombres",
+        "it": "Risolto il problema con il colore dell'icona per il widget di navigazione, risolto il problema con l'evidenziazione sui dispositivi touch, risolto il problema con il widget del pulsante radio e il tipo di dati dei numeri",
+        "es": "Se solucionó el problema con el color del icono para el widget de navegación, se solucionó el problema con el resaltado en dispositivos táctiles, se solucionó el problema con el widget de botón de radio y el tipo de datos de números",
+        "pl": "Naprawiono problem z kolorem ikony dla widżetu nawigacyjnego, naprawiony problem z podświetlaniem na urządzeniach dotykowych, naprawiony problem z widżetem radiobutton i typem danych liczb",
+        "zh-cn": "修复了导航小部件图标颜色的问题，修复了触摸设备上突出显示的问题，修复了单选按钮小部件和数字数据类型的问题"
+      },
       "2.7.5": {
         "en": "Added threshholds for JSON Table, Fixed issue with Color Slider and invalid value, Fixed issue with signal images, Added option to invert icon colors, Color Slider can now differentiate between HEX, RGB and CIE",
         "de": "Schwellenwerte für JSON-Tabelle hinzugefügt, Problem mit Farbschieberegler und ungültigem Wert behoben, Problem mit Signalbildern behoben, Option zum Invertieren von Symbolfarben hinzugefügt, Farbschieberegler kann jetzt zwischen HEX, RGB und CIE unterscheiden",
