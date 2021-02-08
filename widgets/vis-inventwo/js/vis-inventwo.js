@@ -983,7 +983,12 @@ vis.binds["vis-inventwo"] = {
 						vis.binds["vis-inventwo"].getImgColorFilter(data.iImgColorTrue, data.wid);
 					}
 					else{
-						$(this).find(".vis-inventwo-img").css("filter", "");
+						if(data.iImgColorInvertTrue){
+							$(this).find(".vis-inventwo-img").css("filter", "invert(1)");
+						}
+						else{
+							$(this).find(".vis-inventwo-img").css("filter", "");
+						}
 					}
 				} else {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
@@ -1008,7 +1013,12 @@ vis.binds["vis-inventwo"] = {
 						vis.binds["vis-inventwo"].getImgColorFilter(data.iImgColorFalse, data.wid);
 					}
 					else{
-						$(this).find(".vis-inventwo-img").css("filter", "");
+						if(data.iImgColorInvertFalse){
+							$(this).find(".vis-inventwo-img").css("filter", "invert(1)");
+						}
+						else{
+							$(this).find(".vis-inventwo-img").css("filter", "");
+						}
 					}
 				}
 
@@ -1043,7 +1053,12 @@ vis.binds["vis-inventwo"] = {
 							vis.binds["vis-inventwo"].getImgColorFilter(data["iImgColorTrue" + i], data.wid);
 						}
 						else{
-							$(this).find(".vis-inventwo-img").css("filter", "");
+							if(data["iImgColorInvert" + i]){
+								$(this).find(".vis-inventwo-img").css("filter", "invert(1)");
+							}
+							else{
+								$(this).find(".vis-inventwo-img").css("filter", "");
+							}
 						}
 
 						break;
@@ -1072,7 +1087,12 @@ vis.binds["vis-inventwo"] = {
 						vis.binds["vis-inventwo"].getImgColorFilter(data.iImgColorFalse, data.wid);
 					}
 					else{
-						$(this).find(".vis-inventwo-img").css("filter", "");
+						if(data.iImgColorInvert){
+							$(this).find(".vis-inventwo-img").css("filter", "invert(1)");
+						}
+						else{
+							$(this).find(".vis-inventwo-img").css("filter", "");
+						}
 					}
 				}
 
@@ -1511,13 +1531,13 @@ vis.binds["vis-inventwo"] = {
 					if (data.iChangeOnRelease) {
 						switch (type) {
 							case "normal":
-								if (!data.iChangeOnRelease) {
-									if (data.iInvertMinMax) {
-										vis.setValue(oid, (parseFloat(data.iMaxVal) - ui.value + parseFloat(data.iMinVal)));
-									} else {
-										vis.setValue(oid, ui.value);
-									}
+
+								if (data.iInvertMinMax) {
+									vis.setValue(oid, (parseFloat(data.iMaxVal) - ui.value + parseFloat(data.iMinVal)));
+								} else {
+									vis.setValue(oid, ui.value);
 								}
+
 								$this.parent().parent().find(".vis-inventwo-slider-currentvalue").html(ui.value);
 								break;
 							case "rgb":
