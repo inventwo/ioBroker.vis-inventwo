@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.7.6",
+    "version": "2.7.7",
     "news": {
+      "2.7.7": {
+        "en": "Fixed issue with image sizing, fixed issue with colorslider that value not saved on release",
+        "de": "Problem mit der Bildgröße behoben, Problem mit dem Farbregler behoben, dessen Wert beim loslassen nicht gespeichert wurde",
+        "ru": "Исправлена проблема с изменением размера изображения, исправлена проблема с цветовым ползунком, значение которого не сохранялось при выпуске.",
+        "pt": "Corrigido problema com o tamanho da imagem, problema corrigido com colourslider cujo valor não foi salvo no lançamento",
+        "nl": "Probleem opgelost met het formaat van afbeeldingen, probleem opgelost met kleurenschuifregelaar waarvan de waarde niet werd opgeslagen bij vrijgave",
+        "fr": "Correction d'un problème avec le dimensionnement de l'image, correction d'un problème avec le curseur de couleur dont la valeur n'était pas enregistrée à la sortie",
+        "it": "Risolto il problema con il ridimensionamento delle immagini, risolto il problema con Colorslider quel valore non salvato al rilascio",
+        "es": "Se solucionó el problema con el tamaño de la imagen, se solucionó el problema con el deslizador de colores que el valor no se guardaba en el lanzamiento",
+        "pl": "Naprawiono problem z rozmiarami obrazu, naprawiono problem z suwakiem kolorów, którego wartość nie była zapisywana w momencie wydania",
+        "zh-cn": "解决了图像大小调整问题，解决了colorslider发行时未保存值的问题"
+      },
       "2.7.6": {
         "en": "Fixed issue with icon color for nav-widget, fixed issue with highlighting on touchdevices, fixed issue with radiobutton-widget and numbers datatype",
         "de": "Problem mit Symbolfarbe für Navi-Widget behoben, Problem mit Highlighting auf Touch-Geräten behoben, Problem mit Radiobutton-Widget und Datentyp Zahlen behoben",
@@ -26,30 +38,6 @@
         "es": "Se agregaron umbrales para la tabla JSON, se solucionó el problema con el control deslizante de color y el valor no válido, se corrigió el problema con las imágenes de señal, se agregó la opción para invertir los colores de los iconos, el control deslizante de color ahora puede diferenciar entre HEX, RGB y CIE",
         "pl": "Dodano progi dla tabeli JSON, Naprawiono problem z suwakiem kolorów i nieprawidłową wartością, Naprawiono problem z obrazami sygnałów, Dodano opcję odwracania kolorów ikon, Suwak kolorów może teraz rozróżniać HEX, RGB i CIE",
         "zh-cn": "添加了JSON表的阈值，修复了Color Slider和无效值的问题，修复了信号图像的问题，添加了用于反转图标颜色的选项，Color Slider现在可以区分HEX，RGB和CIE"
-      },
-      "2.7.4": {
-        "en": "Added missing translations for hovereffekt colors",
-        "de": "Fehlende Übersetzungen für Hovereffekt-Farben hinzugefügt",
-        "ru": "Добавлены отсутствующие переводы для цветов hovereffekt.",
-        "pt": "Adicionadas traduções ausentes para cores hovereffekt",
-        "nl": "Ontbrekende vertalingen toegevoegd voor hovereffekt-kleuren",
-        "fr": "Ajout de traductions manquantes pour les couleurs hovereffekt",
-        "it": "Aggiunte traduzioni mancanti per i colori hovereffekt",
-        "es": "Añadidas traducciones faltantes para los colores de hovereffekt",
-        "pl": "Dodano brakujące tłumaczenia dla kolorów hovereffekt",
-        "zh-cn": "添加了关于hovereffekt颜色的缺少翻译"
-      },
-      "2.7.3": {
-        "en": "Fixed issue for Multi-State with multiple conditions, added shadow and border hover effect for buttons",
-        "de": "Problem für Multi-State mit mehreren Bedingungen behoben, Schatten- und Rahmen-Hover-Effekt für Schaltflächen hinzugefügt",
-        "ru": "Исправлена проблема для Multi-State с несколькими условиями, добавлен эффект тени и наведения границы для кнопок",
-        "pt": "Corrigido o problema de vários estados com várias condições, adição de sombra e efeito de flutuação de borda para botões",
-        "nl": "Probleem opgelost voor Multi-State met meerdere voorwaarden, toegevoegd schaduw- en randeffect voor knoppen",
-        "fr": "Correction d'un problème pour Multi-State avec plusieurs conditions, ajout d'un effet d'ombre et de survol de bordure pour les boutons",
-        "it": "Risolto il problema per Multi-State con condizioni multiple, aggiunta di ombreggiatura e effetto di passaggio del bordo per i pulsanti",
-        "es": "Problema solucionado para Multi-State con múltiples condiciones, efecto agregado de sombra y desplazamiento de borde para botones",
-        "pl": "Naprawiono problem dla wielu stanów z wieloma warunkami, dodanym efektem najechania cieniem i obramowaniem dla przycisków",
-        "zh-cn": "解决了具有多个条件的多状态问题，为按钮添加了阴影和边框悬停效果"
       },
       "2.7.0": {
         "en": "New widget: Colorslider, JSON Table new columnformats boolean and number, JSON Table fixed header, JSON Table fixed issue with sorting, JSON Table configurable dummyrow, fixed bugs ",

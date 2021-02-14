@@ -24,7 +24,6 @@
     text-align: center;
     position:relative;
     z-index: 1;
-    display: inline-flex;
 }
 
 .vis-inventwo-button-text {
@@ -142,4 +141,10 @@
 
 .vis-inventwo-json-table .vis-inventwo-json-table-checkbox-container.checked .vis-inventwo-json-table-checkbox-checkmark:after{
     display: block;
+}
+
+.vis-inventwo-img{
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
 }

@@ -1068,7 +1068,7 @@ vis.binds["vis-inventwo"] = {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
 					if (data.iImgColorFalseFilter != undefined && data.iImgColorFalseFilter != "")
-						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.CColorFalseFilter.substring(8, data.iImgColorFalseFilter.length - 1));
+						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8, data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
 					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
 					if (vis.editMode) {
@@ -1579,6 +1579,19 @@ vis.binds["vis-inventwo"] = {
 
 		function updateSlider() {
 
+			function setColor(rgb) {
+				if (rgb == null) {
+					rgb = [255, 0, 0];
+					val = "#ff0000";
+				}
+				else{
+					val = vis.binds['vis-inventwo'].rgbToHex(rgb);
+				}
+
+				$this.children().css("background", val);
+				$this.slider("option", "value", rgbToDecimal(rgb));
+			}
+
 			let val = vis.states.attr(oid + ".val");
 
 			switch (type) {
@@ -1599,31 +1612,32 @@ vis.binds["vis-inventwo"] = {
 					switch (data.iColorSliderType) {
 						case "HEX":
 							rgb = vis.binds['vis-inventwo'].hexToRgb(val);
+							setColor(rgb);
 							break;
 						case "RGB":
-							let r = vis.states.attr(data.iIdRed + ".val");
-							let g = vis.states.attr(data.iIdGreen + ".val");
-							let b = vis.states.attr(data.iIdBlue + ".val");
-							if(r != undefined && r != "" && g != undefined && g != "" && b != undefined && b != "") {
-								rgb = [
-									r, g, b
-								];
-							}
+							vis.conn._socket.emit("getState", data.iIdRed, function (err, obj1) {
+								vis.conn._socket.emit("getState", data.iIdGreen, function (err2, obj2) {
+									vis.conn._socket.emit("getState", data.iIdBlue, function (err, obj3) {
+
+										if(obj1 && obj2 && obj3){
+											rgb = [obj1.val, obj2.val, obj3.val];
+
+											setColor(rgb);
+										}
+										else{
+											rgb = [255,0,0];
+										}
+
+
+									});
+								});
+							});
 							break;
 						case "CIE":
 							rgb = vis.binds['vis-inventwo'].cieConvert(val, "rgb");
+							setColor(rgb);
 							break;
 					}
-					if (rgb == null) {
-						rgb = [255, 0, 0];
-						val = "#ff0000";
-					}
-					else{
-						val = vis.binds['vis-inventwo'].rgbToHex(rgb);
-					}
-
-					$this.children().css("background", val);
-					$this.slider("option", "value", rgbToDecimal(rgb));
 					break;
 			}
 
@@ -1646,12 +1660,12 @@ vis.binds["vis-inventwo"] = {
 			$this.children().css("margin-bottom", "-" + (data.iSliderKnobSize / 2) + "px");
 		}
 
-
 		vis.states.bind(oid + ".val", function () {
-			if(!isDragging) {
+			if (!isDragging) {
 				updateSlider();
 			}
 		});
+
 
 	},
 
@@ -2896,8 +2910,6 @@ vis.binds["vis-inventwo"] = {
 	 */
 	colorFilterGenerator: function (hex) {
 
-		console.log("COLOR FILTER");
-
 		class Color {
 			constructor(r, g, b) {
 				this.set(r, g, b);
@@ -3233,8 +3245,6 @@ vis.binds["vis-inventwo"] = {
 		let filter = "";
 		color = color.toLowerCase();
 
-		console.log(color + " - " + wid);
-
 		if (/^#[0-9A-F]{6}$/i.test(color)) {
 
 			vis.conn._socket.emit("getState", "vis-inventwo.0.intern.ColorFilter." + color.substring(1), function (err, obj) {
@@ -3263,7 +3273,6 @@ vis.binds["vis-inventwo"] = {
 			});
 		}
 		else{
-			console.log("no filter");
 			$("#" + wid).find(".vis-inventwo-img").css("filter", "");
 		}
 
@@ -3276,8 +3285,6 @@ vis.binds["vis-inventwo"] = {
 			val = true;
 		else if (val == "false")
 			val = false;
-
-		console.log(typeof val);
 
 		return val;
 	},
