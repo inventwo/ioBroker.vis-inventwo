@@ -165,10 +165,26 @@ if (vis.editMode) {
 			"de": "Farbe invertieren"
 		},
 
-		"iImgRepeat": {
-			"en": "Repeat image",
-			"de": "Bild wiederholen"
+		"iImgScaleType": {
+			"en": "Scale type",
+			"de": "Art der Skalierung"
 		},
+
+		"iImgTileSize": {
+			"en": "Tile size",
+			"de": "Kachelgröße"
+		},
+
+		"iStretch": {
+			"en": "Stretch",
+			"de": "Füllen"
+		},
+
+		"iRepeat": {
+			"en": "Repeat",
+			"de": "Wiederholen"
+		},
+
 		//#endregion
 
 		//#region Text Settings
@@ -2731,10 +2747,11 @@ vis.binds["vis-inventwo"] = {
 						<div class="vis-inventwo-button-imageContainer"
 							 style="order: ` + orderContent + `;
 							 align-self: ` + imgAlign + `;
-							 margin: ` + imgMargin + `; ` + dispNone + `">
+							 margin: ` + imgMargin + `;">
 							<div class="vis-inventwo-img"
 								 style="background-image: url('` + img + `'); transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
-								 		animation:blink ` + imgBlink + `s infinite; ` + invertCol + ` width: ` + dataNew.iIconSize + `px; height: ` + dataNew.iIconSize + `px;"> </div>
+								 		animation:blink ` + imgBlink + `s infinite; ` + invertCol + ` width: ` + dataNew.iIconSize + `px; 
+								 		height: ` + dataNew.iIconSize + `px;` + dispNone + `"> </div>
 						</div>
 						
 						<div class="vis-inventwo-button-text"

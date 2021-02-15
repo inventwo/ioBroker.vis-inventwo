@@ -1,10 +1,22 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.7.8",
+    "version": "2.7.9",
     "news": {
+      "2.7.9": {
+        "en": "Added image size option for Image-Widget, Fixed issue from previous version",
+        "de": "Option für die Bildgröße für das Image-Widget hinzugefügt, Problem in der vorherigen Version behoben",
+        "ru": "Добавлена опция размера изображения для Image-Widget, исправлена проблема из предыдущей версии",
+        "pt": "Adicionada opção de tamanho de imagem para Image-Widget, problema corrigido da versão anterior",
+        "nl": "Optie voor afbeeldingsgrootte toegevoegd voor Image-Widget, probleem opgelost ten opzichte van de vorige versie",
+        "fr": "Ajout d'une option de taille d'image pour Image-Widget, problème résolu de la version précédente",
+        "it": "Aggiunta l'opzione dimensione immagine per Image-Widget, problema risolto dalla versione precedente",
+        "es": "Opción de tamaño de imagen agregada para Image-Widget, problema solucionado de la versión anterior",
+        "pl": "Dodano opcję rozmiaru obrazu dla widżetu obrazu, naprawiono problem z poprzedniej wersji",
+        "zh-cn": "为图像小部件添加了图像大小选项，已修复先前版本的问题"
+      },
       "2.7.8": {
-        "en": "fixed issue with text align, fixed issue with imagesize in image-widget",
+        "en": "Fixed issue with text align, fixed issue with imagesize in image-widget",
         "de": "Problem mit der Textausrichtung behoben, Problem mit der Bildgröße im Image-Widget behoben",
         "ru": "исправлена проблема с выравниванием текста, исправлена проблема с размером изображения в виджете изображения",
         "pt": "problema corrigido com alinhamento de texto, problema corrigido com tamanho de imagem no widget de imagem",

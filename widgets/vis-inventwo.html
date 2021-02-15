@@ -4,6 +4,7 @@
 	Copyright 2020 jkvarel jkvarel@inventwo.com
 -->
 
+
 <link rel="stylesheet" href="widgets/vis-inventwo/css/style.css"/>
 <script type="text/javascript" src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
 
@@ -742,7 +743,8 @@
 						 iImgColorTrue[]/color;
 						 iImgColorInvertFalse/checkbox;
 						 iImgColorInvertTrue/checkbox;
-						 iImgRepeat/checkbox;
+						 iImgScaleType[Normal]/select,Normal,iRepeat,iStretch;
+						 iImgTileSize[]/slider,1,100,1;
 
 						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
 						 iShadowSpread[0]/slider,0,50,1;
@@ -821,9 +823,15 @@
 						}
             		}
 
-            		let repeat = "";
-            		if(dataNew.iImgRepeat){
-            			repeat = "background-repeat: repeat;";
+            		let scaleTypeCss = "";
+            		switch(dataNew.iImgScaleType){
+            			case "iRepeat":
+            				scaleTypeCss = "background-repeat: repeat;";
+            				scaleTypeCss += "background-size: " + dataNew.iImgTileSize + "%;";
+            				break;
+            			case "iStretch":
+            				scaleTypeCss = "background-size: 100% 100%;";
+            				break;
             		}
 
             		changeFilter();
@@ -843,7 +851,7 @@
             		    	 style="transform: scaleX(` + cssData.flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
             		    	 		border-radius: ` + dataNew.iCornerRadiusUL + `px ` + data.iCornerRadiusUR+ `px ` + data.iCornerRadiusLR+ `px ` + data.iCornerRadiusLL+ `px;
             		    	 		animation:blink ` + imgBlink + `s infinite; ` + invertCol + `background-image: url('` + img + `');
-            		    	 		width: 100%; height: 100%;` + repeat + `"></div>
+            		    	 		width: 100%; height: 100%;` + scaleTypeCss + `"></div>
 
 					</div>
             		`;
