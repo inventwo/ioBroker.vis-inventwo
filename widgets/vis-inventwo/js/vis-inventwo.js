@@ -2716,14 +2716,33 @@ vis.binds["vis-inventwo"] = {
 			else if (dataNew.iImgAlign == "iEnd")
 				imgAlign = "flex-end";
 
-			//Textausrichtung
+			/*//Textausrichtung
 			let textAlign = "";
 			if (dataNew.iTextAlign == "iStart")
 				textAlign = "flex-start";
 			else if (dataNew.iTextAlign == "iCenter")
 				textAlign = "center";
 			else if (dataNew.iTextAlign == "iEnd")
-				textAlign = "flex-end";
+				textAlign = "flex-end";*/
+
+			//Textausrichtung
+			let textAlign = "";
+			if(dataNew.iContentFlexDirection == "vertical") {
+				if (dataNew.iTextAlign == "iStart")
+					textAlign = "text-align: left";
+				else if (dataNew.iTextAlign == "iCenter")
+					textAlign = "text-align: center";
+				else if (dataNew.iTextAlign == "iEnd")
+					textAlign = "text-align: right";
+			}
+			else{
+				if (dataNew.iTextAlign == "iStart")
+					textAlign = "align-self: flex-start";
+				else if (dataNew.iTextAlign == "iCenter")
+					textAlign = "align-self: center";
+				else if (dataNew.iTextAlign == "iEnd")
+					textAlign = "align-self: flex-end";
+			}
 
 			let dispNone = "";
 			if(img == ""){
@@ -2758,7 +2777,7 @@ vis.binds["vis-inventwo"] = {
 							 style="font-size: ` + dataNew.iTextSize + `px;
 							 		color: ` + dataNew.iTextColor + `;
 							 		margin: ` + txtMargin + `;
-							 		align-self: ` + textAlign + `;">
+							 		` + textAlign + `;">
 							` + txt + `
 						</div>
 						
