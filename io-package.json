@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.7.7",
+    "version": "2.7.8",
     "news": {
+      "2.7.8": {
+        "en": "fixed issue with text align, fixed issue with imagesize in image-widget",
+        "de": "Problem mit der Textausrichtung behoben, Problem mit der Bildgröße im Image-Widget behoben",
+        "ru": "исправлена проблема с выравниванием текста, исправлена проблема с размером изображения в виджете изображения",
+        "pt": "problema corrigido com alinhamento de texto, problema corrigido com tamanho de imagem no widget de imagem",
+        "nl": "probleem opgelost met tekstuitlijning, probleem opgelost met afbeeldingsgrootte in afbeeldingswidget",
+        "fr": "Correction d'un problème avec l'alignement du texte, correction d'un problème avec la taille de l'image dans le widget image",
+        "it": "risolto il problema con l'allineamento del testo, risolto il problema con la dimensione dell'immagine nel widget immagine",
+        "es": "Problema solucionado con la alineación del texto, problema solucionado con el tamaño de la imagen en el widget de imagen",
+        "pl": "naprawiony problem z wyrównywaniem tekstu, naprawiony problem z rozmiarem obrazu w widżecie obrazu",
+        "zh-cn": "解决了文本对齐问题，解决了图像小部件中imagesize的问题"
+      },
       "2.7.7": {
         "en": "Fixed issue with image sizing, fixed issue with colorslider that value not saved on release",
         "de": "Problem mit der Bildgröße behoben, Problem mit dem Farbregler behoben, dessen Wert beim loslassen nicht gespeichert wurde",

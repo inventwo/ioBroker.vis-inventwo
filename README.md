@@ -72,6 +72,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 2.7.8
+- Problem mit Textausrichtung behoben
+- Problem mit Bildgröße im Image-Widget behoben
+
 ## 2.7.7
 
 - Problem mit der Bildgröße behoben
