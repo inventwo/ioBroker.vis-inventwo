@@ -164,6 +164,11 @@ if (vis.editMode) {
 			"en": "Invert color",
 			"de": "Farbe invertieren"
 		},
+
+		"iImgRepeat": {
+			"en": "Repeat image",
+			"de": "Bild wiederholen"
+		},
 		//#endregion
 
 		//#region Text Settings
@@ -2704,6 +2709,11 @@ vis.binds["vis-inventwo"] = {
 			else if (dataNew.iTextAlign == "iEnd")
 				textAlign = "flex-end";
 
+			let dispNone = "";
+			if(img == ""){
+				dispNone = "display: none";
+			}
+
 			let html = `
 			<div class="vis-inventwo-class vis-widget-body">
 				<div>
@@ -2721,10 +2731,10 @@ vis.binds["vis-inventwo"] = {
 						<div class="vis-inventwo-button-imageContainer"
 							 style="order: ` + orderContent + `;
 							 align-self: ` + imgAlign + `;
-							 margin: ` + imgMargin + `;">
-							<img src="` + img + `" width="` + dataNew.iIconSize + `" class="vis-inventwo-img"
-								 style="transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
-								 		animation:blink ` + imgBlink + `s infinite; ` + invertCol + `"> 
+							 margin: ` + imgMargin + `; ` + dispNone + `">
+							<div class="vis-inventwo-img"
+								 style="background-image: url('` + img + `'); transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
+								 		animation:blink ` + imgBlink + `s infinite; ` + invertCol + ` width: ` + dataNew.iIconSize + `px; height: ` + dataNew.iIconSize + `px;"> </div>
 						</div>
 						
 						<div class="vis-inventwo-button-text"
