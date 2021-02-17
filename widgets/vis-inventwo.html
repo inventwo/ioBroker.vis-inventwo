@@ -110,8 +110,9 @@
 	</div>
 
 </script>
-<!--
-<script id="i-vis-universal-test"
+
+
+<!--<script id="i-vis-universal-test"
 		type="text/ejs"
 		class="vis-tpl"
 		data-vis-prev='<img src="widgets/vis-inventwo/img/Universal.gif">'
@@ -173,6 +174,7 @@
 						 iImgBlinkFalse[0]/slider,0,2000,100;
 						 iImgBlinkTrue[0]/slider,0,2000,100;
 						 iImgColorFalse[]/color;
+						 iImgColorTrue[]/color;
 						 iImgColorInvertFalse/checkbox;
 						 iImgColorInvertTrue/checkbox;
 
@@ -202,24 +204,23 @@
 						 iBorderColorHover[]/color;"
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
-		data-vis-name="Universal<br>
+		data-vis-name="Universal TEST<br>
 						<span style='color:#888888;'>Switch - State/Button - Navigation - Background</span>">
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+	<div class="vis-widget <%== this.data.attr('class') %> <% if(this.data.iUniversalWidgetType == "Navigation") { %>isNavigation<% } %>" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 
-		<%= (el) -> vis.binds['vis-inventwo'].hideImgFilterFields(el) %>
+		<%= (el) -> vis.binds['vis-inventwo'].handleBtnClick(el, "universal", this.data) %>
 
-		<div class="vis-inventwo-class vis-widget-body">
+		<div class="vis-inventwo-class vis-widget-body" style="<%== vis.binds['vis-inventwo'].universalButtonBackgroundStyles(this.data) %>">
 
 			<div class="vis-inventwo-button-new"
 				 style="
 				 	opacity: <%== this.data.iOpacityBack %>;
-				 	background: var(--background);
-				 	box-shadow: <%== this.data.iShadowXOffset %>px <%== this.data.iShadowYOffset %>px <%== this.data.iShadowBlur %>px <%== this.data.iShadowSpread %>px var(--box-shadow-color);
-				 	border: <%== this.data.iBorderSize %>px <%== this.data.iBorderStyle %> var(--border-color);
+				 	background: var(&#45;&#45;background);
+				 	box-shadow: <%== this.data.iShadowXOffset %>px <%== this.data.iShadowYOffset %>px <%== this.data.iShadowBlur %>px <%== this.data.iShadowSpread %>px var(&#45;&#45;box-shadow-color);
+				 	border: <%== this.data.iBorderSize %>px <%== this.data.iBorderStyle %> var(&#45;&#45;border-color);
 				 	border-radius: <%== this.data.iCornerRadiusUL %>px <%== this.data.iCornerRadiusUR %>px <%== this.data.iCornerRadiusLR %>px <%== this.data.iCornerRadiusLL %>px;
-
-				 	<%== vis.binds['vis-inventwo'].universalButtonBackgroundStyles(this.data) %>">
+				 	">
 
 				<div class="vis-inventwo-button-content"
 					 style="opacity: <%== this.data.iOpacityCtn %>;
@@ -236,9 +237,8 @@
 							 class="vis-inventwo-img"
 							 style="transform: scaleX(<%== vis.binds['vis-inventwo'].universalButtonImageFlip(this.data.iFlipImage) %>)
 							 		rotateZ(<%== this.data.iImgRotation %>deg);
-								 	animation:blink var(--image-blink)s infinite;
-								 	filter: invert(var(--image-invert));">
-
+								 	animation:blink var(&#45;&#45;image-blink) infinite;
+								 	filter: invert(var(&#45;&#45;image-invert));">
 					</div>
 
 					<div class="vis-inventwo-button-text"
@@ -252,11 +252,12 @@
 				</div>
 			</div>
 		</div>
+
 	</div>
 
+</script>-->
 
-</script>
--->
+
 
 
 <script id="i-vis-multi"

@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.7.9",
+    "version": "2.7.10",
     "news": {
+      "2.7.10": {
+        "en": "Fixed issue with images in Universal- and Multi-Widget, Fixed issue with image change in Universal- and Multi-Widget",
+        "de": "Problem mit Bildern in Universal- und Multi-Widget behoben, Problem mit Bildänderung in Universal- und Multi-Widget behoben",
+        "ru": "Исправлена проблема с изображениями в универсальном и мульти-виджетах, исправлена проблема с изменением изображения в универсальных и мульти-виджетах.",
+        "pt": "Corrigido problema com imagens em Universal- e Multi-Widget, Corrigido problema com alteração de imagem em Universal- e Multi-Widget",
+        "nl": "Probleem opgelost met afbeeldingen in Universal- en Multi-Widget, Probleem opgelost met afbeeldingswijziging in Universal- en Multi-Widget",
+        "fr": "Correction d'un problème avec les images dans Universal- et Multi-Widget, Correction d'un problème avec le changement d'image dans Universal- et Multi-Widget",
+        "it": "Risolto il problema con le immagini in Universal- e Multi-Widget, Risolto problema con la modifica delle immagini in Universal- e Multi-Widget",
+        "es": "Problema solucionado con imágenes en Universal- y Multi-Widget, Problema solucionado con cambio de imagen en Universal- y Multi-Widget",
+        "pl": "Naprawiono problem z obrazami w Universal- i Multi-Widget, Naprawiono problem ze zmianą obrazu w Universal- i Multi-Widget",
+        "zh-cn": "修复了通用和多控件中的图像问题，修复了通用和多控件中的图像问题"
+      },
       "2.7.9": {
         "en": "Added image size option for Image-Widget, Fixed issue from previous version",
         "de": "Option für die Bildgröße für das Image-Widget hinzugefügt, Problem in der vorherigen Version behoben",

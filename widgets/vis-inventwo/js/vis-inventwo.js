@@ -969,6 +969,23 @@ vis.binds["vis-inventwo"] = {
 
 		setTimeout(function () {
 
+			$(".isNavigation").each(function (el) {
+
+				let id = $(this).attr("id");
+				let data = vis.widgets[id].data;
+				let styles = vis.binds['vis-inventwo'].universalButtonBackgroundStyles(data);
+				styles = styles.split(";");
+
+				styles.forEach(style => {
+					let s = style.split(":");
+					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty(s[0], s[1]);
+				});
+
+				$(this).find(".vis-inventwo-button-text").html(vis.binds['vis-inventwo'].universalButtonText(data));
+				$(this).find(".vis-inventwo-button-imageContainer img").attr("src", vis.binds['vis-inventwo'].universalButtonImage(data));
+
+			});
+
 			$(".vis-inventwo-nav").each(function (el) {
 
 				if ($(this).attr("data-inventwo-nav") === vis.activeView)
@@ -984,7 +1001,7 @@ vis.binds["vis-inventwo"] = {
 
 				if (data.nav_view === vis.activeView) {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonActive);
-					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
+					$(this).find(".vis-inventwo-img").css("background-image", "url('" + data.iImageTrue + "')");
 					if (data.iImgColorTrueFilter != undefined && data.iImgColorTrueFilter != "")
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorTrueFilter.substring(8, data.iImgColorTrueFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextTrue);
@@ -1013,7 +1030,7 @@ vis.binds["vis-inventwo"] = {
 					}
 				} else {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
-					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
+					$(this).find(".vis-inventwo-img").css("background-image", "url('" + data.iImageFalse + "')");
 					if (data.iImgColorFalseFilter != undefined && data.iImgColorFalseFilter != "")
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8, data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
@@ -1054,7 +1071,7 @@ vis.binds["vis-inventwo"] = {
 					if (data["iView" + i] === vis.activeView) {
 						stateFound = true;
 						$(this).find(".vis-inventwo-button-new").css("background", data["iButtonActiveM" + i]);
-						$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data["iImageTrue" + i]);
+						$(this).find(".vis-inventwo-img").css("background-image", "url('" + data["iImageTrue" + i] + "')");
 						if (data["iImgColorTrueFilter" + i] != undefined && data["iImgColorTrueFilter" + i] != "")
 							$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data["iImgColorTrueFilter" + i].substring(8, data["iImgColorTrueFilter" + i].length - 1));
 						$(this).find(".vis-inventwo-button-text").html(data["iTextTrue" + i]);
@@ -1087,7 +1104,7 @@ vis.binds["vis-inventwo"] = {
 				}
 				if (!stateFound) {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
-					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
+					$(this).find(".vis-inventwo-img").css("background-image", "url('" + data.iImageFalse + "')");
 					if (data.iImgColorFalseFilter != undefined && data.iImgColorFalseFilter != "")
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8, data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
@@ -1231,7 +1248,8 @@ vis.binds["vis-inventwo"] = {
 					vis.setValue(data.oid, val);
 				}
 
-				vis.binds["vis-inventwo"].iUpdateNavigations(data.iNavWait, true);
+				// Auskommentiert da navChangeCallbacks die Funktion bereits aufruft
+				//vis.binds["vis-inventwo"].iUpdateNavigations(data.iNavWait, true);
 
 			}).on("touchmove", function () {
 				moved = true;
@@ -2767,10 +2785,9 @@ vis.binds["vis-inventwo"] = {
 							 style="order: ` + orderContent + `;
 							 align-self: ` + imgAlign + `;
 							 margin: ` + imgMargin + `;">
-							<div class="vis-inventwo-img"
-								 style="background-image: url('` + img + `'); transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
-								 		animation:blink ` + imgBlink + `s infinite; ` + invertCol + ` width: ` + dataNew.iIconSize + `px; 
-								 		height: ` + dataNew.iIconSize + `px;` + dispNone + `"> </div>
+							<img src="` + img + `" width="` + dataNew.iIconSize + `" class="vis-inventwo-img"
+								 style="transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
+								 		animation:blink ` + imgBlink + `s infinite; ` + invertCol + `"> 
 						</div>
 						
 						<div class="vis-inventwo-button-text"
@@ -3800,138 +3817,250 @@ vis.binds["vis-inventwo"] = {
 				}, 100);
 			});
 		}
-	}
+	},
 
 
-	/*
-		checkIfTrue: function (oid, value, comparator, valueType) {
+
+	checkIfTrue: function (data, value) {
+
+		if(data.iUniversalWidgetType == "Navigation"){
+			if(vis.activeView == data.nav_view){
+				return true
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+
+			let oid = data.oid;
+			let comparator = data.iValueComparison;
+			let valueType = data.iValueType;
+			let value = data.iValueTrue;
+
 			let comparasionTable = {
-				'greater' : function (val1, val2) { return val1 > val2 },
-				'lower' : function (val1, val2) { return val1 < val2 },
-				'equal' : function (val1, val2) { return val1 == val2 },
+				'greater': function (val1, val2) {
+					return val1 > val2
+				},
+				'lower': function (val1, val2) {
+					return val1 < val2
+				},
+				'equal': function (val1, val2) {
+					return val1 == val2
+				},
 				//'>=' : function (val1, val2) { return val1 >= val2 },
 				//'<=' : function (val1, val2) { return val1 <= val2 },
-				'not' : function (val1, val2) { return val1 != val2 },
+				'not': function (val1, val2) {
+					return val1 != val2
+				},
 			}
 
 			let dpVal = vis.states.attr(oid + ".val");
 			dpVal = this.convertValue(dpVal);
 
-			if(valueType == "boolean")
+			if (valueType == "boolean")
 				value = true;
 
 			value = this.convertValue(value);
 
-			console.log(value);
-			console.log(dpVal);
-
-			if(comparasionTable[comparator](dpVal,value)){
-				console.log("is strue");
+			if (comparasionTable[comparator](dpVal, value)) {
 				return true;
-			}
-			else{
-				console.log("is false");
+			} else {
 				return false;
 			}
+		}
 
-		},
+	},
 
-		universalButtonBackgroundStyles: function (data) {
-			let style = "";
-			if(this.checkIfTrue(data.oid, data.iValueTrue, data.iValueComparison, data.iValueType)){
-				let invertImg = 0;
-				if(data.iImgColorInvertTrue){
-					invertImg = 1;
+	universalButtonBackgroundStyles: function (data) {
+		console.log("ZTfg");
+		let style = "";
+
+		let isTrue = this.checkIfTrue(data);
+
+		if(isTrue){
+			let invertImg = 0;
+			if(data.iImgColorInvertTrue){
+				invertImg = 1;
+			}
+
+			style = "--background: " + data.iButtonActive + "; " +
+				"--box-shadow-color:" + data.iShadowColorActive + ";" +
+				"--border-color: " + data.iBorderColorActive + ";" +
+				"--image-blink: " + data.iImgBlinkTrue / 1000 + "s;" +
+				"--image-invert: " + invertImg + ";";
+
+		}
+		else{
+			let invertImg = 0;
+			if(data.iImgColorInvertFalse){
+				invertImg = 1;
+			}
+
+			style = "--background: " + data.iButtonCol + "; " +
+				"--box-shadow-color:" + data.iShadowColor + ";" +
+				"--border-color: " + data.iBorderColor + ";" +
+				"--image-blink: " + data.iImgBlinkFalse / 1000 + "s;" +
+				"--image-invert: " + invertImg + ";";
+		}
+		return style;
+	},
+
+	universalButtonText: function (data) {
+		let text = "";
+
+		let isTrue = this.checkIfTrue(data);
+
+		if(isTrue){
+			text = data.iTextTrue;
+		}
+		else{
+			text = data.iTextFalse;
+		}
+		return text;
+	},
+
+	universalButtonImage: function (data) {
+		let img = "";
+
+		let isTrue = this.checkIfTrue(data);
+
+		if(isTrue){
+			img = data.iImageTrue;
+		}
+		else{
+			img = data.iImageFalse;
+		}
+		return img;
+	},
+
+	universalButtonAlign: function (align) {
+		let ret = "";
+		if(align == "iStart"){
+			ret = "flex-start";
+		}
+		else if(align == "iCenter"){
+			ret = "center";
+		}
+		else if(align == "iEnd"){
+			ret = "flex-end";
+		}
+		else if(align == "iSpace-between"){
+			ret = "space-between";
+		}
+		return ret;
+	},
+
+	universalButtonContentDirection: function (dir) {
+		let ret = "";
+		if(dir == "vertical"){
+			ret = "column";
+		}
+		else if(dir == "horizontal"){
+			ret = "row";
+		}
+		return ret;
+	},
+
+	universalButtonContentOrder: function (order) {
+		let ret = 0;
+		if(order == "orderTextImg"){
+			ret = 2;
+		}
+		return ret;
+	},
+
+	universalButtonImageFlip: function (flip) {
+		let ret = 1;
+		if(flip){
+			ret = -1;
+		}
+		return ret;
+	},
+
+	handleBtnClick: function (el, type, data) {
+		$(el).parent().on('click touchend', function () {
+
+			switch (type) {
+				case "universal":
+				case "multi":
+
+					let btnType = data.iUniversalWidgetType;
+					let oid = data.oid;
+					switch (btnType) {
+						case "Switch":
+							let dpVal = vis.states[oid + ".val"];
+							let valType = data.iValueType;
+
+							if(valType == "boolean"){
+								vis.setValue(oid, !dpVal);
+							}
+							else{
+								let valTrue = vis.binds["vis-inventwo"].parseValue(data.iValueTrue);
+								let valFalse = vis.binds["vis-inventwo"].parseValue(data.iValueFalse);
+
+								dpVal = vis.binds["vis-inventwo"].parseValue(dpVal);
+
+								if(dpVal == valTrue){
+									vis.setValue(oid, valFalse);
+								}
+								else{
+									vis.setValue(oid, valTrue);
+								}
+							}
+
+							break;
+						case "State":
+							let val = vis.binds["vis-inventwo"].parseValue(data.value);
+							vis.setValue(oid, val);
+							break;
+						case "Navigation":
+							vis.changeView(data.nav_view, data.nav_view);
+							break;
+						case "Background":
+							break;
+						case "IncreaseDecreaseValue":
+							break;
+						default:
+							console.log("no btn type");
+					}
+
+					break;
+
+				default:
+					console.log("no type");
+			}
+
+		});
+	},
+
+	parseValue: function (value, type = "") {
+		switch (type) {
+			case "numberic":
+				return parseFloat(value);
+			case "string":
+				return value.toString();
+			case "boolean":
+				if(value == "true")
+					return true;
+				else
+					return false;
+			default:
+				if(value == "true")
+					return true;
+				else if(value == "false")
+					return false;
+				else {
+					if(!isNaN(value))
+						return parseFloat(value);
+					else{
+						return value;
+					}
 				}
 
-				style = "--background: " + data.iButtonActive + "; " +
-						"--box-shadow-color:" + data.iShadowColorActive + ";" +
-						"--border-color: " + data.iBorderColorActive + ";" +
-						"--image-blink: " + data.iImgBlinkTrue / 1000 + ";" +
-						"--image-invert: " + invertImg + ";";
+		}
+	}
 
-			}
-			else{
-				let invertImg = 0;
-				if(data.iImgColorInvertFalse){
-					invertImg = 1;
-				}
-
-				style = "--background: " + data.iButtonCol + "; " +
-						"--box-shadow-color:" + data.iShadowColor + ";" +
-						"--border-color: " + data.iBorderColor + ";" +
-						"--image-blink: " + data.iImgBlinkFalse / 1000 + ";" +
-						"--image-invert: " + invertImg + ";";
-			}
-			return style;
-		},
-
-		universalButtonText: function (data) {
-			let text = "";
-			if(this.checkIfTrue(data.oid, data.iValueTrue, data.iValueComparison, data.iValueType)){
-				text = data.iTextTrue;
-			}
-			else{
-				text = data.iTextFalse;
-			}
-			return text;
-		},
-
-		universalButtonImage: function (data) {
-			let img = "";
-			if(this.checkIfTrue(data.oid, data.iValueTrue, data.iValueComparison, data.iValueType)){
-				img = data.iImageTrue;
-			}
-			else{
-				img = data.iImageFalse;
-			}
-			return img;
-		},
-
-		universalButtonAlign: function (align) {
-			let ret = "";
-			if(align == "iStart"){
-				ret = "flex-start";
-			}
-			else if(align == "iCenter"){
-				ret = "center";
-			}
-			else if(align == "iEnd"){
-				ret = "flex-end";
-			}
-			else if(align == "iSpace-between"){
-				ret = "space-between";
-			}
-			return ret;
-		},
-
-		universalButtonContentDirection: function (dir) {
-			let ret = "";
-			if(dir == "vertical"){
-				ret = "column";
-			}
-			else if(dir == "horizontal"){
-				ret = "row";
-			}
-			return ret;
-		},
-
-		universalButtonContentOrder: function (order) {
-			let ret = 0;
-			if(order == "orderTextImg"){
-				ret = 2;
-			}
-			return ret;
-		},
-
-		universalButtonImageFlip: function (flip) {
-			let ret = 1;
-			if(flip){
-				ret = -1;
-			}
-			return ret;
-		},
-	*/
 
 
 
