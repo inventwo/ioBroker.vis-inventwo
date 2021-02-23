@@ -2787,7 +2787,7 @@ vis.binds["vis-inventwo"] = {
 							 margin: ` + imgMargin + `;">
 							<img src="` + img + `" width="` + dataNew.iIconSize + `" class="vis-inventwo-img"
 								 style="transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
-								 		animation:blink ` + imgBlink + `s infinite; ` + invertCol + `"> 
+								 		animation:blink ` + imgBlink + `s infinite; ` + invertCol + dispNone +`"> 
 						</div>
 						
 						<div class="vis-inventwo-button-text"

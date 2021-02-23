@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.7.10",
+    "version": "2.7.11",
     "news": {
+      "2.7.11": {
+        "en": "Bugfix",
+        "de": "Fehlerbehebung",
+        "ru": "Исправлена ошибка",
+        "pt": "Bugfix",
+        "nl": "Bugfix",
+        "fr": "Correction d'un bug",
+        "it": "Risoluzione del problema",
+        "es": "Arreglo del fallo",
+        "pl": "Naprawa błędów",
+        "zh-cn": "错误修正"
+      },
       "2.7.10": {
         "en": "Fixed issue with images in Universal- and Multi-Widget, Fixed issue with image change in Universal- and Multi-Widget",
         "de": "Problem mit Bildern in Universal- und Multi-Widget behoben, Problem mit Bildänderung in Universal- und Multi-Widget behoben",
