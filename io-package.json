@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.7.11",
+    "version": "2.8.0",
     "news": {
+      "2.8.0": {
+        "en": "Added View in PoUp option for Universal- and Multi-Widget; Bugfix",
+        "de": "View in PopUp Option für Universal- und Multi-Widget hinzugefügt; Fehlerbehebung",
+        "ru": "Добавлена опция просмотра в PoUp для универсальных и мульти-виджетов; Исправлена ошибка",
+        "pt": "Adicionada a opção View in PoUp para Universal e Multi-Widget; Bugfix",
+        "nl": "Weergave in PoUp-optie toegevoegd voor Universal- en Multi-Widget; Bugfix",
+        "fr": "Ajout de l'option View in PoUp pour Universal et Multi-Widget; Correction d'un bug",
+        "it": "Aggiunta l'opzione View in PoUp per Universal e Multi-Widget; Risoluzione del problema",
+        "es": "Se agregó la opción Vista en PoUp para Universal- y Multi-Widget; Arreglo del fallo",
+        "pl": "Dodano opcję Widok w PoUp dla Universal- i Multi-Widget; Naprawa błędów",
+        "zh-cn": "为通用和多窗口小部件添加了“在PoUp中查看”选项；错误修正"
+      },
       "2.7.11": {
         "en": "Bugfix",
         "de": "Fehlerbehebung",

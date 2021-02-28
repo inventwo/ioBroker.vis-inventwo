@@ -149,3 +149,53 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.vis-inventwo-modal{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    display: flex;
+}
+
+.vis-inventwo-modal .vis-inventwo-modal-window{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.vis-inventwo-modal .vis-inventwo-modal-window .vis-inventwo-modal-content{
+    width: 100%;
+    flex: 1 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.vis-inventwo-modal .vis-inventwo-modal-window .vis-inventwo-modal-titlebar{
+    position: relative;
+    flex: 0 0 40px;
+    padding: 5px 5px 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vis-inventwo-modal .vis-inventwo-modal-window .vis-inventwo-modal-title{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.vis-inventwo-modal .vis-inventwo-modal-window .vis-inventwo-modal-closebtn{
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

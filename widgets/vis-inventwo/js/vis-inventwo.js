@@ -791,6 +791,30 @@ if (vis.editMode) {
 			"en": "vertical",
 			"de": "Senkrecht"
 		},
+		"Switch": {
+			"en": "Switch",
+			"de": "Switch"
+		},
+		"State": {
+			"en": "State",
+			"de": "State"
+		},
+		"Navigation": {
+			"en": "Navigation",
+			"de": "Navigation"
+		},
+		"Background": {
+			"en": "Background",
+			"de": "Background"
+		},
+		"IncreaseDecreaseValue": {
+			"en": "Increase or decrease value",
+			"de": "Wert erhöhen oder verringern"
+		},
+		"ViewInPopup": {
+			"en": "View in popup",
+			"de": "View in PopUp"
+		},
 		//#endregion
 
 		//#region Image Settings
@@ -869,6 +893,82 @@ if (vis.editMode) {
 		},
 		//#endregion
 
+		//#region Toggle Switch Settings
+		"iPopUpBackground": {
+			"en": "Background color",
+			"de": "Hintergrundfarbe"
+		},
+		"iPopUpPreventClickOutside": {
+			"en": "Prevent close when clicking outside",
+			"de": "Verhindere schließen beim Klicken außerhalb"
+		},
+		"iPopUpShowTitle": {
+			"en": "Show title",
+			"de": "Zeige Titel"
+		},
+		"iPopUpTitle": {
+			"en": "Title",
+			"de": "Titel"
+		},
+		"iPopUpTitleColor": {
+			"en": "Title color",
+			"de": "Titel Farbe"
+		},
+		"iPopUpCloseBtnColor": {
+			"en": "Close buttom color",
+			"de": "Farbe X-Button"
+		},
+		"iPopUpWidth": {
+			"en": "Width",
+			"de": "Breite"
+		},
+		"iPopUpHeight": {
+			"en": "Height",
+			"de": "Höhe"
+		},
+		"iPopUpPosition": {
+			"en": "Position",
+			"de": "Position"
+		},
+
+		"iPopUpCornerRadiusUL": {
+			"en": "Border radius upper left",
+			"de": "Abrundung oben links"
+		},
+		"iPopUpCornerRadiusUR": {
+			"en": "Border radius upper right",
+			"de": "Abrundung oben rechts"
+		},
+		"iPopUpCornerRadiusLR": {
+			"en": "Border radius lower right",
+			"de": "Abrundung unten rechts"
+		},
+		"iPopUpCornerRadiusLL": {
+			"en": "Border radius lower left",
+			"de": "Abrundung unten links"
+		},
+
+		"iPopUpShadowXOffset": {
+			"en": "X offset",
+			"de": "X Versatz"
+		},
+		"iPopUpShadowYOffset": {
+			"en": "Y offset",
+			"de": "Y Versatz"
+		},
+		"iPopUpShadowBlur": {
+			"en": "Blur",
+			"de": "Blur"
+		},
+		"iPopUpShadowSpread": {
+			"en": "Spread",
+			"de": "Größe"
+		},
+		"iPopUpShadowColor": {
+			"en": "Color",
+			"de": "Farbe"
+		},
+		//#endregion
 
 		//#region Custom Text
 		"iText-Empty": {
@@ -939,6 +1039,18 @@ if (vis.editMode) {
 			"en": "<b>Slider knob</b>",
 			"de": "<b>Slider Regler</b>"
 		},
+		"iText-ViewPopUpSettings": {
+			"en": "<b>PopUp</b>",
+			"de": "<b>PopUp</b>"
+		},
+		"iText-ViewPopUpCornersSettings": {
+			"en": "<b>PopUp corners</b>",
+			"de": "<b>PopUp Ecken</b>"
+		},
+		"iText-ViewPopUpShadowSettings": {
+			"en": "<b>PopUp shadow</b>",
+			"de": "<b>PopUp Schatten</b>"
+		},
 		//#endregion
 
 	});
@@ -999,7 +1111,11 @@ vis.binds["vis-inventwo"] = {
 				let id = $(this).attr("id");
 				let data = vis.widgets[id].data;
 
-				if (data.nav_view === vis.activeView) {
+				let modalContent = $(this).closest(".vis-inventwo-modal-content");
+				console.log(modalContent);
+
+				if (data.nav_view === vis.activeView ||
+					(modalContent.length > 0 && modalContent.attr("data-vis-contains") == data.nav_view) ) {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonActive);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
 					if (data.iImgColorTrueFilter != undefined && data.iImgColorTrueFilter != "")
@@ -1197,13 +1313,12 @@ vis.binds["vis-inventwo"] = {
 				else {
 
 					if (val == valFalse) {
-						if (!isNaN(valTrue))
+						if (typeof valTrue != "boolean" && !isNaN(valTrue))
 							valTrue = parseFloat(valTrue);
-
 
 						vis.setValue(oid, valTrue);
 					} else {
-						if (!isNaN(valFalse))
+						if (typeof valFalse != "boolean" && !isNaN(valFalse))
 							valTrue = parseFloat(valFalse);
 						vis.setValue(oid, valFalse);
 					}
@@ -1228,7 +1343,136 @@ vis.binds["vis-inventwo"] = {
 				// Protect against two events
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
-				vis.changeView(data.nav_view, data.nav_view);
+
+				if(data.iUniversalWidgetType == "Navigation") {
+
+					let modalContent = $this.closest(".vis-inventwo-modal-content");
+					if(modalContent.length > 0){
+						modalContent = $(modalContent[0]);
+
+						modalContent.html("");
+
+						if(!vis.views[data.nav_view]){
+							modalContent.html("View not found");
+						}
+						else if(data.nav_view == vis.activeView){
+							modalContent.html("Cannot add current view to popup");
+						}
+
+						vis.renderView(data.nav_view, data.nav_view, true, function (_view) {
+							modalContent.attr('data-vis-contains', _view);
+							$('#visview_' + _view).appendTo(modalContent).show();
+
+							vis.binds["vis-inventwo"].iUpdateNavigations(0, false);
+						});
+					}
+					else{
+						vis.changeView(data.nav_view, data.nav_view);
+					}
+
+				}
+				else if(data.iUniversalWidgetType == "ViewInPopup"){
+					console.log("add modal");
+
+					let visContainer = $('#vis_container');
+
+					console.log(visContainer);
+
+					let borderRadius = data.iPopUpCornerRadiusUL + "px " +
+						data.iPopUpCornerRadiusUR + "px " +
+						data.iPopUpCornerRadiusLR + "px " +
+						data.iPopUpCornerRadiusLL + "px";
+
+					let shadow = data.iPopUpShadowXOffset + "px " + data.iPopUpShadowYOffset + "px " + data.iPopUpShadowBlur + "px " + data.iPopUpShadowSpread + "px " + data.iPopUpShadowColor;
+
+					let showTitlebar = "flex";
+					if(data.iPopUpShowTitle == false){
+						showTitlebar = "none";
+					}
+
+					let modalPosition = "";
+
+					switch (data.iPopUpPosition) {
+						case "left":
+							modalPosition = "justify-content: flex-start; align-items: center;";
+							break;
+						case "right":
+							modalPosition = "justify-content: flex-end; align-items: center;";
+							break;
+						case "top":
+							modalPosition = "justify-content: center; align-items: flex-start;";
+							break;
+						case "bottom":
+							modalPosition = "justify-content: center; align-items: flex-end;";
+							break;
+						case "center":
+							modalPosition = "justify-content: center; align-items: center;";
+							break;
+					}
+
+					let modal = `
+						<div id="vis-inventwo-modal-` + data.wid + `" 
+							 style="` + modalPosition + `"
+							 class="vis-inventwo-modal">
+							<div class="vis-inventwo-modal-window vis-widget-dialog" 
+								 style="width: ` + data.iPopUpWidth + `; 
+								 		height: ` + data.iPopUpHeight + `;
+								 		background: ` + data.iPopUpBackground + `;
+								 		border-radius: ` + borderRadius + `; 
+								 		box-shadow: ` + shadow + `;">
+								<div class="vis-inventwo-modal-titlebar" 
+									 style="display: ` + showTitlebar + `;">
+									<span class="vis-inventwo-modal-title" 
+										  style="color: ` + data.iPopUpTitleColor + `;">
+										` + data.iPopUpTitle + `
+									</span>
+									<div class="vis-inventwo-modal-closebtn"
+										 style="color: ` + data.iPopUpTitleColor + `;
+										 	    background: ` + data.iPopUpCloseBtnColor + `;">X</div>
+								</div>
+								<div class="vis-inventwo-modal-content vis-view-container"  
+									 data-vis-contains="` + data.nav_view + `">
+								
+								</div>
+							</div>
+						</div>
+					`;
+
+					visContainer.after(modal);
+
+					let modalContent = $('#vis-inventwo-modal-' + data.wid + ' .vis-inventwo-modal-content');
+
+					modalContent.html("");
+
+					if(!vis.views[data.nav_view]){
+						modalContent.html("View not found");
+					}
+					else if(data.nav_view == vis.activeView){
+						modalContent.html("Cannot add current view to popup");
+					}
+
+					vis.renderView(data.nav_view, data.nav_view, true, function (_view) {
+						$('#visview_' + _view).appendTo(modalContent).show();
+						vis.binds["vis-inventwo"].iUpdateNavigations(0, false);
+					});
+
+					if(data.iPopUpPreventClickOutside == false) {
+						$('#vis-inventwo-modal-' + data.wid).click(function () {
+							$('#vis-inventwo-modal-' + data.wid).remove();
+							vis.destroyUnusedViews();
+						});
+					}
+
+					$(".vis-inventwo-modal-closebtn").click(function () {
+						$('#vis-inventwo-modal-' + data.wid).remove();
+						vis.destroyUnusedViews();
+					});
+
+					$('#vis-inventwo-modal-' + data.wid + ' *').click(function(e) {
+						e.stopPropagation();
+					});
+
+				}
 				//e.preventDefault();
 				//return false;
 
@@ -1332,7 +1576,7 @@ vis.binds["vis-inventwo"] = {
 							val = parseFloat(val);
 
 						if ((data.iUniversalWidgetType != "Navigation" && data["oid" + i] != undefined
-								&& (vis.states.attr(data["oid" + i] + ".val") == val && data["iValueComparison" + i] == "equal")
+								&& (vis.states.attr(data["oid" + i] + ".val") === val && data["iValueComparison" + i] == "equal")
 								|| (vis.states.attr(data["oid" + i] + ".val") < val && data["iValueComparison" + i] == "lower")
 								|| (vis.states.attr(data["oid" + i] + ".val") > val && data["iValueComparison" + i] == "greater")
 								|| (vis.states.attr(data["oid" + i] + ".val") != val && data["iValueComparison" + i] == "not")
@@ -1359,7 +1603,7 @@ vis.binds["vis-inventwo"] = {
 						}
 					}
 
-					if (index == -1) {
+					if (index == -1 && data.iStateResponseTime > 0) {
 						let shadow = data.iShadowXOffset + "px " + data.iShadowYOffset + "px " + data.iShadowBlur + "px " + data.iShadowSpread + "px " + data["iShadowColorActiveM1"] + ",inset " +
 							data.iShadowInnerXOffset + "px " + data.iShadowInnerYOffset + "px " + data.iShadowInnerBlur + "px " + data.iShadowInnerSpread + "px " + data["iShadowInnerColorActiveM1"];
 						let border = data.iBorderSize + "px " + data.iBorderStyle + " " + data["iBorderColorActiveM1"];
@@ -2414,6 +2658,29 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResetValueTime", false);
 				vis.hideShowAttr("iIncreaseDecrease", false);
 				vis.hideShowAttr("iValueComparison", true);
+
+				vis.hideShowAttr("iText-ViewPopUpSettings", false);
+				vis.hideShowAttr("iPopUpBackground", false);
+				vis.hideShowAttr("iPopUpPreventClickOutside", false);
+				vis.hideShowAttr("iPopUpShowTitle", false);
+				vis.hideShowAttr("iPopUpTitle", false);
+				vis.hideShowAttr("iPopUpTitleColor", false);
+				vis.hideShowAttr("iPopUpCloseBtnColor", false);
+				vis.hideShowAttr("iPopUpWidth", false);
+				vis.hideShowAttr("iPopUpHeight", false);
+				vis.hideShowAttr("iPopUpPosition", false);
+				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
+				vis.hideShowAttr("iPopUpCornerRadiusUL", false);
+				vis.hideShowAttr("iPopUpCornerRadiusUR", false);
+				vis.hideShowAttr("iPopUpCornerRadiusLR", false);
+				vis.hideShowAttr("iPopUpCornerRadiusLL", false);
+				vis.hideShowAttr("iText-ViewPopUpShadowSettings", false);
+				vis.hideShowAttr("iPopUpShadowXOffset", false);
+				vis.hideShowAttr("iPopUpShadowYOffset", false);
+				vis.hideShowAttr("iPopUpShadowBlur", false);
+				vis.hideShowAttr("iPopUpShadowSpread", false);
+				vis.hideShowAttr("iPopUpShadowColor", false);
+
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					vis.hideShowAttr("oid" + i, true);
 					vis.hideShowAttr("iValue" + i, true);
@@ -2432,6 +2699,29 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResetValueTime", true);
 				vis.hideShowAttr("iIncreaseDecrease", false);
 				vis.hideShowAttr("iValueComparison", true);
+
+				vis.hideShowAttr("iText-ViewPopUpSettings", false);
+				vis.hideShowAttr("iPopUpBackground", false);
+				vis.hideShowAttr("iPopUpPreventClickOutside", false);
+				vis.hideShowAttr("iPopUpShowTitle", false);
+				vis.hideShowAttr("iPopUpTitle", false);
+				vis.hideShowAttr("iPopUpTitleColor", false);
+				vis.hideShowAttr("iPopUpCloseBtnColor", false);
+				vis.hideShowAttr("iPopUpWidth", false);
+				vis.hideShowAttr("iPopUpHeight", false);
+				vis.hideShowAttr("iPopUpPosition", false);
+				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
+				vis.hideShowAttr("iPopUpCornerRadiusUL", false);
+				vis.hideShowAttr("iPopUpCornerRadiusUR", false);
+				vis.hideShowAttr("iPopUpCornerRadiusLR", false);
+				vis.hideShowAttr("iPopUpCornerRadiusLL", false);
+				vis.hideShowAttr("iText-ViewPopUpShadowSettings", false);
+				vis.hideShowAttr("iPopUpShadowXOffset", false);
+				vis.hideShowAttr("iPopUpShadowYOffset", false);
+				vis.hideShowAttr("iPopUpShadowBlur", false);
+				vis.hideShowAttr("iPopUpShadowSpread", false);
+				vis.hideShowAttr("iPopUpShadowColor", false);
+
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					vis.hideShowAttr("oid" + i, true);
 					vis.hideShowAttr("iValue" + i, true);
@@ -2450,6 +2740,29 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResetValueTime", false);
 				vis.hideShowAttr("iIncreaseDecrease", false);
 				vis.hideShowAttr("iValueComparison", false);
+
+				vis.hideShowAttr("iText-ViewPopUpSettings", false);
+				vis.hideShowAttr("iPopUpBackground", false);
+				vis.hideShowAttr("iPopUpPreventClickOutside", false);
+				vis.hideShowAttr("iPopUpShowTitle", false);
+				vis.hideShowAttr("iPopUpTitle", false);
+				vis.hideShowAttr("iPopUpTitleColor", false);
+				vis.hideShowAttr("iPopUpCloseBtnColor", false);
+				vis.hideShowAttr("iPopUpWidth", false);
+				vis.hideShowAttr("iPopUpHeight", false);
+				vis.hideShowAttr("iPopUpPosition", false);
+				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
+				vis.hideShowAttr("iPopUpCornerRadiusUL", false);
+				vis.hideShowAttr("iPopUpCornerRadiusUR", false);
+				vis.hideShowAttr("iPopUpCornerRadiusLR", false);
+				vis.hideShowAttr("iPopUpCornerRadiusLL", false);
+				vis.hideShowAttr("iText-ViewPopUpShadowSettings", false);
+				vis.hideShowAttr("iPopUpShadowXOffset", false);
+				vis.hideShowAttr("iPopUpShadowYOffset", false);
+				vis.hideShowAttr("iPopUpShadowBlur", false);
+				vis.hideShowAttr("iPopUpShadowSpread", false);
+				vis.hideShowAttr("iPopUpShadowColor", false);
+
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					vis.hideShowAttr("oid" + i, false);
 					vis.hideShowAttr("iValue" + i, false);
@@ -2475,6 +2788,29 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iValueTypeInfo", false);
 					vis.hideShowAttr("iValueTrue", false);
 				}
+
+				vis.hideShowAttr("iText-ViewPopUpSettings", false);
+				vis.hideShowAttr("iPopUpBackground", false);
+				vis.hideShowAttr("iPopUpPreventClickOutside", false);
+				vis.hideShowAttr("iPopUpShowTitle", false);
+				vis.hideShowAttr("iPopUpTitle", false);
+				vis.hideShowAttr("iPopUpTitleColor", false);
+				vis.hideShowAttr("iPopUpCloseBtnColor", false);
+				vis.hideShowAttr("iPopUpWidth", false);
+				vis.hideShowAttr("iPopUpHeight", false);
+				vis.hideShowAttr("iPopUpPosition", false);
+				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
+				vis.hideShowAttr("iPopUpCornerRadiusUL", false);
+				vis.hideShowAttr("iPopUpCornerRadiusUR", false);
+				vis.hideShowAttr("iPopUpCornerRadiusLR", false);
+				vis.hideShowAttr("iPopUpCornerRadiusLL", false);
+				vis.hideShowAttr("iText-ViewPopUpShadowSettings", false);
+				vis.hideShowAttr("iPopUpShadowXOffset", false);
+				vis.hideShowAttr("iPopUpShadowYOffset", false);
+				vis.hideShowAttr("iPopUpShadowBlur", false);
+				vis.hideShowAttr("iPopUpShadowSpread", false);
+				vis.hideShowAttr("iPopUpShadowColor", false);
+
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					vis.hideShowAttr("oid" + i, true);
 					vis.hideShowAttr("iValue" + i, true);
@@ -2494,10 +2830,73 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iValueTypeInfo", false);
 				vis.hideShowAttr("iValueTrue", false);
 
+				vis.hideShowAttr("iText-ViewPopUpSettings", false);
+				vis.hideShowAttr("iPopUpBackground", false);
+				vis.hideShowAttr("iPopUpPreventClickOutside", false);
+				vis.hideShowAttr("iPopUpShowTitle", false);
+				vis.hideShowAttr("iPopUpTitle", false);
+				vis.hideShowAttr("iPopUpTitleColor", false);
+				vis.hideShowAttr("iPopUpCloseBtnColor", false);
+				vis.hideShowAttr("iPopUpWidth", false);
+				vis.hideShowAttr("iPopUpHeight", false);
+				vis.hideShowAttr("iPopUpPosition", false);
+				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
+				vis.hideShowAttr("iPopUpCornerRadiusUL", false);
+				vis.hideShowAttr("iPopUpCornerRadiusUR", false);
+				vis.hideShowAttr("iPopUpCornerRadiusLR", false);
+				vis.hideShowAttr("iPopUpCornerRadiusLL", false);
+				vis.hideShowAttr("iText-ViewPopUpShadowSettings", false);
+				vis.hideShowAttr("iPopUpShadowXOffset", false);
+				vis.hideShowAttr("iPopUpShadowYOffset", false);
+				vis.hideShowAttr("iPopUpShadowBlur", false);
+				vis.hideShowAttr("iPopUpShadowSpread", false);
+				vis.hideShowAttr("iPopUpShadowColor", false);
+
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					vis.hideShowAttr("oid" + i, true);
 					vis.hideShowAttr("iValue" + i, true);
 					vis.hideShowAttr("iView" + i, false);
+				}
+			} else if (val == "ViewInPopup") {
+				vis.hideShowAttr("iNavWait", true);
+				vis.hideShowAttr("iValueType", false);
+				vis.hideShowAttr("iValueTypeInfo", false);
+				vis.hideShowAttr("iValueFalse", false);
+				vis.hideShowAttr("iValueTrue", false);
+				vis.hideShowAttr("value", true);
+				vis.hideShowAttr("iStateResponseTime", false);
+				vis.hideShowAttr("nav_view", true);
+				vis.hideShowAttr("oid", true);
+				vis.hideShowAttr("iStateResetValueTime", false);
+				vis.hideShowAttr("iIncreaseDecrease", false);
+				vis.hideShowAttr("iValueComparison", false);
+
+				vis.hideShowAttr("iText-ViewPopUpSettings", true);
+				vis.hideShowAttr("iPopUpBackground", true);
+				vis.hideShowAttr("iPopUpPreventClickOutside", true);
+				vis.hideShowAttr("iPopUpShowTitle", true);
+				vis.hideShowAttr("iPopUpTitle", true);
+				vis.hideShowAttr("iPopUpTitleColor", true);
+				vis.hideShowAttr("iPopUpCloseBtnColor", true);
+				vis.hideShowAttr("iPopUpWidth", true);
+				vis.hideShowAttr("iPopUpHeight", true);
+				vis.hideShowAttr("iPopUpPosition", true);
+				vis.hideShowAttr("iText-ViewPopUpCornersSettings", true);
+				vis.hideShowAttr("iPopUpCornerRadiusUL", true);
+				vis.hideShowAttr("iPopUpCornerRadiusUR", true);
+				vis.hideShowAttr("iPopUpCornerRadiusLR", true);
+				vis.hideShowAttr("iPopUpCornerRadiusLL", true);
+				vis.hideShowAttr("iText-ViewPopUpShadowSettings", true);
+				vis.hideShowAttr("iPopUpShadowXOffset", true);
+				vis.hideShowAttr("iPopUpShadowYOffset", true);
+				vis.hideShowAttr("iPopUpShadowBlur", true);
+				vis.hideShowAttr("iPopUpShadowSpread", true);
+				vis.hideShowAttr("iPopUpShadowColor", true);
+
+				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+					vis.hideShowAttr("oid" + i, false);
+					vis.hideShowAttr("iValue" + i, false);
+					vis.hideShowAttr("iView" + i, true);
 				}
 			}
 
@@ -2530,7 +2929,6 @@ vis.binds["vis-inventwo"] = {
 
 			}
 		}
-
 
 		createWidget(true);
 
@@ -2626,7 +3024,9 @@ vis.binds["vis-inventwo"] = {
 				else if (!isNaN(val))
 					val = parseFloat(val);
 
+
 				if ((dataNew.iUniversalWidgetType == "Navigation" && dataNew.nav_view === vis.activeView) ||
+
 					(
 						(dataNew.iUniversalWidgetType == "Switch" || dataNew.iUniversalWidgetType == "Background") &&
 						((dataNew.iValueType == "value" && (
@@ -2820,7 +3220,7 @@ vis.binds["vis-inventwo"] = {
 					vis.binds["vis-inventwo"].handleToggle(el, dataNew, type);
 				} else if (dataNew.iUniversalWidgetType == "State") {
 					vis.binds["vis-inventwo"].state(el, dataNew, type);
-				} else if (dataNew.iUniversalWidgetType == "Navigation") {
+				} else if (dataNew.iUniversalWidgetType == "Navigation" || dataNew.iUniversalWidgetType == "ViewInPopup") {
 					vis.binds["vis-inventwo"].handleNavigation(el, dataNew, type);
 					if (type == "universal")
 						$(el).parent().addClass("iUniversalNav");
