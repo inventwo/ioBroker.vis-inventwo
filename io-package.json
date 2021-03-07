@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.8.0",
+    "version": "2.8.1",
     "news": {
+      "2.8.1": {
+        "en": "Fixed issue with RGB Colorslider-Widget: Slider doesn't refresh on datapoint change (IMPORTANT: Datapoints msut be selected again)",
+        "de": "Problem mit RGB Colorslider-Widget behoben: Slider wird bei Änderung des Datenpunkts nicht aktualisiert (WICHTIG: Datenpunkte müssen erneut ausgewählt werden)",
+        "ru": "Исправлена проблема с виджетом RGB Colorslider-Widget: ползунок не обновляется при изменении точки данных (ВАЖНО: точки данных могут быть выбраны снова)",
+        "pt": "Corrigido problema com RGB Colorslider-Widget: Slider não atualiza na alteração do ponto de dados (IMPORTANTE: Pontos de dados devem ser selecionados novamente)",
+        "nl": "Probleem opgelost met RGB Colorslider-Widget: Slider wordt niet vernieuwd bij wijziging van datapunt (BELANGRIJK: Datapunten moeten opnieuw worden geselecteerd)",
+        "fr": "Correction d'un problème avec RGB Colorslider-Widget: le curseur ne s'actualise pas lors du changement de point de données (IMPORTANT: les points de données doivent être sélectionnés à nouveau)",
+        "it": "Risolto il problema con RGB Colorslider-Widget: lo slider non si aggiorna alla modifica del datapoint (IMPORTANTE: i datapoint vengono nuovamente selezionati)",
+        "es": "Problema solucionado con RGB Colorslider-Widget: el control deslizante no se actualiza al cambiar el punto de datos (IMPORTANTE: los puntos de datos deben seleccionarse nuevamente)",
+        "pl": "Naprawiono problem z widżetem RGB Colorslider: suwak nie odświeża się przy zmianie punktu danych (WAŻNE: punkty danych muszą zostać ponownie wybrane)",
+        "zh-cn": "修复了RGB Colorslider-Widget的问题：滑块在数据点更改时不会刷新（重要：必须再次选择数据点）"
+      },
       "2.8.0": {
         "en": "Added View in PoUp option for Universal- and Multi-Widget; Bugfix",
         "de": "View in PopUp Option für Universal- und Multi-Widget hinzugefügt; Fehlerbehebung",

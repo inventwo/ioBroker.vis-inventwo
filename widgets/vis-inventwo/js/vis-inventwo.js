@@ -549,15 +549,15 @@ if (vis.editMode) {
 			"en": "Invert min/max",
 			"de": "Invertiere Min/Max"
 		},
-		"iIdRed": {
+		"iIdRed-oid": {
 			"en": "Red",
 			"de": "Rot"
 		},
-		"iIdGreen": {
+		"iIdGreen-oid": {
 			"en": "Green",
 			"de": "Grün"
 		},
-		"iIdBlue": {
+		"iIdBlue-oid": {
 			"en": "Blue",
 			"de": "Blau"
 		},
@@ -1344,10 +1344,12 @@ vis.binds["vis-inventwo"] = {
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
 
-				if(data.iUniversalWidgetType == "Navigation") {
+				console.log(data.iUniversalWidgetType);
+
+				if(data.iUniversalWidgetType == undefined || data.iUniversalWidgetType == "Navigation") {
 
 					let modalContent = $this.closest(".vis-inventwo-modal-content");
-					if(modalContent.length > 0){
+					if(data.iUniversalWidgetType != undefined && modalContent.length > 0){
 						modalContent = $(modalContent[0]);
 
 						modalContent.html("");
@@ -1798,9 +1800,9 @@ vis.binds["vis-inventwo"] = {
 								if(data.iColorSliderType != "RGB")
 									vis.setValue(oid, output);
 								else{
-									vis.setValue(data.iIdRed, rgb[0]);
-									vis.setValue(data.iIdGreen, rgb[1]);
-									vis.setValue(data.iIdBlue, rgb[2]);
+									vis.setValue(data["iIdRed-oid"], rgb[0]);
+									vis.setValue(data["iIdGreen-oid"], rgb[1]);
+									vis.setValue(data["iIdBlue-oid"], rgb[2]);
 								}
 							}
 							break;
@@ -1843,9 +1845,9 @@ vis.binds["vis-inventwo"] = {
 									if(data.iColorSliderType != "RGB")
 										vis.setValue(oid, output);
 									else{
-										vis.setValue(data.iIdRed, rgb[0]);
-										vis.setValue(data.iIdGreen, rgb[1]);
-										vis.setValue(data.iIdBlue, rgb[2]);
+										vis.setValue(data["iIdRed-oid"], rgb[0]);
+										vis.setValue(data["iIdGreen-oid"], rgb[1]);
+										vis.setValue(data["iIdBlue-oid"], rgb[2]);
 									}
 								}
 								break;
@@ -1898,23 +1900,19 @@ vis.binds["vis-inventwo"] = {
 							setColor(rgb);
 							break;
 						case "RGB":
-							vis.conn._socket.emit("getState", data.iIdRed, function (err, obj1) {
-								vis.conn._socket.emit("getState", data.iIdGreen, function (err2, obj2) {
-									vis.conn._socket.emit("getState", data.iIdBlue, function (err, obj3) {
 
-										if(obj1 && obj2 && obj3){
-											rgb = [obj1.val, obj2.val, obj3.val];
+							let r = vis.states.attr(data["iIdRed-oid"] + ".val");
+							let g = vis.states.attr(data["iIdGreen-oid"] + ".val");
+							let b = vis.states.attr(data["iIdBlue-oid"] + ".val");
 
-											setColor(rgb);
-										}
-										else{
-											rgb = [255,0,0];
-										}
+							if(r != undefined && g != undefined && b != undefined){
+								rgb = [r, g, b];
+								setColor(rgb);
+							}
+							else{
+								rgb = [255,0,0];
+							}
 
-
-									});
-								});
-							});
 							break;
 						case "CIE":
 							rgb = vis.binds['vis-inventwo'].cieConvert(val, "rgb");
@@ -1948,6 +1946,24 @@ vis.binds["vis-inventwo"] = {
 				updateSlider();
 			}
 		});
+
+		if(type == "rgb" && data.iColorSliderType == "RGB"){
+			vis.states.bind(data["iIdRed-oid"] + ".val", function () {
+				if (!isDragging) {
+					updateSlider();
+				}
+			});
+			vis.states.bind(data["iIdGreen-oid"] + ".val", function () {
+				if (!isDragging) {
+					updateSlider();
+				}
+			});
+			vis.states.bind(data["iIdBlue-oid"] + ".val", function () {
+				if (!isDragging) {
+					updateSlider();
+				}
+			});
+		}
 
 
 	},
@@ -4189,15 +4205,15 @@ vis.binds["vis-inventwo"] = {
 			let val = data.iColorSliderType;
 			if (val == "RGB") {
 				vis.hideShowAttr("oid", false);
-				vis.hideShowAttr("iIdRed", true);
-				vis.hideShowAttr("iIdGreen", true);
-				vis.hideShowAttr("iIdBlue", true);
+				vis.hideShowAttr("iIdRed-oid", true);
+				vis.hideShowAttr("iIdGreen-oid", true);
+				vis.hideShowAttr("iIdBlue-oid", true);
 			}
 			else{
 				vis.hideShowAttr("oid", true);
-				vis.hideShowAttr("iIdRed", false);
-				vis.hideShowAttr("iIdGreen", false);
-				vis.hideShowAttr("iIdBlue", false);
+				vis.hideShowAttr("iIdRed-oid", false);
+				vis.hideShowAttr("iIdGreen-oid", false);
+				vis.hideShowAttr("iIdBlue-oid", false);
 			}
 
 		});

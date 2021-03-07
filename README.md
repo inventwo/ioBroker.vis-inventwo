@@ -72,6 +72,9 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 2.8.1
+- Fehler behoben: Color Slider RGB aktualisiert bei Dp Änderung nicht (WICHTIG: Datenpunkte müssen neu ausgewählt werden!) 
+
 ## 2.8.0
 - View in PopUp Option für Universal- und Multi-Widget hinzugefügt
 - Bugfix
