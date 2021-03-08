@@ -1830,26 +1830,25 @@ vis.binds["vis-inventwo"] = {
 								let rgb = getColor(sliderVal);
 								let hex = vis.binds['vis-inventwo'].rgbToHex(rgb);
 								$(ui.handle).css("background", hex);
-								if (!data.iChangeOnRelease) {
-									let output = "";
-									switch (data.iColorSliderType) {
-										case "HEX":
-											output = hex;
-											break;
-										case "RGB":
-											break;
-										case "CIE":
-											output = vis.binds['vis-inventwo'].cieConvert(rgb, "cie");
-											break;
-									}
-									if(data.iColorSliderType != "RGB")
-										vis.setValue(oid, output);
-									else{
-										vis.setValue(data["iIdRed-oid"], rgb[0]);
-										vis.setValue(data["iIdGreen-oid"], rgb[1]);
-										vis.setValue(data["iIdBlue-oid"], rgb[2]);
-									}
+								let output = "";
+								switch (data.iColorSliderType) {
+									case "HEX":
+										output = hex;
+										break;
+									case "RGB":
+										break;
+									case "CIE":
+										output = vis.binds['vis-inventwo'].cieConvert(rgb, "cie");
+										break;
 								}
+								if(data.iColorSliderType != "RGB")
+									vis.setValue(oid, output);
+								else{
+									vis.setValue(data["iIdRed-oid"], rgb[0]);
+									vis.setValue(data["iIdGreen-oid"], rgb[1]);
+									vis.setValue(data["iIdBlue-oid"], rgb[2]);
+								}
+
 								break;
 						}
 					}

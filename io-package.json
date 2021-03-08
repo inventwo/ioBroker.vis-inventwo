@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.8.1",
+    "version": "2.8.2",
     "news": {
+      "2.8.2": {
+        "en": "Fixed issue with Colorslider: Value not set to datapoint if 'Update value on release' is checked",
+        "de": "Problem mit Colorslider behoben: Wert nicht auf Datenpunkt gesetzt, wenn \"Wert bei Freigabe aktualisieren\" aktiviert ist",
+        "ru": "Исправлена проблема с Colorslider: значение не было установлено на точку данных, если установлен флажок «Обновлять значение при выпуске».",
+        "pt": "Problema corrigido com Colorslider: valor não definido para ponto de dados se 'Atualizar valor no lançamento' estiver marcado",
+        "nl": "Probleem opgelost met Colorslider: waarde niet ingesteld op datapunt als 'Update waarde bij vrijgave' is aangevinkt",
+        "fr": "Problème résolu avec Colorslider: la valeur n'est pas définie sur point de données si 'Mettre à jour la valeur à la publication' est coché",
+        "it": "Problema risolto con Colorslider: valore non impostato su datapoint se è selezionata l'opzione \"Aggiorna valore al rilascio\"",
+        "es": "Problema solucionado con Colorslider: el valor no se establece en el punto de datos si se marca 'Actualizar valor en el lanzamiento'",
+        "pl": "Naprawiono problem z Colourslider: Wartość nie jest ustawiona na punkt danych, jeśli zaznaczono opcję „Aktualizuj wartość przy wydaniu”",
+        "zh-cn": "修复了Colorslider的问题：如果选中“发布时更新值”，则值未设置为数据点"
+      },
       "2.8.1": {
         "en": "Fixed issue with RGB Colorslider-Widget: Slider doesn't refresh on datapoint change (IMPORTANT: Datapoints msut be selected again)",
         "de": "Problem mit RGB Colorslider-Widget behoben: Slider wird bei Änderung des Datenpunkts nicht aktualisiert (WICHTIG: Datenpunkte müssen erneut ausgewählt werden)",
