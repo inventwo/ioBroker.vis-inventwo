@@ -1440,7 +1440,7 @@ vis.binds["vis-inventwo"] = {
 						</div>
 					`;
 
-					visContainer.after(modal);
+					visContainer.append(modal);
 
 					let modalContent = $('#vis-inventwo-modal-' + data.wid + ' .vis-inventwo-modal-content');
 
@@ -1458,20 +1458,45 @@ vis.binds["vis-inventwo"] = {
 						vis.binds["vis-inventwo"].iUpdateNavigations(0, false);
 					});
 
+					let moved2 = false;
+					let moved3 = false;
+					let moved4 = false;
+
 					if(data.iPopUpPreventClickOutside == false) {
-						$('#vis-inventwo-modal-' + data.wid).click(function () {
+						$('#vis-inventwo-modal-' + data.wid).on("click touchend",function () {
+							if (vis.detectBounce(this)) return;
+							if (moved2) return;
+
 							$('#vis-inventwo-modal-' + data.wid).remove();
-							vis.destroyUnusedViews();
+							//vis.destroyUnusedViews();
+						}).on("touchmove", function () {
+							moved2 = true;
+						}).on("touchstart", function () {
+							moved2 = false;
 						});
 					}
 
-					$(".vis-inventwo-modal-closebtn").click(function () {
+					$(".vis-inventwo-modal-closebtn").on("click touchend", function () {
+						if (vis.detectBounce(this)) return;
+						if (moved3) return;
+
 						$('#vis-inventwo-modal-' + data.wid).remove();
-						vis.destroyUnusedViews();
+						//vis.destroyUnusedViews();
+					}).on("touchmove", function () {
+						moved3 = true;
+					}).on("touchstart", function () {
+						moved3 = false;
 					});
 
-					$('#vis-inventwo-modal-' + data.wid + ' *').click(function(e) {
+					$('#vis-inventwo-modal-' + data.wid + ' *').on("click touchend", function(e) {
+						if (vis.detectBounce(this)) return;
+						if (moved4) return;
+
 						e.stopPropagation();
+					}).on("touchmove", function () {
+						moved4 = true;
+					}).on("touchstart", function () {
+						moved4 = false;
 					});
 
 				}
@@ -2925,8 +2950,11 @@ vis.binds["vis-inventwo"] = {
 
 		this.updateUniversalDataFields;
 		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
-			if (newVal != oldVal)
+			console.log("dp updated");
+			if (newVal != oldVal) {
+				console.log("dp changed");
 				createWidget(false);
+			}
 		});
 
 		vis.states.bind(vis.activeView, function (e, newVal, oldVal) {

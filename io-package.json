@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.8.2",
+    "version": "2.8.3",
     "news": {
+      "2.8.3": {
+        "en": "Bugfix",
+        "de": "Fehlerbehebung",
+        "ru": "Исправлена ошибка",
+        "pt": "Bugfix",
+        "nl": "Bugfix",
+        "fr": "Correction d'un bug",
+        "it": "Risoluzione del problema",
+        "es": "Arreglo del fallo",
+        "pl": "Naprawa błędów",
+        "zh-cn": "错误修正"
+      },
       "2.8.2": {
         "en": "Fixed issue with Colorslider: Value not set to datapoint if 'Update value on release' is checked",
         "de": "Problem mit Colorslider behoben: Wert nicht auf Datenpunkt gesetzt, wenn \"Wert bei Freigabe aktualisieren\" aktiviert ist",
