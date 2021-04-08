@@ -176,7 +176,6 @@
 
 .vis-inventwo-modal .vis-inventwo-modal-window .vis-inventwo-modal-titlebar{
     position: relative;
-    flex: 0 0 40px;
     padding: 5px 5px 5px 10px;
     display: flex;
     align-items: center;
@@ -184,14 +183,12 @@
 }
 
 .vis-inventwo-modal .vis-inventwo-modal-window .vis-inventwo-modal-title{
-    font-size: 24px;
     font-weight: bold;
 }
 
 .vis-inventwo-modal .vis-inventwo-modal-window .vis-inventwo-modal-closebtn{
     width: 35px;
-    height: 35px;
-    font-size: 18px;
+    height: 100%;
     font-weight: bold;
     border-radius: 5px;
     display: inline-flex;

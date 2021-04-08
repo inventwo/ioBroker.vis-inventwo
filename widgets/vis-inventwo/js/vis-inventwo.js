@@ -815,6 +815,22 @@ if (vis.editMode) {
 			"en": "View in popup",
 			"de": "View in PopUp"
 		},
+		"iCheckType": {
+			"en": "Check",
+			"de": "Prüfe auf"
+		},
+		"iCheckDefault": {
+			"en": "(Default for widget type)",
+			"de": "(Standard für Widget Typ)"
+		},
+		"iCheckDpValue": {
+			"en": "Datapoint value",
+			"de": "Datenpunkt Wert"
+		},
+		"iCheckView": {
+			"en": "View",
+			"de": "View"
+		},
 		//#endregion
 
 		//#region Image Settings
@@ -893,7 +909,7 @@ if (vis.editMode) {
 		},
 		//#endregion
 
-		//#region Toggle Switch Settings
+		//#region Pop Up Settings
 		"iPopUpBackground": {
 			"en": "Background color",
 			"de": "Hintergrundfarbe"
@@ -926,9 +942,37 @@ if (vis.editMode) {
 			"en": "Height",
 			"de": "Höhe"
 		},
+		"iPopUpHeightTitle": {
+			"en": "Height title bar",
+			"de": "Höhe Titelleiste"
+		},
+		"iPopUpTitleSize": {
+			"en": "Title font size",
+			"de": "Titel Schriftgröße"
+		},
 		"iPopUpPosition": {
 			"en": "Position",
 			"de": "Position"
+		},
+		"iPopUpPositionX": {
+			"en": "Position X",
+			"de": "Position X"
+		},
+		"iPopUpPositionY": {
+			"en": "Position Y",
+			"de": "Position Y"
+		},
+		"iPopUpCloseAfterSeconds": {
+			"en": "Close after x seconds",
+			"de": "Schließe nach X Sekunden"
+		},
+		"iPopUpCloseDp": {
+			"en": "Close datapoint",
+			"de": "Schließen Datenpunkt"
+		},
+		"iPopUpCloseDpValue": {
+			"en": "Close if value",
+			"de": "Schließen bei Wert"
 		},
 
 		"iPopUpCornerRadiusUL": {
@@ -968,6 +1012,7 @@ if (vis.editMode) {
 			"en": "Color",
 			"de": "Farbe"
 		},
+
 		//#endregion
 
 		//#region Custom Text
@@ -1112,7 +1157,6 @@ vis.binds["vis-inventwo"] = {
 				let data = vis.widgets[id].data;
 
 				let modalContent = $(this).closest(".vis-inventwo-modal-content");
-				console.log(modalContent);
 
 				if (data.nav_view === vis.activeView ||
 					(modalContent.length > 0 && modalContent.attr("data-vis-contains") == data.nav_view) ) {
@@ -1183,8 +1227,11 @@ vis.binds["vis-inventwo"] = {
 				let data = vis.widgets[id].data;
 				let stateFound = false;
 
+				let modalContent = $(this).closest(".vis-inventwo-modal-content");
+
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
-					if (data["iView" + i] === vis.activeView) {
+					if (data["iView" + i] === vis.activeView ||
+						(modalContent.length > 0 && modalContent.attr("data-vis-contains") === data["iView" + i]) ) {
 						stateFound = true;
 						$(this).find(".vis-inventwo-button-new").css("background", data["iButtonActiveM" + i]);
 						$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data["iImageTrue" + i]);
@@ -1344,8 +1391,6 @@ vis.binds["vis-inventwo"] = {
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
 
-				console.log(data.iUniversalWidgetType);
-
 				if(data.iUniversalWidgetType == undefined || data.iUniversalWidgetType == "Navigation") {
 
 					let modalContent = $this.closest(".vis-inventwo-modal-content");
@@ -1374,11 +1419,8 @@ vis.binds["vis-inventwo"] = {
 
 				}
 				else if(data.iUniversalWidgetType == "ViewInPopup"){
-					console.log("add modal");
 
-					let visContainer = $('#vis_container');
-
-					console.log(visContainer);
+					let visContainer = $('#vis_container [data-view="'+vis.activeView+'"]');
 
 					let borderRadius = data.iPopUpCornerRadiusUL + "px " +
 						data.iPopUpCornerRadiusUR + "px " +
@@ -1393,6 +1435,14 @@ vis.binds["vis-inventwo"] = {
 					}
 
 					let modalPosition = "";
+					let modalWindowStyle = "";
+
+					if(!isNaN(data.iPopUpPositionX)){
+						data.iPopUpPositionX += "px";
+					}
+					if(!isNaN(data.iPopUpPositionY)){
+						data.iPopUpPositionY += "px";
+					}
 
 					switch (data.iPopUpPosition) {
 						case "left":
@@ -1410,6 +1460,17 @@ vis.binds["vis-inventwo"] = {
 						case "center":
 							modalPosition = "justify-content: center; align-items: center;";
 							break;
+						case "custom":
+							modalPosition = "";
+							modalWindowStyle = "position: absolute; left: " + data.iPopUpPositionX + "; top: " + data.iPopUpPositionY + ";";
+							break;
+					}
+
+					if(!isNaN(data.iPopUpWidth)){
+						data.iPopUpWidth += "px";
+					}
+					if(!isNaN(data.iPopUpHeight)){
+						data.iPopUpHeight += "px";
 					}
 
 					let modal = `
@@ -1421,9 +1482,11 @@ vis.binds["vis-inventwo"] = {
 								 		height: ` + data.iPopUpHeight + `;
 								 		background: ` + data.iPopUpBackground + `;
 								 		border-radius: ` + borderRadius + `; 
-								 		box-shadow: ` + shadow + `;">
+								 		box-shadow: ` + shadow + `; ` + modalWindowStyle + `">
 								<div class="vis-inventwo-modal-titlebar" 
-									 style="display: ` + showTitlebar + `;">
+									 style="display: ` + showTitlebar + `; 
+									 		height: calc(` + data.iPopUpHeightTitle + `px - 10px); 
+									 		font-size: `+ data.iPopUpTitleSize+`px;">
 									<span class="vis-inventwo-modal-title" 
 										  style="color: ` + data.iPopUpTitleColor + `;">
 										` + data.iPopUpTitle + `
@@ -1452,23 +1515,48 @@ vis.binds["vis-inventwo"] = {
 					else if(data.nav_view == vis.activeView){
 						modalContent.html("Cannot add current view to popup");
 					}
-
-					vis.renderView(data.nav_view, data.nav_view, true, function (_view) {
-						$('#visview_' + _view).appendTo(modalContent).show();
-						vis.binds["vis-inventwo"].iUpdateNavigations(0, false);
-					});
+					else {
+						vis.renderView(data.nav_view, data.nav_view, false, function (_view) {
+							$('#visview_' + _view).appendTo(modalContent).show();
+							vis.binds["vis-inventwo"].iUpdateNavigations(0, false);
+						});
+					}
 
 					let moved2 = false;
 					let moved3 = false;
 					let moved4 = false;
+
+					let closeTimeout = null;
+
+					function closePopUp() {
+						if(closeTimeout != null){
+							clearTimeout(closeTimeout);
+							closeTimeout = null;
+						}
+						vis.destroyUnusedViews();
+						$('#vis-inventwo-modal-' + data.wid).remove();
+					}
+
+					if(data.iPopUpCloseAfterSeconds > 0){
+						closeTimeout = setTimeout(function () {
+							closePopUp();
+						}, data.iPopUpCloseAfterSeconds * 1000);
+					}
+
+					if(data.iPopUpCloseDp != ""){
+						vis.states.bind(data.iPopUpCloseDp + ".val", function (e, newVal, oldVal) {
+							if (new Date(vis.states.attr(data.iPopUpCloseDp + ".ts")).getTime() / 1000 == Math.floor(Date.now() / 1000) && vis.states.attr(data.iPopUpCloseDp + ".val") == data.iPopUpCloseDpValue) {
+								closePopUp();
+							}
+						});
+					}
 
 					if(data.iPopUpPreventClickOutside == false) {
 						$('#vis-inventwo-modal-' + data.wid).on("click touchend",function () {
 							if (vis.detectBounce(this)) return;
 							if (moved2) return;
 
-							$('#vis-inventwo-modal-' + data.wid).remove();
-							//vis.destroyUnusedViews();
+							closePopUp();
 						}).on("touchmove", function () {
 							moved2 = true;
 						}).on("touchstart", function () {
@@ -1480,8 +1568,7 @@ vis.binds["vis-inventwo"] = {
 						if (vis.detectBounce(this)) return;
 						if (moved3) return;
 
-						$('#vis-inventwo-modal-' + data.wid).remove();
-						//vis.destroyUnusedViews();
+						closePopUp();
 					}).on("touchmove", function () {
 						moved3 = true;
 					}).on("touchstart", function () {
@@ -1887,6 +1974,8 @@ vis.binds["vis-inventwo"] = {
 		leftSpace = parseFloat(data.iSliderHeight) / 2 - parseFloat(data.iSliderKnobSize) / 2;
 
 		function updateSlider() {
+
+			$this.slider();
 
 			function setColor(rgb) {
 				if (rgb == null) {
@@ -2708,6 +2797,13 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpCloseBtnColor", false);
 				vis.hideShowAttr("iPopUpWidth", false);
 				vis.hideShowAttr("iPopUpHeight", false);
+				vis.hideShowAttr("iPopUpHeightTitle", false);
+				vis.hideShowAttr("iPopUpTitleSize", false);
+				vis.hideShowAttr("iPopUpPositionX", false);
+				vis.hideShowAttr("iPopUpPositionY", false);
+				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
+				vis.hideShowAttr("iPopUpCloseDp", false);
+				vis.hideShowAttr("iPopUpCloseDpValue", false);
 				vis.hideShowAttr("iPopUpPosition", false);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
 				vis.hideShowAttr("iPopUpCornerRadiusUL", false);
@@ -2724,7 +2820,7 @@ vis.binds["vis-inventwo"] = {
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					vis.hideShowAttr("oid" + i, true);
 					vis.hideShowAttr("iValue" + i, true);
-					vis.hideShowAttr("iView" + i, false);
+					vis.hideShowAttr("iView" + i, true);
 				}
 			} else if (val == "State") {
 				vis.hideShowAttr("iNavWait", false);
@@ -2749,6 +2845,13 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpCloseBtnColor", false);
 				vis.hideShowAttr("iPopUpWidth", false);
 				vis.hideShowAttr("iPopUpHeight", false);
+				vis.hideShowAttr("iPopUpHeightTitle", false);
+				vis.hideShowAttr("iPopUpTitleSize", false);
+				vis.hideShowAttr("iPopUpPositionX", false);
+				vis.hideShowAttr("iPopUpPositionY", false);
+				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
+				vis.hideShowAttr("iPopUpCloseDp", false);
+				vis.hideShowAttr("iPopUpCloseDpValue", false);
 				vis.hideShowAttr("iPopUpPosition", false);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
 				vis.hideShowAttr("iPopUpCornerRadiusUL", false);
@@ -2765,7 +2868,7 @@ vis.binds["vis-inventwo"] = {
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					vis.hideShowAttr("oid" + i, true);
 					vis.hideShowAttr("iValue" + i, true);
-					vis.hideShowAttr("iView" + i, false);
+					vis.hideShowAttr("iView" + i, true);
 				}
 			} else if (val == "Navigation") {
 				vis.hideShowAttr("iNavWait", true);
@@ -2790,6 +2893,13 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpCloseBtnColor", false);
 				vis.hideShowAttr("iPopUpWidth", false);
 				vis.hideShowAttr("iPopUpHeight", false);
+				vis.hideShowAttr("iPopUpHeightTitle", false);
+				vis.hideShowAttr("iPopUpTitleSize", false);
+				vis.hideShowAttr("iPopUpPositionX", false);
+				vis.hideShowAttr("iPopUpPositionY", false);
+				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
+				vis.hideShowAttr("iPopUpCloseDp", false);
+				vis.hideShowAttr("iPopUpCloseDpValue", false);
 				vis.hideShowAttr("iPopUpPosition", false);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
 				vis.hideShowAttr("iPopUpCornerRadiusUL", false);
@@ -2804,8 +2914,8 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpShadowColor", false);
 
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
-					vis.hideShowAttr("oid" + i, false);
-					vis.hideShowAttr("iValue" + i, false);
+					vis.hideShowAttr("oid" + i, true);
+					vis.hideShowAttr("iValue" + i, true);
 					vis.hideShowAttr("iView" + i, true);
 				}
 			} else if (val == "Background") {
@@ -2838,6 +2948,13 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpCloseBtnColor", false);
 				vis.hideShowAttr("iPopUpWidth", false);
 				vis.hideShowAttr("iPopUpHeight", false);
+				vis.hideShowAttr("iPopUpHeightTitle", false);
+				vis.hideShowAttr("iPopUpTitleSize", false);
+				vis.hideShowAttr("iPopUpPositionX", false);
+				vis.hideShowAttr("iPopUpPositionY", false);
+				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
+				vis.hideShowAttr("iPopUpCloseDp", false);
+				vis.hideShowAttr("iPopUpCloseDpValue", false);
 				vis.hideShowAttr("iPopUpPosition", false);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
 				vis.hideShowAttr("iPopUpCornerRadiusUL", false);
@@ -2854,7 +2971,7 @@ vis.binds["vis-inventwo"] = {
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					vis.hideShowAttr("oid" + i, true);
 					vis.hideShowAttr("iValue" + i, true);
-					vis.hideShowAttr("iView" + i, false);
+					vis.hideShowAttr("iView" + i, true);
 				}
 			} else if (val == "IncreaseDecreaseValue") {
 				vis.hideShowAttr("iNavWait", false);
@@ -2879,6 +2996,13 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpCloseBtnColor", false);
 				vis.hideShowAttr("iPopUpWidth", false);
 				vis.hideShowAttr("iPopUpHeight", false);
+				vis.hideShowAttr("iPopUpHeightTitle", false);
+				vis.hideShowAttr("iPopUpTitleSize", false);
+				vis.hideShowAttr("iPopUpPositionX", false);
+				vis.hideShowAttr("iPopUpPositionY", false);
+				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
+				vis.hideShowAttr("iPopUpCloseDp", false);
+				vis.hideShowAttr("iPopUpCloseDpValue", false);
 				vis.hideShowAttr("iPopUpPosition", false);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
 				vis.hideShowAttr("iPopUpCornerRadiusUL", false);
@@ -2895,7 +3019,7 @@ vis.binds["vis-inventwo"] = {
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					vis.hideShowAttr("oid" + i, true);
 					vis.hideShowAttr("iValue" + i, true);
-					vis.hideShowAttr("iView" + i, false);
+					vis.hideShowAttr("iView" + i, true);
 				}
 			} else if (val == "ViewInPopup") {
 				vis.hideShowAttr("iNavWait", true);
@@ -2920,6 +3044,13 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpCloseBtnColor", true);
 				vis.hideShowAttr("iPopUpWidth", true);
 				vis.hideShowAttr("iPopUpHeight", true);
+				vis.hideShowAttr("iPopUpHeightTitle", true);
+				vis.hideShowAttr("iPopUpTitleSize", true);
+				vis.hideShowAttr("iPopUpPositionX", true);
+				vis.hideShowAttr("iPopUpPositionY", true);
+				vis.hideShowAttr("iPopUpCloseAfterSeconds", true);
+				vis.hideShowAttr("iPopUpCloseDp", true);
+				vis.hideShowAttr("iPopUpCloseDpValue", true);
 				vis.hideShowAttr("iPopUpPosition", true);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", true);
 				vis.hideShowAttr("iPopUpCornerRadiusUL", true);
@@ -2934,8 +3065,8 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpShadowColor", true);
 
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
-					vis.hideShowAttr("oid" + i, false);
-					vis.hideShowAttr("iValue" + i, false);
+					vis.hideShowAttr("oid" + i, true);
+					vis.hideShowAttr("iValue" + i, true);
 					vis.hideShowAttr("iView" + i, true);
 				}
 			}
@@ -2950,11 +3081,9 @@ vis.binds["vis-inventwo"] = {
 
 		this.updateUniversalDataFields;
 		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
-			console.log("dp updated");
-			if (newVal != oldVal) {
-				console.log("dp changed");
-				createWidget(false);
-			}
+			// if (newVal != oldVal) {
+			// 	createWidget(false);
+			// }
 		});
 
 		vis.states.bind(vis.activeView, function (e, newVal, oldVal) {
@@ -2965,10 +3094,12 @@ vis.binds["vis-inventwo"] = {
 		if (type == "multi" && data.iUniversalWidgetType != "Navigation") {
 			for (let index = 1; index <= data.iUniversalValueCount; index++) {
 
-				vis.states.bind(data.attr("oid" + index) + ".val", function (e, newVal, oldVal) {
-					if (newVal != oldVal)
+				/*vis.states.bind(data.attr("oid" + index) + ".val", function (e, newVal, oldVal) {
+					if (newVal != oldVal) {
 						createWidget(false);
-				});
+						console.log("update value");
+					}
+				});*/
 
 			}
 		}
@@ -3007,14 +3138,16 @@ vis.binds["vis-inventwo"] = {
 					else if (!isNaN(val))
 						val = parseFloat(val);
 
-					if ((dataNew.iUniversalWidgetType != "Navigation" && dataNew["oid" + i] != undefined
-							&& (vis.states.attr(dataNew["oid" + i] + ".val") == val && dataNew["iValueComparison" + i] == "equal")
-							|| (vis.states.attr(dataNew["oid" + i] + ".val") < val && dataNew["iValueComparison" + i] == "lower")
-							|| (vis.states.attr(dataNew["oid" + i] + ".val") > val && dataNew["iValueComparison" + i] == "greater")
-							|| (vis.states.attr(dataNew["oid" + i] + ".val") != val && dataNew["iValueComparison" + i] == "not")
+					if( (((dataNew["iCheckType" + i] == "iCheckDefault" && dataNew.iUniversalWidgetType == "Navigation") || dataNew["iCheckType" + i] == "iCheckView") && dataNew["iView" + i] === vis.activeView) ||
+						(((dataNew["iCheckType" + i] == "iCheckDefault" && dataNew.iUniversalWidgetType != "Navigation") || dataNew["iCheckType" + i] == "iCheckDpValue") &&
+							dataNew["oid" + i] != undefined &&
+							(  (vis.states.attr(dataNew["oid" + i] + ".val") == val && dataNew["iValueComparison" + i] == "equal")
+								|| (vis.states.attr(dataNew["oid" + i] + ".val") < val && dataNew["iValueComparison" + i] == "lower")
+								|| (vis.states.attr(dataNew["oid" + i] + ".val") > val && dataNew["iValueComparison" + i] == "greater")
+								|| (vis.states.attr(dataNew["oid" + i] + ".val") != val && dataNew["iValueComparison" + i] == "not"))
 						)
-						||
-						(dataNew.iUniversalWidgetType == "Navigation" && dataNew["iView" + i] === vis.activeView)) {
+					)
+					{
 						backCol = dataNew["iButtonActiveM" + i];
 						shadowCol = dataNew["iShadowColorActiveM" + i];
 						shadowColInner = dataNew["iShadowInnerColorActiveM" + i];
@@ -4316,7 +4449,6 @@ vis.binds["vis-inventwo"] = {
 	},
 
 	universalButtonBackgroundStyles: function (data) {
-		console.log("ZTfg");
 		let style = "";
 
 		let isTrue = this.checkIfTrue(data);

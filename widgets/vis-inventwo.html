@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="widgets/vis-inventwo/css/style.css"/>
 <script type="text/javascript" src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
 
+
 <script id="i-vis-universal"
 		type="text/ejs"
 		class="vis-tpl"
@@ -39,7 +40,14 @@
 						iPopUpCloseBtnColor[#dc2e2e]/color;
 						iPopUpWidth[800px];
 						iPopUpHeight[500px];
-						iPopUpPosition[center]/nselect,left,right,top,bottom,center;
+						iPopUpHeightTitle[50]/slider,0,100,1;
+						iPopUpTitleSize[28]/slider,0,100,1;
+						iPopUpPosition[center]/nselect,left,right,top,bottom,center,custom;
+						iPopUpPositionX[0];
+						iPopUpPositionY[0];
+						iPopUpCloseAfterSeconds[0]/slider,1,3600,1;
+						iPopUpCloseDp/id;
+						iPopUpCloseDpValue/text;
 
 						iText-ViewPopUpCornersSettings/custom,vis-inventwo.infoText,emptyText;
 						iPopUpCornerRadiusUL[12]/slider,0,50,1;
@@ -305,9 +313,16 @@
 						iPopUpTitle[]/html;
 						iPopUpTitleColor[#ffffff]/color;
 						iPopUpCloseBtnColor[#dc2e2e]/color;
-						iPopUpWidth[800px];
-						iPopUpHeight[500px];
-						iPopUpPosition[center]/nselect,left,right,top,bottom,center;
+						iPopUpWidth[800];
+						iPopUpHeight[500];
+						iPopUpHeightTitle[50]/slider,0,100,1;
+						iPopUpTitleSize[28]/slider,0,100,1;
+						iPopUpPosition[center]/nselect,left,right,top,bottom,center,custom;
+						iPopUpPositionX[0];
+						iPopUpPositionY[0];
+						iPopUpCloseAfterSeconds[0]/slider,1,3600,1;
+						iPopUpCloseDp/id;
+						iPopUpCloseDpValue/text;
 
 						iText-ViewPopUpCornersSettings/custom,vis-inventwo.infoText,emptyText;
 						iPopUpCornerRadiusUL[12]/slider,0,50,1;
@@ -322,11 +337,12 @@
 						iPopUpShadowSpread[1]/slider,0,20,1;
 						iPopUpShadowColor[#111111]/color;"
 		data-vis-attrs0="iUniversalValueCount[1]/number,1,20,1/updateUniversalDataFields();group.iUniversalValues/byindex;
-						 iView(1-iUniversalValueCount)/views;
-						 oid(1-iUniversalValueCount)/id;
 
+						 iCheckType(1-iUniversalValueCount)[iCheckDefault]/select,iCheckDefault,iCheckDpValue,iCheckView;
+						 oid(1-iUniversalValueCount)/id;
 						 iValueComparison(1-iUniversalValueCount)[equal]/select,equal,greater,lower,not;
 						 iValue(1-iUniversalValueCount)/text;
+						 iView(1-iUniversalValueCount)/views;
 						 iTextTrue(1-iUniversalValueCount)/html;
 
 						 iText-BackgroundSettings(1-iUniversalValueCount)/custom,vis-inventwo.infoText,emptyText;

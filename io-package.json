@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.8.3",
+    "version": "2.9.0",
     "news": {
+      "2.9.0": {
+        "en": "Multi-Widget states can know check for datapoints or views independently from widget type, Added options to automatically close popup, Bugfixes",
+        "de": "Multi-Widget-Status können unabhängig vom Widget-Typ nach Datenpunkten oder Views prüfen. Optionen zum automatischen Schließen des Popups hinzugefügt. Bugfixes",
+        "ru": "Состояния мульти-виджета могут знать проверку точек данных или представлений независимо от типа виджета, добавлены параметры для автоматического закрытия всплывающего окна, исправления",
+        "pt": "Os estados de multi-widget podem verificar se há pontos de dados ou visualizações independentemente do tipo de widget, opções adicionadas para fechar pop-up automaticamente, correções de bugs",
+        "nl": "Multi-Widget-statussen kunnen controleren op datapunten of weergaven onafhankelijk van het type widget, Opties toegevoegd om pop-up automatisch te sluiten, Bugfixes",
+        "fr": "Les états multi-widgets peuvent savoir vérifier les points de données ou les vues indépendamment du type de widget, Ajout d'options pour fermer automatiquement la fenêtre contextuelle, corrections de bugs",
+        "it": "Gli stati multi-widget possono sapere controllare i punti dati o le viste indipendentemente dal tipo di widget, opzioni aggiunte per chiudere automaticamente il popup, correzioni di bug",
+        "es": "Los estados de múltiples widgets pueden saber verificar puntos de datos o vistas independientemente del tipo de widget, se agregaron opciones para cerrar automáticamente la ventana emergente, correcciones de errores",
+        "pl": "Stany wielu widżetów mogą znać sprawdzanie punktów danych lub widoków niezależnie od typu widżetu, Dodano opcje automatycznego zamykania wyskakujących okienek, Poprawki błędów",
+        "zh-cn": "多窗口小部件状态可以知道独立于窗口小部件类型的数据点或视图检查，添加了自动关闭弹出窗口的选项，错误修复"
+      },
       "2.8.3": {
         "en": "Bugfix",
         "de": "Fehlerbehebung",
