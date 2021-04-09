@@ -966,7 +966,7 @@ if (vis.editMode) {
 			"en": "Close after x seconds",
 			"de": "Schließe nach X Sekunden"
 		},
-		"iPopUpCloseDp": {
+		"iPopUpCloseDp-oid": {
 			"en": "Close datapoint",
 			"de": "Schließen Datenpunkt"
 		},
@@ -1543,9 +1543,18 @@ vis.binds["vis-inventwo"] = {
 						}, data.iPopUpCloseAfterSeconds * 1000);
 					}
 
-					if(data.iPopUpCloseDp != ""){
-						vis.states.bind(data.iPopUpCloseDp + ".val", function (e, newVal, oldVal) {
-							if (new Date(vis.states.attr(data.iPopUpCloseDp + ".ts")).getTime() / 1000 == Math.floor(Date.now() / 1000) && vis.states.attr(data.iPopUpCloseDp + ".val") == data.iPopUpCloseDpValue) {
+					if(data["iPopUpCloseDp-oid"] != ""){
+
+						vis.states.bind(data["iPopUpCloseDp-oid"] + ".val", function (e, newVal, oldVal) {
+							if(data.iPopUpCloseDpValue == "true"){
+								data.iPopUpCloseDpValue = true;
+							}
+							else if (data.iPopUpCloseDpValue == "false"){
+								data.iPopUpCloseDpValue = false;
+							}
+
+							if (Math.floor(new Date(vis.states.attr(data["iPopUpCloseDp-oid"] + ".ts")).getTime() / 1000) == Math.floor(Date.now() / 1000) &&
+								newVal == data.iPopUpCloseDpValue) {
 								closePopUp();
 							}
 						});
@@ -2802,7 +2811,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpPositionX", false);
 				vis.hideShowAttr("iPopUpPositionY", false);
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
-				vis.hideShowAttr("iPopUpCloseDp", false);
+				vis.hideShowAttr("iPopUpCloseDp-oid", false);
 				vis.hideShowAttr("iPopUpCloseDpValue", false);
 				vis.hideShowAttr("iPopUpPosition", false);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
@@ -2850,7 +2859,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpPositionX", false);
 				vis.hideShowAttr("iPopUpPositionY", false);
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
-				vis.hideShowAttr("iPopUpCloseDp", false);
+				vis.hideShowAttr("iPopUpCloseDp-oid", false);
 				vis.hideShowAttr("iPopUpCloseDpValue", false);
 				vis.hideShowAttr("iPopUpPosition", false);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
@@ -2898,7 +2907,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpPositionX", false);
 				vis.hideShowAttr("iPopUpPositionY", false);
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
-				vis.hideShowAttr("iPopUpCloseDp", false);
+				vis.hideShowAttr("iPopUpCloseDp-oid", false);
 				vis.hideShowAttr("iPopUpCloseDpValue", false);
 				vis.hideShowAttr("iPopUpPosition", false);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
@@ -2953,7 +2962,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpPositionX", false);
 				vis.hideShowAttr("iPopUpPositionY", false);
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
-				vis.hideShowAttr("iPopUpCloseDp", false);
+				vis.hideShowAttr("iPopUpCloseDp-oid", false);
 				vis.hideShowAttr("iPopUpCloseDpValue", false);
 				vis.hideShowAttr("iPopUpPosition", false);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
@@ -3001,7 +3010,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpPositionX", false);
 				vis.hideShowAttr("iPopUpPositionY", false);
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
-				vis.hideShowAttr("iPopUpCloseDp", false);
+				vis.hideShowAttr("iPopUpCloseDp-oid", false);
 				vis.hideShowAttr("iPopUpCloseDpValue", false);
 				vis.hideShowAttr("iPopUpPosition", false);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
@@ -3049,7 +3058,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpPositionX", true);
 				vis.hideShowAttr("iPopUpPositionY", true);
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", true);
-				vis.hideShowAttr("iPopUpCloseDp", true);
+				vis.hideShowAttr("iPopUpCloseDp-oid", true);
 				vis.hideShowAttr("iPopUpCloseDpValue", true);
 				vis.hideShowAttr("iPopUpPosition", true);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", true);

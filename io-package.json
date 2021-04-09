@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.9.1",
+    "version": "2.9.2",
     "news": {
+      "2.9.2": {
+        "en": "Fixed issue with datapoint to close popup. ATTENTION! Datapoint must be selected again",
+        "de": "Problem mit Datenpunkt zum Schließen des Popups behoben. ACHTUNG! Der Datenpunkt muss erneut ausgewählt werden",
+        "ru": "Исправлена проблема с точкой данных для закрытия всплывающего окна. ВНИМАНИЕ! Datapoint необходимо выбрать снова",
+        "pt": "Corrigido o problema com o ponto de dados para fechar o pop-up. ATENÇÃO! O ponto de dados deve ser selecionado novamente",
+        "nl": "Probleem opgelost met datapunt om pop-up te sluiten. AANDACHT! Datapunt moet opnieuw worden geselecteerd",
+        "fr": "Correction d'un problème avec le point de données pour fermer la fenêtre contextuelle. ATTENTION! Le point de données doit être sélectionné à nouveau",
+        "it": "Risolto il problema con il datapoint per chiudere il popup. ATTENZIONE! Il datapoint deve essere selezionato di nuovo",
+        "es": "Se solucionó el problema con el punto de datos para cerrar la ventana emergente. ¡ATENCIÓN! El punto de datos debe seleccionarse nuevamente",
+        "pl": "Naprawiono problem z punktem danych do zamykania wyskakującego okienka. UWAGA! Należy ponownie wybrać punkt danych",
+        "zh-cn": "修复了数据点关闭弹出窗口的问题。注意力！数据点必须再次选择"
+      },
       "2.9.1": {
         "en": "Bugfix",
         "de": "Fehlerbehebung",
