@@ -72,6 +72,9 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 2.9.1
+- Bugfix
+
 ## 2.9.0
 - Multi-Widget-Status können unabhängig vom Widget-Typ nach Datenpunkten oder Views prüfen
 - Optionen zum automatischen Schließen des Popups hinzugefügt

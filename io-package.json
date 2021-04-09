@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.9.0",
+    "version": "2.9.1",
     "news": {
+      "2.9.1": {
+        "en": "Bugfix",
+        "de": "Fehlerbehebung",
+        "ru": "Исправлена ошибка",
+        "pt": "Bugfix",
+        "nl": "Bugfix",
+        "fr": "Correction d'un bug",
+        "it": "Risoluzione del problema",
+        "es": "Arreglo del fallo",
+        "pl": "Naprawa błędów",
+        "zh-cn": "错误修正"
+      },
       "2.9.0": {
         "en": "Multi-Widget states can know check for datapoints or views independently from widget type, Added options to automatically close popup, Bugfixes",
         "de": "Multi-Widget-Status können unabhängig vom Widget-Typ nach Datenpunkten oder Views prüfen. Optionen zum automatischen Schließen des Popups hinzugefügt. Bugfixes",
@@ -62,126 +74,6 @@
         "es": "Se agregó la opción Vista en PoUp para Universal- y Multi-Widget; Arreglo del fallo",
         "pl": "Dodano opcję Widok w PoUp dla Universal- i Multi-Widget; Naprawa błędów",
         "zh-cn": "为通用和多窗口小部件添加了“在PoUp中查看”选项；错误修正"
-      },
-      "2.7.11": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "2.7.10": {
-        "en": "Fixed issue with images in Universal- and Multi-Widget, Fixed issue with image change in Universal- and Multi-Widget",
-        "de": "Problem mit Bildern in Universal- und Multi-Widget behoben, Problem mit Bildänderung in Universal- und Multi-Widget behoben",
-        "ru": "Исправлена проблема с изображениями в универсальном и мульти-виджетах, исправлена проблема с изменением изображения в универсальных и мульти-виджетах.",
-        "pt": "Corrigido problema com imagens em Universal- e Multi-Widget, Corrigido problema com alteração de imagem em Universal- e Multi-Widget",
-        "nl": "Probleem opgelost met afbeeldingen in Universal- en Multi-Widget, Probleem opgelost met afbeeldingswijziging in Universal- en Multi-Widget",
-        "fr": "Correction d'un problème avec les images dans Universal- et Multi-Widget, Correction d'un problème avec le changement d'image dans Universal- et Multi-Widget",
-        "it": "Risolto il problema con le immagini in Universal- e Multi-Widget, Risolto problema con la modifica delle immagini in Universal- e Multi-Widget",
-        "es": "Problema solucionado con imágenes en Universal- y Multi-Widget, Problema solucionado con cambio de imagen en Universal- y Multi-Widget",
-        "pl": "Naprawiono problem z obrazami w Universal- i Multi-Widget, Naprawiono problem ze zmianą obrazu w Universal- i Multi-Widget",
-        "zh-cn": "修复了通用和多控件中的图像问题，修复了通用和多控件中的图像问题"
-      },
-      "2.7.9": {
-        "en": "Added image size option for Image-Widget, Fixed issue from previous version",
-        "de": "Option für die Bildgröße für das Image-Widget hinzugefügt, Problem in der vorherigen Version behoben",
-        "ru": "Добавлена опция размера изображения для Image-Widget, исправлена проблема из предыдущей версии",
-        "pt": "Adicionada opção de tamanho de imagem para Image-Widget, problema corrigido da versão anterior",
-        "nl": "Optie voor afbeeldingsgrootte toegevoegd voor Image-Widget, probleem opgelost ten opzichte van de vorige versie",
-        "fr": "Ajout d'une option de taille d'image pour Image-Widget, problème résolu de la version précédente",
-        "it": "Aggiunta l'opzione dimensione immagine per Image-Widget, problema risolto dalla versione precedente",
-        "es": "Opción de tamaño de imagen agregada para Image-Widget, problema solucionado de la versión anterior",
-        "pl": "Dodano opcję rozmiaru obrazu dla widżetu obrazu, naprawiono problem z poprzedniej wersji",
-        "zh-cn": "为图像小部件添加了图像大小选项，已修复先前版本的问题"
-      },
-      "2.7.8": {
-        "en": "Fixed issue with text align, fixed issue with imagesize in image-widget",
-        "de": "Problem mit der Textausrichtung behoben, Problem mit der Bildgröße im Image-Widget behoben",
-        "ru": "исправлена проблема с выравниванием текста, исправлена проблема с размером изображения в виджете изображения",
-        "pt": "problema corrigido com alinhamento de texto, problema corrigido com tamanho de imagem no widget de imagem",
-        "nl": "probleem opgelost met tekstuitlijning, probleem opgelost met afbeeldingsgrootte in afbeeldingswidget",
-        "fr": "Correction d'un problème avec l'alignement du texte, correction d'un problème avec la taille de l'image dans le widget image",
-        "it": "risolto il problema con l'allineamento del testo, risolto il problema con la dimensione dell'immagine nel widget immagine",
-        "es": "Problema solucionado con la alineación del texto, problema solucionado con el tamaño de la imagen en el widget de imagen",
-        "pl": "naprawiony problem z wyrównywaniem tekstu, naprawiony problem z rozmiarem obrazu w widżecie obrazu",
-        "zh-cn": "解决了文本对齐问题，解决了图像小部件中imagesize的问题"
-      },
-      "2.7.7": {
-        "en": "Fixed issue with image sizing, fixed issue with colorslider that value not saved on release",
-        "de": "Problem mit der Bildgröße behoben, Problem mit dem Farbregler behoben, dessen Wert beim loslassen nicht gespeichert wurde",
-        "ru": "Исправлена проблема с изменением размера изображения, исправлена проблема с цветовым ползунком, значение которого не сохранялось при выпуске.",
-        "pt": "Corrigido problema com o tamanho da imagem, problema corrigido com colourslider cujo valor não foi salvo no lançamento",
-        "nl": "Probleem opgelost met het formaat van afbeeldingen, probleem opgelost met kleurenschuifregelaar waarvan de waarde niet werd opgeslagen bij vrijgave",
-        "fr": "Correction d'un problème avec le dimensionnement de l'image, correction d'un problème avec le curseur de couleur dont la valeur n'était pas enregistrée à la sortie",
-        "it": "Risolto il problema con il ridimensionamento delle immagini, risolto il problema con Colorslider quel valore non salvato al rilascio",
-        "es": "Se solucionó el problema con el tamaño de la imagen, se solucionó el problema con el deslizador de colores que el valor no se guardaba en el lanzamiento",
-        "pl": "Naprawiono problem z rozmiarami obrazu, naprawiono problem z suwakiem kolorów, którego wartość nie była zapisywana w momencie wydania",
-        "zh-cn": "解决了图像大小调整问题，解决了colorslider发行时未保存值的问题"
-      },
-      "2.7.6": {
-        "en": "Fixed issue with icon color for nav-widget, fixed issue with highlighting on touchdevices, fixed issue with radiobutton-widget and numbers datatype",
-        "de": "Problem mit Symbolfarbe für Navi-Widget behoben, Problem mit Highlighting auf Touch-Geräten behoben, Problem mit Radiobutton-Widget und Datentyp Zahlen behoben",
-        "ru": "Исправлена проблема с цветом значка для nav-виджета, исправлена проблема с выделением на сенсорных устройствах, исправлена проблема с виджетом radiobutton и типом данных чисел",
-        "pt": "Corrigido o problema com a cor do ícone para nav-widget, corrigido o problema com destaque em dispositivos de toque, corrigido o problema com radiobutton-widget e tipo de dados de números",
-        "nl": "Probleem opgelost met pictogramkleur voor nav-widget, probleem opgelost met accentuering op aanraakapparatuur, probleem opgelost met radiobutton-widget en getallen datatype",
-        "fr": "Correction d'un problème avec la couleur de l'icône pour le widget de navigation, correction d'un problème de mise en évidence sur les appareils tactiles, résolution d'un problème avec le widget radiobutton et le type de données des nombres",
-        "it": "Risolto il problema con il colore dell'icona per il widget di navigazione, risolto il problema con l'evidenziazione sui dispositivi touch, risolto il problema con il widget del pulsante radio e il tipo di dati dei numeri",
-        "es": "Se solucionó el problema con el color del icono para el widget de navegación, se solucionó el problema con el resaltado en dispositivos táctiles, se solucionó el problema con el widget de botón de radio y el tipo de datos de números",
-        "pl": "Naprawiono problem z kolorem ikony dla widżetu nawigacyjnego, naprawiony problem z podświetlaniem na urządzeniach dotykowych, naprawiony problem z widżetem radiobutton i typem danych liczb",
-        "zh-cn": "修复了导航小部件图标颜色的问题，修复了触摸设备上突出显示的问题，修复了单选按钮小部件和数字数据类型的问题"
-      },
-      "2.7.5": {
-        "en": "Added threshholds for JSON Table, Fixed issue with Color Slider and invalid value, Fixed issue with signal images, Added option to invert icon colors, Color Slider can now differentiate between HEX, RGB and CIE",
-        "de": "Schwellenwerte für JSON-Tabelle hinzugefügt, Problem mit Farbschieberegler und ungültigem Wert behoben, Problem mit Signalbildern behoben, Option zum Invertieren von Symbolfarben hinzugefügt, Farbschieberegler kann jetzt zwischen HEX, RGB und CIE unterscheiden",
-        "ru": "Добавлены пороговые значения для таблицы JSON, исправлена проблема с ползунком цвета и недопустимым значением, исправлена проблема с изображениями сигналов, добавлена возможность инвертировать цвета значков, ползунок цвета теперь может различать HEX, RGB и CIE",
-        "pt": "Limites adicionados para a tabela JSON, problema corrigido com o controle deslizante de cores e valor inválido, problema corrigido com imagens de sinal, opção adicionada para inverter as cores do ícone, controle deslizante de cores agora pode diferenciar entre HEX, RGB e CIE",
-        "nl": "Drempels toegevoegd voor JSON-tabel, probleem opgelost met kleurenschuifregelaar en ongeldige waarde, probleem opgelost met signaalafbeeldingen, optie toegevoegd om pictogramkleuren om te keren, kleurenschuifregelaar kan nu onderscheid maken tussen HEX, RGB en CIE",
-        "fr": "Ajout de seuils pour la table JSON, Correction d'un problème avec le curseur de couleur et une valeur non valide, Correction d'un problème avec les images de signal, Ajout d'une option pour inverser les couleurs des icônes, le curseur de couleur peut maintenant différencier HEX, RVB et CIE",
-        "it": "Aggiunte soglie per la tabella JSON, Risolto problema con il cursore del colore e valore non valido, Risolto il problema con le immagini del segnale, Aggiunta l'opzione per invertire i colori delle icone, Il cursore del colore ora può distinguere tra HEX, RGB e CIE",
-        "es": "Se agregaron umbrales para la tabla JSON, se solucionó el problema con el control deslizante de color y el valor no válido, se corrigió el problema con las imágenes de señal, se agregó la opción para invertir los colores de los iconos, el control deslizante de color ahora puede diferenciar entre HEX, RGB y CIE",
-        "pl": "Dodano progi dla tabeli JSON, Naprawiono problem z suwakiem kolorów i nieprawidłową wartością, Naprawiono problem z obrazami sygnałów, Dodano opcję odwracania kolorów ikon, Suwak kolorów może teraz rozróżniać HEX, RGB i CIE",
-        "zh-cn": "添加了JSON表的阈值，修复了Color Slider和无效值的问题，修复了信号图像的问题，添加了用于反转图标颜色的选项，Color Slider现在可以区分HEX，RGB和CIE"
-      },
-      "2.7.0": {
-        "en": "New widget: Colorslider, JSON Table new columnformats boolean and number, JSON Table fixed header, JSON Table fixed issue with sorting, JSON Table configurable dummyrow, fixed bugs ",
-        "de": "Neues Widget: Colorslider, neue Spaltenformate für JSON-Tabelle Boolescher Wert und Nummer, fester Header für JSON-Tabelle, Problem mit JSON-Tabelle beim Sortieren behoben, konfigurierbarer Dummyzeile für JSON-Tabelle, Fehler behoben",
-        "ru": "Новый виджет: Colorslider, таблица JSON, новые форматы столбцов, логические и числовые, фиксированный заголовок таблицы JSON, исправленная проблема с сортировкой таблицы JSON, настраиваемая фиктивная строка таблицы JSON, исправленные ошибки",
-        "pt": "Novo widget: Colorslider, tabela JSON novos formatos de coluna booleano e número, cabeçalho fixo da tabela JSON, problema corrigido da tabela JSON com classificação, dummyrow configurável da tabela JSON, bugs corrigidos",
-        "nl": "Nieuwe widget: Colorslider, JSON Table nieuwe kolomformaten boolean en nummer, JSON Table vaste header, JSON Table opgelost probleem met sorteren, JSON Table configureerbare dummyrow, bugs opgelost",
-        "fr": "Nouveau widget: Colorslider, table JSON nouveaux formats de colonnes booléens et nombre, en-tête fixe de table JSON, problème de table JSON résolu avec le tri, dummyrow configurable de table JSON, bugs corrigés",
-        "it": "Nuovo widget: Colorslider, JSON Table new columnformats boolean and number, JSON Table fixed header, JSON Table fixed issue with sorting, JSON Table configurable dummyrow, fixed bugs",
-        "es": "Nuevo widget: Colorslider, JSON Table nuevos formatos de columna booleanos y numéricos, encabezado fijo de la tabla JSON, problema solucionado de la tabla JSON con la clasificación, ficticia configurable de la tabla JSON, errores arreglados",
-        "pl": "Nowy widżet: Colorslider, nowe formaty kolumn tabeli JSON, wartości logiczne i liczby, stały nagłówek tabeli JSON, naprawiony problem z sortowaniem tabeli JSON, fałszywy wiersz konfigurowalny w tabeli JSON, naprawione błędy",
-        "zh-cn": "新的小部件：Colorslider，JSON表新的列格式布尔值和数字，JSON表固定的标头，JSON表固定的排序问题，JSON表可配置的虚拟行，固定的错误"
-      },
-      "2.6.0": {
-        "en": "Slider invert min/max, Set slider value on release, New Widget to increase/decrease a value, JSON-Table fixed issue with datetime, JSON-Table placeholder for empty cells, JSON-Table sorting for columns by click on header",
-        "de": "Schieberegler invertieren min / max, Schiebereglerwert bei Freigabe festlegen, Neues Widget zum Erhöhen / Verringern eines Werts, JSON-Tabelle behobenes Problem mit Datum / Uhrzeit, JSON-Tabellenplatzhalter für leere Zellen, JSON-Tabellensortierung für Spalten durch Klicken auf die Überschrift",
-        "ru": "Ползунок инвертировать мин. / Макс., Установить значение ползунка при выпуске, новый виджет для увеличения / уменьшения значения, исправленная проблема JSON-таблицы с датой и временем, заполнитель JSON-таблицы для пустых ячеек, сортировка JSON-таблицы для столбцов нажатием на заголовок",
-        "pt": "Deslocador invertido mín. / Máx., Definir valor do controle deslizante na liberação, Novo widget para aumentar / diminuir um valor, JSON-Table corrigido o problema com data e hora, JSON-Table placeholder para células vazias, JSON-Table classificação para colunas clicando no cabeçalho",
-        "nl": "Schuifregelaar min / max omkeren, schuifregelaarwaarde instellen bij vrijgave, nieuwe widget om een waarde te verhogen / verlagen, JSON-tabel opgelost probleem met datetime, JSON-tabel tijdelijke aanduiding voor lege cellen, JSON-tabel sorteren voor kolommen door op koptekst te klikken",
-        "fr": "Slider invert min / max, Set slider value on release, New Widget pour augmenter / diminuer une valeur, JSON-Table fixe problème avec datetime, JSON-Table placeholder pour les cellules vides, JSON-Table tri pour les colonnes en cliquant sur l'en-tête",
-        "it": "Slider inverti min / max, Imposta valore cursore al rilascio, Nuovo widget per aumentare / diminuire un valore, Problema risolto tabella JSON con datetime, Segnaposto tabella JSON per celle vuote, Ordinamento tabella JSON per colonne facendo clic sull'intestazione",
-        "es": "Slider invert min / max, establecer el valor del control deslizante en el lanzamiento, nuevo widget para aumentar / disminuir un valor, problema solucionado de JSON-Table con fecha y hora, marcador de posición JSON-Table para celdas vacías, clasificación de JSON-Table para columnas haciendo clic en el encabezado",
-        "pl": "Odwrócenie suwaka min / max, ustawianie wartości suwaka przy wydaniu, nowy widżet do zwiększania / zmniejszania wartości, naprawiony problem z datą i godziną w tabeli JSON-Table, element zastępczy tabeli JSON dla pustych komórek, sortowanie tabel JSON dla kolumn po kliknięciu nagłówka",
-        "zh-cn": "滑块反转最小值/最大值，在发布时设置滑块值，用于增加/减少值的新小部件，日期时间的JSON表固定问题，空单元格的JSON表占位符，通过单击标题对列进行JSON表排序"
-      },
-      "2.5.11": {
-        "en": "Bug fixes",
-        "de": "Fehlerbehebung",
-        "ru": "Исправление ошибок",
-        "pt": "Correções de bugs",
-        "nl": "Bugfixes",
-        "fr": "Corrections de bogues",
-        "it": "Correzioni di bug",
-        "es": "Corrección de errores",
-        "pl": "Poprawki błędów",
-        "zh-cn": "Bug修复"
       },
       "1.3.8": {
         "en": "Changed slider step to decimal, Fixed problem with numeric values",

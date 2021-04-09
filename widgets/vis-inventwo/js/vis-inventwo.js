@@ -3081,9 +3081,9 @@ vis.binds["vis-inventwo"] = {
 
 		this.updateUniversalDataFields;
 		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
-			// if (newVal != oldVal) {
-			// 	createWidget(false);
-			// }
+			if (newVal != oldVal) {
+				createWidget(false);
+			}
 		});
 
 		vis.states.bind(vis.activeView, function (e, newVal, oldVal) {
@@ -3094,12 +3094,12 @@ vis.binds["vis-inventwo"] = {
 		if (type == "multi" && data.iUniversalWidgetType != "Navigation") {
 			for (let index = 1; index <= data.iUniversalValueCount; index++) {
 
-				/*vis.states.bind(data.attr("oid" + index) + ".val", function (e, newVal, oldVal) {
+				vis.states.bind(data.attr("oid" + index) + ".val", function (e, newVal, oldVal) {
 					if (newVal != oldVal) {
 						createWidget(false);
 						console.log("update value");
 					}
-				});*/
+				});
 
 			}
 		}
