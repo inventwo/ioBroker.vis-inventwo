@@ -1158,8 +1158,25 @@ vis.binds["vis-inventwo"] = {
 
 				let modalContent = $(this).closest(".vis-inventwo-modal-content");
 
-				if (data.nav_view === vis.activeView ||
-					(modalContent.length > 0 && modalContent.attr("data-vis-contains") == data.nav_view) ) {
+				if ((data.iUniversalWidgetType == "Navigation" && (data.nav_view === vis.activeView ||
+					(modalContent.length > 0 && modalContent.attr("data-vis-contains") == data.nav_view)))
+
+					||
+
+					(
+						(data.iUniversalWidgetType == "Switch" || data.iUniversalWidgetType == "Background") &&
+						((data.iValueType == "value" && (
+								(vis.states.attr(data.oid + ".val") == val && data.iValueComparison == "equal")
+								|| (vis.states.attr(data.oid + ".val") < val && data.iValueComparison == "lower")
+								|| (vis.states.attr(data.oid + ".val") > val && data.iValueComparison == "greater")
+								|| (vis.states.attr(data.oid + ".val") != val && data.iValueComparison == "not")))
+
+							|| (vis.states.attr(data.oid + ".val") === true && data.iValueType == "boolean")
+						)
+					)
+
+
+				) {
 					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonActive);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
 					if (data.iImgColorTrueFilter != undefined && data.iImgColorTrueFilter != "")
@@ -1230,8 +1247,21 @@ vis.binds["vis-inventwo"] = {
 				let modalContent = $(this).closest(".vis-inventwo-modal-content");
 
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
-					if (data["iView" + i] === vis.activeView ||
-						(modalContent.length > 0 && modalContent.attr("data-vis-contains") === data["iView" + i]) ) {
+					if (( ((dataNew["iCheckType" + i] == "iCheckDefault" && dataNew.iUniversalWidgetType == "Navigation") || dataNew["iCheckType" + i] == "iCheckView") &&
+						(data["iView" + i] === vis.activeView ||
+							(modalContent.length > 0 && modalContent.attr("data-vis-contains") === data["iView" + i])))
+						||
+						(((dataNew["iCheckType" + i] == "iCheckDefault" && dataNew.iUniversalWidgetType != "Navigation") || dataNew["iCheckType" + i] == "iCheckDpValue") &&
+							dataNew["oid" + i] != undefined &&
+							(  (vis.states.attr(dataNew["oid" + i] + ".val") == val && dataNew["iValueComparison" + i] == "equal")
+								|| (vis.states.attr(dataNew["oid" + i] + ".val") < val && dataNew["iValueComparison" + i] == "lower")
+								|| (vis.states.attr(dataNew["oid" + i] + ".val") > val && dataNew["iValueComparison" + i] == "greater")
+								|| (vis.states.attr(dataNew["oid" + i] + ".val") != val && dataNew["iValueComparison" + i] == "not"))
+						)
+
+
+
+					) {
 						stateFound = true;
 						$(this).find(".vis-inventwo-button-new").css("background", data["iButtonActiveM" + i]);
 						$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data["iImageTrue" + i]);
@@ -1345,7 +1375,9 @@ vis.binds["vis-inventwo"] = {
 
 		if (!vis.editMode) {
 			var moved = false;
-			$this.parent().on("click", function (e) {
+			$this.parent().on("click touchend", function (e) {
+
+				console.log(e);
 
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
@@ -1578,6 +1610,7 @@ vis.binds["vis-inventwo"] = {
 						if (moved3) return;
 
 						closePopUp();
+						event.stopPropagation();
 					}).on("touchmove", function () {
 						moved3 = true;
 					}).on("touchstart", function () {
@@ -3933,6 +3966,10 @@ vis.binds["vis-inventwo"] = {
 			val = true;
 		else if (val == "false")
 			val = false;
+
+		if(!isNaN(val)){
+			val = parseFloat(val);
+		}
 
 		return val;
 	},

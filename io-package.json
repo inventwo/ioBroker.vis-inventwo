@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.9.2",
+    "version": "2.9.3",
     "news": {
+      "2.9.3": {
+        "en": "Fixed issue with popup and click-events, fixed issue with view in popup states",
+        "de": "Problem mit Popup- und Klickereignissen behoben, Problem mit View in Popup Zuständen behoben",
+        "ru": "Исправлена проблема с всплывающими окнами и событиями щелчка, исправлена проблема с просмотром во всплывающих состояниях",
+        "pt": "Corrigido problema com pop-up e eventos de clique, problema corrigido com visualização em estados pop-up",
+        "nl": "Probleem opgelost met pop-up- en klikgebeurtenissen, probleem opgelost met weergave in pop-upstaten",
+        "fr": "Correction d'un problème avec les événements contextuels et de clic, résolution du problème d'affichage dans les états contextuels",
+        "it": "Risolto il problema con popup e eventi di clic, problema risolto con la visualizzazione negli stati popup",
+        "es": "Se solucionó el problema con los eventos emergentes y de clic, se solucionó el problema con la vista en los estados emergentes",
+        "pl": "Naprawiono problem z wyskakującymi okienkami i zdarzeniami kliknięcia, naprawiony problem z widokiem w stanach wyskakujących okienek",
+        "zh-cn": "修复了弹出窗口和点击事件的问题，修复了处于弹出状态的视图的问题"
+      },
       "2.9.2": {
         "en": "Fixed issue with datapoint to close popup. ATTENTION! Datapoint must be selected again",
         "de": "Problem mit Datenpunkt zum Schließen des Popups behoben. ACHTUNG! Der Datenpunkt muss erneut ausgewählt werden",
