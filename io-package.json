@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.9.3",
+    "version": "2.9.4",
     "news": {
+      "2.9.4": {
+        "en": "Bugfix",
+        "de": "Fehlerbehebung",
+        "ru": "Исправлена ошибка",
+        "pt": "Bugfix",
+        "nl": "Bugfix",
+        "fr": "Correction d'un bug",
+        "it": "Risoluzione del problema",
+        "es": "Arreglo del fallo",
+        "pl": "Naprawa błędów",
+        "zh-cn": "错误修正"
+      },
       "2.9.3": {
         "en": "Fixed issue with popup and click-events, fixed issue with view in popup states",
         "de": "Problem mit Popup- und Klickereignissen behoben, Problem mit View in Popup Zuständen behoben",
@@ -50,42 +62,6 @@
         "es": "Los estados de múltiples widgets pueden saber verificar puntos de datos o vistas independientemente del tipo de widget, se agregaron opciones para cerrar automáticamente la ventana emergente, correcciones de errores",
         "pl": "Stany wielu widżetów mogą znać sprawdzanie punktów danych lub widoków niezależnie od typu widżetu, Dodano opcje automatycznego zamykania wyskakujących okienek, Poprawki błędów",
         "zh-cn": "多窗口小部件状态可以知道独立于窗口小部件类型的数据点或视图检查，添加了自动关闭弹出窗口的选项，错误修复"
-      },
-      "2.8.3": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "2.8.2": {
-        "en": "Fixed issue with Colorslider: Value not set to datapoint if 'Update value on release' is checked",
-        "de": "Problem mit Colorslider behoben: Wert nicht auf Datenpunkt gesetzt, wenn \"Wert bei Freigabe aktualisieren\" aktiviert ist",
-        "ru": "Исправлена проблема с Colorslider: значение не было установлено на точку данных, если установлен флажок «Обновлять значение при выпуске».",
-        "pt": "Problema corrigido com Colorslider: valor não definido para ponto de dados se 'Atualizar valor no lançamento' estiver marcado",
-        "nl": "Probleem opgelost met Colorslider: waarde niet ingesteld op datapunt als 'Update waarde bij vrijgave' is aangevinkt",
-        "fr": "Problème résolu avec Colorslider: la valeur n'est pas définie sur point de données si 'Mettre à jour la valeur à la publication' est coché",
-        "it": "Problema risolto con Colorslider: valore non impostato su datapoint se è selezionata l'opzione \"Aggiorna valore al rilascio\"",
-        "es": "Problema solucionado con Colorslider: el valor no se establece en el punto de datos si se marca 'Actualizar valor en el lanzamiento'",
-        "pl": "Naprawiono problem z Colourslider: Wartość nie jest ustawiona na punkt danych, jeśli zaznaczono opcję „Aktualizuj wartość przy wydaniu”",
-        "zh-cn": "修复了Colorslider的问题：如果选中“发布时更新值”，则值未设置为数据点"
-      },
-      "2.8.1": {
-        "en": "Fixed issue with RGB Colorslider-Widget: Slider doesn't refresh on datapoint change (IMPORTANT: Datapoints msut be selected again)",
-        "de": "Problem mit RGB Colorslider-Widget behoben: Slider wird bei Änderung des Datenpunkts nicht aktualisiert (WICHTIG: Datenpunkte müssen erneut ausgewählt werden)",
-        "ru": "Исправлена проблема с виджетом RGB Colorslider-Widget: ползунок не обновляется при изменении точки данных (ВАЖНО: точки данных могут быть выбраны снова)",
-        "pt": "Corrigido problema com RGB Colorslider-Widget: Slider não atualiza na alteração do ponto de dados (IMPORTANTE: Pontos de dados devem ser selecionados novamente)",
-        "nl": "Probleem opgelost met RGB Colorslider-Widget: Slider wordt niet vernieuwd bij wijziging van datapunt (BELANGRIJK: Datapunten moeten opnieuw worden geselecteerd)",
-        "fr": "Correction d'un problème avec RGB Colorslider-Widget: le curseur ne s'actualise pas lors du changement de point de données (IMPORTANT: les points de données doivent être sélectionnés à nouveau)",
-        "it": "Risolto il problema con RGB Colorslider-Widget: lo slider non si aggiorna alla modifica del datapoint (IMPORTANTE: i datapoint vengono nuovamente selezionati)",
-        "es": "Problema solucionado con RGB Colorslider-Widget: el control deslizante no se actualiza al cambiar el punto de datos (IMPORTANTE: los puntos de datos deben seleccionarse nuevamente)",
-        "pl": "Naprawiono problem z widżetem RGB Colorslider: suwak nie odświeża się przy zmianie punktu danych (WAŻNE: punkty danych muszą zostać ponownie wybrane)",
-        "zh-cn": "修复了RGB Colorslider-Widget的问题：滑块在数据点更改时不会刷新（重要：必须再次选择数据点）"
       },
       "2.8.0": {
         "en": "Added View in PoUp option for Universal- and Multi-Widget; Bugfix",

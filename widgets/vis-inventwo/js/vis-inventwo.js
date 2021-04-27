@@ -1158,8 +1158,19 @@ vis.binds["vis-inventwo"] = {
 
 				let modalContent = $(this).closest(".vis-inventwo-modal-content");
 
-				if ((data.iUniversalWidgetType == "Navigation" && (data.nav_view === vis.activeView ||
-					(modalContent.length > 0 && modalContent.attr("data-vis-contains") == data.nav_view)))
+				let val = data.iValueTrue;
+				if (val == undefined)
+					val = true;
+				else if (val == "true")
+					val = true;
+				else if (val == "false")
+					val = false;
+				else if (!isNaN(val))
+					val = parseFloat(val);
+
+				if (
+					(data.iUniversalWidgetType == "Navigation" && (data.nav_view === vis.activeView ||
+						(modalContent.length > 0 && modalContent.attr("data-vis-contains") == data.nav_view)))
 
 					||
 
@@ -1247,16 +1258,45 @@ vis.binds["vis-inventwo"] = {
 				let modalContent = $(this).closest(".vis-inventwo-modal-content");
 
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
-					if (( ((dataNew["iCheckType" + i] == "iCheckDefault" && dataNew.iUniversalWidgetType == "Navigation") || dataNew["iCheckType" + i] == "iCheckView") &&
-						(data["iView" + i] === vis.activeView ||
-							(modalContent.length > 0 && modalContent.attr("data-vis-contains") === data["iView" + i])))
+
+					let val = data["iValue" + i];
+					if (val == undefined)
+						val = true;
+					else if (val == "true")
+						val = true;
+					else if (val == "false")
+						val = false;
+					else if (!isNaN(val))
+						val = parseFloat(val);
+
+					if (
+						(
+							(
+								(
+									data["iCheckType" + i] == "iCheckDefault" && data.iUniversalWidgetType == "Navigation"
+								)
+								||
+
+								data["iCheckType" + i] == "iCheckView"
+							)
+							&&
+							(
+								data["iView" + i] === vis.activeView
+								||
+								(
+									modalContent.length > 0 && modalContent.attr("data-vis-contains") === data["iView" + i]
+								)
+							)
+						)
+
 						||
-						(((dataNew["iCheckType" + i] == "iCheckDefault" && dataNew.iUniversalWidgetType != "Navigation") || dataNew["iCheckType" + i] == "iCheckDpValue") &&
-							dataNew["oid" + i] != undefined &&
-							(  (vis.states.attr(dataNew["oid" + i] + ".val") == val && dataNew["iValueComparison" + i] == "equal")
-								|| (vis.states.attr(dataNew["oid" + i] + ".val") < val && dataNew["iValueComparison" + i] == "lower")
-								|| (vis.states.attr(dataNew["oid" + i] + ".val") > val && dataNew["iValueComparison" + i] == "greater")
-								|| (vis.states.attr(dataNew["oid" + i] + ".val") != val && dataNew["iValueComparison" + i] == "not"))
+
+						(((data["iCheckType" + i] == "iCheckDefault" && data.iUniversalWidgetType != "Navigation") || data["iCheckType" + i] == "iCheckDpValue") &&
+							data["oid" + i] != undefined &&
+							(  (vis.states.attr(data["oid" + i] + ".val") == val && data["iValueComparison" + i] == "equal")
+								|| (vis.states.attr(data["oid" + i] + ".val") < val && data["iValueComparison" + i] == "lower")
+								|| (vis.states.attr(data["oid" + i] + ".val") > val && data["iValueComparison" + i] == "greater")
+								|| (vis.states.attr(data["oid" + i] + ".val") != val && data["iValueComparison" + i] == "not"))
 						)
 
 
@@ -1598,6 +1638,7 @@ vis.binds["vis-inventwo"] = {
 							if (moved2) return;
 
 							closePopUp();
+							event.preventDefault();
 						}).on("touchmove", function () {
 							moved2 = true;
 						}).on("touchstart", function () {
@@ -1610,18 +1651,18 @@ vis.binds["vis-inventwo"] = {
 						if (moved3) return;
 
 						closePopUp();
-						event.stopPropagation();
+						event.preventDefault();
 					}).on("touchmove", function () {
 						moved3 = true;
 					}).on("touchstart", function () {
 						moved3 = false;
 					});
 
-					$('#vis-inventwo-modal-' + data.wid + ' *').on("click touchend", function(e) {
+					$('#vis-inventwo-modal-' + data.wid + ' *').on("click touchend", function() {
 						if (vis.detectBounce(this)) return;
 						if (moved4) return;
 
-						e.stopPropagation();
+						event.preventDefault();
 					}).on("touchmove", function () {
 						moved4 = true;
 					}).on("touchstart", function () {
@@ -1650,6 +1691,10 @@ vis.binds["vis-inventwo"] = {
 
 				// Auskommentiert da navChangeCallbacks die Funktion bereits aufruft
 				//vis.binds["vis-inventwo"].iUpdateNavigations(data.iNavWait, true);
+
+
+
+				e.preventDefault();
 
 			}).on("touchmove", function () {
 				moved = true;
