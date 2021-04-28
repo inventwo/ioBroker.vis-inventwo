@@ -4007,14 +4007,14 @@ vis.binds["vis-inventwo"] = {
 
 	convertValue: function (val) {
 
+		if(!isNaN(val)){
+			val = parseFloat(val);
+		}
+
 		if (val == "true")
 			val = true;
 		else if (val == "false")
 			val = false;
-
-		if(!isNaN(val)){
-			val = parseFloat(val);
-		}
 
 		return val;
 	},
@@ -4148,6 +4148,9 @@ vis.binds["vis-inventwo"] = {
 				var val = vis.states[oid + ".val"];
 				var valFalse = vis.binds["vis-inventwo"].convertValue(data.iValueFalse);
 				var valTrue = vis.binds["vis-inventwo"].convertValue(data.iValueTrue);
+
+				console.log(valFalse);
+				console.log(valTrue);
 
 				if (val == valFalse) {
 					vis.setValue(oid, valTrue);

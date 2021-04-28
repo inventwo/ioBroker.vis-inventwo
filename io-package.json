@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.9.4",
+    "version": "2.9.5",
     "news": {
+      "2.9.5": {
+        "en": "Bugfix",
+        "de": "Fehlerbehebung",
+        "ru": "Исправлена ошибка",
+        "pt": "Bugfix",
+        "nl": "Bugfix",
+        "fr": "Correction d'un bug",
+        "it": "Risoluzione del problema",
+        "es": "Arreglo del fallo",
+        "pl": "Naprawa błędów",
+        "zh-cn": "错误修正"
+      },
       "2.9.4": {
         "en": "Bugfix",
         "de": "Fehlerbehebung",
