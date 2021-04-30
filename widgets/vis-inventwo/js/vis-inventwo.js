@@ -1663,6 +1663,7 @@ vis.binds["vis-inventwo"] = {
 						if (moved4) return;
 
 						event.preventDefault();
+						event.stopPropagation();
 					}).on("touchmove", function () {
 						moved4 = true;
 					}).on("touchstart", function () {
