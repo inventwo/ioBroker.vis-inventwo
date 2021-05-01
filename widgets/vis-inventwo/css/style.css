@@ -196,3 +196,16 @@
     align-items: center;
     cursor: pointer;
 }
+
+.vis-inventwo-grid-view{
+    display: grid !important;
+    overflow: hidden !important;
+    min-width: unset !important;
+    min-height: unset !important;
+}
+
+.vis-inventwo-grid-element{
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+}
