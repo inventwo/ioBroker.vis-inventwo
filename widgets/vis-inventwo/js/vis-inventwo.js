@@ -1096,6 +1096,10 @@ if (vis.editMode) {
 			"en": "<b>PopUp shadow</b>",
 			"de": "<b>PopUp Schatten</b>"
 		},
+		"iText-GridSettings": {
+			"en": "<b>Grid</b>",
+			"de": "<b>Grid</b>"
+		},
 		//#endregion
 
 	});
@@ -1416,8 +1420,9 @@ vis.binds["vis-inventwo"] = {
 		if (!vis.editMode) {
 			var moved = false;
 			$this.parent().on("click touchend", function (e) {
-
-				console.log(e);
+				if(e.type == 'touchend'){
+					$(this).off('click');
+				}
 
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
@@ -1442,7 +1447,6 @@ vis.binds["vis-inventwo"] = {
 						vis.setValue(oid, valFalse);
 					}
 				}
-
 			}).on("touchmove", function () {
 				moved = true;
 			}).on("touchstart", function () {
@@ -3469,6 +3473,17 @@ vis.binds["vis-inventwo"] = {
 
 			$(el).html(html);
 
+			/*if(dataNew.iGridColumn && dataNew.iGridRow){
+				let $widget = $(el).closest('.vis-widget');
+				// console.log("has values");
+				// if($widget.closest('.vis-inventwo-grid-view').length > 0) {
+				// 	console.log("has grid");
+					$widget.addClass('vis-inventwo-grid-element');
+					$widget.css('grid-column', dataNew.iGridColumn + "/ span " + dataNew.iGridColumnSpan);
+					$widget.css('grid-row', dataNew.iGridRow + "/ span " + dataNew.iGridRowSpan);
+				// }
+			}*/
+
 			vis.binds["vis-inventwo"].getImgColorFilter(imgColorFilter, dataNew.wid);
 
 			//Felder beim reinziehen eines Widgets aktualisieren
@@ -4729,8 +4744,63 @@ vis.binds["vis-inventwo"] = {
 				}
 
 		}
-	}
+	},
 
+	gridWidget: function (wid, data) {
+		console.log("CREATE GRID");
+
+		let $widget = $('#' + wid);
+
+		if (!$widget.length) {
+			return setTimeout(function () {
+				vis.binds['vis-inventwo'].gridWidget(wid, data);
+			}, 100);
+		}
+
+		console.log($widget);
+
+		let colWidth = data.iGridColWidth;
+		let rowHeight = data.iGridRowHeight;
+		let gap = data.iGridGap;
+		let padding = data.iGridPadding;
+
+		if(!isNaN(colWidth)){
+			colWidth = colWidth + "px";
+		}
+		if(!isNaN(rowHeight)){
+			rowHeight = rowHeight + "px";
+		}
+		if(!isNaN(gap)){
+			gap = gap + "px";
+		}
+		if(!isNaN(padding)){
+			padding = padding + "px";
+		}
+
+
+		let $view = $widget.closest('.vis-view');
+		console.log($view);
+		//let $grid = $('<div class="vis-inventwo-grid-container"></div>');
+		//$view.append($grid);
+
+		$view.addClass("vis-inventwo-grid-view");
+		$view.css("grid-auto-columns", "calc(" + colWidth + " - " + gap + ")");
+		$view.css("grid-auto-rows", "calc(" + rowHeight + " - " + gap + ")");
+		$view.css("width", "calc(100% - " + padding + ")");
+		$view.css("height", "calc(100% - " + padding + ")");
+		$view.css("grid-gap", gap);
+		$view.css("padding", padding);
+
+		if(vis.editMode){
+
+			if(data.iGridShow){
+
+
+			}
+
+		}
+
+	}
 
 
 
