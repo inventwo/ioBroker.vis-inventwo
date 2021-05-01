@@ -149,7 +149,6 @@
       "web"
     ],
     "adminTab": {
-      "singleton": true,
       "name": {
         "en": "inventwo VIS",
         "de": "inventwo VIS"
