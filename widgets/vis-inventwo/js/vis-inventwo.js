@@ -1422,6 +1422,7 @@ vis.binds["vis-inventwo"] = {
 			$this.parent().on("click touchend", function (e) {
 				if(e.type == 'touchend'){
 					$(this).off('click');
+					$(this).off('mouseenter');
 				}
 
 				if (vis.detectBounce(this)) return;
