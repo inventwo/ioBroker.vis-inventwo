@@ -72,6 +72,9 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 2.9.7
+- Bugfix
+
 ## 2.9.6
 - Bugfix
 
