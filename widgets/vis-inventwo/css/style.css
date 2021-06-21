@@ -209,3 +209,22 @@
     top: 0 !important;
     left: 0 !important;
 }
+
+.vis-inventwo-clock-analog{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vis-inventwo-clock-analog img{
+    width: 100%;
+}
+
+.vis-inventwo-clock-analog-hand-hour,
+.vis-inventwo-clock-analog-hand-minute,
+.vis-inventwo-clock-analog-hand-second{
+    position: absolute;
+}
+
+
