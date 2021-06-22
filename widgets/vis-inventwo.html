@@ -951,7 +951,6 @@
 						 iTextFalse(1-iRadiobtnsCount)/html;
 						 iTextTrue(1-iRadiobtnsCount)/html;
 						 iValue(1-iRadiobtnsCount)/text;
-						 iView(1-iRadiobtnsCount)/views;
 						 iText-BackgroundSettings(1-iRadiobtnsCount)/custom,vis-inventwo.infoText,emptyText;
 						 iText-BackColorRadioInfo/custom,vis-inventwo.infoText,radioBtnBackColInfoText;
 						 iButtonBackM(1-iRadiobtnsCount)/color;
@@ -1131,16 +1130,13 @@
 				let backCol = "";
 				let imgColorFilter = "";
 				let value = vis.binds["vis-inventwo"].convertValue(dataNew['iValue' + val]);
-
-				if((this.data.oid != undefined && vis.states.attr(this.data.oid + '.val') == value) || this.data['iView' + val] === vis.activeView){
-
+				if(vis.states.attr(this.data.oid + '.val') == value){
 					if(dataNew['iButtonBackActiveM' + val] != undefined && dataNew['iButtonBackActiveM' + val] != ''){
 						backCol = dataNew['iButtonBackActiveM' + val];
 					}
 					else{
 						backCol = dataNew.iButtonActive;
 					}
-
 					imgColorFilter = dataNew["iImgColorTrue" + val];
 				}
 				else{
@@ -1150,22 +1146,16 @@
 					else{
 						backCol = dataNew.iButtonCol;
 					}
-
 					imgColorFilter = dataNew["iImgColorFalse" + val];
 				}
-
 				let invertCol = "";
 				if(dataNew["iImgColorInvert" + val] == true){
 					invertCol = " filter: invert(1);";
 				}
-
 				colorFilters.push({color: imgColorFilter, wid: dataNew.wid + '_' + val});
-
 			%>
-
-
             <div class="vis-inventwo-button-new"
-            	<% if((this.data.oid != undefined && vis.states.attr(this.data.oid + '.val') == dataNew['iValue' + val]) || dataNew['iView' + val] === vis.activeView) { %>
+            	<% if(vis.states.attr(this.data.oid + '.val') == dataNew['iValue' + val]) { %>
                  style="background: <%= backCol%>;
                  		opacity: <%= dataNew.iOpacityBack %>;
             	     	border-radius: <%= dataNew.iCornerRadiusUL %>px <%= dataNew.iCornerRadiusUR %>px <%= dataNew.iCornerRadiusLR %>px <%= dataNew.iCornerRadiusLL %>px;
@@ -1180,13 +1170,11 @@
             	     				inset <%= dataNew.iShadowInnerXOffset + 'px ' + dataNew.iShadowInnerYOffset + 'px ' + dataNew.iShadowInnerBlur + 'px ' + dataNew.iShadowInnerSpread + 'px ' + dataNew.iShadowInnerColor%>;
             	     	border: <%= dataNew.iBorderSize + 'px ' + dataNew.iBorderStyle + ' ' + dataNew.iBorderColor %>;"
             	<% } %> ></div>
-
             	<div class="vis-inventwo-button-content"
             		 style="opacity: <%=dataNew.iOpacityCtn %>;
             		 		justify-content: <%= cssData.vertTextAlign %>;
             		 		flex-direction: <%= cssData.contFlexDir %>;
             		 		">
-
             		<div style="order: <%= cssData.orderContent %>;
             			 		align-self: <%= cssData.imgAlign %>;
             			 		margin: <%= dataNew.iImgSpaceTop + 'px ' + dataNew.iImgSpaceRight + 'px ' + dataNew.iImgSpaceBottom + 'px ' + dataNew.iImgSpaceLeft + 'px' %>;">
@@ -1203,22 +1191,16 @@
             			 		color:<%= dataNew.iTextColor %>;
             			 		margin: <%= dataNew.iTextSpaceTop + 'px ' + dataNew.iTextSpaceRight + 'px ' + dataNew.iTextSpaceBottom + 'px ' + dataNew.iTextSpaceLeft + 'px' %>;
             			 		align-self: <%= cssData.textAlign %>;">
-
             			<% if(vis.states.attr(this.data.oid + '.val') == dataNew['iValue' + val]) { %>
             		    	<%== dataNew['iTextTrue' + val] %>
             		    <% } else { %>
             		    	<%== dataNew['iTextFalse' + val] %>
             		    <% } %>
 		    		</div>
-
             	</div>
-
             </div>
-
-            <%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, this.data.attr('oid'),dataNew['iValue' + val], dataNew, dataNew['iView' + val]) %>
-
+            <%= (el) -> vis.binds['vis-inventwo'].radiobutton(el, this.data.attr('oid'),dataNew['iValue' + val], dataNew) %>
             </div>
-
             <%
             	colorFilters.forEach(c => {
             		vis.binds["vis-inventwo"].getImgColorFilter(c.color, c.wid);
