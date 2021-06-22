@@ -96,6 +96,22 @@ if (vis.editMode) {
 			"en": "Content opacity",
 			"de": "Inhalt Transparenz"
 		},
+		"iContentType": {
+			"en": "Content type",
+			"de": "Inhalts Typ"
+		},
+		"clock_analog": {
+			"en": "Analog clock",
+			"de": "Analog Uhr"
+		},
+		"clock_digital": {
+			"en": "Digital clock",
+			"de": "Digital Uhr"
+		},
+		"html_text": {
+			"en": "HTML/Text",
+			"de": "HTML/Text"
+		},
 		//#endregion
 
 		//#region Image Settings
@@ -185,6 +201,37 @@ if (vis.editMode) {
 			"de": "Wiederholen"
 		},
 
+		//#endregion
+
+		//#region Clock Settings
+		"iClockShowSeconds": {
+			"en": "Show seconds",
+			"de": "Sekunden anzeigen"
+		},
+		"iImgColorClockFace": {
+			"en": "Color face",
+			"de": "Farbe Ziffernblatt"
+		},
+		"iImgColorHands": {
+			"en": "Color hands",
+			"de": "Farbe Zeiger"
+		},
+		"iImgColorHandSecond": {
+			"en": "Color second hand",
+			"de": "Farbe Sekundenzeiger"
+		},
+		"iImgClockFace": {
+			"en": "Clock face",
+			"de": "Ziffernblatt"
+		},
+		"iImgClockShowBorder": {
+			"en": "Show border",
+			"de": "Zeige Rand"
+		},
+		"iClockTimezone": {
+			"en": "Timezone",
+			"de": "Zeitzone"
+		},
 		//#endregion
 
 		//#region Text Settings
@@ -967,14 +1014,21 @@ if (vis.editMode) {
 			"de": "Schließe nach X Sekunden"
 		},
 		"iPopUpCloseDp-oid": {
-			"en": "Close datapoint",
-			"de": "Schließen Datenpunkt"
+			"en": "Open/Close datapoint",
+			"de": "Öffnen/Schließen Datenpunkt"
 		},
 		"iPopUpCloseDpValue": {
 			"en": "Close if value",
 			"de": "Schließen bei Wert"
 		},
-
+		"iPopUpCloseDpValue": {
+			"en": "Close if value",
+			"de": "Schließen bei Wert"
+		},
+		"iPopUpOpenDpValue": {
+			"en": "Open if value",
+			"de": "Öffnen bei Wert"
+		},
 		"iPopUpCornerRadiusUL": {
 			"en": "Border radius upper left",
 			"de": "Abrundung oben links"
@@ -1103,6 +1157,10 @@ if (vis.editMode) {
 		"iText-ClockSettings": {
 			"en": "<b>Clock</b>",
 			"de": "<b>Uhr</b>"
+		},
+		"iText-HtmlTextSettings": {
+			"en": "<b>HTML/Text</b>",
+			"de": "<b>HTML/Text</b>"
 		},
 		//#endregion
 
@@ -1462,11 +1520,196 @@ vis.binds["vis-inventwo"] = {
 
 	},
 
+	addViewPopup: function (el, data, type){
+		let visContainer = $('#vis_container [data-view="'+vis.activeView+'"]');
+
+		let borderRadius = data.iPopUpCornerRadiusUL + "px " +
+			data.iPopUpCornerRadiusUR + "px " +
+			data.iPopUpCornerRadiusLR + "px " +
+			data.iPopUpCornerRadiusLL + "px";
+
+		let shadow = data.iPopUpShadowXOffset + "px " + data.iPopUpShadowYOffset + "px " + data.iPopUpShadowBlur + "px " + data.iPopUpShadowSpread + "px " + data.iPopUpShadowColor;
+
+		let showTitlebar = "flex";
+		if(data.iPopUpShowTitle == false){
+			showTitlebar = "none";
+		}
+
+		let modalPosition = "";
+		let modalWindowStyle = "";
+
+		if(!isNaN(data.iPopUpPositionX)){
+			data.iPopUpPositionX += "px";
+		}
+		if(!isNaN(data.iPopUpPositionY)){
+			data.iPopUpPositionY += "px";
+		}
+
+		switch (data.iPopUpPosition) {
+			case "left":
+				modalPosition = "justify-content: flex-start; align-items: center;";
+				break;
+			case "right":
+				modalPosition = "justify-content: flex-end; align-items: center;";
+				break;
+			case "top":
+				modalPosition = "justify-content: center; align-items: flex-start;";
+				break;
+			case "bottom":
+				modalPosition = "justify-content: center; align-items: flex-end;";
+				break;
+			case "center":
+				modalPosition = "justify-content: center; align-items: center;";
+				break;
+			case "custom":
+				modalPosition = "";
+				modalWindowStyle = "position: absolute; left: " + data.iPopUpPositionX + "; top: " + data.iPopUpPositionY + ";";
+				break;
+		}
+
+		if(!isNaN(data.iPopUpWidth)){
+			data.iPopUpWidth += "px";
+		}
+		if(!isNaN(data.iPopUpHeight)){
+			data.iPopUpHeight += "px";
+		}
+
+		let modal = `
+						<div id="vis-inventwo-modal-` + data.wid + `" 
+							 style="` + modalPosition + `"
+							 class="vis-inventwo-modal">
+							<div class="vis-inventwo-modal-window vis-widget-dialog" 
+								 style="width: ` + data.iPopUpWidth + `; 
+								 		height: ` + data.iPopUpHeight + `;
+								 		background: ` + data.iPopUpBackground + `;
+								 		border-radius: ` + borderRadius + `; 
+								 		box-shadow: ` + shadow + `; ` + modalWindowStyle + `">
+								<div class="vis-inventwo-modal-titlebar" 
+									 style="display: ` + showTitlebar + `; 
+									 		height: calc(` + data.iPopUpHeightTitle + `px - 10px); 
+									 		font-size: `+ data.iPopUpTitleSize+`px;">
+									<span class="vis-inventwo-modal-title" 
+										  style="color: ` + data.iPopUpTitleColor + `;">
+										` + data.iPopUpTitle + `
+									</span>
+									<div class="vis-inventwo-modal-closebtn"
+										 style="color: ` + data.iPopUpTitleColor + `;
+										 	    background: ` + data.iPopUpCloseBtnColor + `;">X</div>
+								</div>
+								<div class="vis-inventwo-modal-content vis-view-container"  
+									 data-vis-contains="` + data.nav_view + `">
+								
+								</div>
+							</div>
+						</div>
+					`;
+
+		visContainer.append(modal);
+
+		let modalContent = $('#vis-inventwo-modal-' + data.wid + ' .vis-inventwo-modal-content');
+
+		modalContent.html("");
+
+		if(!vis.views[data.nav_view]){
+			modalContent.html("View not found");
+		}
+		else if(data.nav_view == vis.activeView){
+			modalContent.html("Cannot add current view to popup");
+		}
+		else {
+			vis.renderView(data.nav_view, data.nav_view, false, function (_view) {
+				$('#visview_' + _view).appendTo(modalContent).show();
+				vis.binds["vis-inventwo"].iUpdateNavigations(0, false);
+			});
+		}
+
+		let moved2 = false;
+		let moved3 = false;
+		let moved4 = false;
+
+		let closeTimeout = null;
+
+		function closePopUp() {
+			if(closeTimeout != null){
+				clearTimeout(closeTimeout);
+				closeTimeout = null;
+			}
+			vis.destroyUnusedViews();
+			$('#vis-inventwo-modal-' + data.wid).remove();
+		}
+
+		if(data.iPopUpCloseAfterSeconds > 0){
+			closeTimeout = setTimeout(function () {
+				closePopUp();
+			}, data.iPopUpCloseAfterSeconds * 1000);
+		}
+
+		if(data["iPopUpCloseDp-oid"] != ""){
+
+			vis.states.bind(data["iPopUpCloseDp-oid"] + ".val", function (e, newVal, oldVal) {
+				if(data.iPopUpCloseDpValue == "true"){
+					data.iPopUpCloseDpValue = true;
+				}
+				else if (data.iPopUpCloseDpValue == "false"){
+					data.iPopUpCloseDpValue = false;
+				}
+
+				if (Math.floor(new Date(vis.states.attr(data["iPopUpCloseDp-oid"] + ".ts")).getTime() / 1000) == Math.floor(Date.now() / 1000) &&
+					newVal == data.iPopUpCloseDpValue) {
+					closePopUp();
+				}
+			});
+		}
+
+		if(data.iPopUpPreventClickOutside == false) {
+			$('#vis-inventwo-modal-' + data.wid).on("click touchend",function () {
+				if (vis.detectBounce(this)) return;
+				if (moved2) return;
+
+				closePopUp();
+				event.preventDefault();
+			}).on("touchmove", function () {
+				moved2 = true;
+			}).on("touchstart", function () {
+				moved2 = false;
+			});
+		}
+
+		$(".vis-inventwo-modal-closebtn").on("click touchend", function () {
+			if (vis.detectBounce(this)) return;
+			if (moved3) return;
+
+			closePopUp();
+			event.preventDefault();
+		}).on("touchmove", function () {
+			moved3 = true;
+		}).on("touchstart", function () {
+			moved3 = false;
+		});
+
+		$('#vis-inventwo-modal-' + data.wid + ' *').on("click touchend", function() {
+			if (vis.detectBounce(this)) return;
+			if (moved4) return;
+
+			// event.preventDefault();
+			event.stopPropagation();
+		}).on("touchmove", function () {
+			moved4 = true;
+		}).on("touchstart", function () {
+			moved4 = false;
+		});
+	},
+
 	//Navigation Funktion - Wechsel der View
 	handleNavigation: function (el, data, type) {
+
+		let _this = this;
+
 		if (!vis.editMode && data.nav_view) {
 			var $this = $(el);
 			var moved = false;
+
+
 			$this.parent().on("click touchend", function (e) {
 				// Protect against two events
 				if (vis.detectBounce(this)) return;
@@ -1500,185 +1743,7 @@ vis.binds["vis-inventwo"] = {
 
 				}
 				else if(data.iUniversalWidgetType == "ViewInPopup"){
-
-					let visContainer = $('#vis_container [data-view="'+vis.activeView+'"]');
-
-					let borderRadius = data.iPopUpCornerRadiusUL + "px " +
-						data.iPopUpCornerRadiusUR + "px " +
-						data.iPopUpCornerRadiusLR + "px " +
-						data.iPopUpCornerRadiusLL + "px";
-
-					let shadow = data.iPopUpShadowXOffset + "px " + data.iPopUpShadowYOffset + "px " + data.iPopUpShadowBlur + "px " + data.iPopUpShadowSpread + "px " + data.iPopUpShadowColor;
-
-					let showTitlebar = "flex";
-					if(data.iPopUpShowTitle == false){
-						showTitlebar = "none";
-					}
-
-					let modalPosition = "";
-					let modalWindowStyle = "";
-
-					if(!isNaN(data.iPopUpPositionX)){
-						data.iPopUpPositionX += "px";
-					}
-					if(!isNaN(data.iPopUpPositionY)){
-						data.iPopUpPositionY += "px";
-					}
-
-					switch (data.iPopUpPosition) {
-						case "left":
-							modalPosition = "justify-content: flex-start; align-items: center;";
-							break;
-						case "right":
-							modalPosition = "justify-content: flex-end; align-items: center;";
-							break;
-						case "top":
-							modalPosition = "justify-content: center; align-items: flex-start;";
-							break;
-						case "bottom":
-							modalPosition = "justify-content: center; align-items: flex-end;";
-							break;
-						case "center":
-							modalPosition = "justify-content: center; align-items: center;";
-							break;
-						case "custom":
-							modalPosition = "";
-							modalWindowStyle = "position: absolute; left: " + data.iPopUpPositionX + "; top: " + data.iPopUpPositionY + ";";
-							break;
-					}
-
-					if(!isNaN(data.iPopUpWidth)){
-						data.iPopUpWidth += "px";
-					}
-					if(!isNaN(data.iPopUpHeight)){
-						data.iPopUpHeight += "px";
-					}
-
-					let modal = `
-						<div id="vis-inventwo-modal-` + data.wid + `" 
-							 style="` + modalPosition + `"
-							 class="vis-inventwo-modal">
-							<div class="vis-inventwo-modal-window vis-widget-dialog" 
-								 style="width: ` + data.iPopUpWidth + `; 
-								 		height: ` + data.iPopUpHeight + `;
-								 		background: ` + data.iPopUpBackground + `;
-								 		border-radius: ` + borderRadius + `; 
-								 		box-shadow: ` + shadow + `; ` + modalWindowStyle + `">
-								<div class="vis-inventwo-modal-titlebar" 
-									 style="display: ` + showTitlebar + `; 
-									 		height: calc(` + data.iPopUpHeightTitle + `px - 10px); 
-									 		font-size: `+ data.iPopUpTitleSize+`px;">
-									<span class="vis-inventwo-modal-title" 
-										  style="color: ` + data.iPopUpTitleColor + `;">
-										` + data.iPopUpTitle + `
-									</span>
-									<div class="vis-inventwo-modal-closebtn"
-										 style="color: ` + data.iPopUpTitleColor + `;
-										 	    background: ` + data.iPopUpCloseBtnColor + `;">X</div>
-								</div>
-								<div class="vis-inventwo-modal-content vis-view-container"  
-									 data-vis-contains="` + data.nav_view + `">
-								
-								</div>
-							</div>
-						</div>
-					`;
-
-					visContainer.append(modal);
-
-					let modalContent = $('#vis-inventwo-modal-' + data.wid + ' .vis-inventwo-modal-content');
-
-					modalContent.html("");
-
-					if(!vis.views[data.nav_view]){
-						modalContent.html("View not found");
-					}
-					else if(data.nav_view == vis.activeView){
-						modalContent.html("Cannot add current view to popup");
-					}
-					else {
-						vis.renderView(data.nav_view, data.nav_view, false, function (_view) {
-							$('#visview_' + _view).appendTo(modalContent).show();
-							vis.binds["vis-inventwo"].iUpdateNavigations(0, false);
-						});
-					}
-
-					let moved2 = false;
-					let moved3 = false;
-					let moved4 = false;
-
-					let closeTimeout = null;
-
-					function closePopUp() {
-						if(closeTimeout != null){
-							clearTimeout(closeTimeout);
-							closeTimeout = null;
-						}
-						vis.destroyUnusedViews();
-						$('#vis-inventwo-modal-' + data.wid).remove();
-					}
-
-					if(data.iPopUpCloseAfterSeconds > 0){
-						closeTimeout = setTimeout(function () {
-							closePopUp();
-						}, data.iPopUpCloseAfterSeconds * 1000);
-					}
-
-					if(data["iPopUpCloseDp-oid"] != ""){
-
-						vis.states.bind(data["iPopUpCloseDp-oid"] + ".val", function (e, newVal, oldVal) {
-							if(data.iPopUpCloseDpValue == "true"){
-								data.iPopUpCloseDpValue = true;
-							}
-							else if (data.iPopUpCloseDpValue == "false"){
-								data.iPopUpCloseDpValue = false;
-							}
-
-							if (Math.floor(new Date(vis.states.attr(data["iPopUpCloseDp-oid"] + ".ts")).getTime() / 1000) == Math.floor(Date.now() / 1000) &&
-								newVal == data.iPopUpCloseDpValue) {
-								closePopUp();
-							}
-						});
-					}
-
-					if(data.iPopUpPreventClickOutside == false) {
-						$('#vis-inventwo-modal-' + data.wid).on("click touchend",function () {
-							if (vis.detectBounce(this)) return;
-							if (moved2) return;
-
-							closePopUp();
-							event.preventDefault();
-						}).on("touchmove", function () {
-							moved2 = true;
-						}).on("touchstart", function () {
-							moved2 = false;
-						});
-					}
-
-					$(".vis-inventwo-modal-closebtn").on("click touchend", function () {
-						if (vis.detectBounce(this)) return;
-						if (moved3) return;
-
-						closePopUp();
-						event.preventDefault();
-					}).on("touchmove", function () {
-						moved3 = true;
-					}).on("touchstart", function () {
-						moved3 = false;
-					});
-
-					$('#vis-inventwo-modal-' + data.wid + ' *').on("click touchend", function() {
-						if (vis.detectBounce(this)) return;
-						if (moved4) return;
-
-						// event.preventDefault();
-						event.stopPropagation();
-					}).on("touchmove", function () {
-						moved4 = true;
-					}).on("touchstart", function () {
-						moved4 = false;
-					});
-
+					_this.addViewPopup(el, data, type);
 				}
 				//e.preventDefault();
 				//return false;
@@ -1740,10 +1805,6 @@ vis.binds["vis-inventwo"] = {
 				let oldValue = vis.states[oid + ".val"];
 
 				vis.setValue(oid, val);
-
-				console.log("state");
-
-				console.log(data.iStateResponseTime);
 
 				if (data.iStateResponseTime > 0) {
 
@@ -1831,9 +1892,6 @@ vis.binds["vis-inventwo"] = {
 
 						if (index == -1 && data.iStateResponseTime > 0) {
 							let border = data.iBorderSize + "px " + data.iBorderStyle + " " + data["iBorderColorActiveM1"];
-							$this.find(".vis-inventwo-button-new").css("background", data["iButtonActiveM1"]);
-							$this.find(".vis-inventwo-button-new").css("box-shadow", shadow);
-							$this.find(".vis-inventwo-button-new").css("border", border);
 
 							elem.get(0).style.setProperty("--background", data["iButtonActiveM1"]);
 							elem.get(0).style.setProperty("--box-shadow-col", data["iShadowColorActiveM1"]);
@@ -1868,7 +1926,17 @@ vis.binds["vis-inventwo"] = {
 									txt = data.iTextFalse;
 
 								for (let i = 1; i <= data.iUniversalValueCount; i++) {
-									if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data["oid" + i] + ".val") == data["iValue" + i]) || (data.iUniversalWidgetType == "Navigation" && data["iView" + i] === vis.activeView)) {
+									let val = data["iValue" + i];
+									if (val == undefined)
+										val = true;
+									else if (val == "true")
+										val = true;
+									else if (val == "false")
+										val = false;
+									else if (!isNaN(val))
+										val = parseFloat(val);
+
+									if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data["oid" + i] + ".val") == val) || (data.iUniversalWidgetType == "Navigation" && data["iView" + i] === vis.activeView)) {
 										backCol = data["iButtonActiveM" + i];
 										shadowCol = data["iShadowColorActiveM" + i];
 										shadowColInner = data["iShadowInnerColorActiveM" + i];
@@ -1879,6 +1947,7 @@ vis.binds["vis-inventwo"] = {
 										}
 										if (data["iTextTrue" + i] != undefined)
 											txt = data["iTextTrue" + i];
+
 										break;
 									}
 								}
@@ -1891,12 +1960,11 @@ vis.binds["vis-inventwo"] = {
 								elem.get(0).style.setProperty("--background-border", border);
 								elem.get(0).style.setProperty("--content-image-color-filter", imgColor);
 
-								if (data.iImageFalse != undefined) {
-									$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
-									vis.binds["vis-inventwo"].getImgColorFilter(imgColor, data.wid);
-								}
-								if (data.iTextFalse != undefined)
-									$this.find(".vis-inventwo-button-text").html(data.iTextFalse);
+								$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
+								vis.binds["vis-inventwo"].getImgColorFilter(imgColor, data.wid);
+
+								$this.find(".vis-inventwo-button-text").html(txt);
+
 							}, data.iStateResponseTime);
 						}
 
@@ -1994,6 +2062,8 @@ vis.binds["vis-inventwo"] = {
 
 		let isDragging = false;
 
+		let dpIsArray = false;
+
 		var settings = $.extend({
 			min: min,
 			max: max,
@@ -2070,7 +2140,11 @@ vis.binds["vis-inventwo"] = {
 									case "RGB":
 										break;
 									case "CIE":
+										console.log(rgb);
 										output = vis.binds['vis-inventwo'].cieConvert(rgb, "cie");
+										if(dpIsArray == true){
+											output = output.split(",");
+										}
 										break;
 								}
 								if(data.iColorSliderType != "RGB")
@@ -2108,6 +2182,10 @@ vis.binds["vis-inventwo"] = {
 
 				$this.children().css("background", val);
 				$this.slider("option", "value", rgbToDecimal(rgb));
+			}
+
+			if(oid == undefined){
+				return;
 			}
 
 			let val = vis.states.attr(oid + ".val");
@@ -2148,7 +2226,12 @@ vis.binds["vis-inventwo"] = {
 
 							break;
 						case "CIE":
+							if(typeof val == "object"){
+								val = val.join(",");
+								dpIsArray = true;
+							}
 							rgb = vis.binds['vis-inventwo'].cieConvert(val, "rgb");
+							console.log(rgb);
 							setColor(rgb);
 							break;
 					}
@@ -2230,8 +2313,6 @@ vis.binds["vis-inventwo"] = {
 					timeout = setTimeout(function () {
 						let val = vis.binds["vis-inventwo"].convertValue(data.value);
 						let oldValue = parseFloat(vis.states[oid + ".val"]);
-
-						console.log(typeof (oldValue + val * clickCount));
 
 						vis.setValue(oid, (oldValue + val * clickCount));
 
@@ -2573,9 +2654,9 @@ vis.binds["vis-inventwo"] = {
 													if (data["iTblCellDatetimeFormat" + (i + 1)] != "") {
 														let datetime = null;
 														if (isNaN(cellValue) == true) {
-															datetime = new Date(cellValue).getTime();
+															datetime = new Date(cellValue.trim()).getTime();
 														} else {
-															datetime = parseInt(cellValue);
+															datetime = parseInt(cellValue.trim());
 														}
 
 														//if (cellValue.toString().length == 13)
@@ -2763,7 +2844,7 @@ vis.binds["vis-inventwo"] = {
 	},
 
 	//Radiobutton Funktion - Setzt den Datenpunktwert
-	radiobutton: function (el, oid, val, data) {
+	radiobutton: function (el, oid, val, data, view) {
 		var $this = $(el);
 
 		if (!vis.editMode) {
@@ -2772,12 +2853,17 @@ vis.binds["vis-inventwo"] = {
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
 
-				val = vis.binds["vis-inventwo"].convertValue(val);
-				if(!isNaN(val)){
-					val = parseFloat(val);
+				if(oid == undefined && view != undefined){
+					vis.changeView(view, view);
 				}
+				else if(oid != undefined){
+					val = vis.binds["vis-inventwo"].convertValue(val);
+					if(!isNaN(val)){
+						val = parseFloat(val);
+					}
 
-				vis.setValue(oid, val);
+					vis.setValue(oid, val);
+				}
 
 			}).on("touchmove", function () {
 				moved = true;
@@ -2926,6 +3012,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
 				vis.hideShowAttr("iPopUpCloseDp-oid", false);
 				vis.hideShowAttr("iPopUpCloseDpValue", false);
+				vis.hideShowAttr("iPopUpOpenDpValue", false);
 				vis.hideShowAttr("iPopUpPosition", false);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
 				vis.hideShowAttr("iPopUpCornerRadiusUL", false);
@@ -2944,7 +3031,8 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iValue" + i, true);
 					vis.hideShowAttr("iView" + i, true);
 				}
-			} else if (val == "State") {
+			}
+			else if (val == "State") {
 				vis.hideShowAttr("iNavWait", false);
 				vis.hideShowAttr("iValueType", false);
 				vis.hideShowAttr("iValueTypeInfo", false);
@@ -2974,6 +3062,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
 				vis.hideShowAttr("iPopUpCloseDp-oid", false);
 				vis.hideShowAttr("iPopUpCloseDpValue", false);
+				vis.hideShowAttr("iPopUpOpenDpValue", false);
 				vis.hideShowAttr("iPopUpPosition", false);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
 				vis.hideShowAttr("iPopUpCornerRadiusUL", false);
@@ -2992,7 +3081,8 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iValue" + i, true);
 					vis.hideShowAttr("iView" + i, true);
 				}
-			} else if (val == "Navigation") {
+			}
+			else if (val == "Navigation") {
 				vis.hideShowAttr("iNavWait", true);
 				vis.hideShowAttr("iValueType", false);
 				vis.hideShowAttr("iValueTypeInfo", false);
@@ -3022,6 +3112,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
 				vis.hideShowAttr("iPopUpCloseDp-oid", false);
 				vis.hideShowAttr("iPopUpCloseDpValue", false);
+				vis.hideShowAttr("iPopUpOpenDpValue", false);
 				vis.hideShowAttr("iPopUpPosition", false);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
 				vis.hideShowAttr("iPopUpCornerRadiusUL", false);
@@ -3040,7 +3131,8 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iValue" + i, true);
 					vis.hideShowAttr("iView" + i, true);
 				}
-			} else if (val == "Background") {
+			}
+			else if (val == "Background") {
 				vis.hideShowAttr("iNavWait", false);
 				vis.hideShowAttr("iValueFalse", false);
 				vis.hideShowAttr("value", false);
@@ -3077,6 +3169,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
 				vis.hideShowAttr("iPopUpCloseDp-oid", false);
 				vis.hideShowAttr("iPopUpCloseDpValue", false);
+				vis.hideShowAttr("iPopUpOpenDpValue", false);
 				vis.hideShowAttr("iPopUpPosition", false);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
 				vis.hideShowAttr("iPopUpCornerRadiusUL", false);
@@ -3095,7 +3188,8 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iValue" + i, true);
 					vis.hideShowAttr("iView" + i, true);
 				}
-			} else if (val == "IncreaseDecreaseValue") {
+			}
+			else if (val == "IncreaseDecreaseValue") {
 				vis.hideShowAttr("iNavWait", false);
 				vis.hideShowAttr("iValueFalse", false);
 				vis.hideShowAttr("value", true);
@@ -3125,6 +3219,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
 				vis.hideShowAttr("iPopUpCloseDp-oid", false);
 				vis.hideShowAttr("iPopUpCloseDpValue", false);
+				vis.hideShowAttr("iPopUpOpenDpValue", false);
 				vis.hideShowAttr("iPopUpPosition", false);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", false);
 				vis.hideShowAttr("iPopUpCornerRadiusUL", false);
@@ -3143,7 +3238,8 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iValue" + i, true);
 					vis.hideShowAttr("iView" + i, true);
 				}
-			} else if (val == "ViewInPopup") {
+			}
+			else if (val == "ViewInPopup") {
 				vis.hideShowAttr("iNavWait", true);
 				vis.hideShowAttr("iValueType", false);
 				vis.hideShowAttr("iValueTypeInfo", false);
@@ -3173,6 +3269,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", true);
 				vis.hideShowAttr("iPopUpCloseDp-oid", true);
 				vis.hideShowAttr("iPopUpCloseDpValue", true);
+				vis.hideShowAttr("iPopUpOpenDpValue", true);
 				vis.hideShowAttr("iPopUpPosition", true);
 				vis.hideShowAttr("iText-ViewPopUpCornersSettings", true);
 				vis.hideShowAttr("iPopUpCornerRadiusUL", true);
@@ -3190,6 +3287,118 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("oid" + i, true);
 					vis.hideShowAttr("iValue" + i, true);
 					vis.hideShowAttr("iView" + i, true);
+				}
+			}
+
+			if(data.iContentType == "image"){
+				vis.hideShowAttr("iImgColorInvertFalse", true);
+				vis.hideShowAttr("iImgColorInvertTrue", true);
+				vis.hideShowAttr("iImgRotation", true);
+				vis.hideShowAttr("iFlipImage", true);
+				vis.hideShowAttr("iImgBlinkFalse", true);
+				vis.hideShowAttr("iImgBlinkTrue", true);
+				vis.hideShowAttr("iText-ImageSettings", true);
+				vis.hideShowAttr("iText-HtmlTextSettings", false);
+				vis.hideShowAttr("iText-ClockSettings", false);
+				vis.hideShowAttr("iClockShowSeconds", false);
+				vis.hideShowAttr("iImageFalse", true);
+				vis.hideShowAttr("iImageTrue", true);
+				vis.hideShowAttr("iHtmlTextFieldTrue", false);
+				vis.hideShowAttr("iImgColorFalse", true);
+				vis.hideShowAttr("iImgColorTrue", true);
+				vis.hideShowAttr("iImgColorClockFace", false);
+				vis.hideShowAttr("iImgColorHands", false);
+				vis.hideShowAttr("iImgColorHandSecond", false);
+				vis.hideShowAttr("iImgClockFace", false);
+				vis.hideShowAttr("iImgClockShowBorder", false);
+				vis.hideShowAttr("iClockTimezone", false);
+				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+					vis.hideShowAttr("iImageTrue" + i, true);
+					vis.hideShowAttr("iImgBlinkTrue" + i, true);
+					vis.hideShowAttr("iImgColorInvert" + i, true);
+					vis.hideShowAttr("iHtmlTextFieldTrue" + i, false);
+					vis.hideShowAttr("iImgColorTrue" + i, true);
+				}
+			}
+			else if(data.iContentType == "clock_analog" || data.iContentType == "clock_digital"){
+				vis.hideShowAttr("iImgColorInvertFalse", false);
+				vis.hideShowAttr("iImgColorInvertTrue", false);
+				vis.hideShowAttr("iImgRotation", false);
+				vis.hideShowAttr("iFlipImage", false);
+				vis.hideShowAttr("iImgBlinkFalse", false);
+				vis.hideShowAttr("iImgBlinkTrue", false);
+				vis.hideShowAttr("iText-ImageSettings", false);
+				vis.hideShowAttr("iText-HtmlTextSettings", false);
+				vis.hideShowAttr("iText-ClockSettings", true);
+				vis.hideShowAttr("iClockShowSeconds", true);
+				vis.hideShowAttr("iImageFalse", false);
+				vis.hideShowAttr("iImageTrue", false);
+				vis.hideShowAttr("iHtmlTextFieldTrue", false);
+				vis.hideShowAttr("iHtmlTextFieldFalse", false);
+				vis.hideShowAttr("iClockTimezone", true);
+
+				if(data.iContentType == "clock_analog"){
+					vis.hideShowAttr("iImgColorFalse", false);
+					vis.hideShowAttr("iImgColorTrue", false);
+					vis.hideShowAttr("iImgColorClockFace", true);
+					vis.hideShowAttr("iImgColorHands", true);
+					vis.hideShowAttr("iImgColorHandSecond", true);
+					vis.hideShowAttr("iImgClockFace", true);
+					vis.hideShowAttr("iImgClockShowBorder", true);
+				}
+				else{
+					vis.hideShowAttr("iImgColorFalse", true);
+					vis.hideShowAttr("iImgColorTrue", true);
+					vis.hideShowAttr("iImgColorClockFace", false);
+					vis.hideShowAttr("iImgColorHands", false);
+					vis.hideShowAttr("iImgColorHandSecond", false);
+					vis.hideShowAttr("iImgClockFace", false);
+					vis.hideShowAttr("iImgClockShowBorder", false);
+				}
+
+				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+					vis.hideShowAttr("iImageTrue" + i, false);
+					vis.hideShowAttr("iImgBlinkTrue" + i, false);
+					vis.hideShowAttr("iImgColorInvert" + i, false);
+					vis.hideShowAttr("iHtmlTextFieldTrue" + i, false);
+
+					if(data.iContentType == "clock_analog"){
+						vis.hideShowAttr("iImgColorTrue" + i, false);
+					}
+					else{
+						vis.hideShowAttr("iImgColorTrue" + i, true);
+					}
+				}
+			}
+			else if(data.iContentType == "html_text"){
+				vis.hideShowAttr("iImgColorInvertFalse", false);
+				vis.hideShowAttr("iImgColorInvertTrue", false);
+				vis.hideShowAttr("iImgRotation", false);
+				vis.hideShowAttr("iFlipImage", false);
+				vis.hideShowAttr("iImgBlinkFalse", false);
+				vis.hideShowAttr("iImgBlinkTrue", false);
+				vis.hideShowAttr("iText-ImageSettings", false);
+				vis.hideShowAttr("iText-HtmlTextSettings", true);
+				vis.hideShowAttr("iText-ClockSettings", false);
+				vis.hideShowAttr("iClockShowSeconds", false);
+				vis.hideShowAttr("iImageFalse", false);
+				vis.hideShowAttr("iImageTrue", false);
+				vis.hideShowAttr("iHtmlTextFieldTrue", true);
+				vis.hideShowAttr("iHtmlTextFieldFalse", true);
+				vis.hideShowAttr("iImgColorFalse", true);
+				vis.hideShowAttr("iImgColorTrue", true);
+				vis.hideShowAttr("iImgColorClockFace", false);
+				vis.hideShowAttr("iImgColorHands", false);
+				vis.hideShowAttr("iImgColorHandSecond", false);
+				vis.hideShowAttr("iImgClockFace", false);
+				vis.hideShowAttr("iImgClockShowBorder", false);
+				vis.hideShowAttr("iClockTimezone", false);
+				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+					vis.hideShowAttr("iImageTrue" + i, false);
+					vis.hideShowAttr("iImgBlinkTrue" + i, false);
+					vis.hideShowAttr("iImgColorInvert" + i, false);
+					vis.hideShowAttr("iHtmlTextFieldTrue" + i, true);
+					vis.hideShowAttr("iImgColorTrue" + i, true);
 				}
 			}
 
@@ -3276,12 +3485,13 @@ vis.binds["vis-inventwo"] = {
 	universalButton2: function (el, data, type) {
 
 		this.updateUniversalDataFields;
-		// if(type != "universal" && data.iUniversalWidgetType != "State")
+		// if (!["universal", "clock_analog", "clock_digital"].includes(type)  && data.iUniversalWidgetType != "State") {
 		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
 			if (newVal != oldVal) {
 				updateWidget();
 			}
 		});
+		// }
 
 		vis.states.bind(vis.activeView, function (e, newVal, oldVal) {
 			if (newVal != oldVal)
@@ -3294,7 +3504,6 @@ vis.binds["vis-inventwo"] = {
 				vis.states.bind(data.attr("oid" + index) + ".val", function (e, newVal, oldVal) {
 					if (newVal != oldVal) {
 						updateWidget();
-						console.log("update value");
 					}
 				});
 
@@ -3316,6 +3525,7 @@ vis.binds["vis-inventwo"] = {
 			let imgBlink = 0;
 			let imgColorFilter = "";
 			let invertCol = "";
+			let htmlText = "";
 
 			let values = {};
 
@@ -3335,11 +3545,11 @@ vis.binds["vis-inventwo"] = {
 
 					if( (((dataNew["iCheckType" + i] == "iCheckDefault" && dataNew.iUniversalWidgetType == "Navigation") || dataNew["iCheckType" + i] == "iCheckView") && dataNew["iView" + i] === vis.activeView) ||
 						(((dataNew["iCheckType" + i] == "iCheckDefault" && dataNew.iUniversalWidgetType != "Navigation") || dataNew["iCheckType" + i] == "iCheckDpValue") &&
-							dataNew["oid" + i] != undefined &&
-							(  (vis.states.attr(dataNew["oid" + i] + ".val") == val && dataNew["iValueComparison" + i] == "equal")
+							dataNew["oid" + i] != undefined && $this.checkIfTrue(data,null, i)
+							/*(  (vis.states.attr(dataNew["oid" + i] + ".val") == val && dataNew["iValueComparison" + i] == "equal")
 								|| (vis.states.attr(dataNew["oid" + i] + ".val") < val && dataNew["iValueComparison" + i] == "lower")
 								|| (vis.states.attr(dataNew["oid" + i] + ".val") > val && dataNew["iValueComparison" + i] == "greater")
-								|| (vis.states.attr(dataNew["oid" + i] + ".val") != val && dataNew["iValueComparison" + i] == "not"))
+								|| (vis.states.attr(dataNew["oid" + i] + ".val") != val && dataNew["iValueComparison" + i] == "not"))*/
 						)
 					)
 					{
@@ -3358,6 +3568,10 @@ vis.binds["vis-inventwo"] = {
 
 						if(dataNew["iImgColorInvert" + i] == true){
 							invertCol = " filter: invert(1);";
+						}
+
+						if(dataNew.iContentType == "html_text"){
+							htmlText = dataNew["iHtmlTextFieldTrue" + i];
 						}
 
 						found = true;
@@ -3382,6 +3596,10 @@ vis.binds["vis-inventwo"] = {
 					if(dataNew.iImgColorInvert == true){
 						invertCol = " filter: invert(1);";
 					}
+
+					if(dataNew.iContentType == "html_text"){
+						htmlText = dataNew["iHtmlTextFieldFalse"];
+					}
 				}
 			}
 			else if (type == "universal" || type == "clock_analog" || type == "clock_digital") {
@@ -3401,11 +3619,11 @@ vis.binds["vis-inventwo"] = {
 
 					(
 						(dataNew.iUniversalWidgetType == "Switch" || dataNew.iUniversalWidgetType == "Background") &&
-						((dataNew.iValueType == "value" && (
+						((dataNew.iValueType == "value" && dataNew.iUniversalWidgetType != "State" && $this.checkIfTrue(data,null) /*(
 								(vis.states.attr(data.oid + ".val") == val && dataNew.iValueComparison == "equal")
 								|| (vis.states.attr(data.oid + ".val") < val && dataNew.iValueComparison == "lower")
 								|| (vis.states.attr(data.oid + ".val") > val && dataNew.iValueComparison == "greater")
-								|| (vis.states.attr(data.oid + ".val") != val && dataNew.iValueComparison == "not")))
+								|| (vis.states.attr(data.oid + ".val") != val && dataNew.iValueComparison == "not"))*/)
 
 							|| (vis.states.attr(dataNew.oid + ".val") === true && dataNew.iValueType == "boolean")
 						)
@@ -3431,6 +3649,10 @@ vis.binds["vis-inventwo"] = {
 						invertCol = " filter: invert(1);";
 					}
 
+					if(dataNew.iContentType == "html_text"){
+						htmlText = dataNew["iHtmlTextFieldTrue"];
+					}
+
 				} else {
 					backCol = dataNew.iButtonCol;
 					shadowCol = dataNew.iShadowColor;
@@ -3448,6 +3670,10 @@ vis.binds["vis-inventwo"] = {
 
 					if(dataNew.iImgColorInvertFalse == true){
 						invertCol = " filter: invert(1);";
+					}
+
+					if(dataNew.iContentType == "html_text"){
+						htmlText = dataNew["iHtmlTextFieldFalse"];
 					}
 
 				}
@@ -3556,11 +3782,12 @@ vis.binds["vis-inventwo"] = {
 				values: values,
 				img: img,
 				txt: txt,
+				htmlText: htmlText,
 			};
 		}
 
 		function updateWidget() {
-			console.log("update");
+			console.log("update " + data.wid);
 			let dataNew = Object.assign({}, data);
 			if (vis.editMode) {
 				dataNew = vis.binds["vis-inventwo"].getDatapointsValues(dataNew);
@@ -3570,9 +3797,8 @@ vis.binds["vis-inventwo"] = {
 
 
 			let elem = $('#' + data.wid + " .vis-widget-body");
-			console.log(elem);
 
-			if(type != "clock_analog" && type != "clock_digital"){
+			if(dataNew.iContentType == "image"){
 				elem.find('.vis-inventwo-button-imageContainer img').attr('src', d.img);
 				vis.binds["vis-inventwo"].getImgColorFilter(d.values.contentImageColorFilter, data.wid);
 			}
@@ -3608,17 +3834,35 @@ vis.binds["vis-inventwo"] = {
 			}
 
 			let imgElement = "";
-			if(type == "clock_analog"){
+			if(dataNew.iContentType == "clock_analog"){
+
+				let clock = "";
+
+				if(dataNew.iImgClockShowBorder == true) {
+					clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-face-border'>
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/rand.png' style="filter: var(--clock-face-color-filter)"></div>`;
+				}
+				clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-face'>
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/`+dataNew.iImgClockFace+`.png' style="filter: var(--clock-face-color-filter)"></div>`;
+				clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-hand-hour'>
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/std.png' style="filter: var(--clock-hands-color-filter)"></div>`;
+				clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-hand-minute'>
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/min.png' style="filter: var(--clock-hands-color-filter)"></div>`;
+
+				if(dataNew.iClockShowSeconds == true) {
+					clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-hand-second'>
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/sek.png' style="filter: var(--clock-hand-second-color-filter)"></div>`;
+				}
 				imgElement = `
-				<div class="vis-inventwo-clock-analog" style="width: `+dataNew.iIconSize+`px;">
-					<img src="https://cdn.pixabay.com/photo/2012/04/10/16/08/clock-26095_1280.png">
-					<img class="vis-inventwo-clock-analog-hand-hour" src="https://www.kequc.com/articles/f9900770-60b1-408e-a5d0-374da0c0f6b5/256-minute-hand.png">
-					<img class="vis-inventwo-clock-analog-hand-minute" src="https://www.kequc.com/articles/f9900770-60b1-408e-a5d0-374da0c0f6b5/256-minute-hand.png">
-					<img class="vis-inventwo-clock-analog-hand-second" src="https://www.kequc.com/articles/f9900770-60b1-408e-a5d0-374da0c0f6b5/256-minute-hand.png">
-				</div>
+				<div class="vis-inventwo-clock-analog" style="width: `+dataNew.iIconSize+`px;">`+clock+`</div>
 				`;
+
+				vis.binds["vis-inventwo"].getImgColorFilter(dataNew.iImgColorClockFace, dataNew.wid, "clock-face-color-filter");
+				vis.binds["vis-inventwo"].getImgColorFilter(dataNew.iImgColorHands, dataNew.wid, "clock-hands-color-filter");
+				vis.binds["vis-inventwo"].getImgColorFilter(dataNew.iImgColorHandSecond, dataNew.wid, "clock-hand-second-color-filter");
+
 			}
-			else if(type == "clock_digital"){
+			else if(dataNew.iContentType == "clock_digital"){
 				imgElement = `
 				<div class="vis-inventwo-clock-digital" 
 					 style="font-size: ` + dataNew.iIconSize + `px; 
@@ -3627,11 +3871,25 @@ vis.binds["vis-inventwo"] = {
 				</div>
 				`;
 			}
-			else{
+			else if(dataNew.iContentType == "image"){
 				imgElement  = `
 				<img src="` + d.img + `" width="` + dataNew.iIconSize + `" class="vis-inventwo-img"
 					 style="transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
 					 		animation:blink ` + values.contentImageBlink + `s infinite; ` + values.contentImageInvert + dispNone +`"> `;
+
+			}
+
+			else if(dataNew.iContentType == "html_text"){
+				imgElement  = `
+				<img src="` + d.img + `" width="` + dataNew.iIconSize + `" class="vis-inventwo-img"
+					 style="transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
+					 		animation:blink ` + values.contentImageBlink + `s infinite; ` + values.contentImageInvert + dispNone +`"> `;
+
+				imgElement = `
+					<div class="vis-inventwo-content-htmltext" 
+					 style="font-size: ` + dataNew.iIconSize + `px; 
+					 		color: var(--content-image-color-filter);">` + d.htmlText + `</div>
+				`;
 
 			}
 
@@ -3667,6 +3925,22 @@ vis.binds["vis-inventwo"] = {
 					vis.binds["vis-inventwo"].increaseDecreaseValue(el, dataNew, type);
 				}
 
+				if(dataNew.iUniversalWidgetType == "ViewInPopup"){
+					vis.states.bind(data["iPopUpCloseDp-oid"] + ".val", function (e, newVal, oldVal) {
+
+						if(dataNew.iPopUpOpenDpValue == "true"){
+							dataNew.iPopUpOpenDpValue = true;
+						}
+						else if (dataNew.iPopUpOpenDpValue == "false"){
+							dataNew.iPopUpOpenDpValue = false;
+						}
+
+						if(newVal == dataNew.iPopUpOpenDpValue){
+							vis.binds["vis-inventwo"].addViewPopup(el, dataNew, type);
+						}
+
+					});
+				}
 
 				if (vis.editMode) {
 					$(el).parent().on("mouseup click", function () {
@@ -3717,14 +3991,28 @@ vis.binds["vis-inventwo"] = {
 					});
 				}
 
-				if(type == "clock_analog") {
+				function getTime(timezone = "Europe/Berlin") {
+					let date = new Date().toLocaleString('en-US', {timeZone: timezone});
+					date = new Date(date);
+					let hour = date.getHours();
+					let minutes = date.getMinutes();
+					let seconds = date.getSeconds();
+
+					return {
+						hour: hour,
+						minutes: minutes,
+						seconds: seconds,
+					}
+				}
+
+				if(dataNew.iContentType == "clock_analog") {
 
 					setTimeout(function () {
 
-						let date = new Date();
-						let hour = date.getHours();
-						let minutes = date.getMinutes();
-						let seconds = date.getSeconds();
+						let date = getTime(dataNew.iClockTimezone);
+						let hour = date.hour;
+						let minutes = date.minutes;
+						let seconds = date.seconds;
 
 						let handHour = $('#' + data.wid + ' .vis-inventwo-clock-analog-hand-hour');
 						let handMin = $('#' + data.wid + ' .vis-inventwo-clock-analog-hand-minute');
@@ -3744,10 +4032,10 @@ vis.binds["vis-inventwo"] = {
 						}
 
 						setInterval(function () {
-							date = new Date();
-							hour = date.getHours();
-							minutes = date.getMinutes();
-							seconds = date.getSeconds();
+							date = getTime(dataNew.iClockTimezone);
+							hour = date.hour;
+							minutes = date.minutes;
+							seconds = date.seconds;
 
 							if(hour > 12){
 								hour = hour - 12;
@@ -3764,14 +4052,14 @@ vis.binds["vis-inventwo"] = {
 					}, 100);
 
 				}
-				else if(type == "clock_digital") {
+				else if(dataNew.iContentType == "clock_digital") {
 
 					setTimeout(function () {
 
-						let date = new Date();
-						let hour = date.getHours();
-						let minutes = date.getMinutes();
-						let seconds = date.getSeconds();
+						let date = getTime(dataNew.iClockTimezone);
+						let hour = date.hour;
+						let minutes = date.minutes;
+						let seconds = date.seconds;
 
 						let fullTime = ("0" + hour).slice(-2) + ":" + ("0" + minutes).slice(-2);
 
@@ -3784,13 +4072,13 @@ vis.binds["vis-inventwo"] = {
 						timeContainer.text(fullTime);
 
 						setInterval(function () {
-							date = new Date();
-							hour = date.getHours();
-							minutes = date.getMinutes();
+							date = date = getTime(dataNew.iClockTimezone);
+							hour = date.hour;
+							minutes = date.minutes;
+							seconds = date.seconds;
 
 							let fullTime = ("0" + hour).slice(-2) + ":" + ("0" + minutes).slice(-2)
 							if(dataNew.iClockShowSeconds == true){
-								seconds = date.getSeconds();
 								fullTime += ":" +("0" + seconds).slice(-2);
 							}
 							timeContainer.text(fullTime);
@@ -4686,7 +4974,7 @@ vis.binds["vis-inventwo"] = {
 	 */
 
 	//Aktualisierung der Filter für das Icon
-	getImgColorFilter: function (color, wid) {
+	getImgColorFilter: function (color, wid, varName = null) {
 
 		if (color == undefined || color == null || color == "") {
 			return;
@@ -4717,8 +5005,13 @@ vis.binds["vis-inventwo"] = {
 					vis.setValue("vis-inventwo.0.intern.ColorFilter." + color.substring(1), filter);
 				}
 
-				if ($("#" + wid).find(".vis-inventwo-img").css("filter") != filter.substring(8, filter.length - 1)) {
-					$("#" + wid).find(".vis-inventwo-img").css("filter", filter.substring(8, filter.length - 1));
+				if(varName == null) {
+					if ($("#" + wid).find(".vis-inventwo-img").css("filter") != filter.substring(8, filter.length - 1)) {
+						$("#" + wid).find(".vis-inventwo-img").css("filter", filter.substring(8, filter.length - 1));
+					}
+				}
+				else{
+					$('#' + wid).find('.vis-widget-body').get(0).style.setProperty("--" + varName, filter.substring(8, filter.length - 1))
 				}
 			});
 		}
@@ -4731,7 +5024,7 @@ vis.binds["vis-inventwo"] = {
 
 	convertValue: function (val) {
 
-		if(!isNaN(val)){
+		if(!isNaN(val) && typeof val != "boolean"){
 			val = parseFloat(val);
 		}
 
@@ -4872,9 +5165,6 @@ vis.binds["vis-inventwo"] = {
 				var val = vis.states[oid + ".val"];
 				var valFalse = vis.binds["vis-inventwo"].convertValue(data.iValueFalse);
 				var valTrue = vis.binds["vis-inventwo"].convertValue(data.iValueTrue);
-
-				console.log(valFalse);
-				console.log(valTrue);
 
 				if (val == valFalse) {
 					vis.setValue(oid, valTrue);
@@ -5215,7 +5505,7 @@ vis.binds["vis-inventwo"] = {
 
 
 
-	checkIfTrue: function (data, value) {
+	checkIfTrue: function (data, value, index = null) {
 
 		if(data.iUniversalWidgetType == "Navigation"){
 			if(vis.activeView == data.nav_view){
@@ -5227,10 +5517,26 @@ vis.binds["vis-inventwo"] = {
 		}
 		else {
 
-			let oid = data.oid;
-			let comparator = data.iValueComparison;
+			let oid = null;
+			let value = null;
+			let comparator = null;
+
+			if(index == null){
+				oid = data.oid;
+				comparator = data.iValueComparison;
+				value = data.iValueTrue;
+			}
+			else{
+				oid = data["oid" + index];
+				comparator = data["iValueComparison" + index];
+				value = data["iValue" + index];
+			}
+
+			if(oid == undefined){
+				return false;
+			}
+
 			let valueType = data.iValueType;
-			let value = data.iValueTrue;
 
 			let comparasionTable = {
 				'greater': function (val1, val2) {
@@ -5247,17 +5553,22 @@ vis.binds["vis-inventwo"] = {
 				'not': function (val1, val2) {
 					return val1 != val2
 				},
+				'greaterEqual': function (val1, val2) {
+					return val1 >= val2
+				},
+				'lowerEqual': function (val1, val2) {
+					return val1 >= val2
+				},
 			}
 
 			let dpVal = vis.states.attr(oid + ".val");
 			dpVal = this.convertValue(dpVal);
-
 			if (valueType == "boolean")
 				value = true;
 
 			value = this.convertValue(value);
 
-			if (comparasionTable[comparator](dpVal, value)) {
+			if (comparator != undefined && comparasionTable[comparator](dpVal, value)) {
 				return true;
 			} else {
 				return false;

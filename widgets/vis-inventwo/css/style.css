@@ -217,14 +217,23 @@
     align-items: center;
 }
 
-.vis-inventwo-clock-analog img{
+.vis-inventwo-clock-analog .vis-inventwo-clock-analog-part img,
+.vis-inventwo-clock-analog .vis-inventwo-clock-analog-part,
+.vis-inventwo-clock-analog .vis-inventwo-clock-analog-part svg{
     width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
-.vis-inventwo-clock-analog-hand-hour,
-.vis-inventwo-clock-analog-hand-minute,
-.vis-inventwo-clock-analog-hand-second{
+.vis-inventwo-clock-analog .vis-inventwo-clock-analog-part.vis-inventwo-clock-analog-face-border,
+.vis-inventwo-clock-analog .vis-inventwo-clock-analog-part.vis-inventwo-clock-analog-hand-hour,
+.vis-inventwo-clock-analog .vis-inventwo-clock-analog-part.vis-inventwo-clock-analog-hand-minute,
+.vis-inventwo-clock-analog .vis-inventwo-clock-analog-part.vis-inventwo-clock-analog-hand-second{
     position: absolute;
+}
+
+.vis-inventwo-clock-analog .vis-inventwo-clock-analog-part.vis-inventwo-clock-analog-face-border{
+    height: auto;
 }
 
 
