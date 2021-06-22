@@ -4088,8 +4088,10 @@ vis.binds["vis-inventwo"] = {
 							hour = hour - 12;
 						}
 
+						let h1 = 360 / 12 / 60 * minutes;
+
 						handMin.css("transform", "rotateZ(" + (minutes / 60 * 360) + "deg)");
-						handHour.css("transform", "rotateZ(" + (hour / 12 * 360) + "deg)");
+						handHour.css("transform", "rotateZ(" + (hour / 12 * 360 + h1) + "deg)");
 						if(dataNew.iClockShowSeconds == true) {
 							handSec.css("transform", "rotateZ(" + (seconds / 60 * 360) + "deg)");
 						}
@@ -4107,8 +4109,10 @@ vis.binds["vis-inventwo"] = {
 								hour = hour - 12;
 							}
 
+							h1 = 360 / 12 / 60 * minutes;
+
 							handMin.css("transform", "rotateZ(" + (minutes / 60 * 360) + "deg)");
-							handHour.css("transform", "rotateZ(" + (hour / 12 * 360) + "deg)");
+							handHour.css("transform", "rotateZ(" + (hour / 12 * 360 + h1) + "deg)");
 							if(dataNew.iClockShowSeconds == true) {
 								handSec.css("transform", "rotateZ(" + (seconds / 60 * 360) + "deg)");
 							}
