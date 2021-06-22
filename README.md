@@ -72,6 +72,18 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 3.0.0
+- Beim Universal- und Multiwidget kann der Inhaltstyp geändert werden.
+    - Inhaltstypen: Bild (Standard), Analoge Uhr, Digitale Uhr und HTML/Text 
+    - Analoge und digitale Uhr: Farbe des Ziffernblatts under Zeiger kann frei gewählt werden, Zeitzone kann geändert werden
+    - Statt dem Icon kann ein eigener Text oder ein Datenpunktwerd per Binding angezeigt werden
+- Vergleichsoperatoren Größer-Gelich und Kleiner-Gleich
+- PopUp kann per Datenpunk geöffnet werden
+- Bugfix:
+    - Colorslider unsichtbar wenn für CIE kein Wert vorhanden ist
+    - Links funktionieren nicht im Popup
+    - State Rückmeldedauer funktioniert nicht richtig
+
 ## 2.9.7
 - Bugfix
 

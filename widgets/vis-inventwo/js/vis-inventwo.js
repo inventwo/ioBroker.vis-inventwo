@@ -1,7 +1,7 @@
 /*
 	ioBroker.vis vis-inventwo Widget-Set
-	version: "2.0.0"
-	Copyright 2020 jkvarel jkvarel@inventwo.com
+	version: "3.x.x"
+	Copyright 2021 jkvarel jkvarel@inventwo.com
 */
 "use strict";
 // add translations for edit mode
@@ -224,6 +224,10 @@ if (vis.editMode) {
 			"en": "Clock face",
 			"de": "Ziffernblatt"
 		},
+		"iImgClockHands": {
+			"en": "Clock hands",
+			"de": "Zeiger"
+		},
 		"iImgClockShowBorder": {
 			"en": "Show border",
 			"de": "Zeige Rand"
@@ -387,6 +391,33 @@ if (vis.editMode) {
 		"iShadowInnerColorActiveM": {
 			"en": "Inner shadow active",
 			"de": "Schatten innen aktiv"
+		},
+		//#endregion
+
+		//#region Shadow Text Settingss
+		"iShadowTextXOffset": {
+			"en": "X offset",
+			"de": "X Versatz"
+		},
+		"iShadowTextYOffset": {
+			"en": "Y offset",
+			"de": "Y Versatz"
+		},
+		"iShadowTextBlur": {
+			"en": "Blur",
+			"de": "Blur"
+		},
+		"iShadowTextColor": {
+			"en": "Color",
+			"de": "Farbe"
+		},
+		"iShadowTextColorActive": {
+			"en": "Color active",
+			"de": "Farbe Aktiv"
+		},
+		"iShadowTextColorActiveM": {
+			"en": "shadow active",
+			"de": "Schatten aktiv"
 		},
 		//#endregion
 
@@ -1097,6 +1128,10 @@ if (vis.editMode) {
 		"iText-ShadowInnerSettings": {
 			"en": "<b>Inner shadow</b>",
 			"de": "<b>Schatten innen</b>"
+		},
+		"iText-TextShadowSettings": {
+			"en": "<b>Text shadow</b>",
+			"de": "<b>Schatten Text</b>"
 		},
 		"iText-BorderSettings": {
 			"en": "<b>Border</b>",
@@ -2849,6 +2884,7 @@ vis.binds["vis-inventwo"] = {
 
 		if (!vis.editMode) {
 			var moved = false;
+
 			$this.parent().on("click touchend", function () {
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
@@ -3452,7 +3488,8 @@ vis.binds["vis-inventwo"] = {
 				<div class="vis-inventwo-button-content"
 					 style="opacity: var(--content-opacity);
 					 		justify-content: var(--content-justify-content);
-					 		flex-direction: var(--content-flex-direction);">
+					 		flex-direction: var(--content-flex-direction); 
+					 		text-shadow: var(--text-shadow);">
 					
 					<div class="vis-inventwo-button-imageContainer"
 						 style="order: var(--content-image-order);
@@ -3485,13 +3522,13 @@ vis.binds["vis-inventwo"] = {
 	universalButton2: function (el, data, type) {
 
 		this.updateUniversalDataFields;
-		// if (!["universal", "clock_analog", "clock_digital"].includes(type)  && data.iUniversalWidgetType != "State") {
-		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
-			if (newVal != oldVal) {
-				updateWidget();
-			}
-		});
-		// }
+		if (!(type == "universal"  && data.iUniversalWidgetType == "State")) {
+			vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
+				if (newVal != oldVal) {
+					updateWidget();
+				}
+			});
+		}
 
 		vis.states.bind(vis.activeView, function (e, newVal, oldVal) {
 			if (newVal != oldVal)
@@ -3519,6 +3556,7 @@ vis.binds["vis-inventwo"] = {
 			let backCol = "";
 			let shadowCol = "";
 			let shadowColInner = "";
+			let shadowTextCol = "";
 			let borderCol = "";
 			let img = "";
 			let txt = "";
@@ -3556,6 +3594,7 @@ vis.binds["vis-inventwo"] = {
 						backCol = dataNew["iButtonActiveM" + i];
 						shadowCol = dataNew["iShadowColorActiveM" + i];
 						shadowColInner = dataNew["iShadowInnerColorActiveM" + i];
+						shadowTextCol = dataNew["iShadowTextColorActive" + i];
 						borderCol = dataNew["iBorderColorActiveM" + i];
 
 						imgColorFilter = dataNew["iImgColorTrue" + i];
@@ -3582,6 +3621,7 @@ vis.binds["vis-inventwo"] = {
 					backCol = dataNew.iButtonCol;
 					shadowCol = dataNew.iShadowColor;
 					shadowColInner = dataNew.iShadowInnerColor;
+					shadowTextCol = dataNew.iShadowTextColor;
 					borderCol = dataNew.iBorderColor;
 
 					imgColorFilter = dataNew.iImgColorFalse;
@@ -3633,6 +3673,7 @@ vis.binds["vis-inventwo"] = {
 					backCol = dataNew.iButtonActive;
 					shadowCol = dataNew.iShadowColorActive;
 					shadowColInner = dataNew.iShadowInnerColorActive;
+					shadowTextCol = dataNew.iShadowTextColorActive;
 					borderCol = dataNew.iBorderColorActive;
 
 					imgColorFilter = dataNew.iImgColorTrue;
@@ -3657,6 +3698,7 @@ vis.binds["vis-inventwo"] = {
 					backCol = dataNew.iButtonCol;
 					shadowCol = dataNew.iShadowColor;
 					shadowColInner = dataNew.iShadowInnerColor;
+					shadowTextCol = dataNew.iShadowTextColor;
 					borderCol = dataNew.iBorderColor;
 
 					imgColorFilter = dataNew.iImgColorFalse;
@@ -3688,6 +3730,8 @@ vis.binds["vis-inventwo"] = {
 				+ shadowCol + "; --box-shadow-inner-col: " + shadowColInner;
 			let border = dataNew.iBorderSize + "px " + dataNew.iBorderStyle + " " + borderCol;
 			let borderRadius = dataNew.iCornerRadiusUL + "px " + dataNew.iCornerRadiusUR + "px " + dataNew.iCornerRadiusLR + "px " + dataNew.iCornerRadiusLL + "px";
+
+			let shadowText = dataNew.iShadowTextXOffset + "px " + dataNew.iShadowTextYOffset + "px " + dataNew.iShadowTextBlur + "px var(--text-shadow-col);";
 
 			//
 			let imgMargin = dataNew.iImgSpaceTop + "px " + dataNew.iImgSpaceRight + "px " + dataNew.iImgSpaceBottom + "px " + dataNew.iImgSpaceLeft + "px";
@@ -3776,6 +3820,8 @@ vis.binds["vis-inventwo"] = {
 				textMargin: txtMargin,
 				textTextAlign: textAlign,
 				textAlignSelf: alignSelf,
+				textShadow: shadowText,
+				textShadowCol: shadowTextCol,
 			};
 
 			return {
@@ -3845,13 +3891,13 @@ vis.binds["vis-inventwo"] = {
 				clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-face'>
 							<img src='/vis/widgets/vis-inventwo/img/clock_analog/`+dataNew.iImgClockFace+`.png' style="filter: var(--clock-face-color-filter)"></div>`;
 				clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-hand-hour'>
-							<img src='/vis/widgets/vis-inventwo/img/clock_analog/std.png' style="filter: var(--clock-hands-color-filter)"></div>`;
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/`+dataNew.iImgClockHands+`/std.png' style="filter: var(--clock-hands-color-filter)"></div>`;
 				clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-hand-minute'>
-							<img src='/vis/widgets/vis-inventwo/img/clock_analog/min.png' style="filter: var(--clock-hands-color-filter)"></div>`;
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/`+dataNew.iImgClockHands+`/min.png' style="filter: var(--clock-hands-color-filter)"></div>`;
 
 				if(dataNew.iClockShowSeconds == true) {
 					clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-hand-second'>
-							<img src='/vis/widgets/vis-inventwo/img/clock_analog/sek.png' style="filter: var(--clock-hand-second-color-filter)"></div>`;
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/`+dataNew.iImgClockHands+`/sek.png' style="filter: var(--clock-hand-second-color-filter)"></div>`;
 				}
 				imgElement = `
 				<div class="vis-inventwo-clock-analog" style="width: `+dataNew.iIconSize+`px;">`+clock+`</div>

@@ -1,9 +1,9 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "2.10.0",
+    "version": "3.0.0",
     "news": {
-      "2.10.0": {
+      "3.0.0": {
         "en": "Bugfix",
         "de": "Fehlerbehebung",
         "ru": "Исправлена ошибка",
@@ -177,7 +177,7 @@
     "main": "main.js",
     "icon": "inventwo.png",
     "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/inventwo/ioBroker.vis-inventwo/master/admin/i1_150.png",
+    "extIcon": "https://raw.githubusercontent.com/inventwo/ioBroker.vis-inventwo/master/admin/inventwo.png",
     "readme": "https://github.com/inventwo/ioBroker.vis-inventwo/blob/master/README.md",
     "loglevel": "info",
     "restartAdapters": [

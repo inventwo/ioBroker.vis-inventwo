@@ -1,14 +1,11 @@
 <!--
 	ioBroker.vis vis-inventwo Widget-Set
-	version: "2.x.x"
+	version: "3.x.x"
 	Copyright 2021 jkvarel jkvarel@inventwo.com
 -->
 
 <link rel="stylesheet" href="widgets/vis-inventwo/css/style.css"/>
 <script type="text/javascript" src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
-
-
-
 
 
 
@@ -119,6 +116,7 @@
 						 iImgColorInvertFalse/checkbox;
 						 iImgColorInvertTrue/checkbox;
 						 iImgClockFace[001]/nselect,001,002,003;
+						 iImgClockHands[001]/nselect,001,002;
 						 iImgClockShowBorder[1]/checkbox;
 						 iImgColorClockFace[#ffffff]/color;
 						 iImgColorHands[#ffffff]/color;
@@ -145,6 +143,13 @@
 						 iShadowInnerColor[#111111]/color;
 						 iShadowInnerColorActive[#111111]/color;
 						 iShadowInnerColorHover[]/color;
+
+						 iText-TextShadowSettings/custom,vis-inventwo.infoText,emptyText;
+						 iShadowTextXOffset[2]/slider,0,20,1;
+						 iShadowTextYOffset[2]/slider,0,20,1;
+						 iShadowTextBlur[2]/slider,0,20,1;
+						 iShadowTextColor[#111111]/color;
+						 iShadowTextColorActive[#111111]/color;
 
 						 iText-BorderSettings/custom,vis-inventwo.infoText,emptyText;
 						 iBorderSize[0]/slider,0,20,1;
@@ -237,6 +242,9 @@
 						 iText-ShadowInnerSettings(1-iUniversalValueCount)/custom,vis-inventwo.infoText,emptyText;
 						 iShadowInnerColorActiveM(1-iUniversalValueCount)[#111111]/color;
 
+						 iText-TextShadowSettings(1-iUniversalValueCount)/custom,vis-inventwo.infoText,emptyText;
+						 iShadowTextColorActiveM(1-iUniversalValueCount)[#111111]/color;
+
 						 iText-BorderSettings(1-iUniversalValueCount)/custom,vis-inventwo.infoText,emptyText;
 						 iBorderColorActiveM(1-iUniversalValueCount)[#ffffff]/color;
 
@@ -289,6 +297,7 @@
 						 iImgColorFalse[]/color;
 						 iImgColorInvert/checkbox;
 						 iImgClockFace[001]/nselect,001,002,003;
+						 iImgClockHands[001]/nselect,001,002;
 						 iImgClockShowBorder[true]/checkbox;
 						 iImgColorClockFace[#ffffff]/color;
 						 iImgColorHands[#ffffff]/color;
@@ -310,6 +319,12 @@
 						 iShadowInnerBlur[0]/slider,0,20,1;
 						 iShadowInnerSpread[0]/slider,0,20,1;
 						 iShadowInnerColor[#111111]/color;
+
+						 iText-TextShadowSettings/custom,vis-inventwo.infoText,emptyText;
+						 iShadowTextXOffset[0]/slider,0,20,1;
+						 iShadowTextYOffset[0]/slider,0,20,1;
+						 iShadowTextBlur[0]/slider,0,20,1;
+						 iShadowTextColor[#111111]/color;
 
 						 iText-BorderSettings/custom,vis-inventwo.infoText,emptyText;
 						 iBorderSize[0]/slider,0,20,1;
@@ -1149,7 +1164,7 @@
 
 
             <div class="vis-inventwo-button-new"
-            	<% if((this.data.oid != undefined && vis.states.attr(this.data.oid + '.val') == dataNew['iValue' + val]) || this.data['iView' + val] === vis.activeView) { %>
+            	<% if((this.data.oid != undefined && vis.states.attr(this.data.oid + '.val') == dataNew['iValue' + val]) || dataNew['iView' + val] === vis.activeView) { %>
                  style="background: <%= backCol%>;
                  		opacity: <%= dataNew.iOpacityBack %>;
             	     	border-radius: <%= dataNew.iCornerRadiusUL %>px <%= dataNew.iCornerRadiusUR %>px <%= dataNew.iCornerRadiusLR %>px <%= dataNew.iCornerRadiusLL %>px;
