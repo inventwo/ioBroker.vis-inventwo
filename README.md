@@ -82,7 +82,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Beim Universal- und Multiwidget kann der Inhaltstyp geändert werden.
     - Inhaltstypen: Bild (Standard), Analoge Uhr, Digitale Uhr und HTML/Text 
     - Analoge und digitale Uhr: Farbe des Ziffernblatts under Zeiger kann frei gewählt werden, Zeitzone kann geändert werden
-    - Statt dem Icon kann ein eigener Text oder ein Datenpunktwerd per Binding angezeigt werden
+    - Statt dem Icon kann ein eigener Text oder ein Datenpunktwert per Binding angezeigt werden
 - Vergleichsoperatoren Größer-Gelich und Kleiner-Gleich
 - PopUp kann per Datenpunk geöffnet werden
 - Bugfix:
