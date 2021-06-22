@@ -238,6 +238,17 @@ if (vis.editMode) {
 		},
 		//#endregion
 
+		//#region HTML/Text Settings
+		"iHtmlTextFieldFalse": {
+			"en": "HTML false",
+			"de": "HTML falsch"
+		},
+		"iHtmlTextFieldTrue": {
+			"en": "HTML true",
+			"de": "HTML wahr"
+		},
+		//#endregion
+
 		//#region Text Settings
 		"iTextSpaceTop": {
 			"en": "Space top",
@@ -3354,6 +3365,8 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iImgColorInvert" + i, true);
 					vis.hideShowAttr("iHtmlTextFieldTrue" + i, false);
 					vis.hideShowAttr("iImgColorTrue" + i, true);
+					vis.hideShowAttr("iText-ImageSettings" + i, true);
+					vis.hideShowAttr("iText-HtmlTextSettings" + i, false);
 				}
 			}
 			else if(data.iContentType == "clock_analog" || data.iContentType == "clock_digital"){
@@ -3397,6 +3410,8 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iImgBlinkTrue" + i, false);
 					vis.hideShowAttr("iImgColorInvert" + i, false);
 					vis.hideShowAttr("iHtmlTextFieldTrue" + i, false);
+					vis.hideShowAttr("iText-ImageSettings" + i, false);
+					vis.hideShowAttr("iText-HtmlTextSettings" + i, false);
 
 					if(data.iContentType == "clock_analog"){
 						vis.hideShowAttr("iImgColorTrue" + i, false);
@@ -3430,6 +3445,8 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iImgClockShowBorder", false);
 				vis.hideShowAttr("iClockTimezone", false);
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
+					vis.hideShowAttr("iText-ImageSettings" + i, false);
+					vis.hideShowAttr("iText-HtmlTextSettings" + i, true);
 					vis.hideShowAttr("iImageTrue" + i, false);
 					vis.hideShowAttr("iImgBlinkTrue" + i, false);
 					vis.hideShowAttr("iImgColorInvert" + i, false);
@@ -3847,6 +3864,9 @@ vis.binds["vis-inventwo"] = {
 			if(dataNew.iContentType == "image"){
 				elem.find('.vis-inventwo-button-imageContainer img').attr('src', d.img);
 				vis.binds["vis-inventwo"].getImgColorFilter(d.values.contentImageColorFilter, data.wid);
+			}
+			else if(dataNew.iContentType == "html_text"){
+				elem.find('.vis-inventwo-content-htmltext').html(d.htmlText);
 			}
 
 			elem.find('.vis-inventwo-button-text').html(d.txt);
