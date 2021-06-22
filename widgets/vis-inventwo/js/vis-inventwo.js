@@ -3886,7 +3886,7 @@ vis.binds["vis-inventwo"] = {
 
 				if(dataNew.iImgClockShowBorder == true) {
 					clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-face-border'>
-							<img src='/vis/widgets/vis-inventwo/img/clock_analog/rand.png' style="filter: var(--clock-face-color-filter)"></div>`;
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/frame.png' style="filter: var(--clock-face-color-filter)"></div>`;
 				}
 				clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-face'>
 							<img src='/vis/widgets/vis-inventwo/img/clock_analog/`+dataNew.iImgClockFace+`.png' style="filter: var(--clock-face-color-filter)"></div>`;
@@ -3900,7 +3900,7 @@ vis.binds["vis-inventwo"] = {
 							<img src='/vis/widgets/vis-inventwo/img/clock_analog/`+dataNew.iImgClockHands+`/sek.png' style="filter: var(--clock-hand-second-color-filter)"></div>`;
 				}
 				imgElement = `
-				<div class="vis-inventwo-clock-analog" style="width: `+dataNew.iIconSize+`px;">`+clock+`</div>
+				<div class="vis-inventwo-clock-analog" style="width: `+dataNew.iIconSize+`px;height: `+dataNew.iIconSize+`px;">`+clock+`</div>
 				`;
 
 				vis.binds["vis-inventwo"].getImgColorFilter(dataNew.iImgColorClockFace, dataNew.wid, "clock-face-color-filter");

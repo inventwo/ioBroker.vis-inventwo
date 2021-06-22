@@ -4,16 +4,16 @@
     "version": "3.0.0",
     "news": {
       "3.0.0": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
+        "en": "Contenttypes for Universal- and Multiwidget: Image, Clock (analog and digital) and HTML/Text, New comparison operators: greater or equal and lower or equal, Popup now can be opened via datapoint,Bugfixes, (For full changelog visit Github)",
+        "de": "Inhaltstypen für Universal- und Multiwidget: Bild, Uhr (analog und digital) und HTML/Text, Neue Vergleichsoperatoren: größer gleich und kleiner gleich, Popup kann jetzt über Datenpunkt geöffnet werden, Bugfixes, (Für den vollständigen Changelog besuchen Sie Github)",
+        "ru": "Типы содержимого для универсального и мультивиджета: изображение, часы (аналоговые и цифровые) и HTML / текст, новые операторы сравнения: больше или равно и меньше или равно, всплывающее окно теперь можно открывать через точку данных, исправления (полный список изменений см. На Github)",
+        "pt": "Tipos de conteúdo para Universal e Multiwidget: Imagem, Relógio (analógico e digital) e HTML / Texto, Novos operadores de comparação: maior ou igual e menor ou igual, Popup agora pode ser aberto via datapoint, correções de bugs (para changelog completo, visite Github)",
+        "nl": "Inhoudstypes voor Universal- en Multiwidget: Afbeelding, Klok (analoog en digitaal) en HTML/Tekst, Nieuwe vergelijkingsoperatoren: groter of gelijk en lager of gelijk, Popup nu te openen via datapunt, Bugfixes, (Ga voor volledige changelog naar Github)",
+        "fr": "Types de contenu pour Universal- et Multiwidget : Image, Clock (analogique et numérique) et HTML/Texte, Nouveaux opérateurs de comparaison : supérieur ou égal et inférieur ou égal, Popup peut désormais être ouvert via un point de données, Corrections de bugs, (Pour le journal des modifications complet, visitez Github)",
+        "it": "Tipi di contenuto per Universal- e Multiwidget: immagine, orologio (analogico e digitale) e HTML/testo, nuovi operatori di confronto: maggiore o uguale e minore o uguale, il popup ora può essere aperto tramite datapoint, correzioni di bug (per il registro completo delle modifiche visitare Github)",
+        "es": "Tipos de contenido para Universal- y Multiwidget: Imagen, Reloj (analógico y digital) y HTML / Texto, Nuevos operadores de comparación: mayor o igual y menor o igual, Popup ahora se puede abrir a través del punto de datos, Corrección de errores, (Para el registro de cambios completo, visite Github)",
+        "pl": "Typy treści dla Universal- i Multiwidget: Obraz, Zegar (analogowy i cyfrowy) i HTML/Tekst, Nowe operatory porównania: większy lub równy i mniejszy lub równy, Popup teraz może być otwierany przez punkt danych, Poprawki błędów, (Pełny dziennik zmian można znaleźć na Github)",
+        "zh-cn": "通用和 Multiwidget 的内容类型：图像、时钟（模拟和数字）和 HTML/文本，新的比较运算符：大于或等于和小于或等于，现在可以通过数据点打开弹出窗口，错误修复，（完整的更改日志请访问 Github）"
       },
       "2.9.7": {
         "en": "Bugfix",

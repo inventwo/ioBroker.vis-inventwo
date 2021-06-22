@@ -73,6 +73,12 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ## Changelog / Änderungsprotokoll
 
 ## 3.0.0
+```diff
+#### ACHTUNG ####
+Nach dem Update sind die Icons vom Universal- und Multiwidget 
+nicht zu sehen, sind aber nicht weg! Damit diese wieder zu sehen sind müssen 
+die Widgets einmal EINZELN im Editor angeklickt werden.
+```
 - Beim Universal- und Multiwidget kann der Inhaltstyp geändert werden.
     - Inhaltstypen: Bild (Standard), Analoge Uhr, Digitale Uhr und HTML/Text 
     - Analoge und digitale Uhr: Farbe des Ziffernblatts under Zeiger kann frei gewählt werden, Zeitzone kann geändert werden
