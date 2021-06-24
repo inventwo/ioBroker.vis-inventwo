@@ -3536,13 +3536,18 @@ vis.binds["vis-inventwo"] = {
 	//Generierung des Universal und Multi Widgets
 	universalButton2: function (el, data, type) {
 
+		let datapoints = [];
+
 		this.updateUniversalDataFields;
 		if (!(type == "universal"  && data.iUniversalWidgetType == "State")) {
-			vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
-				if (newVal != oldVal) {
-					updateWidget();
-				}
-			});
+			if(!datapoints.includes(data.attr("oid"))) {
+				datapoints.push(data.attr("oid"));
+				vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
+					if (newVal != oldVal) {
+						updateWidget();
+					}
+				});
+			}
 		}
 
 		vis.states.bind(vis.activeView, function (e, newVal, oldVal) {
@@ -3553,11 +3558,14 @@ vis.binds["vis-inventwo"] = {
 		if (type == "multi" && data.iUniversalWidgetType != "Navigation") {
 			for (let index = 1; index <= data.iUniversalValueCount; index++) {
 
-				vis.states.bind(data.attr("oid" + index) + ".val", function (e, newVal, oldVal) {
-					if (newVal != oldVal) {
-						updateWidget();
-					}
-				});
+				if(!datapoints.includes(data.attr("oid" + index))) {
+					datapoints.push(data.attr("oid" + index));
+					vis.states.bind(data.attr("oid" + index) + ".val", function (e, newVal, oldVal) {
+						if (newVal != oldVal) {
+							updateWidget();
+						}
+					});
+				}
 
 			}
 		}
@@ -3577,7 +3585,7 @@ vis.binds["vis-inventwo"] = {
 			let txt = "";
 			let imgBlink = 0;
 			let imgColorFilter = "";
-			let invertCol = "";
+			let invertCol = null;
 			let htmlText = "";
 
 			let values = {};
@@ -3875,12 +3883,15 @@ vis.binds["vis-inventwo"] = {
 
 			let d = getValues(dataNew);
 
-
 			let elem = $('#' + data.wid + " .vis-widget-body");
+
+			for (const [key, value] of Object.entries(d.values)) {
+				elem.get(0).style.setProperty("--" + $this.camelCaseToKebabCase(key), value);
+			}
 
 			if(dataNew.iContentType == "image"){
 				elem.find('.vis-inventwo-button-imageContainer img').attr('src', d.img);
-				vis.binds["vis-inventwo"].getImgColorFilter(d.values.contentImageColorFilter, data.wid);
+				vis.binds["vis-inventwo"].getImgColorFilter(d.values.contentImageColorFilter, data.wid, null, d.values.contentImageInvert != null);
 			}
 			else if(dataNew.iContentType == "html_text"){
 				elem.find('.vis-inventwo-content-htmltext').html(d.htmlText);
@@ -3888,9 +3899,6 @@ vis.binds["vis-inventwo"] = {
 
 			elem.find('.vis-inventwo-button-text').html(d.txt);
 
-			for (const [key, value] of Object.entries(d.values)) {
-				elem.get(0).style.setProperty("--" + $this.camelCaseToKebabCase(key), value)
-			}
 		}
 
 		function createWidget(createEvents) {
@@ -5061,12 +5069,13 @@ vis.binds["vis-inventwo"] = {
 	 */
 
 	//Aktualisierung der Filter für das Icon
-	getImgColorFilter: function (color, wid, varName = null) {
+	getImgColorFilter: function (color, wid, varName = null, invert = false) {
+
 
 		let filter = "";
 		color = color.toLowerCase();
 
-		if (/^#[0-9A-F]{6}$/i.test(color)) {
+		if (/^#[0-9A-F]{6}$/i.test(color) && invert != true) {
 
 			vis.conn._socket.emit("getState", "vis-inventwo.0.intern.ColorFilter." + color.substring(1), function (err, obj) {
 				if (obj != undefined) {
@@ -5099,25 +5108,26 @@ vis.binds["vis-inventwo"] = {
 			});
 		}
 		else{
-			$("#" + wid).find(".vis-inventwo-img").css("filter", "");
+			if(invert){
+				$("#" + wid).find(".vis-inventwo-img").css("filter", "invert(1)");
+			}
+			else{
+				$("#" + wid).find(".vis-inventwo-img").css("filter", "");
+			}
 		}
 
 	},
 
 
 	convertValue: function (val) {
-		console.log("t1: " + val);
 		if(!isNaN(val) && typeof val != "boolean"){
 			val = parseFloat(val);
-			console.log("t2: " + val);
 		}
 
 		if (val == "true")
 			val = true;
 		else if (val == "false")
 			val = false;
-
-		console.log("t3: " + val);
 
 		return val;
 	},
