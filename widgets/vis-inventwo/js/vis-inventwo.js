@@ -2186,7 +2186,6 @@ vis.binds["vis-inventwo"] = {
 									case "RGB":
 										break;
 									case "CIE":
-										console.log(rgb);
 										output = vis.binds['vis-inventwo'].cieConvert(rgb, "cie");
 										if(dpIsArray == true){
 											output = output.split(",");
@@ -2277,7 +2276,6 @@ vis.binds["vis-inventwo"] = {
 								dpIsArray = true;
 							}
 							rgb = vis.binds['vis-inventwo'].cieConvert(val, "rgb");
-							console.log(rgb);
 							setColor(rgb);
 							break;
 					}
@@ -3598,13 +3596,33 @@ vis.binds["vis-inventwo"] = {
 					else if (!isNaN(val))
 						val = parseFloat(val);
 
-					if( (((dataNew["iCheckType" + i] == "iCheckDefault" && dataNew.iUniversalWidgetType == "Navigation") || dataNew["iCheckType" + i] == "iCheckView") && dataNew["iView" + i] === vis.activeView) ||
-						(((dataNew["iCheckType" + i] == "iCheckDefault" && dataNew.iUniversalWidgetType != "Navigation") || dataNew["iCheckType" + i] == "iCheckDpValue") &&
+					if(
+						(
+							(
+								(
+									dataNew["iCheckType" + i] == "iCheckDefault"
+									&&
+									dataNew.iUniversalWidgetType == "Navigation"
+								)
+								||
+								dataNew["iCheckType" + i] == "iCheckView"
+							)
+							&&
+							dataNew["iView" + i] === vis.activeView
+						)
+						||
+						(
+							(
+								(
+									dataNew["iCheckType" + i] == "iCheckDefault"
+									&&
+									dataNew.iUniversalWidgetType != "Navigation"
+								)
+								||
+								dataNew["iCheckType" + i] == "iCheckDpValue"
+							)
+							&&
 							dataNew["oid" + i] != undefined && $this.checkIfTrue(data,null, i)
-							/*(  (vis.states.attr(dataNew["oid" + i] + ".val") == val && dataNew["iValueComparison" + i] == "equal")
-								|| (vis.states.attr(dataNew["oid" + i] + ".val") < val && dataNew["iValueComparison" + i] == "lower")
-								|| (vis.states.attr(dataNew["oid" + i] + ".val") > val && dataNew["iValueComparison" + i] == "greater")
-								|| (vis.states.attr(dataNew["oid" + i] + ".val") != val && dataNew["iValueComparison" + i] == "not"))*/
 						)
 					)
 					{
@@ -3659,7 +3677,7 @@ vis.binds["vis-inventwo"] = {
 					}
 				}
 			}
-			else if (type == "universal" || type == "clock_analog" || type == "clock_digital") {
+			else if (type == "universal") {
 
 				let val = dataNew.iValueTrue;
 				if (val == undefined)
@@ -3850,7 +3868,6 @@ vis.binds["vis-inventwo"] = {
 		}
 
 		function updateWidget() {
-			console.log("update " + data.wid);
 			let dataNew = Object.assign({}, data);
 			if (vis.editMode) {
 				dataNew = vis.binds["vis-inventwo"].getDatapointsValues(dataNew);
@@ -5046,10 +5063,6 @@ vis.binds["vis-inventwo"] = {
 	//Aktualisierung der Filter für das Icon
 	getImgColorFilter: function (color, wid, varName = null) {
 
-		if (color == undefined || color == null || color == "") {
-			return;
-		}
-
 		let filter = "";
 		color = color.toLowerCase();
 
@@ -5093,15 +5106,18 @@ vis.binds["vis-inventwo"] = {
 
 
 	convertValue: function (val) {
-
+		console.log("t1: " + val);
 		if(!isNaN(val) && typeof val != "boolean"){
 			val = parseFloat(val);
+			console.log("t2: " + val);
 		}
 
 		if (val == "true")
 			val = true;
 		else if (val == "false")
 			val = false;
+
+		console.log("t3: " + val);
 
 		return val;
 	},
@@ -5632,8 +5648,9 @@ vis.binds["vis-inventwo"] = {
 			}
 
 			let dpVal = vis.states.attr(oid + ".val");
+
 			dpVal = this.convertValue(dpVal);
-			if (valueType == "boolean")
+			if (valueType == "boolean" && index == null)
 				value = true;
 
 			value = this.convertValue(value);
