@@ -1613,11 +1613,14 @@ vis.binds["vis-inventwo"] = {
 				break;
 		}
 
-		if(!isNaN(data.iPopUpWidth)){
-			data.iPopUpWidth += "px";
+		let modalWidth = data.iPopUpWidth;
+		let modalHeight = data.iPopUpHeight;
+
+		if(!isNaN(modalWidth)){
+			modalWidth += "px";
 		}
-		if(!isNaN(data.iPopUpHeight)){
-			data.iPopUpHeight += "px";
+		if(!isNaN(modalHeight)){
+			modalHeight += "px";
 		}
 
 		let modal = `
@@ -1625,8 +1628,8 @@ vis.binds["vis-inventwo"] = {
 							 style="` + modalPosition + `"
 							 class="vis-inventwo-modal">
 							<div class="vis-inventwo-modal-window vis-widget-dialog" 
-								 style="width: ` + data.iPopUpWidth + `; 
-								 		height: ` + data.iPopUpHeight + `;
+								 style="width: ` + modalWidth + `; 
+								 		height: ` + modalHeight + `;
 								 		background: ` + data.iPopUpBackground + `;
 								 		border-radius: ` + borderRadius + `; 
 								 		box-shadow: ` + shadow + `; ` + modalWindowStyle + `">
@@ -3587,6 +3590,7 @@ vis.binds["vis-inventwo"] = {
 			let imgColorFilter = "";
 			let invertCol = null;
 			let htmlText = "";
+			let shadowText = "";
 
 			let values = {};
 
@@ -3774,7 +3778,9 @@ vis.binds["vis-inventwo"] = {
 			let border = dataNew.iBorderSize + "px " + dataNew.iBorderStyle + " " + borderCol;
 			let borderRadius = dataNew.iCornerRadiusUL + "px " + dataNew.iCornerRadiusUR + "px " + dataNew.iCornerRadiusLR + "px " + dataNew.iCornerRadiusLL + "px";
 
-			let shadowText = dataNew.iShadowTextXOffset + "px " + dataNew.iShadowTextYOffset + "px " + dataNew.iShadowTextBlur + "px var(--text-shadow-col);";
+			if(dataNew.iShadowTextXOffset > 0 || dataNew.iShadowTextYOffset > 0 || dataNew.iShadowTextBlur > 0) {
+				shadowText = dataNew.iShadowTextXOffset + "px " + dataNew.iShadowTextYOffset + "px " + dataNew.iShadowTextBlur + "px var(--text-shadow-col);";
+			}
 
 			//
 			let imgMargin = dataNew.iImgSpaceTop + "px " + dataNew.iImgSpaceRight + "px " + dataNew.iImgSpaceBottom + "px " + dataNew.iImgSpaceLeft + "px";
@@ -3863,9 +3869,13 @@ vis.binds["vis-inventwo"] = {
 				textMargin: txtMargin,
 				textTextAlign: textAlign,
 				textAlignSelf: alignSelf,
-				textShadow: shadowText,
 				textShadowCol: shadowTextCol,
 			};
+
+			if(shadowText != ""){
+				console.log(shadowText);
+				values.textShadow = shadowText;
+			}
 
 			return {
 				values: values,
@@ -5075,7 +5085,7 @@ vis.binds["vis-inventwo"] = {
 		let filter = "";
 		color = color.toLowerCase();
 
-		if (/^#[0-9A-F]{6}$/i.test(color) && invert != true) {
+		if (/^#[0-9A-F]{6}$/i.test(color)) {
 
 			vis.conn._socket.emit("getState", "vis-inventwo.0.intern.ColorFilter." + color.substring(1), function (err, obj) {
 				if (obj != undefined) {

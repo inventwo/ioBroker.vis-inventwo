@@ -5,6 +5,8 @@
 -->
 
 
+
+
 <link rel="stylesheet" href="widgets/vis-inventwo/css/style.css"/>
 <script type="text/javascript" src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
 <!--iText-GridSettings/custom,vis-inventwo.infoText,emptyText;
@@ -741,6 +743,7 @@
 				let d = this.data;
 				let imgColorFilter = "";
 				let wid = "";
+				let invertCol = "";
 
 				function create(){
 
@@ -761,8 +764,6 @@
             		let imgBlink;
             		let img = "";
             		let shadow = "";
-
-            		let invertCol = "";
 
             		let val = vis.binds["vis-inventwo"].convertValue(dataNew.iValue);
 
@@ -828,7 +829,7 @@
 
             	function changeFilter(){
             		setTimeout(function(){
-            			vis.binds["vis-inventwo"].getImgColorFilter(imgColorFilter, wid);
+            			vis.binds["vis-inventwo"].getImgColorFilter(imgColorFilter, wid, null, invertCol != '');
             		}, 10);
 
             	}
@@ -847,6 +848,7 @@
 
 
 </script>
+
 
 <script id="i-vis-jsontable"
 		type="text/ejs"
