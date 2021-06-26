@@ -3739,7 +3739,7 @@ vis.binds["vis-inventwo"] = {
 					imgBlink = dataNew.iImgBlinkTrue;
 
 					if(dataNew.iImgColorInvertTrue == true){
-						invertCol = " filter: invert(1);";
+						invertCol = " filter: invert(1)";
 					}
 
 					if(dataNew.iContentType == "html_text"){
@@ -3763,7 +3763,7 @@ vis.binds["vis-inventwo"] = {
 					imgBlink = dataNew.iImgBlinkFalse;
 
 					if(dataNew.iImgColorInvertFalse == true){
-						invertCol = " filter: invert(1);";
+						invertCol = " filter: invert(1)";
 					}
 
 					if(dataNew.iContentType == "html_text"){
@@ -3995,7 +3995,7 @@ vis.binds["vis-inventwo"] = {
 				imgElement  = `
 				<img src="` + d.img + `" width="` + dataNew.iIconSize + `" class="vis-inventwo-img"
 					 style="transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
-					 		animation:blink ` + values.contentImageBlink + `s infinite; ` + values.contentImageInvert + dispNone +`"> `;
+					 		animation:blink ` + values.contentImageBlink + `s infinite; ` + values.contentImageInvert + ";" + dispNone +`"> `;
 
 			}
 			else if(dataNew.iContentType == "html_text"){

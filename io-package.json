@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "3.0.6",
+    "version": "3.0.9",
     "news": {
+      "3.0.9": {
+        "en": "Bugfix",
+        "de": "Fehlerbehebung",
+        "ru": "Исправлена ошибка",
+        "pt": "Bugfix",
+        "nl": "Bugfix",
+        "fr": "Correction d'un bug",
+        "it": "Risoluzione del problema",
+        "es": "Arreglo del fallo",
+        "pl": "Naprawa błędów",
+        "zh-cn": "错误修正"
+      },
       "3.0.8": {
         "en": "Bugfix",
         "de": "Fehlerbehebung",
