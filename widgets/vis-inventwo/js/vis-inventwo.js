@@ -4082,15 +4082,20 @@ vis.binds["vis-inventwo"] = {
 							(dataNew.iShadowInnerColorHover != undefined && dataNew.iShadowInnerColorHover != "") ||
 							(dataNew.iBorderColorHover != undefined && dataNew.iBorderColorHover != "")
 						){
-							backCol = dataNew.iButtonColHover;
+							isHover = true;
+							updateWidget();
 						}
-
-						isHover = true;
-						updateWidget();
 					});
 					$(el).parent().on("mouseleave", function () {
-						isHover = false;
-						updateWidget();
+						if(
+							(dataNew.iButtonColHover != undefined && dataNew.iButtonColHover != "") ||
+							(dataNew.iShadowColorHover != undefined && dataNew.iShadowColorHover != "") ||
+							(dataNew.iShadowInnerColorHover != undefined && dataNew.iShadowInnerColorHover != "") ||
+							(dataNew.iBorderColorHover != undefined && dataNew.iBorderColorHover != "")
+						){
+							isHover = false;
+							updateWidget();
+						}
 					});
 				}
 
