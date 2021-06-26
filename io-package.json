@@ -3,6 +3,18 @@
     "name": "vis-inventwo",
     "version": "3.0.6",
     "news": {
+      "3.0.8": {
+        "en": "Bugfix",
+        "de": "Fehlerbehebung",
+        "ru": "Исправлена ошибка",
+        "pt": "Bugfix",
+        "nl": "Bugfix",
+        "fr": "Correction d'un bug",
+        "it": "Risoluzione del problema",
+        "es": "Arreglo del fallo",
+        "pl": "Naprawa błędów",
+        "zh-cn": "错误修正"
+      },
       "3.0.7": {
         "en": "Bugfix",
         "de": "Fehlerbehebung",
@@ -27,66 +39,6 @@
         "pl": "Naprawa błędów",
         "zh-cn": "错误修正"
       },
-      "3.0.5": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "3.0.4": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "3.0.3": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "3.0.2": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "3.0.1": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
       "3.0.0": {
         "en": "WARING: Icons will disappear from Universal- and Multiwdiget! Please click on each Widget! Contenttypes for Universal- and Multiwidget: Image, Clock (analog and digital) and HTML/Text, New comparison operators: greater or equal and lower or equal, Popup now can be opened via datapoint,Bugfixes, (For full changelog visit Github)",
         "de": "ACHTUNG: Icons von Universal- und Multiwidgets verschwinden! Bitte Widgets einzeln anklicken damit diese wieder zu sehen sind! Inhaltstypen für Universal- und Multiwidget: Bild, Uhr (analog und digital) und HTML/Text, Neue Vergleichsoperatoren: größer gleich und kleiner gleich, Popup kann jetzt über Datenpunkt geöffnet werden, Bugfixes, (Für den vollständigen Changelog besuchen Sie Github)",
@@ -100,78 +52,6 @@
         "zh-cn": "通用和 Multiwidget 的内容类型：图像、时钟（模拟和数字）和 HTML/文本，新的比较运算符：大于或等于和小于或等于，现在可以通过数据点打开弹出窗口，错误修复，（完整的更改日志请访问 Github）"
       },
       "2.9.7": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "2.9.6": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "2.9.5": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "2.9.4": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "2.9.3": {
-        "en": "Fixed issue with popup and click-events, fixed issue with view in popup states",
-        "de": "Problem mit Popup- und Klickereignissen behoben, Problem mit View in Popup Zuständen behoben",
-        "ru": "Исправлена проблема с всплывающими окнами и событиями щелчка, исправлена проблема с просмотром во всплывающих состояниях",
-        "pt": "Corrigido problema com pop-up e eventos de clique, problema corrigido com visualização em estados pop-up",
-        "nl": "Probleem opgelost met pop-up- en klikgebeurtenissen, probleem opgelost met weergave in pop-upstaten",
-        "fr": "Correction d'un problème avec les événements contextuels et de clic, résolution du problème d'affichage dans les états contextuels",
-        "it": "Risolto il problema con popup e eventi di clic, problema risolto con la visualizzazione negli stati popup",
-        "es": "Se solucionó el problema con los eventos emergentes y de clic, se solucionó el problema con la vista en los estados emergentes",
-        "pl": "Naprawiono problem z wyskakującymi okienkami i zdarzeniami kliknięcia, naprawiony problem z widokiem w stanach wyskakujących okienek",
-        "zh-cn": "修复了弹出窗口和点击事件的问题，修复了处于弹出状态的视图的问题"
-      },
-      "2.9.2": {
-        "en": "Fixed issue with datapoint to close popup. ATTENTION! Datapoint must be selected again",
-        "de": "Problem mit Datenpunkt zum Schließen des Popups behoben. ACHTUNG! Der Datenpunkt muss erneut ausgewählt werden",
-        "ru": "Исправлена проблема с точкой данных для закрытия всплывающего окна. ВНИМАНИЕ! Datapoint необходимо выбрать снова",
-        "pt": "Corrigido o problema com o ponto de dados para fechar o pop-up. ATENÇÃO! O ponto de dados deve ser selecionado novamente",
-        "nl": "Probleem opgelost met datapunt om pop-up te sluiten. AANDACHT! Datapunt moet opnieuw worden geselecteerd",
-        "fr": "Correction d'un problème avec le point de données pour fermer la fenêtre contextuelle. ATTENTION! Le point de données doit être sélectionné à nouveau",
-        "it": "Risolto il problema con il datapoint per chiudere il popup. ATTENZIONE! Il datapoint deve essere selezionato di nuovo",
-        "es": "Se solucionó el problema con el punto de datos para cerrar la ventana emergente. ¡ATENCIÓN! El punto de datos debe seleccionarse nuevamente",
-        "pl": "Naprawiono problem z punktem danych do zamykania wyskakującego okienka. UWAGA! Należy ponownie wybrać punkt danych",
-        "zh-cn": "修复了数据点关闭弹出窗口的问题。注意力！数据点必须再次选择"
-      },
-      "2.9.1": {
         "en": "Bugfix",
         "de": "Fehlerbehebung",
         "ru": "Исправлена ошибка",

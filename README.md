@@ -72,6 +72,9 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 3.0.8
+- Bugfix
+
 ## 3.0.7
 - Bugfix
 
