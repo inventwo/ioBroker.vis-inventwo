@@ -1268,6 +1268,10 @@ vis.binds["vis-inventwo"] = {
 				let id = $(this).attr("id");
 				let data = vis.widgets[id].data;
 
+				if (vis.editMode) {
+					data = vis.binds["vis-inventwo"].getDatapointsValues(data);
+				}
+
 				let modalContent = $(this).closest(".vis-inventwo-modal-content");
 
 				let val = data.iValueTrue;
