@@ -3893,7 +3893,6 @@ vis.binds["vis-inventwo"] = {
 			};
 
 			if(shadowText != ""){
-				console.log(shadowText);
 				values.textShadow = shadowText;
 			}
 
@@ -4077,6 +4076,15 @@ vis.binds["vis-inventwo"] = {
 					});
 				} else {
 					$(el).parent().on("mouseenter", function () {
+						if(
+							(dataNew.iButtonColHover != undefined && dataNew.iButtonColHover != "") ||
+							(dataNew.iShadowColorHover != undefined && dataNew.iShadowColorHover != "") ||
+							(dataNew.iShadowInnerColorHover != undefined && dataNew.iShadowInnerColorHover != "") ||
+							(dataNew.iBorderColorHover != undefined && dataNew.iBorderColorHover != "")
+						){
+							backCol = dataNew.iButtonColHover;
+						}
+
 						isHover = true;
 						updateWidget();
 					});
