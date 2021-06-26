@@ -3540,6 +3540,7 @@ vis.binds["vis-inventwo"] = {
 	universalButton2: function (el, data, type) {
 
 		let datapoints = [];
+		let isHover = false;
 
 		this.updateUniversalDataFields;
 		if (!(type == "universal"  && data.iUniversalWidgetType == "State")) {
@@ -3767,6 +3768,21 @@ vis.binds["vis-inventwo"] = {
 
 				}
 
+			}
+
+			if(isHover == true){
+				if(dataNew.iButtonColHover != undefined && dataNew.iButtonColHover != ""){
+					backCol = dataNew.iButtonColHover;
+				}
+				if(dataNew.iShadowColorHover != undefined && dataNew.iShadowColorHover != ""){
+					shadowCol = dataNew.iShadowColorHover;
+				}
+				if(dataNew.iShadowInnerColorHover != undefined && dataNew.iShadowInnerColorHover != ""){
+					shadowColInner = dataNew.iShadowInnerColorHover;
+				}
+				if(dataNew.iBorderColorHover != undefined && dataNew.iBorderColorHover != ""){
+					borderCol = dataNew.iBorderColorHover;
+				}
 			}
 
 
@@ -4057,38 +4073,13 @@ vis.binds["vis-inventwo"] = {
 						}, 100);
 					});
 				} else {
-					$(el).parent().on("mouseenter", function () {
-						if (data.iButtonColHover != undefined && data.iButtonColHover != "") {
-							$(this).find(".vis-inventwo-button-new").attr("data-oldbackground", $(this).find(".vis-inventwo-button-new").css("background"));
-							$(this).find(".vis-inventwo-button-new").css("background", data.iButtonColHover);
-						}
-						if (data.iShadowColorHover != undefined && data.iShadowColorHover != "") {
-							$(this).find(".vis-inventwo-button-new").attr("data-oldshadowcol", $(this).find(".vis-inventwo-button-new").get(0).style.getPropertyValue("--box-shadow-col"));
-							$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", data.iShadowColorHover);
-						}
-						if (data.iShadowInnerColorHover != undefined && data.iShadowInnerColorHover != "") {
-							$(this).find(".vis-inventwo-button-new").attr("data-oldshadowinnercol", $(this).find(".vis-inventwo-button-new").get(0).style.getPropertyValue("--box-shadow-inner-col"));
-							$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", data.iShadowInnerColorHover);
-						}
-						if (data.iBorderColorHover != undefined && data.iBorderColorHover != "") {
-							$(this).find(".vis-inventwo-button-new").attr("data-oldbordercol", $(this).find(".vis-inventwo-button-new").css("border-color"));
-							$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColorHover);
-						}
-
+					$(el).parent().on("mouseenter click", function () {
+						isHover = true;
+						updateWidget();
 					});
 					$(el).parent().on("mouseleave", function () {
-						if ($(this).find(".vis-inventwo-button-new").data("oldbackground") != undefined) {
-							$(this).find(".vis-inventwo-button-new").css("background", $(this).find(".vis-inventwo-button-new").data("oldbackground"));
-						}
-						if ($(this).find(".vis-inventwo-button-new").data("oldshadowcol") != undefined) {
-							$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", $(this).find(".vis-inventwo-button-new").data("oldshadowcol"));
-						}
-						if ($(this).find(".vis-inventwo-button-new").data("oldshadowinnercol") != undefined) {
-							$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", $(this).find(".vis-inventwo-button-new").data("oldshadowinnercol"));
-						}
-						if ($(this).find(".vis-inventwo-button-new").data("oldbordercol") != undefined) {
-							$(this).find(".vis-inventwo-button-new").css("border-color", $(this).find(".vis-inventwo-button-new").data("oldbordercol"));
-						}
+						isHover = false;
+						updateWidget();
 					});
 				}
 
