@@ -3881,7 +3881,7 @@ vis.binds["vis-inventwo"] = {
 				contentImageOrder: orderContent,
 				contentImageAlignSelf: imgAlign,
 				contentImageMargin: imgMargin,
-				contentImageBlink: imgBlink,
+				contentImageBlink: imgBlink + "s",
 				contentImageInvert: invertCol,
 				contentImageColorFilter: imgColorFilter,
 				textFontSize: dataNew.iTextSize + "px",
@@ -3995,15 +3995,10 @@ vis.binds["vis-inventwo"] = {
 				imgElement  = `
 				<img src="` + d.img + `" width="` + dataNew.iIconSize + `" class="vis-inventwo-img"
 					 style="transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
-					 		animation:blink ` + values.contentImageBlink + `s infinite; ` + values.contentImageInvert + ";" + dispNone +`"> `;
+					 		animation:blink var(--content-image-blink) infinite; ` + values.contentImageInvert + ";" + dispNone +`"> `;
 
 			}
 			else if(dataNew.iContentType == "html_text"){
-				imgElement  = `
-				<img src="` + d.img + `" width="` + dataNew.iIconSize + `" class="vis-inventwo-img"
-					 style="transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
-					 		animation:blink ` + values.contentImageBlink + `s infinite; ` + values.contentImageInvert + dispNone +`"> `;
-
 				imgElement = `
 					<div class="vis-inventwo-content-htmltext" 
 					 style="font-size: ` + dataNew.iIconSize + `px; 
