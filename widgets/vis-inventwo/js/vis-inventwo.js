@@ -3356,12 +3356,14 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iImageFalse", true);
 				vis.hideShowAttr("iImageTrue", true);
 				vis.hideShowAttr("iHtmlTextFieldTrue", false);
+				vis.hideShowAttr("iHtmlTextFieldFalse", true);
 				vis.hideShowAttr("iImgColorFalse", true);
 				vis.hideShowAttr("iImgColorTrue", true);
 				vis.hideShowAttr("iImgColorClockFace", false);
 				vis.hideShowAttr("iImgColorHands", false);
 				vis.hideShowAttr("iImgColorHandSecond", false);
 				vis.hideShowAttr("iImgClockFace", false);
+				vis.hideShowAttr("iImgClockHands", false);
 				vis.hideShowAttr("iImgClockShowBorder", false);
 				vis.hideShowAttr("iClockTimezone", false);
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
@@ -3388,7 +3390,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iImageFalse", false);
 				vis.hideShowAttr("iImageTrue", false);
 				vis.hideShowAttr("iHtmlTextFieldTrue", false);
-				vis.hideShowAttr("iHtmlTextFieldFalse", false);
+				vis.hideShowAttr("iHtmlTextFieldFalse", true);
 				vis.hideShowAttr("iClockTimezone", true);
 
 				if(data.iContentType == "clock_analog"){
@@ -3398,6 +3400,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iImgColorHands", true);
 					vis.hideShowAttr("iImgColorHandSecond", true);
 					vis.hideShowAttr("iImgClockFace", true);
+					vis.hideShowAttr("iImgClockHands", true);
 					vis.hideShowAttr("iImgClockShowBorder", true);
 				}
 				else{
@@ -3407,6 +3410,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iImgColorHands", false);
 					vis.hideShowAttr("iImgColorHandSecond", false);
 					vis.hideShowAttr("iImgClockFace", false);
+					vis.hideShowAttr("iImgClockHands", false);
 					vis.hideShowAttr("iImgClockShowBorder", false);
 				}
 
@@ -3447,6 +3451,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iImgColorHands", false);
 				vis.hideShowAttr("iImgColorHandSecond", false);
 				vis.hideShowAttr("iImgClockFace", false);
+				vis.hideShowAttr("iImgClockHands", false);
 				vis.hideShowAttr("iImgClockShowBorder", false);
 				vis.hideShowAttr("iClockTimezone", false);
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
