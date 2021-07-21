@@ -232,3 +232,41 @@
     position: absolute;
 }
 
+.vis-inventwo-switch-basic-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vis-inventwo-switch-basic-wrapper .vis-inventwo-switch-basic-knob{
+    position: absolute;
+    transition: 0.5s;
+}
+
+.vis-inventwo-checkbox{
+    display: flex;
+    align-items: center;
+}
+
+.vis-inventwo-checkbox .vis-inventwo-checkbox-box{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.vis-inventwo-checkbox .vis-inventwo-checkbox-box:after{
+    content: "";
+    border-top: 0;
+    border-left: 0;
+    border-color: #ffffff;
+    position: absolute;
+    width: 25%;
+    height: 50%;
+    border-style: solid;
+    transform: rotateZ(
+            45deg
+    );
+    margin-bottom: 20%;
+}

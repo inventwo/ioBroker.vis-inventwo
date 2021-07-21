@@ -9,6 +9,10 @@
 
 
 
+
+
+
+
 <link rel="stylesheet" href="widgets/vis-inventwo/css/style.css"/>
 <script type="text/javascript" src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
 <!--iText-GridSettings/custom,vis-inventwo.infoText,emptyText;
@@ -1338,6 +1342,108 @@
 
 
 </script>
+
+<script id="i-vis-switch-basic"
+		type="text/ejs"
+		class="vis-tpl"
+		data-vis-prev='<img src="widgets/vis-inventwo/img/Toggle.gif">'
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
+						oid/id;
+						iValueFalse/text;
+						iValueTrue/text;
+						iTextFalse/html;
+						iTextTrue/html;"
+		data-vis-attrs0="group.i-css;
+						 iText-BasicSwitchBackgroundSettings/custom,vis-inventwo.infoText,emptyText;
+						 iBackgroundColor[#333333]/color;
+						 iBackgroundColorActive[#7e9640]/color;
+						 iBarWidth[20]/slider,1,200,1;
+						 iBorderRadius[20]/slider,0,100,1;
+
+						 iText-BasicSwitchKnobSettings/custom,vis-inventwo.infoText,emptyText;
+						 iKnobWidth[30]/slider,1,200,1;
+						 iKnobHeight[30]/slider,1,200,1;
+						 iKnobBorderRadius[30]/slider,0,100,1;
+						 iKnobOffset[30]/slider,1,200,1;
+						 iKnobBackgroundColor[#455618]/color;
+						 iKnobBackgroundColorActive[#455618]/color;"
+		data-vis-set="vis-inventwo"
+		data-vis-type="ctrl"
+		data-vis-name="Basic Switch<br>
+						<span style='color:#888888;'>Simple toggle switch</span>">
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:100px; height: auto; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+		<%= (el) -> vis.binds['vis-inventwo'].createBasicSwitchWidget(el, this.data, this.style) %>
+	</div>
+
+</script>
+
+<script id="i-vis-checkbox"
+		type="text/ejs"
+		class="vis-tpl"
+		data-vis-prev='<img src="widgets/vis-inventwo/img/Toggle.gif">'
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
+						oid/id;
+						iValueFalse/text;
+						iValueTrue/text;
+						iText/html;"
+		data-vis-attrs0="group.i-css;
+						 iText-CheckboxBoxSettings/custom,vis-inventwo.infoText,emptyText;
+						 iWidth[30]/slider,1,200,1;
+						 iHeight[30]/slider,1,200,1;
+						 iBackgroundColor[#ffffff]/color;
+						 iBackgroundColorActive[#455618]/color;
+
+						 iText-CornerSettings/custom,vis-inventwo.infoText,emptyText;
+						 iCornerRadiusUL[4]/slider,0,50,1;
+						 iCornerRadiusUR[4]/slider,0,50,1;
+						 iCornerRadiusLR[4]/slider,0,50,1;
+						 iCornerRadiusLL[4]/slider,0,50,1;
+
+						 iText-BorderSettings/custom,vis-inventwo.infoText,emptyText;
+						 iBorderSize[0]/slider,0,20,1;
+						 iBorderStyle[none]/nselect,dotted,dashed,solid,double,groove,ridge,inset,outset,none;
+						 iBorderColor[#ffffff]/color;
+						 iBorderColorActive[#ffffff]/color;
+
+						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
+						 iShadowXOffset[2]/slider,0,20,1;
+						 iShadowYOffset[2]/slider,0,20,1;
+						 iShadowBlur[2]/slider,0,20,1;
+						 iShadowSpread[0]/slider,0,20,1;
+						 iShadowColor[#111111]/color;
+						 iShadowColorActive[#111111]/color;
+
+						 iText-ShadowInnerSettings/custom,vis-inventwo.infoText,emptyText;
+						 iShadowInnerXOffset[0]/slider,0,20,1;
+						 iShadowInnerYOffset[0]/slider,0,20,1;
+						 iShadowInnerBlur[0]/slider,0,20,1;
+						 iShadowInnerSpread[0]/slider,0,20,1;
+						 iShadowInnerColor[#111111]/color;
+						 iShadowInnerColorActive[#111111]/color;
+
+						 iText-TextShadowSettings/custom,vis-inventwo.infoText,emptyText;
+						 iShadowTextXOffset[0]/slider,0,20,1;
+						 iShadowTextYOffset[0]/slider,0,20,1;
+						 iShadowTextBlur[0]/slider,0,20,1;
+						 iShadowTextColor[#111111]/color;
+						 iShadowTextColorActive[#111111]/color;"
+		data-vis-set="vis-inventwo"
+		data-vis-type="ctrl"
+		data-vis-name="Checkbox">
+
+	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:150px; height: auto; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+		<%= (el) -> vis.binds['vis-inventwo'].createCheckbox(el, this.data, this.style) %>
+	</div>
+
+</script>
+
+
+
+
+
+
+
 
 <!--<script id="i-vis-grid"-->
 <!--		type="text/ejs"-->
