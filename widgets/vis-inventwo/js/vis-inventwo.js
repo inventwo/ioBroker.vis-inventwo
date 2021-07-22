@@ -1111,6 +1111,49 @@ if (vis.editMode) {
 
 		//#endregion
 
+		//#regionSlider Settings
+		"iBarWidth": {
+			"en": "Width",
+			"de": "Breite"
+		},
+		"iKnobWidth": {
+			"en": "Width",
+			"de": "Breite"
+		},
+		"iKnobHeight": {
+			"en": "Height",
+			"de": "Höhe"
+		},
+		"iBorderRadius": {
+			"en": "Border radius",
+			"de": "Rundung"
+		},
+		"iKnobBorderRadius": {
+			"en": "Border radius",
+			"de": "Rundung"
+		},
+		"iKnobOffset": {
+			"en": "Offset",
+			"de": "Versatz"
+		},
+		"iBackgroundColor": {
+			"en": "Color",
+			"de": "Farbe"
+		},
+		"iBackgroundColorActive": {
+			"en": "Color active",
+			"de": "Farbe Aktiv"
+		},
+		"iKnobBackgroundColor": {
+			"en": "Color",
+			"de": "Farbe"
+		},
+		"iKnobBackgroundColorActive": {
+			"en": "Color active",
+			"de": "Farbe Aktiv"
+		},
+		//#endregion
+
 		//#region Custom Text
 		"iText-Empty": {
 			"en": " ",
@@ -1207,6 +1250,18 @@ if (vis.editMode) {
 		"iText-HtmlTextSettings": {
 			"en": "<b>HTML/Text</b>",
 			"de": "<b>HTML/Text</b>"
+		},
+		"iText-BasicSwitchBackgroundSettings": {
+			"en": "<b>Bar</b>",
+			"de": "<b>Balken</b>"
+		},
+		"iText-BasicSwitchKnobSettings": {
+			"en": "<b>Knob</b>",
+			"de": "<b>Regler</b>"
+		},
+		"iText-CheckboxBoxSettings": {
+			"en": "<b>Checkbox</b>",
+			"de": "<b>Checkbox</b>"
 		},
 		//#endregion
 
@@ -2707,7 +2762,7 @@ vis.binds["vis-inventwo"] = {
 														if (isNaN(cellValue) == true) {
 															datetime = new Date(cellValue.trim()).getTime();
 														} else {
-															datetime = parseInt(cellValue.trim());
+															datetime = parseInt(cellValue);
 														}
 
 														//if (cellValue.toString().length == 13)
@@ -5177,7 +5232,6 @@ vis.binds["vis-inventwo"] = {
 		}
 	},
 
-	//Generierung des Universal und Multi Widgets
 	createSwitchWidget: function (el, data, style) {
 
 		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
@@ -5261,10 +5315,406 @@ vis.binds["vis-inventwo"] = {
 		}
 	},
 
+	createBasicSwitchWidget: function (el, data, style) {
+
+		let $this = this;
+
+		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
+			updateWidget();
+		});
+
+		createWidget(true);
+
+		function getValues(dataNew) {
+
+			let values = {};
+			let text = "";
+
+			let val = dataNew.iValueTrue;
+			if (val == undefined)
+				val = true;
+			else if (val == "true")
+				val = true;
+			else if (val == "false")
+				val = false;
+			else if (!isNaN(val))
+				val = parseFloat(val);
+
+			let knobWidth = dataNew.iKnobWidth;
+			if(!isNaN(knobWidth)){
+				knobWidth += "px";
+			}
+
+			if(dataNew.oid != undefined && vis.states.attr(dataNew.oid + ".val") == val){
+				values.backgroundColor = dataNew.iBackgroundColorActive;
+				values.knobBackgroundColor = dataNew.iKnobBackgroundColorActive;
+				values.knobTransform = "translate(-100%, 0)";
+
+				values.knobLeft = "100%";
+				text = dataNew.iTextTrue;
+			}
+			else{
+				values.backgroundColor = dataNew.iBackgroundColor;
+				values.knobBackgroundColor = dataNew.iKnobBackgroundColor;
+				values.knobTransform = "translate(0, 0)";
+				values.knobLeft = "0";
+				text = dataNew.iTextFalse;
+			}
+
+			if(text == undefined){
+				text = "";
+			}
+
+			return {
+				values: values,
+				text: text
+			};
+
+		}
+
+		function updateWidget() {
+			let dataNew = Object.assign({}, data);
+			if (vis.editMode) {
+				dataNew = vis.binds["vis-inventwo"].getDatapointsValues(dataNew);
+			}
+
+			let values = getValues(dataNew);
+
+			let elem = $('#' + data.wid + " .vis-widget-body");
+
+			for (const [key, value] of Object.entries(values.values)) {
+				elem.get(0).style.setProperty("--" + $this.camelCaseToKebabCase(key), value);
+			}
+
+			elem.find('.vis-inventwo-switch-basic-text').html(values.text);
+		}
+
+		function createWidget(createEvents) {
+			let dataNew = Object.assign({}, data);
+
+			if (vis.editMode) {
+				dataNew = vis.binds["vis-inventwo"].getDatapointsValues(dataNew);
+			}
+
+			let d = getValues(dataNew);
+			let values = d.values;
+
+			let height = dataNew.iBarWidth;
+			let borderRadius = dataNew.iBorderRadius;
+			if(!isNaN(height)){
+				height += "px";
+			}
+			if(!isNaN(borderRadius)){
+				borderRadius += "px";
+			}
+
+			let knobWidth = dataNew.iKnobWidth;
+			let knobHeight = dataNew.iKnobHeight;
+			let knobBorderRadius = dataNew.iKnobBorderRadius;
+			let knobOffset = dataNew.iKnobOffset;
+			if(!isNaN(knobWidth)){
+				knobWidth += "px";
+			}
+			if(!isNaN(knobHeight)){
+				knobHeight += "px";
+			}
+			if(!isNaN(knobBorderRadius)){
+				knobBorderRadius += "px";
+			}
+			if(!isNaN(knobOffset)){
+				knobOffset += "px";
+			}
+
+			let labelWrapperStyles = [];
+
+			labelWrapperStyles.push(
+				"min-height: calc(" + height + " + ((" + knobHeight + " - " + height + " ) / 2))"
+			);
+
+			labelWrapperStyles.push(
+				"position: relative"
+			);
+
+			labelWrapperStyles = labelWrapperStyles.join("; ");
+
+
+			let labelStyles = [];
+			labelStyles.push(
+				"height: " + height
+			);
+			labelStyles.push(
+				"margin: 0 calc(" + knobOffset + " / 2)"
+			);
+
+			labelStyles.push(
+				"background: var(--background-color)"
+			);
+
+			labelStyles.push(
+				"border-radius: " + borderRadius
+			);
+
+
+			labelStyles = labelStyles.join("; ");
+
+			let knobStyles = [];
+			knobStyles.push(
+				"width: " + knobWidth
+			);
+			knobStyles.push(
+				"height: " + knobHeight
+			);
+			knobStyles.push(
+				"background: var(--knob-background-color)"
+			);
+			knobStyles.push(
+				"border-radius: " + knobBorderRadius
+			);
+
+			knobStyles.push(
+				"left: var(--knob-left)"
+			);
+			knobStyles.push(
+				"transform: var(--knob-transform)"
+			);
+
+			knobStyles = knobStyles.join("; ");
+
+			let styles = [];
+
+			for (const [key, value] of Object.entries(values)) {
+				styles.push("--" + $this.camelCaseToKebabCase(key) + ": " + value);
+			}
+
+			styles.push("position: relative");
+
+			let stylesString = styles.join(";");
+
+			let html = `
+			<div class="vis-inventwo-class vis-widget-body" style="` + stylesString + `">
+				<div>
+				<div style="`+labelWrapperStyles+`">
+					<label class="vis-inventwo-switch-basic-wrapper" style="`+labelStyles+`">
+					 	<span class="vis-inventwo-switch-basic-knob" style="`+knobStyles+`"></span>
+					</label>
+				</div>
+				</div>
+				<div class="vis-inventwo-switch-basic-text">
+					`+d.text+`
+				</div>
+			</div>`;
+
+			$(el).html(html);
+
+			//Bindings
+			if (createEvents) {
+				vis.binds["vis-inventwo"].handleCheckbox(el, dataNew);
+
+			}
+		}
+	},
+
+	createCheckbox: function (el, data, style) {
+
+		let $this = this;
+
+		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
+			updateWidget();
+		});
+
+		createWidget(true);
+
+		function getValues(dataNew) {
+
+			let values = {};
+			let text = " ";
+
+			let val = dataNew.iValueTrue;
+			if (val == undefined)
+				val = true;
+			else if (val == "true")
+				val = true;
+			else if (val == "false")
+				val = false;
+			else if (!isNaN(val))
+				val = parseFloat(val);
+
+			if(dataNew.oid != undefined && vis.states.attr(dataNew.oid + ".val") == val){
+				values.background = dataNew.iBackgroundColorActive;
+				values.borderColor = dataNew.iBorderColorActive;
+				values.boxShadowCol = dataNew.iShadowColorActive;
+				values.boxShadowInnerCol = dataNew.iShadowInnerColorActive;
+				values.textShadowCol = dataNew.iShadowTextColorActive;
+				values.checkColor = "#ffffff";
+			}
+			else{
+				values.background = dataNew.iBackgroundColor;
+				values.borderColor = dataNew.iBorderColor;
+				values.boxShadowCol = dataNew.iShadowColor;
+				values.boxShadowInnerCol = dataNew.iShadowInnerColor;
+				values.textShadowCol = dataNew.iShadowTextColor;
+				values.checkColor = "transparent";
+			}
+
+			if(dataNew.iText != undefined){
+				text = dataNew.iText;
+			}
+
+			return {
+				values: values,
+				text: text
+			};
+
+		}
+
+		function updateWidget() {
+			let dataNew = Object.assign({}, data);
+			if (vis.editMode) {
+				dataNew = vis.binds["vis-inventwo"].getDatapointsValues(dataNew);
+			}
+
+			let values = getValues(dataNew);
+
+			let elem = $('#' + data.wid + " .vis-widget-body");
+
+			for (const [key, value] of Object.entries(values.values)) {
+				elem.get(0).style.setProperty("--" + $this.camelCaseToKebabCase(key), value);
+			}
+
+			elem.find('.vis-inventwo-switch-basic-text').html(values.text);
+		}
+
+		function createWidget(createEvents) {
+			let dataNew = Object.assign({}, data);
+
+			if (vis.editMode) {
+				dataNew = vis.binds["vis-inventwo"].getDatapointsValues(dataNew);
+			}
+
+			let d = getValues(dataNew);
+			let values = d.values;
+
+			let width = dataNew.iWidth;
+			if(!isNaN(width)){
+				width += "px";
+			}
+
+			let height = dataNew.iHeight;
+			if(!isNaN(height)){
+				height += "px";
+			}
+
+			let borderRadius = dataNew.iCornerRadiusUL + "px " + dataNew.iCornerRadiusUR + "px " + dataNew.iCornerRadiusLR + "px " + dataNew.iCornerRadiusLL + "px"
+			let border = dataNew.iBorderSize + "px " + dataNew.iBorderStyle + " var(--border-color)"
+			let shadow = dataNew.iShadowXOffset + "px " + dataNew.iShadowYOffset + "px " + dataNew.iShadowBlur + "px " + dataNew.iShadowSpread + "px var(--box-shadow-col),inset " +
+				dataNew.iShadowInnerXOffset + "px " + dataNew.iShadowInnerYOffset + "px " + dataNew.iShadowInnerBlur + "px " + dataNew.iShadowInnerSpread + "px var(--box-shadow-inner-col)"
+
+
+			let styles = [];
+
+			styles.push("min-height: " + height);
+			styles.push("--width: " + width);
+			styles.push("--height: " + height);
+			styles.push("--background: " + values.background);
+			styles.push("--border-color: " + values.borderColor);
+			styles.push("--box-shadow-col: " + values.boxShadowCol);
+			styles.push("--box-shadow-inner-col: " + values.boxShadowInnerCol);
+			styles.push("--text-shadow-col: " + values.textShadowCol);
+			styles.push("--check-color: " + values.checkColor);
+
+
+
+			styles = styles.join("; ");
+
+			let labelStyles = [];
+
+			labelStyles.push("padding-left: calc(" + dataNew.iBorderSize + "px + 5px)");
+
+			if(dataNew.iShadowTextXOffset > 0 || dataNew.iShadowTextYOffset > 0 || dataNew.iShadowTextBlur > 0) {
+				labelStyles.push("text-shadow: " +  dataNew.iShadowTextXOffset + "px " + dataNew.iShadowTextYOffset + "px " + dataNew.iShadowTextBlur + "px var(--text-shadow-col)");
+			}
+
+			labelStyles = labelStyles.join("; ");
+
+			let boxStyles = [];
+
+			boxStyles.push("width: " + width);
+			boxStyles.push("height: " + height);
+			boxStyles.push("background: var(--background)");
+			boxStyles.push("border-radius: " + borderRadius);
+			boxStyles.push("border: " + border);
+			boxStyles.push("box-shadow: " + shadow);
+
+			boxStyles = boxStyles.join("; ");
+
+			let html = `
+			<div class="vis-inventwo-class vis-widget-body vis-inventwo-checkbox" style="` + styles + `">
+				<div class="vis-inventwo-checkbox-box" style="` + boxStyles + `"></div>
+				<div class="vis-inventwo-checkbox-text" style="` + labelStyles + `">
+					`+d.text+`
+				</div>
+			</div>`;
+
+			$(el).html(html);
+
+			let s = `
+			<style>
+			#`+dataNew.wid+` label:after{
+				border-color: var(--check-color);
+				left: 5px;
+				width: 5px;
+			}
+			</style>
+			`;
+
+			$(el).before($(s));
+
+			//Bindings
+			if (createEvents) {
+				vis.binds["vis-inventwo"].handleCheckbox(el, dataNew);
+
+			}
+		}
+	},
 
 	//Switch Funktion - Datenpunktwert wechseln
 	handleToggleSwitch: function (el, data) {
 		var $this = $(el);
+
+		var oid = data.oid;
+
+		if (!vis.editMode) {
+			var moved = false;
+			$this.parent().on("click touchend", function () {
+
+				if (vis.detectBounce(this)) return;
+				if (moved) return;
+
+				var val = vis.states[oid + ".val"];
+				var valFalse = vis.binds["vis-inventwo"].convertValue(data.iValueFalse);
+				var valTrue = vis.binds["vis-inventwo"].convertValue(data.iValueTrue);
+
+				if (val == valFalse) {
+					vis.setValue(oid, valTrue);
+				} else {
+					vis.setValue(oid, valFalse);
+				}
+
+			}).on("touchmove", function () {
+				moved = true;
+			}).on("touchstart", function () {
+				moved = false;
+			});
+
+		}
+
+	},
+
+	//Switch Funktion - Datenpunktwert wechseln
+	handleCheckbox: function (el, data) {
+		var $this = $(el);
+
+		console.log("test12");
 
 		var oid = data.oid;
 
@@ -5752,7 +6202,7 @@ vis.binds["vis-inventwo"] = {
 		return img;
 	},
 
-	universalButtonAlign: function (align) {
+	/*universalButtonAlign: function (align) {
 		let ret = "";
 		if(align == "iStart"){
 			ret = "flex-start";
@@ -5794,7 +6244,7 @@ vis.binds["vis-inventwo"] = {
 			ret = -1;
 		}
 		return ret;
-	},
+	},*/
 
 	handleBtnClick: function (el, type, data) {
 		$(el).parent().on('click touchend', function () {
