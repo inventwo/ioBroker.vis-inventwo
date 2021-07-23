@@ -1196,6 +1196,22 @@ if (vis.editMode) {
 			"en": "Height",
 			"de": "Höhe"
 		},
+		"iCheckboxIcon": {
+			"en": "Icon",
+			"de": "Icon"
+		},
+		"iIconCheck": {
+			"en": "Check",
+			"de": "Haken"
+		},
+		"iIconCross": {
+			"en": "Cross",
+			"de": "Kreuz"
+		},
+		"iIconDot": {
+			"en": "Dot",
+			"de": "Punkt"
+		},
 		//#endregion
 
 		//#region Custom Text
@@ -5781,7 +5797,7 @@ vis.binds["vis-inventwo"] = {
 				boxes.push(`
 				<div id="`+dataNew.wid+`-switch-`+index+`" 
 				 	 class="vis-inventwo-checkbox-box-container" style="`+boxEntryStyles+`;`+styles2+`">
-					<div class="vis-inventwo-checkbox-box" style="` + boxStyles + `"></div>
+					<div class="vis-inventwo-checkbox-box ` + dataNew.iCheckboxIcon + `" style="` + boxStyles + `"></div>
 						<div class="vis-inventwo-checkbox-text" style="` + labelStyles + `">
 						`+text+`
 					</div>

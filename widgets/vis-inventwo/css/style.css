@@ -266,10 +266,13 @@
 
 .vis-inventwo-checkbox .vis-inventwo-checkbox-box:after{
     content: "";
+    position: absolute;
+}
+
+.vis-inventwo-checkbox .vis-inventwo-checkbox-box.iIconCheck:after{
     border-top: 0;
     border-left: 0;
     border-color: var(--check-color);
-    position: absolute;
     width: 25%;
     height: 50%;
     border-style: solid;
@@ -277,4 +280,17 @@
             45deg
     );
     margin-bottom: 20%;
+}
+
+.vis-inventwo-checkbox .vis-inventwo-checkbox-box.iIconDot:after{
+    width: 50%;
+    height: 50%;
+    background: var(--check-color);
+    border-radius: 100%;
+}
+
+.vis-inventwo-checkbox .vis-inventwo-checkbox-box.iIconCross:after{
+    content: "x";
+    color: var(--check-color);
+    font-weight: bold;
 }
