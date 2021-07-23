@@ -232,18 +232,26 @@
     position: absolute;
 }
 
-.vis-inventwo-switch-basic-wrapper{
+.vis-inventwo-switch-basic{
+    display: flex;
+}
+
+.vis-inventwo-switch-basic .vis-inventwo-switch-basic-wrapper{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.vis-inventwo-switch-basic-wrapper .vis-inventwo-switch-basic-knob{
+.vis-inventwo-switch-basic .vis-inventwo-switch-basic-wrapper .vis-inventwo-switch-basic-knob{
     position: absolute;
     transition: 0.5s;
 }
 
 .vis-inventwo-checkbox{
+    display: flex;
+}
+
+.vis-inventwo-checkbox .vis-inventwo-checkbox-box-container{
     display: flex;
     align-items: center;
 }
@@ -260,7 +268,7 @@
     content: "";
     border-top: 0;
     border-left: 0;
-    border-color: #ffffff;
+    border-color: var(--check-color);
     position: absolute;
     width: 25%;
     height: 50%;

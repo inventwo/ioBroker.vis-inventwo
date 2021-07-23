@@ -39,42 +39,6 @@
         "pl": "Naprawa błędów",
         "zh-cn": "错误修正"
       },
-      "3.0.8": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "3.0.7": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "3.0.6": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
       "3.0.0": {
         "en": "WARING: Icons will disappear from Universal- and Multiwdiget! Please click on each Widget! Contenttypes for Universal- and Multiwidget: Image, Clock (analog and digital) and HTML/Text, New comparison operators: greater or equal and lower or equal, Popup now can be opened via datapoint,Bugfixes, (For full changelog visit Github)",
         "de": "ACHTUNG: Icons von Universal- und Multiwidgets verschwinden! Bitte Widgets einzeln anklicken damit diese wieder zu sehen sind! Inhaltstypen für Universal- und Multiwidget: Bild, Uhr (analog und digital) und HTML/Text, Neue Vergleichsoperatoren: größer gleich und kleiner gleich, Popup kann jetzt über Datenpunkt geöffnet werden, Bugfixes, (Für den vollständigen Changelog besuchen Sie Github)",

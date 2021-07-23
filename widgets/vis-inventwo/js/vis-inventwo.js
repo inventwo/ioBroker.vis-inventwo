@@ -1111,7 +1111,7 @@ if (vis.editMode) {
 
 		//#endregion
 
-		//#regionSlider Settings
+		//#region Basic Switch Settings
 		"iBarWidth": {
 			"en": "Width",
 			"de": "Breite"
@@ -1151,6 +1151,50 @@ if (vis.editMode) {
 		"iKnobBackgroundColorActive": {
 			"en": "Color active",
 			"de": "Farbe Aktiv"
+		},
+		"iSwitchOrientation": {
+			"en": "Orientation",
+			"de": "Ausrichtung"
+		},
+		"iSwitchSpacing": {
+			"en": "Spacing",
+			"de": "Abstand"
+		},
+		"iSwitchTextSpacing": {
+			"en": "Text spacing",
+			"de": "Textabstand"
+		},
+		"group_iBasicSwitchSwitches": {
+			"en": "Switch",
+			"de": "Schalter"
+		},
+		"iSwitchCount": {
+			"en": "Count switches",
+			"de": "Anzahl Schalter"
+		},
+		"group_iCheckboxBox": {
+			"en": "Box",
+			"de": "Box"
+		},
+		"iCheckboxCount": {
+			"en": "Count boxes",
+			"de": "Anzahl Boxen"
+		},
+		"iCheckboxOrientation": {
+			"en": "Orientation",
+			"de": "Ausrichtung"
+		},
+		"iCheckboxSpacing": {
+			"en": "Spacing",
+			"de": "Abstand"
+		},
+		"iWidth": {
+			"en": "Width",
+			"de": "Breite"
+		},
+		"iHeight": {
+			"en": "Height",
+			"de": "Höhe"
 		},
 		//#endregion
 
@@ -5319,50 +5363,61 @@ vis.binds["vis-inventwo"] = {
 
 		let $this = this;
 
-		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
-			updateWidget();
-		});
+		for (let index = 1; index <= data.iSwitchCount; index++) {
+			vis.states.bind(data["oid" + index] + ".val", function (e, newVal, oldVal) {
+				updateWidget();
+			});
+		}
 
 		createWidget(true);
 
 		function getValues(dataNew) {
 
-			let values = {};
-			let text = "";
-
-			let val = dataNew.iValueTrue;
-			if (val == undefined)
-				val = true;
-			else if (val == "true")
-				val = true;
-			else if (val == "false")
-				val = false;
-			else if (!isNaN(val))
-				val = parseFloat(val);
+			let values = [];
+			let text = [];
 
 			let knobWidth = dataNew.iKnobWidth;
 			if(!isNaN(knobWidth)){
 				knobWidth += "px";
 			}
 
-			if(dataNew.oid != undefined && vis.states.attr(dataNew.oid + ".val") == val){
-				values.backgroundColor = dataNew.iBackgroundColorActive;
-				values.knobBackgroundColor = dataNew.iKnobBackgroundColorActive;
-				values.knobTransform = "translate(-100%, 0)";
+			for(let i = 1; i <= dataNew.iSwitchCount; i++){
 
-				values.knobLeft = "100%";
-				text = dataNew.iTextTrue;
-			}
-			else{
-				values.backgroundColor = dataNew.iBackgroundColor;
-				values.knobBackgroundColor = dataNew.iKnobBackgroundColor;
-				values.knobTransform = "translate(0, 0)";
-				values.knobLeft = "0";
-				text = dataNew.iTextFalse;
-			}
+				let vals = {}
+				let t = "";
 
-			if(text == undefined){
-				text = "";
+				let val = dataNew["iValueTrue" + i];
+				if (val == undefined)
+					val = true;
+				else if (val == "true")
+					val = true;
+				else if (val == "false")
+					val = false;
+				else if (!isNaN(val))
+					val = parseFloat(val);
+
+				if(dataNew["oid" + i] != undefined && vis.states.attr(dataNew["oid" + i] + ".val") == val){
+					vals.backgroundColor = dataNew.iBackgroundColorActive;
+					vals.knobBackgroundColor = dataNew.iKnobBackgroundColorActive;
+					vals.knobTransform = "translate(-100%, 0)";
+
+					vals.knobLeft = "100%";
+					t = dataNew["iTextTrue" + i];
+				}
+				else{
+					vals.backgroundColor = dataNew.iBackgroundColor;
+					vals.knobBackgroundColor = dataNew.iKnobBackgroundColor;
+					vals.knobTransform = "translate(0, 0)";
+					vals.knobLeft = "0";
+					t = dataNew["iTextFalse" + i];
+				}
+
+				if(t == undefined){
+					t = "";
+				}
+
+				values[i - 1] = vals;
+				text[i - 1] = t;
 			}
 
 			return {
@@ -5378,15 +5433,19 @@ vis.binds["vis-inventwo"] = {
 				dataNew = vis.binds["vis-inventwo"].getDatapointsValues(dataNew);
 			}
 
-			let values = getValues(dataNew);
+			let d = getValues(dataNew);
 
 			let elem = $('#' + data.wid + " .vis-widget-body");
 
-			for (const [key, value] of Object.entries(values.values)) {
-				elem.get(0).style.setProperty("--" + $this.camelCaseToKebabCase(key), value);
-			}
+			d.values.forEach((val, index) =>  {
+				for (const [key, v] of Object.entries(val)) {
+					elem.get(0).style.setProperty("--" + $this.camelCaseToKebabCase(key) + "-" + (index + 1), v);
+				}
+			});
 
-			elem.find('.vis-inventwo-switch-basic-text').html(values.text);
+			d.text.forEach((text, index) =>  {
+				elem.find('#' + dataNew.wid + '-switch-' + index + ' .vis-inventwo-switch-basic-text').html(text);
+			});
 		}
 
 		function createWidget(createEvents) {
@@ -5435,7 +5494,8 @@ vis.binds["vis-inventwo"] = {
 				"position: relative"
 			);
 
-			labelWrapperStyles = labelWrapperStyles.join("; ");
+			labelWrapperStyles.push("flex: 1 0 1px");
+
 
 
 			let labelStyles = [];
@@ -5447,15 +5507,9 @@ vis.binds["vis-inventwo"] = {
 			);
 
 			labelStyles.push(
-				"background: var(--background-color)"
-			);
-
-			labelStyles.push(
 				"border-radius: " + borderRadius
 			);
 
-
-			labelStyles = labelStyles.join("; ");
 
 			let knobStyles = [];
 			knobStyles.push(
@@ -5463,9 +5517,6 @@ vis.binds["vis-inventwo"] = {
 			);
 			knobStyles.push(
 				"height: " + knobHeight
-			);
-			knobStyles.push(
-				"background: var(--knob-background-color)"
 			);
 			knobStyles.push(
 				"border-radius: " + knobBorderRadius
@@ -5478,39 +5529,93 @@ vis.binds["vis-inventwo"] = {
 				"transform: var(--knob-transform)"
 			);
 
-			knobStyles = knobStyles.join("; ");
 
 			let styles = [];
+			let switchStyles = [];
 
-			for (const [key, value] of Object.entries(values)) {
-				styles.push("--" + $this.camelCaseToKebabCase(key) + ": " + value);
-			}
+
+			values.forEach((val, index) =>  {
+				for (const [key, v] of Object.entries(val)) {
+					styles.push("--" + $this.camelCaseToKebabCase(key) + "-" + (index + 1) + ": " + v);
+				}
+			});
 
 			styles.push("position: relative");
 
+			if(dataNew.iSwitchOrientation == "vertical"){
+				styles.push("flex-direction: column");
+				styles.push("justify-content: flex-start");
+				switchStyles.push("margin-bottom: " + dataNew.iSwitchSpacing + "px");
+			}
+			else if(dataNew.iSwitchOrientation == "horizontal"){
+				styles.push("flex-direction: row");
+				styles.push("align-items: center");
+				switchStyles.push("margin-right: " + dataNew.iSwitchSpacing + "px");
+				switchStyles.push("flex: 1 0 1px");
+			}
+
+			labelWrapperStyles.push("margin-bottom: " + dataNew.iSwitchTextSpacing + "px");
+
 			let stylesString = styles.join(";");
 
+			switchStyles = switchStyles.join(";");
+			labelWrapperStyles = labelWrapperStyles.join("; ");
+			labelStyles = labelStyles.join("; ");
+			knobStyles = knobStyles.join("; ");
+
+			let switches = [];
+
+			values.forEach((val, index) =>  {
+
+				let labelWrapperStyles2 = [];
+				labelWrapperStyles2.push(
+					"background: var(--background-color-"+(index + 1)+")"
+				);
+
+				let knobStyles2 = [];
+				knobStyles2.push(
+					"left: var(--knob-left-"+(index + 1)+")"
+				);
+				knobStyles2.push(
+					"transform: var(--knob-transform-"+(index + 1)+")"
+				);
+				knobStyles2.push(
+					"background: var(--knob-background-color-"+(index + 1)+")"
+				);
+				knobStyles2 = knobStyles2.join(";");
+
+				let text = d.text[index];
+
+				switches.push(`
+				<div id="`+dataNew.wid+`-switch-`+index+`" 
+					 class="vis-inventwo-switch-basic-entry" style="` + switchStyles + `">
+					<div style="`+labelWrapperStyles+`">
+						<label class="vis-inventwo-switch-basic-wrapper" style="`+labelStyles+`;`+labelWrapperStyles2+`;">
+					 		<span class="vis-inventwo-switch-basic-knob" style="`+knobStyles+`;`+knobStyles2+`;"></span>
+						</label>
+					</div>
+					<div class="vis-inventwo-switch-basic-text">
+						`+text+`
+					</div>
+				</div>
+				`);
+			});
+
 			let html = `
-			<div class="vis-inventwo-class vis-widget-body" style="` + stylesString + `">
-				<div>
-				<div style="`+labelWrapperStyles+`">
-					<label class="vis-inventwo-switch-basic-wrapper" style="`+labelStyles+`">
-					 	<span class="vis-inventwo-switch-basic-knob" style="`+knobStyles+`"></span>
-					</label>
-				</div>
-				</div>
-				<div class="vis-inventwo-switch-basic-text">
-					`+d.text+`
-				</div>
+			<div class="vis-inventwo-class vis-widget-body vis-inventwo-switch-basic" style="` + stylesString + `">
+				` + switches.join("") + `
 			</div>`;
 
 			$(el).html(html);
 
 			//Bindings
-			if (createEvents) {
-				vis.binds["vis-inventwo"].handleCheckbox(el, dataNew);
-
-			}
+			setTimeout(function () {
+				if (createEvents) {
+					values.forEach((val, index) => {
+						vis.binds["vis-inventwo"].handleCheckbox(el, dataNew, index);
+					});
+				}
+			}, 500);
 		}
 	},
 
@@ -5518,46 +5623,56 @@ vis.binds["vis-inventwo"] = {
 
 		let $this = this;
 
-		vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
-			updateWidget();
-		});
+		for (let index = 1; index <= data.iCheckboxCount; index++) {
+			vis.states.bind(data["oid" + index] + ".val", function (e, newVal, oldVal) {
+				updateWidget();
+			});
+		}
 
 		createWidget(true);
 
 		function getValues(dataNew) {
 
-			let values = {};
-			let text = " ";
+			let values = [];
+			let text = [];
 
-			let val = dataNew.iValueTrue;
-			if (val == undefined)
-				val = true;
-			else if (val == "true")
-				val = true;
-			else if (val == "false")
-				val = false;
-			else if (!isNaN(val))
-				val = parseFloat(val);
+			for(let i = 1; i <= dataNew.iCheckboxCount; i++) {
 
-			if(dataNew.oid != undefined && vis.states.attr(dataNew.oid + ".val") == val){
-				values.background = dataNew.iBackgroundColorActive;
-				values.borderColor = dataNew.iBorderColorActive;
-				values.boxShadowCol = dataNew.iShadowColorActive;
-				values.boxShadowInnerCol = dataNew.iShadowInnerColorActive;
-				values.textShadowCol = dataNew.iShadowTextColorActive;
-				values.checkColor = "#ffffff";
-			}
-			else{
-				values.background = dataNew.iBackgroundColor;
-				values.borderColor = dataNew.iBorderColor;
-				values.boxShadowCol = dataNew.iShadowColor;
-				values.boxShadowInnerCol = dataNew.iShadowInnerColor;
-				values.textShadowCol = dataNew.iShadowTextColor;
-				values.checkColor = "transparent";
-			}
+				let vals = {}
+				let t = "";
 
-			if(dataNew.iText != undefined){
-				text = dataNew.iText;
+				let val = dataNew["iValueTrue" + i];
+				if (val == undefined)
+					val = true;
+				else if (val == "true")
+					val = true;
+				else if (val == "false")
+					val = false;
+				else if (!isNaN(val))
+					val = parseFloat(val);
+
+				if (dataNew["oid" + i] != undefined && vis.states.attr(dataNew["oid" + i] + ".val") == val) {
+					vals.background = dataNew.iBackgroundColorActive;
+					vals.borderColor = dataNew.iBorderColorActive;
+					vals.boxShadowCol = dataNew.iShadowColorActive;
+					vals.boxShadowInnerCol = dataNew.iShadowInnerColorActive;
+					vals.textShadowCol = dataNew.iShadowTextColorActive;
+					vals.checkColor = "#ffffff";
+				} else {
+					vals.background = dataNew.iBackgroundColor;
+					vals.borderColor = dataNew.iBorderColor;
+					vals.boxShadowCol = dataNew.iShadowColor;
+					vals.boxShadowInnerCol = dataNew.iShadowInnerColor;
+					vals.textShadowCol = dataNew.iShadowTextColor;
+					vals.checkColor = "transparent";
+				}
+
+				if (dataNew["iText" + i] != undefined) {
+					t = dataNew["iText" + i];
+				}
+
+				values[i - 1] = vals;
+				text[i - 1] = t;
 			}
 
 			return {
@@ -5573,15 +5688,16 @@ vis.binds["vis-inventwo"] = {
 				dataNew = vis.binds["vis-inventwo"].getDatapointsValues(dataNew);
 			}
 
-			let values = getValues(dataNew);
+			let d = getValues(dataNew);
 
-			let elem = $('#' + data.wid + " .vis-widget-body");
+			d.values.forEach((val, index) =>  {
+				let elem = $("#" + dataNew.wid+"-switch-"+index)
 
-			for (const [key, value] of Object.entries(values.values)) {
-				elem.get(0).style.setProperty("--" + $this.camelCaseToKebabCase(key), value);
-			}
+				for (const [key, v] of Object.entries(val)) {
+					elem.get(0).style.setProperty("--" + $this.camelCaseToKebabCase(key), v);
+				}
 
-			elem.find('.vis-inventwo-switch-basic-text').html(values.text);
+			});
 		}
 
 		function createWidget(createEvents) {
@@ -5609,34 +5725,29 @@ vis.binds["vis-inventwo"] = {
 			let shadow = dataNew.iShadowXOffset + "px " + dataNew.iShadowYOffset + "px " + dataNew.iShadowBlur + "px " + dataNew.iShadowSpread + "px var(--box-shadow-col),inset " +
 				dataNew.iShadowInnerXOffset + "px " + dataNew.iShadowInnerYOffset + "px " + dataNew.iShadowInnerBlur + "px " + dataNew.iShadowInnerSpread + "px var(--box-shadow-inner-col)"
 
-
 			let styles = [];
+			let boxStyles = [];
+			let labelStyles = [];
+			let boxEntryStyles = [];
 
 			styles.push("min-height: " + height);
 			styles.push("--width: " + width);
 			styles.push("--height: " + height);
-			styles.push("--background: " + values.background);
-			styles.push("--border-color: " + values.borderColor);
-			styles.push("--box-shadow-col: " + values.boxShadowCol);
-			styles.push("--box-shadow-inner-col: " + values.boxShadowInnerCol);
-			styles.push("--text-shadow-col: " + values.textShadowCol);
-			styles.push("--check-color: " + values.checkColor);
 
-
-
-			styles = styles.join("; ");
-
-			let labelStyles = [];
+			if(dataNew.iCheckboxOrientation == "vertical"){
+				styles.push("flex-direction: column");
+				boxEntryStyles.push("margin-bottom: " + dataNew.iCheckboxSpacing + "px");
+			}
+			else if(dataNew.iCheckboxOrientation == "horizontal"){
+				styles.push("flex-direction: row");
+				boxEntryStyles.push("margin-right: " + dataNew.iCheckboxSpacing + "px");
+			}
 
 			labelStyles.push("padding-left: calc(" + dataNew.iBorderSize + "px + 5px)");
 
 			if(dataNew.iShadowTextXOffset > 0 || dataNew.iShadowTextYOffset > 0 || dataNew.iShadowTextBlur > 0) {
 				labelStyles.push("text-shadow: " +  dataNew.iShadowTextXOffset + "px " + dataNew.iShadowTextYOffset + "px " + dataNew.iShadowTextBlur + "px var(--text-shadow-col)");
 			}
-
-			labelStyles = labelStyles.join("; ");
-
-			let boxStyles = [];
 
 			boxStyles.push("width: " + width);
 			boxStyles.push("height: " + height);
@@ -5646,13 +5757,41 @@ vis.binds["vis-inventwo"] = {
 			boxStyles.push("box-shadow: " + shadow);
 
 			boxStyles = boxStyles.join("; ");
+			labelStyles = labelStyles.join("; ");
+			styles = styles.join("; ");
+			boxEntryStyles = boxEntryStyles.join("; ");
+
+			let boxes = [];
+
+			values.forEach((val, index) =>  {
+
+				let styles2 = [];
+
+				styles2.push("--background: " + val.background);
+				styles2.push("--border-color: " + val.borderColor);
+				styles2.push("--box-shadow-col: " + val.boxShadowCol);
+				styles2.push("--box-shadow-inner-col: " + val.boxShadowInnerCol);
+				styles2.push("--text-shadow-col: " + val.textShadowCol);
+				styles2.push("--check-color: " + val.checkColor);
+
+				styles2 = styles2.join(";");
+
+				let text = d.text[index];
+
+				boxes.push(`
+				<div id="`+dataNew.wid+`-switch-`+index+`" 
+				 	 class="vis-inventwo-checkbox-box-container" style="`+boxEntryStyles+`;`+styles2+`">
+					<div class="vis-inventwo-checkbox-box" style="` + boxStyles + `"></div>
+						<div class="vis-inventwo-checkbox-text" style="` + labelStyles + `">
+						`+text+`
+					</div>
+				</div>
+				`);
+			});
 
 			let html = `
 			<div class="vis-inventwo-class vis-widget-body vis-inventwo-checkbox" style="` + styles + `">
-				<div class="vis-inventwo-checkbox-box" style="` + boxStyles + `"></div>
-				<div class="vis-inventwo-checkbox-text" style="` + labelStyles + `">
-					`+d.text+`
-				</div>
+				` + boxes.join("") + `
 			</div>`;
 
 			$(el).html(html);
@@ -5670,10 +5809,13 @@ vis.binds["vis-inventwo"] = {
 			$(el).before($(s));
 
 			//Bindings
-			if (createEvents) {
-				vis.binds["vis-inventwo"].handleCheckbox(el, dataNew);
-
-			}
+			setTimeout(function () {
+				if (createEvents) {
+					values.forEach((val, index) => {
+						vis.binds["vis-inventwo"].handleCheckbox(el, dataNew, index);
+					});
+				}
+			}, 500);
 		}
 	},
 
@@ -5711,35 +5853,59 @@ vis.binds["vis-inventwo"] = {
 	},
 
 	//Switch Funktion - Datenpunktwert wechseln
-	handleCheckbox: function (el, data) {
+	handleCheckbox: function (el, data, index = null) {
 		var $this = $(el);
 
-		console.log("test12");
-
-		var oid = data.oid;
+		var oid = data["oid" + (index + 1)];
 
 		if (!vis.editMode) {
 			var moved = false;
-			$this.parent().on("click touchend", function () {
+			if(index == null) {
+				$this.parent().on("click touchend", function () {
 
-				if (vis.detectBounce(this)) return;
-				if (moved) return;
+					if (vis.detectBounce(this)) return;
+					if (moved) return;
 
-				var val = vis.states[oid + ".val"];
-				var valFalse = vis.binds["vis-inventwo"].convertValue(data.iValueFalse);
-				var valTrue = vis.binds["vis-inventwo"].convertValue(data.iValueTrue);
+					var val = vis.states[oid + ".val"];
+					var valFalse = vis.binds["vis-inventwo"].convertValue(data.iValueFalse);
+					var valTrue = vis.binds["vis-inventwo"].convertValue(data.iValueTrue);
 
-				if (val == valFalse) {
-					vis.setValue(oid, valTrue);
-				} else {
-					vis.setValue(oid, valFalse);
-				}
+					if (val == valFalse) {
+						vis.setValue(oid, valTrue);
+					} else {
+						vis.setValue(oid, valFalse);
+					}
 
-			}).on("touchmove", function () {
-				moved = true;
-			}).on("touchstart", function () {
-				moved = false;
-			});
+				}).on("touchmove", function () {
+					moved = true;
+				}).on("touchstart", function () {
+					moved = false;
+				});
+			}
+			else{
+
+				$('#' + data.wid+'-switch-'+index).unbind();
+				$('#' + data.wid+'-switch-'+index).on("click touchend", function () {
+
+					if (vis.detectBounce(this)) return;
+					if (moved) return;
+
+					var val = vis.states[oid + ".val"];
+					var valFalse = vis.binds["vis-inventwo"].convertValue(data["iValueFalse" + (index + 1)]);
+					var valTrue = vis.binds["vis-inventwo"].convertValue(data["iValueTrue" + (index + 1)]);
+
+					if (val == valFalse) {
+						vis.setValue(oid, valTrue);
+					} else {
+						vis.setValue(oid, valFalse);
+					}
+
+				}).on("touchmove", function () {
+					moved = true;
+				}).on("touchstart", function () {
+					moved = false;
+				});
+			}
 
 		}
 

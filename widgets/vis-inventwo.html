@@ -347,6 +347,7 @@
 		<%= (el) -> vis.binds['vis-inventwo'].hideImgFilterFields(el) %>
 	</div>
 
+
 </script>
 
 <script id="i-vis-slider-simple"
@@ -1343,17 +1344,22 @@
 
 </script>
 
+
 <script id="i-vis-switch-basic"
 		type="text/ejs"
 		class="vis-tpl"
-		data-vis-prev='<img src="widgets/vis-inventwo/img/Toggle.gif">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
-						oid/id;
-						iValueFalse/text;
-						iValueTrue/text;
-						iTextFalse/html;
-						iTextTrue/html;"
-		data-vis-attrs0="group.i-css;
+		data-vis-prev='<img src="widgets/vis-inventwo/img/Switch.gif">'
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;"
+		data-vis-attrs0="iSwitchCount[1]/number,1,20,1;group.iBasicSwitchSwitches/byindex;
+						 oid(1-iSwitchCount)/id;
+						 iValueFalse(1-iSwitchCount)/text;
+						 iValueTrue(1-iSwitchCount)/text;
+						 iTextFalse(1-iSwitchCount)/html;
+						 iTextTrue(1-iSwitchCount)/html;"
+		data-vis-attrs1="group.i-css;
+						 iSwitchOrientation[vertical]/select,vertical,horizontal;
+						 iSwitchSpacing[20]/slider,1,200,1;
+						 iSwitchTextSpacing[5]/slider,1,200,1;
 						 iText-BasicSwitchBackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iBackgroundColor[#333333]/color;
 						 iBackgroundColorActive[#7e9640]/color;
@@ -1375,19 +1381,21 @@
 	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:100px; height: auto; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<%= (el) -> vis.binds['vis-inventwo'].createBasicSwitchWidget(el, this.data, this.style) %>
 	</div>
-
 </script>
 
 <script id="i-vis-checkbox"
 		type="text/ejs"
 		class="vis-tpl"
-		data-vis-prev='<img src="widgets/vis-inventwo/img/Toggle.gif">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
-						oid/id;
-						iValueFalse/text;
-						iValueTrue/text;
-						iText/html;"
-		data-vis-attrs0="group.i-css;
+		data-vis-prev='<img src="widgets/vis-inventwo/img/Check.gif">'
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;"
+		data-vis-attrs0="iCheckboxCount[1]/number,1,20,1;group.iCheckboxBox/byindex;
+						 oid(1-iCheckboxCount)/id;
+						 iValueFalse(1-iCheckboxCount)/text;
+						 iValueTrue(1-iCheckboxCount)/text;
+						 iText(1-iCheckboxCount)/html;"
+		data-vis-attrs1="group.i-css;
+						 iCheckboxOrientation[vertical]/select,vertical,horizontal;
+						 iCheckboxSpacing[20]/slider,1,200,1;
 						 iText-CheckboxBoxSettings/custom,vis-inventwo.infoText,emptyText;
 						 iWidth[30]/slider,1,200,1;
 						 iHeight[30]/slider,1,200,1;
@@ -1437,10 +1445,6 @@
 	</div>
 
 </script>
-
-
-
-
 
 
 
