@@ -1212,6 +1212,10 @@ if (vis.editMode) {
 			"en": "Dot",
 			"de": "Punkt"
 		},
+		"iColorIcon": {
+			"en": "Color icon",
+			"de": "Farbe Icon"
+		},
 		//#endregion
 
 		//#region Custom Text
