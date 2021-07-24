@@ -41,6 +41,11 @@
         <td><center><b>Colorslider horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td>
         <td><center><b>Toggle Switch</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td>
     </tr>
+<tr><td colspan=4></td></tr>   
+      <tr>
+        <td><center><b>Basic Switch</b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td>
+        <td><center><b>Checkbox/Radiobutton</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td>
+    </tr>
 </table>
 
 
