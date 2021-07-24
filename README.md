@@ -16,12 +16,10 @@
 
 ## Schalter Widgets für den ioBroker.vis Adapter
 
-Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons und mehr...
+Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons und mehr...<br>
 Mit unserem Widgets-Set hast du die freie Wahl individuelle Visualisierungen ganz einfach für dein Smart-Home zu erstellen. 
 
 ###### .. ab v 2.0.0
-
-
 
 <table>
    <tr>
