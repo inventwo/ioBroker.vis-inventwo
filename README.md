@@ -16,6 +16,9 @@
 
 ## Schalter Widgets für den ioBroker.vis Adapter
 
+Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons und mehr...
+Mit unserem Widgets-Set hast du die freie Wahl individuelle Visualisierungen ganz einfach für dein Smart-Home zu erstellen. 
+
 ###### .. ab v 2.0.0
 
 
@@ -58,7 +61,7 @@
 
 
 
-Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben) und die Icons. Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
+Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben). Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
 
 ![Beispiel](http://resources.inventwo.com/github/inventwo/Preview.png)
 
