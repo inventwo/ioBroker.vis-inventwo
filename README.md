@@ -78,7 +78,9 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ## Changelog / Änderungsprotokoll
 
 ## 3.1.0
-- 
+- Neues Widget: Basisschalter
+- Neues Widget: Checkbox/Radiobutton
+- Bugfixes
 
 ## 3.0.11
 - Bugfix
