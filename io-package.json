@@ -3,6 +3,18 @@
     "name": "vis-inventwo",
     "version": "3.1.0",
     "news": {
+      "3.1.0": {
+        "en": "New widget: basic switch, new widget: checkbox/radiobutton, bugfixes",
+        "de": "Neues Widget: Basisschalter, neues Widget: Checkbox/Radiobutton, Bugfixes",
+        "ru": "Новый виджет: основной переключатель, новый виджет: флажок / радиокнопка, исправления.",
+        "pt": "Novo widget: switch básico, novo widget: checkbox / radiobutton, correções de bugs",
+        "nl": "Nieuwe widget: basisschakelaar, nieuwe widget: checkbox/radiobutton, bugfixes",
+        "fr": "Nouveau widget : commutateur de base, nouveau widget : case à cocher/bouton radio, corrections de bugs",
+        "it": "Nuovo widget: interruttore di base, nuovo widget: casella di controllo/pulsante radio, correzioni di bug bug",
+        "es": "Nuevo widget: interruptor básico, nuevo widget: casilla de verificación / botón de radio, corrección de errores",
+        "pl": "Nowy widżet: podstawowy przełącznik, nowy widżet: pole wyboru/radioprzycisk, poprawki błędów",
+        "zh-cn": "新小部件：基本开关，新小部件：复选框/单选按钮，错误修正"
+      },
       "3.0.11": {
         "en": "Bugfix",
         "de": "Fehlerbehebung",
