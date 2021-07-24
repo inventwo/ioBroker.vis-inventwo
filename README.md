@@ -43,7 +43,7 @@
     </tr>
 <tr><td colspan=4></td></tr>   
       <tr>
-        <td><center><b>Basic Switch</b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td>
+        <td><center><b>Basic Switch<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td>
         <td><center><b>Checkbox/<br>Radiobutton</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td>
     </tr>
 </table>
