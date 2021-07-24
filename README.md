@@ -37,7 +37,7 @@
 <tr><td colspan=4></td></tr>   
       <tr>
         <td><center><b>Slider horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
-        <td><center><b>Colorslider horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td>
+        <td><center><b>Colorslider<br>horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td>
         <td><center><b>Colorslider horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td>
         <td><center><b>Toggle Switch</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td>
     </tr>
