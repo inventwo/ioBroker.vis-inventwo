@@ -5673,7 +5673,7 @@ vis.binds["vis-inventwo"] = {
 					vals.boxShadowCol = dataNew.iShadowColorActive;
 					vals.boxShadowInnerCol = dataNew.iShadowInnerColorActive;
 					vals.textShadowCol = dataNew.iShadowTextColorActive;
-					vals.checkColor = "#ffffff";
+					vals.checkColor = dataNew.iColorIcon;
 				} else {
 					vals.background = dataNew.iBackgroundColor;
 					vals.borderColor = dataNew.iBorderColor;
