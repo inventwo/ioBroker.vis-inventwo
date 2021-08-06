@@ -4,18 +4,10 @@
 	Copyright 2021 jkvarel jkvarel@inventwo.com
 -->
 
-
-
-
-
-
-
-
-
-
 <link rel="stylesheet" href="widgets/vis-inventwo/css/style.css"/>
 <script type="text/javascript" src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
 <!--iText-GridSettings/custom,vis-inventwo.infoText,emptyText;
+						 iGridId;
  						 iGridColumn/number,1,100,1;
  						 iGridRow/number,1,100,1;
  						 iGridColumnSpan[1]/number,1,100,1;
@@ -167,11 +159,12 @@
 		data-vis-name="Universal<br>
 						<span style='color:#888888;'>Switch - State/Button - Navigation - Background</span>">
 
-	<div class="vis-widget waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+	<div class="vis-widget waves-effect waves-light vis-inventwo-universal-widget" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<%= (el) -> vis.binds['vis-inventwo'].universalButton2(el, this.data,'universal') %>
 		<%= (el) -> vis.binds['vis-inventwo'].hideImgFilterFields(el) %>
 	</div>
 </script>
+
 
 
 <!--iText-GridSettings/custom,vis-inventwo.infoText,emptyText;
@@ -342,7 +335,7 @@
 		data-vis-name="Multi<br>
 						<span style='color:#888888;'>Switch - State/Button - Navigation - Background</span>">
 
-	<div class="vis-widget waves-effect waves-light" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+	<div class="vis-widget waves-effect waves-light vis-inventwo-multi-widget" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<%= (el) -> vis.binds['vis-inventwo'].universalButton2(el, this.data,'multi') %>
 		<%= (el) -> vis.binds['vis-inventwo'].hideImgFilterFields(el) %>
 	</div>
@@ -855,6 +848,10 @@
 
 
 </script>
+
+
+
+
 
 
 <script id="i-vis-jsontable"
@@ -1446,6 +1443,7 @@
 		<%= (el) -> vis.binds['vis-inventwo'].createCheckbox(el, this.data, this.style) %>
 	</div>
 
+
 </script>
 
 
@@ -1465,16 +1463,32 @@
 <!--		data-vis-type="ctrl"-->
 <!--		data-vis-name="Grid">-->
 
-<!--	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" style="width:110px; height:110px; overflow:visible; z-index:0;" id="<%= this.data.attr('wid') %>">-->
-<!--		<% if(vis.editMode){ %>-->
+<!--	<%-->
 
-<!--		<p>Grid</p>-->
+<!--		let styles = [];-->
+<!--		let classes = [];-->
 
-<!--		<% } %>-->
+<!--		styles.push("grid-auto-columns: " + this.data.iGridColWidth + "px");-->
+<!--		styles.push("grid-auto-rows: " + this.data.iGridRowHeight + "px");-->
+<!--		styles.push("grid-gap: " + this.data.iGridGap + "px");-->
+<!--		styles.push("padding: " + this.data.iGridPadding + "px");-->
+
+<!--		classes.push("show-grid");-->
+
+<!--		styles = styles.join("; ");-->
+<!--		classes = classes.join(" ");-->
+
+
+<!--	%>-->
+
+<!--	<div class="vis-widget <%== this.data.attr('class') %> vis-inventwo-grid <%= classes %>"-->
+<!--		 style="width:110px; height:110px; overflow:visible; z-index:0 ;<%= styles %>" id="<%= this.data.attr('wid') %>">-->
+
 <!--		<% vis.binds['vis-inventwo'].gridWidget(this.data.wid, this.data); %>-->
 <!--	</div>-->
-
 <!--</script>-->
+
+
 
 
 <!-- BEKOMMEN KEINE NEUEN FEATURES -->

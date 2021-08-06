@@ -4038,19 +4038,21 @@ vis.binds["vis-inventwo"] = {
 
 			let elem = $('#' + data.wid + " .vis-widget-body");
 
-			for (const [key, value] of Object.entries(d.values)) {
-				elem.get(0).style.setProperty("--" + $this.camelCaseToKebabCase(key), value);
-			}
+			if(elem.length > 0) {
 
-			if(dataNew.iContentType == "image"){
-				elem.find('.vis-inventwo-button-imageContainer img').attr('src', d.img);
-				vis.binds["vis-inventwo"].getImgColorFilter(d.values.contentImageColorFilter, data.wid, null, d.values.contentImageInvert != null);
-			}
-			else if(dataNew.iContentType == "html_text"){
-				elem.find('.vis-inventwo-content-htmltext').html(d.htmlText);
-			}
+				for (const [key, value] of Object.entries(d.values)) {
+					elem.get(0).style.setProperty("--" + $this.camelCaseToKebabCase(key), value);
+				}
 
-			elem.find('.vis-inventwo-button-text').html(d.txt);
+				if (dataNew.iContentType == "image") {
+					elem.find('.vis-inventwo-button-imageContainer img').attr('src', d.img);
+					vis.binds["vis-inventwo"].getImgColorFilter(d.values.contentImageColorFilter, data.wid, null, d.values.contentImageInvert != null);
+				} else if (dataNew.iContentType == "html_text") {
+					elem.find('.vis-inventwo-content-htmltext').html(d.htmlText);
+				}
+
+				elem.find('.vis-inventwo-button-text').html(d.txt);
+			}
 
 		}
 
@@ -4134,6 +4136,53 @@ vis.binds["vis-inventwo"] = {
 			let html = $this.buttonPrefab(imgElement, d.txt, values);
 
 			$(el).html(html);
+
+			/*if(dataNew.iGridId && dataNew.iGridColumn && dataNew.iGridRow){
+				let $widget = $(el).closest('.vis-widget');
+
+				let grid = $('#' + dataNew.iGridId);
+
+				$(el).parent().addClass("is-grid-child");
+
+				let pseudoElemId = dataNew.wid + "-pseudo-grid-child";
+
+				let pseudoElem = $('#' + pseudoElemId);
+
+				if(pseudoElem.length == 0){
+					let pseudoElem = $('<div id="'+pseudoElemId+'" class="grid-pseudo-element"></div>');
+					pseudoElem.css('grid-column', dataNew.iGridColumn + "/ span " + dataNew.iGridColumnSpan);
+					pseudoElem.css('grid-row', dataNew.iGridRow + "/ span " + dataNew.iGridRowSpan);
+
+					grid.append(pseudoElem);
+				}
+				else{
+					pseudoElem.css('grid-column', dataNew.iGridColumn + "/ span " + dataNew.iGridColumnSpan);
+					pseudoElem.css('grid-row', dataNew.iGridRow + "/ span " + dataNew.iGridRowSpan);
+				}
+
+				setTimeout(function () {
+					let pElem = $('#' + pseudoElemId);
+
+					let offsetX = 0;
+					let offsetY = 0;
+
+					if(vis.editMode){
+						let offset = $('#vis_container').offset();
+						offsetX = offset.left;
+						offsetY = offset.top;
+					}
+
+					console.log(pElem.offset());
+					$(el).parent().css("top", pElem.offset().top - offsetY);
+					$(el).parent().css("left", pElem.offset().left - offsetX);
+					$(el).parent().css("width", pElem.width());
+					$(el).parent().css("height", pElem.height());
+				},10);
+
+				$(el).parent().css('grid-column', dataNew.iGridColumn + "/ span " + dataNew.iGridColumnSpan);
+				$(el).parent().css('grid-row', dataNew.iGridRow + "/ span " + dataNew.iGridRowSpan);
+
+			}*/
 
 			vis.binds["vis-inventwo"].getImgColorFilter(values.contentImageColorFilter, dataNew.wid);
 

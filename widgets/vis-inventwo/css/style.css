@@ -294,3 +294,27 @@
     color: var(--check-color);
     font-weight: bold;
 }
+
+.vis-inventwo-grid{
+    display: grid;
+    z-index: 0;
+}
+
+.vis-inventwo-grid.show-grid{
+    border: 1px dashed red;
+}
+
+/*.vis-inventwo-grid.show-grid .grid-pseudo-element{
+    border: 1px dashed red;
+}*/
+
+.vis-inventwo-universal-widget,
+.vis-inventwo-multi-widget{
+    z-index: 1;
+}
+
+/*.vis-widget.is-grid-child{*/
+/*    position: relative !important;*/
+/*    left: 0 !important;*/
+/*    top: 0 !important;*/
+/*}*/
