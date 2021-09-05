@@ -88,6 +88,7 @@
 
 						 iText-TextSettings/custom,vis-inventwo.infoText,emptyText;
 						 iTextColor[#ffffff]/color;
+						 iTextColorActive[#ffffff]/color;
 						 iTextSize[12]/slider,0,50,1;
 						 iTextAlign[iStart]/select,iStart,iCenter,iEnd;
 						 iTextSpaceTop[0]/slider,0,50,1;
@@ -235,6 +236,9 @@
 						 iText-BackgroundSettings(1-iUniversalValueCount)/custom,vis-inventwo.infoText,emptyText;
 						 iButtonActiveM(1-iUniversalValueCount)[#455618]/color;
 
+						 iText-TextSettings(1-iUniversalValueCount)/custom,vis-inventwo.infoText,emptyText;
+						 iTextColorActive(1-iUniversalValueCount)[#ffffff]/color;
+
 						 iText-ShadowSettings(1-iUniversalValueCount)/custom,vis-inventwo.infoText,emptyText;
 						 iShadowColorActiveM(1-iUniversalValueCount)[#111111]/color;
 
@@ -275,6 +279,7 @@
 
 						 iText-TextSettings/custom,vis-inventwo.infoText,emptyText;
 						 iTextColor[#ffffff]/color;
+						 iTextColorActive[#ffffff]/color;
 						 iTextSize[12]/slider,0,50,1;
 						 iTextAlign[iStart]/select,iStart,iCenter,iEnd;
 						 iTextSpaceTop[0]/slider,0,50,1;
@@ -623,6 +628,7 @@
 	%>
 </script>
 
+
 <script id="i-vis-slider-color-vert"
 		type="text/ejs"
 		class="vis-tpl"
@@ -849,11 +855,6 @@
 
 </script>
 
-
-
-
-
-
 <script id="i-vis-jsontable"
 		type="text/ejs"
 		class="vis-tpl"
@@ -873,6 +874,8 @@
 						 iColAttr(1-iColCount)/text;
 						 iTblCellPlaceholder(1-iColCount)/text;
 						 iColWidth(1-iColCount)/text;
+						 iColPreText(1-iColCount)/html;
+						 iColAfterText(1-iColCount)/html;
 
 						 iTblTextAlign(1-iColCount)[left]/nselect,left,center,right;
 

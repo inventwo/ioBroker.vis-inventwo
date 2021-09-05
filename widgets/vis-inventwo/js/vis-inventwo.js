@@ -290,6 +290,10 @@ if (vis.editMode) {
 			"en": "Text color",
 			"de": "Farbe "
 		},
+		"iTextColorActive": {
+			"en": "Text color active",
+			"de": "Farbe Aktiv"
+		},
 		//#endregion
 
 		//#region Background Settings
@@ -792,6 +796,14 @@ if (vis.editMode) {
 		"iTblCellThresholdsText": {
 			"en": "Thresholds from text",
 			"de": "Schwellenwerte aus Text"
+		},
+		"iColPreText": {
+			"en": "Pre text",
+			"de": "Text voranstellen"
+		},
+		"iColAfterText": {
+			"en": "After text",
+			"de": "Text anhängen"
 		},
 		//#endregion
 
@@ -2235,6 +2247,7 @@ vis.binds["vis-inventwo"] = {
 		let isDragging = false;
 
 		let dpIsArray = false;
+		let dpIsArrayWithBrackets = false;
 
 		var settings = $.extend({
 			min: min,
@@ -2269,6 +2282,12 @@ vis.binds["vis-inventwo"] = {
 										break;
 									case "CIE":
 										output = vis.binds['vis-inventwo'].cieConvert(rgb, "cie");
+										if(dpIsArray == true){
+											output = output.split(",");
+										}
+										else if(dpIsArrayWithBrackets == true){
+											output = "[" + output + "]";
+										}
 										break;
 								}
 								if(data.iColorSliderType != "RGB")
@@ -2316,6 +2335,9 @@ vis.binds["vis-inventwo"] = {
 										if(dpIsArray == true){
 											output = output.split(",");
 										}
+										else if(dpIsArrayWithBrackets == true){
+											output = "[" + output + "]";
+										}
 										break;
 								}
 								if(data.iColorSliderType != "RGB")
@@ -2337,6 +2359,15 @@ vis.binds["vis-inventwo"] = {
 
 		let leftSpace = 0;
 		leftSpace = parseFloat(data.iSliderHeight) / 2 - parseFloat(data.iSliderKnobSize) / 2;
+
+		function isJson(string) {
+			try {
+				JSON.parse(string);
+			} catch (e) {
+				return false;
+			}
+			return true;
+		}
 
 		function updateSlider() {
 
@@ -2397,7 +2428,12 @@ vis.binds["vis-inventwo"] = {
 
 							break;
 						case "CIE":
-							if(typeof val == "object"){
+							if(isJson(val)){
+								let jsonVal = JSON.parse(val);
+								val = jsonVal.join(",");
+								dpIsArrayWithBrackets = true;
+							}
+							else if(typeof val == "object"){
 								val = val.join(",");
 								dpIsArray = true;
 							}
@@ -2814,10 +2850,14 @@ vis.binds["vis-inventwo"] = {
 										cellValue = jsondata[e][Object.keys(jsondata[e])[i]];
 									}
 
-									if (cellValue != "") {
-
+									if (cellValue !== "") {
 										switch (data["iTblCellFormat" + (i + 1)]) {
 											case "normal":
+												let val = "";
+												val += data["iColPreText" + (i + 1)] != undefined ? data["iColPreText" + (i + 1)] : "";
+												val += cellValue;
+												val += data["iColAfterText" + (i + 1)] != undefined ? data["iColAfterText" + (i + 1)]: "";
+												cellValue = val;
 												break;
 											case "datetime":
 												if (cellValue != 0) {
@@ -2917,6 +2957,11 @@ vis.binds["vis-inventwo"] = {
 													}
 												}
 
+												let preAfterText = "";
+												preAfterText += data["iColPreText" + (i + 1)] != undefined ? data["iColPreText" + (i + 1)] : "";
+												preAfterText += cellValue;
+												preAfterText += data["iColAfterText" + (i + 1)] != undefined ? data["iColAfterText" + (i + 1)]: "";
+
 												if(thresholds.length > 0){
 													thresholds.forEach(t =>{
 														if(t.comparator != undefined && t.comparator != "" && t.value != undefined){
@@ -2929,11 +2974,14 @@ vis.binds["vis-inventwo"] = {
 																'!=' : function (val1, val2) { return val1 != val2 },
 															}
 															if(comparasionTable[t.comparator](parseFloat(cellValue),parseFloat(t.value))){
-																cellValue = '<span style="color:'+t.color+'">' + cellValue + '</span>';
+																cellValue = '<span style="color:'+t.color+'">' + preAfterText + '</span>';
 															}
 
 														}
 													});
+												}
+												else{
+													cellValue = preAfterText;
 												}
 
 
@@ -2946,7 +2994,7 @@ vis.binds["vis-inventwo"] = {
 
 													let checkboxSize = 25;
 
-													if (valBoolean) {
+													if (valBoolean === true) {
 														let style = "background: " + data["iTblCellBooleanColorTrue" + (i + 1)] + "; width: " + checkboxSize + "px; height: " + checkboxSize + "px;";
 														cellValue = "<div class=\"vis-inventwo-json-table-checkbox-container checked\"><span style=\"" + style + "\" class=\"vis-inventwo-json-table-checkbox-checkmark\"></span></div>";
 													} else {
@@ -3720,6 +3768,7 @@ vis.binds["vis-inventwo"] = {
 			let invertCol = null;
 			let htmlText = "";
 			let shadowText = "";
+			let textColor = "";
 
 			let values = {};
 
@@ -3772,6 +3821,7 @@ vis.binds["vis-inventwo"] = {
 						shadowColInner = dataNew["iShadowInnerColorActiveM" + i];
 						shadowTextCol = dataNew["iShadowTextColorActive" + i];
 						borderCol = dataNew["iBorderColorActiveM" + i];
+						textColor = dataNew["iTextColorActive" + i];
 
 						imgColorFilter = dataNew["iImgColorTrue" + i];
 
@@ -3799,6 +3849,7 @@ vis.binds["vis-inventwo"] = {
 					shadowColInner = dataNew.iShadowInnerColor;
 					shadowTextCol = dataNew.iShadowTextColor;
 					borderCol = dataNew.iBorderColor;
+					textColor = dataNew.iTextColor;
 
 					imgColorFilter = dataNew.iImgColorFalse;
 
@@ -3851,6 +3902,7 @@ vis.binds["vis-inventwo"] = {
 					shadowColInner = dataNew.iShadowInnerColorActive;
 					shadowTextCol = dataNew.iShadowTextColorActive;
 					borderCol = dataNew.iBorderColorActive;
+					textColor = dataNew.iTextColorActive;
 
 					imgColorFilter = dataNew.iImgColorTrue;
 
@@ -3876,6 +3928,7 @@ vis.binds["vis-inventwo"] = {
 					shadowColInner = dataNew.iShadowInnerColor;
 					shadowTextCol = dataNew.iShadowTextColor;
 					borderCol = dataNew.iBorderColor;
+					textColor = dataNew.iTextColor;
 
 					imgColorFilter = dataNew.iImgColorFalse;
 
@@ -3917,8 +3970,7 @@ vis.binds["vis-inventwo"] = {
 			imgBlink = imgBlink / 1000;
 
 			let shadow = dataNew.iShadowXOffset + "px " + dataNew.iShadowYOffset + "px " + dataNew.iShadowBlur + "px " + dataNew.iShadowSpread + "px var(--box-shadow-col),inset " +
-				dataNew.iShadowInnerXOffset + "px " + dataNew.iShadowInnerYOffset + "px " + dataNew.iShadowInnerBlur + "px " + dataNew.iShadowInnerSpread + "px var(--box-shadow-inner-col); --box-shadow-col: "
-				+ shadowCol + "; --box-shadow-inner-col: " + shadowColInner;
+				dataNew.iShadowInnerXOffset + "px " + dataNew.iShadowInnerYOffset + "px " + dataNew.iShadowInnerBlur + "px " + dataNew.iShadowInnerSpread + "px var(--box-shadow-inner-col)";
 			let border = dataNew.iBorderSize + "px " + dataNew.iBorderStyle + " " + borderCol;
 			let borderRadius = dataNew.iCornerRadiusUL + "px " + dataNew.iCornerRadiusUR + "px " + dataNew.iCornerRadiusLR + "px " + dataNew.iCornerRadiusLL + "px";
 
@@ -4009,11 +4061,13 @@ vis.binds["vis-inventwo"] = {
 				contentImageInvert: invertCol,
 				contentImageColorFilter: imgColorFilter,
 				textFontSize: dataNew.iTextSize + "px",
-				textColor: dataNew.iTextColor,
+				textColor: textColor,
 				textMargin: txtMargin,
 				textTextAlign: textAlign,
 				textAlignSelf: alignSelf,
 				textShadowCol: shadowTextCol,
+				boxShadowCol: shadowCol,
+				boxShadowInnerCol: shadowColInner
 			};
 
 			if(shadowText != ""){

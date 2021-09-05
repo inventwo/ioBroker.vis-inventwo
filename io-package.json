@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "3.1.3",
+    "version": "3.2.0",
     "news": {
+      "3.2.0": {
+        "en": "Textcolor active/inactive for Universal- & Multiwidget, Colorslider CIE value with square brackets, Fixed issue shadow color not updating for Universal- & Multiwidget",
+        "de": "Textfarbe aktiv/inaktiv für Universal- & Multiwidget, Colorslider CIE-Wert mit eckigen Klammern, Problem behoben, dass Schattenfarbe für Universal- & Multiwidget nicht aktualisiert wird",
+        "ru": "Цвет текста активен / неактивен для Universal- и Multiwidget, значение CIE Colorslider с квадратными скобками, Исправлена ошибка, из-за которой цвет тени не обновлялся для Universal- и Multiwidget",
+        "pt": "Textcolor ativo / inativo para Universal- e Multiwidget, valor Colorslider CIE com colchetes, Corrigido problema de cor de sombra não atualizando para Universal- e Multiwidget",
+        "nl": "Tekstkleur actief/inactief voor Universal- & Multiwidget, Colorslider CIE-waarde met vierkante haken, Probleem opgelost schaduwkleur wordt niet bijgewerkt voor Universal- & Multiwidget",
+        "fr": "Textcolor actif/inactif pour Universal- & Multiwidget, Valeur CIE du curseur de couleur avec crochets, Correction de la couleur de l'ombre ne se mettant pas à jour pour Universal- & Multiwidget",
+        "it": "Colore del testo attivo/inattivo per Universal- & Multiwidget, Valore CIE Colorslider con parentesi quadre, Risolto il problema con il colore dell'ombra che non si aggiornava per Universal- & Multiwidget",
+        "es": "Color de texto activo / inactivo para Universal- y Multiwidget, Valor CIE de Colorslider con corchetes, Problema solucionado que el color de la sombra no se actualiza para Universal- y Multiwidget",
+        "pl": "Kolor tekstu aktywny/nieaktywny dla Universal- i Multiwidget, Colorslider CIE wartość z nawiasami kwadratowymi, Naprawiono problem z nieaktualizacją koloru cienia dla Universal- i Multiwidget",
+        "zh-cn": "文本颜色对于 Universal- & Multiwidget 处于活动/非活动状态，带方括号的 Colorslider CIE 值，修复了 Universal- & Multiwidget 未更新阴影颜色的问题"
+      },
       "3.1.3": {
         "en": "Bugfix",
         "de": "Fehlerbehebung",
