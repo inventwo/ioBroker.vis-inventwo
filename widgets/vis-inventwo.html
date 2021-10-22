@@ -18,7 +18,7 @@
 		data-vis-prev='<img src="widgets/vis-inventwo/img/Universal.gif">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
 						iUniversalWidgetTypeInfo/custom,vis-inventwo.infoText,universalTypeInfo;
-						iUniversalWidgetType[Switch]/select,Switch,State,Navigation,Background,IncreaseDecreaseValue,ViewInPopup/updateUniversalDataFields();
+						iUniversalWidgetType[Switch]/select,Switch,State,Navigation,Background,IncreaseDecreaseValue,ViewInPopup,HTTP/updateUniversalDataFields();
 						nav_view;
 						oid/id;
 						iValueType[boolean]/nselect,boolean,value;
@@ -34,6 +34,10 @@
 						iStateResponseTime[0]/slider,0,2000,100;
 						iStateResetValueTime[0]/slider,0,2000,100;
 						iNavWait[100]/number;
+
+						hide_effect/effect;
+						hide_duration/slider,0,10000,100;
+						hide_options/effect-options;
 
 						iText-ViewPopUpSettings/custom,vis-inventwo.infoText,emptyText;
 						iPopUpBackground[#666666]/color;
@@ -179,7 +183,7 @@
 		data-vis-prev='<img src="widgets/vis-inventwo/img/Multi.gif">'
 		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
 						iUniversalWidgetTypeInfo/custom,vis-inventwo.infoText,universalTypeInfo;
-						iUniversalWidgetType[Switch]/select,Switch,State,Navigation,Background,IncreaseDecreaseValue,ViewInPopup/updateUniversalDataFields();
+						iUniversalWidgetType[Switch]/select,Switch,State,Navigation,Background,IncreaseDecreaseValue,ViewInPopup,HTTP/updateUniversalDataFields();
 						nav_view;
 						oid/id;
 						iValueType[boolean]/select,boolean,value;
@@ -192,6 +196,10 @@
 						iStateResponseTime[0]/slider,0,2000,100;
 						iStateResetValueTime[0]/slider,0,2000,100;
 						iNavWait[100]/number;
+
+						hide_effect/effect;
+						hide_duration/slider,0,10000,100;
+						hide_options/effect-options;
 
 						iText-ViewPopUpSettings/custom,vis-inventwo.infoText,emptyText;
 						iPopUpBackground[#666666]/color;
@@ -364,7 +372,8 @@
 						iShowMinMax/checkbox;
 						iShowValue/checkbox;
 						iChangeOnRelease/checkbox;
-						iInvertMinMax/checkbox;"
+						iInvertMinMax/checkbox;
+						iShowSteps/checkbox;"
 		data-vis-attrs0="group.i-css;
 						 iText-SliderBarSettings/custom,vis-inventwo.infoText,emptyText;
 						 iSliderHeight[10]/slider,1,200,1;
@@ -404,7 +413,7 @@
 
 	%>
 
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
+	<div class="vis-widget vis-inventwo-slider slider-horizontal <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
 		style="width:200px; height:<%= elHeight%>px; overflow:visible; cursor:pointer;font-size:<%= dataNew.iTextSize %>px;color:<%= dataNew.iSliderTextColor %>;z-index:1" >
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: auto; display:flex;align-items:center;flex-wrap:wrap; top:<%= topSpace%>px;">
 
@@ -472,7 +481,8 @@
 						iShowMinMax/checkbox;
 						iShowValue/checkbox;
 						iChangeOnRelease/checkbox;
-						iInvertMinMax/checkbox;"
+						iInvertMinMax/checkbox;
+						iShowSteps/checkbox;"
 		data-vis-attrs0="group.i-css;
 						 iText-SliderBarSettings/custom,vis-inventwo.infoText,emptyText;
 						 iSliderHeight[10]/slider,1,200,1;
@@ -500,13 +510,13 @@
 		}
 
 	%>
-	<div class="vis-widget <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
+	<div class="vis-widget vis-inventwo-slider slider-vertical <%== this.data.attr('class') %> waves-effect waves-light" id="<%= this.data.attr('wid') %>"
 		style="height:200px; width:<%= dataNew.iSliderHeight%>px; overflow:visible; cursor:pointer;font-size:<%= dataNew.iTextSize %>px;color:<%= dataNew.iSliderTextColor %>;z-index:1" >
 
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: 100%;display: flex;flex-direction: column;align-items: center;">
 
 			<% if(dataNew.iShowMinMax){ %>
-				<% if(dataNew.iShowValue){ %>
+				<% if(dataNew.iShowValue && !dataNew.iInvertMinMax){ %>
 					<div><span style="color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValuePreText%></span></div>
 					<div>
 						<span class="vis-inventwo-slider-currentvalue" style="color:<%= dataNew.iValueTextColor%>"><%= vis.states.attr(this.data.oid + '.val') %></span> / <%= dataNew.iMaxVal %>
@@ -515,13 +525,26 @@
 						<span style="color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValueAfterText%></span>
 					</div>
 				<% } else { %>
-					<div style="margin-bottom: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px"><%= dataNew.iMaxVal %></div>
+					<div style="margin-bottom: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px"><%if (dataNew.iInvertMinMax) { %><%= dataNew.iMinVal %><% } else{ %><%= dataNew.iMaxVal %><% } %></div>
 				<% } %>
 
 				<div style="border: 0px; border-radius: <%= dataNew.iSliderCorners %>px;background: <%= dataNew.iSliderColor %>; width: <%= dataNew.iSliderHeight %>px;flex-grow:1"
 					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, dataNew,{orientation:"vertical"}, "normal") %> ></div>
 
-				<div style="margin-top: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px"><%= dataNew.iMinVal %></div>
+				<div style="margin-top: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px">
+				<% if(dataNew.iShowValue && dataNew.iInvertMinMax){ %>
+					<div><span style="color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValuePreText%></span></div>
+					<div>
+						<span class="vis-inventwo-slider-currentvalue" style="color:<%= dataNew.iValueTextColor%>"><%= vis.states.attr(this.data.oid + '.val') %></span> / <%= dataNew.iMaxVal %>
+					</div>
+					<div style="margin-bottom: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px">
+						<span style="color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValueAfterText%></span>
+					</div>
+				<% } else { %>
+					<div style="margin-bottom: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px"><%if (dataNew.iInvertMinMax) { %><%= dataNew.iMinVal %><% } else{ %><%= dataNew.iMaxVal %><% } %></div>
+				<% } %>
+				</div>
+
 				<div><%= dataNew.iSliderLabel %></div>
 
 			<% } else { %>

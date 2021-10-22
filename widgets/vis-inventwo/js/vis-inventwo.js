@@ -642,6 +642,10 @@ if (vis.editMode) {
 			"en": "Invert min/max",
 			"de": "Invertiere Min/Max"
 		},
+		"iShowSteps": {
+			"en": "Show steps",
+			"de": "Zeige Schritte"
+		},
 		"iIdRed-oid": {
 			"en": "Red",
 			"de": "Rot"
@@ -1436,6 +1440,7 @@ vis.binds["vis-inventwo"] = {
 
 				) {
 					$(this).find(".vis-widget-body").get(0).style.setProperty("--background", data.iButtonActive);
+					$(this).find(".vis-widget-body").get(0).style.setProperty("--text-color", data.iTextColorActive);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
 					if (data.iImgColorTrueFilter != undefined && data.iImgColorTrueFilter != "")
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorTrueFilter.substring(8, data.iImgColorTrueFilter.length - 1));
@@ -1465,6 +1470,7 @@ vis.binds["vis-inventwo"] = {
 					}
 				} else {
 					$(this).find(".vis-widget-body").get(0).style.setProperty("--background", data.iButtonCol);
+					$(this).find(".vis-widget-body").get(0).style.setProperty("--text-color", data.iTextColor);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
 					if (data.iImgColorFalseFilter != undefined && data.iImgColorFalseFilter != "")
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8, data.iImgColorFalseFilter.length - 1));
@@ -1501,6 +1507,7 @@ vis.binds["vis-inventwo"] = {
 				let id = $(this).attr("id");
 				let data = vis.widgets[id].data;
 				let stateFound = false;
+				let hasViewCheck = false;
 
 				let modalContent = $(this).closest(".vis-inventwo-modal-content");
 
@@ -1515,6 +1522,11 @@ vis.binds["vis-inventwo"] = {
 						val = false;
 					else if (!isNaN(val))
 						val = parseFloat(val);
+
+					if((data["iCheckType" + i] == "iCheckDefault" && data.iUniversalWidgetType == "Navigation")
+						|| data["iCheckType" + i] == "iCheckView"){
+						hasViewCheck = true;
+					}
 
 					if (
 						(
@@ -1550,7 +1562,9 @@ vis.binds["vis-inventwo"] = {
 
 					) {
 						stateFound = true;
-						$(this).find(".vis-inventwo-button-new").css("background", data["iButtonActiveM" + i]);
+						// $(this).find(".vis-inventwo-button-new").css("background", data["iButtonActiveM" + i]);
+						$(this).find(".vis-widget-body").get(0).style.setProperty("--background", data["iButtonActiveM" + i]);
+						$(this).find(".vis-widget-body").get(0).style.setProperty("--text-color", data["iTextColorActive" + i]);
 						$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data["iImageTrue" + i]);
 						if (data["iImgColorTrueFilter" + i] != undefined && data["iImgColorTrueFilter" + i] != "")
 							$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data["iImgColorTrueFilter" + i].substring(8, data["iImgColorTrueFilter" + i].length - 1));
@@ -1582,8 +1596,10 @@ vis.binds["vis-inventwo"] = {
 						break;
 					}
 				}
-				if (!stateFound) {
-					$(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
+				if (!stateFound && hasViewCheck) {
+					// $(this).find(".vis-inventwo-button-new").css("background", data.iButtonCol);
+					$(this).find(".vis-widget-body").get(0).style.setProperty("--background", data.iButtonCol);
+					$(this).find(".vis-widget-body").get(0).style.setProperty("--text-color", data.iTextColor);
 					$(this).find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
 					if (data.iImgColorFalseFilter != undefined && data.iImgColorFalseFilter != "")
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8, data.iImgColorFalseFilter.length - 1));
@@ -1702,7 +1718,7 @@ vis.binds["vis-inventwo"] = {
 	},
 
 	addViewPopup: function (el, data, type){
-		let visContainer = $('#vis_container [data-view="'+vis.activeView+'"]');
+		let visContainer = $('#vis_container .vis-view[data-view="'+vis.activeView+'"]');
 
 		let borderRadius = data.iPopUpCornerRadiusUL + "px " +
 			data.iPopUpCornerRadiusUR + "px " +
@@ -1922,7 +1938,21 @@ vis.binds["vis-inventwo"] = {
 						});
 					}
 					else{
-						vis.changeView(data.nav_view, data.nav_view);
+						vis.changeView(
+							data.nav_view,
+							data.nav_view,
+							{
+								effect: data.hide_effect,
+								options: data.hide_duration,
+								duration: data.hide_options,
+							},
+							{
+								effect: data.hide_effect,
+								options: data.hide_duration,
+								duration: data.hide_options,
+							},
+							true
+						);
 					}
 
 				}
@@ -2172,6 +2202,217 @@ vis.binds["vis-inventwo"] = {
 		}
 	},
 
+	sendHttp: function (el, data, type) {
+		var $this = $(el);
+		var oid = data.oid;
+
+		if (!vis.editMode) {
+			var moved = false;
+			$this.parent().on("click touchend", function () {
+
+				if (vis.detectBounce(this)) return;
+				if (moved) return;
+				if (parseFloat(data.iStateResetValueTime) > 0) {
+					if (vis.settings[data.wid] == true) {
+						return;
+					} else {
+						vis.settings[data.wid] = true;
+					}
+				}
+
+				let elem = $this.find(".vis-widget-body")
+
+				let val = vis.binds["vis-inventwo"].convertValue(data.value);
+
+				let oldValue = vis.states[oid + ".val"];
+
+				// vis.setValue(oid, val);
+				$.ajax({
+					url: data.value,
+					type:'POST',
+					crossDomain: true,
+					dataType: "jsonp",
+					data: ""
+				})
+					.done(function (res) {
+						console.log(res);
+					});
+
+				if (data.iStateResponseTime > 0) {
+
+					if (type == "universal" || type == "clock_analog" || type == "clock_digital") {
+
+						let border = data.iBorderSize + "px " + data.iBorderStyle + " " + data.iBorderColorActive;
+
+						elem.get(0).style.setProperty("--background", data.iButtonActive);
+						elem.get(0).style.setProperty("--box-shadow-col", data.iShadowColorActive);
+						elem.get(0).style.setProperty("--box-shadow-inner-col", data.iShadowInnerColorActive);
+						elem.get(0).style.setProperty("--background-border", border);
+						elem.get(0).style.setProperty("--content-image-color-filter", data.iImgColorTrue);
+
+						if (data.iImageTrue != undefined) {
+							$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageTrue);
+							vis.binds["vis-inventwo"].getImgColorFilter(data.iImgColorTrue, data.wid);
+						}
+						if (data.iTextTrue != undefined)
+							$this.find(".vis-inventwo-button-text").html(data.iTextTrue);
+
+						setTimeout(function () {
+							let border = data.iBorderSize + "px " + data.iBorderStyle + " " + data.iBorderColor;
+
+							elem.get(0).style.setProperty("--background", data.iButtonCol);
+							elem.get(0).style.setProperty("--box-shadow-col", data.iShadowColor);
+							elem.get(0).style.setProperty("--box-shadow-inner-col", data.iShadowInnerColor);
+							elem.get(0).style.setProperty("--background-border", border);
+							elem.get(0).style.setProperty("--content-image-color-filter", data.iImgColorFalse);
+
+							if (data.iImageFalse != undefined) {
+								$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
+								vis.binds["vis-inventwo"].getImgColorFilter(data.iImgColorFalse, data.wid);
+							}
+							if (data.iTextFalse != undefined)
+								$this.find(".vis-inventwo-button-text").html(data.iTextFalse);
+						}, data.iStateResponseTime);
+
+
+					}
+					else if (type == "multi") {
+
+						let index = -1;
+
+						for (let i = 1; i <= data.iUniversalValueCount; i++) {
+
+							let val = data["iValue" + i];
+							if (val == undefined)
+								val = true;
+							else if (val == "true")
+								val = true;
+							else if (val == "false")
+								val = false;
+							else if (!isNaN(val))
+								val = parseFloat(val);
+
+							if ((data.iUniversalWidgetType != "Navigation" && data["oid" + i] != undefined
+									&& (vis.states.attr(data["oid" + i] + ".val") === val && data["iValueComparison" + i] == "equal")
+									|| (vis.states.attr(data["oid" + i] + ".val") < val && data["iValueComparison" + i] == "lower")
+									|| (vis.states.attr(data["oid" + i] + ".val") > val && data["iValueComparison" + i] == "greater")
+									|| (vis.states.attr(data["oid" + i] + ".val") != val && data["iValueComparison" + i] == "not")
+								)
+								||
+								(data.iUniversalWidgetType == "Navigation" && data["iView" + i] === vis.activeView)) {
+
+								let border = data.iBorderSize + "px " + data.iBorderStyle + " " + data["iBorderColorActiveM" + i];
+
+								elem.get(0).style.setProperty("--background", data["iButtonActiveM" + i]);
+								elem.get(0).style.setProperty("--box-shadow-col", data["iShadowColorActiveM" + i]);
+								elem.get(0).style.setProperty("--box-shadow-inner-col", data["iShadowInnerColorActiveM" + i]);
+								elem.get(0).style.setProperty("--background-border", border);
+								elem.get(0).style.setProperty("--content-image-color-filter", data["iImgColorTrue" + i]);
+
+								if (data["iImageTrue" + i] != undefined) {
+									$this.find(".vis-inventwo-button-imageContainer img").attr("src", data["iImageTrue" + i]);
+									vis.binds["vis-inventwo"].getImgColorFilter(data["iImgColorTrue" + i], data.wid);
+								}
+								if (data.iTextTrue != undefined)
+									$this.find(".vis-inventwo-button-text").html(data.iTextTrue);
+
+								index = i;
+
+								break;
+							}
+						}
+
+						if (index == -1 && data.iStateResponseTime > 0) {
+							let border = data.iBorderSize + "px " + data.iBorderStyle + " " + data["iBorderColorActiveM1"];
+
+							elem.get(0).style.setProperty("--background", data["iButtonActiveM1"]);
+							elem.get(0).style.setProperty("--box-shadow-col", data["iShadowColorActiveM1"]);
+							elem.get(0).style.setProperty("--box-shadow-inner-col", data["iShadowInnerColorActiveM1"]);
+							elem.get(0).style.setProperty("--background-border", border);
+							elem.get(0).style.setProperty("--content-image-color-filter", data["iImgColorTrue1"]);
+
+							if (data["iImageTrue1"] != undefined) {
+								$this.find(".vis-inventwo-button-imageContainer img").attr("src", data["iImageTrue1"]);
+								vis.binds["vis-inventwo"].getImgColorFilter(data["iImgColorTrue1"], data.wid);
+							}
+							if (data.iTextTrue != undefined)
+								$this.find(".vis-inventwo-button-text").html(data.iTextTrue);
+
+						}
+
+						if (data.iStateResponseTime > 0) {
+							setTimeout(function () {
+
+								let backCol = data.iButtonCol;
+								let shadowCol = data.iShadowColor;
+								let shadowColInner = data.iShadowInnerColor;
+								let borderCol = data.iBorderColor;
+								let img = "";
+								let txt = "";
+								let imgColor = "";
+								if (data.iImageFalse != undefined) {
+									img = data.iImageFalse;
+									imgColor = data.iImgColorFalse;
+								}
+								if (data.iTextFalse != undefined)
+									txt = data.iTextFalse;
+
+								for (let i = 1; i <= data.iUniversalValueCount; i++) {
+									let val = data["iValue" + i];
+									if (val == undefined)
+										val = true;
+									else if (val == "true")
+										val = true;
+									else if (val == "false")
+										val = false;
+									else if (!isNaN(val))
+										val = parseFloat(val);
+
+									if ((data.iUniversalWidgetType != "Navigation" && vis.states.attr(data["oid" + i] + ".val") == val) || (data.iUniversalWidgetType == "Navigation" && data["iView" + i] === vis.activeView)) {
+										backCol = data["iButtonActiveM" + i];
+										shadowCol = data["iShadowColorActiveM" + i];
+										shadowColInner = data["iShadowInnerColorActiveM" + i];
+										borderCol = data["iBorderColorActiveM" + i];
+										if (data["iImageTrue" + i] != undefined) {
+											img = data["iImageTrue" + i];
+											imgColor = data["iImgColorFalse" + i];
+										}
+										if (data["iTextTrue" + i] != undefined)
+											txt = data["iTextTrue" + i];
+
+										break;
+									}
+								}
+
+								let border = data.iBorderSize + "px " + data.iBorderStyle + " " + borderCol;
+
+								elem.get(0).style.setProperty("--background", backCol);
+								elem.get(0).style.setProperty("--box-shadow-col", shadowCol);
+								elem.get(0).style.setProperty("--box-shadow-inner-col", shadowColInner);
+								elem.get(0).style.setProperty("--background-border", border);
+								elem.get(0).style.setProperty("--content-image-color-filter", imgColor);
+
+								$this.find(".vis-inventwo-button-imageContainer img").attr("src", data.iImageFalse);
+								vis.binds["vis-inventwo"].getImgColorFilter(imgColor, data.wid);
+
+								$this.find(".vis-inventwo-button-text").html(txt);
+
+							}, data.iStateResponseTime);
+						}
+
+
+					}
+				}
+			})
+				.on("touchmove", function () {
+					moved = true;
+				}).on("touchstart", function () {
+				moved = false;
+			});
+
+		}
+	},
+
 	//Slider Funktion - Setzt den Wert beim schieben
 	handleSlider: function (el, data, options, type) {
 		var $this = $(el);
@@ -2355,7 +2596,40 @@ vis.binds["vis-inventwo"] = {
 			}
 		}, options);
 
-		$this.slider(settings);
+
+
+		$this.slider(settings)
+			.each(function(){
+				if(type == "normal" && data.iShowSteps) {
+					var opt = $(this).data().uiSlider.options;
+
+					// Get the number of possible values
+					let vals = (opt.max - opt.min) / opt.step;
+
+					let sliderHeight = parseInt(data.iSliderHeight) > parseInt(data.iSliderKnobSize) ? parseInt(data.iSliderHeight) : parseInt(data.iSliderKnobSize)
+
+					// Space out values
+					for (let i = 0; i <= vals; i++) {
+
+						let label = null;
+						if(options.orientation == "horizontal") {
+							let val = data.iInvertMinMax ? opt.max - i * step : i * step;
+							label = $('<span class="vis-inventwo-slider-step-label">' + val + '</span>')
+								.css('left', (i / vals * 100) + '%')
+								.css('margin-top', sliderHeight / 2 + 10 + 'px');
+						}
+						else{
+							let val = data.iInvertMinMax ? i * step : opt.max - i * step;
+							label = $('<span class="vis-inventwo-slider-step-label">' + val + '</span>')
+								.css('top', (i / vals * 100) + '%')
+								.css('margin-left', sliderHeight / 2 + 10 + 'px');
+						}
+
+						$(this).append(label);
+
+					}
+				}
+			});
 
 		let leftSpace = 0;
 		leftSpace = parseFloat(data.iSliderHeight) / 2 - parseFloat(data.iSliderKnobSize) / 2;
@@ -2382,7 +2656,7 @@ vis.binds["vis-inventwo"] = {
 					val = vis.binds['vis-inventwo'].rgbToHex(rgb);
 				}
 
-				$this.children().css("background", val);
+				$this.find(".ui-slider-handle").css("background", val);
 				$this.slider("option", "value", rgbToDecimal(rgb));
 			}
 
@@ -2398,8 +2672,7 @@ vis.binds["vis-inventwo"] = {
 					if(isNaN(val)){
 						val = min;
 					}
-
-					$this.children().css("background", data.iSliderKnobColor);
+					$this.find(".ui-slider-handle").css("background", data.iSliderKnobColor);
 					if (data.iInvertMinMax) {
 						val = data.iMaxVal - (val - data.iMinVal);
 					}
@@ -2449,18 +2722,18 @@ vis.binds["vis-inventwo"] = {
 		updateSlider();
 
 		$this.css("transform", "rotate(" + data.iSliderRotation + "deg)");
-		$this.children().css("width", data.iSliderKnobSize + "px");
-		$this.children().css("height", data.iSliderKnobSize + "px");
-		$this.children().css("border", "0px");
-		$this.children().css("border-radius", data.iSliderKnobCorners + "%");
-		$this.children().css("box-shadow", "0 0 5px 1px black");
+		$this.find(".ui-slider-handle").css("width", data.iSliderKnobSize + "px");
+		$this.find(".ui-slider-handle").css("height", data.iSliderKnobSize + "px");
+		$this.find(".ui-slider-handle").css("border", "0px");
+		$this.find(".ui-slider-handle").css("border-radius", data.iSliderKnobCorners + "%");
+		$this.find(".ui-slider-handle").css("box-shadow", "0 0 5px 1px black");
 		if (options.orientation === "horizontal") {
-			$this.children().css("margin-left", "-" + (data.iSliderKnobSize / 2) + "px");
+			$this.find(".ui-slider-handle").css("margin-left", "-" + (data.iSliderKnobSize / 2) + "px");
 			let topPos = ((data.iSliderKnobSize - data.iSliderHeight) / 2) * (-1);
-			$this.children().css("top", topPos + "px");
+			$this.find(".ui-slider-handle").css("top", topPos + "px");
 		} else {
-			$this.children().css("left", leftSpace + "px");
-			$this.children().css("margin-bottom", "-" + (data.iSliderKnobSize / 2) + "px");
+			$this.find(".ui-slider-handle").css("left", leftSpace + "px");
+			$this.find(".ui-slider-handle").css("margin-bottom", "-" + (data.iSliderKnobSize / 2) + "px");
 		}
 
 		vis.states.bind(oid + ".val", function () {
@@ -3215,6 +3488,10 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iIncreaseDecrease", false);
 				vis.hideShowAttr("iValueComparison", true);
 
+				vis.hideShowAttr("hide_effect", false);
+				vis.hideShowAttr("hide_duration", false);
+				vis.hideShowAttr("hide_options", false);
+
 				vis.hideShowAttr("iText-ViewPopUpSettings", false);
 				vis.hideShowAttr("iPopUpBackground", false);
 				vis.hideShowAttr("iPopUpPreventClickOutside", false);
@@ -3251,7 +3528,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iView" + i, true);
 				}
 			}
-			else if (val == "State") {
+			else if (val == "State" || val == "HTTP") {
 				vis.hideShowAttr("iNavWait", false);
 				vis.hideShowAttr("iValueType", false);
 				vis.hideShowAttr("iValueTypeInfo", false);
@@ -3260,10 +3537,11 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("value", true);
 				vis.hideShowAttr("iStateResponseTime", true);
 				vis.hideShowAttr("nav_view", false);
-				vis.hideShowAttr("oid", true);
-				vis.hideShowAttr("iStateResetValueTime", true);
 				vis.hideShowAttr("iIncreaseDecrease", false);
-				vis.hideShowAttr("iValueComparison", true);
+
+				vis.hideShowAttr("hide_effect", false);
+				vis.hideShowAttr("hide_duration", false);
+				vis.hideShowAttr("hide_options", false);
 
 				vis.hideShowAttr("iText-ViewPopUpSettings", false);
 				vis.hideShowAttr("iPopUpBackground", false);
@@ -3294,6 +3572,17 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpShadowBlur", false);
 				vis.hideShowAttr("iPopUpShadowSpread", false);
 				vis.hideShowAttr("iPopUpShadowColor", false);
+
+				if(val == "State"){
+					vis.hideShowAttr("iStateResetValueTime", true);
+					vis.hideShowAttr("oid", true);
+					vis.hideShowAttr("iValueComparison", true);
+				}
+				else{
+					vis.hideShowAttr("iStateResetValueTime", false);
+					vis.hideShowAttr("oid", false);
+					vis.hideShowAttr("iValueComparison", false);
+				}
 
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
 					vis.hideShowAttr("oid" + i, true);
@@ -3314,6 +3603,10 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResetValueTime", false);
 				vis.hideShowAttr("iIncreaseDecrease", false);
 				vis.hideShowAttr("iValueComparison", false);
+
+				vis.hideShowAttr("hide_effect", true);
+				vis.hideShowAttr("hide_duration", true);
+				vis.hideShowAttr("hide_options", false);
 
 				vis.hideShowAttr("iText-ViewPopUpSettings", false);
 				vis.hideShowAttr("iPopUpBackground", false);
@@ -3372,6 +3665,10 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iValueTrue", false);
 				}
 
+				vis.hideShowAttr("hide_effect", false);
+				vis.hideShowAttr("hide_duration", false);
+				vis.hideShowAttr("hide_options", false);
+
 				vis.hideShowAttr("iText-ViewPopUpSettings", false);
 				vis.hideShowAttr("iPopUpBackground", false);
 				vis.hideShowAttr("iPopUpPreventClickOutside", false);
@@ -3422,6 +3719,10 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iValueTypeInfo", false);
 				vis.hideShowAttr("iValueTrue", false);
 
+				vis.hideShowAttr("hide_effect", false);
+				vis.hideShowAttr("hide_duration", false);
+				vis.hideShowAttr("hide_options", false);
+
 				vis.hideShowAttr("iText-ViewPopUpSettings", false);
 				vis.hideShowAttr("iPopUpBackground", false);
 				vis.hideShowAttr("iPopUpPreventClickOutside", false);
@@ -3471,6 +3772,10 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResetValueTime", false);
 				vis.hideShowAttr("iIncreaseDecrease", false);
 				vis.hideShowAttr("iValueComparison", false);
+
+				vis.hideShowAttr("hide_effect", false);
+				vis.hideShowAttr("hide_duration", false);
+				vis.hideShowAttr("hide_options", false);
 
 				vis.hideShowAttr("iText-ViewPopUpSettings", true);
 				vis.hideShowAttr("iPopUpBackground", true);
@@ -3735,16 +4040,18 @@ vis.binds["vis-inventwo"] = {
 				updateWidget();
 		});
 
-		if (type == "multi" && data.iUniversalWidgetType != "Navigation") {
+		if (type == "multi") {
 			for (let index = 1; index <= data.iUniversalValueCount; index++) {
 
-				if(!datapoints.includes(data.attr("oid" + index))) {
-					datapoints.push(data.attr("oid" + index));
-					vis.states.bind(data.attr("oid" + index) + ".val", function (e, newVal, oldVal) {
-						if (newVal != oldVal) {
-							updateWidget();
-						}
-					});
+				if(data.iUniversalWidgetType != "Navigation" || (data.iUniversalWidgetType == "Navigation" && data.attr("iCheckType" + index) == "iCheckDpValue")) {
+					if (!datapoints.includes(data.attr("oid" + index))) {
+						datapoints.push(data.attr("oid" + index));
+						vis.states.bind(data.attr("oid" + index) + ".val", function (e, newVal, oldVal) {
+							if (newVal != oldVal) {
+								updateWidget();
+							}
+						});
+					}
 				}
 
 			}
@@ -4254,6 +4561,8 @@ vis.binds["vis-inventwo"] = {
 					vis.binds["vis-inventwo"].handleToggle(el, dataNew, type);
 				} else if (dataNew.iUniversalWidgetType == "State") {
 					vis.binds["vis-inventwo"].state(el, dataNew, type);
+				} else if (dataNew.iUniversalWidgetType == "HTTP") {
+					vis.binds["vis-inventwo"].sendHttp(el, dataNew, type);
 				} else if (dataNew.iUniversalWidgetType == "Navigation" || dataNew.iUniversalWidgetType == "ViewInPopup") {
 					vis.binds["vis-inventwo"].handleNavigation(el, dataNew, type);
 					if (type == "universal")
@@ -6359,7 +6668,9 @@ vis.binds["vis-inventwo"] = {
 
 	checkIfTrue: function (data, value, index = null) {
 
-		if(data.iUniversalWidgetType == "Navigation"){
+		if((index == null && data.iUniversalWidgetType == "Navigation") ||
+			((data["iCheckType" + index] == "iCheckDefault" && data.iUniversalWidgetType == "Navigation") || data["iCheckType" + index] == "iCheckView")){
+
 			if(vis.activeView == data.nav_view){
 				return true
 			}

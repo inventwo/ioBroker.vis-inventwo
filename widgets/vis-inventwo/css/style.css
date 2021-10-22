@@ -318,3 +318,25 @@
 /*    left: 0 !important;*/
 /*    top: 0 !important;*/
 /*}*/
+
+.vis-inventwo-slider .vis-inventwo-slider-step-label {
+    position: absolute;
+    text-align: center;
+    box-shadow: unset !important;
+}
+
+.vis-inventwo-slider.slider-horizontal .vis-inventwo-slider-step-label {
+    transform: translateX(-50%);
+}
+
+.vis-inventwo-slider.slider-vertical .vis-inventwo-slider-step-label {
+    transform: translateY(-50%);
+}
+
+.vis-inventwo-slider .ui-widget-content{
+    color: unset;
+}
+
+.vis-inventwo-slider .ui-widget{
+    font-size: unset;
+}

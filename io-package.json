@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "3.2.0",
+    "version": "3.2.1",
     "news": {
       "3.2.0": {
         "en": "Textcolor active/inactive for Universal- & Multiwidget, Colorslider CIE value with square brackets, Fixed issue shadow color not updating for Universal- & Multiwidget, JSON-Table prefixed and appended text",
