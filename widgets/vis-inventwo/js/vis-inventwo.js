@@ -578,6 +578,14 @@ if (vis.editMode) {
 			"en": "Step",
 			"de": "Schritt"
 		},
+		"iVisibleStepVal": {
+			"en": "Step labels",
+			"de": "Schritt Beschriftung"
+		},
+		"iStepTextSize": {
+			"en": "Size steps",
+			"de": "Größe Schritte"
+		},
 		"iSliderColor": {
 			"en": "Color",
 			"de": "Farbe"
@@ -2604,7 +2612,7 @@ vis.binds["vis-inventwo"] = {
 					var opt = $(this).data().uiSlider.options;
 
 					// Get the number of possible values
-					let vals = (opt.max - opt.min) / opt.step;
+					let vals = (opt.max - opt.min) / data.iVisibleStepVal;
 
 					let sliderHeight = parseInt(data.iSliderHeight) > parseInt(data.iSliderKnobSize) ? parseInt(data.iSliderHeight) : parseInt(data.iSliderKnobSize)
 
@@ -2613,16 +2621,18 @@ vis.binds["vis-inventwo"] = {
 
 						let label = null;
 						if(options.orientation == "horizontal") {
-							let val = data.iInvertMinMax ? opt.max - i * step : i * step;
+							let val = data.iInvertMinMax ? opt.max - i * data.iVisibleStepVal : i * data.iVisibleStepVal;
 							label = $('<span class="vis-inventwo-slider-step-label">' + val + '</span>')
 								.css('left', (i / vals * 100) + '%')
-								.css('margin-top', sliderHeight / 2 + 10 + 'px');
+								.css('margin-top', sliderHeight / 2 + 10 + 'px')
+								.css('font-size', data.iStepTextSize + "px");
 						}
 						else{
-							let val = data.iInvertMinMax ? i * step : opt.max - i * step;
+							let val = data.iInvertMinMax ? i * data.iVisibleStepVal : opt.max - i * data.iVisibleStepVal;
 							label = $('<span class="vis-inventwo-slider-step-label">' + val + '</span>')
 								.css('top', (i / vals * 100) + '%')
-								.css('margin-left', sliderHeight / 2 + 10 + 'px');
+								.css('margin-left', sliderHeight / 2 + 10 + 'px')
+								.css('font-size', data.iStepTextSize + "px");
 						}
 
 						$(this).append(label);
