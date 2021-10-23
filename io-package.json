@@ -3,6 +3,18 @@
     "name": "vis-inventwo",
     "version": "3.2.1",
     "news": {
+      "3.2.2": {
+        "en": "Bugfix",
+        "de": "Fehlerbehebung",
+        "ru": "Исправлена ошибка",
+        "pt": "Bugfix",
+        "nl": "Bugfix",
+        "fr": "Correction d'un bug",
+        "it": "Risoluzione del problema",
+        "es": "Arreglo del fallo",
+        "pl": "Naprawa błędów",
+        "zh-cn": "错误修正"
+      },
       "3.2.1": {
         "en": "Fixed issue with active textcolor (#302), Fixed issue with Multi-Widget and different check type (#303), Fixed closing issue with View in PopUp (#254), Added navigation effects from Basic Navigation (#304), Added new widget type 'HTTP' for Universal- and Multi-Widget (#249), Added visibile steps for simple slider",
         "de": "Problem mit aktiver Textfarbe behoben (#302), Problem mit Multi-Widget und unterschiedlichem Prüftyp behoben (#303), Problem beim Schließen mit View im PopUp behoben (#254), Navigationseffekte aus der Basisnavigation hinzugefügt (#304), Neu hinzugefügt Widget-Typ 'HTTP' für Universal- und Multi-Widget (#249), Sichtbare Schritte für einfachen Slider hinzugefügt",

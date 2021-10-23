@@ -2235,16 +2235,19 @@ vis.binds["vis-inventwo"] = {
 				let oldValue = vis.states[oid + ".val"];
 
 				// vis.setValue(oid, val);
-				$.ajax({
-					url: data.value,
-					type:'POST',
-					crossDomain: true,
-					dataType: "jsonp",
-					data: ""
-				})
-					.done(function (res) {
-						console.log(res);
-					});
+				// $.ajax({
+				// 	url: data.value,
+				// 	type:'POST',
+				// 	crossDomain: true,
+				// 	dataType: "jsonp",
+				// 	data: ""
+				// })
+				// 	.done(function (res) {
+				// 		console.log(res);
+				// 	});
+
+
+				vis.conn.httpGet(data.value);
 
 				if (data.iStateResponseTime > 0) {
 
