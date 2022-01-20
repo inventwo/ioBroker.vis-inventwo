@@ -6980,7 +6980,7 @@ vis.binds["vis-inventwo"] = {
 
 		}
 
-	}
+	},
 
 	sortIpAddresses: function (arr) {
 		arr.sort((a, b) => {
