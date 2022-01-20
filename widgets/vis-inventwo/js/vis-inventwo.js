@@ -896,14 +896,6 @@ if (vis.editMode) {
 			"en": "not",
 			"de": "Nicht"
 		},
-		"horizontal": {
-			"en": "horizontal",
-			"de": "Waagerecht"
-		},
-		"vertical": {
-			"en": "vertical",
-			"de": "Senkrecht"
-		},
 		"Switch": {
 			"en": "Switch",
 			"de": "Switch"
@@ -1087,10 +1079,6 @@ if (vis.editMode) {
 			"en": "Close if value",
 			"de": "Schließen bei Wert"
 		},
-		"iPopUpCloseDpValue": {
-			"en": "Close if value",
-			"de": "Schließen bei Wert"
-		},
 		"iPopUpOpenDpValue": {
 			"en": "Open if value",
 			"de": "Öffnen bei Wert"
@@ -1175,10 +1163,6 @@ if (vis.editMode) {
 		"iKnobBackgroundColorActive": {
 			"en": "Color active",
 			"de": "Farbe Aktiv"
-		},
-		"iSwitchOrientation": {
-			"en": "Orientation",
-			"de": "Ausrichtung"
 		},
 		"iSwitchSpacing": {
 			"en": "Spacing",
@@ -6998,6 +6982,13 @@ vis.binds["vis-inventwo"] = {
 
 	}
 
-
+	sortIpAddresses: function (arr) {
+		arr.sort((a, b) => {
+			const num1 = Number(a.split(".").map((num) => (`000${num}`).slice(-3)).join(""));
+			const num2 = Number(b.split(".").map((num) => (`000${num}`).slice(-3)).join(""));
+			return num1 - num2;
+		});
+		return arr;
+	}
 
 };

@@ -526,15 +526,17 @@
 
 			<% if(dataNew.iShowMinMax){ %>
 				<% if(dataNew.iShowValue && !dataNew.iInvertMinMax){ %>
-					<div><span style="color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValuePreText%></span></div>
+					<div style="margin-bottom: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px"><%if (dataNew.iInvertMinMax) { %><%= dataNew.iMinVal %><% } else{ %><%= dataNew.iMaxVal %><% } %></div>
+				<% } else { %>
+					<div>
+						<span style="color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValuePreText%></span>
+					</div>
 					<div>
 						<span class="vis-inventwo-slider-currentvalue" style="color:<%= dataNew.iValueTextColor%>"><%= vis.states.attr(this.data.oid + '.val') %></span> / <%= dataNew.iMaxVal %>
 					</div>
 					<div style="margin-bottom: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px">
 						<span style="color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValueAfterText%></span>
 					</div>
-				<% } else { %>
-					<div style="margin-bottom: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px"><%if (dataNew.iInvertMinMax) { %><%= dataNew.iMinVal %><% } else{ %><%= dataNew.iMaxVal %><% } %></div>
 				<% } %>
 
 				<div style="border: 0px; border-radius: <%= dataNew.iSliderCorners %>px;background: <%= dataNew.iSliderColor %>; width: <%= dataNew.iSliderHeight %>px;flex-grow:1"
