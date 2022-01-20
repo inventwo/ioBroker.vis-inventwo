@@ -525,7 +525,7 @@
 		<div class="vis-inventwo-class vis-widget-body <%== this.data.attr('class') %> " style="position:relative; height: 100%;display: flex;flex-direction: column;align-items: center;">
 
 			<% if(dataNew.iShowMinMax){ %>
-				<% if(dataNew.iShowValue){ %>
+				<% if(dataNew.iShowValue && !dataNew.iInvertMinMax){ %>
 					<div><span style="color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValuePreText%></span></div>
 					<div>
 						<span class="vis-inventwo-slider-currentvalue" style="color:<%= dataNew.iValueTextColor%>"><%= vis.states.attr(this.data.oid + '.val') %></span> / <%if (dataNew.iInvertMinMax) { %><%= dataNew.iMinVal %><% } else{ %><%= dataNew.iMaxVal %><% } %>
@@ -541,7 +541,7 @@
 					<%= (el) -> vis.binds['vis-inventwo'].handleSlider(el, dataNew,{orientation:"vertical"}, "normal") %> ></div>
 
 				<div style="margin-top: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px">
-				<% if(dataNew.iShowValue){ %>
+				<% if(dataNew.iShowValue && dataNew.iInvertMinMax){ %>
 					<div><span style="color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValuePreText%></span></div>
 					<div>
 						<span class="vis-inventwo-slider-currentvalue" style="color:<%= dataNew.iValueTextColor%>"><%= vis.states.attr(this.data.oid + '.val') %></span> / <%if (dataNew.iInvertMinMax) { %><%= dataNew.iMaxVal %><% } else{ %><%= dataNew.iMinVal %><% } %>
