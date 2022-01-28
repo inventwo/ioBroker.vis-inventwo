@@ -466,8 +466,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ## License
 
-Urheberrechte (c) 2021 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
-
+Copyright (c) 2022 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
 MIT License (nur in englisch / englisch only)
 
