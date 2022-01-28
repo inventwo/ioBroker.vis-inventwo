@@ -14,10 +14,20 @@
 
 [![NPM](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)](https://nodei.co/npm/iobroker.vis-inventwo/)
 
-## Schalter Widgets für den ioBroker.vis Adapter
+## Widgets für den ioBroker.vis Adapter
 
 Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons und mehr...<br>
 Mit unserem Widgets-Set hast du die freie Wahl individuelle Visualisierungen ganz einfach für dein Smart-Home zu erstellen. 
+
+![Vorschau Universal- & Multi-Widget](https://resources.inventwo.com/github/inventwo/preview_universal_widget.png)
+
+Analog Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
+
+![Vorschau Analog Uhren](https://resources.inventwo.com/github/inventwo/preview_clocks.png)
+
+Digital Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
+
+![Vorschau Digital Uhren](https://resources.inventwo.com/github/inventwo/preview_clocks_digital.png)
 
 ###### .. ab v 2.0.0
 
@@ -49,13 +59,6 @@ Mit unserem Widgets-Set hast du die freie Wahl individuelle Visualisierungen gan
     </tr>
 </table>
 
-
-
-
-
-###### .. v 1.3.8
-
-![Beispiel](http://resources.inventwo.com/github/inventwo/Set.png)
 
 
 
