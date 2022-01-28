@@ -69,6 +69,14 @@ if (vis.editMode) {
 			"en": "Vertical",
 			"de": "Senkrecht"
 		},
+		"asc": {
+			"en": "Ascending",
+			"de": "Aufsteigend"
+		},
+		"desc": {
+			"en": "Descending",
+			"de": "Absteigend"
+		},
 		//#endregion
 
 		//#region Content Settings
@@ -517,6 +525,22 @@ if (vis.editMode) {
 			"en": "Length of stay (in ms)",
 			"de": "Verweildauer (in Ms)"
 		},
+		"iHttpType": {
+			"en": "HTTP behaviour",
+			"de": "HTTP Verhalten"
+		},
+		"iSend": {
+			"en": "Send",
+			"de": "Senden"
+		},
+		"iOpenUrl": {
+			"en": "Open",
+			"de": "Öffnen"
+		},
+		"iOpenUrlNewTab": {
+			"en": "Open (new tab)",
+			"de": "Öffnen (neuer Tab)"
+		},
 		//#endregion
 
 		//#region Nav Settings
@@ -679,7 +703,7 @@ if (vis.editMode) {
 		},
 		"iTblFixedHead": {
 			"en": "Fixed Table Head",
-			"de": "Tabellenkopf fixierenn"
+			"de": "Tabellenkopf fixieren"
 		},
 		"iTblRowLimit": {
 			"en": "Rowlimit",
@@ -816,6 +840,14 @@ if (vis.editMode) {
 		"iColAfterText": {
 			"en": "After text",
 			"de": "Text anhängen"
+		},
+		"iTblSortAttr": {
+			"en": "Default sorting attribute",
+			"de": "Standardsortierung Attribut"
+		},
+		"iTblSortOrder": {
+			"en": "Default sorting direction",
+			"de": "Standardsortierung Richtung"
 		},
 		//#endregion
 
@@ -1119,6 +1151,14 @@ if (vis.editMode) {
 		"iPopUpShadowColor": {
 			"en": "Color",
 			"de": "Farbe"
+		},
+		"iPopUpScrollX": {
+			"en": "Scroll horizontal",
+			"de": "Horizontal scrollen"
+		},
+		"iPopUpScrollY": {
+			"en": "Scroll vertical",
+			"de": "Vertikal scrollen"
 		},
 
 		//#endregion
@@ -1766,6 +1806,16 @@ vis.binds["vis-inventwo"] = {
 			modalHeight += "px";
 		}
 
+		let scrollX = "hidden";
+		let scrollY = "hidden";
+
+		if(data.iPopUpScrollX){
+			scrollX = "scroll";
+		}
+		if(data.iPopUpScrollY){
+			scrollY = "scroll";
+		}
+
 		let modal = `
 						<div id="vis-inventwo-modal-` + data.wid + `" 
 							 style="` + modalPosition + `"
@@ -1788,7 +1838,8 @@ vis.binds["vis-inventwo"] = {
 										 style="color: ` + data.iPopUpTitleColor + `;
 										 	    background: ` + data.iPopUpCloseBtnColor + `;">X</div>
 								</div>
-								<div class="vis-inventwo-modal-content vis-view-container"  
+								<div class="vis-inventwo-modal-content vis-view-container" 
+									 style="overflow-x: ` + scrollX + `; overflow-y: ` + scrollY + `;"  
 									 data-vis-contains="` + data.nav_view + `">
 								
 								</div>
@@ -2231,7 +2282,15 @@ vis.binds["vis-inventwo"] = {
 				// 	});
 
 
-				vis.conn.httpGet(data.value);
+				if(data.iHttpType == "iSend") {
+					vis.conn.httpGet(data.value);
+				}
+				else if(data.iHttpType == "iOpenUrl"){
+					window.open(data.value, '_self');
+				}
+				else if(data.iHttpType == "iOpenUrlNewTab"){
+					window.open(data.value, '_blank').focus();
+				}
 
 				if (data.iStateResponseTime > 0) {
 
@@ -2908,6 +2967,11 @@ vis.binds["vis-inventwo"] = {
 		let sortColumn = "";
 		let sortOrder = "asc";
 
+		if(data.iTblSortAttr != undefined && data.iTblSortAttr != ""){
+			sortColumn = data.iTblSortAttr;
+			sortOrder = data.iTblSortOrder;
+		}
+
 		function sortData(column, el, data) {
 			if (sortColumn != column) {
 				sortColumn = column;
@@ -2948,354 +3012,393 @@ vis.binds["vis-inventwo"] = {
 				if (data.iColCount !== "" && data.iColCount > 0) {
 					let jd = vis.states.attr(data.oid + ".val");
 					let jsondata;
+					let validJson = true;
 
-					if (typeof jd === "string")
-						jsondata = JSON.parse(jd);
-					else
-						jsondata = [].slice.call(jd);
-
-					let rowLimit = jsondata.length;
-					if (data.iTblRowLimit < rowLimit) {
-						rowLimit = data.iTblRowLimit;
-					}
-
-					let colLimit = 0;
-					if (jsondata.length > 0) {
-						colLimit = Object.keys(jsondata[0]).length;
-						if (data.iColCount < colLimit) {
-							colLimit = data.iColCount;
+					try {
+						if (typeof jd === "string") {
+							if (jd.trim().charAt(0) == "{") {
+								jd = "[" + jd + "]";
+							}
+							jsondata = JSON.parse(jd);
+						}
+						else if(typeof jd === "object"){
+							jsondata = [jd];
+						}
+						else{
+							jsondata = [].slice.call(jd);
 						}
 					}
-
-					if (data.iVertScroll) {
-						$(el).parent().css("overflow-y", "scroll");
-					} else {
-						$(el).parent().css("overflow-y", "hidden");
+					catch (e) {
+						console.log("ERROR ON JSON");
+						console.log(e);
+						validJson = false;
 					}
 
-					if (data.iHorScroll) {
-						$(el).parent().css("overflow-x", "scroll");
-					} else {
-						$(el).parent().css("overflow-x", "hidden");
-					}
+					if(validJson) {
 
-					let tblBorder = "";
-					if (data.iBorderRemoveDouble) {
-						tblBorder = "border-collapse:collapse;";
-					}
+						let rowLimit = jsondata.length;
+						if (data.iTblRowLimit < rowLimit) {
+							rowLimit = data.iTblRowLimit;
+						}
 
-					let tblClasses = "vis-inventwo-json-table";
-					if (data.iTblFixedHead == true) {
-						tblClasses += " vis-inventwo-json-table-fixedheader";
-					}
-
-					let noData = false;
-
-					let border = "";
-					border += "border-left: " + data.iBorderSize + "px " + data.iBorderStyleLeft + " " + data.iBorderColor + ";";
-					border += "border-right: " + data.iBorderSize + "px " + data.iBorderStyleRight + " " + data.iBorderColor + ";";
-					border += "border-top: " + data.iBorderSize + "px " + data.iBorderStyleUp + " " + data.iBorderColor + ";";
-					border += "border-bottom: " + data.iBorderSize + "px " + data.iBorderStyleDown + " " + data.iBorderColor + ";";
-
-					output = "<table class='" + tblClasses + "' style='opacity: " + data.iOpacityAll + "; " + tblBorder + "'>";
-
-					if (data.iTblShowHead) {
-						let tblHead = "";
-						let headStyle = "background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor;
-						tblHead += "<thead style='" + headStyle + "'>";
-
+						let colLimit = 0;
 						if (jsondata.length > 0) {
-							for (let i = 0; i < colLimit; i++) {
-								if (data["iColShow" + (i + 1)]) {
-									let colWidth = "";
-									if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
-										colWidth = data["iColWidth" + (i + 1)];
-									}
+							colLimit = Object.keys(jsondata[0]).length;
+							if (data.iColCount < colLimit) {
+								colLimit = data.iColCount;
+							}
+						}
 
-									let sortArrow = "";
+						if (data.iVertScroll) {
+							$(el).parent().css("overflow-y", "scroll");
+						} else {
+							$(el).parent().css("overflow-y", "hidden");
+						}
 
-									let colAttr = Object.keys(jsondata[0])[i];
-									if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
-										colAttr = data["iColAttr" + (i + 1)];
-									}
+						if (data.iHorScroll) {
+							$(el).parent().css("overflow-x", "scroll");
+						} else {
+							$(el).parent().css("overflow-x", "hidden");
+						}
 
-									if (colAttr == sortColumn) {
-										let borderWidth = "5px 5px 0 5px;";
-										let borderColor = data.iTblHeaderTextColor + " transparent transparent transparent;";
-										if (sortOrder == "asc") {
-											borderWidth = "0 5px 5px 5px;";
-											borderColor = "transparent transparent " + data.iTblHeaderTextColor + " transparent;";
+						let tblBorder = "";
+						if (data.iBorderRemoveDouble) {
+							tblBorder = "border-collapse:collapse;";
+						}
+
+						let tblClasses = "vis-inventwo-json-table";
+						if (data.iTblFixedHead == true) {
+							tblClasses += " vis-inventwo-json-table-fixedheader";
+						}
+
+						let noData = false;
+
+						let border = "";
+						border += "border-left: " + data.iBorderSize + "px " + data.iBorderStyleLeft + " " + data.iBorderColor + ";";
+						border += "border-right: " + data.iBorderSize + "px " + data.iBorderStyleRight + " " + data.iBorderColor + ";";
+						border += "border-top: " + data.iBorderSize + "px " + data.iBorderStyleUp + " " + data.iBorderColor + ";";
+						border += "border-bottom: " + data.iBorderSize + "px " + data.iBorderStyleDown + " " + data.iBorderColor + ";";
+
+						output = "<table class='" + tblClasses + "' style='opacity: " + data.iOpacityAll + "; " + tblBorder + "'>";
+
+						if (data.iTblShowHead) {
+							let tblHead = "";
+							let headStyle = "background:" + data.iTblHeaderColor + "; color: " + data.iTblHeaderTextColor;
+							tblHead += "<thead style='" + headStyle + "'>";
+
+							if (jsondata.length > 0) {
+								for (let i = 0; i < colLimit; i++) {
+									if (data["iColShow" + (i + 1)]) {
+										let colWidth = "";
+										if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
+											colWidth = data["iColWidth" + (i + 1)];
 										}
-										let style = `border-width: ` + borderWidth + `
+
+										let sortArrow = "";
+
+										let colAttr = Object.keys(jsondata[0])[i];
+										if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
+											colAttr = data["iColAttr" + (i + 1)];
+										}
+
+										if (colAttr == sortColumn) {
+											let borderWidth = "5px 5px 0 5px;";
+											let borderColor = data.iTblHeaderTextColor + " transparent transparent transparent;";
+											if (sortOrder == "asc") {
+												borderWidth = "0 5px 5px 5px;";
+												borderColor = "transparent transparent " + data.iTblHeaderTextColor + " transparent;";
+											}
+											let style = `border-width: ` + borderWidth + `
     											 border-color: ` + borderColor + `
     											 margin-left: 5px;
     											 display: inline-block;
     											 vertical-align: middle;
     											 border-style: solid;`;
-										sortArrow = `<span style="` + style + `"></span>`;
-									}
+											sortArrow = `<span style="` + style + `"></span>`;
+										}
 
-									let thStyle = "width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border;
-									if (data.iTblFixedHead == true) {
-										thStyle += headStyle;
-									}
-									if (data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== "") {
-										tblHead += "<th data-column='" + colAttr + "' style='" + thStyle + "'>" + data["iColName" + (i + 1)] + sortArrow + "</th>";
-									} else {
-										tblHead += "<th data-column='" + colAttr + "' style='" + thStyle + "'>" + colAttr + sortArrow + "</th>";
-									}
-								}
-							}
-						} else if (data.iTblDummyRow != "") {
-							let headers = data.iTblDummyRow.split(",");
-
-							let thStyle = "padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border;
-							headers.forEach(head => {
-								tblHead += "<th style='" + thStyle + "'>" + head + "</th>";
-							});
-						} else {
-							noData = true;
-						}
-
-						tblHead += "</thead>";
-						output += tblHead;
-
-					}
-
-					if (jsondata.length > 0) {
-
-						output += "<tbody>";
-
-						if (sortColumn != "") {
-							jsondata.sort(function (a, b) {
-								let first = a[sortColumn];
-								let second = b[sortColumn];
-								let ret;
-
-								if (isNaN(first)) {
-									if (isNaN(second)) {
-										ret = first.localeCompare(second);
-									} else {
-										ret = 1;
-									}
-								} else {
-									if (isNaN(second)) {
-										ret = -1;
-									} else {
-										ret = parseFloat(first) - parseFloat(second);
+										let thStyle = "width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border;
+										if (data.iTblFixedHead == true) {
+											thStyle += headStyle;
+										}
+										if (data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== "") {
+											tblHead += "<th data-column='" + colAttr + "' style='" + thStyle + "'>" + data["iColName" + (i + 1)] + sortArrow + "</th>";
+										} else {
+											tblHead += "<th data-column='" + colAttr + "' style='" + thStyle + "'>" + colAttr + sortArrow + "</th>";
+										}
 									}
 								}
+							} else if (data.iTblDummyRow != "") {
+								let headers = data.iTblDummyRow.split(",");
 
-								if (sortOrder == "desc")
-									ret = ret * (-1);
-
-								return ret;
-							});
-						}
-
-						for (let e = 0; e < rowLimit; e++) {
-							let tdColor = "";
-							let tdTextColor = "";
-							if (e % 2 === 0) {
-								tdColor = data.iTblRowUnevenColor;
-								tdTextColor = data.iTblRowUnevenTextColor;
+								let thStyle = "padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border;
+								headers.forEach(head => {
+									tblHead += "<th style='" + thStyle + "'>" + head + "</th>";
+								});
 							} else {
-								tdColor = data.iTblRowEvenColor;
-								tdTextColor = data.iTblRowEvenTextColor;
+								noData = true;
 							}
-							output += "<tr style='background: " + tdColor + "; color: " + tdTextColor + "'>";
-							for (let i = 0; i < colLimit; i++) {
-								if (data["iColShow" + (i + 1)]) {
 
-									let colWidth = "";
-									if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
-										colWidth = data["iColWidth" + (i + 1)];
-									}
+							tblHead += "</thead>";
+							output += tblHead;
 
-									let cellValue = "";
+						}
 
-									if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
-										cellValue = jsondata[e][data["iColAttr" + (i + 1)]];
-									} else {
-										cellValue = jsondata[e][Object.keys(jsondata[e])[i]];
-									}
+						if (jsondata.length > 0) {
 
-									if (cellValue !== "") {
-										switch (data["iTblCellFormat" + (i + 1)]) {
-											case "normal":
-												let val = "";
-												val += data["iColPreText" + (i + 1)] != undefined ? data["iColPreText" + (i + 1)] : "";
-												val += cellValue;
-												val += data["iColAfterText" + (i + 1)] != undefined ? data["iColAfterText" + (i + 1)]: "";
-												cellValue = val;
-												break;
-											case "datetime":
-												if (cellValue != 0) {
-													if (data["iTblCellDatetimeFormat" + (i + 1)] != "") {
-														let datetime = null;
-														if (isNaN(cellValue) == true) {
-															datetime = new Date(cellValue.trim()).getTime();
-														} else {
-															datetime = parseInt(cellValue);
-														}
+							output += "<tbody>";
 
-														//if (cellValue.toString().length == 13)
-														//	datetime = datetime / 1000;
-														var getDateString = function (date, format) {
-															var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-																getPaddedComp = function (comp) {
-																	return ((parseInt(comp) < 10) ? ("0" + comp) : comp);
-																},
-																formattedDate = format,
-																o = {
-																	"y": date.getFullYear(), // year
-																	"m": getPaddedComp(date.getMonth() + 1), //month number
-																	"M": months[date.getMonth()], //month
-																	"d": getPaddedComp(date.getDate()), //day
-																	"h": getPaddedComp((date.getHours() > 12) ? date.getHours() % 12 : date.getHours()), //hour
-																	"H": getPaddedComp(date.getHours()), //hour
-																	"i": getPaddedComp(date.getMinutes()), //minute
-																	"s": getPaddedComp(date.getSeconds()), //second
-																	"S": getPaddedComp(date.getMilliseconds()), //millisecond,
-																	"b": (date.getHours() >= 12) ? "PM" : "AM"
-																};
+							if (sortColumn != "") {
+								jsondata.sort(function (a, b) {
+									let first = a[sortColumn];
+									let second = b[sortColumn];
+									let ret;
 
-															for (var k in o) {
-																if (new RegExp("(" + k + ")", "g").test(format)) {
-																	formattedDate = formattedDate.replace(RegExp.$1, o[k]);
-																}
-															}
-															return formattedDate;
-
-														};
-														var formattedDate = getDateString(new Date(datetime), data["iTblCellDatetimeFormat" + (i + 1)]);
-														cellValue = formattedDate;
-
-
-													}
-												} else {
-													cellValue = data["iTblCellPlaceholder" + (i + 1)];
-												}
-												break;
-											case "image":
-												if (cellValue != undefined && cellValue != "") {
-													cellValue = "<img src='" + cellValue + "' style='width:" + data["iTblCellImageSize" + (i + 1)] + "px;' onerror='this.style.display=`none`'>";
-												}
-												break;
-											case "number":
-
-												let orgVal = parseFloat(cellValue);
-
-												let tempVal = parseFloat(cellValue).toLocaleString("en",
-													{
-														minimumFractionDigits: parseFloat(data["iTblCellNumberDecimals" + (i + 1)]),
-														maximumFractionDigits: parseFloat(data["iTblCellNumberDecimals" + (i + 1)])
-													});
-
-												let decimalSeperator = ".";
-												let thousandSeperator = ",";
-												if (data["iTblCellNumberDecimalSeperator" + (i + 1)] != "") {
-													decimalSeperator = data["iTblCellNumberDecimalSeperator" + (i + 1)];
-												}
-												thousandSeperator = data["iTblCellNumberThousandSeperator" + (i + 1)];
-
-												tempVal = tempVal.replace(".", "[tempSeperatorXYZ]");
-												tempVal = tempVal.replace(/\,/gm, thousandSeperator);
-												tempVal = tempVal.replace("[tempSeperatorXYZ]", decimalSeperator);
-												cellValue = tempVal;
-
-												let thresholds = [];
-
-												let dpContent = vis.states.attr(data["iTblCellThresholdsDp" + (i + 1)] + ".val");
-
-												if(dpContent != undefined && dpContent != ""){
-													try{
-														thresholds = JSON.parse(dpContent);
-													}
-													catch (e) {
-														console.log("error on parse dp");
-														break;
-													}
-												}
-												else if(data["iTblCellThresholdsText" + (i + 1)] != undefined && data["iTblCellThresholdsText" + (i + 1)] != ""){
-													try{
-														thresholds = JSON.parse(data["iTblCellThresholdsText" + (i + 1)]);
-													}
-													catch (e) {
-														console.log("error on parse text");
-														break;
-													}
-												}
-
-												let preAfterText = "";
-												preAfterText += data["iColPreText" + (i + 1)] != undefined ? data["iColPreText" + (i + 1)] : "";
-												preAfterText += cellValue;
-												preAfterText += data["iColAfterText" + (i + 1)] != undefined ? data["iColAfterText" + (i + 1)]: "";
-
-												if(thresholds.length > 0){
-													thresholds.forEach(t =>{
-														if(t.comparator != undefined && t.comparator != "" && t.value != undefined){
-															let comparasionTable = {
-																'>' : function (val1, val2) { return val1 > val2 },
-																'<' : function (val1, val2) { return val1 < val2 },
-																'==' : function (val1, val2) { return val1 == val2 },
-																'>=' : function (val1, val2) { return val1 >= val2 },
-																'<=' : function (val1, val2) { return val1 <= val2 },
-																'!=' : function (val1, val2) { return val1 != val2 },
-															}
-															if(comparasionTable[t.comparator](parseFloat(cellValue),parseFloat(t.value))){
-																cellValue = '<span style="color:'+t.color+'">' + preAfterText + '</span>';
-															}
-
-														}
-													});
-												}
-												else{
-													cellValue = preAfterText;
-												}
-
-
-												break;
-											case "boolean":
-												if (data["iTblCellBooleanCheckbox" + (i + 1)]) {
-													let valBoolean = false;
-													if (cellValue == true || cellValue == "true" || cellValue == "1" || cellValue == 1)
-														valBoolean = true;
-
-													let checkboxSize = 25;
-
-													if (valBoolean === true) {
-														let style = "background: " + data["iTblCellBooleanColorTrue" + (i + 1)] + "; width: " + checkboxSize + "px; height: " + checkboxSize + "px;";
-														cellValue = "<div class=\"vis-inventwo-json-table-checkbox-container checked\"><span style=\"" + style + "\" class=\"vis-inventwo-json-table-checkbox-checkmark\"></span></div>";
-													} else {
-														let style = "background: " + data["iTblCellBooleanColorFalse" + (i + 1)] + "; width: " + checkboxSize + "px; height: " + checkboxSize + "px;";
-														cellValue = "<div class=\"vis-inventwo-json-table-checkbox-container\"><span style=\"" + style + "\" class=\"vis-inventwo-json-table-checkbox-checkmark\"></span></div>";
-													}
-												}
-												break;
+									if (isNaN(first)) {
+										if (isNaN(second)) {
+											ret = first.localeCompare(second);
+										} else {
+											ret = 1;
 										}
 									} else {
-										cellValue = data["iTblCellPlaceholder" + (i + 1)];
+										if (isNaN(second)) {
+											ret = -1;
+										} else {
+											ret = parseFloat(first) - parseFloat(second);
+										}
 									}
 
-									if (cellValue == undefined)
-										cellValue = "";
+									if (sortOrder == "desc")
+										ret = ret * (-1);
 
-									output += "<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border + " text-align: " + data["iTblTextAlign" + (i + 1)] + ";'>" + cellValue + "</td>";
-								}
+									return ret;
+								});
 							}
-							output += "</tr>";
+
+							for (let e = 0; e < rowLimit; e++) {
+								let tdColor = "";
+								let tdTextColor = "";
+								let tdStyles = [];
+								if (e % 2 === 0) {
+									tdColor = data.iTblRowUnevenColor;
+									tdTextColor = data.iTblRowUnevenTextColor;
+								} else {
+									tdColor = data.iTblRowEvenColor;
+									tdTextColor = data.iTblRowEvenTextColor;
+								}
+								let cells = [];
+								for (let i = 0; i < colLimit; i++) {
+									if (data["iColShow" + (i + 1)]) {
+
+										let colWidth = "";
+										if (data["iColWidth" + (i + 1)] !== undefined && data["iColWidth" + (i + 1)] !== "") {
+											colWidth = data["iColWidth" + (i + 1)];
+										}
+
+										let cellValue = "";
+
+										if (data["iColAttr" + (i + 1)] !== undefined && data["iColAttr" + (i + 1)] !== "") {
+											cellValue = jsondata[e][data["iColAttr" + (i + 1)]];
+										} else {
+											cellValue = jsondata[e][Object.keys(jsondata[e])[i]];
+										}
+
+										if (cellValue !== "") {
+											switch (data["iTblCellFormat" + (i + 1)]) {
+												case "normal":
+													let val = "";
+													val += data["iColPreText" + (i + 1)] != undefined ? data["iColPreText" + (i + 1)] : "";
+													val += cellValue;
+													val += data["iColAfterText" + (i + 1)] != undefined ? data["iColAfterText" + (i + 1)] : "";
+													cellValue = val;
+													break;
+												case "datetime":
+													if (cellValue != 0) {
+														if (data["iTblCellDatetimeFormat" + (i + 1)] != "") {
+															let datetime = null;
+															if (isNaN(cellValue) == true) {
+																datetime = new Date(cellValue.trim()).getTime();
+															} else {
+																datetime = parseInt(cellValue);
+															}
+
+															if (datetime.toString().length == 10)
+																datetime = parseInt(datetime + "000");
+															var getDateString = function (date, format) {
+																var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+																	getPaddedComp = function (comp) {
+																		return ((parseInt(comp) < 10) ? ("0" + comp) : comp);
+																	},
+																	formattedDate = format,
+																	o = {
+																		"y": date.getFullYear(), // year
+																		"m": getPaddedComp(date.getMonth() + 1), //month number
+																		"M": months[date.getMonth()], //month
+																		"d": getPaddedComp(date.getDate()), //day
+																		"h": getPaddedComp((date.getHours() > 12) ? date.getHours() % 12 : date.getHours()), //hour
+																		"H": getPaddedComp(date.getHours()), //hour
+																		"i": getPaddedComp(date.getMinutes()), //minute
+																		"s": getPaddedComp(date.getSeconds()), //second
+																		"S": getPaddedComp(date.getMilliseconds()), //millisecond,
+																		"b": (date.getHours() >= 12) ? "PM" : "AM"
+																	};
+
+																for (var k in o) {
+																	if (new RegExp("(" + k + ")", "g").test(format)) {
+																		formattedDate = formattedDate.replace(RegExp.$1, o[k]);
+																	}
+																}
+																return formattedDate;
+
+															};
+															var formattedDate = getDateString(new Date(datetime), data["iTblCellDatetimeFormat" + (i + 1)]);
+															cellValue = formattedDate;
+
+
+														}
+													} else {
+														cellValue = data["iTblCellPlaceholder" + (i + 1)];
+													}
+													break;
+												case "image":
+													if (cellValue != undefined && cellValue != "") {
+														cellValue = "<img src='" + cellValue + "' style='width:" + data["iTblCellImageSize" + (i + 1)] + "px;' onerror='this.style.display=`none`'>";
+													}
+													break;
+												case "number":
+
+													let orgVal = parseFloat(cellValue);
+
+													let tempVal = parseFloat(cellValue).toLocaleString("en",
+														{
+															minimumFractionDigits: parseFloat(data["iTblCellNumberDecimals" + (i + 1)]),
+															maximumFractionDigits: parseFloat(data["iTblCellNumberDecimals" + (i + 1)])
+														});
+
+													let decimalSeperator = ".";
+													let thousandSeperator = ",";
+													if (data["iTblCellNumberDecimalSeperator" + (i + 1)] != "") {
+														decimalSeperator = data["iTblCellNumberDecimalSeperator" + (i + 1)];
+													}
+													thousandSeperator = data["iTblCellNumberThousandSeperator" + (i + 1)];
+
+													tempVal = tempVal.replace(".", "[tempSeperatorXYZ]");
+													tempVal = tempVal.replace(/\,/gm, thousandSeperator);
+													tempVal = tempVal.replace("[tempSeperatorXYZ]", decimalSeperator);
+													cellValue = tempVal;
+
+													let thresholds = [];
+
+													let dpContent = vis.states.attr(data["iTblCellThresholdsDp" + (i + 1)] + ".val");
+
+													if (dpContent != undefined && dpContent != "") {
+														try {
+															thresholds = JSON.parse(dpContent);
+														} catch (e) {
+															console.log("error on parse dp");
+															break;
+														}
+													} else if (data["iTblCellThresholdsText" + (i + 1)] != undefined && data["iTblCellThresholdsText" + (i + 1)] != "") {
+														try {
+															thresholds = JSON.parse(data["iTblCellThresholdsText" + (i + 1)]);
+														} catch (e) {
+															console.log("error on parse text");
+															break;
+														}
+													}
+
+													let preAfterText = "";
+													preAfterText += data["iColPreText" + (i + 1)] != undefined ? data["iColPreText" + (i + 1)] : "";
+													preAfterText += cellValue;
+													preAfterText += data["iColAfterText" + (i + 1)] != undefined ? data["iColAfterText" + (i + 1)] : "";
+
+													if (thresholds.length > 0) {
+														thresholds.forEach(t => {
+															if (t.comparator != undefined && t.comparator != "" && t.value != undefined) {
+																let comparasionTable = {
+																	'>': function (val1, val2) {
+																		return val1 > val2
+																	},
+																	'<': function (val1, val2) {
+																		return val1 < val2
+																	},
+																	'==': function (val1, val2) {
+																		return val1 == val2
+																	},
+																	'>=': function (val1, val2) {
+																		return val1 >= val2
+																	},
+																	'<=': function (val1, val2) {
+																		return val1 <= val2
+																	},
+																	'!=': function (val1, val2) {
+																		return val1 != val2
+																	},
+																}
+
+																let styles = [];
+
+																if (comparasionTable[t.comparator](parseFloat(cellValue), parseFloat(t.value))) {
+																	if (t.color !== undefined) {
+																		styles.push("color: " + t.color);
+																	}
+																	if (t.background !== undefined) {
+																		console.log("has background");
+																		tdColor = t.background;
+																	}
+																	cellValue = '<span style="' + styles.join(';') + '">' + preAfterText + '</span>';
+																}
+
+															}
+														});
+													} else {
+														cellValue = preAfterText;
+													}
+
+
+													break;
+												case "boolean":
+													if (data["iTblCellBooleanCheckbox" + (i + 1)]) {
+														let valBoolean = false;
+														if (cellValue == true || cellValue == "true" || cellValue == "1" || cellValue == 1)
+															valBoolean = true;
+
+														let checkboxSize = 25;
+
+														if (valBoolean === true) {
+															let style = "background: " + data["iTblCellBooleanColorTrue" + (i + 1)] + "; width: " + checkboxSize + "px; height: " + checkboxSize + "px;";
+															cellValue = "<div class=\"vis-inventwo-json-table-checkbox-container checked\"><span style=\"" + style + "\" class=\"vis-inventwo-json-table-checkbox-checkmark\"></span></div>";
+														} else {
+															let style = "background: " + data["iTblCellBooleanColorFalse" + (i + 1)] + "; width: " + checkboxSize + "px; height: " + checkboxSize + "px;";
+															cellValue = "<div class=\"vis-inventwo-json-table-checkbox-container\"><span style=\"" + style + "\" class=\"vis-inventwo-json-table-checkbox-checkmark\"></span></div>";
+														}
+													}
+													break;
+											}
+										} else {
+											cellValue = data["iTblCellPlaceholder" + (i + 1)];
+										}
+
+										if (cellValue == undefined)
+											cellValue = "";
+
+										cells.push("<td style='width: " + colWidth + ";padding-bottom: " + data.iRowSpacing + "px;padding-top: " + data.iRowSpacing + "px; " + border + " text-align: " + data["iTblTextAlign" + (i + 1)] + ";" + tdStyles.join(';') + "'>" + cellValue + "</td>");
+									}
+								}
+								output += "<tr style='background: " + tdColor + "; color: " + tdTextColor + "'>";
+								output += cells.join("");
+								output += "</tr>";
+							}
+							output += "</tbody>";
 						}
-						output += "</tbody>";
+
+
+						output += "</table>";
+
+						if (noData == true) {
+							output = "No entries in JSON and no dummy row";
+						}
 					}
-
-
-					output += "</table>";
-
-					if (noData == true) {
-						output = "No entries in JSON and no dummy row";
-					}
-
 
 				} else {
 					output = "Columncount can't be zero/empty!";
@@ -3484,6 +3587,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResetValueTime", false);
 				vis.hideShowAttr("iIncreaseDecrease", false);
 				vis.hideShowAttr("iValueComparison", true);
+				vis.hideShowAttr("iHttpType", false);
 
 				vis.hideShowAttr("hide_effect", false);
 				vis.hideShowAttr("hide_duration", false);
@@ -3502,6 +3606,8 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpTitleSize", false);
 				vis.hideShowAttr("iPopUpPositionX", false);
 				vis.hideShowAttr("iPopUpPositionY", false);
+				vis.hideShowAttr("iPopUpScrollX", false);
+				vis.hideShowAttr("iPopUpScrollY", false);
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
 				vis.hideShowAttr("iPopUpCloseDp-oid", false);
 				vis.hideShowAttr("iPopUpCloseDpValue", false);
@@ -3535,6 +3641,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResponseTime", true);
 				vis.hideShowAttr("nav_view", false);
 				vis.hideShowAttr("iIncreaseDecrease", false);
+				vis.hideShowAttr("iHttpType", false);
 
 				vis.hideShowAttr("hide_effect", false);
 				vis.hideShowAttr("hide_duration", false);
@@ -3553,6 +3660,8 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpTitleSize", false);
 				vis.hideShowAttr("iPopUpPositionX", false);
 				vis.hideShowAttr("iPopUpPositionY", false);
+				vis.hideShowAttr("iPopUpScrollX", false);
+				vis.hideShowAttr("iPopUpScrollY", false);
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
 				vis.hideShowAttr("iPopUpCloseDp-oid", false);
 				vis.hideShowAttr("iPopUpCloseDpValue", false);
@@ -3579,6 +3688,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iStateResetValueTime", false);
 					vis.hideShowAttr("oid", false);
 					vis.hideShowAttr("iValueComparison", false);
+					vis.hideShowAttr("iHttpType", true);
 				}
 
 				for (let i = 1; i <= data.iUniversalValueCount; i++) {
@@ -3600,6 +3710,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResetValueTime", false);
 				vis.hideShowAttr("iIncreaseDecrease", false);
 				vis.hideShowAttr("iValueComparison", false);
+				vis.hideShowAttr("iHttpType", false);
 
 				vis.hideShowAttr("hide_effect", true);
 				vis.hideShowAttr("hide_duration", true);
@@ -3618,6 +3729,8 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpTitleSize", false);
 				vis.hideShowAttr("iPopUpPositionX", false);
 				vis.hideShowAttr("iPopUpPositionY", false);
+				vis.hideShowAttr("iPopUpScrollX", false);
+				vis.hideShowAttr("iPopUpScrollY", false);
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
 				vis.hideShowAttr("iPopUpCloseDp-oid", false);
 				vis.hideShowAttr("iPopUpCloseDpValue", false);
@@ -3661,6 +3774,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iValueTypeInfo", false);
 					vis.hideShowAttr("iValueTrue", false);
 				}
+				vis.hideShowAttr("iHttpType", false);
 
 				vis.hideShowAttr("hide_effect", false);
 				vis.hideShowAttr("hide_duration", false);
@@ -3679,6 +3793,8 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpTitleSize", false);
 				vis.hideShowAttr("iPopUpPositionX", false);
 				vis.hideShowAttr("iPopUpPositionY", false);
+				vis.hideShowAttr("iPopUpScrollX", false);
+				vis.hideShowAttr("iPopUpScrollY", false);
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
 				vis.hideShowAttr("iPopUpCloseDp-oid", false);
 				vis.hideShowAttr("iPopUpCloseDpValue", false);
@@ -3715,6 +3831,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iValueType", false);
 				vis.hideShowAttr("iValueTypeInfo", false);
 				vis.hideShowAttr("iValueTrue", false);
+				vis.hideShowAttr("iHttpType", false);
 
 				vis.hideShowAttr("hide_effect", false);
 				vis.hideShowAttr("hide_duration", false);
@@ -3733,6 +3850,8 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpTitleSize", false);
 				vis.hideShowAttr("iPopUpPositionX", false);
 				vis.hideShowAttr("iPopUpPositionY", false);
+				vis.hideShowAttr("iPopUpScrollX", false);
+				vis.hideShowAttr("iPopUpScrollY", false);
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", false);
 				vis.hideShowAttr("iPopUpCloseDp-oid", false);
 				vis.hideShowAttr("iPopUpCloseDpValue", false);
@@ -3769,6 +3888,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iStateResetValueTime", false);
 				vis.hideShowAttr("iIncreaseDecrease", false);
 				vis.hideShowAttr("iValueComparison", false);
+				vis.hideShowAttr("iHttpType", false);
 
 				vis.hideShowAttr("hide_effect", false);
 				vis.hideShowAttr("hide_duration", false);
@@ -3787,6 +3907,8 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpTitleSize", true);
 				vis.hideShowAttr("iPopUpPositionX", true);
 				vis.hideShowAttr("iPopUpPositionY", true);
+				vis.hideShowAttr("iPopUpScrollX", true);
+				vis.hideShowAttr("iPopUpScrollY", true);
 				vis.hideShowAttr("iPopUpCloseAfterSeconds", true);
 				vis.hideShowAttr("iPopUpCloseDp-oid", true);
 				vis.hideShowAttr("iPopUpCloseDpValue", true);
@@ -3825,7 +3947,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iImageFalse", true);
 				vis.hideShowAttr("iImageTrue", true);
 				vis.hideShowAttr("iHtmlTextFieldTrue", false);
-				vis.hideShowAttr("iHtmlTextFieldFalse", true);
+				vis.hideShowAttr("iHtmlTextFieldFalse", false);
 				vis.hideShowAttr("iImgColorFalse", true);
 				vis.hideShowAttr("iImgColorTrue", true);
 				vis.hideShowAttr("iImgColorClockFace", false);
@@ -3859,7 +3981,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iImageFalse", false);
 				vis.hideShowAttr("iImageTrue", false);
 				vis.hideShowAttr("iHtmlTextFieldTrue", false);
-				vis.hideShowAttr("iHtmlTextFieldFalse", true);
+				vis.hideShowAttr("iHtmlTextFieldFalse", false);
 				vis.hideShowAttr("iClockTimezone", true);
 
 				if(data.iContentType == "clock_analog"){
@@ -4574,6 +4696,8 @@ vis.binds["vis-inventwo"] = {
 
 				if(dataNew.iUniversalWidgetType == "ViewInPopup"){
 					vis.states.bind(data["iPopUpCloseDp-oid"] + ".val", function (e, newVal, oldVal) {
+
+						console.log("test");
 
 						if(dataNew.iPopUpOpenDpValue == "true"){
 							dataNew.iPopUpOpenDpValue = true;
@@ -6980,15 +7104,8 @@ vis.binds["vis-inventwo"] = {
 
 		}
 
-	},
-
-	sortIpAddresses: function (arr) {
-		arr.sort((a, b) => {
-			const num1 = Number(a.split(".").map((num) => (`000${num}`).slice(-3)).join(""));
-			const num2 = Number(b.split(".").map((num) => (`000${num}`).slice(-3)).join(""));
-			return num1 - num2;
-		});
-		return arr;
 	}
+
+
 
 };

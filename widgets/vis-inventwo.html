@@ -35,6 +35,7 @@
 						iStateResponseTime[0]/slider,0,2000,100;
 						iStateResetValueTime[0]/slider,0,2000,100;
 						iNavWait[100]/number;
+						iHttpType[iSend]/select,iSend,iOpenUrl,iOpenUrlNewTab;
 
 						hide_effect/effect;
 						hide_duration/slider,0,10000,100;
@@ -54,6 +55,8 @@
 						iPopUpPosition[center]/nselect,left,right,top,bottom,center,custom;
 						iPopUpPositionX[0];
 						iPopUpPositionY[0];
+						iPopUpScrollX/checkbox;
+						iPopUpScrollY/checkbox;
 						iPopUpCloseAfterSeconds[0]/slider,1,3600,1;
 						iPopUpCloseDp-oid/id;
 						iPopUpCloseDpValue/text;
@@ -171,8 +174,6 @@
 	</div>
 </script>
 
-
-
 <!--iText-GridSettings/custom,vis-inventwo.infoText,emptyText;
  iGridColumn/number,1,100,1;
  iGridRow/number,1,100,1;
@@ -197,6 +198,7 @@
 						iStateResponseTime[0]/slider,0,2000,100;
 						iStateResetValueTime[0]/slider,0,2000,100;
 						iNavWait[100]/number;
+						iHttpType[iSend]/select,iSend,iOpenUrl,iOpenUrlNewTab;
 
 						hide_effect/effect;
 						hide_duration/slider,0,10000,100;
@@ -216,6 +218,8 @@
 						iPopUpPosition[center]/nselect,left,right,top,bottom,center,custom;
 						iPopUpPositionX[0];
 						iPopUpPositionY[0];
+						iPopUpScrollX/checkbox;
+						iPopUpScrollY/checkbox;
 						iPopUpCloseAfterSeconds[0]/slider,1,3600,1;
 						iPopUpCloseDp-oid/id;
 						iPopUpCloseDpValue/text;
@@ -356,10 +360,6 @@
 
 
 </script>
-
-
-
-
 
 <script id="i-vis-slider-simple"
 		type="text/ejs"
@@ -528,7 +528,7 @@
 				<% if(dataNew.iShowValue && !dataNew.iInvertMinMax){ %>
 					<div><span style="color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValuePreText%></span></div>
 					<div>
-						<span class="vis-inventwo-slider-currentvalue" style="color:<%= dataNew.iValueTextColor%>"><%= vis.states.attr(this.data.oid + '.val') %></span> / <%if (dataNew.iInvertMinMax) { %><%= dataNew.iMinVal %><% } else{ %><%= dataNew.iMaxVal %><% } %>
+						<span class="vis-inventwo-slider-currentvalue" style="color:<%= dataNew.iValueTextColor%>"><%= vis.states.attr(this.data.oid + '.val') %></span> / <%= dataNew.iMaxVal %>
 					</div>
 					<div style="margin-bottom: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px">
 						<span style="color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValueAfterText%></span>
@@ -544,13 +544,13 @@
 				<% if(dataNew.iShowValue && dataNew.iInvertMinMax){ %>
 					<div><span style="color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValuePreText%></span></div>
 					<div>
-						<span class="vis-inventwo-slider-currentvalue" style="color:<%= dataNew.iValueTextColor%>"><%= vis.states.attr(this.data.oid + '.val') %></span> / <%if (dataNew.iInvertMinMax) { %><%= dataNew.iMaxVal %><% } else{ %><%= dataNew.iMinVal %><% } %>
+						<span class="vis-inventwo-slider-currentvalue" style="color:<%= dataNew.iValueTextColor%>"><%= vis.states.attr(this.data.oid + '.val') %></span> / <%= dataNew.iMaxVal %>
 					</div>
 					<div style="margin-bottom: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px">
 						<span style="color:<%= dataNew.iValueTextColor%>"><%== dataNew.iValueAfterText%></span>
 					</div>
 				<% } else { %>
-					<div style="margin-bottom: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px"><%if (dataNew.iInvertMinMax) { %><%= dataNew.iMaxVal %><% } else{ %><%= dataNew.iMinVal %><% } %></div>
+					<div style="margin-bottom: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px"><%if (dataNew.iInvertMinMax) { %><%= dataNew.iMinVal %><% } else{ %><%= dataNew.iMaxVal %><% } %></div>
 				<% } %>
 				</div>
 
@@ -563,8 +563,14 @@
 				<div style="margin-top: <%= (parseInt(dataNew.iSliderKnobSize) / 2) + 5 %>px"><%= dataNew.iSliderLabel %></div>
 
 			<% } %>
+
+
+
 		</div>
+
+
 	</div>
+
 		<%
 		vis.states.bind(this.data.oid + ".val", function (e, newVal, oldVal) {
 			if(newVal != oldVal)
@@ -654,7 +660,6 @@
 	%>
 </script>
 
-
 <script id="i-vis-slider-color-vert"
 		type="text/ejs"
 		class="vis-tpl"
@@ -717,7 +722,6 @@
 
 	%>
 </script>
-
 
 <script id="i-vis-image-new"
 		type="text/ejs"
@@ -882,6 +886,7 @@
 
 </script>
 
+
 <script id="i-vis-jsontable"
 		type="text/ejs"
 		class="vis-tpl"
@@ -894,7 +899,9 @@
 						iVertScroll/checkbox;
 						iHorScroll/checkbox;
 						iTableRefreshRate[0]/number,0,3600,1;
-						iTblDummyRow/html;"
+						iTblDummyRow/html;
+						iTblSortAttr/text;
+						iTblSortOrder[asc]/select,asc,desc;"
 		data-vis-attrs0="iColCount[1]/number,0,100,1;group.iTableCol/byindex;
 						 iColShow(1-iColCount)[true]/checkbox;
 						 iColName(1-iColCount)/text;
