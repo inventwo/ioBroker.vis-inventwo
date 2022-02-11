@@ -1897,8 +1897,11 @@ vis.binds["vis-inventwo"] = {
 					data.iPopUpCloseDpValue = false;
 				}
 
-				if (Math.floor(new Date(vis.states.attr(data["iPopUpCloseDp-oid"] + ".ts")).getTime() / 1000) == Math.floor(Date.now() / 1000) &&
-					newVal == data.iPopUpCloseDpValue) {
+				// if (Math.floor(new Date(vis.states.attr(data["iPopUpCloseDp-oid"] + ".ts")).getTime() / 1000) == Math.floor(Date.now() / 1000) &&
+				// 	newVal == data.iPopUpCloseDpValue) {
+				// 	closePopUp();
+				// }
+				if (newVal == data.iPopUpCloseDpValue) {
 					closePopUp();
 				}
 			});
@@ -5788,6 +5791,7 @@ vis.binds["vis-inventwo"] = {
 	},
 
 
+	//Converts boolean strings to booleans and numeric string to numeric value
 	convertValue: function (val) {
 		if(!isNaN(val) && typeof val != "boolean"){
 			val = parseFloat(val);
@@ -5801,6 +5805,7 @@ vis.binds["vis-inventwo"] = {
 		return val;
 	},
 
+	//Hide
 	hideImgFilterFields: function (e) {
 
 		if (vis.editMode) {
@@ -6464,6 +6469,7 @@ vis.binds["vis-inventwo"] = {
 
 	},
 
+	//Colors
 	hexToRgb: function(hex){
 		if ((/^#([A-Fa-f0-9]{3}$)|([A-Fa-f0-9]{6}$)/.test(hex))) {
 			// Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
@@ -6485,7 +6491,6 @@ vis.binds["vis-inventwo"] = {
 			return null;
 		}
 	},
-
 	rgbToHex: function(rgb){
 		function componentToHex(c) {
 			var hex = c.toString(16);
@@ -6493,7 +6498,6 @@ vis.binds["vis-inventwo"] = {
 		}
 		return "#" + componentToHex(rgb[0]) + componentToHex(rgb[1]) + componentToHex(rgb[2]);
 	},
-
 	cieConvert: function(value, type){
 		class ColorConverter {
 			static getGamutRanges(){
@@ -6749,6 +6753,7 @@ vis.binds["vis-inventwo"] = {
 		}
 	},
 
+	//Color slider helpers
 	updateColorSliderFields: function (wid,view) {
 		vis.activeWidgets.forEach(function (el) {
 			let data = vis.views[vis.activeView].widgets[el].data;
@@ -6768,7 +6773,6 @@ vis.binds["vis-inventwo"] = {
 
 		});
 	},
-
 	updateColorSliderFieldsClick: function (el) {
 		if(vis.editMode) {
 			$(el).parent().on("mouseup click", function () {
@@ -6967,7 +6971,7 @@ vis.binds["vis-inventwo"] = {
 		return ret;
 	},*/
 
-	handleBtnClick: function (el, type, data) {
+	/*handleBtnClick: function (el, type, data) {
 		$(el).parent().on('click touchend', function () {
 
 			switch (type) {
@@ -7021,9 +7025,9 @@ vis.binds["vis-inventwo"] = {
 			}
 
 		});
-	},
+	},*/
 
-	parseValue: function (value, type = "") {
+	/*parseValue: function (value, type = "") {
 		switch (type) {
 			case "numeric":
 				return parseFloat(value);
@@ -7048,7 +7052,7 @@ vis.binds["vis-inventwo"] = {
 				}
 
 		}
-	},
+	},*/
 
 	gridWidget: function (wid, data) {
 		console.log("CREATE GRID");
