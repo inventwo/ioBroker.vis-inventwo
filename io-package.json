@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "3.2.6",
+    "version": "3.2.7",
     "news": {
+      "3.2.7": {
+        "en": "Fixed issue that popup not closing on datapoint value",
+        "de": "Problem behoben, bei dem das Popup beim Datenpunktwert nicht geschlossen wurde",
+        "ru": "Исправлена ошибка, из-за которой всплывающее окно не закрывалось при значении точки данных.",
+        "pt": "Corrigido o problema que o pop-up não fechava no valor do ponto de dados",
+        "nl": "Probleem opgelost waarbij pop-up niet sloot op datapuntwaarde",
+        "fr": "Correction d'un problème qui popup ne se fermait pas sur la valeur du point de données",
+        "it": "Risolto il problema per cui il popup non si chiudeva sul valore del punto dati",
+        "es": "Se solucionó el problema de que la ventana emergente no se cerraba en el valor del punto de datos",
+        "pl": "Naprawiono problem polegający na tym, że wyskakujące okienko nie zamykało się na wartości punktu danych",
+        "zh-cn": "修复了弹出窗口未关闭数据点值的问题"
+      },
       "3.2.6": {
         "en": "JSON-Table: Color background per line depending on a value [#280], JSON-Table: Default sort of a column [#286], Universal- & Multi-Widget ViewInPopUp: View scrolling [#344], Universal- & Multi-Widget HTTP: Link can be opened in same or new tab [#363], FIXED: JSON-Table now also works if there is only a single object in the data point instead of an array with objects [#319], FIXED: JSON-Table: 10-digit timestamp didn't work [#376]",
         "de": "JSON-Table: Farbiger Hintergrund pro Zeile abhängig von einem Wert [#280], JSON-Table: Standardsortierung einer Spalte [#286], Universal- & Multi-Widget ViewInPopUp: Scrollen der Ansicht [#344], Universal- & Multi -Widget HTTP: Link kann in gleichem oder neuem Tab geöffnet werden [#363], FIXED: JSON-Table funktioniert jetzt auch, wenn im Datenpunkt nur ein einzelnes Objekt steht statt eines Arrays mit Objekten [#319], FIXED: JSON-Tabelle: 10-stelliger Zeitstempel funktionierte nicht [#376]",
