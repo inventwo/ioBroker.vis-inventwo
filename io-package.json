@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "3.2.7",
+    "version": "3.2.8",
     "news": {
+      "3.2.8": {
+        "en": "JSON-Table: Added text align für headrow, Radiobutton-List: Added Multi-Row/-Column schema (for more details go to the changelog on Github)",
+        "de": "JSON-Tabelle: text align für headrow hinzugefügt, Radiobutton-List: Multi-Row/-Column Schema hinzugefügt (weitere Details finden Sie im Changelog auf Github)",
+        "ru": "JSON-Table: добавлено выравнивание текста для заголовка, Radiobutton-List: добавлена схема Multi-Row/-Column (подробнее см. в журнале изменений на Github)",
+        "pt": "JSON-Table: Adicionado text align für headrow, Radiobutton-List: Adicionado esquema Multi-Row/-Column (para mais detalhes, acesse o changelog no Github)",
+        "nl": "JSON-Table: Tekstuitlijning toegevoegd voor headrow, Radiobutton-List: Multi-Row/-Column-schema toegevoegd (ga voor meer details naar de changelog op Github)",
+        "fr": "JSON-Table : ajout d'un alignement de texte pour la ligne de tête, Radiobutton-List : ajout d'un schéma multi-lignes/colonnes (pour plus de détails, consultez le journal des modifications sur Github)",
+        "it": "JSON-Table: Aggiunto testo allineato per headrow, Radiobutton-List: Aggiunto schema Multi-Row/-Column (per maggiori dettagli vai al changelog su Github)",
+        "es": "Tabla JSON: Alineación de texto agregada para encabezado, Lista de botones de radio: Esquema agregado de varias filas/columnas (para obtener más detalles, vaya al registro de cambios en Github)",
+        "pl": "JSON-Table: Dodano tekst align für headrow, Radiobutton-List: Dodano schemat Multi-Row/-Column (więcej szczegółów w changelogu na Github)",
+        "zh-cn": "JSON-Table：添加了文本对齐 für headrow，Radiobutton-List：添加了多行/列模式（有关更多详细信息，请访问 Github 上的更改日志）"
+      },
       "3.2.7": {
         "en": "Fixed issue that popup not closing on datapoint value",
         "de": "Problem behoben, bei dem das Popup beim Datenpunktwert nicht geschlossen wurde",

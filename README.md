@@ -79,6 +79,12 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ---
 
 ## Changelog / Änderungsprotokoll
+
+## 3.2.8
+- Radiobutton-List: Mehrzeilige/Mehrspaltige Darstellung möglich  [#393](https://github.com/inventwo/ioBroker.vis-inventwo/issues/393)
+- JSON-Tabelle: Textausrichtung für Kopfzeile hinzugefügt [#394](https://github.com/inventwo/ioBroker.vis-inventwo/issues/394)
+
+## 3.2.7
 - FIXED: Popup schließt nicht bei Datenpunktwert
 
 ## 3.2.6 
