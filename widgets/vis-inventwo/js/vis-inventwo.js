@@ -805,6 +805,10 @@ if (vis.editMode) {
 			"en": "Text align",
 			"de": "Textausrichtung"
 		},
+		"iTblHeadTextAlign": {
+			"en": "Head Text align",
+			"de": "Kopf Textausrichtung"
+		},
 		"iTableRefreshRate": {
 			"en": "Refresh rate (seconds)",
 			"de": "Aktualisierung (Sekunden)"
@@ -3140,6 +3144,8 @@ vis.binds["vis-inventwo"] = {
 										if (data.iTblFixedHead == true) {
 											thStyle += headStyle;
 										}
+
+										thStyle += "text-align: " + data["iTblHeadTextAlign" + (i + 1)] + ";";
 										if (data["iColName" + (i + 1)] !== undefined && data["iColName" + (i + 1)] !== "") {
 											tblHead += "<th data-column='" + colAttr + "' style='" + thStyle + "'>" + data["iColName" + (i + 1)] + sortArrow + "</th>";
 										} else {
