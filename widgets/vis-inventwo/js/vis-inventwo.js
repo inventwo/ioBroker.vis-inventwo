@@ -266,6 +266,10 @@ if (vis.editMode) {
 			"en": "Position",
 			"de": "Position"
 		},
+		"iTextDecoration": {
+			"en": "Text decoration",
+			"de": "Textdekoration"
+		},
 		"iTextSpaceLeft": {
 			"en": "Space left",
 			"de": "Abstand links"
@@ -578,6 +582,18 @@ if (vis.editMode) {
 		"iRadiobtnAlign": {
 			"en": "Alignment",
 			"de": "Ausrichtung"
+		},
+		"iRadiobtnWrap": {
+			"en": "Schema",
+			"de": "Darstellung"
+		},
+		"iOneRowCol": {
+			"en": "One row/col",
+			"de": "Eine Zeile/Spalte"
+		},
+		"iMatrix": {
+			"en": "Matrix",
+			"de": "Matrix"
 		},
 		"iButtonBackM": {
 			"en": "Color",
@@ -4494,9 +4510,10 @@ vis.binds["vis-inventwo"] = {
 				textMargin: txtMargin,
 				textTextAlign: textAlign,
 				textAlignSelf: alignSelf,
+				textDecoration: dataNew.iTextDecoration,
 				textShadowCol: shadowTextCol,
 				boxShadowCol: shadowCol,
-				boxShadowInnerCol: shadowColInner
+				boxShadowInnerCol: shadowColInner,
 			};
 
 			if(shadowText != ""){

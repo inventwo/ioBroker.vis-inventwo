@@ -100,6 +100,7 @@
 						 iTextColorActive[#ffffff]/color;
 						 iTextSize[12]/slider,0,50,1;
 						 iTextAlign[iStart]/select,iStart,iCenter,iEnd;
+						 iTextDecoration[none]/nselect,none,underline,overline,line-through;
 						 iTextSpaceTop[0]/slider,0,50,1;
 						 iTextSpaceBottom[0]/slider,0,50,1;
 						 iTextSpaceLeft[0]/slider,0,50,1;
@@ -296,6 +297,7 @@
 						 iTextColorActive[#ffffff]/color;
 						 iTextSize[12]/slider,0,50,1;
 						 iTextAlign[iStart]/select,iStart,iCenter,iEnd;
+						 iTextDecoration[none]/nselect,none,underline,overline,line-through;
 						 iTextSpaceTop[0]/slider,0,50,1;
 						 iTextSpaceBottom[0]/slider,0,50,1;
 						 iTextSpaceLeft[0]/slider,0,50,1;
@@ -988,7 +990,8 @@
 						iRadiobtnWidth[100]/slider,50,200,1;
 						iRadiobtnHeight[50]/slider,10,200,1;
 						iRadiobtnSpace[10]/slider,0,100,1;
-						iRadiobtnAlign[horizontal]/select,vertical,horizontal;"
+						iRadiobtnAlign[horizontal]/select,vertical,horizontal;
+						iRadiobtnWrap[iOneRowCol]/select,iOneRowCol,iMatrix"
 		data-vis-attrs0="iRadiobtnsCount[1]/number,0,100,1;group.iRadioBtns/byindex;
 						 iTextFalse(1-iRadiobtnsCount)/html;
 						 iTextTrue(1-iRadiobtnsCount)/html;
@@ -1095,10 +1098,20 @@
 			if(dataNew.iRadiobtnAlign == 'vertical'){
 				cssData.align = "column";
 				cssData.marginDir = "bottom";
+				cssData.margin = "0 0 " + dataNew.iRadiobtnSpace + "px 0";
 			}
 			else if(dataNew.iRadiobtnAlign == 'horizontal'){
 				cssData.align = "row";
 				cssData.marginDir = "right";
+				cssData.margin = "0 " + dataNew.iRadiobtnSpace + "px 0 0";
+			}
+
+			if(dataNew.iRadiobtnWrap == 'iMatrix'){
+				cssData.wrap = "wrap";
+				cssData.margin = "0 " + dataNew.iRadiobtnSpace + "px " + dataNew.iRadiobtnSpace + "px 0";
+			}
+			else{
+				cssData.wrap = "nowrap";
 			}
 		%>
 
@@ -1163,7 +1176,7 @@
 				 style="width: <%= dataNew.iRadiobtnWidth %>px;
 						height: <%= dataNew.iRadiobtnHeight %>px;
 						position: relative;
-						margin-<%= cssData.marginDir %>: <%= dataNew.iRadiobtnSpace %>px;" id="<%=dataNew.wid%>_<%= val %>">
+						margin: <%= cssData.margin %>;" id="<%=dataNew.wid%>_<%= val %>">
 
 			<div>
 
