@@ -1577,14 +1577,12 @@ vis.binds["vis-inventwo"] = {
 					}
 					$(this).find(".vis-widget-body").get(0).style.setProperty("--box-shadow-col", data.iShadowColorActive);
 					$(this).find(".vis-widget-body").get(0).style.setProperty("--box-shadow-inner-col", data.iShadowInnerColorActive);
-					if(data.iImgColorTrue != ""){
+					if (data.iImgColorTrue != "") {
 						vis.binds["vis-inventwo"].getImgColorFilter(data.iImgColorTrue, data.wid);
-					}
-					else{
-						if(data.iImgColorInvertTrue){
+					} else {
+						if (data.iImgColorInvertTrue) {
 							$(this).find(".vis-inventwo-img").css("filter", "invert(1)");
-						}
-						else{
+						} else {
 							$(this).find(".vis-inventwo-img").css("filter", "");
 						}
 					}
@@ -1608,14 +1606,12 @@ vis.binds["vis-inventwo"] = {
 					$(this).find(".vis-widget-body").get(0).style.setProperty("--box-shadow-col", data.iShadowColor);
 					$(this).find(".vis-widget-body").get(0).style.setProperty("--box-shadow-inner-col", data.iShadowInnerColor);
 
-					if(data.iImgColorFalse != ""){
+					if (data.iImgColorFalse != "") {
 						vis.binds["vis-inventwo"].getImgColorFilter(data.iImgColorFalse, data.wid);
-					}
-					else{
-						if(data.iImgColorInvertFalse){
+					} else {
+						if (data.iImgColorInvertFalse) {
 							$(this).find(".vis-inventwo-img").css("filter", "invert(1)");
-						}
-						else{
+						} else {
 							$(this).find(".vis-inventwo-img").css("filter", "");
 						}
 					}
@@ -1643,8 +1639,8 @@ vis.binds["vis-inventwo"] = {
 					else if (!isNaN(val))
 						val = parseFloat(val);
 
-					if((data["iCheckType" + i] == "iCheckDefault" && data.iUniversalWidgetType == "Navigation")
-						|| data["iCheckType" + i] == "iCheckView"){
+					if ((data["iCheckType" + i] == "iCheckDefault" && data.iUniversalWidgetType == "Navigation")
+						|| data["iCheckType" + i] == "iCheckView") {
 						hasViewCheck = true;
 					}
 
@@ -1672,12 +1668,11 @@ vis.binds["vis-inventwo"] = {
 
 						(((data["iCheckType" + i] == "iCheckDefault" && data.iUniversalWidgetType != "Navigation") || data["iCheckType" + i] == "iCheckDpValue") &&
 							data["oid" + i] != undefined &&
-							(  (vis.states.attr(data["oid" + i] + ".val") == val && data["iValueComparison" + i] == "equal")
+							((vis.states.attr(data["oid" + i] + ".val") == val && data["iValueComparison" + i] == "equal")
 								|| (vis.states.attr(data["oid" + i] + ".val") < val && data["iValueComparison" + i] == "lower")
 								|| (vis.states.attr(data["oid" + i] + ".val") > val && data["iValueComparison" + i] == "greater")
 								|| (vis.states.attr(data["oid" + i] + ".val") != val && data["iValueComparison" + i] == "not"))
 						)
-
 
 
 					) {
@@ -1701,14 +1696,12 @@ vis.binds["vis-inventwo"] = {
 						}
 						$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", data["iShadowColorActiveM" + i]);
 						$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", data["iShadowInnerColorActiveM" + i]);
-						if(data["iImgColorTrue" + i] != ""){
+						if (data["iImgColorTrue" + i] != "") {
 							vis.binds["vis-inventwo"].getImgColorFilter(data["iImgColorTrue" + i], data.wid);
-						}
-						else{
-							if(data["iImgColorInvert" + i]){
+						} else {
+							if (data["iImgColorInvert" + i]) {
 								$(this).find(".vis-inventwo-img").css("filter", "invert(1)");
-							}
-							else{
+							} else {
 								$(this).find(".vis-inventwo-img").css("filter", "");
 							}
 						}
@@ -1737,14 +1730,12 @@ vis.binds["vis-inventwo"] = {
 					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-col", data.iShadowColor);
 					$(this).find(".vis-inventwo-button-new").get(0).style.setProperty("--box-shadow-inner-col", data.iShadowInnerColor);
 
-					if(data.iImgColorFalse != ""){
+					if (data.iImgColorFalse != "") {
 						vis.binds["vis-inventwo"].getImgColorFilter(data.iImgColorFalse, data.wid);
-					}
-					else{
-						if(data.iImgColorInvert){
+					} else {
+						if (data.iImgColorInvert) {
 							$(this).find(".vis-inventwo-img").css("filter", "invert(1)");
-						}
-						else{
+						} else {
 							$(this).find(".vis-inventwo-img").css("filter", "");
 						}
 					}
@@ -1799,7 +1790,7 @@ vis.binds["vis-inventwo"] = {
 		if (!vis.editMode) {
 			var moved = false;
 			$this.parent().on("click touchend", function (e) {
-				if(e.type == 'touchend'){
+				if (e.type == 'touchend') {
 					$(this).off('click');
 					$(this).off('mouseenter');
 				}
@@ -1837,8 +1828,8 @@ vis.binds["vis-inventwo"] = {
 
 	},
 
-	addViewPopup: function (el, data, type){
-		let visContainer = $('#vis_container .vis-view[data-view="'+vis.activeView+'"]');
+	addViewPopup: function (el, data, type) {
+		let visContainer = $('#vis_container .vis-view[data-view="' + vis.activeView + '"]');
 
 		let borderRadius = data.iPopUpCornerRadiusUL + "px " +
 			data.iPopUpCornerRadiusUR + "px " +
@@ -1848,17 +1839,17 @@ vis.binds["vis-inventwo"] = {
 		let shadow = data.iPopUpShadowXOffset + "px " + data.iPopUpShadowYOffset + "px " + data.iPopUpShadowBlur + "px " + data.iPopUpShadowSpread + "px " + data.iPopUpShadowColor;
 
 		let showTitlebar = "flex";
-		if(data.iPopUpShowTitle == false){
+		if (data.iPopUpShowTitle == false) {
 			showTitlebar = "none";
 		}
 
 		let modalPosition = "";
 		let modalWindowStyle = "";
 
-		if(!isNaN(data.iPopUpPositionX)){
+		if (!isNaN(data.iPopUpPositionX)) {
 			data.iPopUpPositionX += "px";
 		}
-		if(!isNaN(data.iPopUpPositionY)){
+		if (!isNaN(data.iPopUpPositionY)) {
 			data.iPopUpPositionY += "px";
 		}
 
@@ -1887,20 +1878,20 @@ vis.binds["vis-inventwo"] = {
 		let modalWidth = data.iPopUpWidth;
 		let modalHeight = data.iPopUpHeight;
 
-		if(!isNaN(modalWidth)){
+		if (!isNaN(modalWidth)) {
 			modalWidth += "px";
 		}
-		if(!isNaN(modalHeight)){
+		if (!isNaN(modalHeight)) {
 			modalHeight += "px";
 		}
 
 		let scrollX = "hidden";
 		let scrollY = "hidden";
 
-		if(data.iPopUpScrollX){
+		if (data.iPopUpScrollX) {
 			scrollX = "scroll";
 		}
-		if(data.iPopUpScrollY){
+		if (data.iPopUpScrollY) {
 			scrollY = "scroll";
 		}
 
@@ -1917,7 +1908,7 @@ vis.binds["vis-inventwo"] = {
 								<div class="vis-inventwo-modal-titlebar" 
 									 style="display: ` + showTitlebar + `; 
 									 		height: calc(` + data.iPopUpHeightTitle + `px - 10px); 
-									 		font-size: `+ data.iPopUpTitleSize+`px;">
+									 		font-size: ` + data.iPopUpTitleSize + `px;">
 									<span class="vis-inventwo-modal-title" 
 										  style="color: ` + data.iPopUpTitleColor + `;">
 										` + data.iPopUpTitle + `
@@ -1941,13 +1932,11 @@ vis.binds["vis-inventwo"] = {
 
 		modalContent.html("");
 
-		if(!vis.views[data.nav_view]){
+		if (!vis.views[data.nav_view]) {
 			modalContent.html("View not found");
-		}
-		else if(data.nav_view == vis.activeView){
+		} else if (data.nav_view == vis.activeView) {
 			modalContent.html("Cannot add current view to popup");
-		}
-		else {
+		} else {
 			vis.renderView(data.nav_view, data.nav_view, false, function (_view) {
 				$('#visview_' + _view).appendTo(modalContent).show();
 				vis.binds["vis-inventwo"].iUpdateNavigations(0, false);
@@ -1961,7 +1950,7 @@ vis.binds["vis-inventwo"] = {
 		let closeTimeout = null;
 
 		function closePopUp() {
-			if(closeTimeout != null){
+			if (closeTimeout != null) {
 				clearTimeout(closeTimeout);
 				closeTimeout = null;
 			}
@@ -1969,19 +1958,18 @@ vis.binds["vis-inventwo"] = {
 			$('#vis-inventwo-modal-' + data.wid).remove();
 		}
 
-		if(data.iPopUpCloseAfterSeconds > 0){
+		if (data.iPopUpCloseAfterSeconds > 0) {
 			closeTimeout = setTimeout(function () {
 				closePopUp();
 			}, data.iPopUpCloseAfterSeconds * 1000);
 		}
 
-		if(data["iPopUpCloseDp-oid"] != ""){
+		if (data["iPopUpCloseDp-oid"] != "") {
 
 			vis.states.bind(data["iPopUpCloseDp-oid"] + ".val", function (e, newVal, oldVal) {
-				if(data.iPopUpCloseDpValue == "true"){
+				if (data.iPopUpCloseDpValue == "true") {
 					data.iPopUpCloseDpValue = true;
-				}
-				else if (data.iPopUpCloseDpValue == "false"){
+				} else if (data.iPopUpCloseDpValue == "false") {
 					data.iPopUpCloseDpValue = false;
 				}
 
@@ -1995,8 +1983,8 @@ vis.binds["vis-inventwo"] = {
 			});
 		}
 
-		if(data.iPopUpPreventClickOutside == false) {
-			$('#vis-inventwo-modal-' + data.wid).on("click touchend",function () {
+		if (data.iPopUpPreventClickOutside == false) {
+			$('#vis-inventwo-modal-' + data.wid).on("click touchend", function () {
 				if (vis.detectBounce(this)) return;
 				if (moved2) return;
 
@@ -2021,7 +2009,7 @@ vis.binds["vis-inventwo"] = {
 			moved3 = false;
 		});
 
-		$('#vis-inventwo-modal-' + data.wid + ' *').on("click touchend", function() {
+		$('#vis-inventwo-modal-' + data.wid + ' *').on("click touchend", function () {
 			if (vis.detectBounce(this)) return;
 			if (moved4) return;
 
@@ -2049,18 +2037,17 @@ vis.binds["vis-inventwo"] = {
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
 
-				if(data.iUniversalWidgetType == undefined || data.iUniversalWidgetType == "Navigation") {
+				if (data.iUniversalWidgetType == undefined || data.iUniversalWidgetType == "Navigation") {
 
 					let modalContent = $this.closest(".vis-inventwo-modal-content");
-					if(data.iUniversalWidgetType != undefined && modalContent.length > 0){
+					if (data.iUniversalWidgetType != undefined && modalContent.length > 0) {
 						modalContent = $(modalContent[0]);
 
 						modalContent.html("");
 
-						if(!vis.views[data.nav_view]){
+						if (!vis.views[data.nav_view]) {
 							modalContent.html("View not found");
-						}
-						else if(data.nav_view == vis.activeView){
+						} else if (data.nav_view == vis.activeView) {
 							modalContent.html("Cannot add current view to popup");
 						}
 
@@ -2070,8 +2057,7 @@ vis.binds["vis-inventwo"] = {
 
 							vis.binds["vis-inventwo"].iUpdateNavigations(0, false);
 						});
-					}
-					else{
+					} else {
 						vis.changeView(
 							data.nav_view,
 							data.nav_view,
@@ -2089,8 +2075,7 @@ vis.binds["vis-inventwo"] = {
 						);
 					}
 
-				}
-				else if(data.iUniversalWidgetType == "ViewInPopup"){
+				} else if (data.iUniversalWidgetType == "ViewInPopup") {
 					_this.addViewPopup(el, data, type);
 				}
 				//e.preventDefault();
@@ -2114,7 +2099,6 @@ vis.binds["vis-inventwo"] = {
 
 				// Auskommentiert da navChangeCallbacks die Funktion bereits aufruft
 				//vis.binds["vis-inventwo"].iUpdateNavigations(data.iNavWait, true);
-
 
 
 				e.preventDefault();
@@ -2191,8 +2175,7 @@ vis.binds["vis-inventwo"] = {
 						}, data.iStateResponseTime);
 
 
-					}
-					else if (type == "multi") {
+					} else if (type == "multi") {
 
 						let index = -1;
 
@@ -2373,13 +2356,11 @@ vis.binds["vis-inventwo"] = {
 				// 	});
 
 
-				if(data.iHttpType == "iSend") {
+				if (data.iHttpType == "iSend") {
 					vis.conn.httpGet(data.value);
-				}
-				else if(data.iHttpType == "iOpenUrl"){
+				} else if (data.iHttpType == "iOpenUrl") {
 					window.open(data.value, '_self');
-				}
-				else if(data.iHttpType == "iOpenUrlNewTab"){
+				} else if (data.iHttpType == "iOpenUrlNewTab") {
 					window.open(data.value, '_blank').focus();
 				}
 
@@ -2420,8 +2401,7 @@ vis.binds["vis-inventwo"] = {
 						}, data.iStateResponseTime);
 
 
-					}
-					else if (type == "multi") {
+					} else if (type == "multi") {
 
 						let index = -1;
 
@@ -2668,17 +2648,16 @@ vis.binds["vis-inventwo"] = {
 										break;
 									case "CIE":
 										output = vis.binds['vis-inventwo'].cieConvert(rgb, "cie");
-										if(dpIsArray == true){
+										if (dpIsArray == true) {
 											output = output.split(",");
-										}
-										else if(dpIsArrayWithBrackets == true){
+										} else if (dpIsArrayWithBrackets == true) {
 											output = "[" + output + "]";
 										}
 										break;
 								}
-								if(data.iColorSliderType != "RGB")
+								if (data.iColorSliderType != "RGB")
 									vis.setValue(oid, output);
-								else{
+								else {
 									vis.setValue(data["iIdRed-oid"], rgb[0]);
 									vis.setValue(data["iIdGreen-oid"], rgb[1]);
 									vis.setValue(data["iIdBlue-oid"], rgb[2]);
@@ -2718,17 +2697,16 @@ vis.binds["vis-inventwo"] = {
 										break;
 									case "CIE":
 										output = vis.binds['vis-inventwo'].cieConvert(rgb, "cie");
-										if(dpIsArray == true){
+										if (dpIsArray == true) {
 											output = output.split(",");
-										}
-										else if(dpIsArrayWithBrackets == true){
+										} else if (dpIsArrayWithBrackets == true) {
 											output = "[" + output + "]";
 										}
 										break;
 								}
-								if(data.iColorSliderType != "RGB")
+								if (data.iColorSliderType != "RGB")
 									vis.setValue(oid, output);
-								else{
+								else {
 									vis.setValue(data["iIdRed-oid"], rgb[0]);
 									vis.setValue(data["iIdGreen-oid"], rgb[1]);
 									vis.setValue(data["iIdBlue-oid"], rgb[2]);
@@ -2742,10 +2720,9 @@ vis.binds["vis-inventwo"] = {
 		}, options);
 
 
-
 		$this.slider(settings)
-			.each(function(){
-				if(type == "normal" && data.iShowSteps) {
+			.each(function () {
+				if (type == "normal" && data.iShowSteps) {
 					var opt = $(this).data().uiSlider.options;
 
 					// Get the number of possible values
@@ -2757,14 +2734,13 @@ vis.binds["vis-inventwo"] = {
 					for (let i = 0; i <= vals; i++) {
 
 						let label = null;
-						if(options.orientation == "horizontal") {
+						if (options.orientation == "horizontal") {
 							let val = data.iInvertMinMax ? opt.max - i * data.iVisibleStepVal : i * data.iVisibleStepVal;
 							label = $('<span class="vis-inventwo-slider-step-label">' + val + '</span>')
 								.css('left', (i / vals * 100) + '%')
 								.css('margin-top', sliderHeight / 2 + 10 + 'px')
 								.css('font-size', data.iStepTextSize + "px");
-						}
-						else{
+						} else {
 							let val = data.iInvertMinMax ? i * data.iVisibleStepVal : opt.max - i * data.iVisibleStepVal;
 							label = $('<span class="vis-inventwo-slider-step-label">' + val + '</span>')
 								.css('top', (i / vals * 100) + '%')
@@ -2798,8 +2774,7 @@ vis.binds["vis-inventwo"] = {
 				if (rgb == null) {
 					rgb = [255, 0, 0];
 					val = "#ff0000";
-				}
-				else{
+				} else {
 					val = vis.binds['vis-inventwo'].rgbToHex(rgb);
 				}
 
@@ -2807,7 +2782,7 @@ vis.binds["vis-inventwo"] = {
 				$this.slider("option", "value", rgbToDecimal(rgb));
 			}
 
-			if(oid == undefined){
+			if (oid == undefined) {
 				return;
 			}
 
@@ -2816,7 +2791,7 @@ vis.binds["vis-inventwo"] = {
 			switch (type) {
 				case "normal":
 					val = parseFloat(val);
-					if(isNaN(val)){
+					if (isNaN(val)) {
 						val = min;
 					}
 					$this.find(".ui-slider-handle").css("background", data.iSliderKnobColor);
@@ -2838,22 +2813,20 @@ vis.binds["vis-inventwo"] = {
 							let g = vis.states.attr(data["iIdGreen-oid"] + ".val");
 							let b = vis.states.attr(data["iIdBlue-oid"] + ".val");
 
-							if(r != undefined && g != undefined && b != undefined){
+							if (r != undefined && g != undefined && b != undefined) {
 								rgb = [r, g, b];
 								setColor(rgb);
-							}
-							else{
-								rgb = [255,0,0];
+							} else {
+								rgb = [255, 0, 0];
 							}
 
 							break;
 						case "CIE":
-							if(isJson(val)){
+							if (isJson(val)) {
 								let jsonVal = JSON.parse(val);
 								val = jsonVal.join(",");
 								dpIsArrayWithBrackets = true;
-							}
-							else if(typeof val == "object"){
+							} else if (typeof val == "object") {
 								val = val.join(",");
 								dpIsArray = true;
 							}
@@ -2889,7 +2862,7 @@ vis.binds["vis-inventwo"] = {
 			}
 		});
 
-		if(type == "rgb" && data.iColorSliderType == "RGB"){
+		if (type == "rgb" && data.iColorSliderType == "RGB") {
 			vis.states.bind(data["iIdRed-oid"] + ".val", function () {
 				if (!isDragging) {
 					updateSlider();
@@ -3058,7 +3031,7 @@ vis.binds["vis-inventwo"] = {
 		let sortColumn = "";
 		let sortOrder = "asc";
 
-		if(data.iTblSortAttr != undefined && data.iTblSortAttr != ""){
+		if (data.iTblSortAttr != undefined && data.iTblSortAttr != "") {
 			sortColumn = data.iTblSortAttr;
 			sortOrder = data.iTblSortOrder;
 		}
@@ -3111,21 +3084,18 @@ vis.binds["vis-inventwo"] = {
 								jd = "[" + jd + "]";
 							}
 							jsondata = JSON.parse(jd);
-						}
-						else if(typeof jd === "object"){
+						} else if (typeof jd === "object") {
 							jsondata = [jd];
-						}
-						else{
+						} else {
 							jsondata = [].slice.call(jd);
 						}
-					}
-					catch (e) {
+					} catch (e) {
 						console.log("ERROR ON JSON");
 						console.log(e);
 						validJson = false;
 					}
 
-					if(validJson) {
+					if (validJson) {
 
 						let rowLimit = jsondata.length;
 						if (data.iTblRowLimit < rowLimit) {
@@ -3543,7 +3513,7 @@ vis.binds["vis-inventwo"] = {
 				}
 				else if(oid != undefined){*/
 				val = vis.binds["vis-inventwo"].convertValue(val);
-				if(!isNaN(val)){
+				if (!isNaN(val)) {
 					val = parseFloat(val);
 				}
 
@@ -3723,8 +3693,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iValue" + i, true);
 					vis.hideShowAttr("iView" + i, true);
 				}
-			}
-			else if (val == "State" || val == "HTTP") {
+			} else if (val == "State" || val == "HTTP") {
 				vis.hideShowAttr("iNavWait", false);
 				vis.hideShowAttr("iValueType", false);
 				vis.hideShowAttr("iValueTypeInfo", false);
@@ -3772,12 +3741,11 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iPopUpShadowSpread", false);
 				vis.hideShowAttr("iPopUpShadowColor", false);
 
-				if(val == "State"){
+				if (val == "State") {
 					vis.hideShowAttr("iStateResetValueTime", true);
 					vis.hideShowAttr("oid", true);
 					vis.hideShowAttr("iValueComparison", true);
-				}
-				else{
+				} else {
 					vis.hideShowAttr("iStateResetValueTime", false);
 					vis.hideShowAttr("oid", false);
 					vis.hideShowAttr("iValueComparison", false);
@@ -3789,8 +3757,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iValue" + i, true);
 					vis.hideShowAttr("iView" + i, true);
 				}
-			}
-			else if (val == "Navigation") {
+			} else if (val == "Navigation") {
 				vis.hideShowAttr("iNavWait", true);
 				vis.hideShowAttr("iValueType", false);
 				vis.hideShowAttr("iValueTypeInfo", false);
@@ -3846,8 +3813,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iValue" + i, true);
 					vis.hideShowAttr("iView" + i, true);
 				}
-			}
-			else if (val == "Background") {
+			} else if (val == "Background") {
 				vis.hideShowAttr("iNavWait", false);
 				vis.hideShowAttr("iValueFalse", false);
 				vis.hideShowAttr("value", false);
@@ -3910,8 +3876,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iValue" + i, true);
 					vis.hideShowAttr("iView" + i, true);
 				}
-			}
-			else if (val == "IncreaseDecreaseValue") {
+			} else if (val == "IncreaseDecreaseValue") {
 				vis.hideShowAttr("iNavWait", false);
 				vis.hideShowAttr("iValueFalse", false);
 				vis.hideShowAttr("value", true);
@@ -3967,8 +3932,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iValue" + i, true);
 					vis.hideShowAttr("iView" + i, true);
 				}
-			}
-			else if (val == "ViewInPopup") {
+			} else if (val == "ViewInPopup") {
 				vis.hideShowAttr("iNavWait", true);
 				vis.hideShowAttr("iValueType", false);
 				vis.hideShowAttr("iValueTypeInfo", false);
@@ -4026,7 +3990,7 @@ vis.binds["vis-inventwo"] = {
 				}
 			}
 
-			if(data.iContentType == "image"){
+			if (data.iContentType == "image") {
 				vis.hideShowAttr("iImgColorInvertFalse", true);
 				vis.hideShowAttr("iImgColorInvertTrue", true);
 				vis.hideShowAttr("iImgRotation", true);
@@ -4059,8 +4023,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iText-ImageSettings" + i, true);
 					vis.hideShowAttr("iText-HtmlTextSettings" + i, false);
 				}
-			}
-			else if(data.iContentType == "clock_analog" || data.iContentType == "clock_digital"){
+			} else if (data.iContentType == "clock_analog" || data.iContentType == "clock_digital") {
 				vis.hideShowAttr("iImgColorInvertFalse", false);
 				vis.hideShowAttr("iImgColorInvertTrue", false);
 				vis.hideShowAttr("iImgRotation", false);
@@ -4077,7 +4040,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iHtmlTextFieldFalse", false);
 				vis.hideShowAttr("iClockTimezone", true);
 
-				if(data.iContentType == "clock_analog"){
+				if (data.iContentType == "clock_analog") {
 					vis.hideShowAttr("iImgColorFalse", false);
 					vis.hideShowAttr("iImgColorTrue", false);
 					vis.hideShowAttr("iImgColorClockFace", true);
@@ -4086,8 +4049,7 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iImgClockFace", true);
 					vis.hideShowAttr("iImgClockHands", true);
 					vis.hideShowAttr("iImgClockShowBorder", true);
-				}
-				else{
+				} else {
 					vis.hideShowAttr("iImgColorFalse", true);
 					vis.hideShowAttr("iImgColorTrue", true);
 					vis.hideShowAttr("iImgColorClockFace", false);
@@ -4106,15 +4068,13 @@ vis.binds["vis-inventwo"] = {
 					vis.hideShowAttr("iText-ImageSettings" + i, false);
 					vis.hideShowAttr("iText-HtmlTextSettings" + i, false);
 
-					if(data.iContentType == "clock_analog"){
+					if (data.iContentType == "clock_analog") {
 						vis.hideShowAttr("iImgColorTrue" + i, false);
-					}
-					else{
+					} else {
 						vis.hideShowAttr("iImgColorTrue" + i, true);
 					}
 				}
-			}
-			else if(data.iContentType == "html_text"){
+			} else if (data.iContentType == "html_text") {
 				vis.hideShowAttr("iImgColorInvertFalse", false);
 				vis.hideShowAttr("iImgColorInvertTrue", false);
 				vis.hideShowAttr("iImgRotation", false);
@@ -4155,7 +4115,7 @@ vis.binds["vis-inventwo"] = {
 	},
 
 	//Standard Button Element
-	buttonPrefab: function(imgElement, textElement, values){
+	buttonPrefab: function (imgElement, textElement, values) {
 
 		let defaultValues = {
 			background: "",
@@ -4227,7 +4187,7 @@ vis.binds["vis-inventwo"] = {
 		return html;
 	},
 
-	camelCaseToKebabCase: function(string){
+	camelCaseToKebabCase: function (string) {
 		return string.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
 	},
 
@@ -4238,8 +4198,8 @@ vis.binds["vis-inventwo"] = {
 		let isHover = false;
 
 		this.updateUniversalDataFields;
-		if (!(type == "universal"  && data.iUniversalWidgetType == "State")) {
-			if(!datapoints.includes(data.attr("oid"))) {
+		if (!(type == "universal" && data.iUniversalWidgetType == "State")) {
+			if (!datapoints.includes(data.attr("oid"))) {
 				datapoints.push(data.attr("oid"));
 				vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
 					if (newVal != oldVal) {
@@ -4257,7 +4217,7 @@ vis.binds["vis-inventwo"] = {
 		if (type == "multi") {
 			for (let index = 1; index <= data.iUniversalValueCount; index++) {
 
-				if(data.iUniversalWidgetType != "Navigation" || (data.iUniversalWidgetType == "Navigation" && data.attr("iCheckType" + index) == "iCheckDpValue")) {
+				if (data.iUniversalWidgetType != "Navigation" || (data.iUniversalWidgetType == "Navigation" && data.attr("iCheckType" + index) == "iCheckDpValue")) {
 					if (!datapoints.includes(data.attr("oid" + index))) {
 						datapoints.push(data.attr("oid" + index));
 						vis.states.bind(data.attr("oid" + index) + ".val", function (e, newVal, oldVal) {
@@ -4307,7 +4267,7 @@ vis.binds["vis-inventwo"] = {
 					else if (!isNaN(val))
 						val = parseFloat(val);
 
-					if(
+					if (
 						(
 							(
 								(
@@ -4333,10 +4293,9 @@ vis.binds["vis-inventwo"] = {
 								dataNew["iCheckType" + i] == "iCheckDpValue"
 							)
 							&&
-							dataNew["oid" + i] != undefined && $this.checkIfTrue(data,null, i)
+							dataNew["oid" + i] != undefined && $this.checkIfTrue(data, null, i)
 						)
-					)
-					{
+					) {
 						backCol = dataNew["iButtonActiveM" + i];
 						shadowCol = dataNew["iShadowColorActiveM" + i];
 						shadowColInner = dataNew["iShadowInnerColorActiveM" + i];
@@ -4352,11 +4311,11 @@ vis.binds["vis-inventwo"] = {
 							txt = dataNew["iTextTrue" + i];
 						imgBlink = dataNew["iImgBlinkTrue" + i];
 
-						if(dataNew["iImgColorInvert" + i] == true){
+						if (dataNew["iImgColorInvert" + i] == true) {
 							invertCol = " filter: invert(1);";
 						}
 
-						if(dataNew.iContentType == "html_text"){
+						if (dataNew.iContentType == "html_text") {
 							htmlText = dataNew["iHtmlTextFieldTrue" + i];
 						}
 
@@ -4381,16 +4340,15 @@ vis.binds["vis-inventwo"] = {
 
 					imgBlink = dataNew.iImgBlinkFalse;
 
-					if(dataNew.iImgColorInvert == true){
+					if (dataNew.iImgColorInvert == true) {
 						invertCol = " filter: invert(1);";
 					}
 
-					if(dataNew.iContentType == "html_text"){
+					if (dataNew.iContentType == "html_text") {
 						htmlText = dataNew["iHtmlTextFieldFalse"];
 					}
 				}
-			}
-			else if (type == "universal") {
+			} else if (type == "universal") {
 
 				let val = dataNew.iValueTrue;
 				if (val == undefined)
@@ -4407,7 +4365,7 @@ vis.binds["vis-inventwo"] = {
 
 					(
 						(dataNew.iUniversalWidgetType == "Switch" || dataNew.iUniversalWidgetType == "Background") &&
-						((dataNew.iValueType == "value" && dataNew.iUniversalWidgetType != "State" && $this.checkIfTrue(data,null) /*(
+						((dataNew.iValueType == "value" && dataNew.iUniversalWidgetType != "State" && $this.checkIfTrue(data, null) /*(
 								(vis.states.attr(data.oid + ".val") == val && dataNew.iValueComparison == "equal")
 								|| (vis.states.attr(data.oid + ".val") < val && dataNew.iValueComparison == "lower")
 								|| (vis.states.attr(data.oid + ".val") > val && dataNew.iValueComparison == "greater")
@@ -4435,11 +4393,11 @@ vis.binds["vis-inventwo"] = {
 
 					imgBlink = dataNew.iImgBlinkTrue;
 
-					if(dataNew.iImgColorInvertTrue == true){
+					if (dataNew.iImgColorInvertTrue == true) {
 						invertCol = " filter: invert(1)";
 					}
 
-					if(dataNew.iContentType == "html_text"){
+					if (dataNew.iContentType == "html_text") {
 						htmlText = dataNew["iHtmlTextFieldTrue"];
 					}
 
@@ -4460,11 +4418,11 @@ vis.binds["vis-inventwo"] = {
 
 					imgBlink = dataNew.iImgBlinkFalse;
 
-					if(dataNew.iImgColorInvertFalse == true){
+					if (dataNew.iImgColorInvertFalse == true) {
 						invertCol = " filter: invert(1)";
 					}
 
-					if(dataNew.iContentType == "html_text"){
+					if (dataNew.iContentType == "html_text") {
 						htmlText = dataNew["iHtmlTextFieldFalse"];
 					}
 
@@ -4472,17 +4430,17 @@ vis.binds["vis-inventwo"] = {
 
 			}
 
-			if(isHover == true){
-				if(dataNew.iButtonColHover != undefined && dataNew.iButtonColHover != ""){
+			if (isHover == true) {
+				if (dataNew.iButtonColHover != undefined && dataNew.iButtonColHover != "") {
 					backCol = dataNew.iButtonColHover;
 				}
-				if(dataNew.iShadowColorHover != undefined && dataNew.iShadowColorHover != ""){
+				if (dataNew.iShadowColorHover != undefined && dataNew.iShadowColorHover != "") {
 					shadowCol = dataNew.iShadowColorHover;
 				}
-				if(dataNew.iShadowInnerColorHover != undefined && dataNew.iShadowInnerColorHover != ""){
+				if (dataNew.iShadowInnerColorHover != undefined && dataNew.iShadowInnerColorHover != "") {
 					shadowColInner = dataNew.iShadowInnerColorHover;
 				}
-				if(dataNew.iBorderColorHover != undefined && dataNew.iBorderColorHover != ""){
+				if (dataNew.iBorderColorHover != undefined && dataNew.iBorderColorHover != "") {
 					borderCol = dataNew.iBorderColorHover;
 				}
 			}
@@ -4495,7 +4453,7 @@ vis.binds["vis-inventwo"] = {
 			let border = dataNew.iBorderSize + "px " + dataNew.iBorderStyle + " " + borderCol;
 			let borderRadius = dataNew.iCornerRadiusUL + "px " + dataNew.iCornerRadiusUR + "px " + dataNew.iCornerRadiusLR + "px " + dataNew.iCornerRadiusLL + "px";
 
-			if(dataNew.iShadowTextXOffset > 0 || dataNew.iShadowTextYOffset > 0 || dataNew.iShadowTextBlur > 0) {
+			if (dataNew.iShadowTextXOffset > 0 || dataNew.iShadowTextYOffset > 0 || dataNew.iShadowTextBlur > 0) {
 				shadowText = dataNew.iShadowTextXOffset + "px " + dataNew.iShadowTextYOffset + "px " + dataNew.iShadowTextBlur + "px var(--text-shadow-col);";
 			}
 
@@ -4549,15 +4507,14 @@ vis.binds["vis-inventwo"] = {
 			//Textausrichtung
 			let textAlign = "";
 			let alignSelf = "";
-			if(dataNew.iContentFlexDirection == "vertical") {
+			if (dataNew.iContentFlexDirection == "vertical") {
 				if (dataNew.iTextAlign == "iStart")
 					textAlign = "left";
 				else if (dataNew.iTextAlign == "iCenter")
 					textAlign = "center";
 				else if (dataNew.iTextAlign == "iEnd")
 					textAlign = "right";
-			}
-			else{
+			} else {
 				if (dataNew.iTextAlign == "iStart")
 					alignSelf = "flex-start";
 				else if (dataNew.iTextAlign == "iCenter")
@@ -4592,7 +4549,7 @@ vis.binds["vis-inventwo"] = {
 				boxShadowInnerCol: shadowColInner,
 			};
 
-			if(shadowText != ""){
+			if (shadowText != "") {
 				values.textShadow = shadowText;
 			}
 
@@ -4614,7 +4571,7 @@ vis.binds["vis-inventwo"] = {
 
 			let elem = $('#' + data.wid + " .vis-widget-body");
 
-			if(elem.length > 0) {
+			if (elem.length > 0) {
 
 				for (const [key, value] of Object.entries(d.values)) {
 					elem.get(0).style.setProperty("--" + $this.camelCaseToKebabCase(key), value);
@@ -4645,7 +4602,7 @@ vis.binds["vis-inventwo"] = {
 			values = d.values
 
 			let dispNone = "";
-			if(d.img == ""){
+			if (d.img == "") {
 				dispNone = "display: none";
 			}
 
@@ -4656,35 +4613,34 @@ vis.binds["vis-inventwo"] = {
 			}
 
 			let imgElement = "";
-			if(dataNew.iContentType == "clock_analog"){
+			if (dataNew.iContentType == "clock_analog") {
 
 				let clock = "";
 
-				if(dataNew.iImgClockShowBorder == true) {
+				if (dataNew.iImgClockShowBorder == true) {
 					clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-face-border'>
 							<img src='/vis/widgets/vis-inventwo/img/clock_analog/frame.png' style="filter: var(--clock-face-color-filter)"></div>`;
 				}
 				clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-face'>
-							<img src='/vis/widgets/vis-inventwo/img/clock_analog/`+dataNew.iImgClockFace+`.png' style="filter: var(--clock-face-color-filter)"></div>`;
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/` + dataNew.iImgClockFace + `.png' style="filter: var(--clock-face-color-filter)"></div>`;
 				clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-hand-hour'>
-							<img src='/vis/widgets/vis-inventwo/img/clock_analog/`+dataNew.iImgClockHands+`/std.png' style="filter: var(--clock-hands-color-filter)"></div>`;
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/` + dataNew.iImgClockHands + `/std.png' style="filter: var(--clock-hands-color-filter)"></div>`;
 				clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-hand-minute'>
-							<img src='/vis/widgets/vis-inventwo/img/clock_analog/`+dataNew.iImgClockHands+`/min.png' style="filter: var(--clock-hands-color-filter)"></div>`;
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/` + dataNew.iImgClockHands + `/min.png' style="filter: var(--clock-hands-color-filter)"></div>`;
 
-				if(dataNew.iClockShowSeconds == true) {
+				if (dataNew.iClockShowSeconds == true) {
 					clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-hand-second'>
-							<img src='/vis/widgets/vis-inventwo/img/clock_analog/`+dataNew.iImgClockHands+`/sek.png' style="filter: var(--clock-hand-second-color-filter)"></div>`;
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/` + dataNew.iImgClockHands + `/sek.png' style="filter: var(--clock-hand-second-color-filter)"></div>`;
 				}
 				imgElement = `
-				<div class="vis-inventwo-clock-analog" style="width: `+dataNew.iIconSize+`px;height: `+dataNew.iIconSize+`px;">`+clock+`</div>
+				<div class="vis-inventwo-clock-analog" style="width: ` + dataNew.iIconSize + `px;height: ` + dataNew.iIconSize + `px;">` + clock + `</div>
 				`;
 
 				vis.binds["vis-inventwo"].getImgColorFilter(dataNew.iImgColorClockFace, dataNew.wid, "clock-face-color-filter");
 				vis.binds["vis-inventwo"].getImgColorFilter(dataNew.iImgColorHands, dataNew.wid, "clock-hands-color-filter");
 				vis.binds["vis-inventwo"].getImgColorFilter(dataNew.iImgColorHandSecond, dataNew.wid, "clock-hand-second-color-filter");
 
-			}
-			else if(dataNew.iContentType == "clock_digital"){
+			} else if (dataNew.iContentType == "clock_digital") {
 				imgElement = `
 				<div class="vis-inventwo-clock-digital" 
 					 style="font-size: ` + dataNew.iIconSize + `px; 
@@ -4692,15 +4648,13 @@ vis.binds["vis-inventwo"] = {
 					--:--
 				</div>
 				`;
-			}
-			else if(dataNew.iContentType == "image"){
-				imgElement  = `
+			} else if (dataNew.iContentType == "image") {
+				imgElement = `
 				<img src="` + d.img + `" width="` + dataNew.iIconSize + `" class="vis-inventwo-img"
 					 style="transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
-					 		animation:blink var(--content-image-blink) infinite; ` + values.contentImageInvert + ";" + dispNone +`"> `;
+					 		animation:blink var(--content-image-blink) infinite; ` + values.contentImageInvert + ";" + dispNone + `"> `;
 
-			}
-			else if(dataNew.iContentType == "html_text"){
+			} else if (dataNew.iContentType == "html_text") {
 				imgElement = `
 					<div class="vis-inventwo-content-htmltext" 
 					 style="font-size: ` + dataNew.iIconSize + `px; 
@@ -4790,19 +4744,18 @@ vis.binds["vis-inventwo"] = {
 					vis.binds["vis-inventwo"].increaseDecreaseValue(el, dataNew, type);
 				}
 
-				if(dataNew.iUniversalWidgetType == "ViewInPopup"){
+				if (dataNew.iUniversalWidgetType == "ViewInPopup") {
 					vis.states.bind(data["iPopUpCloseDp-oid"] + ".val", function (e, newVal, oldVal) {
 
 						console.log("test");
 
-						if(dataNew.iPopUpOpenDpValue == "true"){
+						if (dataNew.iPopUpOpenDpValue == "true") {
 							dataNew.iPopUpOpenDpValue = true;
-						}
-						else if (dataNew.iPopUpOpenDpValue == "false"){
+						} else if (dataNew.iPopUpOpenDpValue == "false") {
 							dataNew.iPopUpOpenDpValue = false;
 						}
 
-						if(newVal == dataNew.iPopUpOpenDpValue){
+						if (newVal == dataNew.iPopUpOpenDpValue) {
 							vis.binds["vis-inventwo"].addViewPopup(el, dataNew, type);
 						}
 
@@ -4824,23 +4777,23 @@ vis.binds["vis-inventwo"] = {
 					});
 				} else {
 					$(el).parent().on("mouseenter", function () {
-						if(
+						if (
 							(dataNew.iButtonColHover != undefined && dataNew.iButtonColHover != "") ||
 							(dataNew.iShadowColorHover != undefined && dataNew.iShadowColorHover != "") ||
 							(dataNew.iShadowInnerColorHover != undefined && dataNew.iShadowInnerColorHover != "") ||
 							(dataNew.iBorderColorHover != undefined && dataNew.iBorderColorHover != "")
-						){
+						) {
 							isHover = true;
 							updateWidget();
 						}
 					});
 					$(el).parent().on("mouseleave", function () {
-						if(
+						if (
 							(dataNew.iButtonColHover != undefined && dataNew.iButtonColHover != "") ||
 							(dataNew.iShadowColorHover != undefined && dataNew.iShadowColorHover != "") ||
 							(dataNew.iShadowInnerColorHover != undefined && dataNew.iShadowInnerColorHover != "") ||
 							(dataNew.iBorderColorHover != undefined && dataNew.iBorderColorHover != "")
-						){
+						) {
 							isHover = false;
 							updateWidget();
 						}
@@ -4861,7 +4814,7 @@ vis.binds["vis-inventwo"] = {
 					}
 				}
 
-				if(dataNew.iContentType == "clock_analog") {
+				if (dataNew.iContentType == "clock_analog") {
 
 					setTimeout(function () {
 
@@ -4874,7 +4827,7 @@ vis.binds["vis-inventwo"] = {
 						let handMin = $('#' + data.wid + ' .vis-inventwo-clock-analog-hand-minute');
 						let handSec = $('#' + data.wid + ' .vis-inventwo-clock-analog-hand-second');
 
-						if(hour > 12){
+						if (hour > 12) {
 							hour = hour - 12;
 						}
 
@@ -4882,10 +4835,9 @@ vis.binds["vis-inventwo"] = {
 
 						handMin.css("transform", "rotateZ(" + (minutes / 60 * 360) + "deg)");
 						handHour.css("transform", "rotateZ(" + (hour / 12 * 360 + h1) + "deg)");
-						if(dataNew.iClockShowSeconds == true) {
+						if (dataNew.iClockShowSeconds == true) {
 							handSec.css("transform", "rotateZ(" + (seconds / 60 * 360) + "deg)");
-						}
-						else{
+						} else {
 							handSec.css("display", "none");
 						}
 
@@ -4895,7 +4847,7 @@ vis.binds["vis-inventwo"] = {
 							minutes = date.minutes;
 							seconds = date.seconds;
 
-							if(hour > 12){
+							if (hour > 12) {
 								hour = hour - 12;
 							}
 
@@ -4903,16 +4855,15 @@ vis.binds["vis-inventwo"] = {
 
 							handMin.css("transform", "rotateZ(" + (minutes / 60 * 360) + "deg)");
 							handHour.css("transform", "rotateZ(" + (hour / 12 * 360 + h1) + "deg)");
-							if(dataNew.iClockShowSeconds == true) {
+							if (dataNew.iClockShowSeconds == true) {
 								handSec.css("transform", "rotateZ(" + (seconds / 60 * 360) + "deg)");
 							}
-						},1000);
+						}, 1000);
 
 
 					}, 100);
 
-				}
-				else if(dataNew.iContentType == "clock_digital") {
+				} else if (dataNew.iContentType == "clock_digital") {
 
 					setTimeout(function () {
 
@@ -4923,8 +4874,8 @@ vis.binds["vis-inventwo"] = {
 
 						let fullTime = ("0" + hour).slice(-2) + ":" + ("0" + minutes).slice(-2);
 
-						if(dataNew.iClockShowSeconds == true){
-							fullTime += ":" +("0" + seconds).slice(-2);
+						if (dataNew.iClockShowSeconds == true) {
+							fullTime += ":" + ("0" + seconds).slice(-2);
 						}
 
 						let timeContainer = $('#' + data.wid + ' .vis-inventwo-clock-digital');
@@ -4938,11 +4889,11 @@ vis.binds["vis-inventwo"] = {
 							seconds = date.seconds;
 
 							let fullTime = ("0" + hour).slice(-2) + ":" + ("0" + minutes).slice(-2)
-							if(dataNew.iClockShowSeconds == true){
-								fullTime += ":" +("0" + seconds).slice(-2);
+							if (dataNew.iClockShowSeconds == true) {
+								fullTime += ":" + ("0" + seconds).slice(-2);
 							}
 							timeContainer.text(fullTime);
-						},1000);
+						}, 1000);
 
 
 					}, 100);
@@ -4955,7 +4906,7 @@ vis.binds["vis-inventwo"] = {
 	/*
 		Using the iro.js color picker https://iro.js.org/
 	 */
-	colorPicker: function (el, data){
+	colorPicker: function (el, data) {
 
 		let dataNew = Object.assign({}, data);
 		if (vis.editMode) {
@@ -4963,7 +4914,7 @@ vis.binds["vis-inventwo"] = {
 		}
 
 		let borderColor = dataNew.iColorPickerBorderColor;
-		if(borderColor == ""){
+		if (borderColor == "") {
 			borderColor = "transparent";
 		}
 
@@ -4972,13 +4923,13 @@ vis.binds["vis-inventwo"] = {
 
 		let layoutComponents = [];
 
-		if(dataNew.iColorPickerShowWheel){
+		if (dataNew.iColorPickerShowWheel) {
 			layoutComponents.push({
 				component: iro.ui.Wheel,
 				options: {}
 			});
 		}
-		if(dataNew.iColorPickerShowSliderHue){
+		if (dataNew.iColorPickerShowSliderHue) {
 			layoutComponents.push({
 				component: iro.ui.Slider,
 				options: {
@@ -4986,7 +4937,7 @@ vis.binds["vis-inventwo"] = {
 				}
 			});
 		}
-		if(dataNew.iColorPickerShowSliderSaturation){
+		if (dataNew.iColorPickerShowSliderSaturation) {
 			layoutComponents.push({
 				component: iro.ui.Slider,
 				options: {
@@ -4994,7 +4945,7 @@ vis.binds["vis-inventwo"] = {
 				}
 			});
 		}
-		if(dataNew.iColorPickerShowSliderValue){
+		if (dataNew.iColorPickerShowSliderValue) {
 			layoutComponents.push({
 				component: iro.ui.Slider,
 				options: {
@@ -5002,7 +4953,7 @@ vis.binds["vis-inventwo"] = {
 				}
 			});
 		}
-		if(dataNew.iColorPickerShowSliderRed){
+		if (dataNew.iColorPickerShowSliderRed) {
 			layoutComponents.push({
 				component: iro.ui.Slider,
 				options: {
@@ -5010,7 +4961,7 @@ vis.binds["vis-inventwo"] = {
 				}
 			});
 		}
-		if(dataNew.iColorPickerShowSliderGreen){
+		if (dataNew.iColorPickerShowSliderGreen) {
 			layoutComponents.push({
 				component: iro.ui.Slider,
 				options: {
@@ -5018,7 +4969,7 @@ vis.binds["vis-inventwo"] = {
 				}
 			});
 		}
-		if(dataNew.iColorPickerShowSliderBlue){
+		if (dataNew.iColorPickerShowSliderBlue) {
 			layoutComponents.push({
 				component: iro.ui.Slider,
 				options: {
@@ -5026,7 +4977,7 @@ vis.binds["vis-inventwo"] = {
 				}
 			});
 		}
-		if(dataNew.iColorPickerShowSliderAlpha){
+		if (dataNew.iColorPickerShowSliderAlpha) {
 			layoutComponents.push({
 				component: iro.ui.Slider,
 				options: {
@@ -5034,7 +4985,7 @@ vis.binds["vis-inventwo"] = {
 				}
 			});
 		}
-		if(dataNew.iColorPickerShowSliderKelvin){
+		if (dataNew.iColorPickerShowSliderKelvin) {
 			layoutComponents.push({
 				component: iro.ui.Slider,
 				options: {
@@ -5045,15 +4996,14 @@ vis.binds["vis-inventwo"] = {
 
 		let textAlign = "";
 		let alignSelf = "";
-		if(dataNew.iContentFlexDirection == "vertical") {
+		if (dataNew.iContentFlexDirection == "vertical") {
 			if (dataNew.iTextAlign == "iStart")
 				textAlign = "left";
 			else if (dataNew.iTextAlign == "iCenter")
 				textAlign = "center";
 			else if (dataNew.iTextAlign == "iEnd")
 				textAlign = "right";
-		}
-		else{
+		} else {
 			if (dataNew.iTextAlign == "iStart")
 				alignSelf = "flex-start";
 			else if (dataNew.iTextAlign == "iCenter")
@@ -5135,39 +5085,67 @@ vis.binds["vis-inventwo"] = {
 
 		let hexString = "";
 
-		function setPickerColor(){
-			switch (dataNew.iColorPickerFormat){
+		function setPickerColor() {
+			switch (dataNew.iColorPickerFormat) {
 				case "HEX":
 					hexString = vis.states[dataNew.oid + ".val"];
-					if((/^#([A-Fa-f0-9]{3}$)|([A-Fa-f0-9]{6}$)/.test(hexString))){
+					if ((/^#([A-Fa-f0-9]{3}$)|([A-Fa-f0-9]{6}$)/.test(hexString))) {
 						colorPicker.color.hexString = hexString;
+					} else {
+						colorPicker.color.hexString = "#ffffff";
 					}
 					break;
 				case "HEX 8":
 					hexString = vis.states[dataNew.oid + ".val"];
-					if((/^#([A-Fa-f0-9]{8}$)/.test(hexString))){
+					if ((/^#([A-Fa-f0-9]{8}$)/.test(hexString))) {
 						colorPicker.color.hex8String = hexString;
+					} else {
+						colorPicker.color.hexString = "#ffffffff";
 					}
 					break;
 				case "RGB":
-					colorPicker.color.rgb = {
-						r: vis.states[dataNew.oid1 + ".val"],
-						g: vis.states[dataNew.oid2 + ".val"],
-						b: vis.states[dataNew.oid3 + ".val"],
+					if (dataNew.oid1 != "" && dataNew.oid2 != "" && dataNew.oid3 != "") {
+						colorPicker.color.rgb = {
+							r: vis.states[dataNew.oid1 + ".val"],
+							g: vis.states[dataNew.oid2 + ".val"],
+							b: vis.states[dataNew.oid3 + ".val"],
+						}
+					} else {
+						colorPicker.color.rgb = {
+							r: 255,
+							g: 255,
+							b: 255,
+						}
 					}
 					break;
 				case "HSL":
-					colorPicker.color.hsl = {
-						h: vis.states[dataNew.oid1 + ".val"],
-						s: vis.states[dataNew.oid2 + ".val"],
-						l: vis.states[dataNew.oid3 + ".val"],
+					if (dataNew.oid1 != "" && dataNew.oid2 != "" && dataNew.oid3 != "") {
+						colorPicker.color.hsl = {
+							h: vis.states[dataNew.oid1 + ".val"],
+							s: vis.states[dataNew.oid2 + ".val"],
+							l: vis.states[dataNew.oid3 + ".val"],
+						}
+					} else {
+						colorPicker.color.hsl = {
+							h: 330,
+							s: 0,
+							l: 100,
+						}
 					}
 					break;
 				case "HSV":
-					colorPicker.color.hsv = {
-						h: vis.states[dataNew.oid1 + ".val"],
-						s: vis.states[dataNew.oid2 + ".val"],
-						v: vis.states[dataNew.oid3 + ".val"],
+					if (dataNew.oid1 != "" && dataNew.oid2 != "" && dataNew.oid3 != "") {
+						colorPicker.color.hsv = {
+							h: vis.states[dataNew.oid1 + ".val"],
+							s: vis.states[dataNew.oid2 + ".val"],
+							v: vis.states[dataNew.oid3 + ".val"],
+						}
+					} else {
+						colorPicker.color.hsv = {
+							h: 0,
+							s: 0,
+							v: 100,
+						}
 					}
 					break;
 				default:
@@ -5178,11 +5156,11 @@ vis.binds["vis-inventwo"] = {
 
 		setPickerColor();
 
-		colorPicker.on('color:change', function(color) {
+		colorPicker.on('color:change', function (color) {
 			if (color.index === 0) {
 				console.log(color);
 
-				switch (dataNew.iColorPickerFormat){
+				switch (dataNew.iColorPickerFormat) {
 					case "HEX":
 						vis.setValue(dataNew.oid, color.hexString);
 						break;
@@ -5224,7 +5202,7 @@ vis.binds["vis-inventwo"] = {
 		for (let [key, value] of Object.entries(data)) {
 			if (key.substring(0, 1) == "i") {
 
-				if(key.startsWith("iTblCellThresholdsText", 0)){
+				if (key.startsWith("iTblCellThresholdsText", 0)) {
 					continue;
 				}
 
@@ -5666,21 +5644,18 @@ vis.binds["vis-inventwo"] = {
 					vis.setValue("vis-inventwo.0.intern.ColorFilter." + color.substring(1), filter);
 				}
 
-				if(varName == null) {
+				if (varName == null) {
 					if ($("#" + wid).find(".vis-inventwo-img").css("filter") != filter.substring(8, filter.length - 1)) {
 						$("#" + wid).find(".vis-inventwo-img").css("filter", filter.substring(8, filter.length - 1));
 					}
-				}
-				else{
+				} else {
 					$('#' + wid).find('.vis-widget-body').get(0).style.setProperty("--" + varName, filter.substring(8, filter.length - 1))
 				}
 			});
-		}
-		else{
-			if(invert){
+		} else {
+			if (invert) {
 				$("#" + wid).find(".vis-inventwo-img").css("filter", "invert(1)");
-			}
-			else{
+			} else {
 				$("#" + wid).find(".vis-inventwo-img").css("filter", "");
 			}
 		}
@@ -5690,7 +5665,7 @@ vis.binds["vis-inventwo"] = {
 
 	//Converts boolean strings to booleans and numeric string to numeric value
 	convertValue: function (val) {
-		if(!isNaN(val) && typeof val != "boolean"){
+		if (!isNaN(val) && typeof val != "boolean") {
 			val = parseFloat(val);
 		}
 
@@ -5832,11 +5807,11 @@ vis.binds["vis-inventwo"] = {
 			let text = [];
 
 			let knobWidth = dataNew.iKnobWidth;
-			if(!isNaN(knobWidth)){
+			if (!isNaN(knobWidth)) {
 				knobWidth += "px";
 			}
 
-			for(let i = 1; i <= dataNew.iSwitchCount; i++){
+			for (let i = 1; i <= dataNew.iSwitchCount; i++) {
 
 				let vals = {}
 				let t = "";
@@ -5851,15 +5826,14 @@ vis.binds["vis-inventwo"] = {
 				else if (!isNaN(val))
 					val = parseFloat(val);
 
-				if(dataNew["oid" + i] != undefined && vis.states.attr(dataNew["oid" + i] + ".val") == val){
+				if (dataNew["oid" + i] != undefined && vis.states.attr(dataNew["oid" + i] + ".val") == val) {
 					vals.backgroundColor = dataNew.iBackgroundColorActive;
 					vals.knobBackgroundColor = dataNew.iKnobBackgroundColorActive;
 					vals.knobTransform = "translate(-100%, 0)";
 
 					vals.knobLeft = "100%";
 					t = dataNew["iTextTrue" + i];
-				}
-				else{
+				} else {
 					vals.backgroundColor = dataNew.iBackgroundColor;
 					vals.knobBackgroundColor = dataNew.iKnobBackgroundColor;
 					vals.knobTransform = "translate(0, 0)";
@@ -5867,7 +5841,7 @@ vis.binds["vis-inventwo"] = {
 					t = dataNew["iTextFalse" + i];
 				}
 
-				if(t == undefined){
+				if (t == undefined) {
 					t = "";
 				}
 
@@ -5892,13 +5866,13 @@ vis.binds["vis-inventwo"] = {
 
 			let elem = $('#' + data.wid + " .vis-widget-body");
 
-			d.values.forEach((val, index) =>  {
+			d.values.forEach((val, index) => {
 				for (const [key, v] of Object.entries(val)) {
 					elem.get(0).style.setProperty("--" + $this.camelCaseToKebabCase(key) + "-" + (index + 1), v);
 				}
 			});
 
-			d.text.forEach((text, index) =>  {
+			d.text.forEach((text, index) => {
 				elem.find('#' + dataNew.wid + '-switch-' + index + ' .vis-inventwo-switch-basic-text').html(text);
 			});
 		}
@@ -5915,10 +5889,10 @@ vis.binds["vis-inventwo"] = {
 
 			let height = dataNew.iBarWidth;
 			let borderRadius = dataNew.iBorderRadius;
-			if(!isNaN(height)){
+			if (!isNaN(height)) {
 				height += "px";
 			}
-			if(!isNaN(borderRadius)){
+			if (!isNaN(borderRadius)) {
 				borderRadius += "px";
 			}
 
@@ -5926,16 +5900,16 @@ vis.binds["vis-inventwo"] = {
 			let knobHeight = dataNew.iKnobHeight;
 			let knobBorderRadius = dataNew.iKnobBorderRadius;
 			let knobOffset = dataNew.iKnobOffset;
-			if(!isNaN(knobWidth)){
+			if (!isNaN(knobWidth)) {
 				knobWidth += "px";
 			}
-			if(!isNaN(knobHeight)){
+			if (!isNaN(knobHeight)) {
 				knobHeight += "px";
 			}
-			if(!isNaN(knobBorderRadius)){
+			if (!isNaN(knobBorderRadius)) {
 				knobBorderRadius += "px";
 			}
-			if(!isNaN(knobOffset)){
+			if (!isNaN(knobOffset)) {
 				knobOffset += "px";
 			}
 
@@ -5950,7 +5924,6 @@ vis.binds["vis-inventwo"] = {
 			);
 
 			labelWrapperStyles.push("flex: 1 0 1px");
-
 
 
 			let labelStyles = [];
@@ -5989,7 +5962,7 @@ vis.binds["vis-inventwo"] = {
 			let switchStyles = [];
 
 
-			values.forEach((val, index) =>  {
+			values.forEach((val, index) => {
 				for (const [key, v] of Object.entries(val)) {
 					styles.push("--" + $this.camelCaseToKebabCase(key) + "-" + (index + 1) + ": " + v);
 				}
@@ -5997,12 +5970,11 @@ vis.binds["vis-inventwo"] = {
 
 			styles.push("position: relative");
 
-			if(dataNew.iSwitchOrientation == "vertical"){
+			if (dataNew.iSwitchOrientation == "vertical") {
 				styles.push("flex-direction: column");
 				styles.push("justify-content: flex-start");
 				switchStyles.push("margin-bottom: " + dataNew.iSwitchSpacing + "px");
-			}
-			else if(dataNew.iSwitchOrientation == "horizontal"){
+			} else if (dataNew.iSwitchOrientation == "horizontal") {
 				styles.push("flex-direction: row");
 				styles.push("align-items: center");
 				switchStyles.push("margin-right: " + dataNew.iSwitchSpacing + "px");
@@ -6020,37 +5992,37 @@ vis.binds["vis-inventwo"] = {
 
 			let switches = [];
 
-			values.forEach((val, index) =>  {
+			values.forEach((val, index) => {
 
 				let labelWrapperStyles2 = [];
 				labelWrapperStyles2.push(
-					"background: var(--background-color-"+(index + 1)+")"
+					"background: var(--background-color-" + (index + 1) + ")"
 				);
 
 				let knobStyles2 = [];
 				knobStyles2.push(
-					"left: var(--knob-left-"+(index + 1)+")"
+					"left: var(--knob-left-" + (index + 1) + ")"
 				);
 				knobStyles2.push(
-					"transform: var(--knob-transform-"+(index + 1)+")"
+					"transform: var(--knob-transform-" + (index + 1) + ")"
 				);
 				knobStyles2.push(
-					"background: var(--knob-background-color-"+(index + 1)+")"
+					"background: var(--knob-background-color-" + (index + 1) + ")"
 				);
 				knobStyles2 = knobStyles2.join(";");
 
 				let text = d.text[index];
 
 				switches.push(`
-				<div id="`+dataNew.wid+`-switch-`+index+`" 
+				<div id="` + dataNew.wid + `-switch-` + index + `" 
 					 class="vis-inventwo-switch-basic-entry" style="` + switchStyles + `">
-					<div style="`+labelWrapperStyles+`">
-						<label class="vis-inventwo-switch-basic-wrapper" style="`+labelStyles+`;`+labelWrapperStyles2+`;">
-					 		<span class="vis-inventwo-switch-basic-knob" style="`+knobStyles+`;`+knobStyles2+`;"></span>
+					<div style="` + labelWrapperStyles + `">
+						<label class="vis-inventwo-switch-basic-wrapper" style="` + labelStyles + `;` + labelWrapperStyles2 + `;">
+					 		<span class="vis-inventwo-switch-basic-knob" style="` + knobStyles + `;` + knobStyles2 + `;"></span>
 						</label>
 					</div>
 					<div class="vis-inventwo-switch-basic-text">
-						`+text+`
+						` + text + `
 					</div>
 				</div>
 				`);
@@ -6091,7 +6063,7 @@ vis.binds["vis-inventwo"] = {
 			let values = [];
 			let text = [];
 
-			for(let i = 1; i <= dataNew.iCheckboxCount; i++) {
+			for (let i = 1; i <= dataNew.iCheckboxCount; i++) {
 
 				let vals = {}
 				let t = "";
@@ -6145,8 +6117,8 @@ vis.binds["vis-inventwo"] = {
 
 			let d = getValues(dataNew);
 
-			d.values.forEach((val, index) =>  {
-				let elem = $("#" + dataNew.wid+"-switch-"+index)
+			d.values.forEach((val, index) => {
+				let elem = $("#" + dataNew.wid + "-switch-" + index)
 
 				for (const [key, v] of Object.entries(val)) {
 					elem.get(0).style.setProperty("--" + $this.camelCaseToKebabCase(key), v);
@@ -6166,12 +6138,12 @@ vis.binds["vis-inventwo"] = {
 			let values = d.values;
 
 			let width = dataNew.iWidth;
-			if(!isNaN(width)){
+			if (!isNaN(width)) {
 				width += "px";
 			}
 
 			let height = dataNew.iHeight;
-			if(!isNaN(height)){
+			if (!isNaN(height)) {
 				height += "px";
 			}
 
@@ -6189,19 +6161,18 @@ vis.binds["vis-inventwo"] = {
 			styles.push("--width: " + width);
 			styles.push("--height: " + height);
 
-			if(dataNew.iCheckboxOrientation == "vertical"){
+			if (dataNew.iCheckboxOrientation == "vertical") {
 				styles.push("flex-direction: column");
 				boxEntryStyles.push("margin-bottom: " + dataNew.iCheckboxSpacing + "px");
-			}
-			else if(dataNew.iCheckboxOrientation == "horizontal"){
+			} else if (dataNew.iCheckboxOrientation == "horizontal") {
 				styles.push("flex-direction: row");
 				boxEntryStyles.push("margin-right: " + dataNew.iCheckboxSpacing + "px");
 			}
 
 			labelStyles.push("padding-left: calc(" + dataNew.iBorderSize + "px + 5px)");
 
-			if(dataNew.iShadowTextXOffset > 0 || dataNew.iShadowTextYOffset > 0 || dataNew.iShadowTextBlur > 0) {
-				labelStyles.push("text-shadow: " +  dataNew.iShadowTextXOffset + "px " + dataNew.iShadowTextYOffset + "px " + dataNew.iShadowTextBlur + "px var(--text-shadow-col)");
+			if (dataNew.iShadowTextXOffset > 0 || dataNew.iShadowTextYOffset > 0 || dataNew.iShadowTextBlur > 0) {
+				labelStyles.push("text-shadow: " + dataNew.iShadowTextXOffset + "px " + dataNew.iShadowTextYOffset + "px " + dataNew.iShadowTextBlur + "px var(--text-shadow-col)");
 			}
 
 			boxStyles.push("width: " + width);
@@ -6218,7 +6189,7 @@ vis.binds["vis-inventwo"] = {
 
 			let boxes = [];
 
-			values.forEach((val, index) =>  {
+			values.forEach((val, index) => {
 
 				let styles2 = [];
 
@@ -6234,11 +6205,11 @@ vis.binds["vis-inventwo"] = {
 				let text = d.text[index];
 
 				boxes.push(`
-				<div id="`+dataNew.wid+`-switch-`+index+`" 
-				 	 class="vis-inventwo-checkbox-box-container" style="`+boxEntryStyles+`;`+styles2+`">
+				<div id="` + dataNew.wid + `-switch-` + index + `" 
+				 	 class="vis-inventwo-checkbox-box-container" style="` + boxEntryStyles + `;` + styles2 + `">
 					<div class="vis-inventwo-checkbox-box ` + dataNew.iCheckboxIcon + `" style="` + boxStyles + `"></div>
 						<div class="vis-inventwo-checkbox-text" style="` + labelStyles + `">
-						`+text+`
+						` + text + `
 					</div>
 				</div>
 				`);
@@ -6253,7 +6224,7 @@ vis.binds["vis-inventwo"] = {
 
 			let s = `
 			<style>
-			#`+dataNew.wid+` label:after{
+			#` + dataNew.wid + ` label:after{
 				border-color: var(--check-color);
 				left: 5px;
 				width: 5px;
@@ -6315,7 +6286,7 @@ vis.binds["vis-inventwo"] = {
 
 		if (!vis.editMode) {
 			var moved = false;
-			if(index == null) {
+			if (index == null) {
 				$this.parent().on("click touchend", function () {
 
 					if (vis.detectBounce(this)) return;
@@ -6336,11 +6307,10 @@ vis.binds["vis-inventwo"] = {
 				}).on("touchstart", function () {
 					moved = false;
 				});
-			}
-			else{
+			} else {
 
-				$('#' + data.wid+'-switch-'+index).unbind();
-				$('#' + data.wid+'-switch-'+index).on("click touchend", function () {
+				$('#' + data.wid + '-switch-' + index).unbind();
+				$('#' + data.wid + '-switch-' + index).on("click touchend", function () {
 
 					if (vis.detectBounce(this)) return;
 					if (moved) return;
@@ -6367,7 +6337,7 @@ vis.binds["vis-inventwo"] = {
 	},
 
 	//Colors
-	hexToRgb: function(hex){
+	hexToRgb: function (hex) {
 		if ((/^#([A-Fa-f0-9]{3}$)|([A-Fa-f0-9]{6}$)/.test(hex))) {
 			// Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
 			const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
@@ -6388,16 +6358,17 @@ vis.binds["vis-inventwo"] = {
 			return null;
 		}
 	},
-	rgbToHex: function(rgb){
+	rgbToHex: function (rgb) {
 		function componentToHex(c) {
 			var hex = c.toString(16);
 			return hex.length == 1 ? "0" + hex : hex;
 		}
+
 		return "#" + componentToHex(rgb[0]) + componentToHex(rgb[1]) + componentToHex(rgb[2]);
 	},
-	cieConvert: function(value, type){
+	cieConvert: function (value, type) {
 		class ColorConverter {
-			static getGamutRanges(){
+			static getGamutRanges() {
 				let gamutA = {
 					red: [0.704, 0.296],
 					green: [0.2151, 0.7106],
@@ -6416,49 +6387,49 @@ vis.binds["vis-inventwo"] = {
 					blue: [0.153, 0.048]
 				};
 
-				let defaultGamut ={
+				let defaultGamut = {
 					red: [1.0, 0],
 					green: [0.0, 1.0],
 					blue: [0.0, 0.0]
 				};
 
-				return {"gamutA":gamutA,"gamutB": gamutB, "gamutC":gamutC,"default": defaultGamut}
+				return {"gamutA": gamutA, "gamutB": gamutB, "gamutC": gamutC, "default": defaultGamut}
 			}
 
-			static getLightColorGamutRange(modelId = null){
+			static getLightColorGamutRange(modelId = null) {
 				let ranges = ColorConverter.getGamutRanges();
 				let gamutA = ranges.gamutA;
 				let gamutB = ranges.gamutB;
 				let gamutC = ranges.gamutC;
 
 				let philipsModels = {
-					LST001 : gamutA,
-					LLC010 : gamutA,
-					LLC011 : gamutA,
-					LLC012 : gamutA,
-					LLC006 : gamutA,
-					LLC005 : gamutA,
-					LLC007 : gamutA,
-					LLC014 : gamutA,
-					LLC013 : gamutA,
+					LST001: gamutA,
+					LLC010: gamutA,
+					LLC011: gamutA,
+					LLC012: gamutA,
+					LLC006: gamutA,
+					LLC005: gamutA,
+					LLC007: gamutA,
+					LLC014: gamutA,
+					LLC013: gamutA,
 
-					LCT001 : gamutB,
-					LCT007 : gamutB,
-					LCT002 : gamutB,
-					LCT003 : gamutB,
-					LLM001 : gamutB,
+					LCT001: gamutB,
+					LCT007: gamutB,
+					LCT002: gamutB,
+					LCT003: gamutB,
+					LLM001: gamutB,
 
-					LCT010 : gamutC,
-					LCT014 : gamutC,
-					LCT015 : gamutC,
-					LCT016 : gamutC,
-					LCT011 : gamutC,
-					LLC020 : gamutC,
-					LST002 : gamutC,
-					LCT012 : gamutC,
+					LCT010: gamutC,
+					LCT014: gamutC,
+					LCT015: gamutC,
+					LCT016: gamutC,
+					LCT011: gamutC,
+					LLC020: gamutC,
+					LST002: gamutC,
+					LCT012: gamutC,
 				};
 
-				if(!!philipsModels[modelId]){
+				if (!!philipsModels[modelId]) {
 					return philipsModels[modelId];
 				}
 
@@ -6466,7 +6437,7 @@ vis.binds["vis-inventwo"] = {
 			}
 
 
-			static rgbToXy(red, green, blue,modelId = null) {
+			static rgbToXy(red, green, blue, modelId = null) {
 				function getGammaCorrectedValue(value) {
 					return (value > 0.04045) ? Math.pow((value + 0.055) / (1.0 + 0.055), 2.4) : (value / 12.92)
 				}
@@ -6490,8 +6461,8 @@ vis.binds["vis-inventwo"] = {
 					y: y / (x + y + z)
 				};
 
-				if(!ColorConverter.xyIsInGamutRange(xy, colorGamut)){
-					xy = ColorConverter.getClosestColor(xy,colorGamut);
+				if (!ColorConverter.xyIsInGamutRange(xy, colorGamut)) {
+					xy = ColorConverter.getClosestColor(xy, colorGamut);
 				}
 
 				return xy;
@@ -6525,16 +6496,16 @@ vis.binds["vis-inventwo"] = {
 			}
 
 			static getClosestColor(xy, gamut) {
-				function getLineDistance(pointA,pointB){
+				function getLineDistance(pointA, pointB) {
 					return Math.hypot(pointB.x - pointA.x, pointB.y - pointA.y);
 				}
 
 				function getClosestPoint(xy, pointA, pointB) {
 					let xy2a = [xy.x - pointA.x, xy.y - pointA.y];
 					let a2b = [pointB.x - pointA.x, pointB.y - pointA.y];
-					let a2bSqr = Math.pow(a2b[0],2) + Math.pow(a2b[1],2);
+					let a2bSqr = Math.pow(a2b[0], 2) + Math.pow(a2b[1], 2);
 					let xy2a_dot_a2b = xy2a[0] * a2b[0] + xy2a[1] * a2b[1];
-					let t = xy2a_dot_a2b /a2bSqr;
+					let t = xy2a_dot_a2b / a2bSqr;
 
 					return {
 						x: pointA.x + a2b[0] * t,
@@ -6576,38 +6547,38 @@ vis.binds["vis-inventwo"] = {
 				};
 
 				let closestColorPoints = {
-					greenBlue : getClosestPoint(xy,greenBlue.a,greenBlue.b),
-					greenRed : getClosestPoint(xy,greenRed.a,greenRed.b),
-					blueRed : getClosestPoint(xy,blueRed.a,blueRed.b)
+					greenBlue: getClosestPoint(xy, greenBlue.a, greenBlue.b),
+					greenRed: getClosestPoint(xy, greenRed.a, greenRed.b),
+					blueRed: getClosestPoint(xy, blueRed.a, blueRed.b)
 				};
 
 				let distance = {
-					greenBlue : getLineDistance(xy,closestColorPoints.greenBlue),
-					greenRed : getLineDistance(xy,closestColorPoints.greenRed),
-					blueRed : getLineDistance(xy,closestColorPoints.blueRed)
+					greenBlue: getLineDistance(xy, closestColorPoints.greenBlue),
+					greenRed: getLineDistance(xy, closestColorPoints.greenRed),
+					blueRed: getLineDistance(xy, closestColorPoints.blueRed)
 				};
 
 				let closestDistance;
 				let closestColor;
-				for (let i in distance){
-					if(distance.hasOwnProperty(i)){
-						if(!closestDistance){
+				for (let i in distance) {
+					if (distance.hasOwnProperty(i)) {
+						if (!closestDistance) {
 							closestDistance = distance[i];
 							closestColor = i;
 						}
 
-						if(closestDistance > distance[i]){
+						if (closestDistance > distance[i]) {
 							closestDistance = distance[i];
 							closestColor = i;
 						}
 					}
 
 				}
-				return  closestColorPoints[closestColor];
+				return closestColorPoints[closestColor];
 			}
 
-			static xyBriToRgb(x,y,bri){
-				function getReversedGammaCorrectedValue(value){
+			static xyBriToRgb(x, y, bri) {
+				function getReversedGammaCorrectedValue(value) {
 					return value <= 0.0031308 ? 12.92 * value : (1.0 + 0.055) * Math.pow(value, (1.0 / 2.4)) - 0.055;
 				}
 
@@ -6622,15 +6593,15 @@ vis.binds["vis-inventwo"] = {
 				let Z = (Y / xy.y) * z;
 				let r = X * 1.656492 - Y * 0.354851 - Z * 0.255038;
 				let g = -X * 0.707196 + Y * 1.655397 + Z * 0.036152;
-				let b =  X * 0.051713 - Y * 0.121364 + Z * 1.011530;
+				let b = X * 0.051713 - Y * 0.121364 + Z * 1.011530;
 
 				r = getReversedGammaCorrectedValue(r);
 				g = getReversedGammaCorrectedValue(g);
 				b = getReversedGammaCorrectedValue(b);
 
-				let red = parseInt(r * 255) > 255 ? 255: parseInt(r * 255);
-				let green = parseInt(g * 255) > 255 ? 255: parseInt(g * 255);
-				let blue = parseInt(b * 255) > 255 ? 255: parseInt(b * 255);
+				let red = parseInt(r * 255) > 255 ? 255 : parseInt(r * 255);
+				let green = parseInt(g * 255) > 255 ? 255 : parseInt(g * 255);
+				let blue = parseInt(b * 255) > 255 ? 255 : parseInt(b * 255);
 
 				red = Math.abs(red);
 				green = Math.abs(green);
@@ -6640,18 +6611,17 @@ vis.binds["vis-inventwo"] = {
 			}
 		}
 
-		if(type == "rgb"){
+		if (type == "rgb") {
 			let xy = value.split(",");
 			return ColorConverter.xyBriToRgb(xy[0], xy[1], 255);
-		}
-		else if(type == "cie"){
+		} else if (type == "cie") {
 			let xy = ColorConverter.rgbToXy(value[0], value[1], value[2]);
-			return  xy.x + "," + xy.y;
+			return xy.x + "," + xy.y;
 		}
 	},
 
 	//Color slider helpers
-	updateColorSliderFields: function (wid,view) {
+	updateColorSliderFields: function (wid, view) {
 		vis.activeWidgets.forEach(function (el) {
 			let data = vis.views[vis.activeView].widgets[el].data;
 			let val = data.iColorSliderType;
@@ -6660,8 +6630,7 @@ vis.binds["vis-inventwo"] = {
 				vis.hideShowAttr("iIdRed-oid", true);
 				vis.hideShowAttr("iIdGreen-oid", true);
 				vis.hideShowAttr("iIdBlue-oid", true);
-			}
-			else{
+			} else {
 				vis.hideShowAttr("oid", true);
 				vis.hideShowAttr("iIdRed-oid", false);
 				vis.hideShowAttr("iIdGreen-oid", false);
@@ -6671,7 +6640,7 @@ vis.binds["vis-inventwo"] = {
 		});
 	},
 	updateColorSliderFieldsClick: function (el) {
-		if(vis.editMode) {
+		if (vis.editMode) {
 			$(el).parent().on("mouseup click", function () {
 				setTimeout(function () {
 					vis.binds["vis-inventwo"].updateColorSliderFields();
@@ -6687,37 +6656,33 @@ vis.binds["vis-inventwo"] = {
 	},
 
 
-
 	checkIfTrue: function (data, value, index = null) {
 
-		if((index == null && data.iUniversalWidgetType == "Navigation") ||
-			((data["iCheckType" + index] == "iCheckDefault" && data.iUniversalWidgetType == "Navigation") || data["iCheckType" + index] == "iCheckView")){
+		if ((index == null && data.iUniversalWidgetType == "Navigation") ||
+			((data["iCheckType" + index] == "iCheckDefault" && data.iUniversalWidgetType == "Navigation") || data["iCheckType" + index] == "iCheckView")) {
 
-			if(vis.activeView == data.nav_view){
+			if (vis.activeView == data.nav_view) {
 				return true
-			}
-			else {
+			} else {
 				return false;
 			}
-		}
-		else {
+		} else {
 
 			let oid = null;
 			let value = null;
 			let comparator = null;
 
-			if(index == null){
+			if (index == null) {
 				oid = data.oid;
 				comparator = data.iValueComparison;
 				value = data.iValueTrue;
-			}
-			else{
+			} else {
 				oid = data["oid" + index];
 				comparator = data["iValueComparison" + index];
 				value = data["iValue" + index];
 			}
 
-			if(oid == undefined){
+			if (oid == undefined) {
 				return false;
 			}
 
@@ -6768,9 +6733,9 @@ vis.binds["vis-inventwo"] = {
 
 		let isTrue = this.checkIfTrue(data);
 
-		if(isTrue){
+		if (isTrue) {
 			let invertImg = 0;
-			if(data.iImgColorInvertTrue){
+			if (data.iImgColorInvertTrue) {
 				invertImg = 1;
 			}
 
@@ -6780,10 +6745,9 @@ vis.binds["vis-inventwo"] = {
 				"--image-blink: " + data.iImgBlinkTrue / 1000 + "s;" +
 				"--image-invert: " + invertImg + ";";
 
-		}
-		else{
+		} else {
 			let invertImg = 0;
-			if(data.iImgColorInvertFalse){
+			if (data.iImgColorInvertFalse) {
 				invertImg = 1;
 			}
 
@@ -6801,10 +6765,9 @@ vis.binds["vis-inventwo"] = {
 
 		let isTrue = this.checkIfTrue(data);
 
-		if(isTrue){
+		if (isTrue) {
 			text = data.iTextTrue;
-		}
-		else{
+		} else {
 			text = data.iTextFalse;
 		}
 		return text;
@@ -6815,10 +6778,9 @@ vis.binds["vis-inventwo"] = {
 
 		let isTrue = this.checkIfTrue(data);
 
-		if(isTrue){
+		if (isTrue) {
 			img = data.iImageTrue;
-		}
-		else{
+		} else {
 			img = data.iImageFalse;
 		}
 		return img;
@@ -6969,16 +6931,16 @@ vis.binds["vis-inventwo"] = {
 		let gap = data.iGridGap;
 		let padding = data.iGridPadding;
 
-		if(!isNaN(colWidth)){
+		if (!isNaN(colWidth)) {
 			colWidth = colWidth + "px";
 		}
-		if(!isNaN(rowHeight)){
+		if (!isNaN(rowHeight)) {
 			rowHeight = rowHeight + "px";
 		}
-		if(!isNaN(gap)){
+		if (!isNaN(gap)) {
 			gap = gap + "px";
 		}
-		if(!isNaN(padding)){
+		if (!isNaN(padding)) {
 			padding = padding + "px";
 		}
 
@@ -6996,9 +6958,9 @@ vis.binds["vis-inventwo"] = {
 		$view.css("grid-gap", gap);
 		$view.css("padding", padding);
 
-		if(vis.editMode){
+		if (vis.editMode) {
 
-			if(data.iGridShow){
+			if (data.iGridShow) {
 
 
 			}
@@ -7006,7 +6968,6 @@ vis.binds["vis-inventwo"] = {
 		}
 
 	}
-
 
 
 };

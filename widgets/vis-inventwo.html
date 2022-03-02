@@ -4,11 +4,6 @@
 	Copyright 2022 jkvarel jkvarel@inventwo.com
 -->
 
-
-<!--<link rel="stylesheet" href="widgets/vis-inventwo/css/coloris.css" />-->
-<!--<script src="widgets/vis-inventwo/js/coloris.js"></script>-->
-
-<!--<link rel="stylesheet" href="widgets/vis-inventwo/css/wheelcolorpicker.css" />-->
 <script src="widgets/vis-inventwo/js/iro.min.js"></script>
 
 <link rel="stylesheet" href="widgets/vis-inventwo/css/style.css"/>
@@ -732,8 +727,6 @@
 	%>
 </script>
 
-
-
 <script id="i-vis-color-picker"
 		type="text/ejs"
 		class="vis-tpl"
@@ -824,7 +817,7 @@
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
 		data-vis-name="Color Picker">
-	<div class="vis-widget waves-effect waves-light vis-inventwo-universal-widget" style="width:auto; height:auto; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+	<div class="vis-widget waves-effect waves-light vis-inventwo-universal-widget" style="width:235; height:235; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<%= (el) -> vis.binds['vis-inventwo'].colorPicker(el, this.data) %>
 	</div>
 </script>
