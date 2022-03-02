@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "3.2.8",
+    "version": "3.2.9",
     "news": {
       "3.2.8": {
         "en": "JSON-Table: Added text align für headrow, Radiobutton-List: Added Multi-Row/-Column schema (for more details go to the changelog on Github)",

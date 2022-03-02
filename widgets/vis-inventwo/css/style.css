@@ -29,7 +29,7 @@
 .vis-inventwo-button-text {
     position: relative;
     align-self: flex-start;
-    width: 100%;
+    /*width: 100%;*/
     margin-top: auto;
     z-index: 1;
 }
