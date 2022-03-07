@@ -59,6 +59,7 @@ Colorpicker [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inv
       <tr>
         <td><center><b>Basic Switch<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td>
         <td><center><b>Checkbox/<br>Radiobutton</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td>
+        <td><center><b>Colorpicker<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Colorpicker.png"></td>
     </tr>
 </table>
 
