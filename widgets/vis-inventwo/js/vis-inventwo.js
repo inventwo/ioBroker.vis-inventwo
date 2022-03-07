@@ -1287,6 +1287,24 @@ if (vis.editMode) {
 		//#endregion
 
 		//#region Color Picker
+		"iColorPickerColor1-oid": {
+			"en": "First value",
+			"de": "Erster Wert"
+		},
+		"iColorPickerColor2-oid": {
+			"en": "Second value",
+			"de": "Zweíter Wert"
+		},
+		"iColorPickerColor3-oid": {
+			"en": "Thrid value",
+			"de": "Dritter Wert"
+		},
+		"iColorPickerTransparency-oid": {
+			"en": "Transparency value (optional)",
+			"de": "Transparenz Wert (optional)"
+		},
+
+
 		"iColorPickerWidth": {
 			"en": "Width",
 			"de": "Breite"
@@ -4908,6 +4926,8 @@ vis.binds["vis-inventwo"] = {
 	 */
 	colorPicker: function (el, data) {
 
+		let isMoving = false;
+
 		let dataNew = Object.assign({}, data);
 		if (vis.editMode) {
 			dataNew = vis.binds["vis-inventwo"].getDatapointsValues(dataNew);
@@ -5071,7 +5091,12 @@ vis.binds["vis-inventwo"] = {
 			boxShadowInnerCol: dataNew.iShadowInnerColor,
 		};
 
-		$(el).html(this.buttonPrefab("<div class='vis-inventwo-colorpicker'></div>", dataNew.iText, values));
+		let txt = dataNew.iText;
+		if(txt === undefined){
+			txt = "";
+		}
+
+		$(el).html(this.buttonPrefab("<div class='vis-inventwo-colorpicker'></div>", txt, values));
 
 		let colorPicker = new iro.ColorPicker($(el).find('.vis-inventwo-colorpicker')[0], {
 			width: parseInt(dataNew.iColorPickerWidth),
@@ -5082,6 +5107,15 @@ vis.binds["vis-inventwo"] = {
 			handleRadius: dataNew.iColorPickerHandleRadius,
 			layoutDirection: dataNew.iColorPickerLayoutDirection
 		});
+
+		function isJson(string) {
+			try {
+				JSON.parse(string);
+			} catch (e) {
+				return false;
+			}
+			return true;
+		}
 
 		let hexString = "";
 
@@ -5104,12 +5138,17 @@ vis.binds["vis-inventwo"] = {
 					}
 					break;
 				case "RGB":
-					if (dataNew.oid1 != "" && dataNew.oid2 != "" && dataNew.oid3 != "") {
+					if (dataNew["iColorPickerColor1-oid"] != "" && dataNew["iColorPickerColor2-oid"] != "" && dataNew["iColorPickerColor3-oid"] != "") {
 						colorPicker.color.rgb = {
-							r: vis.states[dataNew.oid1 + ".val"],
-							g: vis.states[dataNew.oid2 + ".val"],
-							b: vis.states[dataNew.oid3 + ".val"],
+							r: parseInt(vis.states[dataNew["iColorPickerColor1-oid"] + ".val"]),
+							g: parseInt(vis.states[dataNew["iColorPickerColor2-oid"] + ".val"]),
+							b: parseInt(vis.states[dataNew["iColorPickerColor3-oid"] + ".val"])
 						}
+						console.log({
+							r: parseInt(vis.states[dataNew["iColorPickerColor1-oid"] + ".val"]),
+							g: parseInt(vis.states[dataNew["iColorPickerColor2-oid"] + ".val"]),
+							b: parseInt(vis.states[dataNew["iColorPickerColor3-oid"] + ".val"])
+						});
 					} else {
 						colorPicker.color.rgb = {
 							r: 255,
@@ -5119,11 +5158,11 @@ vis.binds["vis-inventwo"] = {
 					}
 					break;
 				case "HSL":
-					if (dataNew.oid1 != "" && dataNew.oid2 != "" && dataNew.oid3 != "") {
+					if (dataNew["iColorPickerColor1-oid"] != "" && dataNew["iColorPickerColor2-oid"] != "" && dataNew["iColorPickerColor3-oid"] != "") {
 						colorPicker.color.hsl = {
-							h: vis.states[dataNew.oid1 + ".val"],
-							s: vis.states[dataNew.oid2 + ".val"],
-							l: vis.states[dataNew.oid3 + ".val"],
+							h: parseInt(vis.states[dataNew["iColorPickerColor1-oid"] + ".val"]),
+							s: parseInt(vis.states[dataNew["iColorPickerColor2-oid"] + ".val"]),
+							l: parseInt(vis.states[dataNew["iColorPickerColor3-oid"] + ".val"])
 						}
 					} else {
 						colorPicker.color.hsl = {
@@ -5134,11 +5173,11 @@ vis.binds["vis-inventwo"] = {
 					}
 					break;
 				case "HSV":
-					if (dataNew.oid1 != "" && dataNew.oid2 != "" && dataNew.oid3 != "") {
+					if (dataNew["iColorPickerColor1-oid"] != "" && dataNew["iColorPickerColor2-oid"] != "" && dataNew["iColorPickerColor3-oid"] != "") {
 						colorPicker.color.hsv = {
-							h: vis.states[dataNew.oid1 + ".val"],
-							s: vis.states[dataNew.oid2 + ".val"],
-							v: vis.states[dataNew.oid3 + ".val"],
+							h: parseInt(vis.states[dataNew["iColorPickerColor1-oid"] + ".val"]),
+							s: parseInt(vis.states[dataNew["iColorPickerColor2-oid"] + ".val"]),
+							v: parseInt(vis.states[dataNew["iColorPickerColor3-oid"] + ".val"])
 						}
 					} else {
 						colorPicker.color.hsv = {
@@ -5148,18 +5187,40 @@ vis.binds["vis-inventwo"] = {
 						}
 					}
 					break;
+				case "CIE":
+					let dpValue = vis.states[dataNew.oid + ".val"];
+					if (isJson(dpValue)) {
+						let jsonVal = JSON.parse(dpValue);
+						dpValue = jsonVal.join(",");
+						dpIsArrayWithBrackets = true;
+					} else if (typeof dpValue == "object") {
+						dpValue = dpValue.join(",");
+						dpIsArray = true;
+					}
+					let rgb = vis.binds['vis-inventwo'].cieConvert(dpValue, "rgb");
+					colorPicker.color.rgb = {
+						r: rgb[0],
+						g: rgb[1],
+						b: rgb[2],
+					}
+					break;
 				default:
 					console.log("Error! Color model not implemented!");
 					break;
 			}
+
+			colorPicker.color.alpha = vis.states[dataNew["iColorPickerTransparency-oid"] + ".val"];
 		}
 
 		setPickerColor();
 
-		colorPicker.on('color:change', function (color) {
-			if (color.index === 0) {
-				console.log(color);
+		colorPicker.on('input:start', function (){
+			isMoving = true;
+		});
 
+		colorPicker.on('input:change', function (color){
+			console.log(color);
+			if (color.index === 0) {
 				switch (dataNew.iColorPickerFormat) {
 					case "HEX":
 						vis.setValue(dataNew.oid, color.hexString);
@@ -5168,32 +5229,101 @@ vis.binds["vis-inventwo"] = {
 						vis.setValue(dataNew.oid, color.hex8String);
 						break;
 					case "RGB":
-						vis.setValue(dataNew.oid1, color.rgb.r);
-						vis.setValue(dataNew.oid2, color.rgb.g);
-						vis.setValue(dataNew.oid3, color.rgb.b);
+						vis.setValue(dataNew["iColorPickerColor1-oid"], color.rgb.r);
+						vis.setValue(dataNew["iColorPickerColor2-oid"], color.rgb.g);
+						vis.setValue(dataNew["iColorPickerColor3-oid"], color.rgb.b);
 						break;
 					case "HSL":
-						vis.setValue(dataNew.oid1, color.hsl.h);
-						vis.setValue(dataNew.oid2, color.hsl.s);
-						vis.setValue(dataNew.oid3, color.hsl.l);
+						vis.setValue(dataNew["iColorPickerColor1-oid"], color.hsl.h);
+						vis.setValue(dataNew["iColorPickerColor2-oid"], color.hsl.s);
+						vis.setValue(dataNew["iColorPickerColor3-oid"], color.hsl.l);
 						break;
 					case "HSV":
-						vis.setValue(dataNew.oid1, color.hsv.h);
-						vis.setValue(dataNew.oid2, color.hsv.s);
-						vis.setValue(dataNew.oid3, color.hsv.v);
+						vis.setValue(dataNew["iColorPickerColor1-oid"], color.hsv.h);
+						vis.setValue(dataNew["iColorPickerColor2-oid"], color.hsv.s);
+						vis.setValue(dataNew["iColorPickerColor3-oid"], color.hsv.v);
+						break;
+					case "CIE":
+						vis.setValue(dataNew.oid, vis.binds['vis-inventwo'].cieConvert(
+							[color.rgb.r, color.rgb.g, color.rgb.b], "cie"));
 						break;
 					default:
 						console.log("Error! Color model not implemented!");
 						break;
 				}
+
+				vis.setValue(dataNew["iColorPickerTransparency-oid"], color.alpha);
 			}
 		});
 
+		colorPicker.on('input:end', function (){
+			setTimeout(function (){
+				isMoving = false;
+			},100);
+		});
+
 		vis.states.bind(dataNew.oid + ".val", function (e, newVal, oldVal) {
-			if (newVal != oldVal) {
+			if (newVal !== oldVal && !isMoving) {
 				setPickerColor();
 			}
 		});
+
+		vis.states.bind(dataNew["iColorPickerTransparency-oid"] + ".val", function (e, newVal, oldVal) {
+			if (newVal !== oldVal && !isMoving) {
+				setPickerColor();
+			}
+		});
+
+		vis.states.bind(dataNew["iColorPickerColor1-oid"] + ".val", function (e, newVal, oldVal) {
+			if (newVal !== oldVal && !isMoving) {
+				setPickerColor();
+			}
+		});
+		vis.states.bind(dataNew["iColorPickerColor2-oid"] + ".val", function (e, newVal, oldVal) {
+			if (newVal !== oldVal && !isMoving) {
+				setPickerColor();
+			}
+		});
+		vis.states.bind(dataNew["iColorPickerColor3-oid"] + ".val", function (e, newVal, oldVal) {
+			if (newVal !== oldVal && !isMoving) {
+				setPickerColor();
+			}
+		});
+	},
+
+	updateColorPickerFields: function (wid, view) {
+		vis.activeWidgets.forEach(function (el) {
+			let data = vis.views[vis.activeView].widgets[el].data;
+			let val = data.iColorPickerFormat;
+			if (val == "RGB" || val == "HSL" || val == "HSV") {
+				vis.hideShowAttr("oid", false);
+				vis.hideShowAttr("iColorPickerColor1-oid", true);
+				vis.hideShowAttr("iColorPickerColor2-oid", true);
+				vis.hideShowAttr("iColorPickerColor3-oid", true);
+			} else {
+				vis.hideShowAttr("oid", true);
+				vis.hideShowAttr("iColorPickerColor1-oid", false);
+				vis.hideShowAttr("iColorPickerColor2-oid", false);
+				vis.hideShowAttr("iColorPickerColor3-oid", false);
+			}
+
+		});
+	},
+
+	updateColorPickerFieldsClick: function (el) {
+		if (vis.editMode) {
+			$(el).parent().on("mouseup click", function () {
+				setTimeout(function () {
+					vis.binds["vis-inventwo"].updateColorPickerFields();
+				}, 100);
+			});
+
+			$(".group-control").on("mouseup click", function () {
+				setTimeout(function () {
+					vis.binds["vis-inventwo"].updateColorPickerFields();
+				}, 100);
+			});
+		}
 	},
 
 	//Funktion um im VIS Edit das Binding der Datenpunkte aufzulösen, damit die Werte wie in der Live auch im Editor zu sehen sind
@@ -6578,6 +6708,37 @@ vis.binds["vis-inventwo"] = {
 			}
 
 			static xyBriToRgb(x, y, bri) {
+				// function getReversedGammaCorrectedValue(value) {
+				//     return value <= 0.0031308 ? 12.92 * value : (1.0 + 0.055) * Math.pow(value, (1.0 / 2.4)) - 0.055;
+				// }
+				//
+				// let xy = {
+				//     x: x,
+				//     y: y
+				// };
+				//
+				// let z = 1.0 - xy.x - xy.y;
+				// let Y = bri / 255;
+				// let X = (Y / xy.y) * xy.x;
+				// let Z = (Y / xy.y) * z;
+				// let r = X * 1.656492 - Y * 0.354851 - Z * 0.255038;
+				// let g = -X * 0.707196 + Y * 1.655397 + Z * 0.036152;
+				// let b = X * 0.051713 - Y * 0.121364 + Z * 1.011530;
+				//
+				// r = getReversedGammaCorrectedValue(r);
+				// g = getReversedGammaCorrectedValue(g);
+				// b = getReversedGammaCorrectedValue(b);
+				//
+				// let red = parseInt(r * 255) > 255 ? 255 : parseInt(r * 255);
+				// let green = parseInt(g * 255) > 255 ? 255 : parseInt(g * 255);
+				// let blue = parseInt(b * 255) > 255 ? 255 : parseInt(b * 255);
+				//
+				// red = Math.abs(red);
+				// green = Math.abs(green);
+				// blue = Math.abs(blue);
+				//
+				// return [red, green, blue];
+
 				function getReversedGammaCorrectedValue(value) {
 					return value <= 0.0031308 ? 12.92 * value : (1.0 + 0.055) * Math.pow(value, (1.0 / 2.4)) - 0.055;
 				}
@@ -6599,21 +6760,31 @@ vis.binds["vis-inventwo"] = {
 				g = getReversedGammaCorrectedValue(g);
 				b = getReversedGammaCorrectedValue(b);
 
-				let red = parseInt(r * 255) > 255 ? 255 : parseInt(r * 255);
-				let green = parseInt(g * 255) > 255 ? 255 : parseInt(g * 255);
-				let blue = parseInt(b * 255) > 255 ? 255 : parseInt(b * 255);
+				// Bring all negative components to zero
+				r = Math.max(r, 0);
+				g = Math.max(g, 0);
+				b = Math.max(b, 0);
 
-				red = Math.abs(red);
-				green = Math.abs(green);
-				blue = Math.abs(blue);
+				// If one component is greater than 1, weight components by that value
+				let max = Math.max(r, g, b);
+				if (max > 1) {
+					r = r / max;
+					g = g / max;
+					b = b / max;
+				}
 
-				return [red, green, blue];
+				return [
+					Math.floor(r * 255),
+					Math.floor(g * 255),
+					Math.floor(b * 255)
+				];
+
 			}
 		}
 
 		if (type == "rgb") {
 			let xy = value.split(",");
-			return ColorConverter.xyBriToRgb(xy[0], xy[1], 255);
+			return ColorConverter.xyBriToRgb(xy[0], xy[1], 254);
 		} else if (type == "cie") {
 			let xy = ColorConverter.rgbToXy(value[0], value[1], value[2]);
 			return xy.x + "," + xy.y;

@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "3.2.9",
+    "version": "3.3.0",
     "news": {
+      "3.3.0": {
+        "en": "New widget: configurable colorpicker for HEX, RGB, HSL, HSV and CIE/XY",
+        "de": "Neues Widget: Konfigurierbarer Colorpicker für HEX, RGB, HSL, HSV und CIE/XY",
+        "ru": "Новый виджет: настраиваемый инструмент выбора цвета для HEX, RGB, HSL, HSV и CIE/XY.",
+        "pt": "Novo widget: seletor de cores configurável para HEX, RGB, HSL, HSV e CIE/XY",
+        "nl": "Nieuwe widget: configureerbare kleurenkiezer voor HEX, RGB, HSL, HSV en CIE/XY",
+        "fr": "Nouveau widget : sélecteur de couleurs configurable pour HEX, RVB, HSL, HSV et CIE/XY",
+        "it": "Nuovo widget: selettore colore configurabile per HEX, RGB, HSL, HSV e CIE/XY",
+        "es": "Nuevo widget: selector de color configurable para HEX, RGB, HSL, HSV y CIE/XY",
+        "pl": "Nowy widżet: konfigurowalny selektor kolorów dla HEX, RGB, HSL, HSV i CIE/XY",
+        "zh-cn": "新小部件：用于 HEX、RGB、HSL、HSV 和 CIE/XY 的可配置颜色选择器"
+      },
       "3.2.8": {
         "en": "JSON-Table: Added text align für headrow, Radiobutton-List: Added Multi-Row/-Column schema (for more details go to the changelog on Github)",
         "de": "JSON-Tabelle: text align für headrow hinzugefügt, Radiobutton-List: Multi-Row/-Column Schema hinzugefügt (weitere Details finden Sie im Changelog auf Github)",

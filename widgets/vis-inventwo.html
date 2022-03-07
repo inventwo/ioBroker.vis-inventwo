@@ -585,6 +585,101 @@
 
 </script>
 
+<script id="i-vis-color-picker"
+		type="text/ejs"
+		class="vis-tpl"
+		data-vis-prev='<img src="widgets/vis-inventwo/img/Colorpicker.png">'
+		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
+						oid/id;
+						oid1/id;
+						oid2/id;
+						oid3/id;
+						iText/html;
+
+						iText-ColorPickerSettings/custom,vis-inventwo.infoText,emptyText;
+						iColorPickerFormat[HEX]/nselect,HEX,HEX 8,RGB,HSL,HSV;
+						iColorPickerLayoutDirection[vertical]/select,vertical,horizontal;
+						iColorPickerShowWheel[true]/checkbox;
+						iColorPickerShowSliderHue[]/checkbox;
+						iColorPickerShowSliderSaturation[]/checkbox;
+						iColorPickerShowSliderValue[]/checkbox;
+						iColorPickerShowSliderRed[]/checkbox;
+						iColorPickerShowSliderGreen[]/checkbox;
+						iColorPickerShowSliderBlue[]/checkbox;
+						iColorPickerShowSliderAlpha[]/checkbox;
+						iColorPickerShowSliderKelvin[]/checkbox;"
+		data-vis-attrs0="group.i-css;
+						 iText-ColorPickerSettings/custom,vis-inventwo.infoText,emptyText;
+						 iColorPickerWidth[200]/slider,50,500,1;
+						 iColorPickerComponentMargin[12]/slider,1,50,1;
+						 iColorPickerHandleRadius[8]/slider,1,50,1;
+						 iColorPickerHandlePadding[6]/slider,1,50,1;
+
+						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
+						 iButtonCol[#333333]/color;
+						 iOpacityBack[1]/slider,0,1,0.1;
+
+						 iText-CornerSettings/custom,vis-inventwo.infoText,emptyText;
+						 iCornerRadiusUL[12]/slider,0,50,1;
+						 iCornerRadiusUR[0]/slider,0,50,1;
+						 iCornerRadiusLR[12]/slider,0,50,1;
+						 iCornerRadiusLL[0]/slider,0,50,1;
+
+						 iText-ContentSettings/custom,vis-inventwo.infoText,emptyText;
+						 iContentFlexDirection[vertical]/select,horizontal,vertical;
+						 iContentVertAlign[iSpace-between]/select,iStart,iCenter,iEnd,iSpace-between;
+						 iContentOrder[orderImgText]/select,orderTextImg,orderImgText;
+						 iOpacityCtn[1]/slider,0,1,0.1;
+
+						 iText-TextSettings/custom,vis-inventwo.infoText,emptyText;
+						 iTextColor[#ffffff]/color;
+						 iTextSize[12]/slider,0,50,1;
+						 iTextAlign[iStart]/select,iStart,iCenter,iEnd;
+						 iTextDecoration[none]/nselect,none,underline,overline,line-through;
+						 iTextSpaceTop[0]/slider,0,50,1;
+						 iTextSpaceBottom[0]/slider,0,50,1;
+						 iTextSpaceLeft[0]/slider,0,50,1;
+						 iTextSpaceRight[0]/slider,0,50,1;
+
+						 iText-ImageSettings/custom,vis-inventwo.infoText,emptyText;
+						 iImgAlign[iCenter]/select,iStart,iCenter,iEnd;
+						 iImgSpaceTop[5]/slider,0,50,1;
+						 iImgSpaceBottom[0]/slider,0,50,1;
+						 iImgSpaceLeft[0]/slider,0,50,1;
+						 iImgSpaceRight[0]/slider,0,50,1;
+
+						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
+						 iShadowXOffset[2]/slider,0,20,1;
+						 iShadowYOffset[2]/slider,0,20,1;
+						 iShadowBlur[2]/slider,0,20,1;
+						 iShadowSpread[1]/slider,0,20,1;
+						 iShadowColor[#111111]/color;
+
+						 iText-ShadowInnerSettings/custom,vis-inventwo.infoText,emptyText;
+						 iShadowInnerXOffset[0]/slider,0,20,1;
+						 iShadowInnerYOffset[0]/slider,0,20,1;
+						 iShadowInnerBlur[0]/slider,0,20,1;
+						 iShadowInnerSpread[0]/slider,0,20,1;
+						 iShadowInnerColor[#111111]/color;
+
+						 iText-TextShadowSettings/custom,vis-inventwo.infoText,emptyText;
+						 iShadowTextXOffset[0]/slider,0,20,1;
+						 iShadowTextYOffset[0]/slider,0,20,1;
+						 iShadowTextBlur[0]/slider,0,20,1;
+						 iShadowTextColor[#111111]/color;
+
+						 iText-BorderSettings/custom,vis-inventwo.infoText,emptyText;
+						 iBorderSize[0]/slider,0,20,1;
+						 iBorderStyle[none]/nselect,dotted,dashed,solid,double,groove,ridge,inset,outset,none;
+						 iBorderColor[#ffffff]/color;"
+		data-vis-set="vis-inventwo"
+		data-vis-type="ctrl"
+		data-vis-name="Color Picker">
+	<div class="vis-widget waves-effect waves-light vis-inventwo-universal-widget" style="width:235; height:235; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+		<%= (el) -> vis.binds['vis-inventwo'].colorPicker(el, this.data) %>
+	</div>
+</script>
+
 <script id="i-vis-slider-color-hor"
 		type="text/ejs"
 		class="vis-tpl"
@@ -726,105 +821,6 @@
 
 	%>
 </script>
-
-<script id="i-vis-color-picker"
-		type="text/ejs"
-		class="vis-tpl"
-		data-vis-prev='<img src="widgets/vis-inventwo/img/ColorSliderVert.png">'
-		data-vis-attrs="iWiki/custom,vis-inventwo.externalLinks,wiki;
-						oid/id;
-						oid1/id;
-						oid2/id;
-						oid3/id;
-						iText/html;
-
-						iText-ColorPickerSettings/custom,vis-inventwo.infoText,emptyText;
-						iColorPickerFormat[HEX]/nselect,HEX,HEX 8,RGB,HSL,HSV;
-						iColorPickerLayoutDirection[vertical]/select,vertical,horizontal;
-						iColorPickerShowWheel[true]/checkbox;
-						iColorPickerShowSliderHue[]/checkbox;
-						iColorPickerShowSliderSaturation[]/checkbox;
-						iColorPickerShowSliderValue[]/checkbox;
-						iColorPickerShowSliderRed[]/checkbox;
-						iColorPickerShowSliderGreen[]/checkbox;
-						iColorPickerShowSliderBlue[]/checkbox;
-						iColorPickerShowSliderAlpha[]/checkbox;
-						iColorPickerShowSliderKelvin[]/checkbox;"
-		data-vis-attrs0="group.i-css;
-						 iText-ColorPickerSettings/custom,vis-inventwo.infoText,emptyText;
-						 iColorPickerWidth[200]/slider,50,500,1;
-						 iColorPickerComponentMargin[12]/slider,1,50,1;
-						 iColorPickerHandleRadius[8]/slider,1,50,1;
-						 iColorPickerHandlePadding[6]/slider,1,50,1;
-
-						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
-						 iButtonCol[#333333]/color;
-						 iOpacityBack[1]/slider,0,1,0.1;
-
-						 iText-CornerSettings/custom,vis-inventwo.infoText,emptyText;
-						 iCornerRadiusUL[12]/slider,0,50,1;
-						 iCornerRadiusUR[0]/slider,0,50,1;
-						 iCornerRadiusLR[12]/slider,0,50,1;
-						 iCornerRadiusLL[0]/slider,0,50,1;
-
-						 iText-ContentSettings/custom,vis-inventwo.infoText,emptyText;
-						 iContentFlexDirection[vertical]/select,horizontal,vertical;
-						 iContentVertAlign[iSpace-between]/select,iStart,iCenter,iEnd,iSpace-between;
-						 iContentOrder[orderImgText]/select,orderTextImg,orderImgText;
-						 iOpacityCtn[1]/slider,0,1,0.1;
-
-						 iText-TextSettings/custom,vis-inventwo.infoText,emptyText;
-						 iTextColor[#ffffff]/color;
-						 iTextSize[12]/slider,0,50,1;
-						 iTextAlign[iStart]/select,iStart,iCenter,iEnd;
-						 iTextDecoration[none]/nselect,none,underline,overline,line-through;
-						 iTextSpaceTop[0]/slider,0,50,1;
-						 iTextSpaceBottom[0]/slider,0,50,1;
-						 iTextSpaceLeft[0]/slider,0,50,1;
-						 iTextSpaceRight[0]/slider,0,50,1;
-
-						 iText-ImageSettings/custom,vis-inventwo.infoText,emptyText;
-						 iImgAlign[iCenter]/select,iStart,iCenter,iEnd;
-						 iImgSpaceTop[5]/slider,0,50,1;
-						 iImgSpaceBottom[0]/slider,0,50,1;
-						 iImgSpaceLeft[0]/slider,0,50,1;
-						 iImgSpaceRight[0]/slider,0,50,1;
-
-						 iText-ShadowSettings/custom,vis-inventwo.infoText,emptyText;
-						 iShadowXOffset[2]/slider,0,20,1;
-						 iShadowYOffset[2]/slider,0,20,1;
-						 iShadowBlur[2]/slider,0,20,1;
-						 iShadowSpread[1]/slider,0,20,1;
-						 iShadowColor[#111111]/color;
-
-						 iText-ShadowInnerSettings/custom,vis-inventwo.infoText,emptyText;
-						 iShadowInnerXOffset[0]/slider,0,20,1;
-						 iShadowInnerYOffset[0]/slider,0,20,1;
-						 iShadowInnerBlur[0]/slider,0,20,1;
-						 iShadowInnerSpread[0]/slider,0,20,1;
-						 iShadowInnerColor[#111111]/color;
-
-						 iText-TextShadowSettings/custom,vis-inventwo.infoText,emptyText;
-						 iShadowTextXOffset[0]/slider,0,20,1;
-						 iShadowTextYOffset[0]/slider,0,20,1;
-						 iShadowTextBlur[0]/slider,0,20,1;
-						 iShadowTextColor[#111111]/color;
-
-						 iText-BorderSettings/custom,vis-inventwo.infoText,emptyText;
-						 iBorderSize[0]/slider,0,20,1;
-						 iBorderStyle[none]/nselect,dotted,dashed,solid,double,groove,ridge,inset,outset,none;
-						 iBorderColor[#ffffff]/color;"
-		data-vis-set="vis-inventwo"
-		data-vis-type="ctrl"
-		data-vis-name="Color Picker">
-	<div class="vis-widget waves-effect waves-light vis-inventwo-universal-widget" style="width:235; height:235; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
-		<%= (el) -> vis.binds['vis-inventwo'].colorPicker(el, this.data) %>
-	</div>
-</script>
-
-
-
-
 
 <script id="i-vis-image-new"
 		type="text/ejs"

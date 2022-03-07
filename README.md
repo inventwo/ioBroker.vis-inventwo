@@ -80,6 +80,9 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 3.3.0
+- Neues Widget: Konfigurierbarer Colorpicker für HEX, RGB, HSL, HSV und CIE/XY basierend auf [iro.js](https://iro.js.org/)
+
 ## 3.2.8
 - Radiobutton-List: Mehrzeilige/Mehrspaltige Darstellung möglich  [#393](https://github.com/inventwo/ioBroker.vis-inventwo/issues/393)
 - JSON-Tabelle: Textausrichtung für Kopfzeile hinzugefügt [#394](https://github.com/inventwo/ioBroker.vis-inventwo/issues/394)
