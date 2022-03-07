@@ -28,6 +28,10 @@ Digital Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-i
 
 ![Vorschau Digital Uhren](https://resources.inventwo.com/github/inventwo/preview_clocks_digital.png)
 
+Colorpicker [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
+
+![Vorschau Colorpicker](https://resources.inventwo.com/github/inventwo/Preview_Colorpicker.png)
+
 ###### .. ab v 2.0.0
 
 <table>
