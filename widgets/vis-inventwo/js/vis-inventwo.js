@@ -2753,13 +2753,13 @@ vis.binds["vis-inventwo"] = {
 
 						let label = null;
 						if (options.orientation == "horizontal") {
-							let val = data.iInvertMinMax ? opt.max - i * data.iVisibleStepVal : i * data.iVisibleStepVal;
+							let val = data.iInvertMinMax ? opt.max - i * data.iVisibleStepVal : i * parseInt(data.iVisibleStepVal) + parseInt(data.iVisibleStepVal);
 							label = $('<span class="vis-inventwo-slider-step-label">' + val + '</span>')
 								.css('left', (i / vals * 100) + '%')
 								.css('margin-top', sliderHeight / 2 + 10 + 'px')
 								.css('font-size', data.iStepTextSize + "px");
 						} else {
-							let val = data.iInvertMinMax ? i * data.iVisibleStepVal : opt.max - i * data.iVisibleStepVal;
+							let val = data.iInvertMinMax ? i * data.iVisibleStepVal : opt.max - i * parseInt(data.iVisibleStepVal);
 							label = $('<span class="vis-inventwo-slider-step-label">' + val + '</span>')
 								.css('top', (i / vals * 100) + '%')
 								.css('margin-left', sliderHeight / 2 + 10 + 'px')

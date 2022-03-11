@@ -171,7 +171,7 @@
 		data-vis-name="Universal<br>
 						<span style='color:#888888;'>Switch - State/Button - Navigation - Background</span>">
 
-	<div class="vis-widget waves-effect waves-light vis-inventwo-universal-widget" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+	<div class="vis-widget waves-effect waves-light vis-inventwo-universal-widget <%== this.data.attr('class') %>" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<%= (el) -> vis.binds['vis-inventwo'].universalButton2(el, this.data,'universal') %>
 		<%= (el) -> vis.binds['vis-inventwo'].hideImgFilterFields(el) %>
 	</div>
@@ -357,7 +357,7 @@
 		data-vis-name="Multi<br>
 						<span style='color:#888888;'>Switch - State/Button - Navigation - Background</span>">
 
-	<div class="vis-widget waves-effect waves-light vis-inventwo-multi-widget" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+	<div class="vis-widget waves-effect waves-light vis-inventwo-multi-widget <%== this.data.attr('class') %>" style="width:110px; height:110px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<%= (el) -> vis.binds['vis-inventwo'].universalButton2(el, this.data,'multi') %>
 		<%= (el) -> vis.binds['vis-inventwo'].hideImgFilterFields(el) %>
 	</div>
@@ -675,7 +675,7 @@
 		data-vis-set="vis-inventwo"
 		data-vis-type="ctrl"
 		data-vis-name="Color Picker">
-	<div class="vis-widget waves-effect waves-light vis-inventwo-universal-widget" style="width:235; height:235; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
+	<div class="vis-widget waves-effect waves-light vis-inventwo-universal-widget <%== this.data.attr('class') %>" style="width:235; height:235; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
 		<%= (el) -> vis.binds['vis-inventwo'].colorPicker(el, this.data) %>
 	</div>
 </script>
