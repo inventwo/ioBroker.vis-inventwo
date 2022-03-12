@@ -28,23 +28,7 @@ class visInventwo extends utils.Adapter {
 		this.on("unload", this.onUnload.bind(this));
 	}
 
-	/**
-	 * Is called when databases are connected and adapter received configuration.
-	 */
 	async onReady() {
-		// Initialize your adapter here
-
-//      this.log.info("config Stripes: " + this.config.Stripes);
-//      this.log.info("config Background: " + this.config.Background);
-//      this.log.info("config Radius: " + this.config.Radius);
-//      this.log.info("config Info: " + this.config.Info);
-
-		/*
-		For every state in the system there has to be also an object of type state
-		Here a simple template for a boolean variable named "testVariable"
-		Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
-		*/
-		
 
 		let states = [
 			{
@@ -592,53 +576,74 @@ class visInventwo extends utils.Adapter {
 									}
 								]
 							},
+							// Wallpaper
+							{
+								typ: "channel",
+								id: "Wallpaper",
+								name: "Walpaper",
+								childs: [
+									// URL
+									{
+										typ: "state",
+										id: "WallpaperURL1",
+										name: "Wallpaper URL 1",
+										type: "string",
+										value: "/vis-icontwo/Backgrounds/108_g.jpg"
+									},
+									{
+										typ: "state",
+										id: "WallpaperURL2",
+										name: "Wallpaper URL 2",
+										type: "string",
+										value: "/vis-icontwo/Backgrounds/200.jpg"
+									},
+									// Transparenz
+									{
+										typ: "state",
+										id: "WallpaperOpacity",
+										name: "Wallpaper Opacity",
+										type: "number",
+										value: "0.9"
+									}
+								]
+							}
 						]
+					}
+					// Dark Style
+				]
+			},
+			// Altlasten
+			{
+				typ: "channel",
+				id: "CSS",
+				name: "CSS Older Nature",
+				childs: [
+					{
+						typ: "state",
+						id: "Button",
+						name: "Button Color",
+						type: "string",
+						value: "#333333",
 					},
+					{
+						typ: "state",
+						id: "Active",
+						name: "Button Color Active",
+						type: "string",
+						value: "#455618",
+					},
+					{
+						typ: "state",
+						id: "Text",
+						name: "Text Color",
+						type: "string",
+						value: "#C7C7C7",
+					}
 				]
 			}
 		];
 
 
-        
-		// in this template all states changes inside the adapters namespace are subscribed
-        this.subscribeStates("CSS.Button");
-        this.subscribeStates("CSS.Active");
-        this.subscribeStates("CSS.Text");
-//      this.subscribeStates("CSS.Stripes");
-//      this.subscribeStates("CSS.Background");
-//      this.subscribeStates("CSS.Radius");
-//      this.subscribeStates("CSS.Info");
-
-		/*
-		setState examples
-		you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
-		*/
-		// the variable testVariable is set to true as command (ack=false)
-		//await this.setStateAsync("testVariable", true);
-
-		// same thing, but the value is flagged "ack"
-		// ack should be always set to true if the value is received from or acknowledged from the target system
-		if(await this.getStateAsync("CSS.Button") == null)
-        	await this.setStateAsync("CSS.Button", { val: "#333333", ack: true });
-		if(await this.getStateAsync("CSS.Active") == null)
-        	await this.setStateAsync("CSS.Active", { val: "#455618", ack: true });
-		if(await this.getStateAsync("CSS.Text") == null)
-        	await this.setStateAsync("CSS.Text", { val: "#C7C7C7", ack: true });
-//      await this.setStateAsync("CSS.Stripes", { val: this.config.Stripes, ack: true });
-//      await this.setStateAsync("CSS.Background", { val: this.config.Background, ack: true });
-//      await this.setStateAsync("CSS.Radius", { val: this.config.Radius, ack: true });
-//      await this.setStateAsync("Info", { val: this.config.Version, ack: true });
-       
-
-		// same thing, but the state is deleted after 30s (getState will return null afterwards)
-		//await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
-
-		// examples for the checkPassword/checkGroup functions
-		//let result = await this.checkPasswordAsync("admin", "ioBroker");
-		//this.log.info("check user admin pw ioBroker: " + result);
-
-		//result = await this.checkGroupAsync("admin", "admin");
-		//this.log.info("check group user admin group admin: " + result);
 	}
 
 	/**
@@ -683,24 +688,6 @@ class visInventwo extends utils.Adapter {
 			this.log.info(`state ${id} deleted`);
 		}
 	}
-
-	// /**
-	//  * Some message was sent to this instance over message box. Used by email, pushover, text2speech, ...
-	//  * Using this method requires "common.message" property to be set to true in io-package.json
-	//  * @param {ioBroker.Message} obj
-	//  */
-	// onMessage(obj) {
-	// 	if (typeof obj === "object" && obj.message) {
-	// 		if (obj.command === "send") {
-	// 			// e.g. send email or pushover or whatever
-	// 			this.log.info("send command");
-
-	// 			// Send response in callback if required
-	// 			if (obj.callback) this.sendTo(obj.from, obj.command, "Message received", obj.callback);
-	// 		}
-	// 	}
-	// }
-
 }
 
 // @ts-ignore parent is a valid property on module
