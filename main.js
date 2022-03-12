@@ -82,36 +82,7 @@ class visInventwo extends utils.Adapter {
 							}
 						]
 					},
-					{
-						typ: "channel",
-						id: "Dark",
-						name: "Dark Style",
-						childs: [
-							{
-								typ: "channel",
-								id: "General",
-								name: "General Settings",
-								childs: [
-									{
-										typ: "state",
-										id: "Color1",
-										name: "Button Color 1",
-										type: "string",
-										role: "inventwo.color"
-									},
-									{
-										typ: "state",
-										id: "ColorActive1",
-										name: "Button Color Active 1",
-										type: "string",
-										role: "inventwo.color"
-									}
-								]
-							}
-						]
-					}
 				]
-
 			}
 		];
 
