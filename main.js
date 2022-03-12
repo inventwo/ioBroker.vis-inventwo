@@ -4,12 +4,7 @@
  * Created with @ioBroker/create-adapter v1.21.1
  */
 
-// The adapter-core module gives you access to the core ioBroker functions
-// you need to create an adapter
 const utils = require("@iobroker/adapter-core");
-
-// Load  your  modules here, e.g.:
-// const fs = require("fs");
 
 class visInventwo extends utils.Adapter {
 
@@ -22,9 +17,6 @@ class visInventwo extends utils.Adapter {
 			name: "vis-inventwo",
 		});
 		this.on("ready", this.onReady.bind(this));
-		//this.on("objectChange", this.onObjectChange.bind(this));
-		//this.on("stateChange", this.onStateChange.bind(this));
-		//this.on("message", this.onMessage.bind(this));
 		this.on("unload", this.onUnload.bind(this));
 	}
 
