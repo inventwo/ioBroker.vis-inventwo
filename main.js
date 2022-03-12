@@ -24,7 +24,7 @@ class visInventwo extends utils.Adapter {
 		this.on("ready", this.onReady.bind(this));
 		//this.on("objectChange", this.onObjectChange.bind(this));
 		//this.on("stateChange", this.onStateChange.bind(this));
-		// this.on("message", this.onMessage.bind(this));
+		//this.on("message", this.onMessage.bind(this));
 		this.on("unload", this.onUnload.bind(this));
 	}
 
@@ -45,86 +45,77 @@ class visInventwo extends utils.Adapter {
 		Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
 		*/
 		
-        await this.setObjectAsync("CSS.Button", {
-			type: "state",
-			common: {
-				name: "Button-Color",
-				type: "string",
-				role: "inventwo.color",
-				read: true,
-				write: true,
-			},
-			native: {},
-        });
-        await this.setObjectAsync("CSS.Active", {
-			type: "state",
-			common: {
-				name: "Button-Active-Color",
-				type: "string",
-				role: "inventwo.color",
-				read: true,
-				write: true,
-			},
-            native: {},
-        });
-        await this.setObjectAsync("CSS.Text", {
-			type: "state",
-			common: {
-				name: "Text-Color",
-				type: "string",
-				role: "inventwo.color",
-				read: true,
-				write: true,
-			},
-			native: {},
-       });
-  /*
-        await this.setObjectAsync("CSS.Stripes", {
-			type: "state",
-			common: {
-				name: "Tripes-Color",
-				type: "string",
-				role: "inventwo.color",
-				read: true,
-				write: true,
-			},
-			native: {},
-        });
-        await this.setObjectAsync("CSS.Background", {
-			type: "state",
-			common: {
-				name: "Background-Color",
-				type: "string",
-				role: "inventwo.color",
-				read: true,
-				write: true,
-			},
-			native: {},
-        });
-        await this.setObjectAsync("CSS.Radius", {
-			type: "state",
-			common: {
-				name: "Button-Radius",
-				type: "string",
-				role: "inventwo.design",
-				read: true,
-				write: true,
-			},
-			native: {},
-        });
-       
-        await this.setObjectAsync("Info", {
-			type: "state",
-			common: {
-				name: "Adapter-Version",
-				type: "string",
-				role: "inventwo.info",
-				read: true,
-				write: false,
-			},
-			native: {},
-        });
-*/
+
+		let states = [
+			{
+				typ: "channel",
+				id: "Themes",
+				name: "Themes",
+				childs: [
+					{
+						typ: "channel",
+						id: "Basic",
+						name: "inventwo Style",
+						childs: [
+							{
+								typ: "channel",
+								id: "General",
+								name: "General Settings",
+								childs: [
+									{
+										typ: "state",
+										id: "Color1",
+										name: "Button Color 1",
+										type: "string",
+										role: "inventwo.color",
+										value: "#333333"
+									},
+									{
+										typ: "state",
+										id: "ColorActive1",
+										name: "Button Color Active 1",
+										type: "string",
+										role: "inventwo.color",
+										value: "#455618"
+									}
+								]
+							}
+						]
+					},
+					{
+						typ: "channel",
+						id: "Dark",
+						name: "Dark Style",
+						childs: [
+							{
+								typ: "channel",
+								id: "General",
+								name: "General Settings",
+								childs: [
+									{
+										typ: "state",
+										id: "Color1",
+										name: "Button Color 1",
+										type: "string",
+										role: "inventwo.color"
+									},
+									{
+										typ: "state",
+										id: "ColorActive1",
+										name: "Button Color Active 1",
+										type: "string",
+										role: "inventwo.color"
+									}
+								]
+							}
+						]
+					}
+				]
+
+			}
+		];
+
+
         
 		// in this template all states changes inside the adapters namespace are subscribed
         this.subscribeStates("CSS.Button");
