@@ -30,7 +30,7 @@ class visInventwo extends utils.Adapter {
 
 	async onReady() {
 
-		let states = [
+		const states = [
 			{
 				typ: "channel",
 				id: "Config",
