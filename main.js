@@ -643,7 +643,10 @@ class visInventwo extends utils.Adapter {
 		let $this = this;
 		for (const state in states){
 
-			id = id + "." + state.id;
+			if(id !== ""){
+				id = id + ".";
+			}
+			id = id + state.id;
 
 			let stateData = {
 				type: state.typ,
