@@ -175,7 +175,7 @@ class visInventwo extends utils.Adapter {
 									},
 									{
 										typ: "state",
-										id: "LowerLeftt",
+										id: "LowerLeft",
 										name: "Lower Left",
 										type: "number",
 										unit: "px",
@@ -438,14 +438,14 @@ class visInventwo extends utils.Adapter {
 										id: "ShadowOuterColorActive",
 										name: "Shadow Outer Color Active",
 										type: "string",
-										value: "#456534"
+										value: "#111111"
 									},
 									{
 										typ: "state",
-										id: "ShadowOuterColorHovere",
+										id: "ShadowOuterColorHover",
 										name: "Shadow Outer Color Hover",
 										type: "string",
-										value: "#456534"
+										value: "#111111"
 									}
 								]
 							},
@@ -561,14 +561,14 @@ class visInventwo extends utils.Adapter {
 										id: "ShadowTextColor",
 										name: "Shadow Text Color",
 										type: "string",
-										value: "#456534"
+										value: "#111111"
 									},
 									{
 										typ: "state",
-										id: "ShadowInnerColorActive",
-										name: "Shadow Inner Color Active",
+										id: "ShadowTextColorActive",
+										name: "Shadow Text Color Active",
 										type: "string",
-										value: "#456534"
+										value: "#111111"
 									}
 								]
 							},
