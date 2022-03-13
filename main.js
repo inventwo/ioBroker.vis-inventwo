@@ -34,7 +34,7 @@ class visInventwo extends utils.Adapter {
 						name: "Selected Theme",
 						type: "string",
 						states: "Basic:inventwo Theme;Dark:Dark Theme;Light:Light Theme",
-						value: "Basic",
+						value: "Basic"
 					}
 				]
 			},
@@ -642,7 +642,8 @@ class visInventwo extends utils.Adapter {
 
 	createState = async (id, states) => {
 		let $this = this;
-		states.forEach((state, index) => {
+		for (const state of states) {
+			const index = states.indexOf(state);
 
 			let stateId = id;
 
@@ -670,16 +671,16 @@ class visInventwo extends utils.Adapter {
 				}
 			}
 
-			$this.setObjectAsync(stateId, stateData);
-			$this.setStateAsync(stateId, {
+			await $this.setObjectAsync(stateId, stateData);
+			await $this.setStateAsync(stateId, {
 				val: state.value,
 				ack: true
 			});
 
 			if(state.childs !== undefined){
-				$this.createState(stateId, state.childs);
+				await $this.createState(stateId, state.childs);
 			}
-		});
+		}
 	};
 
 	/**
