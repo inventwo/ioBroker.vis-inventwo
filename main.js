@@ -643,12 +643,14 @@ class visInventwo extends utils.Adapter {
 		let $this = this;
 		states.forEach((state, index) => {
 
-			if(id !== ""){
-				id = id + ".";
-			}
-			id = id + state.id;
+			let stateId = id;
 
-			$this.log.info("create state: " + id);
+			if(stateId !== ""){
+				stateId = stateId + ".";
+			}
+			stateId = stateId + state.id;
+
+			$this.log.info("create state: " + stateId);
 
 			let stateData = {
 				type: state.typ,
@@ -667,10 +669,10 @@ class visInventwo extends utils.Adapter {
 				}
 			}
 
-			$this.setObjectAsync(id, stateData)
+			$this.setObjectAsync(stateId, stateData)
 
 			if(state.childs !== undefined){
-				$this.createState(id, state.childs);
+				$this.createState(stateId, state.childs);
 			}
 		});
 	};
