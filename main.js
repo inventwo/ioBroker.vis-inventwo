@@ -661,7 +661,7 @@ class visInventwo extends utils.Adapter {
 			if(state.typ === "state"){
 				stateData.common.type = state.type;
 				stateData.native = {};
-				stateData.common.role = "";
+				stateData.common.role = "inventwo.value";
 				if(state.value !== undefined){
 					stateData.common.value = state.value;
 				}
