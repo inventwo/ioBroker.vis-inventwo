@@ -127,14 +127,14 @@ class visInventwo extends utils.Adapter {
 										id: "Opacity1",
 										name: "Button Opacity 1",
 										type: "number",
-										value: "0.8"
+										value: 0.8
 									},
 									{
 										typ: "state",
 										id: "Opacity2",
 										name: "Button Opacity 2",
 										type: "number",
-										value: "0.8"
+										value: 0.8
 									}
 								]
 							},
@@ -202,14 +202,14 @@ class visInventwo extends utils.Adapter {
 										id: "Opacity1",
 										name: "Content Opacity 1",
 										type: "number",
-										value: "0.8"
+										value: 0.8
 									},
 									{
 										typ: "state",
 										id: "Opacity2",
 										name: "Content Opacity 2",
 										type: "number",
-										value: "0.8"
+										value: 0.8
 									}
 								]
 							},
@@ -596,7 +596,7 @@ class visInventwo extends utils.Adapter {
 										id: "WallpaperOpacity",
 										name: "Wallpaper Opacity",
 										type: "number",
-										value: "0.9"
+										value: 0.9
 									}
 								]
 							}
