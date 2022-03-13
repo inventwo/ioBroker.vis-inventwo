@@ -642,9 +642,10 @@ class visInventwo extends utils.Adapter {
 
 	createState = async (id, states) => {
 		let $this = this;
-		for (const state of states) {
+		let l = states.length;
+		for (let i = 0; i < l; i++) {
+			let state = states[i];
 			$this.log.info("test: " + JSON.stringify(state));
-			const index = states.indexOf(state);
 
 			let stateId = id;
 
