@@ -705,6 +705,9 @@ class visInventwo extends utils.Adapter {
 				if(state.states !== undefined){
 					stateData.common.states = state.states;
 				}
+				if(state.unit !== undefined){
+					stateData.common.unit = state.unit;
+				}
 			}
 
 			await $this.setObjectAsync(stateId, stateData);
