@@ -635,8 +635,40 @@ class visInventwo extends utils.Adapter {
 			}
 		];
 
+		await this.createState("", states);
 
 	}
+
+	createState = async (id, states) => {
+		let $this = this;
+		for (const state in states){
+
+			id = id + "." + state.id;
+
+			let stateData = {
+				type: state.typ,
+				common: {
+					name: state.name,
+				}
+			};
+
+			if(state.typ === "state"){
+				stateData.common.type = state.type;
+				if(state.value != undefined){
+					stateData.common.value = state.value;
+				}
+				if(state.states != undefined){
+					stateData.common.states = state.states;
+				}
+			}
+
+			await $this.setObjectAsync(id, stateData)
+
+			if(state.childs != undefined){
+				$this.createState(id, state.childs);
+			}
+		}
+	};
 
 	/**
 	 * Is called when adapter shuts down - callback has to be called under any circumstances!
@@ -644,7 +676,7 @@ class visInventwo extends utils.Adapter {
 	 */
 	onUnload(callback) {
 		try {
-			this.log.info("cleaned everything up...");
+			// this.log.info("cleaned everything up...");
 			callback();
 		} catch (e) {
 			callback();
@@ -657,13 +689,13 @@ class visInventwo extends utils.Adapter {
 	 * @param {ioBroker.Object | null | undefined} obj
 	 */
 	onObjectChange(id, obj) {
-		if (obj) {
-			// The object was changed
-			this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
-		} else {
-			// The object was deleted
-			this.log.info(`object ${id} deleted`);
-		}
+		// if (obj) {
+		// 	// The object was changed
+		// 	this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
+		// } else {
+		// 	// The object was deleted
+		// 	this.log.info(`object ${id} deleted`);
+		// }
 	}
 
 	/**
@@ -672,13 +704,13 @@ class visInventwo extends utils.Adapter {
 	 * @param {ioBroker.State | null | undefined} state
 	 */
 	onStateChange(id, state) {
-		if (state) {
-			// The state was changed
-			this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-		} else {
-			// The state was deleted
-			this.log.info(`state ${id} deleted`);
-		}
+		// if (state) {
+		// 	// The state was changed
+		// 	this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+		// } else {
+		// 	// The state was deleted
+		// 	this.log.info(`state ${id} deleted`);
+		// }
 	}
 }
 
