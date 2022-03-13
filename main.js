@@ -645,7 +645,6 @@ class visInventwo extends utils.Adapter {
 		let l = states.length;
 		for (let i = 0; i < l; i++) {
 			let state = states[i];
-			$this.log.info("test: " + JSON.stringify(state));
 
 			let stateId = id;
 
@@ -658,12 +657,12 @@ class visInventwo extends utils.Adapter {
 				type: state.typ,
 				common: {
 					name: state.name,
-				}
+				},
+				native: {},
 			};
 
 			if(state.typ === "state"){
 				stateData.common.type = state.type;
-				stateData.native = {};
 				stateData.common.role = "inventwo.value";
 				if(state.value !== undefined){
 					stateData.common.value = state.value;
