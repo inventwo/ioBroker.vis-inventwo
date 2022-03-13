@@ -377,8 +377,8 @@ class visInventwo extends utils.Adapter {
 									},
 									{
 										typ: "state",
-										id: "TextColorActive1",
-										name: "Text Color Active 1",
+										id: "IconColorActive1",
+										name: "Icon Color Active 1",
 										type: "string",
 										value: "#FFFFFF"
 									}
