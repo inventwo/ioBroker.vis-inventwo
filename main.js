@@ -153,44 +153,50 @@ class visInventwo extends utils.Adapter {
 										typ: "state",
 										id: "UpperLeft",
 										name: "Upper Left",
-										type: "string",
-										value: "5px"
+										type: "number",
+										unit: "px",
+										value: 5
 									},
 									{
 										typ: "state",
 										id: "UpperRight",
 										name: "Upper Right",
-										type: "string",
-										value: "5px"
+										type: "number",
+										unit: "px",
+										value: 5
 									},
 									{
 										typ: "state",
 										id: "LowerRight",
 										name: "Lower Right",
-										type: "string",
-										value: "5px"
+										type: "number",
+										unit: "px",
+										value: 5
 									},
 									{
 										typ: "state",
 										id: "LowerLeftt",
 										name: "Lower Left",
-										type: "string",
-										value: "5px"
+										type: "number",
+										unit: "px",
+										value: 5
 									},
 									// Alle Ecken gleich
 									{
 										typ: "state",
 										id: "AllCorners1",
 										name: "All Corners 1",
-										type: "string",
-										value: "5px"
+										type: "number",
+										unit: "px",
+										value: 5
 									},
 									{
 										typ: "state",
 										id: "AllCorners2",
 										name: "All Corners 2",
-										type: "string",
-										value: "100%"
+										type: "number",
+										unit: "%",
+										value: 100
 									},
 								]
 							},
@@ -258,44 +264,50 @@ class visInventwo extends utils.Adapter {
 										typ: "state",
 										id: "TextSize1",
 										name: "Text Size 1",
-										type: "string",
-										value: "14px"
+										type: "number",
+										unit: "px",
+										value: 14
 									},
 									{
 										typ: "state",
 										id: "TextSize2",
 										name: "Text Size 2",
-										type: "string",
-										value: "20px"
+										type: "number",
+										unit: "px",
+										value: 20
 									},
 									// Abstand
 									{
 										typ: "state",
 										id: "TextDistanceAbove",
 										name: "Text Distance Above",
-										type: "string",
-										value: "0px"
+										type: "number",
+										unit: "px",
+										value: 0
 									},
 									{
 										typ: "state",
 										id: "TextDistanceBelow",
 										name: "Text Distance Below",
-										type: "string",
-										value: "0px"
+										type: "number",
+										unit: "px",
+										value: 0
 									},
 									{
 										typ: "state",
 										id: "TextDistanceLeft",
 										name: "Text Distance Left",
-										type: "string",
-										value: "0px"
+										type: "number",
+										unit: "px",,
+										value: 0
 									},
 									{
 										typ: "state",
 										id: "TextDistanceRight",
 										name: "Text Distance Right",
-										type: "string",
-										value: "0px"
+										type: "number",
+										unit: "px",
+										value: 0
 									}
 								]
 							},
@@ -310,44 +322,50 @@ class visInventwo extends utils.Adapter {
 										typ: "state",
 										id: "IconSize1",
 										name: "Icon Size 1",
-										type: "string",
-										value: "70px"
+										type: "number",
+										unit: "px",
+										value: 70"
 									},
 									{
 										typ: "state",
 										id: "IconSize2",
 										name: "Icon Size 2",
-										type: "string",
-										value: "30px"
+										type: "number",
+										unit: "px",
+										value: 30
 									},
 									// Abstand
 									{
 										typ: "state",
 										id: "IcontDistanceAbove",
 										name: "Icon Distance Above",
-										type: "string",
-										value: "0px"
+										type: "number",
+										unit: "px",
+										value: 0
 									},
 									{
 										typ: "state",
 										id: "IconDistanceBelow",
 										name: "Icon Distance Below",
-										type: "string",
-										value: "0px"
+										type: "number",
+										unit: "px",
+										value: 0
 									},
 									{
 										typ: "state",
 										id: "IconDistanceLeft",
 										name: "Icon Distance Left",
-										type: "string",
-										value: "0px"
+										type: "number",
+										unit: "px",
+										value: 0
 									},
 									{
 										typ: "state",
 										id: "IconDistanceRight",
 										name: "Icon Distance Right",
-										type: "string",
-										value: "0px"
+										type: "number",
+										unit: "px",
+										value: 0
 									},
 									// Farbe
 									{
@@ -377,31 +395,35 @@ class visInventwo extends utils.Adapter {
 										typ: "state",
 										id: "ShadowOuterOffsetX",
 										name: "Shadow Outer Offset X",
-										type: "string",
-										value: "2px"
+										type: "number",
+										unit: "px",
+										value: 2
 									},
 									{
 										typ: "state",
 										id: "ShadowOuterOffsetY",
 										name: "Shadow Outer Offset Y",
-										type: "string",
-										value: "2px"
+										type: "number",
+										unit: "px",
+										value: 2
 									},
 									// Blur
 									{
 										typ: "state",
 										id: "ShadowOuterBlur",
 										name: "Shadow Outer Blur",
-										type: "string",
-										value: "2px"
+										type: "number",
+										unit: "px",
+										value: 2
 									},
 									// Groesse
 									{
 										typ: "state",
 										id: "ShadowOuterSize",
 										name: "Shadow Outer Size",
-										type: "string",
-										value: "2px"
+										type: "number",
+										unit: "px",
+										value: 2
 									},
 									// Farbe
 									{
@@ -438,31 +460,35 @@ class visInventwo extends utils.Adapter {
 										typ: "state",
 										id: "ShadowInnerOffsetX",
 										name: "Shadow Inner Offset X",
-										type: "string",
-										value: "0px"
+										type: "number",
+										unit: "px",
+										value: 0
 									},
 									{
 										typ: "state",
 										id: "ShadowInnerOffsetY",
 										name: "Shadow Inner Offset Y",
-										type: "string",
-										value: "0px"
+										type: "number",
+										unit: "px",
+										value: 0
 									},
 									// Blur
 									{
 										typ: "state",
 										id: "ShadowInnerBlur",
 										name: "Shadow Inner Blur",
-										type: "string",
-										value: "2px"
+										type: "number",
+										unit: "px",
+										value: 2
 									},
 									// Groesse
 									{
 										typ: "state",
 										id: "ShadowInnerSize",
 										name: "Shadow Inner Size",
-										type: "string",
-										value: "2px"
+										type: "number",
+										unit: "px",
+										value: 2
 									},
 									// Farbe
 									{
@@ -499,31 +525,35 @@ class visInventwo extends utils.Adapter {
 										typ: "state",
 										id: "ShadowTextOffsetX",
 										name: "Shadow Text Offset X",
-										type: "string",
-										value: "0px"
+										type: "number",
+										unit: "px",
+										value: 0
 									},
 									{
 										typ: "state",
 										id: "ShadowTextOffsetY",
 										name: "Shadow Text Offset Y",
-										type: "string",
-										value: "0px"
+										type: "number",
+										unit: "px",
+										value: 0
 									},
 									// Blur
 									{
 										typ: "state",
 										id: "ShadowTextBlur",
 										name: "Shadow Text Blur",
-										type: "string",
-										value: "0px"
+										type: "number",
+										unit: "px",
+										value: 0
 									},
 									// Groesse
 									{
 										typ: "state",
 										id: "ShadowTextSize",
 										name: "Shadow Text Size",
-										type: "string",
-										value: "2px"
+										type: "number",
+										unit: "px",
+										value: 2
 									},
 									// Farbe
 									{
@@ -553,8 +583,9 @@ class visInventwo extends utils.Adapter {
 										typ: "state",
 										id: "BorderSize",
 										name: "Border Size",
-										type: "string",
-										value: "2px"
+										type: "number",
+										unit: "px",
+										value: 2
 									},
 									// Farbe
 									{
