@@ -298,7 +298,7 @@ class visInventwo extends utils.Adapter {
 										id: "TextDistanceLeft",
 										name: "Text Distance Left",
 										type: "number",
-										unit: "px",,
+										unit: "px",
 										value: 0
 									},
 									{
@@ -324,7 +324,7 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Size 1",
 										type: "number",
 										unit: "px",
-										value: 70"
+										value: 70
 									},
 									{
 										typ: "state",
