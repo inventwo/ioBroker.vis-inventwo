@@ -22,7 +22,7 @@ class visInventwo extends utils.Adapter {
 
 	async onReady() {
 
-		const states = [
+		let states = [
 			{
 				typ: "channel",
 				id: "Config",
@@ -641,7 +641,7 @@ class visInventwo extends utils.Adapter {
 
 	createState = async (id, states) => {
 		let $this = this;
-		for (const state in states){
+		states.forEach((state, index) => {
 
 			if(id !== ""){
 				id = id + ".";
@@ -667,12 +667,12 @@ class visInventwo extends utils.Adapter {
 				}
 			}
 
-			await $this.setObjectAsync(id, stateData)
+			$this.setObjectAsync(id, stateData)
 
-			if(state.childs != undefined){
+			if(state.childs !== undefined){
 				$this.createState(id, state.childs);
 			}
-		}
+		});
 	};
 
 	/**
