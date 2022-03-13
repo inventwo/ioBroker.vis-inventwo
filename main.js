@@ -34,6 +34,7 @@ class visInventwo extends utils.Adapter {
 						name: "Selected Theme",
 						type: "string",
 						states: "Basic:inventwo Theme;Dark:Dark Theme;Light:Light Theme",
+						value: "Basic",
 					}
 				]
 			},
@@ -650,8 +651,6 @@ class visInventwo extends utils.Adapter {
 			}
 			stateId = stateId + state.id;
 
-			$this.log.info("create state: " + stateId);
-
 			let stateData = {
 				type: state.typ,
 				common: {
@@ -661,15 +660,21 @@ class visInventwo extends utils.Adapter {
 
 			if(state.typ === "state"){
 				stateData.common.type = state.type;
-				if(state.value != undefined){
+				stateData.native = {};
+				stateData.common.role = "";
+				if(state.value !== undefined){
 					stateData.common.value = state.value;
 				}
-				if(state.states != undefined){
+				if(state.states !== undefined){
 					stateData.common.states = state.states;
 				}
 			}
 
-			$this.setObjectAsync(stateId, stateData)
+			$this.setObjectAsync(stateId, stateData);
+			$this.setStateAsync(stateId, {
+				val: state.value,
+				ack: true
+			});
 
 			if(state.childs !== undefined){
 				$this.createState(stateId, state.childs);
