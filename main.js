@@ -33,7 +33,11 @@ class visInventwo extends utils.Adapter {
 						id: "SelectedTheme",
 						name: "Selected Theme",
 						type: "string",
-						states: "Basic:inventwo Theme;Dark:Dark Theme;Light:Light Theme",
+						states: {
+							Basic: "inventwo Theme",
+							Dark: "Dark Theme",
+							Light: "Light Theme"
+						},
 						value: "Basic"
 					}
 				]
