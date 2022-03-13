@@ -648,6 +648,8 @@ class visInventwo extends utils.Adapter {
 			}
 			id = id + state.id;
 
+			$this.log.info("create state: " + id);
+
 			let stateData = {
 				type: state.typ,
 				common: {
