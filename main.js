@@ -235,7 +235,7 @@ class visInventwo extends utils.Adapter {
 										id: "TextColor1",
 										name: "Text Color 1",
 										type: "string",
-										value: "#111111"
+										value: "#FFFFFF"
 									},
 									{
 										typ: "state",
@@ -527,7 +527,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Offset X",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 2
 									},
 									{
 										typ: "state",
@@ -535,7 +535,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Offset Y",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 2
 									},
 									// Blur
 									{
@@ -544,7 +544,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Blur",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 2
 									},
 									// Groesse
 									{
@@ -636,8 +636,597 @@ class visInventwo extends utils.Adapter {
 								]
 							}
 						]
+					},
+					// Light Style
+					{
+						typ: "channel",
+						id: "Light",
+						name: "Light Theme",
+						childs: [
+							// Hintergrund
+							{
+								typ: "channel",
+								id: "Background",
+								name: "General Widget Settings",
+								childs: [
+									// Farbe
+									{
+										typ: "state",
+										id: "Color1",
+										name: "Button Color 1",
+										type: "string",
+										value: "#FFFFFF"
+									},
+									{
+										typ: "state",
+										id: "Color2",
+										name: "Button Color 2",
+										type: "string",
+										value: "#999999"
+									},
+									{
+										typ: "state",
+										id: "Color3",
+										name: "Button Color 3",
+										type: "string",
+										value: "#888888"
+									},
+									// Farbe Aktiv
+									{
+										typ: "state",
+										id: "ColorActive1",
+										name: "Button Color Active 1",
+										type: "string",
+										value: "#dbdbdb"
+									},
+									{
+										typ: "state",
+										id: "ColorActive2",
+										name: "Button Color Active 2",
+										type: "string",
+										value: "#bababa"
+									},
+									{
+										typ: "state",
+										id: "ColorActive3",
+										name: "Button Color Active 3",
+										type: "string",
+										value: "#9e9e9e"
+									},
+									// Farbe bei Hover
+									{
+										typ: "state",
+										id: "ColorHover1",
+										name: "Button Color Hover 1",
+										type: "string",
+										value: "#dbdbdb"
+									},
+									{
+										typ: "state",
+										id: "ColorHover2",
+										name: "Button Color Hover 2",
+										type: "string",
+										value: "#bababa"
+									},
+									{
+										typ: "state",
+										id: "ColorHover3",
+										name: "Button Color Hover 3",
+										type: "string",
+										value: "#9e9e9e"
+									},
+									// Transparenz
+									{
+										typ: "state",
+										id: "Opacity1",
+										name: "Button Opacity 1",
+										type: "number",
+										value: 1
+									},
+									{
+										typ: "state",
+										id: "Opacity2",
+										name: "Button Opacity 2",
+										type: "number",
+										value: 0.8
+									}
+								]
+							},
+							// Ecken
+							{
+								typ: "channel",
+								id: "Corners",
+								name: "Corners",
+								childs: [
+									// Getrennte Radien
+									{
+										typ: "state",
+										id: "UpperLeft",
+										name: "Upper Left",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									{
+										typ: "state",
+										id: "UpperRight",
+										name: "Upper Right",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									{
+										typ: "state",
+										id: "LowerRight",
+										name: "Lower Right",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									{
+										typ: "state",
+										id: "LowerLeft",
+										name: "Lower Left",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									// Alle Ecken gleich
+									{
+										typ: "state",
+										id: "AllCorners1",
+										name: "All Corners 1",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									{
+										typ: "state",
+										id: "AllCorners2",
+										name: "All Corners 2",
+										type: "number",
+										unit: "%",
+										value: 100
+									},
+								]
+							},
+							// Inhalt
+							{
+								typ: "channel",
+								id: "Content",
+								name: "Content",
+								childs: [
+									// Transparenz
+									{
+										typ: "state",
+										id: "Opacity1",
+										name: "Content Opacity 1",
+										type: "number",
+										value: 1
+									},
+									{
+										typ: "state",
+										id: "Opacity2",
+										name: "Content Opacity 2",
+										type: "number",
+										value: 0.8
+									}
+								]
+							},
+							// Text
+							{
+								typ: "channel",
+								id: "Text",
+								name: "Content",
+								childs: [
+									// Farbe
+									{
+										typ: "state",
+										id: "TextColor1",
+										name: "Text Color 1",
+										type: "string",
+										value: "#111111"
+									},
+									{
+										typ: "state",
+										id: "TextColor2",
+										name: "Text Color 2",
+										type: "string",
+										value: "#222222"
+									},
+									// Farbe Aktiv
+									{
+										typ: "state",
+										id: "TextColorActive1",
+										name: "Text Color Active 1",
+										type: "string",
+										value: "#111111"
+									},
+									{
+										typ: "state",
+										id: "TextColorActive2",
+										name: "Text Color Active 2",
+										type: "string",
+										value: "#222222"
+									},
+									// Groesse
+									{
+										typ: "state",
+										id: "TextSize1",
+										name: "Text Size 1",
+										type: "number",
+										unit: "px",
+										value: 14
+									},
+									{
+										typ: "state",
+										id: "TextSize2",
+										name: "Text Size 2",
+										type: "number",
+										unit: "px",
+										value: 20
+									},
+									// Abstand
+									{
+										typ: "state",
+										id: "TextDistanceAbove",
+										name: "Text Distance Above",
+										type: "number",
+										unit: "px",
+										value: 0
+									},
+									{
+										typ: "state",
+										id: "TextDistanceBelow",
+										name: "Text Distance Below",
+										type: "number",
+										unit: "px",
+										value: 0
+									},
+									{
+										typ: "state",
+										id: "TextDistanceLeft",
+										name: "Text Distance Left",
+										type: "number",
+										unit: "px",
+										value: 0
+									},
+									{
+										typ: "state",
+										id: "TextDistanceRight",
+										name: "Text Distance Right",
+										type: "number",
+										unit: "px",
+										value: 0
+									}
+								]
+							},
+							// Bild
+							{
+								typ: "channel",
+								id: "Icon",
+								name: "Content",
+								childs: [
+									// Groesse
+									{
+										typ: "state",
+										id: "IconSize1",
+										name: "Icon Size 1",
+										type: "number",
+										unit: "px",
+										value: 70
+									},
+									{
+										typ: "state",
+										id: "IconSize2",
+										name: "Icon Size 2",
+										type: "number",
+										unit: "px",
+										value: 30
+									},
+									// Abstand
+									{
+										typ: "state",
+										id: "IcontDistanceAbove",
+										name: "Icon Distance Above",
+										type: "number",
+										unit: "px",
+										value: 0
+									},
+									{
+										typ: "state",
+										id: "IconDistanceBelow",
+										name: "Icon Distance Below",
+										type: "number",
+										unit: "px",
+										value: 0
+									},
+									{
+										typ: "state",
+										id: "IconDistanceLeft",
+										name: "Icon Distance Left",
+										type: "number",
+										unit: "px",
+										value: 0
+									},
+									{
+										typ: "state",
+										id: "IconDistanceRight",
+										name: "Icon Distance Right",
+										type: "number",
+										unit: "px",
+										value: 0
+									},
+									// Farbe
+									{
+										typ: "state",
+										id: "IconColor1",
+										name: "Icon Color 1",
+										type: "string",
+										value: "#111111"
+									},
+									{
+										typ: "state",
+										id: "IconColorActive1",
+										name: "Icon Color Active 1",
+										type: "string",
+										value: "#222222"
+									}
+								]
+							},
+							// Schatten aussen
+							{
+								typ: "channel",
+								id: "ShadowOuter",
+								name: "Shadow Outer",
+								childs: [
+									// X Versatz
+									{
+										typ: "state",
+										id: "ShadowOuterOffsetX",
+										name: "Shadow Outer Offset X",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									{
+										typ: "state",
+										id: "ShadowOuterOffsetY",
+										name: "Shadow Outer Offset Y",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									// Blur
+									{
+										typ: "state",
+										id: "ShadowOuterBlur",
+										name: "Shadow Outer Blur",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									// Groesse
+									{
+										typ: "state",
+										id: "ShadowOuterSize",
+										name: "Shadow Outer Size",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									// Farbe
+									{
+										typ: "state",
+										id: "ShadowOuterColor",
+										name: "Shadow Outer Color",
+										type: "string",
+										value: "#333333"
+									},
+									{
+										typ: "state",
+										id: "ShadowOuterColorActive",
+										name: "Shadow Outer Color Active",
+										type: "string",
+										value: "#333333"
+									},
+									{
+										typ: "state",
+										id: "ShadowOuterColorHover",
+										name: "Shadow Outer Color Hover",
+										type: "string",
+										value: "#333333"
+									}
+								]
+							},
+							// Schatten innen
+							{
+								typ: "channel",
+								id: "ShadowInner",
+								name: "Shadow Inner",
+								childs: [
+									// X Versatz
+									{
+										typ: "state",
+										id: "ShadowInnerOffsetX",
+										name: "Shadow Inner Offset X",
+										type: "number",
+										unit: "px",
+										value: 0
+									},
+									{
+										typ: "state",
+										id: "ShadowInnerOffsetY",
+										name: "Shadow Inner Offset Y",
+										type: "number",
+										unit: "px",
+										value: 0
+									},
+									// Blur
+									{
+										typ: "state",
+										id: "ShadowInnerBlur",
+										name: "Shadow Inner Blur",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									// Groesse
+									{
+										typ: "state",
+										id: "ShadowInnerSize",
+										name: "Shadow Inner Size",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									// Farbe
+									{
+										typ: "state",
+										id: "ShadowInnerColor",
+										name: "Shadow Inner Color",
+										type: "string",
+										value: "#B2B2B2"
+									},
+									{
+										typ: "state",
+										id: "ShadowInnerColorActive",
+										name: "Shadow Inner Color Active",
+										type: "string",
+										value: "#B2B2B2"
+									},
+									{
+										typ: "state",
+										id: "ShadowInnerColorHovere",
+										name: "Shadow Inner Color Hover",
+										type: "string",
+										value: "#B2B2B2"
+									}
+								]
+							},
+							// Schatten Text
+							{
+								typ: "channel",
+								id: "ShadowText",
+								name: "Shadow Text",
+								childs: [
+									// X Versatz
+									{
+										typ: "state",
+										id: "ShadowTextOffsetX",
+										name: "Shadow Text Offset X",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									{
+										typ: "state",
+										id: "ShadowTextOffsetY",
+										name: "Shadow Text Offset Y",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									// Blur
+									{
+										typ: "state",
+										id: "ShadowTextBlur",
+										name: "Shadow Text Blur",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									// Groesse
+									{
+										typ: "state",
+										id: "ShadowTextSize",
+										name: "Shadow Text Size",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									// Farbe
+									{
+										typ: "state",
+										id: "ShadowTextColor",
+										name: "Shadow Text Color",
+										type: "string",
+										value: "#9C9C9C"
+									},
+									{
+										typ: "state",
+										id: "ShadowTextColorActive",
+										name: "Shadow Text Color Active",
+										type: "string",
+										value: "#9C9C9C"
+									}
+								]
+							},
+							// Umrandung
+							{
+								typ: "channel",
+								id: "Border",
+								name: "Border",
+								childs: [
+									// Breite
+									{
+										typ: "state",
+										id: "BorderSize",
+										name: "Border Size",
+										type: "number",
+										unit: "px",
+										value: 2
+									},
+									// Farbe
+									{
+										typ: "state",
+										id: "BorderColor",
+										name: "Border Color",
+										type: "string",
+										value: "#9C9C9C"
+									},
+									{
+										typ: "state",
+										id: "BorderColorActive",
+										name: "Border Color Active",
+										type: "string",
+										value: "#9C9C9C"
+									}
+								]
+							},
+							// Wallpaper
+							{
+								typ: "channel",
+								id: "Wallpaper",
+								name: "Walpaper",
+								childs: [
+									// URL
+									{
+										typ: "state",
+										id: "WallpaperURL1",
+										name: "Wallpaper URL 1",
+										type: "string",
+										value: "/vis-icontwo/Backgrounds/105.jpg"
+									},
+									{
+										typ: "state",
+										id: "WallpaperURL2",
+										name: "Wallpaper URL 2",
+										type: "string",
+										value: "/vis-icontwo/Backgrounds/105.jpg"
+									},
+									// Transparenz
+									{
+										typ: "state",
+										id: "WallpaperOpacity",
+										name: "Wallpaper Opacity",
+										type: "number",
+										value: 0.5
+									}
+								]
+							}
+						]
 					}
-					// Dark Style
 				]
 			},
 			// Eigene Datenpunkte
