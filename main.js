@@ -643,7 +643,7 @@ class visInventwo extends utils.Adapter {
 			// Eigene Datenpunkte
 			{
 				typ: "channel",
-				id: "Custom",
+				id: "Customs",
 				name: "Custom Variables",
 				childs: [
 					{
