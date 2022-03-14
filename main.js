@@ -640,6 +640,21 @@ class visInventwo extends utils.Adapter {
 					// Dark Style
 				]
 			},
+			// Eigene Datenpunkte
+			{
+				typ: "channel",
+				id: "Custom",
+				name: "Custom Variables",
+				childs: [
+					{
+						typ: "state",
+						id: "Custom1",
+						name: "Custom 1",
+						type: "string",
+						value: "#333333",
+					}
+				]
+			},
 			// Altlasten
 			{
 				typ: "channel",
