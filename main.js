@@ -337,7 +337,7 @@ class visInventwo extends utils.Adapter {
 									// Abstand
 									{
 										typ: "state",
-										id: "IcontDistanceAbove",
+										id: "IconDistanceAbove",
 										name: "Icon Distance Above",
 										type: "number",
 										unit: "px",
@@ -956,7 +956,7 @@ class visInventwo extends utils.Adapter {
 									// Abstand
 									{
 										typ: "state",
-										id: "IcontDistanceAbove",
+										id: "IconDistanceAbove",
 										name: "Icon Distance Above",
 										type: "number",
 										unit: "px",
@@ -1575,7 +1575,7 @@ class visInventwo extends utils.Adapter {
 									// Abstand
 									{
 										typ: "state",
-										id: "IcontDistanceAbove",
+										id: "IconDistanceAbove",
 										name: "Icon Distance Above",
 										type: "number",
 										unit: "px",
@@ -2194,7 +2194,7 @@ class visInventwo extends utils.Adapter {
 									// Abstand
 									{
 										typ: "state",
-										id: "IcontDistanceAbove",
+										id: "IconDistanceAbove",
 										name: "Icon Distance Above",
 										type: "number",
 										unit: "px",
