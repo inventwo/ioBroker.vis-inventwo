@@ -507,7 +507,7 @@ class visInventwo extends utils.Adapter {
 									},
 									{
 										typ: "state",
-										id: "ShadowInnerColorHovere",
+										id: "ShadowInnerColorHover",
 										name: "Shadow Inner Color Hover",
 										type: "string",
 										value: "#456534"
@@ -1126,7 +1126,7 @@ class visInventwo extends utils.Adapter {
 									},
 									{
 										typ: "state",
-										id: "ShadowInnerColorHovere",
+										id: "ShadowInnerColorHover",
 										name: "Shadow Inner Color Hover",
 										type: "string",
 										value: "#B2B2B2"
@@ -1745,7 +1745,7 @@ class visInventwo extends utils.Adapter {
 									},
 									{
 										typ: "state",
-										id: "ShadowInnerColorHovere",
+										id: "ShadowInnerColorHover",
 										name: "Shadow Inner Color Hover",
 										type: "string",
 										value: "#B2B2B2"
@@ -2364,7 +2364,7 @@ class visInventwo extends utils.Adapter {
 									},
 									{
 										typ: "state",
-										id: "ShadowInnerColorHovere",
+										id: "ShadowInnerColorHover",
 										name: "Shadow Inner Color Hover",
 										type: "string",
 										value: ""
