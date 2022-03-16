@@ -1907,7 +1907,7 @@ class visInventwo extends utils.Adapter {
 					// Custom Style
 					{
 						typ: "channel",
-						id: "CustomTheme",
+						id: "_CustomTheme",
 						name: "Custom Theme",
 						childs: [
 							// Hintergrund
