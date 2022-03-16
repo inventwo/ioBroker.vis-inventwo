@@ -1988,14 +1988,14 @@ class visInventwo extends utils.Adapter {
 										id: "Opacity1",
 										name: "Button Opacity 1",
 										type: "number",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
 										id: "Opacity2",
 										name: "Button Opacity 2",
 										type: "number",
-										value: 
+										value: ""
 									}
 								]
 							},
@@ -2012,7 +2012,7 @@ class visInventwo extends utils.Adapter {
 										name: "Upper Left",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
@@ -2020,7 +2020,7 @@ class visInventwo extends utils.Adapter {
 										name: "Upper Right",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
@@ -2028,7 +2028,7 @@ class visInventwo extends utils.Adapter {
 										name: "Lower Right",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
@@ -2036,7 +2036,7 @@ class visInventwo extends utils.Adapter {
 										name: "Lower Left",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									// Alle Ecken gleich
 									{
@@ -2045,7 +2045,7 @@ class visInventwo extends utils.Adapter {
 										name: "All Corners 1",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
@@ -2053,7 +2053,7 @@ class visInventwo extends utils.Adapter {
 										name: "All Corners 2",
 										type: "number",
 										unit: "%",
-										value: 
+										value: ""
 									},
 								]
 							},
@@ -2069,14 +2069,14 @@ class visInventwo extends utils.Adapter {
 										id: "Opacity1",
 										name: "Content Opacity 1",
 										type: "number",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
 										id: "Opacity2",
 										name: "Content Opacity 2",
 										type: "number",
-										value: 
+										value: ""
 									}
 								]
 							},
@@ -2123,7 +2123,7 @@ class visInventwo extends utils.Adapter {
 										name: "Text Size 1",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
@@ -2131,7 +2131,7 @@ class visInventwo extends utils.Adapter {
 										name: "Text Size 2",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									// Abstand
 									{
@@ -2140,7 +2140,7 @@ class visInventwo extends utils.Adapter {
 										name: "Text Distance Above",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
@@ -2148,7 +2148,7 @@ class visInventwo extends utils.Adapter {
 										name: "Text Distance Below",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
@@ -2156,7 +2156,7 @@ class visInventwo extends utils.Adapter {
 										name: "Text Distance Left",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
@@ -2164,7 +2164,7 @@ class visInventwo extends utils.Adapter {
 										name: "Text Distance Right",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									}
 								]
 							},
@@ -2181,7 +2181,7 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Size 1",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
@@ -2189,7 +2189,7 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Size 2",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									// Abstand
 									{
@@ -2198,7 +2198,7 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Distance Above",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
@@ -2206,7 +2206,7 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Distance Below",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
@@ -2214,7 +2214,7 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Distance Left",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
@@ -2222,7 +2222,7 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Distance Right",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									// Farbe
 									{
@@ -2254,7 +2254,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Outer Offset X",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
@@ -2262,7 +2262,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Outer Offset Y",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									// Blur
 									{
@@ -2271,7 +2271,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Outer Blur",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									// Groesse
 									{
@@ -2280,7 +2280,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Outer Size",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									// Farbe
 									{
@@ -2319,7 +2319,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Inner Offset X",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
@@ -2327,7 +2327,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Inner Offset Y",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									// Blur
 									{
@@ -2336,7 +2336,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Inner Blur",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									// Groesse
 									{
@@ -2345,7 +2345,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Inner Size",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									// Farbe
 									{
@@ -2384,7 +2384,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Offset X",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									{
 										typ: "state",
@@ -2392,7 +2392,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Offset Y",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									// Blur
 									{
@@ -2401,7 +2401,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Blur",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									// Groesse
 									{
@@ -2410,7 +2410,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Size",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									// Farbe
 									{
@@ -2442,7 +2442,7 @@ class visInventwo extends utils.Adapter {
 										name: "Border Size",
 										type: "number",
 										unit: "px",
-										value: 
+										value: ""
 									},
 									// Farbe
 									{
@@ -2488,7 +2488,7 @@ class visInventwo extends utils.Adapter {
 										id: "WallpaperOpacity",
 										name: "Wallpaper Opacity",
 										type: "number",
-										value: 
+										value: ""
 									}
 								]
 							},
