@@ -2632,10 +2632,13 @@ class visInventwo extends utils.Adapter {
 			}
 
 			await $this.setObjectAsync(stateId, stateData);
-			await $this.setStateAsync(stateId, {
-				val: state.value,
-				ack: true
-			});
+
+			if(await this.getStateAsync(stateId) == null) {
+				await $this.setStateAsync(stateId, {
+					val: state.value,
+					ack: true
+				});
+			}
 
 			if(state.childs !== undefined){
 				await $this.createState(stateId, state.childs);
@@ -2662,13 +2665,13 @@ class visInventwo extends utils.Adapter {
 	 * @param {ioBroker.Object | null | undefined} obj
 	 */
 	// onObjectChange(id, obj) {
-		// if (obj) {
-		// 	// The object was changed
-		// 	this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
-		// } else {
-		// 	// The object was deleted
-		// 	this.log.info(`object ${id} deleted`);
-		// }
+	// if (obj) {
+	// 	// The object was changed
+	// 	this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
+	// } else {
+	// 	// The object was deleted
+	// 	this.log.info(`object ${id} deleted`);
+	// }
 	// }
 
 	/**
@@ -2677,13 +2680,13 @@ class visInventwo extends utils.Adapter {
 	 * @param {ioBroker.State | null | undefined} state
 	 */
 	// onStateChange(id, state) {
-		// if (state) {
-		// 	// The state was changed
-		// 	this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-		// } else {
-		// 	// The state was deleted
-		// 	this.log.info(`state ${id} deleted`);
-		// }
+	// if (state) {
+	// 	// The state was changed
+	// 	this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+	// } else {
+	// 	// The state was deleted
+	// 	this.log.info(`state ${id} deleted`);
+	// }
 	// }
 }
 
