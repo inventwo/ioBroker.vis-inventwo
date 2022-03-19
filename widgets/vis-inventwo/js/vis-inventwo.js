@@ -4257,6 +4257,22 @@ vis.binds["vis-inventwo"] = {
 
 		createWidget(true);
 
+		function checkValueAndAddUnit(value, unit){
+
+			let regexp = new RegExp("var\((--[^\)]*)\)", "g");
+			let match = regexp.exec(value);
+			if(match !== undefined && match !== null && match.length > 1 && match[1] != undefined && match[1] != ""){
+				return value;
+			}
+			else{
+				if(isNaN(value)){
+					return value;
+				}
+			}
+
+			return value + "" + unit;
+		}
+
 		function getValues(dataNew) {
 			//Farben, Text & Bild bei true oder false
 			let backCol = "";
@@ -4370,7 +4386,8 @@ vis.binds["vis-inventwo"] = {
 						htmlText = dataNew["iHtmlTextFieldFalse"];
 					}
 				}
-			} else if (type == "universal") {
+			}
+			else if (type == "universal") {
 
 				let val = dataNew.iValueTrue;
 				if (val == undefined)
@@ -4470,18 +4487,54 @@ vis.binds["vis-inventwo"] = {
 
 			imgBlink = imgBlink / 1000;
 
-			let shadow = dataNew.iShadowXOffset + "px " + dataNew.iShadowYOffset + "px " + dataNew.iShadowBlur + "px " + dataNew.iShadowSpread + "px var(--box-shadow-col),inset " +
-				dataNew.iShadowInnerXOffset + "px " + dataNew.iShadowInnerYOffset + "px " + dataNew.iShadowInnerBlur + "px " + dataNew.iShadowInnerSpread + "px var(--box-shadow-inner-col)";
-			let border = dataNew.iBorderSize + "px " + dataNew.iBorderStyle + " " + borderCol;
-			let borderRadius = dataNew.iCornerRadiusUL + "px " + dataNew.iCornerRadiusUR + "px " + dataNew.iCornerRadiusLR + "px " + dataNew.iCornerRadiusLL + "px";
-
-			if (dataNew.iShadowTextXOffset > 0 || dataNew.iShadowTextYOffset > 0 || dataNew.iShadowTextBlur > 0) {
-				shadowText = dataNew.iShadowTextXOffset + "px " + dataNew.iShadowTextYOffset + "px " + dataNew.iShadowTextBlur + "px var(--text-shadow-col);";
-			}
-
+			//BACKUP
+			// let shadow = dataNew.iShadowXOffset + "px " + dataNew.iShadowYOffset + "px " + dataNew.iShadowBlur + "px " + dataNew.iShadowSpread + "px var(--box-shadow-col),inset " +
+			// 	dataNew.iShadowInnerXOffset + "px " + dataNew.iShadowInnerYOffset + "px " + dataNew.iShadowInnerBlur + "px " + dataNew.iShadowInnerSpread + "px var(--box-shadow-inner-col)";
+			// let border = dataNew.iBorderSize + "px " + dataNew.iBorderStyle + " " + borderCol;
+			// let borderRadius = dataNew.iCornerRadiusUL + "px " + dataNew.iCornerRadiusUR + "px " + dataNew.iCornerRadiusLR + "px " + dataNew.iCornerRadiusLL + "px";
+			// if (dataNew.iShadowTextXOffset > 0 || dataNew.iShadowTextYOffset > 0 || dataNew.iShadowTextBlur > 0) {
+			// 	shadowText = dataNew.iShadowTextXOffset + "px " + dataNew.iShadowTextYOffset + "px " + dataNew.iShadowTextBlur + "px var(--text-shadow-col);";
+			// }
 			//
-			let imgMargin = dataNew.iImgSpaceTop + "px " + dataNew.iImgSpaceRight + "px " + dataNew.iImgSpaceBottom + "px " + dataNew.iImgSpaceLeft + "px";
-			let txtMargin = dataNew.iTextSpaceTop + "px " + dataNew.iTextSpaceRight + "px " + dataNew.iTextSpaceBottom + "px " + dataNew.iTextSpaceLeft + "px";
+			// let imgMargin = dataNew.iImgSpaceTop + "px " + dataNew.iImgSpaceRight + "px " + dataNew.iImgSpaceBottom + "px " + dataNew.iImgSpaceLeft + "px";
+			// let txtMargin = dataNew.iTextSpaceTop + "px " + dataNew.iTextSpaceRight + "px " + dataNew.iTextSpaceBottom + "px " + dataNew.iTextSpaceLeft + "px";
+
+			//Schatten
+			let shadow = checkValueAndAddUnit(dataNew.iShadowXOffset, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iShadowYOffset, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iShadowBlur, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iShadowSpread, "px") + " var(--box-shadow-col),inset "
+				+ checkValueAndAddUnit(dataNew.iShadowInnerXOffset, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iShadowInnerYOffset, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iShadowInnerBlur, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iShadowInnerSpread, "px")
+				+ " var(--box-shadow-inner-col)";
+
+			//Umrandung
+			let border = checkValueAndAddUnit(dataNew.iBorderSize, "px")
+				+ " " + dataNew.iBorderStyle + " " + borderCol;
+
+			//Ecken
+			let borderRadius = checkValueAndAddUnit(dataNew.iCornerRadiusUL, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iCornerRadiusUR, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iCornerRadiusLR, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iCornerRadiusLL, "px");
+
+			shadowText = checkValueAndAddUnit(dataNew.iShadowTextXOffset, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iShadowTextYOffset, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iShadowTextBlur, "px")
+				+ " var(--text-shadow-col);";
+
+
+			//Margins
+			let imgMargin = checkValueAndAddUnit(dataNew.iImgSpaceTop, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iImgSpaceRight, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iImgSpaceBottom, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iImgSpaceLeft, "px");
+			let txtMargin = checkValueAndAddUnit(dataNew.iTextSpaceTop, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iTextSpaceRight, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iTextSpaceBottom, "px") + " "
+				+ checkValueAndAddUnit(dataNew.iTextSpaceLeft, "px");
 
 			//Vertikale Inhaltsausrichtung
 			let vertTextAlign = "";
@@ -4560,7 +4613,7 @@ vis.binds["vis-inventwo"] = {
 				contentImageBlink: imgBlink + "s",
 				contentImageInvert: invertCol,
 				contentImageColorFilter: imgColorFilter,
-				textFontSize: dataNew.iTextSize + "px",
+				textFontSize: checkValueAndAddUnit(dataNew.iTextSize, "px"),
 				textColor: textColor,
 				textMargin: txtMargin,
 				textTextAlign: textAlign,
