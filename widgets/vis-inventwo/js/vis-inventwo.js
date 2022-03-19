@@ -4708,7 +4708,7 @@ vis.binds["vis-inventwo"] = {
 							<img src='/vis/widgets/vis-inventwo/img/clock_analog/` + dataNew.iImgClockHands + `/sek.png' style="filter: var(--clock-hand-second-color-filter)"></div>`;
 				}
 				imgElement = `
-				<div class="vis-inventwo-clock-analog" style="width: ` + dataNew.iIconSize + `px;height: ` + dataNew.iIconSize + `px;">` + clock + `</div>
+				<div class="vis-inventwo-clock-analog" style="width: ` + checkValueAndAddUnit(dataNew.iIconSize, 'px')+`;height: ` + checkValueAndAddUnit(dataNew.iIconSize, 'px') + `;">` + clock + `</div>
 				`;
 
 				vis.binds["vis-inventwo"].getImgColorFilter(dataNew.iImgColorClockFace, dataNew.wid, "clock-face-color-filter");
@@ -4718,21 +4718,22 @@ vis.binds["vis-inventwo"] = {
 			} else if (dataNew.iContentType == "clock_digital") {
 				imgElement = `
 				<div class="vis-inventwo-clock-digital" 
-					 style="font-size: ` + dataNew.iIconSize + `px; 
+					 style="font-size: ` + checkValueAndAddUnit(dataNew.iIconSize, 'px') + `; 
 					 		color: var(--content-image-color-filter);">
 					--:--
 				</div>
 				`;
 			} else if (dataNew.iContentType == "image") {
 				imgElement = `
-				<img src="` + d.img + `" width="` + dataNew.iIconSize + `" class="vis-inventwo-img"
+				<img src="` + d.img + `" class="vis-inventwo-img"
 					 style="transform: scaleX(` + flip + `) rotateZ(` + dataNew.iImgRotation + `deg);
-					 		animation:blink var(--content-image-blink) infinite; ` + values.contentImageInvert + ";" + dispNone + `"> `;
+					 		animation:blink var(--content-image-blink) infinite; ` + values.contentImageInvert + ";" + dispNone + `; 
+					 		width: ` + checkValueAndAddUnit(dataNew.iIconSize, "px") + `;"> `;
 
 			} else if (dataNew.iContentType == "html_text") {
 				imgElement = `
 					<div class="vis-inventwo-content-htmltext" 
-					 style="font-size: ` + dataNew.iIconSize + `px; 
+					 style="font-size: ` + checkValueAndAddUnit(dataNew.iIconSize, "px") + `; 
 					 		color: var(--content-image-color-filter);">` + d.htmlText + `</div>
 				`;
 
@@ -5805,6 +5806,16 @@ vis.binds["vis-inventwo"] = {
 	//Aktualisierung der Filter für das Icon
 	getImgColorFilter: function (color, wid, varName = null, invert = false) {
 
+		if(color == ""){
+			return;
+		}
+
+		let regexp = /var\((--[^\)]*)\)/g;
+		let match = regexp.exec(color);
+
+		if(match !== undefined && match !== null && match.length > 1 && match[1] != undefined && match[1] != ""){
+			color = getComputedStyle(document.body).getPropertyValue(match[1]);
+		}
 
 		let filter = "";
 		color = color.toLowerCase();
