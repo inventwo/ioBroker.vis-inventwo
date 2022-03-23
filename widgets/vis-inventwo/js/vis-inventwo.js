@@ -1583,7 +1583,7 @@ vis.binds["vis-inventwo"] = {
 					if (data.iImgColorTrueFilter != undefined && data.iImgColorTrueFilter != "")
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorTrueFilter.substring(8, data.iImgColorTrueFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextTrue);
-					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColorActive);
+					// $(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColorActive);
 					if (vis.editMode) {
 						let shadowCols = {
 							iShadowColorActive: data.iShadowColorActive,
@@ -1611,7 +1611,7 @@ vis.binds["vis-inventwo"] = {
 					if (data.iImgColorFalseFilter != undefined && data.iImgColorFalseFilter != "")
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8, data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
-					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
+					// $(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
 					if (vis.editMode) {
 						const shadowColors = vis.binds["vis-inventwo"].getDatapointsValues({
 							iShadowColor: data.iShadowColor,
@@ -1702,7 +1702,7 @@ vis.binds["vis-inventwo"] = {
 						if (data["iImgColorTrueFilter" + i] != undefined && data["iImgColorTrueFilter" + i] != "")
 							$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data["iImgColorTrueFilter" + i].substring(8, data["iImgColorTrueFilter" + i].length - 1));
 						$(this).find(".vis-inventwo-button-text").html(data["iTextTrue" + i]);
-						$(this).find(".vis-inventwo-button-new").css("border-color", data["iBorderColorActiveM" + i]);
+						// $(this).find(".vis-inventwo-button-new").css("border-color", data["iBorderColorActiveM" + i]);
 						if (vis.editMode) {
 							let shadowCols = {
 								iShadowColorActive: data["iShadowColorActiveM" + i],
@@ -1735,7 +1735,7 @@ vis.binds["vis-inventwo"] = {
 					if (data.iImgColorFalseFilter != undefined && data.iImgColorFalseFilter != "")
 						$(this).find(".vis-inventwo-button-imageContainer img").css("filter", data.iImgColorFalseFilter.substring(8, data.iImgColorFalseFilter.length - 1));
 					$(this).find(".vis-inventwo-button-text").html(data.iTextFalse);
-					$(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
+					// $(this).find(".vis-inventwo-button-new").css("border-color", data.iBorderColor);
 					if (vis.editMode) {
 						const shadowColors = vis.binds["vis-inventwo"].getDatapointsValues({
 							iShadowColor: data.iShadowColor,

@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "3.3.2",
+    "version": "3.3.3",
     "news": {
+      "3.3.3":{
+        "en": "Fixed issue with border color and view in popup",
+        "de": "Problem mit Randfarbe und Ansicht im Popup behoben",
+        "ru": "Исправлена проблема с цветом границы и видом во всплывающем окне.",
+        "pt": "Corrigido problema com a cor da borda e visualização em pop-up",
+        "nl": "Probleem opgelost met randkleur en weergave in pop-up",
+        "fr": "Correction d'un problème avec la couleur de la bordure et la vue dans la fenêtre contextuelle",
+        "it": "Risolto il problema con il colore del bordo e la visualizzazione nel popup",
+        "es": "Se solucionó el problema con el color del borde y la vista en la ventana emergente",
+        "pl": "Naprawiono problem z kolorem obramowania i widokiem w wyskakującym okienku",
+        "zh-cn": "修复了弹出窗口中边框颜色和视图的问题"
+      },
       "3.3.2": {
         "en": "Bugfix",
         "de": "Fehlerbehebung",
