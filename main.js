@@ -640,7 +640,7 @@ class visInventwo extends utils.Adapter {
 							// Eigene Datenpunkte
 							{
 								typ: "channel",
-								id: "_BasicCustoms",
+								id: "_Customs",
 								name: "Basic Custom Variables",
 								childs: [
 									{
@@ -1259,7 +1259,7 @@ class visInventwo extends utils.Adapter {
 							// Eigene Datenpunkte
 							{
 								typ: "channel",
-								id: "_LightCustoms",
+								id: "_Customs",
 								name: "Light Custom Variables",
 								childs: [
 									{
@@ -1878,7 +1878,7 @@ class visInventwo extends utils.Adapter {
 							// Eigene Datenpunkte
 							{
 								typ: "channel",
-								id: "_DarkCustoms",
+								id: "_Customs",
 								name: "Dark Custom Variables",
 								childs: [
 									{
