@@ -641,7 +641,7 @@ class visInventwo extends utils.Adapter {
 							{
 								typ: "channel",
 								id: "_Customs",
-								name: "Basic Custom Variables",
+								name: "Custom Variables",
 								childs: [
 									{
 										typ: "state",
@@ -1260,7 +1260,7 @@ class visInventwo extends utils.Adapter {
 							{
 								typ: "channel",
 								id: "_Customs",
-								name: "Light Custom Variables",
+								name: "Custom Variables",
 								childs: [
 									{
 										typ: "state",
@@ -1879,7 +1879,7 @@ class visInventwo extends utils.Adapter {
 							{
 								typ: "channel",
 								id: "_Customs",
-								name: "Dark Custom Variables",
+								name: "Custom Variables",
 								childs: [
 									{
 										typ: "state",
