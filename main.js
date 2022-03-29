@@ -2567,6 +2567,13 @@ class visInventwo extends utils.Adapter {
 						name: "Custom 5",
 						type: "string",
 						value: "",
+					},
+					{
+						typ: "state",
+						id: "Custom6",
+						name: "Custom 6",
+						type: "string",
+						value: "",
 					}
 				]
 			},
