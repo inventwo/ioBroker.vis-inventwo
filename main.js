@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 "use strict";
 
 /*
@@ -65,7 +67,7 @@ class visInventwo extends utils.Adapter {
 										id: "Color1",
 										name: "Button Color 1",
 										type: "string",
-										value: "#333333"
+										value: "linear-gradient(#444, #111)"
 									},
 									{
 										typ: "state",
@@ -79,7 +81,7 @@ class visInventwo extends utils.Adapter {
 										id: "Color3",
 										name: "Button Color 3",
 										type: "string",
-										value: "#555555"
+										value: "#405d66"
 									},
 									// Farbe Aktiv
 									{
@@ -87,14 +89,14 @@ class visInventwo extends utils.Adapter {
 										id: "ColorActive1",
 										name: "Button Color Active 1",
 										type: "string",
-										value: "#456534"
+										value: "linear-gradient(#444, #2e434a)"
 									},
 									{
 										typ: "state",
 										id: "ColorActive2",
 										name: "Button Color Active 2",
 										type: "string",
-										value: "#1C4166"
+										value: "#2e434a"
 									},
 									{
 										typ: "state",
@@ -109,7 +111,7 @@ class visInventwo extends utils.Adapter {
 										id: "ColorHover1",
 										name: "Button Color Hover 1",
 										type: "string",
-										value: "#456534"
+										value: "#2e434a"
 									},
 									{
 										typ: "state",
@@ -138,7 +140,7 @@ class visInventwo extends utils.Adapter {
 										id: "Opacity2",
 										name: "Button Opacity 2",
 										type: "number",
-										value: 0.8
+										value: 0.9
 									}
 								]
 							},
@@ -155,7 +157,7 @@ class visInventwo extends utils.Adapter {
 										name: "Upper Left",
 										type: "number",
 										unit: "px",
-										value: 5
+										value: 10
 									},
 									{
 										typ: "state",
@@ -171,7 +173,7 @@ class visInventwo extends utils.Adapter {
 										name: "Lower Right",
 										type: "number",
 										unit: "px",
-										value: 5
+										value: 10
 									},
 									{
 										typ: "state",
@@ -219,7 +221,7 @@ class visInventwo extends utils.Adapter {
 										id: "Opacity2",
 										name: "Content Opacity 2",
 										type: "number",
-										value: 0.8
+										value: 1
 									}
 								]
 							},
@@ -250,14 +252,14 @@ class visInventwo extends utils.Adapter {
 										id: "TextColorActive1",
 										name: "Text Color Active 1",
 										type: "string",
-										value: "#456534"
+										value: "#FFFFFF"
 									},
 									{
 										typ: "state",
 										id: "TextColorActive2",
 										name: "Text Color Active 2",
 										type: "string",
-										value: "#1C4166"
+										value: "#222222"
 									},
 									// Groesse
 									{
@@ -274,7 +276,7 @@ class visInventwo extends utils.Adapter {
 										name: "Text Size 2",
 										type: "number",
 										unit: "px",
-										value: 20
+										value: 30
 									},
 									// Abstand
 									{
@@ -299,7 +301,7 @@ class visInventwo extends utils.Adapter {
 										name: "Text Distance Left",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 3
 									},
 									{
 										typ: "state",
@@ -324,7 +326,7 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Size 1",
 										type: "number",
 										unit: "px",
-										value: 70
+										value: 65
 									},
 									{
 										typ: "state",
@@ -341,7 +343,7 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Distance Above",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 5
 									},
 									{
 										typ: "state",
@@ -496,21 +498,21 @@ class visInventwo extends utils.Adapter {
 										id: "ShadowInnerColor",
 										name: "Shadow Inner Color",
 										type: "string",
-										value: "#456534"
+										value: "#2e434a"
 									},
 									{
 										typ: "state",
 										id: "ShadowInnerColorActive",
 										name: "Shadow Inner Color Active",
 										type: "string",
-										value: "#456534"
+										value: "#2e434a"
 									},
 									{
 										typ: "state",
 										id: "ShadowInnerColorHover",
 										name: "Shadow Inner Color Hover",
 										type: "string",
-										value: "#456534"
+										value: "#2e434a"
 									}
 								]
 							},
@@ -527,7 +529,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Offset X",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 3
 									},
 									{
 										typ: "state",
@@ -535,7 +537,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Offset Y",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 3
 									},
 									// Blur
 									{
@@ -585,7 +587,7 @@ class visInventwo extends utils.Adapter {
 										name: "Border Size",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 0
 									},
 									// Farbe
 									{
@@ -593,14 +595,14 @@ class visInventwo extends utils.Adapter {
 										id: "BorderColor",
 										name: "Border Color",
 										type: "string",
-										value: "#456534"
+										value: "#2e434a"
 									},
 									{
 										typ: "state",
 										id: "BorderColorActive",
 										name: "Border Color Active",
 										type: "string",
-										value: "#456534"
+										value: "#2e434a"
 									}
 								]
 							},
@@ -616,14 +618,14 @@ class visInventwo extends utils.Adapter {
 										id: "WallpaperURL1",
 										name: "Wallpaper URL 1",
 										type: "string",
-										value: "/vis-icontwo/Backgrounds/108_g.jpg"
+										value: "/vis-icontwo/Backgrounds/104.jpg"
 									},
 									{
 										typ: "state",
 										id: "WallpaperURL2",
 										name: "Wallpaper URL 2",
 										type: "string",
-										value: "/vis-icontwo/Backgrounds/200.jpg"
+										value: "/vis-icontwo/Backgrounds/110.jpg"
 									},
 									// Transparenz
 									{
@@ -638,8 +640,8 @@ class visInventwo extends utils.Adapter {
 							// Eigene Datenpunkte
 							{
 								typ: "channel",
-								id: "_BasicCustoms",
-								name: "Basic Custom Variables",
+								id: "_Customs",
+								name: "Custom Variables",
 								childs: [
 									{
 										typ: "state",
@@ -706,7 +708,7 @@ class visInventwo extends utils.Adapter {
 										id: "ColorActive1",
 										name: "Button Color Active 1",
 										type: "string",
-										value: "#dbdbdb"
+										value: "linear-gradient(#FFF, #dbdbdb)"
 									},
 									{
 										typ: "state",
@@ -750,7 +752,7 @@ class visInventwo extends utils.Adapter {
 										id: "Opacity1",
 										name: "Button Opacity 1",
 										type: "number",
-										value: 1
+										value: 0.9
 									},
 									{
 										typ: "state",
@@ -774,7 +776,7 @@ class visInventwo extends utils.Adapter {
 										name: "Upper Left",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 1
 									},
 									{
 										typ: "state",
@@ -782,7 +784,7 @@ class visInventwo extends utils.Adapter {
 										name: "Upper Right",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 1
 									},
 									{
 										typ: "state",
@@ -790,7 +792,7 @@ class visInventwo extends utils.Adapter {
 										name: "Lower Right",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 1
 									},
 									{
 										typ: "state",
@@ -798,7 +800,7 @@ class visInventwo extends utils.Adapter {
 										name: "Lower Left",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 1
 									},
 									// Alle Ecken gleich
 									{
@@ -831,7 +833,7 @@ class visInventwo extends utils.Adapter {
 										id: "Opacity1",
 										name: "Content Opacity 1",
 										type: "number",
-										value: 1
+										value: 0.9
 									},
 									{
 										typ: "state",
@@ -893,7 +895,7 @@ class visInventwo extends utils.Adapter {
 										name: "Text Size 2",
 										type: "number",
 										unit: "px",
-										value: 20
+										value: 30
 									},
 									// Abstand
 									{
@@ -918,7 +920,7 @@ class visInventwo extends utils.Adapter {
 										name: "Text Distance Left",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 3
 									},
 									{
 										typ: "state",
@@ -943,7 +945,7 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Size 1",
 										type: "number",
 										unit: "px",
-										value: 70
+										value: 65
 									},
 									{
 										typ: "state",
@@ -960,7 +962,7 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Distance Above",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 5
 									},
 									{
 										typ: "state",
@@ -1098,7 +1100,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Inner Blur",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 1
 									},
 									// Groesse
 									{
@@ -1107,7 +1109,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Inner Size",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 1
 									},
 									// Farbe
 									{
@@ -1115,7 +1117,7 @@ class visInventwo extends utils.Adapter {
 										id: "ShadowInnerColor",
 										name: "Shadow Inner Color",
 										type: "string",
-										value: "#B2B2B2"
+										value: "#595959"
 									},
 									{
 										typ: "state",
@@ -1172,7 +1174,7 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Size",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 1
 									},
 									// Farbe
 									{
@@ -1204,7 +1206,7 @@ class visInventwo extends utils.Adapter {
 										name: "Border Size",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 0
 									},
 									// Farbe
 									{
@@ -1257,8 +1259,8 @@ class visInventwo extends utils.Adapter {
 							// Eigene Datenpunkte
 							{
 								typ: "channel",
-								id: "_LightCustoms",
-								name: "Light Custom Variables",
+								id: "_Customs",
+								name: "Custom Variables",
 								childs: [
 									{
 										typ: "state",
@@ -1303,14 +1305,14 @@ class visInventwo extends utils.Adapter {
 										id: "Color1",
 										name: "Button Color 1",
 										type: "string",
-										value: "#FFFFFF"
+										value: "#1c1c1c"
 									},
 									{
 										typ: "state",
 										id: "Color2",
 										name: "Button Color 2",
 										type: "string",
-										value: "#999999"
+										value: "#444444"
 									},
 									{
 										typ: "state",
@@ -1332,7 +1334,7 @@ class visInventwo extends utils.Adapter {
 										id: "ColorActive2",
 										name: "Button Color Active 2",
 										type: "string",
-										value: "#bababa"
+										value: "#25361c"
 									},
 									{
 										typ: "state",
@@ -1347,7 +1349,7 @@ class visInventwo extends utils.Adapter {
 										id: "ColorHover1",
 										name: "Button Color Hover 1",
 										type: "string",
-										value: "#dbdbdb"
+										value: "#25361c"
 									},
 									{
 										typ: "state",
@@ -1369,7 +1371,7 @@ class visInventwo extends utils.Adapter {
 										id: "Opacity1",
 										name: "Button Opacity 1",
 										type: "number",
-										value: 1
+										value: 0.8
 									},
 									{
 										typ: "state",
@@ -1401,7 +1403,7 @@ class visInventwo extends utils.Adapter {
 										name: "Upper Right",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 15
 									},
 									{
 										typ: "state",
@@ -1409,7 +1411,7 @@ class visInventwo extends utils.Adapter {
 										name: "Lower Right",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 15
 									},
 									{
 										typ: "state",
@@ -1426,7 +1428,7 @@ class visInventwo extends utils.Adapter {
 										name: "All Corners 1",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 5
 									},
 									{
 										typ: "state",
@@ -1450,7 +1452,7 @@ class visInventwo extends utils.Adapter {
 										id: "Opacity1",
 										name: "Content Opacity 1",
 										type: "number",
-										value: 1
+										value: 0.9
 									},
 									{
 										typ: "state",
@@ -1473,7 +1475,7 @@ class visInventwo extends utils.Adapter {
 										id: "TextColor1",
 										name: "Text Color 1",
 										type: "string",
-										value: "#111111"
+										value: "#a3a3a3"
 									},
 									{
 										typ: "state",
@@ -1488,7 +1490,7 @@ class visInventwo extends utils.Adapter {
 										id: "TextColorActive1",
 										name: "Text Color Active 1",
 										type: "string",
-										value: "#111111"
+										value: "#a3a3a3"
 									},
 									{
 										typ: "state",
@@ -1512,7 +1514,7 @@ class visInventwo extends utils.Adapter {
 										name: "Text Size 2",
 										type: "number",
 										unit: "px",
-										value: 20
+										value: 30
 									},
 									// Abstand
 									{
@@ -1537,7 +1539,7 @@ class visInventwo extends utils.Adapter {
 										name: "Text Distance Left",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 3
 									},
 									{
 										typ: "state",
@@ -1562,7 +1564,7 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Size 1",
 										type: "number",
 										unit: "px",
-										value: 70
+										value: 65
 									},
 									{
 										typ: "state",
@@ -1579,7 +1581,7 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Distance Above",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 5
 									},
 									{
 										typ: "state",
@@ -1611,14 +1613,14 @@ class visInventwo extends utils.Adapter {
 										id: "IconColor1",
 										name: "Icon Color 1",
 										type: "string",
-										value: "#111111"
+										value: "#a3a3a3"
 									},
 									{
 										typ: "state",
 										id: "IconColorActive1",
 										name: "Icon Color Active 1",
 										type: "string",
-										value: "#222222"
+										value: "#a3a3a3"
 									}
 								]
 							},
@@ -1669,21 +1671,21 @@ class visInventwo extends utils.Adapter {
 										id: "ShadowOuterColor",
 										name: "Shadow Outer Color",
 										type: "string",
-										value: "#333333"
+										value: "#111111"
 									},
 									{
 										typ: "state",
 										id: "ShadowOuterColorActive",
 										name: "Shadow Outer Color Active",
 										type: "string",
-										value: "#333333"
+										value: "#111111"
 									},
 									{
 										typ: "state",
 										id: "ShadowOuterColorHover",
 										name: "Shadow Outer Color Hover",
 										type: "string",
-										value: "#333333"
+										value: "#111111"
 									}
 								]
 							},
@@ -1734,7 +1736,7 @@ class visInventwo extends utils.Adapter {
 										id: "ShadowInnerColor",
 										name: "Shadow Inner Color",
 										type: "string",
-										value: "#B2B2B2"
+										value: "#38522b"
 									},
 									{
 										typ: "state",
@@ -1748,7 +1750,7 @@ class visInventwo extends utils.Adapter {
 										id: "ShadowInnerColorHover",
 										name: "Shadow Inner Color Hover",
 										type: "string",
-										value: "#B2B2B2"
+										value: "#38522b"
 									}
 								]
 							},
@@ -1799,14 +1801,14 @@ class visInventwo extends utils.Adapter {
 										id: "ShadowTextColor",
 										name: "Shadow Text Color",
 										type: "string",
-										value: "#9C9C9C"
+										value: "#575757"
 									},
 									{
 										typ: "state",
 										id: "ShadowTextColorActive",
 										name: "Shadow Text Color Active",
 										type: "string",
-										value: "#9C9C9C"
+										value: "#575757"
 									}
 								]
 							},
@@ -1823,7 +1825,7 @@ class visInventwo extends utils.Adapter {
 										name: "Border Size",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 0
 									},
 									// Farbe
 									{
@@ -1869,15 +1871,15 @@ class visInventwo extends utils.Adapter {
 										id: "WallpaperOpacity",
 										name: "Wallpaper Opacity",
 										type: "number",
-										value: 0.5
+										value: 0.3
 									}
 								]
 							},
 							// Eigene Datenpunkte
 							{
 								typ: "channel",
-								id: "_DarkCustoms",
-								name: "Dark Custom Variables",
+								id: "_Customs",
+								name: "Custom Variables",
 								childs: [
 									{
 										typ: "state",
@@ -2556,6 +2558,20 @@ class visInventwo extends utils.Adapter {
 						typ: "state",
 						id: "Custom4",
 						name: "Custom 4",
+						type: "string",
+						value: "",
+					},
+					{
+						typ: "state",
+						id: "Custom5",
+						name: "Custom 5",
+						type: "string",
+						value: "",
+					},
+					{
+						typ: "state",
+						id: "Custom6",
+						name: "Custom 6",
 						type: "string",
 						value: "",
 					}
