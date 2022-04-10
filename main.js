@@ -153,32 +153,32 @@ class visInventwo extends utils.Adapter {
 									// Getrennte Radien
 									{
 										typ: "state",
-										id: "UpperLeft",
-										name: "Upper Left",
+										id: "CornerUpperLeft",
+										name: "Corner Upper Left",
 										type: "number",
 										unit: "px",
 										value: 10
 									},
 									{
 										typ: "state",
-										id: "UpperRight",
-										name: "Upper Right",
+										id: "CornerUpperRight",
+										name: "Corner Upper Right",
 										type: "number",
 										unit: "px",
 										value: 5
 									},
 									{
 										typ: "state",
-										id: "LowerRight",
-										name: "Lower Right",
+										id: "CornerLowerRight",
+										name: "Corner Lower Right",
 										type: "number",
 										unit: "px",
 										value: 10
 									},
 									{
 										typ: "state",
-										id: "LowerLeft",
-										name: "Lower Left",
+										id: "CornerLowerLeft",
+										name: "Corner Lower Left",
 										type: "number",
 										unit: "px",
 										value: 5
@@ -548,15 +548,6 @@ class visInventwo extends utils.Adapter {
 										unit: "px",
 										value: 2
 									},
-									// Groesse
-									{
-										typ: "state",
-										id: "ShadowTextSize",
-										name: "Shadow Text Size",
-										type: "number",
-										unit: "px",
-										value: 2
-									},
 									// Farbe
 									{
 										typ: "state",
@@ -601,6 +592,13 @@ class visInventwo extends utils.Adapter {
 										typ: "state",
 										id: "BorderColorActive",
 										name: "Border Color Active",
+										type: "string",
+										value: "#2e434a"
+									},
+									{
+										typ: "state",
+										id: "BorderColorHover",
+										name: "Border Color Hover",
 										type: "string",
 										value: "#2e434a"
 									}
@@ -772,32 +770,32 @@ class visInventwo extends utils.Adapter {
 									// Getrennte Radien
 									{
 										typ: "state",
-										id: "UpperLeft",
-										name: "Upper Left",
+										id: "CornerUpperLeft",
+										name: "Corner Upper Left",
 										type: "number",
 										unit: "px",
 										value: 1
 									},
 									{
 										typ: "state",
-										id: "UpperRight",
-										name: "Upper Right",
+										id: "CornerUpperRight",
+										name: "Corner Upper Right",
 										type: "number",
 										unit: "px",
 										value: 1
 									},
 									{
 										typ: "state",
-										id: "LowerRight",
-										name: "Lower Right",
+										id: "CornerLowerRight",
+										name: "Corner Lower Right",
 										type: "number",
 										unit: "px",
 										value: 1
 									},
 									{
 										typ: "state",
-										id: "LowerLeft",
-										name: "Lower Left",
+										id: "CornerLowerLeft",
+										name: "Corner Lower Left",
 										type: "number",
 										unit: "px",
 										value: 1
@@ -1167,15 +1165,6 @@ class visInventwo extends utils.Adapter {
 										unit: "px",
 										value: 2
 									},
-									// Groesse
-									{
-										typ: "state",
-										id: "ShadowTextSize",
-										name: "Shadow Text Size",
-										type: "number",
-										unit: "px",
-										value: 1
-									},
 									// Farbe
 									{
 										typ: "state",
@@ -1220,6 +1209,13 @@ class visInventwo extends utils.Adapter {
 										typ: "state",
 										id: "BorderColorActive",
 										name: "Border Color Active",
+										type: "string",
+										value: "#9C9C9C"
+									},
+									{
+										typ: "state",
+										id: "BorderColorHover",
+										name: "Border Color Hover",
 										type: "string",
 										value: "#9C9C9C"
 									}
@@ -1391,32 +1387,32 @@ class visInventwo extends utils.Adapter {
 									// Getrennte Radien
 									{
 										typ: "state",
-										id: "UpperLeft",
-										name: "Upper Left",
+										id: "CornerUpperLeft",
+										name: "Corner Upper Left",
 										type: "number",
 										unit: "px",
 										value: 2
 									},
 									{
 										typ: "state",
-										id: "UpperRight",
-										name: "Upper Right",
+										id: "CornerUpperRight",
+										name: "Corner Upper Right",
 										type: "number",
 										unit: "px",
 										value: 15
 									},
 									{
 										typ: "state",
-										id: "LowerRight",
-										name: "Lower Right",
+										id: "CornerLowerRight",
+										name: "Corner Lower Right",
 										type: "number",
 										unit: "px",
 										value: 15
 									},
 									{
 										typ: "state",
-										id: "LowerLeft",
-										name: "Lower Left",
+										id: "CornerLowerLeft",
+										name: "Corner Lower Left",
 										type: "number",
 										unit: "px",
 										value: 2
@@ -1786,15 +1782,6 @@ class visInventwo extends utils.Adapter {
 										unit: "px",
 										value: 2
 									},
-									// Groesse
-									{
-										typ: "state",
-										id: "ShadowTextSize",
-										name: "Shadow Text Size",
-										type: "number",
-										unit: "px",
-										value: 2
-									},
 									// Farbe
 									{
 										typ: "state",
@@ -1839,6 +1826,13 @@ class visInventwo extends utils.Adapter {
 										typ: "state",
 										id: "BorderColorActive",
 										name: "Border Color Active",
+										type: "string",
+										value: "#9C9C9C"
+									},
+									{
+										typ: "state",
+										id: "BorderColorHover",
+										name: "Border Color Hover",
 										type: "string",
 										value: "#9C9C9C"
 									}
@@ -2405,15 +2399,6 @@ class visInventwo extends utils.Adapter {
 										unit: "px",
 										value: ""
 									},
-									// Groesse
-									{
-										typ: "state",
-										id: "ShadowTextSize",
-										name: "Shadow Text Size",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
 									// Farbe
 									{
 										typ: "state",
@@ -2458,6 +2443,13 @@ class visInventwo extends utils.Adapter {
 										typ: "state",
 										id: "BorderColorActive",
 										name: "Border Color Active",
+										type: "string",
+										value: ""
+									},
+									{
+										typ: "state",
+										id: "BorderColorHover",
+										name: "Border Color Hover",
 										type: "string",
 										value: ""
 									}
