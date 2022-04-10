@@ -15,7 +15,8 @@
 }
 
 .vis-inventwo-button-new {
-    position: absolute;
+    /*position: absolute;*/
+    position: relative;
     width: 100%;
     height: 100%;
 }
