@@ -93,7 +93,7 @@ vis.binds["vis-inventwo-components"] = {
 
 	getButton: function (values, classes, contentType, data){
 		let html =  `<div class="vis-inventwo-class vis-widget-body vis-inventwo-button-new %%classes%%" style="%%styles%%">
-				<div class="vis-inventwo-button-new"
+				<div class="vis-inventwo-button-background"
 					 style="background: var(--background);
 					 		opacity: var(--background-opacity);
 					 		box-shadow: var(--background-shadow);
@@ -132,7 +132,7 @@ vis.binds["vis-inventwo-components"] = {
 		styles = styles.join(";");
 
 		placeholders.styles = styles;
-		placeholders.content = vis.binds["vis-inventwo-helper"].getButtonContent(contentType, values.content, data);
+		placeholders.content = vis.binds["vis-inventwo-components"].getButtonContent(contentType, values.content, data);
 		placeholders.title = values.text;
 		placeholders.classes = classes.join(" ");
 
@@ -152,5 +152,51 @@ vis.binds["vis-inventwo-components"] = {
 		placeholders.classes = classes.join(" ");
 
 		return vis.binds["vis-inventwo-helper"].replacePlaceholders(html, placeholders);
-	}
+	},
+
+	getButtonContent: function (type, content, data){
+		if(type === "image"){
+			if(content === undefined || content === ""){
+				return "";
+			}
+
+			return '<img src="'+content+'" style="width: var(--image-size); transform: var(--image-transform); animation: var(--image-animation); filter: var(--content-image-color-filter-filter);">';
+		}
+		else if(type === "html_text"){
+			return '<div style="font-size: var(--image-size); color: var(--content-image-color-filter);">' +  content + "</div>";
+		}
+		else if(type === "clock_analog"){
+			let clock = "";
+
+			if (data.iImgClockShowBorder == true) {
+				clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-face-border'>
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/frame.png' style="filter: var(--clock-face-color-filter)"></div>`;
+			}
+			clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-face'>
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/` + data.iImgClockFace + `.png' style="filter: var(--clock-face-color-filter)"></div>`;
+			clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-hand-hour'>
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/` + data.iImgClockHands + `/std.png' style="filter: var(--clock-hands-color-filter)"></div>`;
+			clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-hand-minute'>
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/` + data.iImgClockHands + `/min.png' style="filter: var(--clock-hands-color-filter)"></div>`;
+
+			if (data.iClockShowSeconds == true) {
+				clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-hand-second'>
+							<img src='/vis/widgets/vis-inventwo/img/clock_analog/` + data.iImgClockHands + `/sek.png' style="filter: var(--clock-hand-second-color-filter)"></div>`;
+			}
+			let elem = `
+				<div class="vis-inventwo-clock-analog" style="width: var(--image-size); height: var(--image-size);">` + clock + `</div>
+				`;
+
+			return elem;
+		}
+		else if(type === "clock_digital"){
+			return '<div class="vis-inventwo-clock-digital" style="font-size: var(--image-size); color: var(--content-image-color-filter);">--:--</div>';
+		}
+		else if(type === "colorpicker"){
+			return "<div class='vis-inventwo-colorpicker'></div>";
+		}
+		else{
+			return '';
+		}
+	},
 }

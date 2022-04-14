@@ -69,6 +69,16 @@ if (vis.editMode) {
             "en": "Descending",
             "de": "Absteigend"
         },
+
+        "iApplyTheme": {
+            "en": "Theme",
+            "de": "Theme"
+        },
+
+        "iApplyThemeButtonText": {
+            "en": "Apply theme values",
+            "de": "Theme-Werte anwenden"
+        },
         //#endregion
 
         //#region Content Settings

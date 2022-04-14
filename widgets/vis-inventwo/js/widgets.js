@@ -230,5 +230,294 @@ vis.binds["vis-inventwo-widgets"] = {
                 }
             });
         }
-    }
+    },
+
+    /*
+    Using the iro.js color picker https://iro.js.org/
+ */
+    colorPicker: function (el, data) {
+
+        let isMoving = false;
+
+        let dataNew = Object.assign({}, data);
+        if (vis.editMode) {
+            dataNew = vis.binds["vis-inventwo-helper"].getDatapointsValues(dataNew);
+        }
+
+        let layoutComponents = [];
+
+        //#region colorpicker components
+        if (dataNew.iColorPickerShowWheel) {
+            layoutComponents.push({
+                component: iro.ui.Wheel,
+                options: {}
+            });
+        }
+        if (dataNew.iColorPickerShowSliderHue) {
+            layoutComponents.push({
+                component: iro.ui.Slider,
+                options: {
+                    sliderType: 'hue'
+                }
+            });
+        }
+        if (dataNew.iColorPickerShowSliderSaturation) {
+            layoutComponents.push({
+                component: iro.ui.Slider,
+                options: {
+                    sliderType: 'saturation'
+                }
+            });
+        }
+        if (dataNew.iColorPickerShowSliderValue) {
+            layoutComponents.push({
+                component: iro.ui.Slider,
+                options: {
+                    sliderType: 'value'
+                }
+            });
+        }
+        if (dataNew.iColorPickerShowSliderRed) {
+            layoutComponents.push({
+                component: iro.ui.Slider,
+                options: {
+                    sliderType: 'red'
+                }
+            });
+        }
+        if (dataNew.iColorPickerShowSliderGreen) {
+            layoutComponents.push({
+                component: iro.ui.Slider,
+                options: {
+                    sliderType: 'green'
+                }
+            });
+        }
+        if (dataNew.iColorPickerShowSliderBlue) {
+            layoutComponents.push({
+                component: iro.ui.Slider,
+                options: {
+                    sliderType: 'blue'
+                }
+            });
+        }
+        if (dataNew.iColorPickerShowSliderAlpha) {
+            layoutComponents.push({
+                component: iro.ui.Slider,
+                options: {
+                    sliderType: 'alpha'
+                }
+            });
+        }
+        if (dataNew.iColorPickerShowSliderKelvin) {
+            layoutComponents.push({
+                component: iro.ui.Slider,
+                options: {
+                    sliderType: 'kelvin'
+                }
+            });
+        }
+
+        //#endregion
+
+        let html = vis.binds["vis-inventwo-components"].getButton(vis.binds["vis-inventwo-helper"].getButtonValues(data, "universal", false), [], "colorpicker", data);
+        $(el).html(html);
+
+        let colorPicker = new iro.ColorPicker($(el).find('.vis-inventwo-colorpicker')[0], {
+            width: parseInt(dataNew.iColorPickerWidth),
+            layout: layoutComponents,
+            display: "block",
+            padding: dataNew.iColorPickerHandlePadding,
+            margin: vis.binds["vis-inventwo-helper"].unitize(dataNew.iColorPickerComponentMargin),
+            handleRadius: dataNew.iColorPickerHandleRadius,
+            layoutDirection: dataNew.iColorPickerLayoutDirection
+        });
+
+        function isJson(string) {
+            try {
+                JSON.parse(string);
+            } catch (e) {
+                return false;
+            }
+            return true;
+        }
+
+        let hexString = "";
+
+        function setPickerColor() {
+            switch (dataNew.iColorPickerFormat) {
+                case "HEX":
+                    hexString = vis.states[dataNew.oid + ".val"];
+                    if ((/^#([A-Fa-f0-9]{3}$)|([A-Fa-f0-9]{6}$)/.test(hexString))) {
+                        colorPicker.color.hexString = hexString;
+                    }
+                    else {
+                        colorPicker.color.hexString = "#ffffff";
+                    }
+                    break;
+                case "HEX 8":
+                    hexString = vis.states[dataNew.oid + ".val"];
+                    if ((/^#([A-Fa-f0-9]{8}$)/.test(hexString))) {
+                        colorPicker.color.hex8String = hexString;
+                    }
+                    else {
+                        colorPicker.color.hexString = "#ffffffff";
+                    }
+                    break;
+                case "RGB":
+                    if (dataNew["iColorPickerColor1-oid"] != "" && dataNew["iColorPickerColor2-oid"] != "" && dataNew["iColorPickerColor3-oid"] != "") {
+                        colorPicker.color.rgb = {
+                            r: parseInt(vis.states[dataNew["iColorPickerColor1-oid"] + ".val"]),
+                            g: parseInt(vis.states[dataNew["iColorPickerColor2-oid"] + ".val"]),
+                            b: parseInt(vis.states[dataNew["iColorPickerColor3-oid"] + ".val"])
+                        }
+                        console.log({
+                            r: parseInt(vis.states[dataNew["iColorPickerColor1-oid"] + ".val"]),
+                            g: parseInt(vis.states[dataNew["iColorPickerColor2-oid"] + ".val"]),
+                            b: parseInt(vis.states[dataNew["iColorPickerColor3-oid"] + ".val"])
+                        });
+                    }
+                    else {
+                        colorPicker.color.rgb = {
+                            r: 255,
+                            g: 255,
+                            b: 255,
+                        }
+                    }
+                    break;
+                case "HSL":
+                    if (dataNew["iColorPickerColor1-oid"] != "" && dataNew["iColorPickerColor2-oid"] != "" && dataNew["iColorPickerColor3-oid"] != "") {
+                        colorPicker.color.hsl = {
+                            h: parseInt(vis.states[dataNew["iColorPickerColor1-oid"] + ".val"]),
+                            s: parseInt(vis.states[dataNew["iColorPickerColor2-oid"] + ".val"]),
+                            l: parseInt(vis.states[dataNew["iColorPickerColor3-oid"] + ".val"])
+                        }
+                    }
+                    else {
+                        colorPicker.color.hsl = {
+                            h: 330,
+                            s: 0,
+                            l: 100,
+                        }
+                    }
+                    break;
+                case "HSV":
+                    if (dataNew["iColorPickerColor1-oid"] != "" && dataNew["iColorPickerColor2-oid"] != "" && dataNew["iColorPickerColor3-oid"] != "") {
+                        colorPicker.color.hsv = {
+                            h: parseInt(vis.states[dataNew["iColorPickerColor1-oid"] + ".val"]),
+                            s: parseInt(vis.states[dataNew["iColorPickerColor2-oid"] + ".val"]),
+                            v: parseInt(vis.states[dataNew["iColorPickerColor3-oid"] + ".val"])
+                        }
+                    }
+                    else {
+                        colorPicker.color.hsv = {
+                            h: 0,
+                            s: 0,
+                            v: 100,
+                        }
+                    }
+                    break;
+                case "CIE":
+                    let dpValue = vis.states[dataNew.oid + ".val"];
+                    if (isJson(dpValue)) {
+                        let jsonVal = JSON.parse(dpValue);
+                        dpValue = jsonVal.join(",");
+                        dpIsArrayWithBrackets = true;
+                    }
+                    else if (typeof dpValue == "object") {
+                        dpValue = dpValue.join(",");
+                        dpIsArray = true;
+                    }
+                    let rgb = vis.binds['vis-inventwo'].cieConvert(dpValue, "rgb");
+                    colorPicker.color.rgb = {
+                        r: rgb[0],
+                        g: rgb[1],
+                        b: rgb[2],
+                    }
+                    break;
+                default:
+                    console.log("Error! Color model not implemented!");
+                    break;
+            }
+
+            colorPicker.color.alpha = vis.states[dataNew["iColorPickerTransparency-oid"] + ".val"];
+        }
+
+        setPickerColor();
+
+        colorPicker.on('input:start', function () {
+            isMoving = true;
+        });
+
+        colorPicker.on('input:change', function (color) {
+            if (color.index === 0) {
+                switch (dataNew.iColorPickerFormat) {
+                    case "HEX":
+                        vis.setValue(dataNew.oid, color.hexString);
+                        break;
+                    case "HEX 8":
+                        vis.setValue(dataNew.oid, color.hex8String);
+                        break;
+                    case "RGB":
+                        vis.setValue(dataNew["iColorPickerColor1-oid"], color.rgb.r);
+                        vis.setValue(dataNew["iColorPickerColor2-oid"], color.rgb.g);
+                        vis.setValue(dataNew["iColorPickerColor3-oid"], color.rgb.b);
+                        break;
+                    case "HSL":
+                        vis.setValue(dataNew["iColorPickerColor1-oid"], color.hsl.h);
+                        vis.setValue(dataNew["iColorPickerColor2-oid"], color.hsl.s);
+                        vis.setValue(dataNew["iColorPickerColor3-oid"], color.hsl.l);
+                        break;
+                    case "HSV":
+                        vis.setValue(dataNew["iColorPickerColor1-oid"], color.hsv.h);
+                        vis.setValue(dataNew["iColorPickerColor2-oid"], color.hsv.s);
+                        vis.setValue(dataNew["iColorPickerColor3-oid"], color.hsv.v);
+                        break;
+                    case "CIE":
+                        vis.setValue(dataNew.oid, vis.binds['vis-inventwo'].cieConvert(
+                            [color.rgb.r, color.rgb.g, color.rgb.b], "cie"));
+                        break;
+                    default:
+                        console.log("Error! Color model not implemented!");
+                        break;
+                }
+
+                vis.setValue(dataNew["iColorPickerTransparency-oid"], color.alpha);
+            }
+        });
+
+        colorPicker.on('input:end', function () {
+            setTimeout(function () {
+                isMoving = false;
+            }, 100);
+        });
+
+        vis.states.bind(dataNew.oid + ".val", function (e, newVal, oldVal) {
+            if (newVal !== oldVal && !isMoving) {
+                setPickerColor();
+            }
+        });
+
+        vis.states.bind(dataNew["iColorPickerTransparency-oid"] + ".val", function (e, newVal, oldVal) {
+            if (newVal !== oldVal && !isMoving) {
+                setPickerColor();
+            }
+        });
+
+        vis.states.bind(dataNew["iColorPickerColor1-oid"] + ".val", function (e, newVal, oldVal) {
+            if (newVal !== oldVal && !isMoving && dataNew.iColorPickerFormat.includes("RGB", "HSV", "HSL")) {
+                setPickerColor();
+            }
+        });
+        vis.states.bind(dataNew["iColorPickerColor2-oid"] + ".val", function (e, newVal, oldVal) {
+            if (newVal !== oldVal && !isMoving && dataNew.iColorPickerFormat.includes("RGB", "HSV", "HSL")) {
+                setPickerColor();
+            }
+        });
+        vis.states.bind(dataNew["iColorPickerColor3-oid"] + ".val", function (e, newVal, oldVal) {
+            if (newVal !== oldVal && !isMoving && dataNew.iColorPickerFormat.includes("RGB", "HSV", "HSL")) {
+                setPickerColor();
+            }
+        });
+    },
 }

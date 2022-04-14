@@ -53,7 +53,7 @@ vis.binds["vis-inventwo-helper"] = {
 
             if (vis.detectBounce(this) || moved) return;
 
-            callback(this);
+            callback(this, event);
 
             e.preventDefault();
 
@@ -252,7 +252,7 @@ vis.binds["vis-inventwo-helper"] = {
         values.styles["--text-color"] = data.iTextColor;
         values.styles["--content-image-color-filter"] = data.iImgColorFalse;
 
-        values.text = data.iTextFalse !== undefined && data.iTextFalse !== "" ? data.iTextFalse : "";
+        values.text = data.iTextFalse ? data.iTextFalse : data.iText ? data.iText : "";
 
         values.styles["--content-image-blink"] = parseInt(data.iImgBlinkFalse) / 1000 + "s";
 
@@ -402,16 +402,13 @@ vis.binds["vis-inventwo-helper"] = {
                     data.iCheckType === "iCheckView" && vis.binds["vis-inventwo-helper"].isCurrentView(data["iView" + index])
                 )
             ){
-                values.styles["--background"] = data.iButtonActive;
+                values.styles["--background"] = data["iButtonActive" + index] ? data["iButtonActive" + index] : data.iButtonActive;
                 values.styles["--box-shadow-col"] = data.iShadowColorActive;
                 values.styles["--box-shadow-inner-col"] = data.iShadowInnerColorActive;
                 values.styles["--text-shadow-col"] = data.iShadowTextColorActive;
                 values.styles["--border-col"] = data.iBorderColorActive;
                 values.styles["--text-color"] = data.iTextColorActive;
-                values.styles["--content-image-color-filter"] = data.iImgColorTrue;
-
-                values.image = data["iImageTrue" + index] !== undefined && data["iImageTrue" + index] !== "" ? data["iImageTrue" + index] : "";
-                values.text = data["iTextTrue" + index] !== undefined && data["iTextTrue" + index] !== "" ? data["iTextTrue" + index] : "";
+                values.styles["--content-image-color-filter"] = data["iImgColorTrue" + index];
 
                 values.styles["--content-image-blink"] = parseInt(data.iImgBlinkTrue) / 1000 + "s";
 
@@ -419,19 +416,33 @@ vis.binds["vis-inventwo-helper"] = {
                     values.styles["--content-image-invert"] = " filter: invert(1)";
                 }
 
-                // if (data.iContentType === "html_text") {
-                //     values.content = data.iHtmlTextFieldTrue;
-                // }
-                // else if(data.iContentType === "image"){
-                values.content = data["iImageTrue" + index] !== undefined && data["iImageTrue" + index] !== "" ? data["iImageTrue" + index] : "";
-                // }
+                values.content = data["iImageTrue" + index] ? data["iImageTrue" + index] : "";
+                values.text = data["iTextTrue" + index] ? data["iTextTrue" + index] : "";
             }
             else{
                 values = {...values, ...vis.binds["vis-inventwo-helper"].getButtonValuesFalse(data)};
+
+                values.styles["--content-image-color-filter"] = data["iImgColorFalse" + index];
+
+                if(data["iButtonCol" + index]){
+                    values.styles["--background"] = data["iButtonCol" + index]
+                }
+
+                if (data["iImgColorInvertTrue" + index] === true) {
+                    values.styles["--content-image-invert"] = " filter: invert(1)";
+                }
+
+                values.content = data["iImageTrue" + index] ? data["iImageTrue" + index] : "";
+                values.text = data["iTextFalse" + index] ? data["iTextFalse" + index] : "";
             }
+
+            index--;
         }
 
         if(!onlyUpdate) {
+
+            values.styles["--background-opacity"] = data.iOpacityBack;
+            values.styles["--content-opacity"] = data.iOpacityCtn;
 
             //Shadow
             values.styles["--background-shadow"] = vis.binds["vis-inventwo-helper"].unitize(data.iShadowXOffset) + " "
@@ -529,52 +540,10 @@ vis.binds["vis-inventwo-helper"] = {
         }
 
         if(values.styles["--content-image-color-filter"] !== undefined && values.styles["--content-image-color-filter"] !== "") {
-            vis.binds["vis-inventwo-helper"].getImgColorFilter(values.styles["--content-image-color-filter"], data.wid);
+            vis.binds["vis-inventwo-helper"].getImgColorFilter(values.styles["--content-image-color-filter"], data.wid, null, false, false, index);
         }
 
         return values;
-    },
-
-    getButtonContent: function (type, content, data){
-        if(type === "image"){
-            if(content === undefined || content === ""){
-                return "";
-            }
-            return '<img src="'+content+'" style="width: var(--image-size); transform: var(--image-transform); animation: var(--image-animation); filter: var(--content-image-color-filter-filter);">';
-        }
-        else if(type === "html_text"){
-            return '<div style="font-size: var(--image-size); color: var(--content-image-color-filter);">' +  content + "</div>";
-        }
-        else if(type === "clock_analog"){
-            let clock = "";
-
-            if (data.iImgClockShowBorder == true) {
-                clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-face-border'>
-							<img src='/vis/widgets/vis-inventwo/img/clock_analog/frame.png' style="filter: var(--clock-face-color-filter)"></div>`;
-            }
-            clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-face'>
-							<img src='/vis/widgets/vis-inventwo/img/clock_analog/` + data.iImgClockFace + `.png' style="filter: var(--clock-face-color-filter)"></div>`;
-            clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-hand-hour'>
-							<img src='/vis/widgets/vis-inventwo/img/clock_analog/` + data.iImgClockHands + `/std.png' style="filter: var(--clock-hands-color-filter)"></div>`;
-            clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-hand-minute'>
-							<img src='/vis/widgets/vis-inventwo/img/clock_analog/` + data.iImgClockHands + `/min.png' style="filter: var(--clock-hands-color-filter)"></div>`;
-
-            if (data.iClockShowSeconds == true) {
-                clock += `<div class='vis-inventwo-clock-analog-part vis-inventwo-clock-analog-hand-second'>
-							<img src='/vis/widgets/vis-inventwo/img/clock_analog/` + data.iImgClockHands + `/sek.png' style="filter: var(--clock-hand-second-color-filter)"></div>`;
-            }
-            let elem = `
-				<div class="vis-inventwo-clock-analog" style="width: var(--image-size); height: var(--image-size);">` + clock + `</div>
-				`;
-
-            return elem;
-        }
-        else if(type === "clock_digital"){
-            return '<div class="vis-inventwo-clock-digital" style="font-size: var(--image-size); color: var(--content-image-color-filter);">--:--</div>';
-        }
-        else{
-            return '';
-        }
     },
 
     updateButton: function (el, data, type, index = 0){
@@ -585,7 +554,11 @@ vis.binds["vis-inventwo-helper"] = {
             el.get(0).style.setProperty(key, value);
         }
 
-        vis.binds["vis-inventwo-helper"].getImgColorFilter(values.styles["--content-image-color-filter"], data.wid);
+        if(index > 0){
+            index--;
+        }
+
+        vis.binds["vis-inventwo-helper"].getImgColorFilter(values.styles["--content-image-color-filter"], data.wid, index);
 
         el.find('.vis-inventwo-button-text').html(values.text);
 
@@ -982,13 +955,12 @@ vis.binds["vis-inventwo-helper"] = {
         return filter;
 
     },
-
     /*
 		END Colorfilter
 	 */
 
     //Aktualisierung der Filter für das Icon
-    getImgColorFilter: function (color, wid, varName = null, invert = false) {
+    getImgColorFilter: function (color, wid, varName = null, invert = false, isTheme = false, index = 0) {
 
         if (color === undefined || color === "") {
             return;
@@ -1028,13 +1000,14 @@ vis.binds["vis-inventwo-helper"] = {
                 }
 
                 if (varName == null) {
-                    $("#" + wid).find(".vis-inventwo-button-new").get(0).style.setProperty("--content-image-color-filter-filter", filter.substring(8, filter.length - 1));
-                    // if ($("#" + wid).find(".vis-inventwo-img").css("filter") != filter.substring(8, filter.length - 1)) {
-                    //     $("#" + wid).find(".vis-inventwo-button-new").get(0).style.setProperty("--content-image-color-filter", filter.substring(8, filter.length - 1));
-                    // }
+                    $("#" + wid).find(".vis-inventwo-button-new").get(index).style.setProperty("--content-image-color-filter-filter", filter.substring(8, filter.length - 1));
                 }
                 else {
-                    $('#' + wid).find('.vis-inventwo-button-new').get(0).style.setProperty("--" + varName, filter.substring(8, filter.length - 1))
+                    let el = $('#' + wid).find('.vis-inventwo-button-new').get(index);
+                    if(isTheme){
+                        el = document.documentElement;
+                    }
+                    el.style.setProperty("--" + varName, filter.substring(8, filter.length - 1))
                 }
             });
         }
@@ -1047,5 +1020,9 @@ vis.binds["vis-inventwo-helper"] = {
             }
         }
 
+    },
+
+    upperCamelCaseToMinus: function (s){
+        return s.replace(/\.?([A-Z]+)/g, function (x,y){return "-" + y.toLowerCase()}).replace(/^-/, "");
     },
 }

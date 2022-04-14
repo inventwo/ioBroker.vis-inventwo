@@ -5,9 +5,10 @@
 -->
 
 
+
 <script src="widgets/vis-inventwo/vendor/iro.min.js"></script>
 
-<link rel="stylesheet" href="widgets/vis-inventwo/css/style.css?v=2">
+<link rel="stylesheet" href="widgets/vis-inventwo/css/style.css?v=4">
 
 <script src="widgets/vis-inventwo/js/translation.js"></script>
 <script src="widgets/vis-inventwo/js/vis-inventwo.js"></script>
@@ -84,6 +85,7 @@
 						iPopUpShadowSpread[1]/slider,0,20,1;
 						iPopUpShadowColor[#111111]/color;"
 		data-vis-attrs0="group.i-css;
+						 iApplyTheme/custom,vis-inventwo.applyThemeButton,universal;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
 						 iButtonActive[#455618]/color;
@@ -186,6 +188,7 @@
 	</div>
 </script>
 
+
 <!--iText-GridSettings/custom,vis-inventwo.infoText,emptyText;
  iGridColumn/number,1,100,1;
  iGridRow/number,1,100,1;
@@ -284,6 +287,7 @@
 						 iImgColorInvert(1-iUniversalValueCount)/checkbox;
 						 iHtmlTextFieldTrue(1-iUniversalValueCount)[]/html;"
 		data-vis-attrs1="group.i-css;
+						 iApplyTheme/custom,vis-inventwo.applyThemeButton,multi;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
 						 iButtonColHover[]/color;
@@ -767,6 +771,7 @@
 						iColorPickerShowSliderAlpha[]/checkbox;
 						iColorPickerShowSliderKelvin[]/checkbox;"
 		data-vis-attrs0="group.i-css;
+						 iApplyTheme/custom,vis-inventwo.applyThemeButton,universal;
 						 iText-ColorPickerSettings/custom,vis-inventwo.infoText,emptyText;
 						 iColorPickerWidth[200]/slider,50,500,1;
 						 iColorPickerComponentMargin[12]/slider,1,50,1;
@@ -835,8 +840,8 @@
 		data-vis-name="Color Picker<br>
 						<span style='color:#888888;'>HEX, RGB, HSL, HSV, CIE/xy</span>">
 	<div class="vis-widget waves-effect waves-light vis-inventwo-universal-widget" style="width:235px; height:235px; overflow:visible; cursor:pointer;z-index:1" id="<%= this.data.attr('wid') %>">
-		<%= (el) -> vis.binds['vis-inventwo'].colorPicker(el, this.data) %>
-		<%= (el) -> vis.binds['vis-inventwo'].updateColorPickerFieldsClick(el) %>
+		<%= (el) -> vis.binds['vis-inventwo-widgets'].colorPicker(el, this.data) %>
+		<%= (el) -> vis.binds['vis-inventwo-old'].updateColorPickerFieldsClick(el) %>
 	</div>
 </script>
 
@@ -1003,12 +1008,6 @@
 
 </script>
 
-
-
-
-
-
-
 <script id="i-vis-jsontable"
 		type="text/ejs"
 		class="vis-tpl"
@@ -1122,8 +1121,8 @@
 
 						 iText-BackgroundSettings(1-iRadiobtnsCount)/custom,vis-inventwo.infoText,emptyText;
 						 iText-BackColorRadioInfo/custom,vis-inventwo.infoText,radioBtnBackColInfoText;
-						 iButtonColM(1-iRadiobtnsCount)/color;
-						 iButtonActiveM(1-iRadiobtnsCount)/color;
+						 iButtonCol(1-iRadiobtnsCount)/color;
+						 iButtonActive(1-iRadiobtnsCount)/color;
 						 iText-ImgSettings(1-iRadiobtnsCount)/custom,vis-inventwo.infoText,emptyText;
 						 iImageFalse(1-iRadiobtnsCount)/image;
 						 iImageTrue(1-iRadiobtnsCount)/image;
@@ -1131,6 +1130,7 @@
 						 iImgColorTrue(1-iRadiobtnsCount)[]/color;
 						 iImgColorInvert(1-iRadiobtnsCount)/checkbox;"
 		data-vis-attrs1="group.i-css;
+						 iApplyTheme/custom,vis-inventwo.applyThemeButton,universal;
 						 iText-BackgroundSettings/custom,vis-inventwo.infoText,emptyText;
 						 iButtonCol[#333333]/color;
 						 iButtonActive[#455618]/color;

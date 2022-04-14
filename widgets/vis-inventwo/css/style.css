@@ -14,6 +14,13 @@
     height: 100%;
 }
 
+.vis-inventwo-button-background {
+    /*position: absolute;*/
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
 .vis-inventwo-button-new {
     /*position: absolute;*/
     position: relative;
