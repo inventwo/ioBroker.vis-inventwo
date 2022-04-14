@@ -40,7 +40,8 @@ class visInventwo extends utils.Adapter {
 							Dark: "Dark Theme",
 							Light: "Light Theme"
 						},
-						value: "Basic"
+						value: "Basic",
+						role: "inventwo.string"
 					}
 				]
 			},
@@ -67,21 +68,24 @@ class visInventwo extends utils.Adapter {
 										id: "Color1",
 										name: "Button Color 1",
 										type: "string",
-										value: "linear-gradient(#444, #111)"
+										value: "linear-gradient(#444, #111)",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "Color2",
 										name: "Button Color 2",
 										type: "string",
-										value: "#666666"
+										value: "#666666",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "Color3",
 										name: "Button Color 3",
 										type: "string",
-										value: "#405d66"
+										value: "#405d66",
+										role: "inventwo.color"
 									},
 									// Farbe Aktiv
 									{
@@ -89,21 +93,24 @@ class visInventwo extends utils.Adapter {
 										id: "ColorActive1",
 										name: "Button Color Active 1",
 										type: "string",
-										value: "linear-gradient(#444, #2e434a)"
+										value: "linear-gradient(#444, #2e434a)",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ColorActive2",
 										name: "Button Color Active 2",
 										type: "string",
-										value: "#2e434a"
+										value: "#2e434a",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ColorActive3",
 										name: "Button Color Active 3",
 										type: "string",
-										value: "#405d66"
+										value: "#405d66",
+										role: "inventwo.color"
 									},
 									// Farbe bei Hover
 									{
@@ -111,21 +118,24 @@ class visInventwo extends utils.Adapter {
 										id: "ColorHover1",
 										name: "Button Color Hover 1",
 										type: "string",
-										value: "#2e434a"
+										value: "#2e434a",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ColorHover2",
 										name: "Button Color Hover 2",
 										type: "string",
-										value: "#1C4166"
+										value: "#1C4166",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ColorHover3",
 										name: "Button Color Hover 3",
 										type: "string",
-										value: "#405d66"
+										value: "#405d66",
+										role: "inventwo.color"
 									},
 									// Transparenz
 									{
@@ -133,14 +143,16 @@ class visInventwo extends utils.Adapter {
 										id: "Opacity1",
 										name: "Button Opacity 1",
 										type: "number",
-										value: 0.8
+										value: 0.8,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
 										id: "Opacity2",
 										name: "Button Opacity 2",
 										type: "number",
-										value: 0.9
+										value: 0.9,
+										role: "inventwo.number"
 									}
 								]
 							},
@@ -153,35 +165,39 @@ class visInventwo extends utils.Adapter {
 									// Getrennte Radien
 									{
 										typ: "state",
-										id: "UpperLeft",
-										name: "Upper Left",
+										id: "CornerUpperLeft",
+										name: "Corner Upper Left",
 										type: "number",
 										unit: "px",
-										value: 10
+										value: 10,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
-										id: "UpperRight",
-										name: "Upper Right",
+										id: "CornerUpperRight",
+										name: "Corner Upper Right",
 										type: "number",
 										unit: "px",
-										value: 5
+										value: 5,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
-										id: "LowerRight",
-										name: "Lower Right",
+										id: "CornerLowerRight",
+										name: "Corner Lower Right",
 										type: "number",
 										unit: "px",
-										value: 10
+										value: 10,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
-										id: "LowerLeft",
-										name: "Lower Left",
+										id: "CornerLowerLeft",
+										name: "Corner Lower Left",
 										type: "number",
 										unit: "px",
-										value: 5
+										value: 5,
+										role: "inventwo.number"
 									},
 									// Alle Ecken gleich
 									{
@@ -190,7 +206,8 @@ class visInventwo extends utils.Adapter {
 										name: "All Corners 1",
 										type: "number",
 										unit: "px",
-										value: 5
+										value: 5,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -198,7 +215,8 @@ class visInventwo extends utils.Adapter {
 										name: "All Corners 2",
 										type: "number",
 										unit: "%",
-										value: 100
+										value: 100,
+										role: "inventwo.number"
 									},
 								]
 							},
@@ -214,14 +232,16 @@ class visInventwo extends utils.Adapter {
 										id: "Opacity1",
 										name: "Content Opacity 1",
 										type: "number",
-										value: 0.8
+										value: 0.8,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
 										id: "Opacity2",
 										name: "Content Opacity 2",
 										type: "number",
-										value: 1
+										value: 1,
+										role: "inventwo.number"
 									}
 								]
 							},
@@ -237,14 +257,16 @@ class visInventwo extends utils.Adapter {
 										id: "TextColor1",
 										name: "Text Color 1",
 										type: "string",
-										value: "#FFFFFF"
+										value: "#FFFFFF",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "TextColor2",
 										name: "Text Color 2",
 										type: "string",
-										value: "#222222"
+										value: "#222222",
+										role: "inventwo.color"
 									},
 									// Farbe Aktiv
 									{
@@ -252,14 +274,16 @@ class visInventwo extends utils.Adapter {
 										id: "TextColorActive1",
 										name: "Text Color Active 1",
 										type: "string",
-										value: "#FFFFFF"
+										value: "#FFFFFF",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "TextColorActive2",
 										name: "Text Color Active 2",
 										type: "string",
-										value: "#222222"
+										value: "#222222",
+										role: "inventwo.color"
 									},
 									// Groesse
 									{
@@ -268,7 +292,8 @@ class visInventwo extends utils.Adapter {
 										name: "Text Size 1",
 										type: "number",
 										unit: "px",
-										value: 14
+										value: 14,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -276,7 +301,8 @@ class visInventwo extends utils.Adapter {
 										name: "Text Size 2",
 										type: "number",
 										unit: "px",
-										value: 30
+										value: 30,
+										role: "inventwo.number"
 									},
 									// Abstand
 									{
@@ -285,7 +311,8 @@ class visInventwo extends utils.Adapter {
 										name: "Text Distance Above",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -293,7 +320,8 @@ class visInventwo extends utils.Adapter {
 										name: "Text Distance Below",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -301,7 +329,8 @@ class visInventwo extends utils.Adapter {
 										name: "Text Distance Left",
 										type: "number",
 										unit: "px",
-										value: 3
+										value: 3,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -309,7 +338,8 @@ class visInventwo extends utils.Adapter {
 										name: "Text Distance Right",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									}
 								]
 							},
@@ -326,7 +356,8 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Size 1",
 										type: "number",
 										unit: "px",
-										value: 65
+										value: 65,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -334,7 +365,8 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Size 2",
 										type: "number",
 										unit: "px",
-										value: 30
+										value: 30,
+										role: "inventwo.number"
 									},
 									// Abstand
 									{
@@ -343,7 +375,8 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Distance Above",
 										type: "number",
 										unit: "px",
-										value: 5
+										value: 5,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -351,7 +384,8 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Distance Below",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -359,7 +393,8 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Distance Left",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -367,7 +402,8 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Distance Right",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									// Farbe
 									{
@@ -375,14 +411,16 @@ class visInventwo extends utils.Adapter {
 										id: "IconColor1",
 										name: "Icon Color 1",
 										type: "string",
-										value: "#FFFFFF"
+										value: "#FFFFFF",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "IconColorActive1",
 										name: "Icon Color Active 1",
 										type: "string",
-										value: "#FFFFFF"
+										value: "#FFFFFF",
+										role: "inventwo.color"
 									}
 								]
 							},
@@ -399,7 +437,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Outer Offset X",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -407,7 +446,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Outer Offset Y",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									// Blur
 									{
@@ -416,7 +456,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Outer Blur",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									// Groesse
 									{
@@ -425,7 +466,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Outer Size",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									// Farbe
 									{
@@ -433,21 +475,24 @@ class visInventwo extends utils.Adapter {
 										id: "ShadowOuterColor",
 										name: "Shadow Outer Color",
 										type: "string",
-										value: "#111111"
+										value: "#111111",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ShadowOuterColorActive",
 										name: "Shadow Outer Color Active",
 										type: "string",
-										value: "#111111"
+										value: "#111111",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ShadowOuterColorHover",
 										name: "Shadow Outer Color Hover",
 										type: "string",
-										value: "#111111"
+										value: "#111111",
+										role: "inventwo.color"
 									}
 								]
 							},
@@ -464,7 +509,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Inner Offset X",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -472,7 +518,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Inner Offset Y",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									// Blur
 									{
@@ -481,7 +528,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Inner Blur",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									// Groesse
 									{
@@ -490,7 +538,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Inner Size",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									// Farbe
 									{
@@ -498,21 +547,24 @@ class visInventwo extends utils.Adapter {
 										id: "ShadowInnerColor",
 										name: "Shadow Inner Color",
 										type: "string",
-										value: "#2e434a"
+										value: "#2e434a",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ShadowInnerColorActive",
 										name: "Shadow Inner Color Active",
 										type: "string",
-										value: "#2e434a"
+										value: "#2e434a",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ShadowInnerColorHover",
 										name: "Shadow Inner Color Hover",
 										type: "string",
-										value: "#2e434a"
+										value: "#2e434a",
+										role: "inventwo.color"
 									}
 								]
 							},
@@ -529,7 +581,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Offset X",
 										type: "number",
 										unit: "px",
-										value: 3
+										value: 3,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -537,7 +590,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Offset Y",
 										type: "number",
 										unit: "px",
-										value: 3
+										value: 3,
+										role: "inventwo.number"
 									},
 									// Blur
 									{
@@ -546,16 +600,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Blur",
 										type: "number",
 										unit: "px",
-										value: 2
-									},
-									// Groesse
-									{
-										typ: "state",
-										id: "ShadowTextSize",
-										name: "Shadow Text Size",
-										type: "number",
-										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									// Farbe
 									{
@@ -563,14 +609,16 @@ class visInventwo extends utils.Adapter {
 										id: "ShadowTextColor",
 										name: "Shadow Text Color",
 										type: "string",
-										value: "#111111"
+										value: "#111111",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ShadowTextColorActive",
 										name: "Shadow Text Color Active",
 										type: "string",
-										value: "#111111"
+										value: "#111111",
+										role: "inventwo.color"
 									}
 								]
 							},
@@ -587,7 +635,8 @@ class visInventwo extends utils.Adapter {
 										name: "Border Size",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									// Farbe
 									{
@@ -595,14 +644,24 @@ class visInventwo extends utils.Adapter {
 										id: "BorderColor",
 										name: "Border Color",
 										type: "string",
-										value: "#2e434a"
+										value: "#2e434a",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "BorderColorActive",
 										name: "Border Color Active",
 										type: "string",
-										value: "#2e434a"
+										value: "#2e434a",
+										role: "inventwo.color"
+									},
+									{
+										typ: "state",
+										id: "BorderColorHover",
+										name: "Border Color Hover",
+										type: "string",
+										value: "#2e434a",
+										role: "inventwo.color"
 									}
 								]
 							},
@@ -618,14 +677,16 @@ class visInventwo extends utils.Adapter {
 										id: "WallpaperURL1",
 										name: "Wallpaper URL 1",
 										type: "string",
-										value: "/vis-icontwo/Backgrounds/104.jpg"
+										value: "/vis-icontwo/Backgrounds/104.jpg",
+										role: "inventwo.string"
 									},
 									{
 										typ: "state",
 										id: "WallpaperURL2",
 										name: "Wallpaper URL 2",
 										type: "string",
-										value: "/vis-icontwo/Backgrounds/110.jpg"
+										value: "/vis-icontwo/Backgrounds/110.jpg",
+										role: "inventwo.string"
 									},
 									// Transparenz
 									{
@@ -633,7 +694,8 @@ class visInventwo extends utils.Adapter {
 										id: "WallpaperOpacity",
 										name: "Wallpaper Opacity",
 										type: "number",
-										value: 0.9
+										value: 0.9,
+										role: "inventwo.number"
 									}
 								]
 							},
@@ -649,6 +711,7 @@ class visInventwo extends utils.Adapter {
 										name: "Custom 1",
 										type: "string",
 										value: "",
+										role: "inventwo.string"
 									},
 									{
 										typ: "state",
@@ -656,6 +719,7 @@ class visInventwo extends utils.Adapter {
 										name: "Custom 2",
 										type: "string",
 										value: "",
+										role: "inventwo.string"
 									},
 									{
 										typ: "state",
@@ -663,6 +727,7 @@ class visInventwo extends utils.Adapter {
 										name: "Custom 3",
 										type: "string",
 										value: "",
+										role: "inventwo.string"
 									}
 								]
 							}
@@ -772,32 +837,32 @@ class visInventwo extends utils.Adapter {
 									// Getrennte Radien
 									{
 										typ: "state",
-										id: "UpperLeft",
-										name: "Upper Left",
+										id: "CornerUpperLeft",
+										name: "Corner Upper Left",
 										type: "number",
 										unit: "px",
 										value: 1
 									},
 									{
 										typ: "state",
-										id: "UpperRight",
-										name: "Upper Right",
+										id: "CornerUpperRight",
+										name: "Corner Upper Right",
 										type: "number",
 										unit: "px",
 										value: 1
 									},
 									{
 										typ: "state",
-										id: "LowerRight",
-										name: "Lower Right",
+										id: "CornerLowerRight",
+										name: "Corner Lower Right",
 										type: "number",
 										unit: "px",
 										value: 1
 									},
 									{
 										typ: "state",
-										id: "LowerLeft",
-										name: "Lower Left",
+										id: "CornerLowerLeft",
+										name: "Corner Lower Left",
 										type: "number",
 										unit: "px",
 										value: 1
@@ -1167,15 +1232,6 @@ class visInventwo extends utils.Adapter {
 										unit: "px",
 										value: 2
 									},
-									// Groesse
-									{
-										typ: "state",
-										id: "ShadowTextSize",
-										name: "Shadow Text Size",
-										type: "number",
-										unit: "px",
-										value: 1
-									},
 									// Farbe
 									{
 										typ: "state",
@@ -1220,6 +1276,13 @@ class visInventwo extends utils.Adapter {
 										typ: "state",
 										id: "BorderColorActive",
 										name: "Border Color Active",
+										type: "string",
+										value: "#9C9C9C"
+									},
+									{
+										typ: "state",
+										id: "BorderColorHover",
+										name: "Border Color Hover",
 										type: "string",
 										value: "#9C9C9C"
 									}
@@ -1305,21 +1368,24 @@ class visInventwo extends utils.Adapter {
 										id: "Color1",
 										name: "Button Color 1",
 										type: "string",
-										value: "#1c1c1c"
+										value: "#1c1c1c",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "Color2",
 										name: "Button Color 2",
 										type: "string",
-										value: "#444444"
+										value: "#444444",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "Color3",
 										name: "Button Color 3",
 										type: "string",
-										value: "#888888"
+										value: "#888888",
+										role: "inventwo.color"
 									},
 									// Farbe Aktiv
 									{
@@ -1327,21 +1393,24 @@ class visInventwo extends utils.Adapter {
 										id: "ColorActive1",
 										name: "Button Color Active 1",
 										type: "string",
-										value: "#dbdbdb"
+										value: "#dbdbdb",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ColorActive2",
 										name: "Button Color Active 2",
 										type: "string",
-										value: "#25361c"
+										value: "#25361c",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ColorActive3",
 										name: "Button Color Active 3",
 										type: "string",
-										value: "#9e9e9e"
+										value: "#9e9e9e",
+										role: "inventwo.color"
 									},
 									// Farbe bei Hover
 									{
@@ -1349,21 +1418,24 @@ class visInventwo extends utils.Adapter {
 										id: "ColorHover1",
 										name: "Button Color Hover 1",
 										type: "string",
-										value: "#25361c"
+										value: "#25361c",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ColorHover2",
 										name: "Button Color Hover 2",
 										type: "string",
-										value: "#bababa"
+										value: "#bababa",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ColorHover3",
 										name: "Button Color Hover 3",
 										type: "string",
-										value: "#9e9e9e"
+										value: "#9e9e9e",
+										role: "inventwo.color"
 									},
 									// Transparenz
 									{
@@ -1371,14 +1443,16 @@ class visInventwo extends utils.Adapter {
 										id: "Opacity1",
 										name: "Button Opacity 1",
 										type: "number",
-										value: 0.8
+										value: 0.8,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
 										id: "Opacity2",
 										name: "Button Opacity 2",
 										type: "number",
-										value: 0.8
+										value: 0.8,
+										role: "inventwo.number"
 									}
 								]
 							},
@@ -1391,35 +1465,39 @@ class visInventwo extends utils.Adapter {
 									// Getrennte Radien
 									{
 										typ: "state",
-										id: "UpperLeft",
-										name: "Upper Left",
+										id: "CornerUpperLeft",
+										name: "Corner Upper Left",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
-										id: "UpperRight",
-										name: "Upper Right",
+										id: "CornerUpperRight",
+										name: "Corner Upper Right",
 										type: "number",
 										unit: "px",
-										value: 15
+										value: 15,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
-										id: "LowerRight",
-										name: "Lower Right",
+										id: "CornerLowerRight",
+										name: "Corner Lower Right",
 										type: "number",
 										unit: "px",
-										value: 15
+										value: 15,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
-										id: "LowerLeft",
-										name: "Lower Left",
+										id: "CornerLowerLeft",
+										name: "Corner Lower Left",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									// Alle Ecken gleich
 									{
@@ -1428,7 +1506,8 @@ class visInventwo extends utils.Adapter {
 										name: "All Corners 1",
 										type: "number",
 										unit: "px",
-										value: 5
+										value: 5,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -1436,7 +1515,8 @@ class visInventwo extends utils.Adapter {
 										name: "All Corners 2",
 										type: "number",
 										unit: "%",
-										value: 100
+										value: 100,
+										role: "inventwo.number"
 									},
 								]
 							},
@@ -1452,14 +1532,16 @@ class visInventwo extends utils.Adapter {
 										id: "Opacity1",
 										name: "Content Opacity 1",
 										type: "number",
-										value: 0.9
+										value: 0.9,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
 										id: "Opacity2",
 										name: "Content Opacity 2",
 										type: "number",
-										value: 0.8
+										value: 0.8,
+										role: "inventwo.number"
 									}
 								]
 							},
@@ -1475,14 +1557,16 @@ class visInventwo extends utils.Adapter {
 										id: "TextColor1",
 										name: "Text Color 1",
 										type: "string",
-										value: "#a3a3a3"
+										value: "#a3a3a3",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "TextColor2",
 										name: "Text Color 2",
 										type: "string",
-										value: "#222222"
+										value: "#222222",
+										role: "inventwo.color"
 									},
 									// Farbe Aktiv
 									{
@@ -1490,14 +1574,16 @@ class visInventwo extends utils.Adapter {
 										id: "TextColorActive1",
 										name: "Text Color Active 1",
 										type: "string",
-										value: "#a3a3a3"
+										value: "#a3a3a3",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "TextColorActive2",
 										name: "Text Color Active 2",
 										type: "string",
-										value: "#222222"
+										value: "#222222",
+										role: "inventwo.color"
 									},
 									// Groesse
 									{
@@ -1506,7 +1592,8 @@ class visInventwo extends utils.Adapter {
 										name: "Text Size 1",
 										type: "number",
 										unit: "px",
-										value: 14
+										value: 14,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -1514,7 +1601,8 @@ class visInventwo extends utils.Adapter {
 										name: "Text Size 2",
 										type: "number",
 										unit: "px",
-										value: 30
+										value: 30,
+										role: "inventwo.number"
 									},
 									// Abstand
 									{
@@ -1523,7 +1611,8 @@ class visInventwo extends utils.Adapter {
 										name: "Text Distance Above",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -1531,7 +1620,8 @@ class visInventwo extends utils.Adapter {
 										name: "Text Distance Below",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -1539,7 +1629,8 @@ class visInventwo extends utils.Adapter {
 										name: "Text Distance Left",
 										type: "number",
 										unit: "px",
-										value: 3
+										value: 3,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -1547,7 +1638,8 @@ class visInventwo extends utils.Adapter {
 										name: "Text Distance Right",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									}
 								]
 							},
@@ -1564,7 +1656,8 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Size 1",
 										type: "number",
 										unit: "px",
-										value: 65
+										value: 65,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -1572,7 +1665,8 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Size 2",
 										type: "number",
 										unit: "px",
-										value: 30
+										value: 30,
+										role: "inventwo.number"
 									},
 									// Abstand
 									{
@@ -1581,7 +1675,8 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Distance Above",
 										type: "number",
 										unit: "px",
-										value: 5
+										value: 5,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -1589,7 +1684,8 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Distance Below",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -1597,7 +1693,8 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Distance Left",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -1605,7 +1702,8 @@ class visInventwo extends utils.Adapter {
 										name: "Icon Distance Right",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									// Farbe
 									{
@@ -1613,14 +1711,16 @@ class visInventwo extends utils.Adapter {
 										id: "IconColor1",
 										name: "Icon Color 1",
 										type: "string",
-										value: "#a3a3a3"
+										value: "#a3a3a3",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "IconColorActive1",
 										name: "Icon Color Active 1",
 										type: "string",
-										value: "#a3a3a3"
+										value: "#a3a3a3",
+										role: "inventwo.color"
 									}
 								]
 							},
@@ -1637,7 +1737,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Outer Offset X",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -1645,7 +1746,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Outer Offset Y",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									// Blur
 									{
@@ -1654,7 +1756,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Outer Blur",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									// Groesse
 									{
@@ -1663,7 +1766,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Outer Size",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									// Farbe
 									{
@@ -1671,21 +1775,24 @@ class visInventwo extends utils.Adapter {
 										id: "ShadowOuterColor",
 										name: "Shadow Outer Color",
 										type: "string",
-										value: "#111111"
+										value: "#111111",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ShadowOuterColorActive",
 										name: "Shadow Outer Color Active",
 										type: "string",
-										value: "#111111"
+										value: "#111111",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ShadowOuterColorHover",
 										name: "Shadow Outer Color Hover",
 										type: "string",
-										value: "#111111"
+										value: "#111111",
+										role: "inventwo.color"
 									}
 								]
 							},
@@ -1702,7 +1809,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Inner Offset X",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -1710,7 +1818,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Inner Offset Y",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									// Blur
 									{
@@ -1719,7 +1828,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Inner Blur",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									// Groesse
 									{
@@ -1728,7 +1838,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Inner Size",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									// Farbe
 									{
@@ -1736,21 +1847,24 @@ class visInventwo extends utils.Adapter {
 										id: "ShadowInnerColor",
 										name: "Shadow Inner Color",
 										type: "string",
-										value: "#38522b"
+										value: "#38522b",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ShadowInnerColorActive",
 										name: "Shadow Inner Color Active",
 										type: "string",
-										value: "#B2B2B2"
+										value: "#B2B2B2",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ShadowInnerColorHover",
 										name: "Shadow Inner Color Hover",
 										type: "string",
-										value: "#38522b"
+										value: "#38522b",
+										role: "inventwo.color"
 									}
 								]
 							},
@@ -1767,7 +1881,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Offset X",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									{
 										typ: "state",
@@ -1775,7 +1890,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Offset Y",
 										type: "number",
 										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									// Blur
 									{
@@ -1784,16 +1900,8 @@ class visInventwo extends utils.Adapter {
 										name: "Shadow Text Blur",
 										type: "number",
 										unit: "px",
-										value: 2
-									},
-									// Groesse
-									{
-										typ: "state",
-										id: "ShadowTextSize",
-										name: "Shadow Text Size",
-										type: "number",
-										unit: "px",
-										value: 2
+										value: 2,
+										role: "inventwo.number"
 									},
 									// Farbe
 									{
@@ -1801,14 +1909,16 @@ class visInventwo extends utils.Adapter {
 										id: "ShadowTextColor",
 										name: "Shadow Text Color",
 										type: "string",
-										value: "#575757"
+										value: "#575757",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "ShadowTextColorActive",
 										name: "Shadow Text Color Active",
 										type: "string",
-										value: "#575757"
+										value: "#575757",
+										role: "inventwo.color"
 									}
 								]
 							},
@@ -1825,7 +1935,8 @@ class visInventwo extends utils.Adapter {
 										name: "Border Size",
 										type: "number",
 										unit: "px",
-										value: 0
+										value: 0,
+										role: "inventwo.number"
 									},
 									// Farbe
 									{
@@ -1833,14 +1944,24 @@ class visInventwo extends utils.Adapter {
 										id: "BorderColor",
 										name: "Border Color",
 										type: "string",
-										value: "#9C9C9C"
+										value: "#9C9C9C",
+										role: "inventwo.color"
 									},
 									{
 										typ: "state",
 										id: "BorderColorActive",
 										name: "Border Color Active",
 										type: "string",
-										value: "#9C9C9C"
+										value: "#9C9C9C",
+										role: "inventwo.color"
+									},
+									{
+										typ: "state",
+										id: "BorderColorHover",
+										name: "Border Color Hover",
+										type: "string",
+										value: "#9C9C9C",
+										role: "inventwo.color"
 									}
 								]
 							},
@@ -1856,14 +1977,16 @@ class visInventwo extends utils.Adapter {
 										id: "WallpaperURL1",
 										name: "Wallpaper URL 1",
 										type: "string",
-										value: "/vis-icontwo/Backgrounds/105.jpg"
+										value: "/vis-icontwo/Backgrounds/105.jpg",
+										role: "inventwo.string"
 									},
 									{
 										typ: "state",
 										id: "WallpaperURL2",
 										name: "Wallpaper URL 2",
 										type: "string",
-										value: "/vis-icontwo/Backgrounds/105.jpg"
+										value: "/vis-icontwo/Backgrounds/105.jpg",
+										role: "inventwo.string"
 									},
 									// Transparenz
 									{
@@ -1871,7 +1994,8 @@ class visInventwo extends utils.Adapter {
 										id: "WallpaperOpacity",
 										name: "Wallpaper Opacity",
 										type: "number",
-										value: 0.3
+										value: 0.3,
+										role: "inventwo.number"
 									}
 								]
 							},
@@ -1887,6 +2011,7 @@ class visInventwo extends utils.Adapter {
 										name: "Custom 1",
 										type: "string",
 										value: "",
+										role: "inventwo.string"
 									},
 									{
 										typ: "state",
@@ -1894,6 +2019,7 @@ class visInventwo extends utils.Adapter {
 										name: "Custom 2",
 										type: "string",
 										value: "",
+										role: "inventwo.string"
 									},
 									{
 										typ: "state",
@@ -1901,630 +2027,12 @@ class visInventwo extends utils.Adapter {
 										name: "Custom 3",
 										type: "string",
 										value: "",
+										role: "inventwo.string"
 									}
 								]
 							}
 						]
 					},
-					// Custom Style
-					{
-						typ: "channel",
-						id: "_CustomTheme",
-						name: "Custom Theme",
-						childs: [
-							// Hintergrund
-							{
-								typ: "channel",
-								id: "Background",
-								name: "General Widget Settings",
-								childs: [
-									// Farbe
-									{
-										typ: "state",
-										id: "Color1",
-										name: "Button Color 1",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "Color2",
-										name: "Button Color 2",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "Color3",
-										name: "Button Color 3",
-										type: "string",
-										value: ""
-									},
-									// Farbe Aktiv
-									{
-										typ: "state",
-										id: "ColorActive1",
-										name: "Button Color Active 1",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "ColorActive2",
-										name: "Button Color Active 2",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "ColorActive3",
-										name: "Button Color Active 3",
-										type: "string",
-										value: ""
-									},
-									// Farbe bei Hover
-									{
-										typ: "state",
-										id: "ColorHover1",
-										name: "Button Color Hover 1",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "ColorHover2",
-										name: "Button Color Hover 2",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "ColorHover3",
-										name: "Button Color Hover 3",
-										type: "string",
-										value: ""
-									},
-									// Transparenz
-									{
-										typ: "state",
-										id: "Opacity1",
-										name: "Button Opacity 1",
-										type: "number",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "Opacity2",
-										name: "Button Opacity 2",
-										type: "number",
-										value: ""
-									}
-								]
-							},
-							// Ecken
-							{
-								typ: "channel",
-								id: "Corners",
-								name: "Corners",
-								childs: [
-									// Getrennte Radien
-									{
-										typ: "state",
-										id: "UpperLeft",
-										name: "Upper Left",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "UpperRight",
-										name: "Upper Right",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "LowerRight",
-										name: "Lower Right",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "LowerLeft",
-										name: "Lower Left",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									// Alle Ecken gleich
-									{
-										typ: "state",
-										id: "AllCorners1",
-										name: "All Corners 1",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "AllCorners2",
-										name: "All Corners 2",
-										type: "number",
-										unit: "%",
-										value: ""
-									},
-								]
-							},
-							// Inhalt
-							{
-								typ: "channel",
-								id: "Content",
-								name: "Content",
-								childs: [
-									// Transparenz
-									{
-										typ: "state",
-										id: "Opacity1",
-										name: "Content Opacity 1",
-										type: "number",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "Opacity2",
-										name: "Content Opacity 2",
-										type: "number",
-										value: ""
-									}
-								]
-							},
-							// Text
-							{
-								typ: "channel",
-								id: "Text",
-								name: "Content",
-								childs: [
-									// Farbe
-									{
-										typ: "state",
-										id: "TextColor1",
-										name: "Text Color 1",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "TextColor2",
-										name: "Text Color 2",
-										type: "string",
-										value: ""
-									},
-									// Farbe Aktiv
-									{
-										typ: "state",
-										id: "TextColorActive1",
-										name: "Text Color Active 1",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "TextColorActive2",
-										name: "Text Color Active 2",
-										type: "string",
-										value: ""
-									},
-									// Groesse
-									{
-										typ: "state",
-										id: "TextSize1",
-										name: "Text Size 1",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "TextSize2",
-										name: "Text Size 2",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									// Abstand
-									{
-										typ: "state",
-										id: "TextDistanceAbove",
-										name: "Text Distance Above",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "TextDistanceBelow",
-										name: "Text Distance Below",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "TextDistanceLeft",
-										name: "Text Distance Left",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "TextDistanceRight",
-										name: "Text Distance Right",
-										type: "number",
-										unit: "px",
-										value: ""
-									}
-								]
-							},
-							// Bild
-							{
-								typ: "channel",
-								id: "Icon",
-								name: "Content",
-								childs: [
-									// Groesse
-									{
-										typ: "state",
-										id: "IconSize1",
-										name: "Icon Size 1",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "IconSize2",
-										name: "Icon Size 2",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									// Abstand
-									{
-										typ: "state",
-										id: "IconDistanceAbove",
-										name: "Icon Distance Above",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "IconDistanceBelow",
-										name: "Icon Distance Below",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "IconDistanceLeft",
-										name: "Icon Distance Left",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "IconDistanceRight",
-										name: "Icon Distance Right",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									// Farbe
-									{
-										typ: "state",
-										id: "IconColor1",
-										name: "Icon Color 1",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "IconColorActive1",
-										name: "Icon Color Active 1",
-										type: "string",
-										value: ""
-									}
-								]
-							},
-							// Schatten aussen
-							{
-								typ: "channel",
-								id: "ShadowOuter",
-								name: "Shadow Outer",
-								childs: [
-									// X Versatz
-									{
-										typ: "state",
-										id: "ShadowOuterOffsetX",
-										name: "Shadow Outer Offset X",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "ShadowOuterOffsetY",
-										name: "Shadow Outer Offset Y",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									// Blur
-									{
-										typ: "state",
-										id: "ShadowOuterBlur",
-										name: "Shadow Outer Blur",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									// Groesse
-									{
-										typ: "state",
-										id: "ShadowOuterSize",
-										name: "Shadow Outer Size",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									// Farbe
-									{
-										typ: "state",
-										id: "ShadowOuterColor",
-										name: "Shadow Outer Color",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "ShadowOuterColorActive",
-										name: "Shadow Outer Color Active",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "ShadowOuterColorHover",
-										name: "Shadow Outer Color Hover",
-										type: "string",
-										value: ""
-									}
-								]
-							},
-							// Schatten innen
-							{
-								typ: "channel",
-								id: "ShadowInner",
-								name: "Shadow Inner",
-								childs: [
-									// X Versatz
-									{
-										typ: "state",
-										id: "ShadowInnerOffsetX",
-										name: "Shadow Inner Offset X",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "ShadowInnerOffsetY",
-										name: "Shadow Inner Offset Y",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									// Blur
-									{
-										typ: "state",
-										id: "ShadowInnerBlur",
-										name: "Shadow Inner Blur",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									// Groesse
-									{
-										typ: "state",
-										id: "ShadowInnerSize",
-										name: "Shadow Inner Size",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									// Farbe
-									{
-										typ: "state",
-										id: "ShadowInnerColor",
-										name: "Shadow Inner Color",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "ShadowInnerColorActive",
-										name: "Shadow Inner Color Active",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "ShadowInnerColorHover",
-										name: "Shadow Inner Color Hover",
-										type: "string",
-										value: ""
-									}
-								]
-							},
-							// Schatten Text
-							{
-								typ: "channel",
-								id: "ShadowText",
-								name: "Shadow Text",
-								childs: [
-									// X Versatz
-									{
-										typ: "state",
-										id: "ShadowTextOffsetX",
-										name: "Shadow Text Offset X",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "ShadowTextOffsetY",
-										name: "Shadow Text Offset Y",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									// Blur
-									{
-										typ: "state",
-										id: "ShadowTextBlur",
-										name: "Shadow Text Blur",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									// Groesse
-									{
-										typ: "state",
-										id: "ShadowTextSize",
-										name: "Shadow Text Size",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									// Farbe
-									{
-										typ: "state",
-										id: "ShadowTextColor",
-										name: "Shadow Text Color",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "ShadowTextColorActive",
-										name: "Shadow Text Color Active",
-										type: "string",
-										value: ""
-									}
-								]
-							},
-							// Umrandung
-							{
-								typ: "channel",
-								id: "Border",
-								name: "Border",
-								childs: [
-									// Breite
-									{
-										typ: "state",
-										id: "BorderSize",
-										name: "Border Size",
-										type: "number",
-										unit: "px",
-										value: ""
-									},
-									// Farbe
-									{
-										typ: "state",
-										id: "BorderColor",
-										name: "Border Color",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "BorderColorActive",
-										name: "Border Color Active",
-										type: "string",
-										value: ""
-									}
-								]
-							},
-							// Wallpaper
-							{
-								typ: "channel",
-								id: "Wallpaper",
-								name: "Walpaper",
-								childs: [
-									// URL
-									{
-										typ: "state",
-										id: "WallpaperURL1",
-										name: "Wallpaper URL 1",
-										type: "string",
-										value: ""
-									},
-									{
-										typ: "state",
-										id: "WallpaperURL2",
-										name: "Wallpaper URL 2",
-										type: "string",
-										value: ""
-									},
-									// Transparenz
-									{
-										typ: "state",
-										id: "WallpaperOpacity",
-										name: "Wallpaper Opacity",
-										type: "number",
-										value: ""
-									}
-								]
-							},
-							// Eigene Datenpunkte
-							{
-								typ: "channel",
-								id: "_Customs",
-								name: "Custom Variables",
-								childs: [
-									{
-										typ: "state",
-										id: "Custom1",
-										name: "Custom 1",
-										type: "string",
-										value: "",
-									},
-									{
-										typ: "state",
-										id: "Custom2",
-										name: "Custom 2",
-										type: "string",
-										value: "",
-									},
-									{
-										typ: "state",
-										id: "Custom3",
-										name: "Custom 3",
-										type: "string",
-										value: "",
-									}
-								]
-							}
-						]
-					}
 				]
 			},
 			// Eigene Datenpunkte
@@ -2539,6 +2047,7 @@ class visInventwo extends utils.Adapter {
 						name: "Custom 1",
 						type: "string",
 						value: "",
+						role: "inventwo.string"
 					},
 					{
 						typ: "state",
@@ -2546,6 +2055,7 @@ class visInventwo extends utils.Adapter {
 						name: "Custom 2",
 						type: "string",
 						value: "",
+						role: "inventwo.string"
 					},
 					{
 						typ: "state",
@@ -2553,6 +2063,7 @@ class visInventwo extends utils.Adapter {
 						name: "Custom 3",
 						type: "string",
 						value: "",
+						role: "inventwo.string"
 					},
 					{
 						typ: "state",
@@ -2560,6 +2071,7 @@ class visInventwo extends utils.Adapter {
 						name: "Custom 4",
 						type: "string",
 						value: "",
+						role: "inventwo.string"
 					},
 					{
 						typ: "state",
@@ -2567,6 +2079,7 @@ class visInventwo extends utils.Adapter {
 						name: "Custom 5",
 						type: "string",
 						value: "",
+						role: "inventwo.string"
 					},
 					{
 						typ: "state",
@@ -2574,6 +2087,7 @@ class visInventwo extends utils.Adapter {
 						name: "Custom 6",
 						type: "string",
 						value: "",
+						role: "inventwo.string"
 					}
 				]
 			},
