@@ -270,7 +270,7 @@ vis.binds["vis-inventwo-helper"] = {
         return values;
     },
 
-    getButtonValues: function (data, type = "universal", onlyUpdate = false, index = 0){
+    getButtonValues: function (data, wid, type = "universal", onlyUpdate = false, index = 0){
         let values = {
             styles: {},
             image: "",
@@ -540,15 +540,15 @@ vis.binds["vis-inventwo-helper"] = {
         }
 
         if(values.styles["--content-image-color-filter"] !== undefined && values.styles["--content-image-color-filter"] !== "") {
-            vis.binds["vis-inventwo-helper"].getImgColorFilter(values.styles["--content-image-color-filter"], data.wid, null, false, false, index);
+            vis.binds["vis-inventwo-helper"].getImgColorFilter(values.styles["--content-image-color-filter"], wid, null, false, false, index);
         }
 
         return values;
     },
 
-    updateButton: function (el, data, type, index = 0){
+    updateButton: function (el, data, type, wid, index = 0){
 
-        let values = vis.binds["vis-inventwo-helper"].getButtonValues(data, type, true, index);
+        let values = vis.binds["vis-inventwo-helper"].getButtonValues(data, wid, type, true, index);
 
         for (const [key, value] of Object.entries(values.styles)) {
             el.get(0).style.setProperty(key, value);
@@ -558,7 +558,7 @@ vis.binds["vis-inventwo-helper"] = {
             index--;
         }
 
-        vis.binds["vis-inventwo-helper"].getImgColorFilter(values.styles["--content-image-color-filter"], data.wid, index);
+        // vis.binds["vis-inventwo-helper"].getImgColorFilter(values.styles["--content-image-color-filter"], wid, index);
 
         el.find('.vis-inventwo-button-text').html(values.text);
 
@@ -966,6 +966,11 @@ vis.binds["vis-inventwo-helper"] = {
             return;
         }
 
+        if(wid === undefined){
+            console.log("wid missing!");
+            return;
+        }
+
         let regexp = /var\((--[^\)]*)\)/g;
         let match = regexp.exec(color);
 
@@ -1000,6 +1005,7 @@ vis.binds["vis-inventwo-helper"] = {
                 }
 
                 if (varName == null) {
+
                     $("#" + wid).find(".vis-inventwo-button-new").get(index).style.setProperty("--content-image-color-filter-filter", filter.substring(8, filter.length - 1));
                 }
                 else {

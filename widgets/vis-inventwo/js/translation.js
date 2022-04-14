@@ -16,6 +16,13 @@ if (vis.editMode) {
         },
         //#endregion END OLD
 
+        //#region vis edit
+        "use inventwo themes": {
+            "en": "Use inventwo themes",
+            "de": "inventwo Themes anwenden"
+        },
+        //#endregion
+
         //#region General
         "Instance": {
             "en": "Instance",

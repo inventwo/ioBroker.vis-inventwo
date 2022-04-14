@@ -18,7 +18,7 @@ vis.binds["vis-inventwo-widgets"] = {
         let datapoints = [];
 
         //Create Button
-        let html = vis.binds["vis-inventwo-components"].getButton(vis.binds["vis-inventwo-helper"].getButtonValues(data, type, false), [type, data.iUniversalWidgetType.toLowerCase()], data.iContentType, data);
+        let html = vis.binds["vis-inventwo-components"].getButton(vis.binds["vis-inventwo-helper"].getButtonValues(data, data.wid, type, false), [type, data.iUniversalWidgetType.toLowerCase()], data.iContentType, data);
         $(el).html(html);
 
         //Bind events
@@ -43,7 +43,7 @@ vis.binds["vis-inventwo-widgets"] = {
             datapoints.push(data.attr("oid"));
             vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
                 if (newVal != oldVal) {
-                    vis.binds["vis-inventwo-helper"].updateButton($(el).children(), data, type);
+                    vis.binds["vis-inventwo-helper"].updateButton($(el).children(), data, type, data.wid);
                 }
             });
         }
@@ -55,7 +55,7 @@ vis.binds["vis-inventwo-widgets"] = {
                         datapoints.push(data.attr("oid" + index));
                         vis.states.bind(data.attr("oid" + index) + ".val", function (e, newVal, oldVal) {
                             if (newVal != oldVal) {
-                                vis.binds["vis-inventwo-helper"].updateButton($(el).children(), data, type);
+                                vis.binds["vis-inventwo-helper"].updateButton($(el).children(), data, type, data.wid);
                             }
                         });
                     }
@@ -194,7 +194,7 @@ vis.binds["vis-inventwo-widgets"] = {
         }
 
         for (let i = 1; i <= data.iRadiobtnsCount; i++) {
-            let values = vis.binds["vis-inventwo-helper"].getButtonValues(data, "index", false, i);
+            let values = vis.binds["vis-inventwo-helper"].getButtonValues(data, data.wid, "index", false, i);
             values.styles.width = vis.binds["vis-inventwo-helper"].unitize(data.iRadiobtnWidth);
             values.styles.height = vis.binds["vis-inventwo-helper"].unitize(data.iRadiobtnHeight);
             values.styles.margin = margin;
@@ -225,7 +225,7 @@ vis.binds["vis-inventwo-widgets"] = {
             vis.states.bind(data.oid + ".val", function (e, newVal, oldVal) {
                 if (newVal !== oldVal) {
                     $(el).find(".vis-inventwo-radiobtnlist-body").children().each((index, elem) => {
-                        vis.binds["vis-inventwo-helper"].updateButton($(elem), data, "index", index + 1);
+                        vis.binds["vis-inventwo-helper"].updateButton($(elem), data, "index", data.wid, index + 1);
                     });
                 }
             });
@@ -320,7 +320,7 @@ vis.binds["vis-inventwo-widgets"] = {
 
         //#endregion
 
-        let html = vis.binds["vis-inventwo-components"].getButton(vis.binds["vis-inventwo-helper"].getButtonValues(data, "universal", false), [], "colorpicker", data);
+        let html = vis.binds["vis-inventwo-components"].getButton(vis.binds["vis-inventwo-helper"].getButtonValues(data, data.wid, "universal", false), [], "colorpicker", data);
         $(el).html(html);
 
         let colorPicker = new iro.ColorPicker($(el).find('.vis-inventwo-colorpicker')[0], {

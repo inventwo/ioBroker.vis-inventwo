@@ -7,7 +7,93 @@
 
 $( document ).ready(function() {
     vis.binds["vis-inventwo"].subscribeTheme();
+
+    $('#ribbon_widget').find('.ribbon_tab_content').append(`
+        <div class="ribbon_field ui-widget-content ui-corner-all">
+            <table style="border-spacing: 0">
+                    <tbody><tr>
+                        <td>
+                            <button class="vis-editor translateB ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" 
+                                    id="btn_inventwo_apply_widget_themes" data-lang-pure="true" data-lang="use inventwo themes" 
+                                    onclick="vis.binds['vis-inventwo'].applyDefaultThemeVariablesToAllWidgets()"
+                                    role="button">
+                                    <span class="ui-button-text">inventwo Themes anwenden</span>
+                            </button>
+                        </td>      
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    `);
 });
+
+let inventwoThemeVariables = {
+    "iButtonCol": "var(--inventwo-button-color-1)",
+    "iButtonActive": "var(--inventwo-button-color-active-1)",
+    "iButtonColHover": "var(--inventwo-button-color-hover-1)",
+    "iOpacityBack": "var(--inventwo-button-opacity-1)",
+
+    "iCornerRadiusUL": "var(--inventwo-corner-upper-left)",
+    "iCornerRadiusUR": "var(--inventwo-corner-upper-right)",
+    "iCornerRadiusLR": "var(--inventwo-corner-lower-right)",
+    "iCornerRadiusLL": "var(--inventwo-corner-lower-left)",
+
+    "iOpacityCtn": "var(--inventwo-content-opacity-1)",
+
+    "iTextColor": "var(--inventwo-text-color-1)",
+    "iTextColorActive": "var(--inventwo-text-color-active-1)",
+    "iTextSize": "var(--inventwo-text-size-1)",
+    "iTextSpaceTop": "var(--inventwo-text-distance-above)",
+    "iTextSpaceBottom": "var(--inventwo-text-distance-below)",
+    "iTextSpaceLeft": "var(--inventwo-text-distance-left)",
+    "iTextSpaceRight": "var(--inventwo-text-distance-right)",
+
+    "iIconSize": "var(--inventwo-icon-size-1)",
+    "iImgSpaceTop": "var(--inventwo-icon-distance-above)",
+    "iImgSpaceBottom": "var(--inventwo-icon-distance-below)",
+    "iImgSpaceLeft": "var(--inventwo-icon-distance-left)",
+    "iImgSpaceRight": "var(--inventwo-icon-distance-right)",
+    "iImgColorFalse": "var(--inventwo-icon-color-1)",
+    "iImgColorTrue": "var(--inventwo-icon-color-active-1)",
+
+    "iShadowXOffset": "var(--inventwo-shadow-outer-offset-x)",
+    "iShadowYOffset": "var(--inventwo-shadow-outer-offset-y)",
+    "iShadowBlur": "var(--inventwo-shadow-outer-blur)",
+    "iShadowSpread": "var(--inventwo-shadow-outer-size)",
+    "iShadowColor": "var(--inventwo-shadow-outer-color)",
+    "iShadowColorActive": "var(--inventwo-shadow-outer-color-active)",
+    "iShadowColorHover": "var(--inventwo-shadow-outer-color-hover)",
+
+    "iShadowInnerXOffset": "var(--inventwo-shadow-inner-offset-x)",
+    "iShadowInnerYOffset": "var(--inventwo-shadow-inner-offset-y)",
+    "iShadowInnerBlur": "var(--inventwo-shadow-inner-blur)",
+    "iShadowInnerSpread": "var(--inventwo-shadow-inner-size)",
+    "iShadowInnerColor": "var(--inventwo-shadow-inner-color)",
+    "iShadowInnerColorActive": "var(--inventwo-shadow-inner-color-active)",
+    "iShadowInnerColorHover": "var(--inventwo-shadow-inner-color-hover)",
+
+    "iShadowTextXOffset": "var(--inventwo-shadow-text-offset-x)",
+    "iShadowTextYOffset": "var(--inventwo-shadow-text-offset-y)",
+    "iShadowTextBlur": "var(--inventwo-shadow-text-blur)",
+    "iShadowTextColor": "var(--inventwo-shadow-text-color)",
+    "iShadowTextColorActive": "var(--inventwo-shadow-text-color-active)",
+
+    "iBorderSize": "var(--inventwo-border-size)",
+    "iBorderColor": "var(--inventwo-border-color)",
+    "iBorderColorActive": "var(--inventwo-border-color-active)",
+    "iBorderColorHover": "var()",
+
+    "iPopUpCornerRadiusUL": "var(--inventwo-upper-left)",
+    "iPopUpCornerRadiusUR": "var(--inventwo-upper-right)",
+    "iPopUpCornerRadiusLR": "var(--inventwo-lower-right)",
+    "iPopUpCornerRadiusLL": "var(--inventwo-lower-left)",
+
+    "iPopUpShadowXOffset": "var(--inventwo-shadow-outer-offset-x)",
+    "iPopUpShadowYOffset": "var(--inventwo-shadow-outer-offset-y)",
+    "iPopUpShadowBlur": "var(--inventwo-shadow-outer-blur)",
+    "iPopUpShadowSpread": "var(--inventwo-shadow-outer-size)",
+    "iPopUpShadowColor": "var(--inventwo-shadow-outer-color)",
+}
 
 vis.navChangeCallbacks.push(function (view) {
     vis.binds["vis-inventwo"].updateNavigations();
@@ -21,14 +107,13 @@ vis.binds["vis-inventwo"] = {
         if (data[1] === "wiki") {
             url = "https://github.com/inventwo/ioBroker.vis-inventwo/wiki";
         }
-        if (data[1] === "wiki") {
-            url = "https://github.com/inventwo/ioBroker.vis-inventwo/wiki";
-        }
         return {input: `<a target="_blank" href="${url}">${_("iWikiText")}</a>`};
     },
 
     applyThemeButton: function (widAttr, data){
-        return {input: `<button onclick="vis.binds['vis-inventwo'].applyDefaultThemeVariables('${data[1]}')">${_("iApplyThemeButtonText")}</button>`};
+        return {
+            input: `<button onclick="vis.binds['vis-inventwo'].applyDefaultThemeVariables('${data[1]}')">${_("iApplyThemeButtonText")}</button>`
+        };
     },
 
     //VIS Edit Info Texte
@@ -347,7 +432,7 @@ vis.binds["vis-inventwo"] = {
                 type = "multi";
             }
 
-            vis.binds["vis-inventwo-helper"].updateButton($(this), data, type);
+            vis.binds["vis-inventwo-helper"].updateButton($(this), data, type, data.wid);
         });
 
         $(".vis-inventwo-radiobtnlist-body.navigation-list").each(function () {
@@ -365,7 +450,7 @@ vis.binds["vis-inventwo"] = {
             }
 
             $(this).children().each((index, elem) => {
-                vis.binds["vis-inventwo-helper"].updateButton($(elem), data, "index", index + 1);
+                vis.binds["vis-inventwo-helper"].updateButton($(elem), data, "index", data.wid, index + 1);
             });
 
         });
@@ -942,101 +1027,77 @@ vis.binds["vis-inventwo"] = {
 
     applyDefaultThemeVariables: function (type){
 
-        let variables = {
-            "iButtonCol": "var(--inventwo-button-color-1)",
-            "iButtonActive": "var(--inventwo-button-color-active-1)",
-            "iButtonColHover": "var(--inventwo-button-color-hover-1)",
-            "iOpacityBack": "var(--inventwo-button-opacity-1)",
-
-            "iCornerRadiusUL": "var(--inventwo-upper-left)",
-            "iCornerRadiusUR": "var(--inventwo-upper-right)",
-            "iCornerRadiusLR": "var(--inventwo-lower-right)",
-            "iCornerRadiusLL": "var(--inventwo-lower-left)",
-
-            "iOpacityCtn": "var(--inventwo-content-opacity-1)",
-
-            "iTextColor": "var(--inventwo-text-color-1)",
-            "iTextColorActive": "var(--inventwo-text-color-active-1)",
-            "iTextSize": "var(--inventwo-text-size-1)",
-            "iTextSpaceTop": "var(--inventwo-text-distance-above)",
-            "iTextSpaceBottom": "var(--inventwo-text-distance-below)",
-            "iTextSpaceLeft": "var(--inventwo-text-distance-left)",
-            "iTextSpaceRight": "var(--inventwo-text-distance-right)",
-
-            "iIconSize": "var(--inventwo-icon-size-1)",
-            "iImgSpaceTop": "var(--inventwo-icon-distance-above)",
-            "iImgSpaceBottom": "var(--inventwo-icon-distance-below)",
-            "iImgSpaceLeft": "var(--inventwo-icon-distance-left)",
-            "iImgSpaceRight": "var(--inventwo-icon-distance-right)",
-            "iImgColorFalse": "var(--inventwo-icon-color-1)",
-            "iImgColorTrue": "var(--inventwo-icon-color-active-1)",
-
-            "iShadowXOffset": "var(--inventwo-shadow-outer-offset-x)",
-            "iShadowYOffset": "var(--inventwo-shadow-outer-offset-y)",
-            "iShadowBlur": "var(--inventwo-shadow-outer-blur)",
-            "iShadowSpread": "var(--inventwo-shadow-outer-size)",
-            "iShadowColor": "var(--inventwo-shadow-outer-color)",
-            "iShadowColorActive": "var(--inventwo-shadow-outer-color-active)",
-            "iShadowColorHover": "var(--inventwo-shadow-outer-color-hover)",
-
-            "iShadowInnerXOffset": "var(--inventwo-shadow-inner-offset-x)",
-            "iShadowInnerYOffset": "var(--inventwo-shadow-inner-offset-y)",
-            "iShadowInnerBlur": "var(--inventwo-shadow-inner-blur)",
-            "iShadowInnerSpread": "var(--inventwo-shadow-inner-size)",
-            "iShadowInnerColor": "var(--inventwo-shadow-inner-color)",
-            "iShadowInnerColorActive": "var(--inventwo-shadow-inner-color-active)",
-            "iShadowInnerColorHover": "var(--inventwo-shadow-inner-color-hover)",
-
-            "iShadowTextXOffset": "var(--inventwo-shadow-text-offset-x)",
-            "iShadowTextYOffset": "var(--inventwo-shadow-text-offset-y)",
-            "iShadowTextBlur": "var(--inventwo-shadow-text-blur)",
-            "iShadowTextColor": "var(--inventwo-shadow-text-color)",
-            "iShadowTextColorActive": "var(--inventwo-shadow-text-color-active)",
-
-            "iBorderSize": "var(--inventwo-border-size)",
-            "iBorderColor": "var(--inventwo-border-color)",
-            "iBorderColorActive": "var(--inventwo-border-color-active)",
-            "iBorderColorHover": "var()",
-
-            "iPopUpCornerRadiusUL": "var(--inventwo-upper-left)",
-            "iPopUpCornerRadiusUR": "var(--inventwo-upper-right)",
-            "iPopUpCornerRadiusLR": "var(--inventwo-lower-right)",
-            "iPopUpCornerRadiusLL": "var(--inventwo-lower-left)",
-
-            "iPopUpShadowXOffset": "var(--inventwo-shadow-outer-offset-x)",
-            "iPopUpShadowYOffset": "var(--inventwo-shadow-outer-offset-y)",
-            "iPopUpShadowBlur": "var(--inventwo-shadow-outer-blur)",
-            "iPopUpShadowSpread": "var(--inventwo-shadow-outer-size)",
-            "iPopUpShadowColor": "var(--inventwo-shadow-outer-color)",
-        }
-
         vis.activeWidgets.forEach(function (wid) {
             for (const [key, value] of Object.entries(vis.views[vis.activeView].widgets[wid].data)) {
-                if(variables[key] !== undefined){
-                    vis.views[vis.activeView].widgets[wid].data[key] = variables[key];
+                if(inventwoThemeVariables[key] !== undefined){
+                    vis.views[vis.activeView].widgets[wid].data[key] = inventwoThemeVariables[key];
                 }
             }
 
             if(type === "multi"){
                 for (let i = 1; i <= vis.views[vis.activeView].widgets[wid].data.iUniversalValueCount; i++) {
-                    vis.views[vis.activeView].widgets[wid].data["iButtonActiveM" + i] = variables["iButtonActive"];
-                    vis.views[vis.activeView].widgets[wid].data["iTextColorActive" + i] = variables["iTextColorActive"];
-                    vis.views[vis.activeView].widgets[wid].data["iShadowColorActiveM" + i] = variables["iShadowColorActive"];
-                    vis.views[vis.activeView].widgets[wid].data["iShadowInnerColorActiveM" + i] = variables["iShadowInnerColorActive"];
-                    vis.views[vis.activeView].widgets[wid].data["iShadowTextColorActiveM" + i] = variables["iShadowTextColorActive"];
-                    vis.views[vis.activeView].widgets[wid].data["iBorderColorActiveM" + i] = variables["iBorderColorActive"];
-                    vis.views[vis.activeView].widgets[wid].data["iImgColorTrue" + i] = variables["iImgColorTrue"];
+                    vis.views[vis.activeView].widgets[wid].data["iButtonActiveM" + i] = inventwoThemeVariables["iButtonActive"];
+                    vis.views[vis.activeView].widgets[wid].data["iTextColorActive" + i] = inventwoThemeVariables["iTextColorActive"];
+                    vis.views[vis.activeView].widgets[wid].data["iShadowColorActiveM" + i] = inventwoThemeVariables["iShadowColorActive"];
+                    vis.views[vis.activeView].widgets[wid].data["iShadowInnerColorActiveM" + i] = inventwoThemeVariables["iShadowInnerColorActive"];
+                    vis.views[vis.activeView].widgets[wid].data["iShadowTextColorActiveM" + i] = inventwoThemeVariables["iShadowTextColorActive"];
+                    vis.views[vis.activeView].widgets[wid].data["iBorderColorActiveM" + i] = inventwoThemeVariables["iBorderColorActive"];
+                    vis.views[vis.activeView].widgets[wid].data["iImgColorTrue" + i] = inventwoThemeVariables["iImgColorTrue"];
                 }
             }
 
-            setTimeout(function (){
-
-                $('#visview_' + vis.activeView).click();
-
-                vis.binds["vis-inventwo-helper"].updateButton($('#' + wid), vis.views[vis.activeView].widgets[wid].data, type);
-            }, 100);
+            // setTimeout(function (){
+            //
+            //     $('#visview_' + vis.activeView).click();
+            //
+            //     vis.binds["vis-inventwo-helper"].updateButton($('#' + wid), vis.views[vis.activeView].widgets[wid].data, type, wid);
+            // }, 100);
         });
 
+    },
+
+    applyDefaultThemeVariablesToAllWidgets: function (){
+
+        for (const [wid, widget] of Object.entries(vis.views[vis.activeView].widgets)) {
+            if(widget.tpl.indexOf("i-") === 0){
+                for (const [key, value] of Object.entries(widget.data)) {
+                    if(inventwoThemeVariables[key] !== undefined){
+                        vis.views[vis.activeView].widgets[wid].data[key] = inventwoThemeVariables[key];
+                    }
+                }
+
+                if(widget.tpl === "i-vis-multi"){
+                    for (let i = 1; i <= vis.views[vis.activeView].widgets[wid].data.iUniversalValueCount; i++) {
+                        vis.views[vis.activeView].widgets[wid].data["iButtonActiveM" + i] = inventwoThemeVariables["iButtonActive"];
+                        vis.views[vis.activeView].widgets[wid].data["iTextColorActive" + i] = inventwoThemeVariables["iTextColorActive"];
+                        vis.views[vis.activeView].widgets[wid].data["iShadowColorActiveM" + i] = inventwoThemeVariables["iShadowColorActive"];
+                        vis.views[vis.activeView].widgets[wid].data["iShadowInnerColorActiveM" + i] = inventwoThemeVariables["iShadowInnerColorActive"];
+                        vis.views[vis.activeView].widgets[wid].data["iShadowTextColorActiveM" + i] = inventwoThemeVariables["iShadowTextColorActive"];
+                        vis.views[vis.activeView].widgets[wid].data["iBorderColorActiveM" + i] = inventwoThemeVariables["iBorderColorActive"];
+                        vis.views[vis.activeView].widgets[wid].data["iImgColorTrue" + i] = inventwoThemeVariables["iImgColorTrue"];
+                    }
+                }
+
+                // setTimeout(function (){
+                //
+                //     $('#visview_' + vis.activeView).click();
+                //
+                //     let type = "";
+                //
+                //     if(widget.tpl === "i-vis-universal"){
+                //         type = "universal";
+                //     }
+                //     else if(widget.tpl === "i-vis-multi"){
+                //         type = "mulit";
+                //     }
+                //     else if(widget.tpl === "i-vis-radiobutton-list"){
+                //         type = "index";
+                //     }
+                //
+                //     vis.binds["vis-inventwo-helper"].updateButton($('#' + wid), vis.views[vis.activeView].widgets[wid].data, type, wid);
+                // }, 100);
+            }
+        }
     }
 };
 
