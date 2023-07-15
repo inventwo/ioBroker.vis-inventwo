@@ -514,3 +514,7 @@ SOFTWARE.
 ---
 
 Icons from Icons8 https://icons8.com/
+
+---
+
+Copyright (c) 2020-2023 jkvarel jkvarel@inventwo.com
