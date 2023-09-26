@@ -9,7 +9,7 @@ assignees: 'jkvarel, skvarel'
 **!!! Before you start !!!!**  
 Verify if there is not already an issue requesting the same vis 2 issue
 
-**Describe wanted Enhancement !**  
+**Describe the problem !**  
 A clear description of problem
 
 **Additional context**  
