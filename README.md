@@ -28,19 +28,19 @@ Bei neuen Infos werden wir euch informieren.
 
 Verschiedene Widgets zum schalten, navigieren und mehr.
 
-![Vorschau Universal- & Multi-Widget](https:///resources.inventwo.com/github/inventwo/preview_universal_widget.png)
+![Vorschau Universal- & Multi-Widget](img/preview_universal_widget.png)
 
 Analog Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Vorschau Analog Uhren](https://resources.inventwo.com/github/inventwo/preview_clocks.png)
+![Vorschau Analog Uhren](img/preview_clocks.png)
 
 Digital Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Vorschau Digital Uhren](https:///resources.inventwo.com/github/inventwo/preview_clock_digital.png)
+![Vorschau Digital Uhren](img/preview_clock_digital.png)
 
 Colorpicker [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
 
-![Vorschau Colorpicker](https:///resources.inventwo.com/github/inventwo/Preview_Colorpicker.png)
+![Vorschau Colorpicker](img/Preview_Colorpicker.png)
 
 Für mehr Infos schaue dich im [Wiki](https://github.com/inventwo/ioBroker.vis-inventwo/wiki) um.
 
@@ -80,9 +80,9 @@ Für mehr Infos schaue dich im [Wiki](https://github.com/inventwo/ioBroker.vis-i
 
 Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben). Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
 
-![Beispiel](https:///resources.inventwo.com/github/inventwo/Preview.png)
+![Beispiel](img/Preview.png)
 
-![Beispiel](https:///resources.inventwo.com/github/inventwo/Preview2.png)
+![Beispiel](img/Preview2.png)
 ---
 
 ## Unterstützung
@@ -91,12 +91,11 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 (Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
 
-[![Spende](https:///resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
+[![Spende](img/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
-## Changelog / Änderungsprotokoll
-
+## Changelog
 ### 3.3.4
 - Fixed: [#455](https://github.com/inventwo/ioBroker.vis-inventwo/issues/455) Color-Picker-Widget "verschwindet" bei Auswahl von CIE
 - Fixed: [#369](https://github.com/inventwo/ioBroker.vis-inventwo/issues/369) Simple Slider Farbe der Schritte nicht änderbar
