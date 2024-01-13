@@ -18,21 +18,33 @@
 Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons und mehr...<br>
 Mit unserem Widgets-Set hast du die freie Wahl individuelle Visualisierungen ganz einfach für dein Smart-Home zu erstellen. 
 
-![Vorschau Universal- & Multi-Widget](http://resources.inventwo.com/github/inventwo/preview_universal_widget.png)
+
+### <span style="color:red">Wichtiger Hinweis für Vis 2</span>
+Der Adapter ist für VIS 1 entwickelt und getestet. In Vis 2 können Fehler auftreten die die Nutzung deiner Visualisierung nicht ermöglichen. 
+Eine nahtlose kompatibitlität wird nicht möglich sein. Ob und wann ein neuer Adapter für Vis 2 kommen wird kann nicht gesagt werden.
+Bei neuen Infos werden wir euch informieren.
+
+## Inhalt des Adapters
+
+Verschiedene Widgets zum schalten, navigieren und mehr.
+
+![Vorschau Universal- & Multi-Widget](https:///resources.inventwo.com/github/inventwo/preview_universal_widget.png)
 
 Analog Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Vorschau Analog Uhren](http://resources.inventwo.com/github/inventwo/preview_clocks.png)
+![Vorschau Analog Uhren](https://resources.inventwo.com/github/inventwo/preview_clocks.png)
 
 Digital Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Vorschau Digital Uhren](http://resources.inventwo.com/github/inventwo/preview_clocks_digital.png)
+![Vorschau Digital Uhren](https:///resources.inventwo.com/github/inventwo/preview_clock_digital.png)
 
 Colorpicker [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
 
-![Vorschau Colorpicker](http://resources.inventwo.com/github/inventwo/Preview_Colorpicker.png)
+![Vorschau Colorpicker](https:///resources.inventwo.com/github/inventwo/Preview_Colorpicker.png)
 
-###### .. ab v 2.0.0
+Für mehr Infos schaue dich im [Wiki](https://github.com/inventwo/ioBroker.vis-inventwo/wiki) um.
+
+###### Alle Widgets ab Version 2.0.0
 
 <table>
    <tr>
@@ -68,9 +80,9 @@ Colorpicker [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inv
 
 Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben). Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
 
-![Beispiel](http://resources.inventwo.com/github/inventwo/Preview.png)
+![Beispiel](https:///resources.inventwo.com/github/inventwo/Preview.png)
 
-![Beispiel](http://resources.inventwo.com/github/inventwo/Preview2.png)
+![Beispiel](https:///resources.inventwo.com/github/inventwo/Preview2.png)
 ---
 
 ## Unterstützung
@@ -79,13 +91,23 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 (Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
 
-[![Spende](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
+[![Spende](https:///resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
 ## Changelog / Änderungsprotokoll
 
-## 3.3.3 
+## 3.3.4
+- Fixed: [#455](https://github.com/inventwo/ioBroker.vis-inventwo/issues/455) Color-Picker-Widget "verschwindet" bei Auswahl von CIE
+- Fixed: [#369](https://github.com/inventwo/ioBroker.vis-inventwo/issues/369) Simple Slider Farbe der Schritte nicht änderbar
+- Fixed: [#361](https://github.com/inventwo/ioBroker.vis-inventwo/issues/361) Image Widget zeigt immer das Image für true
+- Fixed: [#564](https://github.com/inventwo/ioBroker.vis-inventwo/issues/564) Radiobutton - Bildfarbe true wird von false übernommen
+- Fixed: [#461](https://github.com/inventwo/ioBroker.vis-inventwo/issues/461) Doppelauslösung Taster/state und "slider lässt sich nicht "sliden bei Windows Touch
+- Fixed: [#474](https://github.com/inventwo/ioBroker.vis-inventwo/issues/474) json Tabelle mit "Binding"
+- Fixed: [#580](https://github.com/inventwo/ioBroker.vis-inventwo/issues/580) JSON Table Widget: Farbänderung der Werte via Schwellwert ist nur im Editor, nicht in Runtime sichtbar.
+- Fixed: [#622](https://github.com/inventwo/ioBroker.vis-inventwo/issues/622) Think about to fix the issues found by adapter checker
+
+## 3.3.3
 - Problem mit Umrandungsfarbe beim Multi-Widget View in PopUp behoben
 
 ## 3.3.2

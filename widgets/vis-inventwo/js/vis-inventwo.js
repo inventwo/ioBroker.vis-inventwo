@@ -2361,19 +2361,6 @@ vis.binds["vis-inventwo"] = {
 
 				let oldValue = vis.states[oid + ".val"];
 
-				// vis.setValue(oid, val);
-				// $.ajax({
-				// 	url: data.value,
-				// 	type:'POST',
-				// 	crossDomain: true,
-				// 	dataType: "jsonp",
-				// 	data: ""
-				// })
-				// 	.done(function (res) {
-				// 		console.log(res);
-				// 	});
-
-
 				if (data.iHttpType == "iSend") {
 					vis.conn.httpGet(data.value);
 				} else if (data.iHttpType == "iOpenUrl") {
@@ -3428,7 +3415,6 @@ vis.binds["vis-inventwo"] = {
 																		styles.push("color: " + t.color);
 																	}
 																	if (t.background !== undefined) {
-																		console.log("has background");
 																		tdColor = t.background;
 																	}
 																	cellValue = '<span style="' + styles.join(';') + '">' + preAfterText + '</span>';
@@ -4724,7 +4710,7 @@ vis.binds["vis-inventwo"] = {
 						offsetY = offset.top;
 					}
 
-					console.log(pElem.offset());
+
 					$(el).parent().css("top", pElem.offset().top - offsetY);
 					$(el).parent().css("left", pElem.offset().left - offsetX);
 					$(el).parent().css("width", pElem.width());
@@ -4768,8 +4754,6 @@ vis.binds["vis-inventwo"] = {
 
 				if (dataNew.iUniversalWidgetType == "ViewInPopup") {
 					vis.states.bind(data["iPopUpCloseDp-oid"] + ".val", function (e, newVal, oldVal) {
-
-						console.log("test");
 
 						if (dataNew.iPopUpOpenDpValue == "true") {
 							dataNew.iPopUpOpenDpValue = true;
@@ -5148,11 +5132,6 @@ vis.binds["vis-inventwo"] = {
 							g: parseInt(vis.states[dataNew["iColorPickerColor2-oid"] + ".val"]),
 							b: parseInt(vis.states[dataNew["iColorPickerColor3-oid"] + ".val"])
 						}
-						console.log({
-							r: parseInt(vis.states[dataNew["iColorPickerColor1-oid"] + ".val"]),
-							g: parseInt(vis.states[dataNew["iColorPickerColor2-oid"] + ".val"]),
-							b: parseInt(vis.states[dataNew["iColorPickerColor3-oid"] + ".val"])
-						});
 					} else {
 						colorPicker.color.rgb = {
 							r: 255,
@@ -5193,6 +5172,14 @@ vis.binds["vis-inventwo"] = {
 					break;
 				case "CIE":
 					let dpValue = vis.states[dataNew.oid + ".val"];
+					if(dpValue === undefined) {
+						colorPicker.color.rgb = {
+							r: 255,
+							g: 255,
+							b: 255,
+						}
+						return;
+					}
 					if (isJson(dpValue)) {
 						let jsonVal = JSON.parse(dpValue);
 						dpValue = jsonVal.join(",");
@@ -5223,7 +5210,6 @@ vis.binds["vis-inventwo"] = {
 		});
 
 		colorPicker.on('input:change', function (color){
-			console.log(color);
 			if (color.index === 0) {
 				switch (dataNew.iColorPickerFormat) {
 					case "HEX":

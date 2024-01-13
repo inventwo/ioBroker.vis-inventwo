@@ -334,7 +334,7 @@
 }
 
 .vis-inventwo-slider .ui-widget-content{
-    color: unset;
+    color: unset !important;
 }
 
 .vis-inventwo-slider .ui-widget{
