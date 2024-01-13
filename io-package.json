@@ -3,7 +3,9 @@
     "name": "vis-inventwo",
     "version": "3.3.3",
     "news": {
-      "3.3.3":{
+      "3.3.4": {
+      },
+      "3.3.3": {
         "en": "Fixed issue with border color and view in popup",
         "de": "Problem mit Randfarbe und Ansicht im Popup behoben",
         "ru": "Исправлена проблема с цветом границы и видом во всплывающем окне.",
@@ -13,6 +15,7 @@
         "it": "Risolto il problema con il colore del bordo e la visualizzazione nel popup",
         "es": "Se solucionó el problema con el color del borde y la vista en la ventana emergente",
         "pl": "Naprawiono problem z kolorem obramowania i widokiem w wyskakującym okienku",
+        "uk": "Виправлено проблему з кольором рамки та виглядом у спливаючому вікні",
         "zh-cn": "修复了弹出窗口中边框颜色和视图的问题"
       },
       "3.3.2": {
@@ -25,6 +28,7 @@
         "it": "Risoluzione del problema",
         "es": "Arreglo del fallo",
         "pl": "Naprawa błędów",
+        "uk": "Виправлення помилок",
         "zh-cn": "错误修正"
       },
       "3.3.1": {
@@ -37,6 +41,7 @@
         "it": "Risoluzione del problema",
         "es": "Arreglo del fallo",
         "pl": "Naprawa błędów",
+        "uk": "Виправлення помилок",
         "zh-cn": "错误修正"
       },
       "3.3.0": {
@@ -49,154 +54,10 @@
         "it": "Nuovo widget: selettore colore configurabile per HEX, RGB, HSL, HSV e CIE/XY",
         "es": "Nuevo widget: selector de color configurable para HEX, RGB, HSL, HSV y CIE/XY",
         "pl": "Nowy widżet: konfigurowalny selektor kolorów dla HEX, RGB, HSL, HSV i CIE/XY",
+        "uk": "Новий віджет: настроюваний вибір кольорів для HEX, RGB, HSL, HSV і CIE/XY",
         "zh-cn": "新小部件：用于 HEX、RGB、HSL、HSV 和 CIE/XY 的可配置颜色选择器"
-      },
-      "3.2.8": {
-        "en": "JSON-Table: Added text align für headrow, Radiobutton-List: Added Multi-Row/-Column schema (for more details go to the changelog on Github)",
-        "de": "JSON-Tabelle: text align für headrow hinzugefügt, Radiobutton-List: Multi-Row/-Column Schema hinzugefügt (weitere Details finden Sie im Changelog auf Github)",
-        "ru": "JSON-Table: добавлено выравнивание текста для заголовка, Radiobutton-List: добавлена схема Multi-Row/-Column (подробнее см. в журнале изменений на Github)",
-        "pt": "JSON-Table: Adicionado text align für headrow, Radiobutton-List: Adicionado esquema Multi-Row/-Column (para mais detalhes, acesse o changelog no Github)",
-        "nl": "JSON-Table: Tekstuitlijning toegevoegd voor headrow, Radiobutton-List: Multi-Row/-Column-schema toegevoegd (ga voor meer details naar de changelog op Github)",
-        "fr": "JSON-Table : ajout d'un alignement de texte pour la ligne de tête, Radiobutton-List : ajout d'un schéma multi-lignes/colonnes (pour plus de détails, consultez le journal des modifications sur Github)",
-        "it": "JSON-Table: Aggiunto testo allineato per headrow, Radiobutton-List: Aggiunto schema Multi-Row/-Column (per maggiori dettagli vai al changelog su Github)",
-        "es": "Tabla JSON: Alineación de texto agregada para encabezado, Lista de botones de radio: Esquema agregado de varias filas/columnas (para obtener más detalles, vaya al registro de cambios en Github)",
-        "pl": "JSON-Table: Dodano tekst align für headrow, Radiobutton-List: Dodano schemat Multi-Row/-Column (więcej szczegółów w changelogu na Github)",
-        "zh-cn": "JSON-Table：添加了文本对齐 für headrow，Radiobutton-List：添加了多行/列模式（有关更多详细信息，请访问 Github 上的更改日志）"
-      },
-      "3.2.7": {
-        "en": "Fixed issue that popup not closing on datapoint value",
-        "de": "Problem behoben, bei dem das Popup beim Datenpunktwert nicht geschlossen wurde",
-        "ru": "Исправлена ошибка, из-за которой всплывающее окно не закрывалось при значении точки данных.",
-        "pt": "Corrigido o problema que o pop-up não fechava no valor do ponto de dados",
-        "nl": "Probleem opgelost waarbij pop-up niet sloot op datapuntwaarde",
-        "fr": "Correction d'un problème qui popup ne se fermait pas sur la valeur du point de données",
-        "it": "Risolto il problema per cui il popup non si chiudeva sul valore del punto dati",
-        "es": "Se solucionó el problema de que la ventana emergente no se cerraba en el valor del punto de datos",
-        "pl": "Naprawiono problem polegający na tym, że wyskakujące okienko nie zamykało się na wartości punktu danych",
-        "zh-cn": "修复了弹出窗口未关闭数据点值的问题"
-      },
-      "3.2.6": {
-        "en": "JSON-Table: Color background per line depending on a value [#280], JSON-Table: Default sort of a column [#286], Universal- & Multi-Widget ViewInPopUp: View scrolling [#344], Universal- & Multi-Widget HTTP: Link can be opened in same or new tab [#363], FIXED: JSON-Table now also works if there is only a single object in the data point instead of an array with objects [#319], FIXED: JSON-Table: 10-digit timestamp didn't work [#376]",
-        "de": "JSON-Table: Farbiger Hintergrund pro Zeile abhängig von einem Wert [#280], JSON-Table: Standardsortierung einer Spalte [#286], Universal- & Multi-Widget ViewInPopUp: Scrollen der Ansicht [#344], Universal- & Multi -Widget HTTP: Link kann in gleichem oder neuem Tab geöffnet werden [#363], FIXED: JSON-Table funktioniert jetzt auch, wenn im Datenpunkt nur ein einzelnes Objekt steht statt eines Arrays mit Objekten [#319], FIXED: JSON-Tabelle: 10-stelliger Zeitstempel funktionierte nicht [#376]",
-        "ru": "JSON-Table: цвет фона для каждой строки в зависимости от значения [#280], JSON-Table: сортировка столбца по умолчанию [#286], универсальный и мультивиджет ViewInPopUp: прокрутка просмотра [#344], универсальный и мультивиджет -Виджет HTTP: ссылку можно открыть в той же или новой вкладке [#363], ИСПРАВЛЕНО: JSON-таблица теперь также работает, если в точке данных есть только один объект вместо массива с объектами [#319], ИСПРАВЛЕНО: JSON-Table: 10-значная временная метка не работала [#376]",
-        "pt": "JSON-Table: cor de fundo por linha dependendo de um valor [#280], JSON-Table: classificação padrão de uma coluna [#286], Universal- & Multi-Widget ViewInPopUp: Visualização de rolagem [#344], Universal- & Multi -Widget HTTP: Link pode ser aberto na mesma ou nova aba [#363], FIXED: JSON-Table agora também funciona se houver apenas um único objeto no ponto de dados em vez de um array com objetos [#319], FIXED: JSON-Table: timestamp de 10 dígitos não funcionou [#376]",
-        "nl": "JSON-Table: Achtergrondkleur per regel afhankelijk van een waarde [#280], JSON-Table: Standaard sortering van een kolom [#286], Universal- & Multi-Widget ViewInPopUp: View scrolling [#344], Universal- & Multi -Widget HTTP: link kan worden geopend in hetzelfde of een nieuw tabblad [#363], FIXED: JSON-Table werkt nu ook als er slechts een enkel object in het datapunt is in plaats van een array met objecten [#319], FIXED: JSON-tabel: 10-cijferige tijdstempel werkte niet [#376]",
-        "fr": "JSON-Table : couleur d'arrière-plan par ligne en fonction d'une valeur [#280], JSON-Table : tri par défaut d'une colonne [#286], Universal- & Multi-Widget ViewInPopUp : défilement de la vue [#344], Universal- & Multi -Widget HTTP : le lien peut être ouvert dans le même onglet ou dans un nouvel onglet [#363], CORRIGÉ : la table JSON fonctionne désormais également s'il n'y a qu'un seul objet dans le point de données au lieu d'un tableau avec des objets [#319], CORRIGÉ : Table JSON : l'horodatage à 10 chiffres ne fonctionnait pas [#376]",
-        "it": "Tabella JSON: colore di sfondo per riga in base a un valore [#280], Tabella JSON: ordinamento predefinito di una colonna [#286], Universal- & Multi-Widget ViewInPopUp: Visualizza lo scorrimento [#344], Universal- & Multi -Widget HTTP: il collegamento può essere aperto nella stessa scheda o in una nuova scheda [#363], RISOLTO: la tabella JSON ora funziona anche se nel punto dati è presente un solo oggetto invece di un array con oggetti [#319], RISOLTO: Tabella JSON: timestamp a 10 cifre non funzionava [#376]",
-        "es": "Tabla JSON: fondo de color por línea dependiendo de un valor [#280], tabla JSON: clasificación predeterminada de una columna [#286], Universal- y Multi-Widget ViewInPopUp: Ver desplazamiento [#344], Universal- y Multi -Widget HTTP: el enlace se puede abrir en la misma pestaña o en una nueva [#363], CORREGIDO: JSON-Table ahora también funciona si solo hay un objeto en el punto de datos en lugar de una matriz con objetos [#319], CORREGIDO: JSON-Table: la marca de tiempo de 10 dígitos no funcionó [#376]",
-        "pl": "JSON-Table: Kolor tła na linię w zależności od wartości [#280], JSON-Table: Domyślne sortowanie kolumny [#286], Universal- i Multi-Widget ViewInPopUp: Przewijanie widoku [#344], Universal- i Multi -Widget HTTP: Link można otworzyć w tej samej lub nowej karcie [#363], NAPRAWIONO: Tabela JSON działa teraz również, jeśli w punkcie danych znajduje się tylko jeden obiekt zamiast tablicy z obiektami [#319], NAPRAWIONO: Tabela JSON: 10-cyfrowy znacznik czasu nie działał [#376]",
-        "zh-cn": "JSON-Table: 每行颜色背景取决于值 [#280], JSON-Table: 列的默认排序 [#286], Universal- & Multi-Widget ViewInPopUp: 视图滚动 [#344], Universal- & Multi -Widget HTTP：可以在相同或新选项卡中打开链接 [#363]，修复：如果数据点中只有一个对象而不是包含对象的数组 [#319]，则 JSON-Table 现在也可以工作，修复： JSON-Table：10 位时间戳不起作用 [#376]"
-      },
-      "3.2.5": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "3.2.4": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "3.2.3": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "3.2.0": {
-        "en": "Textcolor active/inactive for Universal- & Multiwidget, Colorslider CIE value with square brackets, Fixed issue shadow color not updating for Universal- & Multiwidget, JSON-Table prefixed and appended text",
-        "de": "Textfarbe aktiv/inaktiv für Universal- & Multiwidget, Colorslider CIE-Wert mit eckigen Klammern, Problem behoben, dass Schattenfarbe für Universal- & Multiwidget nicht aktualisiert wird, JSON-Tabelle vorangestellter und angehängter Text",
-        "ru": "Цвет текста активен / неактивен для универсального и мультивиджета, значение CIE Colorslider с квадратными скобками, исправлена ошибка, из-за которой цвет тени не обновляется для универсального и мультивиджета, текст с префиксом и добавлением JSON-таблицы",
-        "pt": "Textcolor ativo / inativo para Universal- & Multiwidget, valor Colorslider CIE com colchetes, Corrigido problema de cor de sombra não atualizando para Universal- e Multiwidget, JSON-Table prefixado e texto anexado",
-        "nl": "Tekstkleur actief/inactief voor Universal- & Multiwidget, Colorslider CIE-waarde met vierkante haken, Probleem opgelost schaduwkleur wordt niet bijgewerkt voor Universal- & Multiwidget, JSON-Table prefix en toegevoegde tekst",
-        "fr": "Textcolor actif/inactif pour Universal- & Multiwidget, Valeur CIE du curseur de couleur avec crochets, Correction de la couleur de l'ombre du problème ne se mettant pas à jour pour Universal- & Multiwidget, JSON-Table préfixée et texte ajouté",
-        "it": "Colore del testo attivo/inattivo per Universal- & Multiwidget, Valore CIE Colorslider con parentesi quadre, Risolto problema con il colore dell'ombra che non si aggiornava per Universal- & Multiwidget, JSON-Table con prefisso e testo aggiunto",
-        "es": "Color de texto activo / inactivo para Universal- y Multiwidget, Valor CIE de Colorslider con corchetes, Problema solucionado que el color de la sombra no se actualiza para Universal- y Multiwidget, JSON-Table con prefijo y texto adjunto",
-        "pl": "Kolor tekstu aktywny/nieaktywny dla Universal- i Multiwidget, Colorslider CIE wartość z nawiasami kwadratowymi, Naprawiono problem z nieaktualizacją koloru cienia dla Universal- i Multiwidget, Tekst z przedrostkiem i dodanym tekstem w tabeli JSON",
-        "zh-cn": "通用和多小部件的 Textcolor 活动/非活动，带方括号的 Colorslider CIE 值，固定问题阴影颜色不更新通用和多小部件，JSON 表前缀和附加文本"
-      },
-      "3.0.0": {
-        "en": "WARING: Icons will disappear from Universal- and Multiwdiget! Please click on each Widget! Contenttypes for Universal- and Multiwidget: Image, Clock (analog and digital) and HTML/Text, New comparison operators: greater or equal and lower or equal, Popup now can be opened via datapoint,Bugfixes, (For full changelog visit Github)",
-        "de": "ACHTUNG: Icons von Universal- und Multiwidgets verschwinden! Bitte Widgets einzeln anklicken damit diese wieder zu sehen sind! Inhaltstypen für Universal- und Multiwidget: Bild, Uhr (analog und digital) und HTML/Text, Neue Vergleichsoperatoren: größer gleich und kleiner gleich, Popup kann jetzt über Datenpunkt geöffnet werden, Bugfixes, (Für den vollständigen Changelog besuchen Sie Github)",
-        "ru": "Типы содержимого для универсального и мультивиджета: изображение, часы (аналоговые и цифровые) и HTML / текст, новые операторы сравнения: больше или равно и меньше или равно, всплывающее окно теперь можно открывать через точку данных, исправления (полный список изменений см. На Github)",
-        "pt": "Tipos de conteúdo para Universal e Multiwidget: Imagem, Relógio (analógico e digital) e HTML / Texto, Novos operadores de comparação: maior ou igual e menor ou igual, Popup agora pode ser aberto via datapoint, correções de bugs (para changelog completo, visite Github)",
-        "nl": "Inhoudstypes voor Universal- en Multiwidget: Afbeelding, Klok (analoog en digitaal) en HTML/Tekst, Nieuwe vergelijkingsoperatoren: groter of gelijk en lager of gelijk, Popup nu te openen via datapunt, Bugfixes, (Ga voor volledige changelog naar Github)",
-        "fr": "Types de contenu pour Universal- et Multiwidget : Image, Clock (analogique et numérique) et HTML/Texte, Nouveaux opérateurs de comparaison : supérieur ou égal et inférieur ou égal, Popup peut désormais être ouvert via un point de données, Corrections de bugs, (Pour le journal des modifications complet, visitez Github)",
-        "it": "Tipi di contenuto per Universal- e Multiwidget: immagine, orologio (analogico e digitale) e HTML/testo, nuovi operatori di confronto: maggiore o uguale e minore o uguale, il popup ora può essere aperto tramite datapoint, correzioni di bug (per il registro completo delle modifiche visitare Github)",
-        "es": "Tipos de contenido para Universal- y Multiwidget: Imagen, Reloj (analógico y digital) y HTML / Texto, Nuevos operadores de comparación: mayor o igual y menor o igual, Popup ahora se puede abrir a través del punto de datos, Corrección de errores, (Para el registro de cambios completo, visite Github)",
-        "pl": "Typy treści dla Universal- i Multiwidget: Obraz, Zegar (analogowy i cyfrowy) i HTML/Tekst, Nowe operatory porównania: większy lub równy i mniejszy lub równy, Popup teraz może być otwierany przez punkt danych, Poprawki błędów, (Pełny dziennik zmian można znaleźć na Github)",
-        "zh-cn": "通用和 Multiwidget 的内容类型：图像、时钟（模拟和数字）和 HTML/文本，新的比较运算符：大于或等于和小于或等于，现在可以通过数据点打开弹出窗口，错误修复，（完整的更改日志请访问 Github）"
-      },
-      "2.9.7": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "zh-cn": "错误修正"
-      },
-      "2.9.0": {
-        "en": "Multi-Widget states can know check for datapoints or views independently from widget type, Added options to automatically close popup, Bugfixes",
-        "de": "Multi-Widget-Status können unabhängig vom Widget-Typ nach Datenpunkten oder Views prüfen. Optionen zum automatischen Schließen des Popups hinzugefügt. Bugfixes",
-        "ru": "Состояния мульти-виджета могут знать проверку точек данных или представлений независимо от типа виджета, добавлены параметры для автоматического закрытия всплывающего окна, исправления",
-        "pt": "Os estados de multi-widget podem verificar se há pontos de dados ou visualizações independentemente do tipo de widget, opções adicionadas para fechar pop-up automaticamente, correções de bugs",
-        "nl": "Multi-Widget-statussen kunnen controleren op datapunten of weergaven onafhankelijk van het type widget, Opties toegevoegd om pop-up automatisch te sluiten, Bugfixes",
-        "fr": "Les états multi-widgets peuvent savoir vérifier les points de données ou les vues indépendamment du type de widget, Ajout d'options pour fermer automatiquement la fenêtre contextuelle, corrections de bugs",
-        "it": "Gli stati multi-widget possono sapere controllare i punti dati o le viste indipendentemente dal tipo di widget, opzioni aggiunte per chiudere automaticamente il popup, correzioni di bug",
-        "es": "Los estados de múltiples widgets pueden saber verificar puntos de datos o vistas independientemente del tipo de widget, se agregaron opciones para cerrar automáticamente la ventana emergente, correcciones de errores",
-        "pl": "Stany wielu widżetów mogą znać sprawdzanie punktów danych lub widoków niezależnie od typu widżetu, Dodano opcje automatycznego zamykania wyskakujących okienek, Poprawki błędów",
-        "zh-cn": "多窗口小部件状态可以知道独立于窗口小部件类型的数据点或视图检查，添加了自动关闭弹出窗口的选项，错误修复"
-      },
-      "2.8.0": {
-        "en": "Added View in PoUp option for Universal- and Multi-Widget; Bugfix",
-        "de": "View in PopUp Option für Universal- und Multi-Widget hinzugefügt; Fehlerbehebung",
-        "ru": "Добавлена опция просмотра в PoUp для универсальных и мульти-виджетов; Исправлена ошибка",
-        "pt": "Adicionada a opção View in PoUp para Universal e Multi-Widget; Bugfix",
-        "nl": "Weergave in PoUp-optie toegevoegd voor Universal- en Multi-Widget; Bugfix",
-        "fr": "Ajout de l'option View in PoUp pour Universal et Multi-Widget; Correction d'un bug",
-        "it": "Aggiunta l'opzione View in PoUp per Universal e Multi-Widget; Risoluzione del problema",
-        "es": "Se agregó la opción Vista en PoUp para Universal- y Multi-Widget; Arreglo del fallo",
-        "pl": "Dodano opcję Widok w PoUp dla Universal- i Multi-Widget; Naprawa błędów",
-        "zh-cn": "为通用和多窗口小部件添加了“在PoUp中查看”选项；错误修正"
-      },
-      "1.3.8": {
-        "en": "Changed slider step to decimal, Fixed problem with numeric values",
-        "de": "Schiebereglerschritt auf Dezimal geändert, Problem mit numerischen Werten behoben",
-        "ru": "Изменен шаг ползунка на десятичный, исправлена проблема с числовыми значениями",
-        "pt": "Alteração da etapa do controle deslizante para decimal. Corrigido o problema com valores numéricos",
-        "nl": "Veranderde schuifstap naar decimaal, Probleem opgelost met numerieke waarden",
-        "fr": "Changement du pas du curseur en décimal, Correction d'un problème avec les valeurs numériques",
-        "it": "Passaggio del cursore modificato in decimale, risolto problema con valori numerici",
-        "es": "Se cambió el paso del control deslizante a decimal, se solucionó el problema con los valores numéricos",
-        "pl": "Zmieniono krok suwaka na dziesiętny, Naprawiono problem z wartościami liczbowymi",
-        "zh-cn": "将滑块步进更改为十进制，解决了数值问题"
       }
     },
-    "title": "inventwo Design Widgets",
     "titleLang": {
       "en": "inventwo Design Widgets",
       "de": "inventwo Design Widgets",
@@ -207,6 +68,7 @@
       "it": "inventwo Design Widgets",
       "es": "inventwo Widgets de diseño",
       "pl": "wynalazki dwóch widżetów projektowych",
+      "uk": "винайти два дизайнерські віджети",
       "zh-cn": "inventwo设计小部件"
     },
     "desc": {
@@ -219,6 +81,7 @@
       "it": "inventwo Widget di design per ioBroker.vis",
       "es": "inventwo Widgets de diseño para ioBroker.vis",
       "pl": "wynalazki Widżety projektowe dla ioBroker.vis",
+      "uk": "винайти два дизайнерських віджети для ioBroker.vis",
       "zh-cn": "ioBroker.vis的inventwo设计小部件"
     },
     "authors": [
@@ -226,8 +89,6 @@
       "skvarel <skvarel@inventwo.com>"
     ],
     "keywords": [
-      "ioBroker",
-      "Smart Home",
       "home automation",
       "inventwo",
       "vis"
@@ -266,8 +127,7 @@
     "dependencies": [
       {
         "js-controller": ">=3.1.0"
-      },
-      "vis"
+      }
     ]
   },
   "native": {},
