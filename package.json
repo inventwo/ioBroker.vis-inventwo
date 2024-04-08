@@ -24,7 +24,7 @@
   "dependencies": {
     "@iobroker/adapter-core": "^2.4.0",
     "minimist": "^1.2.5",
-    "np": "^9.2.0"
+    "np": "^10.0.3"
   },
   "devDependencies": {
     "@iobroker/testing": "^4.1.0",
