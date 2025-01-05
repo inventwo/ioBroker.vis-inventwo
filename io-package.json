@@ -29,19 +29,6 @@
         "uk": "Виправлено проблему з кольором рамки та виглядом у спливаючому вікні",
         "zh-cn": "修复了弹出窗口中边框颜色和视图的问题"
       },
-      "3.3.2": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "uk": "Виправлення помилок",
-        "zh-cn": "错误修正"
-      },
       "3.3.1": {
         "en": "Bugfix",
         "de": "Fehlerbehebung",
