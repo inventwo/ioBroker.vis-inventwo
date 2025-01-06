@@ -22,7 +22,7 @@
     "url": "git+https://github.com/inventwo/ioBroker.vis-inventwo.git"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^ 3.1.4",
+    "@iobroker/adapter-core": "^ 2.6.12",
     "minimist": "^1.2.5",
     "np": "^10.0.3"
   },
