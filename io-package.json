@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "3.3.4",
+    "version": "3.3.5",
     "news": {
+      "3.3.5": {
+        "en": "Radio button cannot write a boolean, Fixed adapter checker error in package.json and io-package.json, Changed mode in io-package from daemon to once",
+        "de": "Radio-Taste kann keinen boolean, Fixed Adapter Checker Fehler in Paket schreiben. json und io-package. Json, Geänderter Modus in io-Package von daemon auf einmal",
+        "ru": "Радио-кнопка не может написать ошибку проверки фиксированного адаптера в пакете. Джейсон и Айо-пакет. Джейсон, Измененный режим в io-пакете от демона до одного раза",
+        "pt": "O botão de rádio não pode escrever um erro de verificador de adaptador booleano e fixo no pacote. json e io-package. Json, Modo alterado em io-package de daemon a uma vez",
+        "nl": "Radioknop kan geen booleaanse, vaste adaptercontrolefout in pakket schrijven. Json en io-package. Json, Veranderde modus in io-pakket van daemon naar eenmaal",
+        "fr": "Le bouton radio ne peut pas écrire une erreur booléenne, correcteur d'adaptateur dans le paquet. Json et io-package. Json, Mode modifié en io-package de démon à une fois",
+        "it": "Pulsante radio non può scrivere un errore booleano, adattatore fisso checker in pacchetto. json e io-package. json... Modalità modificata in io-package da demone a una volta",
+        "es": "El botón de radio no puede escribir un error booleano, corrector de adaptador en paquete. json y io-package. Json, Modo cambiado en io-paquete de daemon a una vez",
+        "pl": "Przycisk radiowy nie może zapisać błędu kontrolera łącznika w pakiecie. Json i jo- paczka. Josh, Zmieniono tryb w pakiecie jo- z demona na jeden raz",
+        "uk": "Кнопка радіо не може писати boolean, виправлена помилка перевірки адаптера в пакеті. json і io-package. джсон, Змінений режим в io-package від daemon до одного разу",
+        "zh-cn": "无线电按钮不能在软件包中写入布尔, 固定适配器检查器错误 。 json和io包装。 强森, 将 io- package 模式从守护进程更改为一次"
+      },
       "3.3.4": {
         "en": "Fixed: Color picker widget disappears when selecting CIE.\nFixed: Simple Slider color of steps cannot be changed.\nFixed: Image Widget always shows the image for true.\nFixed: Radio button - image color true is taken from false.\nFixed: Double trigger button/state and \"slider cannot be slid\" with Windows Touch.\nFixed: json table with \"Binding\" does not work in the editor.\nFixed: JSON Table Widget: Color change of the values via threshold is only visible in the editor, not in runtime.",
         "de": "Behoben: Color-Picker-Widget verschwindet bei Auswahl von CIE.\nBehoben: Simple Slider Farbe der Schritte nicht änderbar.\nBehoben: Image Widget zeigt immer das Image für true.\nBehoben: Radiobutton - Bildfarbe true wird von false übernommen.\nBehoben: Doppelauslösung Taster/state und \"slider lässt sich nicht \"sliden bei Windows Touch.\nBehoben: json Tabelle mit \"Binding\" funktioniert im Editor nicht.\nBehoben: JSON Table Widget: Farbänderung der Werte via Schwellwert ist nur im Editor, nicht in Runtime sichtbar.",
