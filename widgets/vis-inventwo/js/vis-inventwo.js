@@ -3516,17 +3516,8 @@ vis.binds["vis-inventwo"] = {
 				if (vis.detectBounce(this)) return;
 				if (moved) return;
 
-				/*if(oid == undefined && view != undefined){
-					vis.changeView(view, view);
-				}
-				else if(oid != undefined){*/
 				val = vis.binds["vis-inventwo"].convertValue(val);
-				if (!isNaN(val)) {
-					val = parseFloat(val);
-				}
-
 				vis.setValue(oid, val);
-				// }
 
 			}).on("touchmove", function () {
 				moved = true;

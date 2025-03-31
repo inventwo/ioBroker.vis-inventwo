@@ -91,9 +91,12 @@
       "inventwo",
       "vis"
     ],
-    "license": "MIT",
+    "licenseInformation": {
+      "license": "MIT",
+      "type": "free",
+      "link": "https://github.com/inventwo/ioBroker.vis.inventwo/blob/master/README.md"
+    },
     "platform": "Javascript/Node.js",
-    "main": "main.js",
     "icon": "inventwo.png",
     "enabled": true,
     "extIcon": "https://raw.githubusercontent.com/inventwo/ioBroker.vis-inventwo/master/admin/inventwo.png",
@@ -114,8 +117,7 @@
     "singleton": true,
     "noConfig": false,
     "messagebox": true,
-    "subscribe": "messagebox",
-    "mode": "daemon",
+    "mode": "once",
     "type": "visualization-widgets",
     "compact": true,
     "connectionType": "local",
@@ -124,7 +126,7 @@
     "materializeTab": true,
     "dependencies": [
       {
-        "js-controller": ">=3.1.0"
+        "js-controller": ">=5.0.19"
       }
     ]
   },
