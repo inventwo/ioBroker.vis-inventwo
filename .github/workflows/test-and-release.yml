@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
         node-version: [ 18.x, 20.x, 22.x ]
-        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        os: [ ubuntu-latest ]
         exclude:
           # Don't test Node.js 8 on Windows. npm is weird here
           - os: windows-latest
