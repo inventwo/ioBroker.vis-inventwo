@@ -135,13 +135,18 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "poll",
-    "materialize": true,
-    "materializeTab": true,
+    "adminUI": {
+      "config": "materialize",
+      "tab": "html"
+    },
     "dependencies": [
       {
-        "js-controller": ">=5.0.19"
+        "js-controller": ">=5.0.19",
+        "admin": ">=7.4.10"
       }
-    ]
+    ],
+    "globalDependencies": [],
+    "tier": 1
   },
   "native": {},
   "objects": [],

@@ -61,5 +61,35 @@
   "directories": {
     "lib": "lib",
     "test": "test"
-  }
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    ".git",
+    ".idea",
+    "node_modules/",
+    "nbproject/",
+    ".vs*/",
+    "*.code-workspace",
+    "Thumbs.db",
+    "gulpfile.js",
+    ".vscode",
+    ".eslintrc.json",
+    ".github",
+    "test/",
+    "travis/",
+    ".travis.yml",
+    "appveyor.yml",
+    ".travis.yaml",
+    "appveyor.yaml",
+    "tsconfig.json",
+    "tsconfig.*.json",
+    ".eslintrc.json",
+    ".eslintrc.js",
+    "iobroker.*.tgz",
+    "package-lock.json",
+    "admin/i18n",
+    "maintenance/**"
+  ]
 }
