@@ -1,8 +1,8 @@
 ![Logo](admin/inventwo.png)
 # ioBroker.vis-inventwo
 
-![Number of Installations (stable)](http://iobroker.live/badges/vis-inventwo-stable.svg)
 ![Number of Installations (latest)](http://iobroker.live/badges/vis-inventwo-installed.svg)
+![Number of Installations (stable)](http://iobroker.live/badges/vis-inventwo-stable.svg)
 [![NPM Version](https://nodei.co/npm/iobroker.vis-inventwo.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.vis-inventwo)<br>
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
 [![Known Vulnerabilities](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)](https://github.com/inventwo/ioBroker.vis-inventwo/tree/master?tab=security-ov-file)
