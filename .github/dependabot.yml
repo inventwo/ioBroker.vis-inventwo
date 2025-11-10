@@ -1,7 +1,9 @@
+# Dependabot will run on day 21 of each month at 03:24 (Europe/Berlin timezone)
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: weekly
-  open-pull-requests-limit: 30
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      timezone: "Europe/Berlin"
+    open-pull-requests-limit: 30
