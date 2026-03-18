@@ -117,6 +117,7 @@
     "loglevel": "info",
     "restartAdapters": [
       "vis",
+      "vis-2",
       "web"
     ],
     "adminTab": {
@@ -124,8 +125,7 @@
         "en": "inventwo VIS",
         "de": "inventwo VIS"
       },
-      "link": "/adapter/vis-inventwo/index_m.html?%instance%",
-      "fa-icon": "dashboard"
+      "link": "/adapter/vis-inventwo/index_m.html?%instance%"
     },
     "singleton": true,
     "noConfig": false,
@@ -141,12 +141,12 @@
     },
     "dependencies": [
       {
-        "js-controller": ">=5.0.19"
+        "js-controller": ">=6.0.11"
       }
     ],
     "globalDependencies": [
       {
-        "admin": ">=7.4.10"
+        "admin": ">=7.6.17"
       }
     ],
     "tier": 1

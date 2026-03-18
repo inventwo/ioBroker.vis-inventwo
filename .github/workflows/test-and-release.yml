@@ -13,44 +13,49 @@ on:
       - "v?[0-9]+.[0-9]+.[0-9]+-**"
   pull_request: { }
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  # Lint the code
+  check-and-lint:
+    if: contains(github.event.head_commit.message, '[skip ci]') == false
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run linters
+        run: npm run lint
+
   # Runs adapter tests on all supported node versions and OSes
   adapter-tests:
     if: contains(github.event.head_commit.message, '[skip ci]') == false
-    
+    needs: check-and-lint
+
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [ 18.x, 20.x, 22.x ]
+        node-version: [ 20.x, 22.x, 24.x ]
         os: [ ubuntu-latest ]
-        exclude:
-          # Don't test Node.js 8 on Windows. npm is weird here
-          - os: windows-latest
-            node-version: 8.x
+
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: ioBroker/testing-action-adapter@v1
         with:
           node-version: ${{ matrix.node-version }}
+          os: ${{ matrix.os }}
 
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Run unit tests
-        run: npm run test:unit
-
-      - name: Run integration tests (unix only)
-        if: startsWith(runner.OS, 'windows') == false
-        run: DEBUG=testing:* npm run test:integration
-
-      - name: Run integration tests (windows only)
-        if: startsWith(runner.OS, 'windows')
-        run: set DEBUG=testing:* & npm run test:integration
-
-  # Deploys the final package to NPM (only if commit includes a version tag !
+  # Deploys the final package to NPM (only if commit includes a version tag)
   deploy:
-    needs: [ adapter-tests ]
+    needs: [ check-and-lint, adapter-tests ]
 
     # Trigger this step only when a commit on master is tagged with a version number
     if: |
@@ -59,49 +64,15 @@ jobs:
       startsWith(github.ref, 'refs/tags/v')
 
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write
+
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 18.x
-        uses: actions/setup-node@v1
+      - uses: ioBroker/testing-action-deploy@v1
         with:
-          node-version: 18.x
-
-      - name: Extract the version and commit body from the tag
-        # The body may be multiline, therefore we need to escape some characters
-        run: |
-          VERSION="${{ github.ref }}"
-          VERSION=${VERSION##*/}
-          VERSION=${VERSION##*v}
-          echo "::set-env name=VERSION::$VERSION"
-          BODY=$(git show -s --format=%b)
-          BODY="${BODY//'%'/'%25'}"
-          BODY="${BODY//$'\n'/'%0A'}"
-          BODY="${BODY//$'\r'/'%0D'}"
-          echo "::set-env name=BODY::$BODY"
-      - name: Install Dependencies
-        run: npm ci
-
-      #      - name: Create a clean build
-      #        run: npm run build
-#      - name: Publish package to npm
-#        run: |
-#          npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
-#          npm whoami
-#          npm publish
-#
-#      - name: Notify Sentry.io about the release
-#        run: |
-#          npm i -g @sentry/cli
-#          export SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
-#          export SENTRY_URL=https://sentry.iobroker.net
-#          export SENTRY_ORG=iobroker
-#          export SENTRY_PROJECT=iobroker-sourceanalytix
-#          export SENTRY_VERSION=iobroker.sourceanalytix@${{ env.VERSION }}
-#          sentry-cli releases new $SENTRY_VERSION
-#          sentry-cli releases finalize $SENTRY_VERSION
-#          # Add the following line BEFORE finalize if repositories are connected in Sentry
-#          # sentry-cli releases set-commits $SENTRY_VERSION --auto
+          node-version: 20.x
+          npm-token: ${{ secrets.NPM_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
   # Dummy job for skipped builds - without this, github reports the build as failed
   skip-ci:
@@ -110,6 +81,3 @@ jobs:
     steps:
       - name: Skip build
         run: echo "Build skipped!"
-
-          # Add the following line BEFORE finalize if sourcemap uploads are needed
-        # sentry-cli releases files $SENTRY_VERSION upload-sourcemaps build/
