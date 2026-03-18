@@ -22,12 +22,12 @@
     "url": "git+https://github.com/inventwo/ioBroker.vis-inventwo.git"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^3.2.3",
+    "@iobroker/adapter-core": "^3.3.2",
     "minimist": "^1.2.5",
     "np": "^10.0.3"
   },
   "devDependencies": {
-    "@iobroker/testing": "^5.0.3",
+    "@iobroker/testing": "^5.2.2",
     "@types/chai": "^5.0.1",
     "@types/chai-as-promised": "^8.0.2",
     "@types/gulp": "^4.0.6",
