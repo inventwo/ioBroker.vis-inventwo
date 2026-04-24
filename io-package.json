@@ -135,8 +135,7 @@
     "connectionType": "local",
     "dataSource": "poll",
     "adminUI": {
-      "config": "materialize",
-      "tab": "html"
+      "config": "json"
     },
     "tier": 1
   },

@@ -1,0 +1,57 @@
+{
+  "type": "panel",
+  "items": {
+    "_logo": {
+      "type": "staticImage",
+      "src": "inventwo.png",
+      "height": 80,
+      "sm": 10,
+      "newLine": false
+    },
+    "_helpLink": {
+      "type": "staticLink",
+      "href": "https://github.com/inventwo/ioBroker.vis-inventwo/wiki",
+      "button": true,
+      "icon": "help_outline",
+      "label": "Anleitung • Hilfe",
+      "sm": 2,
+      "newLine": false
+    },
+    "_divider1": {
+      "type": "divider",
+      "newLine": true
+    },
+    "_header": {
+      "type": "header",
+      "text": "inventwo Design Widgets für die Visualisierung",
+      "size": 4,
+      "newLine": true
+    },
+    "_intro": {
+      "type": "staticText",
+      "text": "Diese Seite dient nicht zur Konfiguration, sondern rein als Hilfeseite bzw. als eine kurze Anleitung!\n\nBeim installieren einer Adapter-Instanz werden drei Datenpunkte angelegt.",
+      "newLine": true
+    },
+    "_dataImage": {
+      "type": "staticImage",
+      "src": "http://resources.inventwo.com/github/inventwo/Data.png",
+      "height": 200,
+      "newLine": true
+    },
+    "_description": {
+      "type": "staticText",
+      "text": "Diese Datenpunkte können im VIS Editor für die Farbangaben genutzt werden.\n\nIm Fall von der Instanz '0', kann der gewünschte Datenpunkt inkl. der geschweiften Klammer eingeben werden. (Solltest Du eine andere Instanznummer gewählt haben, muss die 0 natürlich gegen Deine Nummer ausgetauscht werden.)\n\nBeispiel für die Farben:\n{vis-inventwo.0.CSS.Button}\n{vis-inventwo.0.CSS.Active}\n{vis-inventwo.0.CSS.Text}\n\nFür die gestreiften Flächen, kann folgender Code in das Farbfeld eingetragen werden:\nrepeating-linear-gradient(-45deg, #333333 0px, #333333 15px, #393939 15px, #393939 30px, #333333 30px)",
+      "newLine": true
+    },
+    "_divider2": {
+      "type": "divider",
+      "newLine": true
+    },
+    "_footer": {
+      "type": "staticText",
+      "text": "Viel Spaß mit unserem Adapter ....\nMfG, jkvarel & skvarel von inventwo",
+      "newLine": true
+    }
+  }
+}
+

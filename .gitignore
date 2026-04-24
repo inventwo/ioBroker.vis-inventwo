@@ -4,7 +4,6 @@
 node_modules
 nbproject
 .vs
-.vscode
 .eslintrc.json
 
 # npm package files
