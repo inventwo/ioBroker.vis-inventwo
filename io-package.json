@@ -129,11 +129,7 @@
     "mode": "none",
     "type": "visualization-widgets",
     "tier": 3,
-    "globalDependencies": [
-      {
-        "admin": ">=7.6.20"
-      }
-    ]
+    "globalDependencies": []
   },
   "native": {},
   "objects": [],
