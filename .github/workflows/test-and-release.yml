@@ -35,7 +35,7 @@ jobs:
       - uses: ioBroker/testing-action-adapter@v1
         with:
           build: true
-          install-command: 'npm ci || npm install; cd src-widgets; npm ci || npm install'
+          install-command: 'npm ci || npm install'
           os: ${{ matrix.os }}
           node-version: ${{ matrix.node-version }}
 
