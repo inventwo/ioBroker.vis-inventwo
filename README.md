@@ -5,44 +5,43 @@
 ![Number of Installations (stable)](http://iobroker.live/badges/vis-inventwo-stable.svg)
 [![NPM Version](https://nodei.co/npm/iobroker.vis-inventwo.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.vis-inventwo)<br>
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
-[![Known Vulnerabilities](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)](https://github.com/inventwo/ioBroker.vis-inventwo/tree/master?tab=security-ov-file)
 [![Build status](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)](https://ci.appveyor.com/project/inventwo/iobroker-vis-inventwo)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/inventwo/ioBroker.vis-inventwo?tab=License-1-ov-file)
 
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 
-## Widgets für den ioBroker.vis Adapter
+## Widgets for the ioBroker.vis Adapter
 
-Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons und mehr...<br>
-Mit unserem Widgets-Set hast du die freie Wahl individuelle Visualisierungen ganz einfach für dein Smart-Home zu erstellen. 
+Switches, sliders, tables, controls, checkboxes, radio buttons and more...<br>
+With our widget set you have the freedom to easily create individual visualizations for your smart home.
 
 
-### <span style="color:red">Wichtiger Hinweis für Vis 2</span>
-Der Adapter ist für VIS 1 entwickelt und getestet. In Vis 2 können Fehler auftreten die die Nutzung deiner Visualisierung nicht ermöglichen. 
-Eine nahtlose Kompatibilität wird nicht möglich sein. Ein neuer Adapter für Vis 2 findest du hier: https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
+### <span style="color:red">Important Note for Vis 2</span>
+This adapter was developed and tested for VIS 1. Errors may occur in Vis 2 that prevent the use of your visualization.
+Seamless compatibility will not be possible. A new adapter for Vis 2 can be found here: https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
 
-## Inhalt des Adapters
+## Contents of the Adapter
 
-Verschiedene Widgets zum schalten, navigieren und mehr.
+Various widgets for switching, navigating and more.
 
-![Vorschau Universal- & Multi-Widget](img/preview_universal_widget.png)
+![Preview Universal & Multi Widget](img/preview_universal_widget.png)
 
-Analog Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
+Analog Clocks [More Information](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Vorschau Analog Uhren](img/preview_clocks.png)
+![Preview Analog Clocks](img/preview_clocks.png)
 
-Digital Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
+Digital Clocks [More Information](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Vorschau Digital Uhren](img/preview_clock_digital.png)
+![Preview Digital Clocks](img/preview_clock_digital.png)
 
-Colorpicker [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
+Colorpicker [More Information](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
 
-![Vorschau Colorpicker](img/Preview_Colorpicker.png)
+![Preview Colorpicker](img/Preview_Colorpicker.png)
 
-Für mehr Infos schaue dich im [Wiki](https://github.com/inventwo/ioBroker.vis-inventwo/wiki) um.
+For more information, check out the [Wiki](https://github.com/inventwo/ioBroker.vis-inventwo/wiki).
 
-###### Alle Widgets ab Version 2.0.0
+###### All Widgets from Version 2.0.0
 
 <table>
    <tr>
@@ -51,21 +50,21 @@ Für mehr Infos schaue dich im [Wiki](https://github.com/inventwo/ioBroker.vis-i
         <td><center><b>Image<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Image.png"></td>
          <td><center><b>Table<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Table.png"></td>
     </tr>
-<tr><td colspan=4></td></tr>   
+<tr><td colspan=4></td></tr>
     <tr>
         <td><center><b>List<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/List.png"></td>
         <td><center><b>Marquee<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td>
         <td><center><b>Radio Button<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td>
         <td><center><b>Slider<br>vertical</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td>
     </tr>
-<tr><td colspan=4></td></tr>   
+<tr><td colspan=4></td></tr>
       <tr>
         <td><center><b>Slider<br>horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
         <td><center><b>Colorslider<br>horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td>
-        <td><center><b>Colorslider<br>horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td>
+        <td><center><b>Colorslider<br>vertical</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td>
         <td><center><b>Toggle Switch<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td>
     </tr>
-<tr><td colspan=4></td></tr>   
+<tr><td colspan=4></td></tr>
       <tr>
         <td><center><b>Basic Switch<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td>
         <td><center><b>Checkbox/<br>Radiobutton</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td>
@@ -76,20 +75,20 @@ Für mehr Infos schaue dich im [Wiki](https://github.com/inventwo/ioBroker.vis-i
 
 
 
-Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben). Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
+The following projects can be realized with the help of our widgets. Currently our adapter contains ONLY the pure buttons (see above). Clock and weather come from other adapters and may need to be installed additionally.
 
-![Beispiel](img/Preview.png)
+![Example](img/Preview.png)
 
-![Beispiel](img/Preview2.png)
+![Example](img/Preview2.png)
 ---
 
-## Unterstützung
+## Support
 
-Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen uns über jede Spende.
+If you like our work and would like to support us, we appreciate every donation.
 
-(Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
+(This link leads to our PayPal account and is not affiliated with ioBroker)
 
-[![Spende](img/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
+[![Donate](img/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
@@ -104,22 +103,22 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 -->
 
 ### 3.3.5
-- Fixed: [#688](https://github.com/inventwo/ioBroker.vis-inventwo/issues/688) Radiobutton kann kein boolean schreiben
-- Fixed: [#736](https://github.com/inventwo/ioBroker.vis-inventwo/issues/736) Fehler vom Adapter Checker in package.json und io-package.json behoben
-- Fixed: [#678](https://github.com/inventwo/ioBroker.vis-inventwo/issues/678) mode in io-package von daemon auf once umgestellt
+- Fixed: [#688](https://github.com/inventwo/ioBroker.vis-inventwo/issues/688) Radio button cannot write a boolean value
+- Fixed: [#736](https://github.com/inventwo/ioBroker.vis-inventwo/issues/736) Adapter checker errors in package.json and io-package.json resolved
+- Fixed: [#678](https://github.com/inventwo/ioBroker.vis-inventwo/issues/678) Mode in io-package changed from daemon to once
 
 ### 3.3.4
-- Fixed: [#455](https://github.com/inventwo/ioBroker.vis-inventwo/issues/455) Color-Picker-Widget "verschwindet" bei Auswahl von CIE
-- Fixed: [#369](https://github.com/inventwo/ioBroker.vis-inventwo/issues/369) Simple Slider Farbe der Schritte nicht änderbar
-- Fixed: [#361](https://github.com/inventwo/ioBroker.vis-inventwo/issues/361) Image Widget zeigt immer das Image für true
-- Fixed: [#564](https://github.com/inventwo/ioBroker.vis-inventwo/issues/564) Radiobutton - Bildfarbe true wird von false übernommen
-- Fixed: [#461](https://github.com/inventwo/ioBroker.vis-inventwo/issues/461) Doppelauslösung Taster/state und "slider lässt sich nicht "sliden bei Windows Touch
-- Fixed: [#474](https://github.com/inventwo/ioBroker.vis-inventwo/issues/474) json Tabelle mit "Binding"
-- Fixed: [#580](https://github.com/inventwo/ioBroker.vis-inventwo/issues/580) JSON Table Widget: Farbänderung der Werte via Schwellwert ist nur im Editor, nicht in Runtime sichtbar.
-- Fixed: [#622](https://github.com/inventwo/ioBroker.vis-inventwo/issues/622) Think about to fix the issues found by adapter checker
+- Fixed: [#455](https://github.com/inventwo/ioBroker.vis-inventwo/issues/455) Color picker widget "disappears" when selecting CIE
+- Fixed: [#369](https://github.com/inventwo/ioBroker.vis-inventwo/issues/369) Simple slider step color cannot be changed
+- Fixed: [#361](https://github.com/inventwo/ioBroker.vis-inventwo/issues/361) Image widget always shows the image for true
+- Fixed: [#564](https://github.com/inventwo/ioBroker.vis-inventwo/issues/564) Radio button – image color for true is taken from false
+- Fixed: [#461](https://github.com/inventwo/ioBroker.vis-inventwo/issues/461) Double trigger on button/state and "slider cannot be slid" with Windows Touch
+- Fixed: [#474](https://github.com/inventwo/ioBroker.vis-inventwo/issues/474) JSON table with "Binding" does not work in the editor
+- Fixed: [#580](https://github.com/inventwo/ioBroker.vis-inventwo/issues/580) JSON Table Widget: color change of values via threshold is only visible in the editor, not at runtime
+- Fixed: [#622](https://github.com/inventwo/ioBroker.vis-inventwo/issues/622) Issues found by adapter checker
 
 ### 3.3.3
-- Problem mit Umrandungsfarbe beim Multi-Widget View in PopUp behoben
+- Fixed issue with border color on Multi-Widget View in PopUp
 
 ### 3.3.2
 - Bugfix
@@ -131,7 +130,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## License
 
-MIT License (nur in englisch / englisch only)
+MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -155,6 +154,4 @@ SOFTWARE.
 
 Icons from Icons8 https://icons8.com/
 
-Copyright (c) 2025-2026 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
-
-
+Copyright (c) 2025-2026 [jkvarel](https://github.com/jkvarel) and [skvarel](https://github.com/skvarel) from [inventwo](https://github.com/inventwo)

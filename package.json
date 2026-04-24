@@ -33,6 +33,7 @@
   },
   "main": "widgets/vis-inventwo.html",
   "scripts": {
+    "translate": "translate-adapter",
     "test:js": "mocha --opts test/mocha.custom.opts",
     "test:package": "mocha test/package --exit",
     "test:unit": "mocha test/unit --exit",

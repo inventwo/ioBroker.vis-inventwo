@@ -1,0 +1,7 @@
+{
+  "description_text": "Diese Datenpunkte können im VIS-Editor für Farbeinstellungen verwendet werden.\n\nGeben Sie zum Beispiel „0“ den gewünschten Datenpunkt inklusive der geschweiften Klammern ein. (Wenn Sie eine andere Instanznummer gewählt haben, ersetzen Sie die 0 durch Ihre Nummer.)\n\nBeispiele für Farben:\n{vis-inventwo.0.CSS.Button}\n{vis-inventwo.0.CSS.Active}\n{vis-inventwo.0.CSS.Text}\n\nFür gestreifte Flächen kann im Farbfeld folgender Code eingegeben werden:\nwiederholender linearer Farbverlauf (-45 Grad, #333333 0px, #333333 15px, #393939 15px, #393939 30px, #333333 30px)",
+  "footer_text": "Viel Spaß mit unserem Adapter....\nBeste Grüße, jkvarel & skvarel von inventwo",
+  "header_text": "inventwo Design Widgets zur Visualisierung",
+  "helpLink_label": "Handbuch • Hilfe",
+  "intro_text": "Diese Seite dient nicht der Konfiguration, sondern dient lediglich als Hilfeseite und Kurzanleitung!\n\nBei der Installation einer Adapterinstanz werden drei Datenpunkte erstellt."
+}

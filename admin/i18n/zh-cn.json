@@ -1,0 +1,7 @@
+{
+  "description_text": "这些数据点可在 VIS 编辑器中用于颜色设置。\n\n例如“0”，输入所需的数据点（包括大括号）。 （如果您选择了不同的实例编号，请将 0 替换为您的编号。）\n\n颜色示例：\n{vis-inventwo.0.CSS.Button}\n{vis-inventwo.0.CSS.Active}\n{vis-inventwo.0.CSS.Text}\n\n对于条纹区域，可以在颜色字段中输入以下代码：\n重复线性渐变（-45deg，#333333 0px，#333333 15px，#393939 15px，#393939 30px，#333333 30px）",
+  "footer_text": "享受我们的适配器的乐趣......\n谨致问候，来自 inventtwo 的 jkvarel 和 skvarel",
+  "header_text": "发明两个可视化设计小部件",
+  "helpLink_label": "手册 • 帮助",
+  "intro_text": "此页面不用于配置，而纯粹作为帮助页面和简短指南！\n\n安装适配器实例时，会创建三个数据点。"
+}

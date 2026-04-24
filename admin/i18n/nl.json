@@ -1,0 +1,7 @@
+{
+  "description_text": "Deze gegevenspunten kunnen in de VIS-editor worden gebruikt voor kleurinstellingen.\n\nVoer bijvoorbeeld '0' het gewenste datapunt in inclusief de accolades. (Als u een ander exemplaarnummer heeft gekozen, vervangt u de 0 door uw nummer.)\n\nVoorbeelden voor kleuren:\n{vis-inventwo.0.CSS.Button}\n{vis-inventwo.0.CSS.Active}\n{vis-inventwo.0.CSS.Text}\n\nVoor gestreepte gebieden kan in het kleurveld de volgende code worden ingevuld:\nherhalend lineair verloop (-45deg, #333333 0px, #333333 15px, #393939 15px, #393939 30px, #333333 30px)",
+  "footer_text": "Veel plezier met onze adapter....\nMet vriendelijke groet, jkvarel & skvarel van inventwo",
+  "header_text": "inventwo ontwerpwidgets voor visualisatie",
+  "helpLink_label": "Handmatig • Hulp",
+  "intro_text": "Deze pagina is niet bedoeld voor configuratie, maar puur als helppagina en korte handleiding!\n\nWanneer u een adapterinstantie installeert, worden er drie gegevenspunten gemaakt."
+}

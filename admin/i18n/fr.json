@@ -1,0 +1,7 @@
+{
+  "description_text": "Ces points de données peuvent être utilisés dans l'éditeur VIS pour les paramètres de couleur.\n\nPar exemple « 0 », entrez le point de données souhaité, y compris les accolades. (Si vous avez choisi un numéro d'instance différent, remplacez le 0 par votre numéro.)\n\nExemples de couleurs :\n{vis-inventwo.0.CSS.Button}\n{vis-inventwo.0.CSS.Active}\n{vis-inventwo.0.CSS.Text}\n\nPour les zones rayées, le code suivant peut être saisi dans le champ couleur :\ndégradé linéaire répétitif (-45deg, #333333 0px, #333333 15px, #393939 15px, #393939 30px, #333333 30px)",
+  "footer_text": "Amusez-vous avec notre adaptateur....\nCordialement, jkvarel & skvarel d'inventwo",
+  "header_text": "inventez deux widgets de conception pour la visualisation",
+  "helpLink_label": "Manuel • Aide",
+  "intro_text": "Cette page n'est pas destinée à la configuration, mais uniquement à titre de page d'aide et de petit guide !\n\nLors de l'installation d'une instance d'adaptateur, trois points de données sont créés."
+}

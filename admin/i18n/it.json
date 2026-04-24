@@ -1,0 +1,7 @@
+{
+  "description_text": "Questi punti dati possono essere utilizzati nell'editor VIS per le impostazioni del colore.\n\nAd esempio \"0\", inserisci il punto dati desiderato comprese le parentesi graffe. (Se hai scelto un numero di istanza diverso, sostituisci lo 0 con il tuo numero.)\n\nEsempi di colori:\n{vis-inventtwo.0.CSS.Button}\n{vis-inventtwo.0.CSS.Active}\n{vis-inventtwo.0.CSS.Text}\n\nPer le aree a strisce è possibile inserire nel campo colore il seguente codice:\ngradiente lineare ripetuto (-45 gradi, #333333 0px, #333333 15px, #393939 15px, #393939 30px, #333333 30px)",
+  "footer_text": "Divertitevi con il nostro adattatore....\nI migliori saluti, jkvarel e skvarel di inventtwo",
+  "header_text": "inventtwo Design Widget per la visualizzazione",
+  "helpLink_label": "Manuale • Aiuto",
+  "intro_text": "Questa pagina non è per la configurazione, ma puramente come pagina di aiuto e breve guida!\n\nQuando si installa un'istanza dell'adattatore, vengono creati tre punti dati."
+}
