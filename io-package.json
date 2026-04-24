@@ -119,12 +119,8 @@
       "vis",
       "web"
     ],
-    "adminTab": {
-      "name": {
-        "en": "inventwo VIS",
-        "de": "inventwo VIS"
-      },
-      "link": "/adapter/vis-inventwo/index_m.html?%instance%"
+    "adminUI": {
+      "config": "none"
     },
     "onlyWWW": true,
     "singleton": true,
@@ -132,9 +128,6 @@
     "messagebox": true,
     "mode": "none",
     "type": "visualization-widgets",
-    "adminUI": {
-      "config": "json"
-    },
     "tier": 3,
     "globalDependencies": [
       {

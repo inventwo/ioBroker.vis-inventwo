@@ -1,7 +1,0 @@
-{
-  "description_text": "Te punkty danych można wykorzystać w edytorze VIS do ustawień kolorów.\n\nNa przykład „0” wprowadź żądany punkt danych, łącznie z nawiasami klamrowymi. (Jeśli wybrałeś inny numer instancji, zastąp 0 swoim numerem.)\n\nPrzykłady kolorów:\n{vis-inventwo.0.CSS.Button}\n{vis-inventwo.0.CSS.Active}\n{vis-inventwo.0.CSS.Text}\n\nW przypadku obszarów pasiastych w polu koloru można wpisać następujący kod:\npowtarzalny-liniowy gradient (-45 stopni, #333333 0px, #333333 15px, #393939 15px, #393939 30px, #333333 30px)",
-  "footer_text": "Miłej zabawy z naszym adapterem....\nPozdrawiam, jkvarel i skvarel z inventwo",
-  "header_text": "inventwo Widżety projektowe do wizualizacji",
-  "helpLink_label": "Podręcznik • Pomoc",
-  "intro_text": "Ta strona nie służy do konfiguracji, ale wyłącznie jako strona pomocy i krótki przewodnik!\n\nPodczas instalowania instancji adaptera tworzone są trzy punkty danych."
-}

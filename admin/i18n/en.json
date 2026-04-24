@@ -1,8 +1,0 @@
-{
-  "helpLink_label": "Manual • Help",
-  "header_text": "inventwo Design Widgets for Visualization",
-  "intro_text": "This page is not for configuration, but purely as a help page and short guide!\n\nWhen installing an adapter instance, three data points are created.",
-  "description_text": "These data points can be used in the VIS editor for color settings.\n\nFor instance '0', enter the desired data point including the curly brackets. (If you have chosen a different instance number, replace the 0 with your number.)\n\nExamples for colors:\n{vis-inventwo.0.CSS.Button}\n{vis-inventwo.0.CSS.Active}\n{vis-inventwo.0.CSS.Text}\n\nFor striped areas, the following code can be entered in the color field:\nrepeating-linear-gradient(-45deg, #333333 0px, #333333 15px, #393939 15px, #393939 30px, #333333 30px)",
-  "footer_text": "Have fun with our adapter....\nBest regards, jkvarel & skvarel from inventwo"
-}
-
