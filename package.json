@@ -21,6 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/inventwo/ioBroker.vis-inventwo.git"
   },
+  "dependencies": {},
   "devDependencies": {
     "@alcalzone/release-script": "^5.1.1",
     "@alcalzone/release-script-plugin-iobroker": "^5.1.2",

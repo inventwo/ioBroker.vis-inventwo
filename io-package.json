@@ -126,18 +126,17 @@
       },
       "link": "/adapter/vis-inventwo/index_m.html?%instance%"
     },
+    "onlyWWW": true,
     "singleton": true,
     "noConfig": false,
     "messagebox": true,
     "mode": "once",
     "type": "visualization-widgets",
-    "compact": true,
-    "connectionType": "local",
-    "dataSource": "poll",
     "adminUI": {
       "config": "json"
     },
-    "tier": 1
+    "tier": 3,
+    "globalDependencies": []
   },
   "native": {},
   "objects": [],
