@@ -138,16 +138,6 @@
       "config": "materialize",
       "tab": "html"
     },
-    "dependencies": [
-      {
-        "js-controller": ">=5.0.19"
-      }
-    ],
-    "globalDependencies": [
-      {
-        "admin": ">=7.4.10"
-      }
-    ],
     "tier": 1
   },
   "native": {},
