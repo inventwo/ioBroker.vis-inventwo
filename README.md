@@ -98,6 +98,11 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ### **WORK IN PROGRESS**
 - (iobroker-bot) Adapter requires node.js >= 20 now.
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
 ### 3.3.5
 - Fixed: [#688](https://github.com/inventwo/ioBroker.vis-inventwo/issues/688) Radiobutton kann kein boolean schreiben
 - Fixed: [#736](https://github.com/inventwo/ioBroker.vis-inventwo/issues/736) Fehler vom Adapter Checker in package.json und io-package.json behoben
