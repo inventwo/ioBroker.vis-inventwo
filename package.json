@@ -1,7 +1,7 @@
 {
   "name": "iobroker.vis-inventwo",
   "version": "3.3.5",
-  "description": "Switch widgets for ioBroker.vis",
+  "description": "Widgets for ioBroker.vis",
   "author": "jkvarel <jkvarel@inventwo.com>",
   "contributors": [
     "jkvarel <jkvarel@inventwo.com>",
@@ -21,16 +21,11 @@
     "type": "git",
     "url": "git+https://github.com/inventwo/ioBroker.vis-inventwo.git"
   },
-  "dependencies": {
-    "minimist": "^1.2.5",
-    "np": "^11.0.3"
-  },
   "devDependencies": {
     "@alcalzone/release-script": "^5.1.1",
     "@alcalzone/release-script-plugin-iobroker": "^5.1.2",
     "@alcalzone/release-script-plugin-license": "^5.1.1",
     "@alcalzone/release-script-plugin-manual-review": "^5.1.1",
-    "@iobroker/adapter-core": "^3.3.2",
     "@iobroker/adapter-dev": "^1.5.0",
     "@iobroker/eslint-config": "^2.2.0",
     "@iobroker/testing": "^5.2.2"
@@ -51,38 +46,14 @@
   "bugs": {
     "url": "https://github.com/inventwo/ioBroker.vis-inventwo/issues"
   },
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
   "engines": {
     "node": ">=20"
   },
   "files": [
-    ".git",
-    ".idea",
-    "node_modules/",
-    "nbproject/",
-    ".vs*/",
-    "*.code-workspace",
-    "Thumbs.db",
-    "gulpfile.js",
-    ".vscode",
-    ".eslintrc.json",
-    ".github",
-    "test/",
-    "travis/",
-    ".travis.yml",
-    "appveyor.yml",
-    ".travis.yaml",
-    "appveyor.yaml",
-    "tsconfig.json",
-    "tsconfig.*.json",
-    ".eslintrc.json",
-    ".eslintrc.js",
-    "iobroker.*.tgz",
-    "package-lock.json",
-    "admin/i18n",
-    "maintenance/**"
+    "widgets/**/!(tsconfig|tsconfig.*|.eslintrc).json",
+    "widgets/**/*.{html,css,png,svg,jpg,js}",
+    "www/",
+    "io-package.json",
+    "LICENSE"
   ]
 }
