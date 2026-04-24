@@ -124,8 +124,7 @@
         "en": "inventwo VIS",
         "de": "inventwo VIS"
       },
-      "link": "/adapter/vis-inventwo/index_m.html?%instance%",
-      "fa-icon": "dashboard"
+      "link": "/adapter/vis-inventwo/index_m.html?%instance%"
     },
     "singleton": true,
     "noConfig": false,
