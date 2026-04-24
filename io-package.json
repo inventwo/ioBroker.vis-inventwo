@@ -136,7 +136,11 @@
       "config": "json"
     },
     "tier": 3,
-    "globalDependencies": []
+    "globalDependencies": [
+      {
+        "admin": ">=7.6.20"
+      }
+    ]
   },
   "native": {},
   "objects": [],
