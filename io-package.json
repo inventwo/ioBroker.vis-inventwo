@@ -130,7 +130,7 @@
     "singleton": true,
     "noConfig": false,
     "messagebox": true,
-    "mode": "once",
+    "mode": "none",
     "type": "visualization-widgets",
     "adminUI": {
       "config": "json"
