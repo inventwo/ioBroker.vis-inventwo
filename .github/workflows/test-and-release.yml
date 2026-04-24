@@ -21,12 +21,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [ 18.x, 20.x, 22.x ]
+        node-version: [ 22.x, 24.x ]
         os: [ ubuntu-latest ]
-        exclude:
-          # Don't test Node.js 8 on Windows. npm is weird here
-          - os: windows-latest
-            node-version: 8.x
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node-version }}
@@ -62,10 +58,10 @@ jobs:
     
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js 18.x
+      - name: Use Node.js 24.x
         uses: actions/setup-node@v1
         with:
-          node-version: 18.x
+          node-version: 24.x
 
       - name: Extract the version and commit body from the tag
         # The body may be multiline, therefore we need to escape some characters
