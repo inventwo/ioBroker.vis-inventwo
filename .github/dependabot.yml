@@ -12,3 +12,4 @@ updates:
     open-pull-requests-limit: 30
     cooldown:
       default-days: 7
+      
