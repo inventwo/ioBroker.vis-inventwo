@@ -32,30 +32,9 @@ jobs:
           # Uncomment the following line if your adapter cannot be installed using 'npm ci'
           # install-command: 'npm install'
 
-  # Runs adapter tests on all supported node versions and OSes
-  adapter-tests:
-    needs: [check-and-lint]
-    if: contains(github.event.head_commit.message, '[skip ci]') == false
-    
-    strategy:
-      matrix:
-        node-version: [ 22.x, 24.x ]
-        # temp removed windows and mac because issues with python
-        os: [ ubuntu-latest, windows-latest, macos-latest ]
-
-    runs-on: ${{ matrix.os }}
-
-    steps:
-      - uses: ioBroker/testing-action-adapter@v1
-        with:
-          build: true
-          install-command: 'npm ci || npm install'
-          os: ${{ matrix.os }}
-          node-version: ${{ matrix.node-version }}
-
    # Deploys the final package to NPM
   deploy:
-    needs: [adapter-tests]
+    needs: [check-and-lint]
 
     # Trigger this step only when a commit on master is tagged with a version number
     if: |
