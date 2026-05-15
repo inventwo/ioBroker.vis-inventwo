@@ -99,6 +99,9 @@ If you like our work and would like to support us, we appreciate every donation.
   ### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+- Fixed widget gif images missing
+
 ### 4.0.0 (2026-05-15)
 - (copilot) Adapter requires node.js >= 22 now
 - (iobroker-bot) Adapter requires node.js >= 20 now.

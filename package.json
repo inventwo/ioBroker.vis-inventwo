@@ -55,7 +55,7 @@
     "admin{,/!(src)/**}/!(tsconfig|tsconfig.*|.eslintrc).{json,json5}",
     "admin{,/!(src)/**}/*.{html,css,png,svg,jpg,js}",
     "widgets/**/!(tsconfig|tsconfig.*|.eslintrc).json",
-    "widgets/**/*.{html,css,png,svg,jpg,js}",
+    "widgets/**/*.{html,css,png,svg,jpg,js,gif}",
     "www/",
     "img/",
     "io-package.json",
