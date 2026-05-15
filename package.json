@@ -49,7 +49,7 @@
     "url": "https://github.com/inventwo/ioBroker.vis-inventwo/issues"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "files": [
     "admin{,/!(src)/**}/!(tsconfig|tsconfig.*|.eslintrc).{json,json5}",
