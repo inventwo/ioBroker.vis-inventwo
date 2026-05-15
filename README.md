@@ -128,6 +128,8 @@ If you like our work and would like to support us, we appreciate every donation.
 
 ---
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License
