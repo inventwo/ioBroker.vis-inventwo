@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "news": {
+      "4.0.1": {
+        "en": "Fixed widget gif images missing",
+        "de": "Behobene Widget-Gif-Bilder fehlen",
+        "ru": "Отсутствующие изображения widget gif",
+        "pt": "Faltam imagens Gif do elemento fixo",
+        "nl": "Vaste widget gif-afbeeldingen ontbreken",
+        "fr": "Correction des images gif du widget manquantes",
+        "it": "Corretto widget gif immagini mancanti",
+        "es": "Imágenes fijas widget gif desaparecidos",
+        "pl": "Naprawiono brakujące obrazy gif widget",
+        "uk": "Виправлено віджет gif зображень відсутні",
+        "zh-cn": "缺少固定部件 gif 图像"
+      },
       "4.0.0": {
         "en": "* Adapter requires node.js >= 22 now\n* Adapter requires node.js >= 20 now.\n- Updated dependencies\n- Updated project structure to meet latest ioBroker standards\n- Updated build process to use latest tools and best practices\n\n<!--\n  Placeholder for the next version (at the beginning of the line):\n  ### **WORK IN PROGRESS**\n-->",
         "de": "* Adapter benötigt node.js >= 22 jetzt\n* Adapter erfordert jetzt node.js >= 20.\n- Aktualisierte Abhängigkeiten\n- Aktualisierte Projektstruktur, um die neuesten ioBroker Standards zu erfüllen\n- Aktualisierter Build-Prozess, um neueste Tools und bewährte Praktiken zu verwenden\n\n<!--\nPlatzhalter für die nächste Version (am Anfang der Linie):\n**WORK IN PROGRESS**\n-->",

@@ -389,6 +389,9 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ### 0.0.1
 - Die Idee ist geboren
+## 3.3.2
+- Bugfix
+
 ## 3.3.1
 - Bugfix
 
