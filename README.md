@@ -97,6 +97,9 @@ If you like our work and would like to support us, we appreciate every donation.
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
 - (iobroker-bot) Adapter requires node.js >= 20 now.
+- Updated dependencies
+- Updated project structure to meet latest ioBroker standards
+- Updated build process to use latest tools and best practices
 
 <!--
   Placeholder for the next version (at the beginning of the line):
