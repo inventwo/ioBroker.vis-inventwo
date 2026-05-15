@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "3.3.5",
+    "version": "4.0.0",
     "news": {
+      "4.0.0": {
+        "en": "* Adapter requires node.js >= 22 now\n* Adapter requires node.js >= 20 now.\n- Updated dependencies\n- Updated project structure to meet latest ioBroker standards\n- Updated build process to use latest tools and best practices\n\n<!--\n  Placeholder for the next version (at the beginning of the line):\n  ### **WORK IN PROGRESS**\n-->",
+        "de": "* Adapter benötigt node.js >= 22 jetzt\n* Adapter erfordert jetzt node.js >= 20.\n- Aktualisierte Abhängigkeiten\n- Aktualisierte Projektstruktur, um die neuesten ioBroker Standards zu erfüllen\n- Aktualisierter Build-Prozess, um neueste Tools und bewährte Praktiken zu verwenden\n\n<!--\nPlatzhalter für die nächste Version (am Anfang der Linie):\n**WORK IN PROGRESS**\n-->",
+        "ru": "Адаптер требует node.js >= 22 сейчас\nАдаптер требует node.js >= 20 сейчас.\nОбновленные зависимости\nОбновленная структура проекта в соответствии с последними стандартами ioBroker\nОбновленный процесс сборки с использованием новейших инструментов и лучших практик\n\n<!--\nЗаполнитель для следующей версии (в начале строки):\n###*РАБОТА В ПРОГРЕСЕ**\n-->",
+        "pt": "* Adaptador requer nod.js >= 22 agora\n* Adaptador requer nod.js >= 20 agora.\n- Dependências atualizadas\n- Estrutura de projeto atualizada para atender aos mais recentes padrões ioBroker\n- Processo de compilação atualizado para usar as ferramentas mais recentes e as melhores práticas\n\n<!--\nPositivo para a próxima versão (no início da linha):\nTRABALHAR EM PROGRESSO\n-->",
+        "nl": "• Adapter vereist node.js < 22 nu\n* Adapter vereist node.js > 20 nu.\n- Bijgewerkte afhankelijkheden\n- Bijgewerkte projectstructuur om te voldoen aan de nieuwste ioBroker normen\n- Bijgewerkt bouwproces om de nieuwste tools en beste praktijken te gebruiken\n\n<!--\nPlaatshouder voor de volgende versie (aan het begin van de regel):\nWORK IN PROGRESS\n-->",
+        "fr": "* Adaptateur nécessite node.js >= 22 maintenant\n* Adaptateur nécessite node.js >= 20 maintenant.\n- Dépendances actualisées\n- Mise à jour de la structure du projet pour répondre aux dernières normes ioBroker\n- Mise à jour du processus de construction pour utiliser les derniers outils et les meilleures pratiques\n\n<!--\nPlaceholder pour la prochaine version (au début de la ligne):\n### **WORK IN PROGRESS**\n-->",
+        "it": "* Adattatore richiede node.js >= 22 ora\n* Adattatore richiede node.js >= 20 ora.\n- Dipendenze aggiornate\n- Struttura del progetto aggiornata per soddisfare gli ultimi standard ioBroker\n- Processo di costruzione aggiornato per utilizzare gli strumenti più recenti e le migliori pratiche\n\n<!--\nSegnaposto per la prossima versione (all'inizio della linea):\n######WORK IN PROGRESS #\n-->",
+        "es": "* Adaptador requiere node.js >= 22 ahora\n* Adaptador requiere node.js >= 20 ahora.\n- Las dependencias actualizadas\n- Actualización de la estructura del proyecto para cumplir los últimos estándares de yoBroker\n- Proceso de construcción actualizado para utilizar las últimas herramientas y mejores prácticas\n\n<!--\nTitular para la próxima versión (al principio de la línea):\n#### **WORK IN PROGRESS**\n-->",
+        "pl": "* Adapter wymaga node.js > = 22\n* Adapter wymaga node.js > = 20 teraz.\n- Aktualizacja zależności\n- Aktualizacja struktury projektu w celu spełnienia najnowszych standardów jOBroker\n- Aktualizacja procesu budowy w celu wykorzystania najnowszych narzędzi i najlepszych praktyk\n\n<!--\nUchwyt do następnej wersji (na początku wiersza):\n** * WORK IN PROGRESS **\n-->",
+        "uk": "* Адаптер вимагає node.js >= 22 тепер\n* Адаптер вимагає node.js >= 20 тепер.\n- Оновлені залежності\n- Оновлена структура проекту для задоволення останніх стандартів ioBroker\n- Оновлений процес побудови для використання новітніх інструментів та кращих практик\n\n<!--\nМісцевласника для наступної версії (на початку лінії):\n###**\n-->",
+        "zh-cn": "*适配器需要节点.js 现在22\n*适配器需要节点.js >= 20 现在.\n- 更新的依赖关系\n- 更新项目结构,以达到最新的ioBroker标准\n- 采用最新工具和最佳做法的最新构建过程\n\n<!--\n下一个版本(行首)的占位符 :\n** 工作进展**\n-->"
+      },
       "3.3.5": {
         "en": "Radio button cannot write a boolean, Fixed adapter checker error in package.json and io-package.json, Changed mode in io-package from daemon to once",
         "de": "Radio-Taste kann keinen boolean, Fixed Adapter Checker Fehler in Paket schreiben. json und io-package. Json, Geänderter Modus in io-Package von daemon auf einmal",

@@ -389,3 +389,9 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ### 0.0.1
 - Die Idee ist geboren
+## 3.3.1
+- Bugfix
+
+---
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
