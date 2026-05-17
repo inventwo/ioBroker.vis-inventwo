@@ -389,6 +389,9 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ### 0.0.1
 - Die Idee ist geboren
+## 3.3.3
+- Fixed issue with border color on Multi-Widget View in PopUp
+
 ## 3.3.2
 - Bugfix
 
