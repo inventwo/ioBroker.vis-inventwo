@@ -148,6 +148,19 @@
     "adminUI": {
       "config": "none"
     },
+    "visWidgets": {
+      "visInventwo": {
+        "name": "vis-inventwo",
+        "ignoreInVersions": [
+          2
+        ],
+        "components": [
+          "nocomponents"
+        ],
+        "i18n": true,
+        "url": ""
+      }
+    },
     "onlyWWW": true,
     "singleton": true,
     "noConfig": false,

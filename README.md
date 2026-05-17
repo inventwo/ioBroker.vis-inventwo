@@ -98,6 +98,9 @@ If you like our work and would like to support us, we appreciate every donation.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Hide widgets in vis 2 editor
+
 ### 4.0.1 (2026-05-15)
 - Fixed widget gif images missing
 
