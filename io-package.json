@@ -163,7 +163,6 @@
     },
     "onlyWWW": true,
     "singleton": true,
-    "noConfig": false,
     "messagebox": true,
     "mode": "none",
     "type": "visualization-widgets",
