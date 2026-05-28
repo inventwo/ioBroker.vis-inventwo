@@ -132,8 +132,7 @@
     ],
     "licenseInformation": {
       "license": "MIT",
-      "type": "free",
-      "link": "https://github.com/inventwo/ioBroker.vis.inventwo/blob/master/README.md"
+      "type": "free"
     },
     "platform": "Javascript/Node.js",
     "icon": "inventwo.png",
