@@ -21,6 +21,9 @@ With our widget set you have the freedom to easily create individual visualizati
 This adapter was developed and tested for VIS 1. Errors may occur in Vis 2 that prevent the use of your visualization.
 Seamless compatibility will not be possible. A new adapter for Vis 2 can be found here: https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
 
+**Starting with version 4.1.x, the widgets are explicitly excluded from the Vis 2 editor and the adapter will no longer work in Vis 2 at all.**
+If you want to continue using this adapter in Vis 2, you must stay on a version prior to 4.1.x.
+
 ## Contents of the Adapter
 
 Various widgets for switching, navigating and more.
