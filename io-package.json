@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-inventwo",
-    "version": "4.1.0",
+    "version": "4.1.1",
     "news": {
+      "4.1.1": {
+        "en": "correct z-index layering for popups — date/time picker dropdowns now appear in front of the popup overlay instead of behind it (#583)",
+        "de": "korrekte z-index-schichtung für popups — datum/zeit picker dropdowns erscheinen jetzt vor der popup-overlay statt dahinter (#583)",
+        "ru": "правильное наслоение z-index для всплывающих окон - выпадающие выпадения даты / времени теперь появляются перед наложением всплывающего окна вместо позади него (#583)",
+        "pt": "correto z-index layering para popups — data/hora dropdowns do coletor agora aparecem na frente da sobreposição do popup em vez de atrás dele (# 583)",
+        "nl": "correcte z-index-layering voor popups ",
+        "fr": "correct z-index layering pour popups — date/heure les menus déroulants de récupérateur apparaissent maintenant devant le popup superlay au lieu de derrière (#583)",
+        "it": "corretto z-index layering per popup — date/time picker dropdowns ora appaiono di fronte al sovrapposizione popup invece di dietro di esso (#583)",
+        "es": "correcto z-index capas para popups — fecha/hora pastillas desplegables ahora aparecen en frente de la superposición popup en lugar de detrás de él (#583)",
+        "pl": "poprawna warstwa z- index dla wyskakujących - data / czas upuszczania się teraz pojawia się przed nakładką wyskakującą zamiast za nią (# 583)",
+        "uk": "виправлено z-index шарування для спливаючих вікон — дати/час пікіровка попадання тепер з'являються перед накладкою сплива замість його задньої (#583)",
+        "zh-cn": "对弹出物的正确z-index分层 – 日期/时间拾取器的滴落物现在出现在弹出物覆被前面而不是后面(# 583)"
+      },
       "4.1.0": {
         "en": "Hide widgets in vis 2 editor",
         "de": "Widgets in vis 2 Editor verbergen",
@@ -80,19 +93,6 @@
         "pl": "Naprawiono problem z kolorem obramowania i widokiem w wyskakującym okienku",
         "uk": "Виправлено проблему з кольором рамки та виглядом у спливаючому вікні",
         "zh-cn": "修复了弹出窗口中边框颜色和视图的问题"
-      },
-      "3.3.1": {
-        "en": "Bugfix",
-        "de": "Fehlerbehebung",
-        "ru": "Исправлена ошибка",
-        "pt": "Bugfix",
-        "nl": "Bugfix",
-        "fr": "Correction d'un bug",
-        "it": "Risoluzione del problema",
-        "es": "Arreglo del fallo",
-        "pl": "Naprawa błędów",
-        "uk": "Виправлення помилок",
-        "zh-cn": "错误修正"
       }
     },
     "titleLang": {
