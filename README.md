@@ -101,6 +101,9 @@ If you like our work and would like to support us, we appreciate every donation.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- correct z-index layering for popups — date/time picker dropdowns now appear in front of the popup overlay instead of behind it (#583)
+
 ### 4.1.0 (2026-05-17)
 - Hide widgets in vis 2 editor
 
