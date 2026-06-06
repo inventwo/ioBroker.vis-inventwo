@@ -122,7 +122,12 @@ If you like our work and would like to support us, we appreciate every donation.
 - Fixed: [#736](https://github.com/inventwo/ioBroker.vis-inventwo/issues/736) Adapter checker errors in package.json and io-package.json resolved
 - Fixed: [#678](https://github.com/inventwo/ioBroker.vis-inventwo/issues/678) Mode in io-package changed from daemon to once
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)## License
+## Older changes
+Can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+
+---
+
+## License
 
 MIT License
 
